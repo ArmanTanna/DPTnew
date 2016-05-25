@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified" version="1.0">
+	<xs:include schemaLocation="Product.xsd"/>
+	<xs:element name="entitlement" >
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="startDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:date"  minOccurs="0"/>
+			<xs:element name="identity" minOccurs="0">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="count" type="xs:integer" nillable="false" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="actionName" maxOccurs="1" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="NONE" />
+								<xs:enumeration value="SET" />
+								<xs:enumeration value="ADD" />
+								<xs:enumeration value="SUB" />
+								<xs:minLength value="1" />
+								<xs:maxLength value="200" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="createDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="commitDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="entState" default="DRAFT" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="DRAFT"/>
+						<xs:enumeration value="COMMITTED"/>
+						<xs:enumeration value="PRODUCT_KEY_GENERATED"/>
+						<xs:enumeration value="PRODUCED"/>
+						<xs:enumeration value="COMPLETED"/>
+						<xs:enumeration value="ACKNOWLEDGED"/>
+						<xs:enumeration value="EOL"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="action" default="SAVE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SAVE"/>
+						<xs:enumeration value="COMMIT"/>
+						<xs:enumeration value="PRODUCE"/>
+						<xs:enumeration value="ENABLE"/>
+						<xs:enumeration value="DISABLE"/>
+						<xs:enumeration value="REOPEN"/>
+						<xs:enumeration value="REVOKE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="isTest" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="customerId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="customerEmail" type="xs:string" minOccurs="0"/>
+			<xs:element name="policy" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="registrationRequired" default="NOT_REQUIRED" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="NOT_REQUIRED"/>
+									<xs:enumeration value="DESIRED"/>
+									<xs:enumeration value="MANDATORY"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId1" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="250"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId2" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="250"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="description">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="510"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="partnerId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="partnerEmail" type="xs:string" minOccurs="0"/>
+			<xs:element name="entitlementItem" type="entitlementItem" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>		
+	<xs:complexType name="entitlementItem">
+		<xs:sequence>
+			<xs:element name="startDate" type="xs:date" minOccurs="0" />
+			<xs:element name="endDate" type="xs:date" minOccurs="0" />
+			<xs:element name="numProductKeys" type="xs:integer" minOccurs="0" />
+			<xs:element name="numActivationPerProductKey" type="xs:integer" minOccurs="0" />
+			<xs:element name="priority" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A" />
+						<xs:enumeration value="B" />
+						<xs:enumeration value="C" />
+						<xs:enumeration value="D" />
+						<xs:enumeration value="E" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="vendorId" type="xs:integer" minOccurs="1" />
+			<xs:element name="enforcementId" type="xs:integer" minOccurs="0"/>
+			<xs:element name="identityCount" type="xs:integer" minOccurs="0"/>
+			<xs:element name="lineItemType" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Hardware_Key" />
+						<xs:enumeration value="Product_Key" />
+						<xs:enumeration value="ProtectionKey_Update" />
+						<xs:enumeration value="Cloud_Named" />
+						<xs:enumeration value="Cloud_UnNamed" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="deploymentType" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Cloud_OnPremise" />
+						<xs:enumeration value="Cloud" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>			
+			<xs:element name="featureCachingMode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Feature_Level" />
+						<xs:enumeration value="Entitlement_Level" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="featureCachingModeValue" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CachingModeName" type="xs:string" minOccurs="1"/>
+						<xs:element name="CachingModeValue" type="xs:integer" minOccurs="1"/>
+						<xs:element name="actionName" maxOccurs="1" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="NONE" />
+								<xs:enumeration value="SET" />
+								<xs:enumeration value="ADD" />
+								<xs:enumeration value="SUB" />
+								<xs:minLength value="1" />
+								<xs:maxLength value="200" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="itemProduct" type="itemProduct" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="activationAttribute" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="activationAttribute">
+							<xs:sequence>
+								<xs:element name="attributeName">
+									<xs:simpleType>
+										<xs:restriction
+											base="xs:string">
+											<xs:enumeration
+												value="ACKNOWLEDGEMENT_REQUEST" />
+											<xs:enumeration value="C2V" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="attributeValue"
+									type="xs:string" />
+								<xs:element name="groupName"
+									minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction
+											base="xs:string">
+											<xs:enumeration
+												value="LICENSE TERMS" />
+											<xs:enumeration
+												value="CONCURRENCY" />
+											<xs:enumeration
+												value="ACCESSIBILITY" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="isvPermission"
+									minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction
+											base="xs:string">
+											<xs:enumeration
+												value="NONE" />
+											<xs:enumeration
+												value="READ" />
+											<xs:enumeration
+												value="WRITE" />
+											<xs:enumeration
+												value="ORDER_WRITE" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="subGroupName"
+									minOccurs="0" />
+								<xs:element name="endUserPermission"
+									minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction
+											base="xs:string">
+											<xs:enumeration
+												value="NONE" />
+											<xs:enumeration
+												value="READ" />
+											<xs:enumeration
+												value="WRITE" />
+											<xs:enumeration
+												value="ORDER_WRITE" />
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="protectionKeyId" type="xs:string" maxOccurs="unbounded" minOccurs="0"></xs:element>
+            <xs:element name="productKeyId" type="xs:string" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activationAttribute"/>
+	<xs:complexType name="itemProduct">
+		<xs:sequence>
+			<xs:element name="productId" type="xs:integer" nillable="false"/>
+			<xs:element ref="product" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="productStatus" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="attribute" type="attributeType"/>
+	<xs:complexType name="attributeType"/>
+</xs:schema>

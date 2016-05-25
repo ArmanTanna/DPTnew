@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="contact.xsd"/>
+  <xs:element name="customer">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="type" minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="org"/>
+              <xs:enumeration value="ind"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="name" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="enabled" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="description" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="crmId" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="refId" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="phone" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="fax" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="vendorId" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="addresses" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="defaultContact" minOccurs="0" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="crmId" type="xs:string"/>
+  <xs:element name="refId" type="xs:string"/>
+  <xs:element name="phone" type="xs:string"/>
+  <xs:element name="fax" type="xs:string"/>
+  <xs:element name="vendorId">
+    <xs:simpleType>
+      <xs:restriction base="xs:string"> 
+        <xs:pattern value="([1-9][0-9]*)*"></xs:pattern>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="addresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="shippingSameAsBilling" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="address" minOccurs="0" maxOccurs="2"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shippingSameAsBilling" type="xs:boolean"/>
+  <xs:element name="address">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="type" minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="shipping"/>
+              <xs:enumeration value="billing"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="street" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="city" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="state" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="country" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="zip" minOccurs="0" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="street" type="xs:string"/>
+  <xs:element name="city" type="xs:string"/>
+  <xs:element name="state" type="xs:string"/>
+  <xs:element name="country" type="xs:string"/>
+  <xs:element name="zip" type="xs:string"/>
+  <xs:element name="defaultContact">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="emailId" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="firstName" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="lastName" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="middleName" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="locale" minOccurs="0" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="contact">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="emailId" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="firstName" minOccurs="1" maxOccurs="1"/> 
+        <xs:element ref="lastName" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="middleName" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="locale" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="enabled" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="default" minOccurs="0" maxOccurs="1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emailId">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[A-Za-z0-9_]+([-+.'][A-Za-z0-9_]+)*@[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*\.[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*"></xs:pattern> 
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="firstName">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"></xs:minLength>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="middleName" type="xs:string"/>
+  <xs:element name="lastName">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"></xs:minLength>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="locale">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="((D|d)(E|e))|((E|e)(N|n))"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="enabled" type="xs:boolean"/>
+  <xs:element name="default" type="xs:boolean"/>
+</xs:schema>

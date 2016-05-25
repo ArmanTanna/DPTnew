@@ -1,0 +1,152 @@
+﻿@model DPTnew.Models.LicenseView
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.exportUrl = '@Url.Action("Export", "User")';
+        yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
+        yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
+        yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
+
+
+    </script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/License/table_list_buttons.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true);
+        });
+    </script>
+}
+
+
+<p>
+    <b>@Html.DisplayNameFor(model => model.AccountNumber): </b>@ViewBag.AccountNumber
+</p>
+<p>
+    <b>@Html.DisplayNameFor(model => model.AccountName): </b>@ViewBag.AccountName
+</p>
+<table id="licenses" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+
+
+            @*<th>
+                @Html.DisplayNameFor(model => model.Ancestor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintStartDate)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseKind)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>*@
+        </tr>
+    </thead>
+    @*<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LicenseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+             @if (item.LicenseType == "local")
+        {
+             <text>L</text>
+             }
+        else {
+             <text>F</text>
+             }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachineID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ancestor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Version)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LicenseKind)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+             
+    </tr>
+}
+</tbody>*@
+</table>
+<div id="machineid-dialog" title="Please enter your machineid" style="display:none;">
+    <input id="machineid" required="required" type="text" size="8" maxlength="8" />
+</div>
+<div id="pwd-dialog" title="Your requested password is" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+</div>

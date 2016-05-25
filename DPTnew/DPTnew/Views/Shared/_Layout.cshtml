@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - think3 </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
+    @Styles.Render("https://cdn.datatables.net/1.10.11/css/dataTables.jqueryui.min.css")
+    @Styles.Render("https://cdn.datatables.net/buttons/1.1.2/css/buttons.jqueryui.min.css")
+    @Styles.Render("https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css")
+    @Styles.Render("~/Content/jquery.dataTables.yadcf.css")
+
+
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Logo", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - think3 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js")
+    @Scripts.Render("https://cdn.datatables.net/1.10.11/js/dataTables.jqueryui.min.js")
+    @Scripts.Render("https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js")
+    @Scripts.Render("https://cdn.datatables.net/buttons/1.1.2/js/buttons.jqueryui.min.js")
+    @Scripts.Render("https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js")
+    @Scripts.Render("https://cdn.datatables.net/plug-ins/1.10.11/features/searchHighlight/dataTables.searchHighlight.min.js")
+    @Scripts.Render("~/Scripts/jquery.dataTables.yadcf.js")
+    @Scripts.Render("~/Scripts/jquery.highlight.js")
+    @RenderSection("scripts", required: false)
+    @RenderSection("create_customer", required: false)
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<DPTnew.Models.Company>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@section Scripts {
+<script src="~/Scripts/Company/table_list.js"> </script>
+}
+
+<div style ="width:1000px">
+
+<table id="companies" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th></th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountKind)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesRep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Blocked)
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+    </thead><tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountKind)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountStatus)
+        </td>   
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesRep)
+        </td>
+         <td>
+             @if (item.Blocked == 1)
+        {
+             <text>Yes</text>
+             }
+        else {
+             <text>No</text>
+             }
+        </td>
+        <td>
+            @using (Html.BeginForm("Licenses", "Var", FormMethod.Post, new { target = "_blank" }))
+            {
+                 @Html.Hidden("AccountNumber", item.AccountNumber)
+                  <input type="submit" value="Licenses" />
+            }
+               
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Province)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td></td>
+    </tr>
+    
+      
+    
+    
+}
+</tbody>
+</table>
+    </div>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	version="1.0" elementFormDefault="qualified">
+	<xs:element name="product">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" name="productName" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+							<!--<xs:pattern value="[\w\d\s-]+"></xs:pattern>						
+						-->
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="baseProductId" type="xs:int" maxOccurs="1" minOccurs="1"/>
+				<xs:element minOccurs="0" name="productIdentifier">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="2"/>
+							<xs:maxInclusive value="65471"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="enforcementId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"></xs:minInclusive>
+						<xs:maxInclusive value="65471"></xs:maxInclusive>
+					</xs:restriction>
+				</xs:simpleType>
+				</xs:element>
+				<xs:element name="lifeCycleStage" maxOccurs="1" minOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="DRAFT"/>
+							<xs:enumeration value="COMMIT"/>
+							<xs:enumeration value="EOL"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="1" name="enforcementProductType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="BASE"/>
+							<xs:enumeration value="PROVISIONAL"/>
+							<xs:enumeration value="MODIFICATION"/>
+							<xs:enumeration value="CANCELLATION"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="1" name="enforcementProtectionType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="HL"/>
+							<xs:enumeration value="SL_AdminMode"/>
+							<xs:enumeration value="SL_UserMode"/>
+							<xs:enumeration value="HL_or_SL_AdminMode"/>
+							<xs:enumeration value="HL_or_SL_AdminMode_or_SL_UserMode"
+							> </xs:enumeration>
+							<xs:enumeration value="Cloud"> </xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="rehost" maxOccurs="1" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="NONE"/>
+							<xs:enumeration value="ENABLE"/>
+							<xs:enumeration value="DISABLE"/>
+							<xs:enumeration value="LEAVE_AS_IS"/>
+							<xs:enumeration value="SAOT"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>			
+				<xs:element name="upgradeToDriverless" type="xs:boolean" minOccurs="0"/>	
+				<xs:element name="cloneProtection" type="xs:boolean" minOccurs="0"/>	
+				<xs:element minOccurs="0" name="productDescription">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="510"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="refId1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="250"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="refId2">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="0"/>
+							<xs:maxLength value="250"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="enabled" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:boolean"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="deployed" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:boolean"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element minOccurs="0" name="version">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="80"/>
+							<xs:pattern value="[^%\\^\[\]&amp;gt;&amp;lt;&amp;amp;&amp;quot;]+"
+							> </xs:pattern>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="productFeatureRef"
+					type="productFeatureRef"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="productLicensingAttribute"
+					type="productLicensingAttribute"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="memorySegment"
+					type="memorySegment"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="memorySegment">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="name">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="description">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="250"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="text" type="xs:string"/>
+			<xs:element minOccurs="1" name="size" type="xs:int"/>
+			<xs:element minOccurs="1" name="offset">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="color">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="1" name="saot" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="memoryType" type="memoryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="memoryType">
+		<xs:sequence>
+			<xs:element name="id">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="licenseModel">
+		<xs:sequence>
+			<xs:element name="licenseModelId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="licenseModelName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="licenseType" type="xs:int"/>
+			<xs:element minOccurs="0" name="licenseModelDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="lmAttribute" type="lmAttribute"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lmAttribute">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="attribute" type="attribute"/>
+			<xs:element minOccurs="0" name="attributeValue">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="2100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="saot" type="xs:boolean"/>
+			<xs:element name="actionName" maxOccurs="1" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="SET"/>
+						<xs:enumeration value="ADD"/>
+						<xs:enumeration value="SUB"/>
+						<xs:enumeration value="CANCEL"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attribute">
+		<xs:sequence>
+			<xs:element name="attributeId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="attributeName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeType" type="xs:int"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="attributeValueChoice"
+				type="attributeValueChoice"/>
+
+
+			<xs:element minOccurs="0" name="attributeDefaultValue" type="xs:string"/>
+			<xs:element minOccurs="0" name="displayOrder" type="xs:int"/>
+
+
+			<xs:element minOccurs="0" name="attributeLevel" type="xs:int"/>
+			<xs:element minOccurs="0" name="associatedLockCriteria" type="xs:string"/>
+			<xs:element minOccurs="0" name="associatedLockCriteriaValue" type="xs:string"/>
+			<xs:element name="endUserPermission" type="xs:int"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="associatedAttributeMaster" type="xs:int"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="sameAttributeMaster" type="xs:int"/>
+			<xs:element minOccurs="0" name="sameAttributePriority" type="xs:int"/>
+			<xs:element minOccurs="0" name="parameterGroupName" type="xs:string"/>
+			<xs:element minOccurs="0" name="parameterSubGroupName" type="xs:string"/>
+			<xs:element name="isvPermission">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="READ"/>
+						<xs:enumeration value="WRITE"/>
+						<xs:enumeration value="ORDER_WRITE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="nullable" type="xs:boolean"/>
+			<xs:element name="saotAllowed" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attributeValueChoice">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="valueOption">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- <xs:element minOccurs="0" name="id" type="attributeListValueId" />-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productFeatureRef">
+		<xs:sequence>
+			<xs:element name="featureId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="actionName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="CANCEL"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="productFeatureLicenseModel"
+				type="productFeatureLicenseModel"/>
+			<xs:element name="lmStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="DEFINED"/>
+						<xs:enumeration value="SAOT"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="excludable" type="xs:boolean"/>
+			<xs:element name="featureName" type="xs:string"/>
+			<xs:element name="featureIdentifier" type="xs:int"/>
+			<xs:element name="featureDescription" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productFeatureLicenseModel">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="actionName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="SET"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="licenseModel" type="licenseModel"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productFeatureLicenseModelAttribute">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="action" type="xs:string"/>
+			<xs:element minOccurs="0" name="attrValue" type="xs:string"/>
+			<xs:element name="isvPermission" type="xs:int"/>
+			<xs:element minOccurs="0" name="licenseModelAttribute" type="lmAttribute"/>
+			<xs:element name="prdftrlmAttrId" type="xs:int"/>
+			<xs:element name="SAOT" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productLicensingAttribute">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="attributeId" type="xs:int"/>
+			<xs:element minOccurs="0" name="attrValue" type="xs:string"/>
+			<xs:element name="isvpermission" type="xs:int"/>
+			<xs:element name="endUserPermission" type="xs:int"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="associatedAttributeMaster" type="xs:int"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="sameAttributeMaster" type="xs:int"/>
+			<xs:element name="SAOT" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="utf-8" />
+	<title>Iframe height demo | Lab | 456 Berea Street</title>
+	<style media="screen,print">
+	@import '/css/lab.css';
+	#body {
+		width:70em;
+		max-width:100%;
+		margin:0 auto;
+	}
+	iframe {
+		width:100%;
+		margin:0 0 1em;
+		border:0;
+	}
+	#external-frame {min-height:800px;}
+	</style>
+	<script>
+		/*
+		 * When the iframe is on a different subdomain, uncomment the following line
+		 * and change "example.com" to your domain.
+		 */
+		// document.domain = "example.com";
+		function setIframeHeight(iframe) {
+			alert('entro')
+			if (iframe) {
+				var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+				
+				if (iframeWin.document.body) {
+					iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+				}
+			}
+			alert(iframe.height)
+		};
+
+		window.onload = function () {
+			setIframeHeight(document.getElementById('external-frame'));
+		};
+	</script>
+</head>
+<body>
+	<div id="body">
+		<h1>Iframe height demo</h1>
+		<p>This is a demo document related to the article <a href="/archive/201112/how_to_adjust_an_iframe_elements_height_to_fit_its_content/">How to adjust an iframe element’s height to fit its content</a>. Please see the article for context and information.</p>
+		<h2><code>iframe</code> <strong>without</strong> height adjustment</h2>
+		<iframe src="iframe-content.html"></iframe>
+		<h2><code>iframe</code> <strong>with</strong> height adjustment</h2>
+		<iframe src="iframe-content.html" frameborder="0" id="external-frame"></iframe>
+		<div id="labfooter">
+	<p><a href="/lab/">Lab Index</a> | <a href="/">456 Berea Street Home</a> | Copyright &#169; 2003-2016 Roger Johansson</p>
+</div>
+	</div>
+</body>
+</html>

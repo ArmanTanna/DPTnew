@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ems="http://www.safenet-inc.com/ems"
+	version="1.0" elementFormDefault="qualified" >
+	<xs:element name="feature">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="featureName" maxOccurs="1" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="50"></xs:maxLength>
+						<!--<xs:pattern value="[\w\d\s-]+"></xs:pattern>
+					--></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="featureIdentifier">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"></xs:minInclusive>
+						<xs:maxInclusive value="65471"></xs:maxInclusive>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="featureDescription" maxOccurs="1" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="1024"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId1" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="250"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId2" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="250"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>

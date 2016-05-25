@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="activation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activationOutput" type="activationOutput" minOccurs="0"/>
+				<xs:element name="activationInput" type="activationInput"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="activationOutput">
+		<xs:sequence>
+			<xs:element name="AID">
+				<xs:annotation>
+					<xs:documentation>Aid, identifier on EMS side for each activation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="protectionKeyId"/>
+			<xs:element name="activationString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activationInput">
+		<xs:sequence>
+			<xs:element name="activationAttribute" type="activationAttribute" maxOccurs="unbounded"/>
+			<xs:element name="comments" type="xs:string" minOccurs="0"/>
+			<xs:element name="sendMail" type="xs:boolean" minOccurs="0"/>	
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activationAttribute">
+		<xs:sequence>
+			<xs:element name="attributeName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="C2V"/>
+						<xs:enumeration value="ProtectionKeyId"/>
+						<xs:enumeration value="CLEAR_BEFORE_APPLYING_UPDATE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeValue" type="xs:string"/>
+			<xs:element name="groupName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LICENSE_TERMS"/>
+						<xs:enumeration value="CONCURRENCY"/>
+						<xs:enumeration value="ACCESSIBILITY"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="isvPermission" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="READ"/>
+						<xs:enumeration value="READ_WRITE"/>
+						<xs:enumeration value="ORDER_WRITE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subGroupName" minOccurs="0"/>
+			<xs:element name="endUserPermission" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="READ"/>
+						<xs:enumeration value="READ_WRITE"/>
+						<xs:enumeration value="ORDER_WRITE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

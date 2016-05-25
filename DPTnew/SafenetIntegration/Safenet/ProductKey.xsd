@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	version="1.0">
+	<xs:element name="productKey">
+		<xs:annotation>
+			<xs:documentation>Details of single product Key</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productKeyId" type="xs:string" nillable="false"/>
+				<xs:element name="totalEntitled" type="xs:integer" nillable="false"/>
+				<xs:element name="available" type="xs:integer" nillable="false"/>
+				<xs:element name="enabled" type="xs:boolean"/>
+				<xs:element name="type"/>
+				<xs:element name="registrationRequired" default="NOT_REQUIRED" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="NOT_REQUIRED"/>
+							<xs:enumeration value="DESIRED"/>
+							<xs:enumeration value="MANDATORY"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="customerEmail" type="xs:string" minOccurs="0"/>
+				<xs:element name="customerName" type="xs:string" minOccurs="0"/>
+				<xs:element name="productInfo" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="keyProduct">
+								<xs:attribute name="id"/>
+								<xs:attribute name="productName"/>
+								<xs:attribute name="type"/>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="AID" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>All activation Ids belonging to this product
+							key</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="protectionKeyId" type="xs:string"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="activationAttribute" type="activationAttribute"
+					maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Global licensing attributes </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="protectionKeyId" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="keyType" type="xs:string"/>
+								<xs:attribute name="isDriverless" type="xs:boolean" use="optional"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="entitlementId" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="customerId" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="activationAttribute">
+		<xs:sequence>
+			<xs:element name="attributeName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ACKNOWLEDGEMENT_REQUEST"/>
+						<xs:enumeration value="C2V"/>
+						<xs:enumeration value="CLEAR_BEFORE_APPLYING_UPDATE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeValue" type="xs:string"/>
+			<xs:element name="groupName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LICENSE_TERMS"/>
+						<xs:enumeration value="CONCURRENCY"/>
+						<xs:enumeration value="ACCESSIBILITY"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="isvPermission" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="READ"/>
+						<xs:enumeration value="WRITE"/>
+						<xs:enumeration value="ORDER_WRITE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subGroupName" minOccurs="0"/>
+			<xs:element name="endUserPermission" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="READ"/>
+						<xs:enumeration value="WRITE"/>
+						<xs:enumeration value="ORDER_WRITE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="associatedAttribute">
+		<xs:sequence>
+			<xs:element name="attributeName" type="xs:string"/>
+			<xs:element name="attributeValue" type="xs:string"/>
+			<xs:element name="readOnly"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="keyProduct"/>
+</xs:schema>

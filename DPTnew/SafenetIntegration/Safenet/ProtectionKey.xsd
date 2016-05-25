@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="ProtectionKey">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="ProtectionKeyInput" type="ProtectionKeyInput"
+					minOccurs="0" />
+				<xs:element name="ProtectionKeyOutput" type="ProtectionKeyOutput"
+					minOccurs="0" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="vendor">
+		<xs:sequence>
+			<xs:element name="id">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger" />
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name" maxOccurs="2">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:attribute name="id">
+		<xs:simpleType>
+			<xs:restriction base="xs:nonNegativeInteger">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+
+
+
+	<xs:complexType name="V2C">
+		<xs:all>
+			<xs:element name="hasp_info">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="haspscope">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="vendor">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="hasp">
+													<xs:complexType>
+														<xs:attribute ref="id" />
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute ref="id" />
+										</xs:complexType>
+									</xs:element>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="v2c" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="hasp_info">
+		<xs:sequence>
+			<xs:element name="haspscope">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="hasp">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="vendor" />
+								</xs:sequence>
+								<xs:attribute name="id" use="required" type="xs:integer" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="c2v" type="xs:base64Binary" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProtectionKeyInput">
+		<xs:all>
+			<xs:element name="action" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CHECKIN" />
+						<xs:enumeration value="READ" />
+						<xs:enumeration value="CLEARCLONE" />
+						<xs:enumeration value="FORMAT" />
+						<xs:enumeration value="FORCEINTRODUCE" />
+						<xs:enumeration value="DISABLE" />
+						<xs:enumeration value="ENABLE" />
+						<xs:enumeration value="FINGERPRINT" />
+						<xs:enumeration value="LOCATE" />
+						<xs:enumeration value="CONVERTV2CTOEXE" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="C2V" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="hasp_info" type="hasp_info" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="V2C" type="V2C" minOccurs="0" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="ProtectionKeyOutput">
+		<xs:choice>
+			<xs:element name="ProtectionKey" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="ProtectionKeyId" />
+						<xs:element name="IsEnabled" />
+						<xs:element name="KeyTypeId" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Fingerprint" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="raw_data" minOccurs="0" maxOccurs="1"
+							type="xs:base64Binary" />
+						<xs:element name="fingerprint_info" minOccurs="0"
+							maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="criteria" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:all>
+												<xs:element name="name" type="xs:string" />
+												<xs:element name="value" type="xs:long" />
+											</xs:all>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="criteria" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="name" type="xs:string" />
+									<xs:element name="value" type="xs:long" />
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UpdateInfo" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="sentinel_ldk_info" minOccurs="0"
+							maxOccurs="1">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="capable_devices">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="key_type" minOccurs="0"
+													maxOccurs="unbounded" type="xs:string" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="C2V" type="C2V" minOccurs="0" maxOccurs="1" />
+			<xs:element name="V2C" type="V2C" minOccurs="0" maxOccurs="1" />
+			<xs:element name="Exe" minOccurs="0" maxOccurs="1"
+				type="xs:base64Binary" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="C2V">
+		<xs:sequence>
+			<xs:element name="sentinel_ldk_info">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="key" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="id" minOccurs="0" maxOccurs="1" />
+									<xs:element name="type" minOccurs="0" maxOccurs="1" />
+									<xs:element name="update_counter" type="xs:integer"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="vendor" type="vendor" minOccurs="0"
+										maxOccurs="1" />
+									<xs:element name="configuration_info" minOccurs="0"
+										maxOccurs="1" />
+									<xs:element name="clone_detected" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="rehost" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:all>
+												<xs:element name="type" minOccurs="0" maxOccurs="1"
+													type="xs:string" />
+												<xs:element name="counter" minOccurs="0"
+													maxOccurs="1" type="xs:nonNegativeInteger" />
+											</xs:all>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="product" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="id" />
+												<xs:element name="name" />
+												<xs:element name="feature" minOccurs="0"
+													maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="id" />
+															<xs:element name="name" />
+															<xs:element name="license_properties" />
+															<xs:element name="detach_license_count"
+																minOccurs="0" maxOccurs="1" type="xs:nonNegativeInteger" />
+															<xs:element name="locked" minOccurs="0"
+																maxOccurs="1" type="xs:string" />
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="memory" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:all>
+												<xs:element name="rw_memory" minOccurs="0"
+													maxOccurs="1">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:base64Binary">
+																<xs:attribute name="length" type="xs:nonNegativeInteger" />
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ro_memory" minOccurs="0"
+													maxOccurs="1">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:base64Binary">
+																<xs:attribute name="length" type="xs:nonNegativeInteger" />
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:all>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="need_force" minOccurs="0"
+										maxOccurs="1" type="xs:boolean" />
+									<xs:element name="pending_updates" minOccurs="0"
+										maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="activation" minOccurs="0"
+													maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="aid" minOccurs="1"
+																maxOccurs="1" type="xs:string" />
+															<xs:element name="activationId" minOccurs="1"
+																maxOccurs="1" type="xs:int" />
+															<xs:element name="entId" minOccurs="1"
+																maxOccurs="1" type="xs:int" />
+															<xs:element name="entDescription" minOccurs="1"
+																maxOccurs="1" type="xs:string" />
+															<xs:element name="entReference" minOccurs="1"
+																maxOccurs="1" type="xs:string" />
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="activations" minOccurs="0"
+													maxOccurs="1" type="xs:string"></xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>

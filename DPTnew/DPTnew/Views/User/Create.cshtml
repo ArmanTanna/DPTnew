@@ -1,0 +1,84 @@
+﻿@model DPTnew.Models.Entitlement
+
+@{
+    ViewBag.Title = "Generate License";
+}
+<p style ="font-size: 1.3em;" >@Html.ValidationMessage("CREATE")
+
+</p>
+
+
+<h2>Generate License</h2>
+
+<p style ="font-size: 1.3em;">You are installing this license:</p>
+
+
+ @using (Html.BeginForm("CreateLicense", "User", FormMethod.Post, new{ enctype="multipart/form-data"}))
+            {
+
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.LicenseID)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.LicenseID , new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.ProductName)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.ProductName , new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.ArticleDetail)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.ArticleDetail , new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.Quantity)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.Quantity, new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.LicenseType)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.LicenseType, new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.MachineID)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.MachineID, new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.MaintEndDate)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.MaintEndDate, new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.Version)
+     </div>
+     <div class="editor-field">
+            @Html.TextBoxFor(model => model.Version, new { @readonly = "readonly" })
+     </div>
+     
+      <div class="editor-label" style ="font-size: 1.2em;">
+            @Html.LabelFor(model => model.file)
+     </div>
+     <div class="editor-field">
+       @Html.TextBoxFor(model => model.file, new { type = "file" })
+      </div>
+
+ 
+  <input type="submit" />
+            }

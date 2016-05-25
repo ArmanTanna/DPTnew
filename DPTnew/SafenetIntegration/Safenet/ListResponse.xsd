@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="listResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="instance" type="instance"/>
+			</xs:sequence>
+			<xs:attribute name="count" type="xs:int"/>
+			<xs:attribute name="type" type="xs:string"/>
+			<xs:attribute name="searchParameters" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="instance">
+		<xs:sequence> </xs:sequence>
+		<xs:attribute name="id" type="xs:int"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="refId1" type="xs:string"/>
+		<xs:attribute name="identifier" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="lifeCycleStage" type="xs:string"/>
+		<xs:attribute name="state" type="xs:string"/>
+		<xs:attribute name="createDate" type="xs:string"/>
+		<xs:attribute name="commitDate" type="xs:string"/>
+		<xs:attribute name="contact" type="xs:string"/>
+		<xs:attribute name="customer" type="xs:string"/>
+		<xs:attribute name="batchCode" type="xs:string"/>
+		<xs:attribute name="descr" type="xs:string"/>
+		<xs:attribute name="lockType" type="xs:string"/>
+		<xs:attribute name="enabled" type="xs:boolean"/>
+		<xs:attribute name="deployed" type="xs:boolean"/>
+		<xs:attribute name="keysNumber" type="xs:integer"/>
+		<xs:attribute name="actPerKey" type="xs:integer"/>
+		<xs:attribute name="activationDate" type="xs:integer"/>
+		<xs:attribute name="customerId" type="xs:string"/>
+		<xs:attribute name="needConfirm" type="xs:boolean"/>
+		<xs:attribute name="phone" type="xs:string"/>
+		<xs:attribute name="fax" type="xs:string"/>
+		<xs:attribute name="billingAddress" type="xs:string"/>
+		<xs:attribute name="billingZip" type="xs:string"/>
+		<xs:attribute name="billingCity" type="xs:string"/>
+		<xs:attribute name="billingCountry" type="xs:string"/>
+		<xs:attribute name="billingState" type="xs:string"/>
+		<xs:attribute name="vendorId" type="xs:integer"/>
+		<xs:attribute name="defaultEmail" type="xs:string"/>
+		<xs:attribute name="defaultContactName" type="xs:string"/>
+		<xs:attribute name="contactId" type="xs:integer"/>
+		<xs:attribute name="emailId" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

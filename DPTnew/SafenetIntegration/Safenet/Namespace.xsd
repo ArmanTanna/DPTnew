@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ems="http://www.safenet-inc.com/ems"
+	version="1.0" elementFormDefault="qualified" >
+	<xs:element name="namespace">
+	<xs:complexType>
+		<xs:sequence>
+
+			<xs:element name="namespaceName" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1" />
+						<xs:maxLength value="200" />
+						<xs:pattern value="[\w\d\s-]+"></xs:pattern>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+
+			<xs:element minOccurs="0" name="namespaceDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="500"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId1" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="100"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="refId2">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"></xs:minLength>
+						<xs:maxLength value="100"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>
+

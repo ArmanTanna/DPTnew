@@ -1,0 +1,712 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="~/Content/Faq/" target="_blank">
+
+    <!--	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'
+        rel='stylesheet' type='text/css'> -->
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script>
+
+
+        function carica() {
+            //show()
+            //mc1 = nome capitolo, nel menu
+            //uc1 = intestazione capitolo
+            //hc1 = titolo capitolo
+            //lc1p1 = intestazione paragrafo
+            //qc1p1 = domanda
+            //fc1p1 = frame
+            //oc1p1 = owner
+
+            var maxChapters = 10
+            var maxParagraphs = 13
+            var xcp = new Array()
+            for (var i = 1; i < cp.length; i++)
+                if (cp[i][2].substring(0, 2) == "l1")// solo L1
+                    xcp.push(cp[i]);
+
+            var ChapterNames = [];
+            for (var i = 0; i < xcp.length; i++) {
+                ChapterNames.push(xcp[i][3]);
+            }
+            var UniqueNames = [];
+            $.each(ChapterNames, function (i, el) {
+                if ($.inArray(el, UniqueNames) === -1) UniqueNames.push(el);
+            });
+            //for (var i=0; i<UniqueNames.length; i++) alert(UniqueNames[i])
+
+            //inizialmente nasconde tutti i capitoli
+
+            for (var i = 1; i <= maxChapters; i++) {
+                document.getElementById("uc" + i).style.display = "none"
+            }
+
+            for (var i = 0; i < UniqueNames.length; i++) {
+                document.getElementById("ac" + (i + 1)).innerHTML = UniqueNames[i]
+                //document.getElementById("mc"+ (i+1)).innerHTML = "<a href='#uc"+(i+1)+"'>"+UniqueNames[i]+"</a>"
+                document.getElementById("hc" + (i + 1)).innerHTML = UniqueNames[i]
+                document.getElementById("mc" + (i + 1)).style.display = "block"
+                document.getElementById("uc" + (i + 1)).style.display = "block"
+            }
+
+            for (var i = 1; i <= maxChapters; i++) {
+                for (var j = 1; j <= maxParagraphs; j++) {
+                    for (var k = 0; k < xcp.length; k++) {
+
+                        if (xcp[k][2].indexOf("c" + i + "p" + j) != -1 & xcp[k][2].length - 2 == ("c" + i + "p" + j).length) {
+                            myid = xcp[k][0]
+                            mytitle = xcp[k][1]
+                            myowner = xcp[k][4]
+                            myheight = xcp[k][5] + "px"
+                            mysrc = "answers/a_" + xcp[k][0] + ".htm"
+                            document.getElementById("lc" + i + "p" + j).style.display = "block"
+                            document.getElementById("oc" + i + "p" + j).className = "myOwner"
+                            document.getElementById("oc" + i + "p" + j).innerHTML = myowner
+                            document.getElementById("fc" + i + "p" + j).src = mysrc
+                            document.getElementById("fc" + i + "p" + j).height = myheight
+                            document.getElementById("fc" + i + "p" + j).scrolling = "yes"
+                            document.getElementById("fc" + i + "p" + j).style.overflow = "hidden"
+                            document.getElementById("qc" + i + "p" + j).innerHTML = mytitle
+                            //alert(k + " " + i + " " + j + " " + myid)
+                            document.getElementById("qc" + i + "p" + j).id = myid
+                        }
+
+                    }
+                }
+            }
+
+            document.getElementById("mysection").style.display = "block"
+            //alert(document.getElementById("whatisnew").innerHTML)
+        }
+
+
+    </script>
+    <title>VAR Guidebook</title>
+</head>
+<body onload="carica()">
+    <header>
+        <h1>VAR Guidebook</h1>
+    </header>
+
+    <div id="mygif" style="text-align:center" class="myhide"><img src="img/search-loading.gif"></div>
+    <section class="cd-faq" id="mysection" ">
+
+	<ul class=" cd-faq-categories">
+        <li class="myhide" id="mc1"><a id="ac1" class="selected" href='#uc1'>c1</a></li>
+        <li class="myhide" id="mc2"><a id="ac2" href='#uc2'>c2</a></li>
+        <li class="myhide" id="mc3"><a id="ac3" href='#uc3'>c3</a></li>
+        <li class="myhide" id="mc4"><a id="ac4" href='#uc4'>c4</a></li>
+        <li class="myhide" id="mc5"><a id="ac5" href='#uc5'>c5</a></li>
+        <li class="myhide" id="mc6"><a id="ac6" href='#uc6'>c6</a></li>
+        <li class="myhide" id="mc7"><a id="ac7" href='#uc7'>c7</a></li>
+        <li class="myhide" id="mc8"><a id="ac8" href='#uc8'>c8</a></li>
+        <li class="myhide" id="mc9"><a id="ac9" href='#uc9'>c9</a></li>
+        <li class="myhide" id="mc10"><a id="ac10" href='#uc10'>c10</a></li>
+
+        <li id="mp2"><a href="#" onclick="location.href='/Faq/Index2'">&rarr; Tech. FAQ </a></li>
+        </ul>
+        <div class="cd-faq-items">
+
+            <!--===================================================================================
+                                                     Chapter 1
+            ====================================================================================-->
+            <ul id="uc1" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc1"></h2></li>
+                <li class="myhide" id="lc1p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p1" src="x"></iframe><div id="oc1p1">x</div></div>
+                </li>
+                <li class="myhide" id="lc1p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p2" src="x"></iframe><div id="oc1p2"</div></div>
+                </li>
+                <li class="myhide" id="lc1p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p3" src="x"></iframe><div id="oc1p3"</div></div>
+                </li>
+                <li class="myhide" id="lc1p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p4" src="x"></iframe><div id="oc1p4"</div></div>
+                </li>
+                <li class="myhide" id="lc1p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p5" src="x"></iframe><div id="oc1p5"</div></div>
+                </li>
+                <li class="myhide" id="lc1p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p6" src="x"></iframe><div id="oc1p6"</div></div>
+                </li>
+                <li class="myhide" id="lc1p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p7" src="x"></iframe><div id="oc1p7"</div></div>
+                </li>
+                <li class="myhide" id="lc1p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p8" src="x"></iframe><div id="oc1p8"</div></div>
+                </li>
+                <li class="myhide" id="lc1p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p9" src="x"></iframe><div id="oc1p9"</div></div>
+                </li>
+                <li class="myhide" id="lc1p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p10" src="x"></iframe><div id="oc1p10"</div></div>
+                </li>
+                <li class="myhide" id="lc1p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p11" src="x"></iframe><div id="oc1p11"</div></div>
+                </li>
+                <li class="myhide" id="lc1p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p12" src="x"></iframe><div id="oc1p12"</div></div>
+                </li>
+                <li class="myhide" id="lc1p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc1p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc1p13" src="x"></iframe><div id="oc1p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 2
+            ====================================================================================-->
+            <ul id="uc2" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc2"></h2></li>
+                <li class="myhide" id="lc2p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p1" src="x"></iframe><div id="oc2p1"</div></div>
+                </li>
+                <li class="myhide" id="lc2p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p2" src="x"></iframe><div id="oc2p2"</div></div>
+                </li>
+                <li class="myhide" id="lc2p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p3" src="x"></iframe><div id="oc2p3"</div></div>
+                </li>
+                <li class="myhide" id="lc2p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p4" src="x"></iframe><div id="oc2p4"</div></div>
+                </li>
+                <li class="myhide" id="lc2p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p5" src="x"></iframe><div id="oc2p5"</div></div>
+                </li>
+                <li class="myhide" id="lc2p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p6" src="x"></iframe><div id="oc2p6"</div></div>
+                </li>
+                <li class="myhide" id="lc2p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p7" src="x"></iframe><div id="oc2p7"</div></div>
+                </li>
+                <li class="myhide" id="lc2p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p8" src="x"></iframe><div id="oc2p8"</div></div>
+                </li>
+                <li class="myhide" id="lc2p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p9" src="x"></iframe><div id="oc2p9"</div></div>
+                </li>
+                <li class="myhide" id="lc2p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p10" src="x"></iframe><div id="oc2p10"</div></div>
+                </li>
+                <li class="myhide" id="lc2p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p11" src="x"></iframe><div id="oc2p11"</div></div>
+                </li>
+                <li class="myhide" id="lc2p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p12" src="x"></iframe><div id="oc2p12"</div></div>
+                </li>
+                <li class="myhide" id="lc2p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc2p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc2p13" src="x"></iframe><div id="oc2p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 3
+            ====================================================================================-->
+            <ul id="uc3" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc3"></h2></li>
+                <li class="myhide" id="lc3p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p1" src="x"></iframe><div id="oc3p1"</div></div>
+                </li>
+                <li class="myhide" id="lc3p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p2" src="x"></iframe><div id="oc3p2"</div></div>
+                </li>
+                <li class="myhide" id="lc3p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p3" src="x"></iframe><div id="oc3p3"</div></div>
+                </li>
+                <li class="myhide" id="lc3p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p4" src="x"></iframe><div id="oc3p4"</div></div>
+                </li>
+                <li class="myhide" id="lc3p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p5" src="x"></iframe><div id="oc3p5"</div></div>
+                </li>
+                <li class="myhide" id="lc3p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p6" src="x"></iframe><div id="oc3p6"</div></div>
+                </li>
+                <li class="myhide" id="lc3p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p7" src="x"></iframe><div id="oc3p7"</div></div>
+                </li>
+                <li class="myhide" id="lc3p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p8" src="x"></iframe><div id="oc3p8"</div></div>
+                </li>
+                <li class="myhide" id="lc3p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p9" src="x"></iframe><div id="oc3p9"</div></div>
+                </li>
+                <li class="myhide" id="lc3p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p10" src="x"></iframe><div id="oc3p10"</div></div>
+                </li>
+                <li class="myhide" id="lc3p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p11" src="x"></iframe><div id="oc3p11"</div></div>
+                </li>
+                <li class="myhide" id="lc3p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p12" src="x"></iframe><div id="oc3p12"</div></div>
+                </li>
+                <li class="myhide" id="lc3p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc3p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc3p13" src="x"></iframe><div id="oc3p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 4
+            ====================================================================================-->
+            <ul id="uc4" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc4"></h2></li>
+                <li class="myhide" id="lc4p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p1" src="x"></iframe><div id="oc4p1"</div></div>
+                </li>
+                <li class="myhide" id="lc4p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p2" src="x"></iframe><div id="oc4p2"</div></div>
+                </li>
+                <li class="myhide" id="lc4p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p3" src="x"></iframe><div id="oc4p3"</div></div>
+                </li>
+                <li class="myhide" id="lc4p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p4" src="x"></iframe><div id="oc4p4"</div></div>
+                </li>
+                <li class="myhide" id="lc4p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p5" src="x"></iframe><div id="oc4p5"</div></div>
+                </li>
+                <li class="myhide" id="lc4p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p6" src="x"></iframe><div id="oc4p6"</div></div>
+                </li>
+                <li class="myhide" id="lc4p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p7" src="x"></iframe><div id="oc4p7"</div></div>
+                </li>
+                <li class="myhide" id="lc4p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p8" src="x"></iframe><div id="oc4p8"</div></div>
+                </li>
+                <li class="myhide" id="lc4p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p9" src="x"></iframe><div id="oc4p9"</div></div>
+                </li>
+                <li class="myhide" id="lc4p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p10" src="x"></iframe><div id="oc4p10"</div></div>
+                </li>
+                <li class="myhide" id="lc4p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p11" src="x"></iframe><div id="oc4p11"</div></div>
+                </li>
+                <li class="myhide" id="lc4p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p12" src="x"></iframe><div id="oc4p12"</div></div>
+                </li>
+                <li class="myhide" id="lc4p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc4p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc4p13" src="x"></iframe><div id="oc4p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 5
+            ====================================================================================-->
+            <ul id="uc5" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc5"></h2></li>
+                <li class="myhide" id="lc5p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p1" src="x"></iframe><div id="oc5p1"</div></div>
+                </li>
+                <li class="myhide" id="lc5p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p2" src="x"></iframe><div id="oc5p2"</div></div>
+                </li>
+                <li class="myhide" id="lc5p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p3" src="x"></iframe><div id="oc5p3"</div></div>
+                </li>
+                <li class="myhide" id="lc5p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p4" src="x"></iframe><div id="oc5p4"</div></div>
+                </li>
+                <li class="myhide" id="lc5p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p5" src="x"></iframe><div id="oc5p5"</div></div>
+                </li>
+                <li class="myhide" id="lc5p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p6" src="x"></iframe><div id="oc5p6"</div></div>
+                </li>
+                <li class="myhide" id="lc5p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p7" src="x"></iframe><div id="oc5p7"</div></div>
+                </li>
+                <li class="myhide" id="lc5p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p8" src="x"></iframe><div id="oc5p8"</div></div>
+                </li>
+                <li class="myhide" id="lc5p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p9" src="x"></iframe><div id="oc5p9"</div></div>
+                </li>
+                <li class="myhide" id="lc5p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p10" src="x"></iframe><div id="oc5p10"</div></div>
+                </li>
+                <li class="myhide" id="lc5p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p11" src="x"></iframe><div id="oc5p11"</div></div>
+                </li>
+                <li class="myhide" id="lc5p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p12" src="x"></iframe><div id="oc5p12"</div></div>
+                </li>
+                <li class="myhide" id="lc5p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc5p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc5p13" src="x"></iframe><div id="oc5p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 6
+            ====================================================================================-->
+            <ul id="uc6" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc6"></h2></li>
+                <li class="myhide" id="lc6p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p1" src="x"></iframe><div id="oc6p1"</div></div>
+                </li>
+                <li class="myhide" id="lc6p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p2" src="x"></iframe><div id="oc6p2"</div></div>
+                </li>
+                <li class="myhide" id="lc6p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p3" src="x"></iframe><div id="oc6p3"</div></div>
+                </li>
+                <li class="myhide" id="lc6p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p4" src="x"></iframe><div id="oc6p4"</div></div>
+                </li>
+                <li class="myhide" id="lc6p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p5" src="x"></iframe><div id="oc6p5"</div></div>
+                </li>
+                <li class="myhide" id="lc6p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p6" src="x"></iframe><div id="oc6p6"</div></div>
+                </li>
+                <li class="myhide" id="lc6p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p7" src="x"></iframe><div id="oc6p7"</div></div>
+                </li>
+                <li class="myhide" id="lc6p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p8" src="x"></iframe><div id="oc6p8"</div></div>
+                </li>
+                <li class="myhide" id="lc6p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p9" src="x"></iframe><div id="oc6p9"</div></div>
+                </li>
+                <li class="myhide" id="lc6p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p10" src="x"></iframe><div id="oc6p10"</div></div>
+                </li>
+                <li class="myhide" id="lc6p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p11" src="x"></iframe><div id="oc6p11"</div></div>
+                </li>
+                <li class="myhide" id="lc6p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p12" src="x"></iframe><div id="oc6p12"</div></div>
+                </li>
+                <li class="myhide" id="lc6p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc6p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc6p13" src="x"></iframe><div id="oc6p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 7
+            ====================================================================================-->
+            <ul id="uc7" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc7"></h2></li>
+                <li class="myhide" id="lc7p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p1" src="x"></iframe><div id="oc7p1"</div></div>
+                </li>
+                <li class="myhide" id="lc7p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p2" src="x"></iframe><div id="oc7p2"</div></div>
+                </li>
+                <li class="myhide" id="lc7p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p3" src="x"></iframe><div id="oc7p3"</div></div>
+                </li>
+                <li class="myhide" id="lc7p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p4" src="x"></iframe><div id="oc7p4"</div></div>
+                </li>
+                <li class="myhide" id="lc7p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p5" src="x"></iframe><div id="oc7p5"</div></div>
+                </li>
+                <li class="myhide" id="lc7p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p6" src="x"></iframe><div id="oc7p6"</div></div>
+                </li>
+                <li class="myhide" id="lc7p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p7" src="x"></iframe><div id="oc7p7"</div></div>
+                </li>
+                <li class="myhide" id="lc7p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p8" src="x"></iframe><div id="oc7p8"</div></div>
+                </li>
+                <li class="myhide" id="lc7p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p9" src="x"></iframe><div id="oc7p9"</div></div>
+                </li>
+                <li class="myhide" id="lc7p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p10" src="x"></iframe><div id="oc7p10"</div></div>
+                </li>
+                <li class="myhide" id="lc7p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p11" src="x"></iframe><div id="oc7p11"</div></div>
+                </li>
+                <li class="myhide" id="lc7p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p12" src="x"></iframe><div id="oc7p12"</div></div>
+                </li>
+                <li class="myhide" id="lc7p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc7p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc7p13" src="x"></iframe><div id="oc7p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 8
+            ====================================================================================-->
+            <ul id="uc8" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc8"></h2></li>
+                <li class="myhide" id="lc8p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p1" src="x"></iframe><div id="oc8p1"</div></div>
+                </li>
+                <li class="myhide" id="lc8p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p2" src="x"></iframe><div id="oc8p2"</div></div>
+                </li>
+                <li class="myhide" id="lc8p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p3" src="x"></iframe><div id="oc8p3"</div></div>
+                </li>
+                <li class="myhide" id="lc8p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p4" src="x"></iframe><div id="oc8p4"</div></div>
+                </li>
+                <li class="myhide" id="lc8p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p5" src="x"></iframe><div id="oc8p5"</div></div>
+                </li>
+                <li class="myhide" id="lc8p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p6" src="x"></iframe><div id="oc8p6"</div></div>
+                </li>
+                <li class="myhide" id="lc8p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p7" src="x"></iframe><div id="oc8p7"</div></div>
+                </li>
+                <li class="myhide" id="lc8p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p8" src="x"></iframe><div id="oc8p8"</div></div>
+                </li>
+                <li class="myhide" id="lc8p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p9" src="x"></iframe><div id="oc8p9"</div></div>
+                </li>
+                <li class="myhide" id="lc8p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p10" src="x"></iframe><div id="oc8p10"</div></div>
+                </li>
+                <li class="myhide" id="lc8p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p11" src="x"></iframe><div id="oc8p12"</div></div>
+                </li>
+                <li class="myhide" id="lc8p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p12" src="x"></iframe><div id="oc8p12"</div></div>
+                </li>
+                <li class="myhide" id="lc8p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc8p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc8p13" src="x"></iframe><div id="oc8p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 9
+            ====================================================================================-->
+            <ul id="uc9" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc9"></h2></li>
+                <li class="myhide" id="lc9p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p1" src="x"></iframe><div id="oc9p1"</div></div>
+                </li>
+                <li class="myhide" id="lc9p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p2" src="x"></iframe><div id="oc9p2"</div></div>
+                </li>
+                <li class="myhide" id="lc9p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p3" src="x"></iframe><div id="oc9p3"</div></div>
+                </li>
+                <li class="myhide" id="lc9p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p4" src="x"></iframe><div id="oc9p4"</div></div>
+                </li>
+                <li class="myhide" id="lc9p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p5" src="x"></iframe><div id="oc9p5"</div></div>
+                </li>
+                <li class="myhide" id="lc9p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p6" src="x"></iframe><div id="oc9p6"</div></div>
+                </li>
+                <li class="myhide" id="lc9p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p7" src="x"></iframe><div id="oc9p7"</div></div>
+                </li>
+                <li class="myhide" id="lc9p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p8" src="x"></iframe><div id="oc9p8"</div></div>
+                </li>
+                <li class="myhide" id="lc9p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p9" src="x"></iframe><div id="oc9p9"</div></div>
+                </li>
+                <li class="myhide" id="lc9p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p10" src="x"></iframe><div id="oc9p10"</div></div>
+                </li>
+                <li class="myhide" id="lc9p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p11" src="x"></iframe><div id="oc9p11"</div></div>
+                </li>
+                <li class="myhide" id="lc9p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p12" src="x"></iframe><div id="oc9p12"</div></div>
+                </li>
+                <li class="myhide" id="lc9p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc9p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc9p13" src="x"></iframe><div id="oc9p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+            <!--===================================================================================
+                                                     Chapter 10
+            ====================================================================================-->
+            <ul id="uc10" class="cd-faq-group">
+                <li class="cd-faq-title"><h2 id="hc10"></h2></li>
+                <li class="myhide" id="lc10p1">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p1">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p1" src="x"></iframe><div id="oc10p1"</div></div>
+                </li>
+                <li class="myhide" id="lc10p2">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p2">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p2" src="x"></iframe><div id="oc10p2"</div></div>
+                </li>
+                <li class="myhide" id="lc10p3">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p3">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p3" src="x"></iframe><div id="oc10p3"</div></div>
+                </li>
+                <li class="myhide" id="lc10p4">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p4">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p4" src="x"></iframe><div id="oc10p4"</div></div>
+                </li>
+                <li class="myhide" id="lc10p5">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p5">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p5" src="x"></iframe><div id="oc10p5"</div></div>
+                </li>
+                <li class="myhide" id="lc10p6">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p6">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p6" src="x"></iframe><div id="oc10p6"</div></div>
+                </li>
+                <li class="myhide" id="lc10p7">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p7">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p7" src="x"></iframe><div id="oc10p7"</div></div>
+                </li>
+                <li class="myhide" id="lc10p8">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p8">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p8" src="x"></iframe><div id="oc10p8"</div></div>
+                </li>
+                <li class="myhide" id="lc10p9">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p9">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p9" src="x"></iframe><div id="oc10p9"</div></div>
+                </li>
+                <li class="myhide" id="lc10p10">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p10">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p10" src="x"></iframe><div id="oc10p10"</div></div>
+                </li>
+                <li class="myhide" id="lc10p11">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p11">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p11" src="x"></iframe><div id="oc10p11"</div></div>
+                </li>
+                <li class="myhide" id="lc10p12">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p12">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p12" src="x"></iframe><div id="oc10p12"</div></div>
+                </li>
+                <li class="myhide" id="lc10p13">
+                    <a class="cd-faq-trigger" href="#0" id="qc10p13">x</a>
+                    <div class="cd-faq-content"><iframe id="fc10p13" src="x"></iframe><div id="oc10p13"</div></div>
+                </li>
+            </ul> <!-- cd-faq-group -->
+
+        </div> <!-- cd-faq-items -->
+        <a href="#0" class="cd-close-panel">Close</a>
+    </section> <!-- cd-faq -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mobile.custom.min.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
+

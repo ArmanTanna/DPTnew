@@ -1,0 +1,28 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        @Html.Action("GetUserInfo", "Account")
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: null)
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </text>
+
+    <nav>
+        @if (Session["MyMenu"] == null)
+        {
+            Session["MyMenu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+        }
+        @Session["MyMenu"]
+    </nav>
+
+}
+else
+{
+    <ul>
+        <!-- <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>-->
+    </ul>
+}

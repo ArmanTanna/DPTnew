@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<title>Untitled Document</title>
+
+</head>
+
+<body> 
+			<p>The floating licenses are linked to a specific license server. In order to manage them you
+        should go through a Server/Client (simple!) installation.</p>
+        <br>
+        <p><strong>Server</strong></p>
+		<br>    
+        <p>1. Download the 'Safenet Sentinel Installer' from the Download Area 
+        of think3 Customer Care website and run the executable file.</p>
+        <br> 
+        <img class="centerImage" width=100%
+        src="../img/Floating_Server_1.png">
+        </p>
+        <br>
+                    
+        <p>2. Copy the two following files from a PC where you have previously installed TD 2015.2:
+        <br> - <span class="hl">vcredist_x86.exe</span>, from 'Temp' folder in
+        <i>dvd_td_64bit\thinkdesign\ISSetupPrerequisites\{D240878C-0495-42D7-844F-E0617616DF90}</i>,
+        <br> - <span class="hl">DPTGetC2V.exe</span>, from the Installation folder of TD 2015.2<br>
+        (example:  <i>
+         C:\program files\think3\thinkdesign 2015.2\common\utilities</i>).
+        </p>
+        <br>
+                    
+        <p>3. Run <span class="hl">vcredist_x86.exe</span>. (Please, note that this operation is necessary only for floating licenses)</p><br>
+                      
+        <p>4. Run <span class="hl">DPTGetC2V.exe</span>. Now follow the instructions provided
+         in the FAQ <a href="../../../Faq/Index#generatec2v" target="_parent">How to generate a C2V file?</a>, 
+            <a href="../../../Faq/Index#getv2c" target="_parent">How can I get my V2C file?</a> and finally
+            <a href="../../../Faq/Index#usev2c" target="_parent">How can I use my V2C file?</a>.</p> 
+        <br>
+		<br>
+        <p><strong>Client</strong></p>
+        <br>    
+        <p>First of all, you need to set the system environment variable <span class="hl">DPT_LIC_HOSTNAME</span>.<br>
+		<br>
+		<b>Control Panel</b> &rarr; <b>System</b> &rarr; <b>Advanced System Settings</b><br>
+		The <b>System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
+		In the <b>System variables</b> section, click the <b>New</b> button.</p><br> 
+        <br>		
+		<span class="hl">DPT_LIC_HOSTNAME</span> corresponds to the <b>Variable name</b> and it should be set according to the following table.</p>
+        <br>
+        <p>
+        <table width=100%>
+          <tbody>
+             <tr>
+              <th width=20%>Variable value</th>    
+              <th>Description</th>  
+            </tr> 
+             <tr>
+              <td>LOCALHOST</td>      
+              <td>TD uses only local licenses, not floating ones </td>
+            </tr> 
+             <tr>
+              <td>Server_Name</td>      
+              <td>TD uses only floating licenses, not local ones</td>
+                </tr>
+             <tr>
+              <td>not defined</td>      
+              <td>TD uses both local and floating licenses</td>
+             </tr>
+          </tbody>
+        </table>
+        <br>
+        <p>In the Sentinel ACC:</p><br>
+		<br> 
+		<img class="centerImage" 
+        src="../img/Floating2015_no_dongle_2.png">
+		
+        <br>
+        <br> 
+        <img class="centerImage" 
+        src="../img/Floating2015_no_dongle_3.jpg">
+
+        <br>
+		<br>
+		<p>If you use a <span class="hl">VPN connection</span>, you just need to do as follows:</p> 
+        <br> 
+		<p>In the ACC: go to <strong>Configuration &rarr; Access to Remote License Managers</strong> and write your server name in the
+        <strong>Remote License Search Parameters </strong>field.</p>
+        <br>
+		<br> 
+        <img class="centerImage" src="../img/Floating2015_VPN.jpg">
+        <br>
+		<p>If you use instead a local network, you just need to set <i>DPT_LIC_HOSTNAME = server_name</i>.</p>
+         
+
+        
+</body>
+</html>

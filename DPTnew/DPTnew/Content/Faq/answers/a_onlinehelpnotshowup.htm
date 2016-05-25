@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<p>It may sometimes happen not to be able to view the online help. If you open the chm file, you can see the TOC page and the Index, but the page on the right looks empty. 
+	This issue occurs if you have installed the documentation <strong>on a remote disk</strong>. This restriction was introduced by MicroSoft for security reasons. 
+	Thus, it is ordinarily impossible to view the documentation from a remote location. The real solution is to re-install the documentation to a local drive. <br>
+	However, a workaround is available for this issue, as described in the MicroSoft Security Update 896358 (see below). 
+	<strong><i>This work around is highly deprecated and you can adopt it at your own risk</i></strong>.</p>
+	<br>
+    <span class="hl">Microsoft Security Update 896358</span>.
+    <p>Microsoft recently released a security patch that makes it impossible to view CHM files that are stored on a network drive (as opposed to CHM files stored on your own computer). 
+	The help file will appear, but instead of the topic text you will see an error message "this page cannot be displayed".</p>
+	<br>
+	<p>The security patch and its effects are fully described on Microsoft's web site at http://support.microsoft.com/kb/896358</p>
+	<br>
+	<p>If you trust all the computers on your LAN or intranet (and the people using them), you can lower the restrictions 
+	on the Local Intranet zone to allow CHM files to be displayed with the following steps:</p>
+	<br>
+	<ol class="myol1"> 
+           <li>Click Start, click Run, type regedit, and then click OK.
+		   <li>Locate and then click the following subkey:<br>
+		   <strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HTMLHelp\1.x\ItssRestrictions</strong><br>
+		   If this registry subkey does not exist, create it.
+		   <li>Right-click the ItssRestrictions subkey, point to New, and then click DWORD Value.
+		   <li>Type <strong>MaxAllowedZone</strong>, and then press Enter.
+		   <li>Right-click the <strong>MaxAllowedZone</strong> value, and then click Modify.
+		   <li>In the Value data box, type 1, and then click OK.
+		   <li>Quit Registry Editor.
+	</ol>
+	<br>
+	<p>If this solution does not work for you, please see http://support.microsoft.com/kb/896358 for alternatives.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Customer Care";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                This is the new site to manage your licenses.
+            </p>
+
+            @*            @if(WebSecurity.IsAuthenticated){
+                if(Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin")){
+                    <text>@WebSecurity.CurrentUserName is an Admin</text>
+                }else
+                if(Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var")){
+                    <text>@WebSecurity.CurrentUserName is a Var</text>
+                }
+                else{
+                     <text>@WebSecurity.CurrentUserName is a NormalUser</text>
+                }
+
+
+            *@
+        </div>
+    </section>
+}
+
+<h3>Breaking News</h3>
+<text>Try for free ThinkDesign 2015! Write to us to know more.</text>
+
+<br />
+<br />
+<br />
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            @if (HttpContext.Current.Request.UserLanguages[0].Equals("it-IT"))
+            {
+                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses_it.pdf" target="blank"><u>New Licensing</u></a></th>
+            }
+            else
+            {
+                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="blank"><u>New Licensing</u></a></th>
+            }
+            <th style="width:33%"><a href="~/elearning" target="blank"><u>e-Learning</u></a></th>
+            <th style="width:33%"><a href="#"><u>ThinkDesign Help (Coming soon!)</u></a></th>
+        </tr>
+        <tr>
+            <td>All you need to know about C2V, V2C and Floating Licensing.</td>
+            <td>Software training material, like video and step-by-step tutorials, supplied via the web.</td>
+            <td>Release Notes & Help manual</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<br />
+
+@if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+{
+    <h3>FAQs</h3>
+    <text>Click <a href="~/Faq/Index" target="blank">here</a> to access the VAR Guidebook.</text>
+}
+
+    @* Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
+        <h3 style="color:orange;">We suggest the following:</h3>
+        <ol class="round">
+            <li class="one">
+                <h5>Getting Started</h5>
+               Go to the <a href="~/Licenses/Index">Licenses</a> section to start to ...
+            </li>
+            @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+            {
+
+            <li class="one">
+                <h5>Sono un VAR</h5>
+                Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
+            </li>
+            }
+        </ol>*@

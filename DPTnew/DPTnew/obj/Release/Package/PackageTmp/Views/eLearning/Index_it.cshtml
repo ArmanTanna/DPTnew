@@ -1,0 +1,3037 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Scripts.Render("~/bundles/jquery")
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/Content/eLearning/css/style.css"> <!-- Resource style -->
+    
+</head>
+
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".accordion-body.collapse").addClass("in").hide();
+            $(".accordion-toggle").click(function (e) {
+                e.preventDefault();
+                $($(this).attr("href")).slideToggle();
+            });
+        });
+
+    </script>
+    <title>e-Learning</title>
+    <header>
+        <h style="font-size:2.15rem;color:#ffffff;">e-Learning</h>
+    </header>
+
+ <!-- Menu + contenuto -->
+
+  <div class="row-fluid centerElement blockPadding">
+
+
+<!-- MENU -->
+<div class="span3">
+
+      <ul id="featuresNav" class="nav  bs-docs-sidenav ">
+        <li class=""><a href="#generale"><i class="icon-chevron-right"></i>Generale</a></li>
+        <li class=""><a href="#2d"><i class="icon-chevron-right"></i>2D</a></li>
+        <li class=""><a href="#modellazione"><i class="icon-chevron-right"></i>Modellazione di parti</a></li>
+        <li class=""><a href="#creazione"><i class="icon-chevron-right"></i>Creazione di tavole dal 3D</a></li>
+        <li class=""><a href="#modavanzata"><i class="icon-chevron-right"></i>Modellazione avanzata di parti</a></li>
+        <li class="" ><a href="#sheet"><i class="icon-chevron-right"></i>Sheet Metal</a></li>
+        <li class=""><a href="#assiemi"><i class="icon-chevron-right"></i>Gestione assiemi</a></li>
+        <li class=""><a href="#progettazione"><i class="icon-chevron-right"></i>Progettazione di forme</a></li>
+        <li class=""><a href="#proavanzata"><i class="icon-chevron-right"></i>Progettazione avanzata di forme</a></li>
+        <li class=""><a href="#rendering"><i class="icon-chevron-right"></i>Rendering</a></li>
+        <li class=""><a href="#plm"><i class="icon-chevron-right"></i>PLM</a></li>
+       
+      </ul>
+
+ </div>
+ 
+ 
+<!-- CONTENUTO --> 
+<div class="offset1 span7">
+<!-- Generale -->
+   <div class="row-fluid centerElement blockPadding; padding-bottom: 0em">  
+    <div class="span12">
+      <h2 id="generale" style="margin-top:0px;">Generale</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="span12" >
+
+    <div class="accordion" id="accordion2">
+
+  <!--Accordion 1  Introduzione a ThinkDesign-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGOne">
+        <h3 style="padding:0px; margin:0px">Introduzione a ThinkDesign</h3>
+      </a>
+    </div>
+    <div id="collapseGOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+       <p>Video - Introduzione a ThinkDesign ed ai suoi comandi basilari:</p>
+       <ul>
+       <li>Gestione di profili di interfaccia</li>
+       <li>Personalizzazione dei comandi di tastiera</li>
+       <li>Introduzione all'ambiente di modellazione</li>
+       <li>Introduzione all'ambiente di messa in tavola</li>
+       <li>Colori, livelli e template</li>
+     </ul>
+    </div> 
+        <div class="span4" >
+        <ul>
+        <li><a href="~/Content/eLearning/IT/_Introduction_to_thinkdesign/IntroTD_1-3/IntroTD_1-3.html"target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_thinkdesign/IntroTD_2-3/IntroTD_2-3.html"target="_blank">E-Tutorial 2/3</a></li>
+         <li><a href="~/Content/eLearning/IT/_Introduction_to_thinkdesign/IntroTD_3-3/IntroTD_3-3.html"target="_blank">E-Tutorial 3/3</a></li>
+       </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Gestione configurazioni  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGTwo">
+        <h3 style="padding:0px; margin:0px">Gestione configurazioni</h3>
+      </a>
+    </div>
+    <div id="collapseGTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+ <p>In questo esercizio viene presentato il gestore delle configurazioni. Questo strumento permette una gestione centralizzata delle configurazioni e dei settaggi e la possibilità di esportarli tra computer diversi.</p>
+<p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Come lavorare con configurazioni centralizzate</li>
+         <li>Come copiare configurazioni tra computer</li>
+         <li>Come mantenere la stessa configurazione con le nuove versioni di ThinkDesign</li>
+         <li>Come creare e gestire diverse configurazioni</li>
+       </ul>                  
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/Configuration_Manager/Config_Mgr.pdf" target="_blank">E-Training</a></li>
+        </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3  Gestione delle viste 2D/3D -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGThree">
+          <h3 style="padding:0px; margin:0px">Gestione delle viste 2D/3D</h3>
+      </a>
+    </div>
+    <div id="collapseGThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo primo esercizio vengono presentati gli elementi di base che ci consentono di gestire le viste 2D e 3D. Impareremo a utilizzare le funzioni rotazione, zoom e pan e a modificare l'orientamento e la modalità di visualizzazione di un modello.</p>
+<p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Gestione delle viste 2D (panoramica, zoom, vista ottimizzata)</li>
+         <li>Gestione delle viste3D (rotazione, ombreggiatura)</li>
+         <li>Operazioni da tastiera</li>
+       </ul>                   
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/View_Manipulation/View_Manipulation.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/View_Manipulation/ArborDone.zip" target="_blank">File Esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+     
+ </div>    
+     </div>
+       </div>
+          </div>
+                  </div><!-- fine GENERALE -->
+
+    
+    
+
+<!-- CONTENUTO --> 
+<div class="offset1 span7">
+
+
+<!-- 2D + introduzione al 2d -->
+   <div class="row-fluid centerElement blockPadding">  
+    <div class="span12"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="2d">2D</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="span12" >
+
+    <div class="accordion" id="accordion3">
+
+  <!--Accordion 1  introduzione al 2d -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseOne">
+        <h3 style="padding:0px; margin:0px">Introduzione al 2D</h3>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+       <p>Video - Introduzione alla progettazione bidimensionale:</p>
+       <ul>
+         <li>Tipologie e filtri di selezione</li>
+         <li>Creazione di geometria bidimensionale</li>
+         <li>Modifica attribuiti e livelli</li>
+         <li>Inserimento e modifica di quote e testi</li>
+       </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_introduction_to_2D/Intro2D_1-3/Intro2D_1-3.html"target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_introduction_to_2D/Intro2D_2-3/Intro2D_2-3.html"target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_introduction_to_2D/Intro2D_3-3/Intro2D_3-3.html"target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Progettare in 2D (I)-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwo">
+        <h3 style="padding:0px; margin:0px">Progettare in 2D (I)</h3>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p>Video - Progettare in 2D (I):</p>
+       <ul>
+         <li>Stile delle quote</li>
+         <li>Template di tavola</li>
+         <li>Gruppi di entità</li>
+         <li>Albero dei gruppi</li>
+         <li>Libreria dei gruppi</li>
+         <li>Formato e cartiglio</li>
+         <li>Scambio dati dxf/dwg</li>
+         <li>Stampa</li>
+       </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_2D_design_1/2Ddesign1_1-3/2Ddesign1_1-3.html"target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_2D_design_1/2Ddesign1_2-3/2Ddesign1_2-3.html"target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_2D_design_1/2Ddesign1_3-3/2Ddesign1_3-3.html"target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3   Progettare in 2D (II) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
+        <h3 style="padding:0px; margin:0px">Progettare in 2D (II)</h3>
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p>Video - Progettare in 2D (II):</p>
+       <ul>
+         <li>Gruppi condivisi: creazione, origine, modifica, disaggregazione, modifica locale, rottura delle relazioni</li>
+         <li>Differenze tra gruppi condivisi e non condivisi</li>
+         <li>Contrassegni</li>
+         <li>Importazione ed utilizzo di cataloghi 2D</li>
+         <li>Gestione delle proprietà componente e lista componenti</li>
+         <li>Gestione dei dati documento</li>
+         <li>Bollatura</li>
+         <li>Gestione formati</li>
+       </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_2D_design_2/2Ddesign2_v1-3/2Ddesign2_v1-3.html"target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_2D_design_2/2Ddesign2_v2-3/2Ddesign2_v2-3.html"target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_2D_design_2/2Ddesign2_v3-3/2Ddesign2_v3-3.html"target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Disegno 2D - Livello Base -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseFour">
+        <h3 style="padding:0px; margin:0px">Disegno 2D - Livello Base</h3>
+      </a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo esercizio creeremo una nuova tavola 2D di questo oggetto nell'ambiente di disegno di ThinkDesign senza fare riferimento all'ambiente del modello. Useremo la funzione "Nuova tavola" e i comandi di base di ThinkDesign per creare e modificare la geometria 2D.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Gruppi</li>
+         <li>Inserimento e modifica di quote</li>
+         <li>Gestione proprietà e stili</li>
+         <li>Trasformazioni</li>
+         <li>Modalità di stampa</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/2D_Basic/2D_Basic.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/2D_Basic/2d_Basic.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 6 Disegno 2D - Opzioni/Proprietà/Stili -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseSix">
+        <h3 style="padding:0px; margin:0px">Disegno 2D - Opzioni/Proprietà/Stili</h3>
+      </a>
+    </div>
+    <div id="collapseSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+       <p>In questo esercizio vengono approfonditi i concetti relativi alla gestione delle Opzioni, delle Proprietà e degli Stili relativi alle quote</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di Stili</li>
+         <li>Modifica di Stili</li>
+         <li>Applicazione di Stili</li>
+         <li>Creazione di Formati</li>
+         <li>Utilizzo di Formati </li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/2D_OPS/2D_OPS.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/2D_OPS/2D_OPS.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7  Disegno 2D - Livello Avanzato -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseSeven">
+        <h3 style="padding:0px; margin:0px">Disegno 2D - Livello Avanzato</h3>
+      </a>
+    </div>
+    <div id="collapseSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+       <p> In questo esercizio di webtraining viene utilizzato un esempio tratto dal settore industriale per descrivere l'impiego dell'ambiente di disegno 2D in ThinkDesign per creare/modificare un assieme 2D di grandi dimensioni.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Gestione di gruppi</li>
+         <li>Creazione ed utilizzo di contrassegni</li>
+         <li>Bollatura</li>
+         <li>Liste di componenti</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/2D_Advanced/2D_Advanced.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/2D_Advanced/2D_Advanced.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+     <!--Accordion 8 Conversione dei formati AutoCAD® (dxf/dwg) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseEight">
+        <h3 style="padding:0px; margin:0px">Conversione dei formati AutoCAD® (dxf/dwg)</h3>
+      </a>
+    </div>
+    <div id="collapseEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p> In questo esercizio di Webtraining viene descritto come effettuare la conversione nei e dai formati AutoCAD® (DXF/DWG).</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Impostazione delle opzioni</li>
+         <li>Conversione di unità dei file .dwg</li>
+         <li>Modifica di colori e tipi di linea</li>
+         <li>Modifica del tipo di carattere</li>
+         <li>Conversione di polilinee, quote e blocchi</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/Convert_ACAD/Convert_ACAD.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Convert_ACAD/Convert_ACAD.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>  
+        
+      </div>
+    </div>
+  </div>
+     
+    </div>
+        </div>    
+        <a href="#"><p style="text-align:right;">Return to Top</p></a>
+           </div>
+               </div>
+            </div>
+              </div><!-- fine 2d -->
+
+
+<!-- MODELLAZIONE DI PARTI -->
+
+<!-- Modellazione di parti +  -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="modellazione">Modellazione di parti</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion4">
+
+  <!--Accordion 1  Profili e vincoli -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMOne">
+        <h3 style="padding:0px; margin:0px">Profili e vincoli</h3>
+      </a>
+    </div>
+    <div id="collapseMOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+       <p>Video - Profili e vincoli:</p>
+       <ul>
+         <li>Piano di lavoro nel modello</li>
+         <li>Concetto di profilo</li>
+         <li>Gestione delle entità del profilo</li>
+         <li>Vincoli dimensionali</li>
+         <li>Vincoli geometrici</li>
+         <li>Verifica dei vincoli</li>
+         <li>Foglio elettronico e variabili</li>
+       </ul>              
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_Profiles_and_Constraints/ProfilesConstraints_1-3/ProfilesConstraints_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Profiles_and_Constraints/ProfilesConstraints_2-3/ProfilesConstraints_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Profiles_and_Constraints/ProfilesConstraints_3-3/ProfilesConstraints_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Introduzione alla modellazione solida-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMTwo">
+        <h3 style="padding:0px; margin:2px">Introduzione alla modellazione solida</h3>
+      </a>
+    </div>
+    <div id="collapseMTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+       <p>Video - Introduzione alla modellazione solida:</p>
+       <ul>
+         <li>Profili ed entità di riferimento</li>
+         <li>Rotazioni e spostamenti</li>
+         <li>Modalità di visualizzazione e viste</li>
+         <li>Gestione piano di lavoro</li>
+         <li>Estrusione e tasce lineare</li>
+         <li>Perno e foro</li>
+         <li>Raccordo e smusso</li>
+         <li>PatternImpostazione delle opzioni</li>
+      </ul>       
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_Solid_Modeling/Intro_Solid_Modeling_1-3/Intro_Solid_Modeling_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_Solid_Modeling/Intro_Solid_Modeling_2-3/Intro_Solid_Modeling_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_Solid_Modeling/Intro_Solid_Modeling_3-3/Intro_Solid_Modeling_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3   Concetti di interfaccia utente (GUI) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMThree">
+        <h3 style="padding:0px; margin:0px">Concetti di interfaccia utente (GUI)</h3>
+      </a>
+    </div>
+    <div id="collapseMThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+        <p>In questo esercizio creeremo un supporto per asta utilizzando strumenti di disegno 2D, per poi estrudere un solido dalla geometria 2D e aggiungere alcuni raccordi.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creare un disegno 2D</li>
+         <li>Visualizzare e utilizzare la griglia</li>
+         <li>Convertire il disegno in un solido</li>
+         <li>Creazione di un raccordo</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/GUI_Concept/GUI_Concept.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/GUI_Concept/GUI_Concept.zip" target="_blank">File di Esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Profili e Curve -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMFour">
+        <h3 style="padding:0px; margin:0px">Profili e Curve</h3>
+      </a>
+    </div>
+    <div id="collapseMFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>I profili variazionali possono essere utilizzati per creare dei solidi e per eseguire delle lavorazioni. In questo esercizio si vedranno diversi approcci e relativi.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di un profilo</li>
+         <li>Vincoli dimensionali</li>
+         <li>Vincoli geometrici</li>
+         <li>Utilizzo dei profili nei solidi</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/Profiles_Curves/Profiles_Curves.pdf" target="_blank">E-Training</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 6 Introduzione alla modellazione solida -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMSix">
+        <h3 style="padding:0px; margin:0px">Introduzione alla modellazione solida</h3>
+      </a>
+    </div>
+    <div id="collapseMSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+        <p>In questo esercizio approfondiremo i concetti relativi alla modellazione dei solidi mediante la creazione di un cavallotto girevole con tre fori.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione e vincolamento di profili</li>
+         <li>Utilizzo del foglio elettronico</li>
+         <li>Posizionamento del piano di lavoro</li>
+         <li>Comandi base di modellazione solida</li>
+         <li>Tecniche di modellazione</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Intro_SolidModeling/Intro_SolidModeling.pdf" target="_blank">E-Training</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7  Modifiche parametriche -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMSeven">
+        <h3 style="padding:0px; margin:0px">Modifiche parametriche</h3>
+      </a>
+    </div>
+    <div id="collapseMSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+      <p>In questo esercizio renderemo parametriche le modifiche necessarie per riparare un chiavistello (Roman lock) e richiamarne l'asta, associandole a variabili del foglio elettronico.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Gestione delle quote</li>
+         <li>Attivazione/disattivazione lavorazioni</li>
+         <li>Modifiche parametriche</li>
+         <li>Variabili del foglio elettronico</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/PM_Spreadsheet/PM_Spreadsheet.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/PM_Spreadsheet/PM_Spreadsheet.zip" target="_blank">File di Esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+     <!--Accordion 8 Solidi e lavorazioni  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMEight">
+        <h3 style="padding:0px; margin:0px">Solidi e lavorazioni</h3>
+      </a>
+    </div>
+    <div id="collapseMEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+        <p>In questo esercizio verrà approfondito il concetto di ereditarietà dei pattern e  la gestione avanzata delle collisioni di smussi e raccordi.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Tasche</li>
+         <li>Fori e smussi</li>
+         <li>Appendici</li>
+         <li>Pattern</li>
+      </ul>                         
+    </div> 
+        <div class="span4" >
+            <ul>
+          <li><a href="~/Content/eLearning/IT/Solid_Feature/Solid_Feature.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Solid_Feature/Solid_Feature.zip" target="_blank">File di Esercizio</a></li>
+        </ul>
+     </div>  
+        
+      </div>
+    </div>
+  </div>
+      </div>
+
+     <!--Accordion 9 Contrassegni e controllo delle lavorazioni  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseMNine">
+        <h3 style="padding:0px; margin:0px">Controllo delle lavorazioni</h3>
+      </a>
+    </div>
+    <div id="collapseMNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>Scopo di questo esercizio è introdurre il funzionamento dei contrassegni  e mostrarne l'utilità nel controllo delle varie lavorazioni in termini di visibilità.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Gestione dei contrassegni nel modello</li>
+         <li>Utilizzo dei contrassegni in tavola</li>
+         <li>Annotazioni</li>
+      </ul>                    
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/VB_FControl/VB_FControl.pdf" target="_blank">E-Training</a></li>
+          </ul>
+     </div>  
+        
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+     
+</div>    
+  </div>
+     <a href="#"><p style="text-align:right;">Return to Top</p></a>
+        </div>
+          </div>
+             </div>  <!-- fine Modellazione di parti -->
+
+
+<!-- Creazione di tavole 3d -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="creazione">Creazione di tavole dal 3D</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion5">
+
+  <!--Accordion 1  Creazione di una tavola dal 3D-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseTOne">
+        <h3 style="padding:0px; margin:0px">Creazione di una tavola dal 3D</h3>
+      </a>
+    </div>
+    <div id="collapseTOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+       <p>Video - Introduzione a Thinkdesign ed ai sui comandi basilari:</p>
+ <p>Video - Creazione di una tavola dal 3D:</p>
+       <ul>
+         <li>Creazione ed utilizzo di configurazioni di tavola</li>
+         <li>Vista personalizzata</li>
+         <li>Vista proiettata</li>
+         <li>Vista sezionata</li>
+         <li>Vista di sviluppo</li>
+         <li>Vista particolare</li>
+         <li>Interruzioni su viste e sezioni</li>
+         <li>Gestione delle proprietà delle viste</li>
+         <li>Quotatura</li>
+       </ul>           
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_Drawing_layout_creation_from_3D/Dwg-Lay_1-3/Dwg-Lay_1-3.html"target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Drawing_layout_creation_from_3D/Dwg-Lay_2-3/Dwg-Lay_2-3.html"target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Drawing_layout_creation_from_3D/Dwg-Lay_3-3/Dwg-Lay_3-3.html"target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Creazione tavola 1  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseTTwo">
+        <h3 style="padding:0px; margin:0px">Creazione tavola 1</h3>
+      </a>
+    </div>
+    <div id="collapseTTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+  <p>L'esercizio mostra come riparare la maniglia della sgranatrice per cotone e documentare il componente in una tavola dettagliata.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Caricamento automatico della tavola</li>
+         <li>Quotatura automatica</li>
+         <li>Gestione delle viste e sezioni 2D</li>
+         <li>Inserimento di testi e quote</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout1/Dwg_Layout1.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout1/Dwg_Layout1.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3  Creazione tavola 2 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseTThree">
+          <h3 style="padding:0px; margin:0px">Creazione tavola 2</h3>
+      </a>
+    </div>
+    <div id="collapseTThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>L'esercizio mostra come creare una tavola da un modello 3D, inserirne il cartiglio ed operare attivamente sulle quote.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Viste come gruppi</li>
+         <li>Posizionamento di visteQuotatura automatica</li>
+         <li>Viste personalizzateGestione delle viste e sezioni 2D</li>
+         <li>Viste derivateInserimento di testi e quote</li>
+         <li>Gestione delle proprietà</li>
+      </ul>                  
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout2/Dwg_Layout2.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout2/Dwg_Layout2.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>  <!-- fine accordion-->
+
+
+  <!--Accordion 4   Creazione tavola 3 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#collapseTFour">
+          <h3 style="padding:0px; margin:0px">Creazione tavola 3</h3>
+      </a>
+    </div>
+    <div id="collapseTFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+          <p>L'esercizio verte sull'inserimento delle quote mancanti, utilizznado le quote progressive invece di quelle lineari.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Concetti avanzati di messa in tavola
+</li>
+         <li>AnnotazioniPosizionamento di viste</li>
+         <li>StampeViste personalizzate</li>
+         <li>Quote ordinate</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout3/Dwg_Layout3.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Dwg_Layout3/Dwg_Layout3.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>  <!-- fine accordion-->
+
+     
+ </div>    
+       <a href="#"><p style="text-align:right;">Return to Top</p></a>
+            </div>
+                </div>
+                  </div><!-- fine creazione di tavole dal 3d -->
+
+
+<!-- MODELLAZIONE AVANZATA DI PARTI -->
+
+<!-- Modellazione di parti  -->
+   <div class="row-fluid centerElement blockPadding">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="modavanzata">Modellazione avanzata di parti</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion6">
+
+  <!--Accordion 1  Modellazione solida (I) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAOne">
+        <h3 style="padding:0px; margin:0px">Modellazione solida (I)</h3>
+      </a>
+    </div>
+    <div id="collapseMAOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+   <p>Video - Modellazione solida (I):</p>
+       <ul>
+         <li>Importazione di solidi via step</li>
+         <li>Lavorazioni: foro, appendice lineare, nervatura, raccordo, pattern</li>
+         <li>Piani datum</li>
+         <li>Solido chiuso vs solido aperto</li>
+         <li>Spostamento di una lavorazione nella storia del solido</li>
+         <li>Attivazione/disattivazione di lavorazioni tramite variabile del foglio elettronico</li>
+       </ul>                    
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_1/Solid1_1-3/Solid1_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_1/Solid1_2-3/Solid1_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_1/Solid1_3-3/Solid1_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Modellazione solida (II)-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMATwo">
+        <h3 style="padding:0px; margin:0px">Modellazione solida (II)</h3>
+      </a>
+    </div>
+    <div id="collapseMATwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+        <p>Video - Modellazione solida (II):</p>
+       <ul>
+         <li>Raccordo tra facce</li>
+         <li>Tasca con profilo aperto</li>
+         <li>Guscio</li>
+         <li>Nervatura da-a</li>
+         <li>Sformo</li>
+         <li>Sottrazione booleana</li>
+         <li>Inserimento di smart object</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_2/Solid2_1-3/Solid2_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_2/Solid2_2-3/Solid2_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Solid_modeling_2/Solid2_3-3/Solid2_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3   Dal 2D al 3D (E-Tutorial) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAThree">
+        <h3 style="padding:0px; margin:0px">Dal 2D al 3D (E-Tutorial)</h3>
+      </a>
+    </div>
+    <div id="collapseMAThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+         <p>Video - Dal 2D al 3D:</p>
+       <ul>
+         <li>Importazione di geometria dal 2D al 3D e suo utilizzo</li>
+         <li>Estrusione e tasca lineare</li>
+         <li>Solido di rotazione</li>
+         <li>Intersezione booleana</li>
+         <li>Apertura/chiusura lamiera</li>
+         <li>Filettatura di fori ottenuti da tasche</li>
+      </ul>         
+    </div> 
+        <div class="span4" >
+    <ul>
+          <li><a href="~/Content/eLearning/IT/_From_2D_to_3D/From2Dto3D_1-4/From2Dto3D_1-4.html"target="_blank">E-Tutorial 1/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_From_2D_to_3D/From2Dto3D_2-4/From2Dto3D_2-4.html"target="_blank">E-Tutorial 2/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_From_2D_to_3D/From2Dto3D_3-4/From2Dto3D_3-4.html"target="_blank">E-Tutorial 3/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_From_2D_to_3D/From2Dto3D_4-4/From2Dto3D_4-4.html"target="_blank">E-Tutorial 4/4</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Modellazione solida interattiva -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAFour">
+        <h3 style="padding:0px; margin:0px">Modellazione solida interattiva</h3>
+      </a>
+    </div>
+    <div id="collapseMAFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>Video - Modellazione solida interattiva:</p>
+       <ul>
+         <li>Spostamento di facce</li>
+         <li>Estensione di facce</li>
+         <li>Chiusura di solidi</li>
+         <li>Offset di facce</li>
+         <li>Rimozione di facce</li>
+         <li>Sostituzione di facce</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_Interactive_solid_modeling/ISM_1-4/ISM_1-4.html"target="_blank">E-Tutorial 1/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Interactive_solid_modeling/ISM_2-4/ISM_2-4.html"target="_blank">E-Tutorial 2/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Interactive_solid_modeling/ISM_3-4/ISM_3-4.html"target="_blank">E-Tutorial 3/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Interactive_solid_modeling/ISM_4-4/ISM_4-4.html"target="_blank">E-Tutorial 4/4</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 6 Oggetti smart -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMASix">
+        <h3 style="padding:0px; margin:0px">Oggetti smart </h3>
+      </a>
+    </div>
+    <div id="collapseMASix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+   <ul>
+         <li>Profili smart</li>
+         <li>Libreria di oggetti smart</li>
+         <li>Forme smart</li>
+         <li>Tabelle di configurazione</li>
+         <li>Oggetti smart</li>
+      </ul>        
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/_Smart_Objects/Smart_Objects_1-4/Smart_Objects_1-4.html"target="_blank">E-Tutorial 1/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Smart_Objects/Smart_Objects_2-4/Smart_Objects_2-4.html"target="_blank">E-Tutorial 2/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Smart_Objects/Smart_Objects_3-4/Smart_Objects_3-4.html"target="_blank">E-Tutorial 3/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Smart_Objects/Smart_Objects_4-4/Smart_Objects_4-4.html"target="_blank">E-Tutorial 4/4</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7  Solido di suddivisione -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMASeven">
+        <h3 style="padding:0px; margin:0px">Solido di suddivisione</h3>
+      </a>
+    </div>
+    <div id="collapseMASeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+         <p>Video - Solido di suddivisione:</p>
+       <ul>
+         <li>Modellazione di forme tramite solido di suddivisione</li>
+         <li>Creazione di solido di suddivisione</li>
+         <li>Modifica di solido di suddivisione</li>
+         <li>Applicazione di lavorazioni al solido di suddivisione</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/_Subdivision%20_solid/Subdivision_Solid_1-3/Subdivision_Solid_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Subdivision%20_solid/Subdivision_Solid_2-3/Subdivision_Solid_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Subdivision%20_solid/Subdivision_Solid_3-3/Subdivision_Solid_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+          </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+
+     <!--Accordion 8 - Modellazione Solida 1 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAEight">
+        <h3 style="padding:0px; margin:0px">Modellazione Solida 1</h3>
+      </a>
+    </div>
+    <div id="collapseMAEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+  <p>In questo primo esercizio viene illustrato
+l'utilizzo di lavorazioni di modellazione solida con diverse modalità di progettazione attraverso il riutilizzo di geometrie bidimensionali esistenti.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Importazione geometria 2D nel modello 3D</li>
+         <li>Creazione di solidi di rotazione , appendici e tasche e raccordi</li>
+         <li>Creazione di fori e pattern </li>
+       </ul>               
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Solid_Modeling1/Solid_Modeling1.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Solid_Modeling1/Solid_Modeling1.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <!--Accordion 9 Modellazione Solida 2 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMANine">
+        <h3 style="padding:0px; margin:0px">Modellazione Solida 2</h3>
+      </a>
+    </div>
+    <div id="collapseMANine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo primo esercizio viene illustrato come creare il modello raffigurato, un particolare di fusione complesso. Il modello verrà realizzato facendo uso di diverse lavorazioni avanzate. Sfrutteremo inoltre la simmetria intrinseca del pezzo per aiutarci nella costruzione.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Profili e lavorazioni utilizzando la simmetria</li>
+         <li>Appendice lineare - Estensione in modalità Fino a faccia</li>
+         <li>Raccordi e gusci</li>
+         <li>Solidi di simmetria ed unioni booleane</li>
+         <li>Modalità inserisci lavorazione</li>
+
+       </ul>               
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/Solid_Modeling2/Solid_Modeling2.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Solid_Modeling2/Solid_Modeling2.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       <!--Accordion 10 - Lavorazioni avanzate -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMANTen">
+        <h3 style="padding:0px; margin:0px">Lavorazioni avanzate</h3>
+      </a>
+    </div>
+    <div id="collapseMANTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio impareremo a creare un solido di estrusione a partire da due profili esistenti, cui verrà aggiunta una lavorazione Taglio per completare l'elica.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Solido spinato</li>
+         <li>Solidi booleani - opzione locale</li>
+         <li>Raccordo spigoli - arco a lunghezza costante</li>
+         <li>Pattern di solidi</li>
+       </ul>               
+    </div> 
+        <div class="span4" >
+    <ul>
+          <li><a href="~/Content/eLearning/IT/Advanced_features/Advanced_features.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Advanced_features/Advanced_features.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       
+       <!--Accordion 11 - Dal 2D al 3D (E-Training)-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAEleven">
+        <h3 style="padding:0px; margin:0px">Dal 2D al 3D (E-Training)</h3>
+      </a>
+    </div>
+    <div id="collapseMAEleven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio verrà creato un modello utilizzando un disegno esistente realizzato con AutoCAD®. Importeremo il file .dwg in un modello vuoto, quindi utilizzeremo le funzioni geometriche 2-D per creare l'estremità della biella.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Aggiustamenti 2D</li>
+         <li>Smussi, raccordi e riflessioni 3D</li>
+         <li>Foro semplice</li>
+         <li>Inserimento da file</li>
+         <li>Gestione livelli</li>
+         <li>Taglio lineare ed Estrusione lineare</li>
+         <li>Estrusione rotazionale</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/2D_to_3D/2D_to_3D.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/2D_to_3D/2D_to_3D.zip" target="_blank">File di esercizio</a></li>       
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+         <!--Accordion 12 - Modellazione solida di fusioni -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMATwelve">
+        <h3 style="padding:0px; margin:0px">Modellazione solida di fusioni</h3>
+      </a>
+    </div>
+    <div id="collapseMATwelve" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo primo esercizio vengono presentati gli elementi di base che ci consentono di gestire le viste 2D e 3D. Impareremo a utilizzare le funzioni rotazione, zoom e pan e a modificare l'orientamento e la modalità di visualizzazione di un modello.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Lavorazioni di modellazione solida</li>
+         <li>Applicazione di raccordi</li>
+         <li>Sformo ed operatori booleani</li>
+         <li>Riflessione di lavorazioni</li>
+         <li>Modello derivato da quello corrente</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Cast_Modeling/Cast_Modeling.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Cast_Modeling/Cast_Modeling.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+           <!--Accordion 13 - Modellazione solida interattiva -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAThirteen">
+        <h3 style="padding:0px; margin:0px">Modellazione solida interattiva</h3>
+      </a>
+    </div>
+    <div id="collapseMAThirteen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p>In questo esercizio vengono presentate le modalità della Modellazione Solida Interattiva che permettono di modificare i modelli in modo non convenzionale, senza dovere ridefinire la storia delle lavorazioni e semplicemente modificando la topologia risultante.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Sposta Facce</li>
+         <li>Estendi Facce</li>
+         <li>Offset Facce</li>
+         <li>Rimuovi Facce</li>
+         <li>Sostituisci facce</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Interactive_Modeling/Interactive_Modeling.pdf"target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Interactive_Modeling/Interactive_Modeling.zip"target="_blank">File di esercizio</a></li>   
+          </ul>
+     </div>  
+         </div> 
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+          <!--Accordion 14 - Definizione di un oggetto smart  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAFourteen">
+        <h3 style="padding:0px; margin:0px">Definizione di un oggetto smart</h3>
+      </a>
+    </div>
+    <div id="collapseMAFourteen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p>In questo esercizio creeremo un oggetto smart e lo inseriremo in un altro componente. Un "Oggetto smart" è un oggetto di ThinkDesign modulare e pronto all'uso che può essere inserito in un altro componente con o senza modifiche.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Definizione oggetto smart</li>
+         <li>Salvataggio oggetto smart</li>
+         <li>Utilizzo oggetto smart</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Define_SO/Define_SO.pdf" target="_blank">E-Training</a></li>       
+        </ul>
+     </div>  
+        </div>  
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+
+          <!--Accordion 15 - Oggetti smart  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion6" href="#collapseMAFifteen">
+        <h3 style="padding:0px; margin:0px">Oggetti smart</h3>
+      </a>
+    </div>
+    <div id="collapseMAFifteen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio vieme mostrato che cosa sono gli oggetti smart e come creare oggetti smart personalizzati.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creare oggetti smart</li>
+         <li>Creare una cartella di oggetti smart personalizzati</li>
+         <li>Creare componenti a partire da oggetti smart</li>
+         <li>Creare una famiglia di oggetti smart</li>
+       </ul>                   
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Smart_Objects/Smart_Objects.pdf" target="_blank">E-Training</a></li>
+        </ul>
+     </div>  
+         </div> 
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+     
+</div>    
+  <a href="#"><p style="text-align:right;">Return to Top</p></a>
+   
+        </div>
+              </div> <!-- fine Modellazione di parti -->
+ 
+ 
+<!-- Sheet Metal -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="sheet">Sheet Metal</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion7">
+
+  <!--Accordion 1  Sheet Metal base-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion7" href="#collapseSMOne">
+        <h3 style="padding:0px; margin:0px">Sheet Metal - Base (E-Tutorial) </h3>
+      </a>
+    </div>
+    <div id="collapseSMOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+       <p>Video - Sheet Metal:</p>
+       <ul>
+         <li>Parametri di piega e fattore K</li>
+         <li>Lembi</li>
+         <li>Scarichi</li>
+         <li>Pieghe su profilo</li>
+         <li>Sviluppa/ripiega</li>
+         <li>Viste di sviluppo lamiera</li>
+       </ul>             
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/_Sheet_Metal_basic/Sheet_Metal_basic_1-3/Sheet_Metal_basic_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Sheet_Metal_basic/Sheet_Metal_basic_2-3/Sheet_Metal_basic_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Sheet_Metal_basic/Sheet_Metal_basic_3-3/Sheet_Metal_basic_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Sheet Metal - Base  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion7" href="#collapseSMTwo">
+        <h3 style="padding:0px; margin:0px">Sheet Metal - Base (E-Training)</h3>
+      </a>
+    </div>
+    <div id="collapseSMTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+  <p>In questo esercizio si utilizzano i comandi relativi alla creazione di parti di lamiera.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di solido di lamiera</li>
+         <li>Lembo</li>
+         <li>Piega su profilo</li>
+         <li>Vista di sviluppo</li>
+      </ul>                               
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/SM_Basic/SM_Basic.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/SM_Basic/SM_Basic.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3   Sheet Metal - Avanzato -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion7" href="#collapseSMThree">
+          <h3 style="padding:0px; margin:0px">Sheet Metal - Avanzato</h3>
+      </a>
+    </div>
+    <div id="collapseSMThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo esercizio vengono mostrati sia i comandi relativi alla lavorazione Lamiera, sia la loro interazione con i comandi di modellazione dei solidi.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Lembo estruso</li>
+         <li>Fessura su faccia</li>
+         <li>Fessura su spigolo</li>
+         <li>Casi particolari di sviluppo</li>
+      </ul>                        
+    </div> 
+        <div class="span4" >
+    <ul>
+          <li><a href="~/Content/eLearning/IT/SM_Advanced/SM_Advanced.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/SM_Advanced/SM_Advanced.zip" target="_blank">File di esercizio</a></li>  
+     <br>    
+          <li><a href="~/Content/eLearning/IT\15_Sheet_Metal_advanced\ET15_EX01/ET15_ITA_EX01_FINAL_OK_player.html" target="_blank">E-Tutorial 1/4</a></li>
+          <li><a href="~/Content/eLearning/IT\15_Sheet_Metal_advanced\ET15_EX02/ET15_EX02_ITA_AV_player.html" target="_blank">E-Tutorial 2/4</a></li>
+          <li><a href="~/Content/eLearning/IT\15_Sheet_Metal_advanced\ET15_EX03/ET15_EX03_AV_ITA_player.html" target="_blank">E-Tutorial 3/4</a></li>
+          <li><a href="~/Content/eLearning/IT\15_Sheet_Metal_advanced\ET15_EX04/ET15_EX04_AV_ITA_CORR_player.html" target="_blank">E-Tutorial 4/4</a></li>     
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+     
+ </div>    
+    <a href="#"><p style="text-align:right;">Return to Top</p></a>
+           </div>
+            </div>
+                 </div> <!-- fine sheet metal --> 
+  
+
+
+
+
+<!-- GESTIONE ASSIEMI -->
+
+<!-- Gestione Assiemi  -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="assiemi">Gestione Assiemi</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion8">
+
+  <!--Accordion 1 Introduzione agli Assiemi (E-Tutorial) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSOne">
+        <h3 style="padding:0px; margin:0px">Introduzione agli Assiemi (E-Tutorial)</h3>
+      </a>
+    </div>
+    <div id="collapseMSOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+   <p>Video - Introduzione agli assiemi:</p>
+       <ul>
+         <li>Componenti locali ed esterni</li>
+         <li>Creazione, sostituzione e derivazione</li>
+         <li>Lavorazioni attraverso componente e lavorazioni di assieme</li>
+         <li>Posizionamenti</li>
+         <li>Creazione di componenti nell'assieme</li>
+         <li>Inserimento di componenti già esistenti</li>
+       </ul>                    
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_assemblies/Intro_Assemblies_1-2/Intro_Assemblies_1-2.html" target="_blank">E-Tutorial 1/2</a></li>
+          <li><a href="~/Content/eLearning/IT/_Introduction_to_assemblies/Intro_Assemblies_2-2/Intro_Assemblies_2-2.html" target="_blank">E-Tutorial 2/2</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Introduzione agli Assiemi (E-Training)-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSTwo">
+        <h3 style="padding:0px; margin:0px">Introduzione agli Assiemi (E-Training)</h3>
+      </a>
+    </div>
+    <div id="collapseMSTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+       <p>In questo esercizio vengono introdotte le modalità di progettazione Top-Down (dall'assieme al compontente) e Bottom-Up (dal componente all'assieme).</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di un componente locale</li>
+         <li>Creazione di un rifeirimento esterno</li>
+         <li>Inserimento di un componente esistente</li>
+         <li>Vincoli di posizionamento</li>
+       </ul>                 
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/Intro_Assembly/Intro_Assembly.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Intro_Assembly/Intro_Assembly.zip" target="_blank">File di esercizio</a></li>  
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3   Posizionamento di componenti -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSThree">
+        <h3 style="padding:0px; margin:0px">Posizionamento di componenti</h3>
+      </a>
+    </div>
+    <div id="collapseMSThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo esercizio vengono mostrate le modalità di posizionamento dei componenti dell'assieme.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Posiziomanento solido</li>
+         <li>Posizionamento multiplo</li>
+         <li>Contrassegno</li>
+         <li>Animazione dell'assieme</li>
+         </ul>                     
+    </div> 
+        <div class="span4" >
+ <ul>
+          <li><a href="~/Content/eLearning/IT/TD_Mating/TD_Mating.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/TD_Mating/TD_Mating.zip" target="_blank">File di esercizio</a></li>   
+   <br>
+          <li><a href="~/Content/eLearning/IT/17_Mating components/Mating_components_1-3/Mating_components_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/17_Mating components/Mating_components_2-3/Mating_components_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+     <li><a href="~/Content/eLearning/IT/17_Mating components/Mating_components_3-3/Mating_components_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Verifica interferenze e gestione collisioni -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSFour">
+        <h3 style="padding:0px; margin:0px">Verifica interferenze e gestione collisioni</h3>
+      </a>
+    </div>
+    <div id="collapseMSFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+     
+         <p>In questo esercizio vengono illustrati i comandi di verifica delle interferenze e gestione delle collisioni.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Interferenze fra due gruppi di componenti</li>
+         <li>Interferenze all'interno dello stesso gruppo di componenti</li>
+         <li>Interferenze tra combinazioni di gruppi di componenti</li>
+         <li>Gestione delle collisioni</li>
+      </ul>                         
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Interference_Check/Interference_Check.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Interference_Check/Interference_Check.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 5  Rappresentazioni semplificate -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSFive">
+        <h3 style="padding:0px; margin:0px">Rappresentazioni semplificate</h3>
+      </a>
+    </div>
+    <div id="collapseMSFive" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+    <p>In questo esercizio viene mostrato come agevolare la gestione di assiemi di grandi dimensioni con l'utilizzo delle rappresentazioni semplificate.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Rappresentazione semplificata di componente x-ref</li>
+         <li>Tipologia delle rappresentazioni semplificate</li>
+         <li>Creazione di una nuova rappresentazione semplificata</li>
+         <li>Attivazione delle rappresentazioni esistenti</li>
+      </ul>                 
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Light_Represent/Light_Represent.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Light_Represent/Light_Represent.zip" target="_blank">File di esercizio</a></li>
+     <br>
+          <li><a href="~/Content/eLearning/IT/19_Assembly_Management/2_Light_Representations_1-1/RappresentazioniSemplificate_player.html" target="_blank">E-Tutorial 1/1</a></li>    
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 6  Riferimenti simbolici  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSSix">
+        <h3 style="padding:0px; margin:0px">Riferimenti simbolici </h3>
+      </a>
+    </div>
+    <div id="collapseMSSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+       <p>In questo esercizio viene mostrata la modalità di definizione ed individuazione di entità tramite riferimenti simbolici per una efficiente gestione dei posizionamenti.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Riferimenti simbolici di facce, spigoli e vertici di solidi e componenti</li>
+         <li>Riferimenti simbolici di piani, assi e punti datum</li>
+         <li>Riferimenti simbolici di curve e vertici di profilo</li>
+      </ul>                  
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Symb_Reference/Symb_Reference.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Symb_Reference/Symb_Reference.zip" target="_blank">File di esercizio</a></li>
+         <br>
+          <li><a href="~/Content/eLearning/IT/19_Assembly_Management/1_Symbolic_references_1-2/RiferimentiSimbolici01_player.html" target="_blank">E-Tutorial 1/2</a></li>
+          <li><a href="~/Content/eLearning/IT/19_Assembly_Management/1_Symbolic_references_2-2/RiferimentiSimbolici_ITA_02_player.html" target="_blank">E-Tutorial 2/2</a></li>    
+          </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+
+     <!--Accordion 7 - Constrassegni -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSSeven">
+        <h3 style="padding:0px; margin:0px">Constrassegni</h3>
+      </a>
+    </div>
+    <div id="collapseMSSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio vengono mostrate le modalità per salvare e recuperare le caratteristiche visive di un documento tramite i contrassegni.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Caratteristiche di un contrassegno</li>
+         <li>Creazione</li>
+         <li>Attivazione</li>
+         <li>Ricerca</li>
+         <li>Esportazione ed importazione</li>
+      </ul>                      
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Visual_Bookmark/Visual_Bookmark.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Visual_Bookmark/Visual_Bookmark.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <!--Accordion 8 Viste esplose -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSEight">
+        <h3 style="padding:0px; margin:0px">Viste esplose</h3>
+      </a>
+    </div>
+    <div id="collapseMSEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio vengono mostrate le modalità creazione della vista esplosa di un assieme.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Esplosione automatica dell'assieme</li>
+         <li>Esplosione manuale dell'assieme</li>
+         <li>Vista esplosa</li>
+         <li>Esplosione a passi</li>
+      </ul>               
+
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/Explode_Assembly/Explode_Assembly.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Explode_Assembly/Explode_Assembly.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       <!--Accordion 9 - Annotazioni -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSNine">
+        <h3 style="padding:0px; margin:0px">Annotazioni</h3>
+      </a>
+    </div>
+    <div id="collapseMSNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio vengono mostrate le modalità di inserimento delle annotazioni per una migliore descrizione dell'assieme.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di una annotazione</li>
+         <li>Visualizzazione</li>
+         <li>Modifica</li>
+      </ul>                         
+    </div> 
+        <div class="span4" >
+    <ul>
+          <li><a href="~/Content/eLearning/IT/Annotations/Annotations.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Annotations/Annotations.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+      
+    
+     
+             <!--Accordion 10 - Animazioni -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion8" href="#collapseMSTen">
+        <h3 style="padding:0px; margin:0px">Animazioni</h3>
+      </a>
+    </div>
+    <div id="collapseMSTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>Nel corso di questo esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di un’animazione (evoluzioni – variazioni)</li>
+         <li>Creazione di un file AVI</li>
+         <li>Controllo collisioni</li>
+         <li>Evoluzione telecamera</li>
+      </ul>                         
+    </div> 
+        <div class="span4" >
+    <ul>
+   
+      <li><a href="~/Content/eLearning/IT/18_Animation/Animation_1/ITA_ES18_Part01_player.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/18_Animation/Animation_2/ITA_PART02_FIX_player.html" target="_blank">E-Tutorial 2/3</a></li>
+           <li><a href="~/Content/eLearning/IT/18_Animation/Animation_3/Ita_fix_Camera_player.html" target="_blank">E-Tutorial 3/3</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+     
+     
+     
+     
+     
+     
+     
+     
+      
+</div>    
+  <a href="#"><p style="text-align:right;">Return to Top</p></a>
+     </div>
+        </div>
+           </div>  <!-- fine GESTIONE ASSIEMI -->
+
+
+<!-- PROGETTAZIONE DI FORME-->
+
+<!-- Progettazione di forme  -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="progettazione">Progettazione di forme</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion9">
+
+  <!--Accordion 1  - Curve da bozzetto - I -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFOne">
+        <h3 style="padding:0px; margin:0px">Curve da bozzetto - I </h3>
+      </a>
+    </div>
+    <div id="collapsePFOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+  <p>In questo esercizio si familiarizza con i metodi di valutazione delle forme per creare le curve 2D dell'oggetto.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Inserimento immagini</li>
+         <li>Scalatura immagini</li>
+         <li>Modifica immagini</li>
+         <li>Utilizzo comandi 2D per ottenere una forma vettoriale dalle immagini</li>
+       </ul>                             
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher1/Curve_Sketcher1.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher1/Curve_Sketcher1.zip" target="_blank">File di Esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Curve da bozzetto - II-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFTwo">
+        <h3 style="padding:0px; margin:0px">Curve da bozzetto - II</h3>
+      </a>
+    </div>
+    <div id="collapsePFTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+      <p>In questo esercizio vengono presentate le modalità di generazione di curve 3D partendo da una tavola bidimensionale.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Traformazioni geometriche</li>
+         <li>Analisi di entità</li>
+         <li>Curva 2D in 3D</li>
+      </ul>                   
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher2/Curve_Sketcher2.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher2/Curve_Sketcher2.zip" target="_blank">File di esercizio</a></li>  
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3  - Curve da bozzetto - III -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFThree">
+        <h3 style="padding:0px; margin:0px">Curve da bozzetto - III</h3>
+      </a>
+    </div>
+    <div id="collapsePFThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo esercizio vengono mostrate altre modalità per definire le curve caratteristiche di una utilitaria partendo da una serie di immagini.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Curve per punti di controllo</li>
+         <li>Collegamento tra curve</li>
+         <li>Approssimazione di curve</li>
+         <li>Analisi di curve</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher3/Curve_Sketcher3.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Curve_Sketcher3/Curve_Sketcher3.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Introduzione alle superfici -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFFour">
+        <h3 style="padding:0px; margin:0px">Introduzione alle superfici</h3>
+      </a>
+    </div>
+    <div id="collapsePFFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio le tecniche base di modellazione di superfici tramite la creazione di una biscottiera.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Superficie lineare</li>
+         <li>Superficie loft</li>
+         <li>Superficie piana</li>
+         <li>Implosione a solidi</li>
+         <li>Modellazione zona</li>
+      </ul>                    
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Intro_Surfaces/Intro_Surfaces.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Intro_Surfaces/Intro_Surfaces.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 6 Modellazione di superfici - I -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFSix">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - I</h3>
+      </a>
+    </div>
+    <div id="collapsePFSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+    <p>In questo esercizio vengono utilizzate tecniche di modellazione di superfici per creare un modello di apribottiglie.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Unione di curve</li>
+         <li>Superfici di rotazione</li>
+         <li>Superfici loft</li>
+         <li>Taglio di superfici</li>
+         <li>Flessione globale</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg1/Surface_Mdlg1.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg1/Surface_Mdlg1.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7   Modellazione di superfici - II -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFSeven">
+        <h3 style="padding:0px; margin:0px"> Modellazione di superfici - II</h3>
+      </a>
+    </div>
+    <div id="collapsePFSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+ <p>In questo esercizio vengono applicate tecniche di modellazione solida alla creazione di una barca a vela.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Superfici Nurbs</li>
+         <li>Riduzione del numero di punti di controllo</li>
+         <li>Analisi di curvatura</li>
+         <li>Approssimazione di superfici</li>
+         <li>Comparazione di superfici tramite linee di sezione</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg2/Surface_Mdlg2.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg2/Surface_Mdlg2.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+
+     <!--Accordion 8 - Modellazione di superfici - III -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFEight">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - III</h3>
+      </a>
+    </div>
+    <div id="collapsePFEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>In questo esercizio verrà mostrato come costruire un joystick di plastica.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione globale</li>
+         <li>Capping</li>
+         <li>Modellazione ibrida</li>
+      </ul>                     
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg3/Surface_Mdlg3.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg3/Surface_Mdlg3.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <!--Accordion 9 - Modellazione di superfici - IV -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFNine">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - IV</h3>
+      </a>
+    </div>
+    <div id="collapsePFNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio viene mostrato come modellare una teiera.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di spline e geometria 3D</li>
+         <li>Modifica di curve per punti di controllo</li>
+         <li>Creazione di superfici e modifica tramite punti di controllo</li>
+         <li>Stiramento di superfici</li>
+         <li>Collegamento di superfici</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg4/Surface_Mdlg4.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg4/Surface_Mdlg4.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       <!--Modellazione di superfici - V -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFNTen">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - V</h3>
+      </a>
+    </div>
+    <div id="collapsePFNTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio vengono mostrate tecniche di modellazione ibrida per modificare un sedile da stadio.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di geometria 3D a partire da geometria 2D</li>
+         <li>Modellazione di superfici da curve e da profili</li>
+         <li>Modellazione ibrida di solidi statici</li>
+         <li>Modellazione ibrida con lavorazioni booleane</li>
+         <li>Modellazione ibrida con ridefinizione delle forme statiche</li>
+      </ul>                     
+    </div> 
+        <div class="span4" >
+   <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg5/Surface_Mdlg5.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg5/Surface_Mdlg5.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       
+       <!-- Modellazione di superfici - VI -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePFEleven">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - VI</h3>
+      </a>
+    </div>
+    <div id="collapsePFEleven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>In questo esercizio vengono mostrate tecniche avanzate di modellazione ibrida per creare la suola di una scarpa.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione associativa di superfici</li>
+         <li>Modellazione ibrida con divisione di facce</li>
+         <li>Modellazione associativa di curve</li>
+         <li>Modellazione ibrida con oggesti smart</li>
+      </ul>                    
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg6/Surface_Mdlg6.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg6/Surface_Mdlg6.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+         <!--Accordion 12 - Modellazione di superfici - VII -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion9" href="#collapsePLMwelve">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici - VII</h3>
+      </a>
+    </div>
+    <div id="collapsePLMwelve" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+       <p>In questo esercizio vengono create le forme della carrozzeria di una auto da città.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione di superfici</li>
+         <li>Collegamento di superfici</li>
+         <li>Estrusione globale</li>
+         <li>Riflessione virtuale</li>
+         <li>Modellazione ibrida</li>
+      </ul>                        
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg7/Surface_Mdlg7.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Surface_Mdlg7/Surface_Mdlg7.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+     
+</div>    
+  <a href="#"><p style="text-align:right;">Return to Top</p></a>
+     </div>
+        </div>
+          </div>  <!-- fine Modellazione di parti -->
+
+
+
+
+<!-- PROGETTAZIONE AVANZATA DI FORME-->
+
+<!-- Progettazione avanzata di forme  -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="proavanzata">Progettazione avanzata di forme</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion10">
+
+  <!--Accordion 1  - Modellazione di superfici associative - I -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFAOne">
+        <h3 style="padding:0px; margin:0px">Modellazione di superfici associative </h3>
+      </a>
+    </div>
+    <div id="collapsePFAOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+  <p>In questo esercizio si definiscono le forme della calotta di un tosaerba giocattolo.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione associativa di curve</li>
+         <li>Modellazione associativa di superfici</li>
+         <li>Modellazione ibrida di superfici</li>
+       </ul>                                         
+    </div> 
+        <div class="span4" >
+       <ul>
+          <li><a href="~/Content/eLearning/IT/Asso_SurfMdlg/Asso_SurfMdlg.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Asso_SurfMdlg/Asso_SurfMdlg.zip" target="_blank">File di esercizio</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Modellazione Globale - I -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFATwo">
+        <h3 style="padding:0px; margin:0px">Modellazione Globale - I</h3>
+      </a>
+    </div>
+    <div id="collapsePFATwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+     <p>In questo esercizio vengono modificate le superfici di una carrozzeria di auto da corsa.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione globale interattiva</li>
+         <li>Comando ripeti globale</li>
+         <li>Flessione globale</li>
+         <li>Torsione globale</li>
+         <li>Flessione radiale globale</li>
+      </ul>                             
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/GSM_I/GSM_I.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/GSM_I/GSM_I.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--Accordion 3  - Flessione Globale -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFAThree">
+        <h3 style="padding:0px; margin:0px">Flessione Globale</h3>
+      </a>
+    </div>
+    <div id="collapsePFAThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio viene approfondito il comando di flessione globale.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Flessione globale su solidi</li>
+         <li>Allungamento tramite flessione globale</li>
+      </ul>         
+    </div> 
+        <div class="span4" >
+     <ul>
+          <li><a href="~/Content/eLearning/IT/GlobalBend_Mdlg/GlobalBend_Mdlg.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/GlobalBend_Mdlg/GlobalBend_Mdlg.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Modellazione globale: torsione -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFAFour">
+        <h3 style="padding:0px; margin:0px">Modellazione globale: torsione</h3>
+      </a>
+    </div>
+    <div id="collapsePFAFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio viene approfondito l'uso del comando di modellazione globale delle forme (GSM).</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione globale applicata a solidi</li>
+         <li>Modellazione globale di torsione</li>
+         <li>Ridefinizione delle lavorazione di torsione globale</li>
+      </ul>                      
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/GlobalTwist_Mdlg/GlobalTwist_Mdlg.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/GlobalTwist_Mdlg/GlobalTwist_Mdlg.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Modellazione globale: Capping, torsione e ripeti -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFASix">
+        <h3 style="padding:0px; margin:0px">Modellazione globale: Capping, torsione e ripeti</h3>
+      </a>
+    </div>
+    <div id="collapsePFASix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+    <p>In questo esercizio vengono utilizzate tecniche di modellazione di superfici per creare un modello di apribottiglie.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Unione di curve</li>
+         <li>Superfici di rotazione</li>
+         <li>Superfici loft</li>
+         <li>Taglio di superfici</li>
+         <li>Flessione globale</li>
+      </ul>               
+    </div> 
+        <div class="span4" >
+           <ul>
+          <li><a href="~/Content/eLearning/IT/GlobalTwist_Replicate/GlobalTwist_Replicate.pdf"target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/GlobalTwist_Replicate/GlobalTwist_Replicate.zip"target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7   Modellazione Zona su un solido parametrico -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFASeven">
+        <h3 style="padding:0px; margin:0px"> Modellazione Zona su un solido parametrico</h3>
+      </a>
+    </div>
+    <div id="collapsePFASeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+ <p>In questo esercizio si approfondisce l'uso della modellazione zona.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione ibrida associativa</li>
+         <li>Modellazione zona associativa</li>
+      </ul>                          
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/ZM_Parametric/ZM_Parametric.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/ZM_Parametric/ZM_Parametric.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+
+     <!--Accordion 8 - Modellazione di parti in plastica 1-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFAEight">
+        <h3 style="padding:0px; margin:0px">Modellazione di parti in plastica 1/2</h3>
+      </a>
+    </div>
+    <div id="collapsePFAEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio viene creato l'involucro di una macchina da caffè
+ in plastica.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modellazione solida</li>
+         <li>Modellazione di superfici</li>
+         <li>Modellazione globale</li>
+         <li>Operatori booleani</li>
+      </ul>                                 
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/Plastic_Mdlg1/Plastic_Mdlg1.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Plastic_Mdlg1/Plastic_Mdlg1.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <!--Accordion 9 - Modellazione di parti in plastica 2 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFANine">
+        <h3 style="padding:0px; margin:0px">Modellazione di parti in plastica 2/2</h3>
+      </a>
+    </div>
+    <div id="collapsePFANine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>Questo esercizio completa il precendete: "Modellazione solida di parti in plastica".</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Modello derivato</li>
+         <li>Oggetti smart</li>
+         <li>Operatori    </li>
+      </ul>     
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/Plastic_Mdlg2/Plastic_Mdlg2.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Plastic_Mdlg2/Plastic_Mdlg2.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+       <!--Punzone e matrice -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion10" href="#collapsePFANTen">
+        <h3 style="padding:0px; margin:0px">Punzone e matrice</h3>
+      </a>
+    </div>
+    <div id="collapsePFANTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+     <p>In questo esercizio vengono creati punzone e matrice per uno stampo.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Importazione formati standard</li>
+         <li>Estrazione delle superfici per il piano di separazione</li>
+         <li>Creazione del piano di separazione</li>
+         <li>Sigillatura dei fori</li>
+         <li>Operatori booleani</li>
+      </ul>                                 
+    </div> 
+        <div class="span4" >
+   <ul>
+          <li><a href="~/Content/eLearning/IT/Core_Cavity/Core_Cavity.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Core_Cavity/Core_Cavity.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+     
+</div>    
+  <a href="#"><p style="text-align:right;">Return to Top</p></a>
+     </div>
+       </div>
+          </div>  <!-- fine PROGETTAZIONE DI FORME -->
+
+
+<!-- INIZIO RENDERING -->
+<!-- Rendering -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="rendering">Rendering</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion11">
+
+  <!--Accordion 1  Rendering dinamico in alta qualità-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion11" href="#collapseROne">
+        <h3 style="padding:0px; margin:0px">Rendering dinamico in alta qualità</h3>
+      </a>
+    </div>
+    <div id="collapseROne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      <p>Video - Rendering dinamico in altra qualità:</p>
+       <ul>
+         <li>Modalità vista in alta qualità</li>
+         <li>Luci ed ombre</li>
+         <li>Riflessione</li>
+         <li>Materiali</li>
+         <li>Sfondo</li>
+       </ul>        
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/_High_Quality_Dynamic_Rendering/High_Quality_Dynamic_Rendering_1-2/High_Quality_Dynamic_Rendering_1-2.html" target="_blank">E-Tutorial 1/2</a></li>
+          <li><a href="~/Content/eLearning/IT/_High_Quality_Dynamic_Rendering/High_Quality_Dynamic_Rendering_2-2/High_Quality_Dynamic_Rendering_2-2.html" target="_blank">E-Tutorial 2/2</a></li>
+        </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 -  Rendering statico: concetti introduttivi  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion11" href="#collapseRTwo">
+        <h3 style="padding:0px; margin:0px">Rendering statico: concetti introduttivi</h3>
+      </a>
+    </div>
+    <div id="collapseRTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>Video - Rendering Statico: concetti introduttivi</p>
+       <ul>
+         <li>Anteprima</li>
+         <li>Ray tracing</li>
+         <li>Final Gathering</li>
+         <li>Materiali</li>
+         <li>Illuminazione</li>
+         <li>Decalcomanie</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+<ul>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Basic_Concepts/Static_Rendering_Basic_Concepts_1-3/Static_Rendering_Basic_Concepts_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Basic_Concepts/Static_Rendering_Basic_Concepts_2-3/Static_Rendering_Basic_Concepts_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+           <li><a href="~/Content/eLearning/IT/_Static_Rendering_Basic_Concepts/Static_Rendering_Basic_Concepts_3-3/Static_Rendering_Basic_Concepts_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+         
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+
+  </div><!-- fine Accordion -->
+      
+      
+      
+      <!--Accordion 3 -  Rendering statico: gestione dei materiali  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion11" href="#collapseRThree">
+        <h3 style="padding:0px; margin:0px">Rendering statico: gestione dei materiali</h3>
+      </a>
+    </div>
+    <div id="collapseRThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>Video - Rendering statico: gestione dei materiali</p>
+       <ul>
+         <li>Materiali della libreria di rendering</li>
+         <li>Applicare il materiale ai solidi</li>
+         <li>Appicare il materiale alle superfici</li>
+         <li>Modificare i materiali</li>
+         <li>Salvare materiali personalizzati</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+<ul>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Material_Management/Static_rendering_Material managements_1-4/Static_rendering_Material managements_1-4.html" target="_blank">E-Tutorial 1/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Material_Management/Static_rendering_Material managements_2-4/Static_rendering_Material managements_2-4.html" target="_blank">E-Tutorial 2/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Material_Management/Static_rendering_Material managements_3-4/Static_rendering_Material managements_3-4.html" target="_blank">E-Tutorial 3/4</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Material_Management/Static_rendering_Material managements_4-4/Static_rendering_Material managements_4-4.html" target="_blank">E-Tutorial 4/4</a></li>
+         
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+
+  </div><!-- fine Accordion -->
+  
+
+          
+   <!--Accordion 4 -  Rendering statico: impostazione delle luci-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion11" href="#collapseRFour">
+        <h3 style="padding:0px; margin:0px">Rendering statico: impostazione delle luci</h3>
+      </a>
+    </div>
+    <div id="collapseRFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>Video - Rendering statico: impostazione delle luci</p>
+       <ul>
+         <li>Importare un sistema di luci dalla libreria</li>
+         <li>Modifica di una luce</li>
+         <li>Creazione di nuove luci</li>
+         <li>Tipi di luci piú comuni</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+<ul>
+ <li><a href="~/Content/eLearning/IT/_Static_Rendering_Light_Editing/static_rendering_light_editing_1-4/static_rendering_light_editing_1-4.html" target="_blank">E-Tutorial 1/3</a></li>
+ <li><a href="~/Content/eLearning/IT/_Static_Rendering_Light_Editing/static_rendering_light_editing_2-4/static_rendering_light_editing_2-4.html" target="_blank">E-Tutorial 2/3</a></li>
+ <li><a href="~/Content/eLearning/IT/_Static_Rendering_Light_Editing/static_rendering_light_editing_3-4/static_rendering_light_editing_3-4.html" target="_blank">E-Tutorial 3/3</a></li>
+ <li><a href="~/Content/eLearning/IT/_Static_Rendering_Light_Editing/static_rendering_light_editing_4-4/static_rendering_light_editing_4-4.html" target="_blank">E-Tutorial 4/4</a></li> 
+         
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+
+  </div><!-- fine Accordion --> 
+    
+  
+  <!--Accordion 5 -  Rendering statico: scenario  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion11" href="#collapseRFive">
+        <h3 style="padding:0px; margin:0px">Rendering statico: scenario</h3>
+      </a>
+    </div>
+    <div id="collapseRFive" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>Video - Rendering statico: scenario</p>
+       <ul>
+         <li>Aggiungere un'immagine di sfondo</li>
+         <li>Aggiungere effetti in primo piano (Foreground)</li>
+         <li>Aggiungere un'ambientazione (Scenery)</li>
+      </ul>                       
+    </div> 
+        <div class="span4" >
+<ul>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Scenery/Static_rendering_scenery_1-3/Static_rendering_scenery_1-3.html" target="_blank">E-Tutorial 1/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Scenery/Static_rendering_scenery_2-3/Static_rendering_scenery_2-3.html" target="_blank">E-Tutorial 2/3</a></li>
+          <li><a href="~/Content/eLearning/IT/_Static_Rendering_Scenery/Static_rendering_scenery_3-3/Static_rendering_scenery_3-3.html" target="_blank">E-Tutorial 3/3</a></li>
+      <!--  <li><a href="~/Content/eLearning/IT/_Static_Rendering_Scenery/Static_rendering_scenery_3-3/Static_rendering_scenery_4-4.html" target="_blank">E-Tutorial 4/4</a></li> -->
+         
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+
+  </div><!-- fine Accordion -->
+    
+      
+ </div>    
+    <a href="#"><p style="text-align:right;">Return to Top</p></a>
+        </div>
+            </div>
+               </div><!-- fine RENDERING -->
+
+
+
+<!-- PLM-->
+
+<!-- PLM  -->
+   <div class="row-fluid centerElement blockPadding" style="padding-bottom: 0em">  
+    <div class="offset4 span7"  style="border-top: 5px solid #e20613; padding-top:.5em;">
+      <h2 id="plm">PLM</h2>
+    </div> 
+    <div class="row-fluid centerElement">  
+    <div class="offset4 span7" >
+
+    <div class="accordion" id="accordion12">
+
+  <!--Accordion 1  - Esplorazione documenti 1  -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMOne">
+        <h3 style="padding:0px; margin:0px">Esplorazione documenti 1 </h3>
+      </a>
+    </div>
+    <div id="collapsePLMOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+  <p>In questo esercizio approfondiamo l'esplorazione dei documenti con il PDM.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Proprietà dei componenti</li>
+         <li>Layout della tavola</li>
+         <li>Cartiglio</li>
+         <li>Comando di salva in archivio</li>
+         <li>Visualizzazione delle relazioni</li>
+      </ul>                                                  
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Prj_Browser2/Prj_Browser2.pdf" target="_blank">E-Training</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  <!--Accordion 2 - Esplorazione documenti 2 -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMTwo">
+        <h3 style="padding:0px; margin:0px">Esplorazione documenti 2</h3>
+      </a>
+    </div>
+    <div id="collapsePLMTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+     <p>In questo esercizio approfondiamo l'esplorazione dei documenti con il PDM.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Proprietà dei componenti</li>
+         <li>Layout della tavola</li>
+         <li>Cartiglio</li>
+         <li>Comando di salva in archivio</li>
+         <li>Visualizzazione delle relazioni</li>
+      </ul>                                
+    </div> 
+        <div class="span4" >
+         <ul>
+          <li><a href="~/Content/eLearning/IT/Prj_Browser2/Prj_Browser2.pdf" target="_blank">E-Training</a></li>
+          </ul>
+     </div>   
+  </div> 
+
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 3  - Lista componenti (BOM) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMThree">
+        <h3 style="padding:0px; margin:0px">Lista componenti (BOM)</h3>
+      </a>
+    </div>
+    <div id="collapsePLMThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+         <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+      <p>In questo esercizio si approfondisce il concetto di distinta (BOM).</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Distinta base (BOM)</li>
+         <li>Componenti</li>
+         <li>Vista esplosa</li>
+         <li>Dati componente</li>
+      </ul>                 
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Partlist_BOM/Partlist_BOM.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Partlist_BOM/Partlist_BOM.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+
+  <!--Accordion 4  Introduzione a thinkteam -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMFour">
+        <h3 style="padding:0px; margin:0px">Introduzione a thinkteam</h3>
+      </a>
+    </div>
+    <div id="collapsePLMFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio si mostra come gestire i dati componente ed i dati documento di un piccolo assieme.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Analizzatore di assieme</li>
+         <li>Dati componente</li>
+         <li>Dati documento</li>
+         <li>Salva in archivio</li>
+      </ul>                             
+    </div> 
+        <div class="span4" >
+      <ul>
+          <li><a href="~/Content/eLearning/IT/Intro_thinkteam/Intro_thinkteam.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Intro_thinkteam/Intro_thinkteam.zip" target="_blank">File di esercizio</a></li>   
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+  
+  <!--Accordion 6 - Creazione di tavole usando esplorazione documenti -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMSix">
+        <h3 style="padding:0px; margin:0px">Creazione di tavole usando esplorazione documenti</h3>
+      </a>
+    </div>
+    <div id="collapsePLMSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+ <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+     <p>In questo esercizio si creano collegamenti tra i dati dei documenti e le tavole.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Esplorazione documenti</li>
+         <li>Inserimento bolle</li>
+         <li>Lista componenti</li>
+         <li>Lista materie prime</li>
+         <li>Salva in archivio</li>
+      </ul>                           
+    </div> 
+        <div class="span4" >
+            <ul>
+          <li><a href="~/Content/eLearning/IT/Dwg_Project/Dwg_Project.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Dwg_Project/Dwg_Project.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>   
+  </div> 
+      </div>
+    </div>
+  </div>
+
+  <!--Accordion 7   Calcolo distinta base (EBOM) -->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMSeven">
+        <h3 style="padding:0px; margin:0px"> Calcolo distinta base (EBOM)</h3>
+      </a>
+    </div>
+    <div id="collapsePLMSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+
+ <p>In questo esercizio si crea una distinta base tecnica.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Viste di selezione</li>
+         <li>Report excel</li>
+         <li>Ciclo di vita</li>
+         <li>Confronto di BOM</li>
+         <li>BOM alla data</li>
+      </ul>                                  
+    </div> 
+        <div class="span4" >
+        <ul>
+          <li><a href="~/Content/eLearning/IT/EBOM_Calcn/EBOM_Calcn.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/EBOM_Calcn/EBOM_Calcn.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>   
+  </div> 
+    </div>
+  </div>  
+ </div> 
+
+     <!--Accordion 8 - Gestione nuove versioni-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMEight">
+        <h3 style="padding:0px; margin:0px">Gestione nuove versioni</h3>
+      </a>
+    </div>
+    <div id="collapsePLMEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+   <p>In questo esercizio si creano nuove versioni di componenti e documenti.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Versionamento componenti</li>
+         <li>Versionamento documenti</li>
+      </ul>                                            
+    </div> 
+        <div class="span4" >
+           <ul>
+          <li><a href="~/Content/eLearning/IT/Versioning/Versioning.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/Versioning/Versioning.zip" target="_blank">File di esercizio</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <!--Accordion 9 - Librerie 2D/3D: utilizzo-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMNine">
+        <h3 style="padding:0px; margin:0px">Librerie 2D/3D: utilizzo</h3>
+      </a>
+    </div>
+    <div id="collapsePLMNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio si utilizza un componente di catalogo.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Installazione di thinkparts</li>
+         <li>Importazione dei cataloghi</li>
+         <li>Copia di componenti importati da catalogo</li>
+         <li>Sostituzione di componenti importati da catalogo</li>
+      </ul>                         
+    </div> 
+        <div class="span4" >
+          <ul>
+          <li><a href="~/Content/eLearning/IT/2D3D_Usage/2D3D_Usage.pdf" target="_blank">E-Training</a></li>
+          <li><a href="~/Content/eLearning/IT/2D3D_Usage/2D3D_Usage.zip" target="_blank">File di esercizio</a></li>
+         
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+
+
+      <!--Accordion 10 - Librerie 2D/3D: creazione e gestione-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion12" href="#collapsePLMTen">
+        <h3 style="padding:0px; margin:0px">Librerie 2D/3D: creazione e gestione</h3>
+      </a>
+    </div>
+    <div id="collapsePLMTen" class="accordion-body collapse">
+      <div class="accordion-inner">
+  <div class="row-fluid centerElement">  
+    <div class="span8" >
+      
+    <p>In questo esercizio si crea un nuovo componente di catalogo.</p>
+      <p>Nel corso dell'esercizio verranno esaminati i seguenti concetti e i relativi comandi:</p>
+       <ul>
+         <li>Creazione di un modello parametrico</li>
+         <li>Vincoli di posizionamento simbolico</li>
+         <li>Dimensionamento standard per la famiglia di componenti</li>
+         <li>Caricamento e modifica di un modello esistente</li>
+         <li>Numerazione di componenti con dati componente completi</li>
+      </ul>                        
+    </div> 
+        <div class="span4" >
+           <ul>
+          <li><a href="~/Content/eLearning/IT/2D3D_CreationMgmt/2D3D_CreationMgmt.pdf" target="_blank">E-Training</a></li>
+          </ul>
+     </div>  
+          </div>
+      </div>
+    </div>
+  </div>  <!-- fine Accordion -->
+     </div>  
+ <a href="#"><p style="text-align:right;">Return to Top</p></a>
+   
+    </div>
+       </div>
+    
+                 </div><!-- finePLM -->
+
+
+</body>
+</html>

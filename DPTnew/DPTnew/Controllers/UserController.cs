@@ -1,0 +1,629 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DPTnew.Models;
+using System.Web.Security;
+using System.IO;
+using System.Xml;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
+using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
+
+
+namespace DPTnew.Controllers
+{
+    [Authorize]
+    public class UserController : BaseController
+    {
+
+        private async Task<HttpResponseMessage> SendJsonAsync(string uri, string body)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                StringContent stringContent = new StringContent(body, UnicodeEncoding.UTF8, "application/json");
+
+                HttpResponseMessage responseMessage = new HttpResponseMessage();
+                try
+                {
+                    responseMessage = await httpClient.PostAsync(uri, stringContent);
+                }
+                catch (Exception ex)
+                {
+                    responseMessage.StatusCode = HttpStatusCode.InternalServerError;
+                    //    responseMessage.ReasonPhrase = string.Format("RestHttpClient.SendRequest failed: {0}", ex);
+                }
+                return responseMessage;
+            }
+        }
+
+
+        //private Utility functions
+
+        private string fileToString(HttpPostedFileBase file)
+        {
+            var totalfile = "";
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(file.InputStream))
+            {
+                totalfile = reader.ReadToEnd();
+            }
+
+            return totalfile;
+        }
+
+        private string encodeC2V(string c2v)
+        {
+            string[] separatingChars = { "?>\n" };
+            string[] words = c2v.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
+            if (words.Length != 2)
+            {
+                string[] separatingChars2 = { "?>\r\n" };
+                words = c2v.Split(separatingChars2, System.StringSplitOptions.RemoveEmptyEntries);
+            }
+
+            if (words.Length != 2)
+            {
+                throw new Exception("Incorrect .C2V");
+            }
+            string base64Decoded = words[1];
+            base64Decoded = base64Decoded.TrimEnd('\n');
+            base64Decoded = base64Decoded.TrimEnd('\r');
+            string base64Encoded;
+            byte[] data = System.Text.Encoding.UTF8.GetBytes(base64Decoded);
+            base64Encoded = System.Convert.ToBase64String(data);
+            return base64Encoded;
+
+        }
+
+
+        // GET: /Licenses/
+        public ActionResult Licenses()
+        {
+            var licenses = GetLicenses();
+            ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
+            ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
+            //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
+            
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
+            ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Export(LicenseBase license)
+        {
+            return View(license);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Entitlement license)
+        {
+            if (ModelState.IsValid)
+            { }
+
+            return View(license);
+        }
+
+        [HttpPost]
+        public ActionResult Validate(string licenseid)
+        {
+
+            ViewBag.LicenseId = licenseid;
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> ExportLicense(LicenseBase l)
+        {
+            LicenseView currentlicense = null;
+            string dpt_Company;
+            using (var context = new DptContext())
+            {
+                currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
+                //var useronline = Membership.GetUser();
+                //var user = context.Contacts.Single(u => u.Email == useronline.UserName);
+                //dpt_Company = user.AccountNumber;
+                dpt_Company = currentlicense.AccountNumber;
+            }
+
+
+            if (currentlicense != null && currentlicense.Version == "2015")
+            {
+                var now = System.DateTime.Now;
+                Regex licensergx = new Regex(@"^KID[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID);
+                var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+                var isTdVar = currentlicense.PwdCode.StartsWith("VA");
+                //check for export
+                if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
+                {
+                    if (isLocal && !isEval && !isTdVar)
+                    {
+                        SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
+
+                        ue.CrmId = dpt_Company;
+                        ue.EntType = "PROTECTIONKEY_UPDATE";
+                        ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
+                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
+
+                        ue.Encoded = true;
+                        ue.C2V = "";
+
+                        string input = JsonConvert.SerializeObject(ue);
+
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+
+                        HttpResponseMessage response = await SendJsonAsync(uri, input);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (var context = new DptContext())
+                            {
+                                //update state in db
+                                currentlicense.Installed = 0;
+                                currentlicense.Exported = 1;
+                                context.Licenses.Attach(currentlicense);
+                                var entry = context.Entry(currentlicense);
+                                entry.Property(x => x.Installed).IsModified = true;
+                                entry.Property(x => x.Exported).IsModified = true;
+                                //context.Entry(currentlicense).State = EntityState.Modified;
+                                context.SaveChanges();
+                            }
+
+                            ViewBag.ok1 = "You have exported your license.";
+                            ViewBag.ok2 = "You are going to receive a .v2c to install.";
+                            return View("Success");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("EXPORT", "Something went wrong. It's impossible to export the license.");
+                            return View("Export", l);
+                        }
+
+                    }
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("EXPORT", "You can't export this license. Contact think3 Customer Care");
+            return View("Export", l);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> ValidateC2V(string Licenseid, HttpPostedFileBase file)
+        {
+            var success = false;
+            LicenseView currentlicense = null;
+
+            if (file != null)
+            {
+
+                using (var context = new DptContext())
+                {
+                    currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == Licenseid);
+                }
+
+                if (currentlicense.Exported == 0)
+                {
+                    ModelState.AddModelError("VALIDATE", "You haven't exported this license.");
+                    return View("Validate");
+                }
+                string filestring = fileToString(file);
+                string c2v;
+                try
+                {
+                    c2v = encodeC2V(filestring);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("VALIDATE", "The file you have uploaded is not correct");
+                    return View("Validate");
+
+                }
+                //build of JSON
+                JObject o = new JObject();
+                o["Encoded"] = true;
+                o["C2V"] = c2v;
+
+                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "http");
+
+                HttpResponseMessage response = await SendJsonAsync(uri, o.ToString());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = response.Content.ReadAsStringAsync().Result;
+                    JObject contentresult = JObject.Parse(content);
+
+                    var currentpkey = currentlicense.MachineID.Remove(0, 3);
+
+                    string pkey = (string)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["id"];
+
+                    //if c2v is related to the correct key
+                    if (currentpkey == pkey)
+                    {
+
+
+                        JObject key = (JObject)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"];
+
+                        var p = key.Property("product");
+                        //check if there are products 
+                        if (p == null) success = true;
+                        else
+                        {
+
+                            JToken products = (JToken)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["product"];
+                            //check if product is single
+                            if (products is JObject)
+                            {
+                                JObject singleproduct = (JObject)products;
+                                //product is the same and has no feature (the features have been deleted)
+                                if (singleproduct["name"].ToString().Trim().ToLower() == currentlicense.ProductName && singleproduct.Property("feature") == null)
+                                {
+                                    //correct
+                                    success = true;
+                                }
+
+                            }
+                            //multiple products
+                            else if (products is JArray && !products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
+                                success = true;
+                        }
+                    }
+                }
+            }
+
+            if (success)
+            {
+                using (var context = new DptContext())
+                {
+                    //update state in db
+                    currentlicense.Exported = 0;
+                    currentlicense.Import = 1;
+                    currentlicense.MachineID = "";
+
+                    context.Licenses.Attach(currentlicense);
+                    var entry = context.Entry(currentlicense);
+                    entry.Property(x => x.Exported).IsModified = true;
+                    entry.Property(x => x.Import).IsModified = true;
+                    entry.Property(x => x.MachineID).IsModified = true;
+
+                    context.SaveChanges();
+                }
+
+                ViewBag.ok1 = "You have correctly exported your license.";
+                ViewBag.ok2 = "Now you can install the license in another pc.";
+                return View("Success");
+            }
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("VALIDATE", "The file you have uploaded is not correct.");
+            return View("Validate");
+
+        }
+
+        private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix)
+        {
+            var prodName = new JArray();
+            if (pwdCode.StartsWith("VA"))
+            {
+                prodName = new JArray(SafenetEntitlement.TDVARBundle.Select(x => x + productPostfix).ToArray());
+            }
+            else if (pwdCode.StartsWith("IX"))
+            {
+                prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+            }
+            else
+            {
+                prodName.Add(productName + productPostfix);
+                if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
+                    prodName.Add("ThinkTeamDOC" + productPostfix);
+            }
+
+            return prodName;
+        }
+        [HttpPost]
+        public async Task<ActionResult> CreateLicense(Entitlement l)
+        {
+            //common variables
+            LicenseView currentlicense = null;
+            string type = "";
+            string dpt_Company = "";
+            string filestring = "";
+            string c2v;
+            string input = "";
+
+
+            if (l.file != null)
+            {
+                filestring = fileToString(l.file);
+                int index1 = filestring.IndexOf("SL-AdminMode");
+                int index2 = filestring.IndexOf("SL-UserMode");
+                if (index1 == -1 || index2 == -1)
+                {
+                    ModelState.AddModelError("CREATE", "The file you have uploaded is not correct");
+                    return View("Create");
+                }
+                try
+                {
+                    c2v = encodeC2V(filestring);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("CREATE", "The file you have uploaded is not correct");
+                    return View("Create");
+
+                }
+
+
+                using (var context = new DptContext())
+                {
+                    currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
+                    //var useronline = Membership.GetUser();
+                    //var user = context.Contacts.Single(u => u.Email == useronline.UserName);
+                    //dpt_Company = user.AccountNumber;
+                    dpt_Company = currentlicense.AccountNumber;
+                }
+
+                if (currentlicense != null && currentlicense.Version == "2015")
+                {
+                    //check for import
+                    if (currentlicense.Import == 1)
+                    {
+
+                        //CHECK if is EVAL
+                        Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                        var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+
+                        if (currentlicense.LicenseType == "local")
+                        { //LOCAL
+                            if (currentlicense.ArticleDetail == "pl")
+                            {
+                                type = "PL";
+                            }
+                            else
+                            {
+                                if (isEval) { type = "EVAL"; }
+                                else { type = "EXPIR"; }
+                            }
+                        }
+                        else
+                        {//FLOATING
+                            if (currentlicense.ArticleDetail == "pl")
+                            {
+                                type = "NET_PL";
+                            }
+                            else
+                            {
+                                type = "NET_EXPIR";
+                            }
+                        }
+
+                        //building product
+                        string productPostfix = "_20152" + type;
+
+                        //EVAL or LOCAL PL
+                        if (type == "PL" || type == "EVAL")
+                        {
+
+                            SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
+                            e1.CrmId = dpt_Company;
+                            e1.EntType = "PRODUCT_KEY";
+
+                            //ADD PRODUCT
+                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
+
+                            e1.Encoded = true;
+                            e1.C2V = c2v;
+                            input = JsonConvert.SerializeObject(e1);
+
+                        }
+                        else
+                        {
+                            SafenetNetAsfLocalEntitlment e2 = new SafenetNetAsfLocalEntitlment();
+
+                            e2.CrmId = dpt_Company;
+                            e2.EntType = "PRODUCT_KEY";
+                            //ADD PRODUCT
+                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
+
+                            //ADDITIONAL PARAMETERS
+                            e2.SaotParams = new JArray();
+
+                            foreach (string pn in e2.ProductName)
+                            {
+                                JObject temp = new JObject();
+                                temp["Product"] = pn;
+
+                                //choose product
+                                if (type == "EXPIR" || type == "NET_EXPIR")
+                                {
+                                    DateTime med = new DateTime();
+                                    med = (System.DateTime)currentlicense.MaintEndDate;
+                                    temp["EXPIRATION_DATE"] = med.Date.ToString("yyyy-MM-dd");
+
+                                }
+                                if (type == "NET_PL" || type == "NET_EXPIR")
+                                {
+                                    temp["CONCURRENT_INSTANCES"] = currentlicense.Quantity.ToString();
+
+                                }
+                                e2.SaotParams.Add(temp);
+                            }
+
+                            e2.Encoded = true;
+                            e2.C2V = c2v;
+
+                            input = JsonConvert.SerializeObject(e2);
+                        }
+
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+
+                        HttpResponseMessage response = await SendJsonAsync(uri, input);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string content = response.Content.ReadAsStringAsync().Result;
+                            JObject contentresult = JObject.Parse(content);
+                            string pkey = (string)contentresult["activation"]["activationOutput"]["protectionKeyId"];
+                            if (pkey.Length > 10)
+                            {
+                                currentlicense.MachineID = "KID" + pkey;
+                            }
+                            else
+                            {
+                                currentlicense.MachineID = "BLU";
+
+                                for (int i = 0; i < (10 - pkey.Length); i++)
+                                {
+                                    currentlicense.MachineID = currentlicense.MachineID + "0";
+                                }
+
+                                currentlicense.MachineID = currentlicense.MachineID + pkey;
+                            }
+
+                            using (var context = new DptContext())
+                            {
+                                //update state in db
+                                currentlicense.Installed = 1;
+                                currentlicense.Import = 0;
+
+                                context.Licenses.Attach(currentlicense);
+                                var entry = context.Entry(currentlicense);
+                                entry.Property(x => x.Installed).IsModified = true;
+                                entry.Property(x => x.Import).IsModified = true;
+                                entry.Property(x => x.MachineID).IsModified = true;
+
+                                context.SaveChanges();
+                            }
+
+                            ViewBag.ok1 = "You have generated your license.";
+                            ViewBag.ok2 = "You are going to receive a .v2c to install.";
+                            return View("Success");
+                        }
+                    }
+
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license.");
+            return View("Create", l);
+
+        }
+
+        //
+        // GET: /Licenses/Details/5
+        /*
+         public ActionResult Details(string id)
+         {
+             License dpt_license = db.Licenses.Find(id);
+             if (dpt_license == null)
+             {
+                 return HttpNotFound();
+             }
+             return View(dpt_license);
+         }
+
+         //
+         // GET: /Licenses/Create
+        
+         public ActionResult Create()
+         {
+             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName");
+             return View();
+         }
+
+         //
+         // POST: /Licenses/Create
+
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public ActionResult Create(DPT_License dpt_license)
+         {
+             if (ModelState.IsValid)
+             {
+                 db.DPT_License.Add(dpt_license);
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+
+             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
+             return View(dpt_license);
+         }
+
+         //
+         // GET: /Licenses/Edit/5
+
+         public ActionResult Edit(string id = null)
+         {
+             DPT_License dpt_license = db.DPT_License.Find(id);
+             if (dpt_license == null)
+             {
+                 return HttpNotFound();
+             }
+             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
+             return View(dpt_license);
+         }
+
+         //
+         // POST: /Licenses/Edit/5
+
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public ActionResult Edit(DPT_License dpt_license)
+         {
+             if (ModelState.IsValid)
+             {
+                 db.Entry(dpt_license).State = EntityState.Modified;
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
+             return View(dpt_license);
+         }
+
+         //
+         // GET: /Licenses/Delete/5
+
+         public ActionResult Delete(string id = null)
+         {
+             DPT_License dpt_license = db.DPT_License.Find(id);
+             if (dpt_license == null)
+             {
+                 return HttpNotFound();
+             }
+             return View(dpt_license);
+         }
+
+         //
+         // POST: /Licenses/Delete/5
+
+         [HttpPost, ActionName("Delete")]
+         [ValidateAntiForgeryToken]
+         public ActionResult DeleteConfirmed(string id)
+         {
+             DPT_License dpt_license = db.DPT_License.Find(id);
+             db.DPT_License.Remove(dpt_license);
+             db.SaveChanges();
+             return RedirectToAction("Index");
+         }
+
+         protected override void Dispose(bool disposing)
+         {
+             db.Dispose();
+             base.Dispose(disposing);
+         }*/
+    }
+}

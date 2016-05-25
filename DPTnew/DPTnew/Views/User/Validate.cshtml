@@ -1,0 +1,24 @@
+﻿
+<p style ="font-size: 1.3em;" >@Html.ValidationMessage("VALIDATE")
+
+</p>
+
+
+
+<h2>Validate C2V</h2>
+
+@{
+    ViewBag.Title = "Validate C2V";
+}
+
+     
+    @using (Html.BeginForm("ValidateC2V", "User", FormMethod.Post, new{ enctype="multipart/form-data"}))
+    {
+
+       @Html.Hidden("Licenseid", (object) ViewBag.LicenseId)
+
+     <input type="file" name="file" id="file" accept =".c2v" required />
+
+ 
+  <input type="submit" />
+            }

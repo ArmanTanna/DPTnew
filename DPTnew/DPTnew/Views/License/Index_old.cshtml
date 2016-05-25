@@ -1,0 +1,201 @@
+﻿@model DPTnew.Models.LicenseView
+
+@{
+    ViewBag.Title = "Licenses";
+}
+
+
+@section Scripts {
+    @if (ViewBag.IsSuperUser){
+    <script src="~/Scripts/License/table_list_buttons.js"> </script>
+    }
+    <script type="text/javascript">
+
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            debugger
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+               '<tr>' +
+                    '<td><b>Start Date:</b></td>' +
+                    '<td>' + d.SD + '</td>' +
+
+                    '<td><b>End Date:</b></td>' +
+                    '<td>' + d.ED + '</td>' +
+                '</tr>' +
+                '<tr>' +
+
+                    '<td><b>Maintenance Start Date:</b></td>' +
+                    '<td>' + d.MSD + '</td>' +
+                    '<td><b>Maintenance End Date:</b></td>' +
+                    '<td>' + d.MED + '</td>'
+                +
+                '</tr>' +
+                 '<tr>' +
+                    '<td><b>Ancestor:</b></td>' +
+                    '<td>' + d.Ancestor + '</td>' +
+                    '<td><b>MachineID:</b></td>' +
+                    '<td>' + d.MachineID + '</td>'
+              +
+                '</tr>' +
+                '<tr>' +
+                    '<td><b>License Kind:</b></td>' +
+                    '<td>' + d.LicenseKind + '</td>' +
+                '</tr>' +
+                '<tr>' +
+                    '<td><b>Note:</b></td>' +
+                    '<td>' + d.Note + '</td>' +
+                '</tr>' +
+                     '</table>';
+        }
+
+
+
+
+        $(document).ready(function () {
+            var searchFilterHandler = function () {
+                debugger
+                var api = this.api();
+                api.$("td:not(.details-control)").click(function () {
+                    api.search(this.innerText).draw();
+                    //api.columns(this.cellIndex).search( this.innerHTML ).draw();
+                });
+            };
+
+
+            loadLicenseTable(null);
+
+            var myTable = $("#licenses").DataTable({
+                drawCallback: searchFilterHandler,
+                initComplete: searchFilterHandler,
+                serverSide: true,
+                processing: true,
+                ajax: {
+                    type: "POST",
+                    url: "License/Search"
+                },
+                columns: [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                { data: "AccountNumber" },
+                { data: "AccountName" },
+                { data: "LicenseID" },
+                { data: "ProductName" },
+                { data: "ArticleDetail" },
+                { data: "ServLicense1" }, //union of type and quantity
+                { data: "MED", type: "date", "width": "10%" },
+                { data: "ExpRange" },
+                { data: "Version" }
+                ],
+                orderClasses: false,
+               
+            });
+
+            
+
+
+            // Add event listener for opening and closing details
+            //$('#licenses tbody').on('click', 'td.details-control', function () {
+
+            //    var tr = $(this).closest('tr');
+            //    var row = myTable.row(tr);
+            //    var index = row.index();
+            //    if (row.child.isShown()) {
+            //        // This row is already open - close it
+            //        row.child.hide();
+            //        tr.removeClass('shown');
+            //    }
+            //    else {
+            //        // Open this row
+            //        var data = row.data();
+            //        row.child(format(row.data())).show();
+            //        tr.addClass('shown');
+            //    }
+            //});
+
+
+
+            //        yadcf.init(myTable, [
+            //{ column_number: 3, filter_default_label: "Select" },
+            //{ column_number: 4, filter_default_label: "Select" },
+            //{ column_number: 5, filter_default_label: "Select" }]);
+
+        });
+
+
+    </script>
+}
+
+@if (ViewBag.IsSuperUser)
+{
+    
+    <div id="machineid-dialog" title="Please enter your machineid" style="display: none;">
+        <input id="machineid" required="required" type="text" size="8" maxlength="8" />
+    </div>
+    <div id="pwd-dialog" title="Your requested password is" style="display: none;">
+        <strong style="position: absolute; margin-top: 20px;" id="password"></strong>
+    </div>
+}
+
+<table id="licenses" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleDetail)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ServLicense1)
+            </th>
+            @*
+        <th>
+            @Html.DisplayNameFor(model => model.MachineID)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Ancestor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaintStartDate)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.MaintEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.LicenseKind)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>*@
+        </tr>
+    </thead>
+</table>

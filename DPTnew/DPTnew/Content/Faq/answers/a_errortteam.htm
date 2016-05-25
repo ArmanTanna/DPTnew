@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<title>Untitled Document</title>
+</head>
+
+<body> 
+		<p>When ThinkTeam starts (either standalone or in ThinkDesign) the following error message might show up:</p>
+		<br>
+		<img class="centerImage" 
+        src="../img/Error_TTeam.jpg">
+		<br>
+		<p>The error message is about the  connection of ThinkTeam to the  database. It is a generic error message.</p>
+		<br>
+		<p>Possible causes:</p>
+        <ol class="myol1">
+          <li>if you use Access database (the default database) the installation might turn out as incorrect. 
+		  So, please repeat it as Local Administrator after setting the UAC to 0 and Windows updates completely installed.
+          <li>if you use a different database you may have to install the appropriate database client and test the connection to the database
+		  <li>in system.xlm (check the ThinkTeam registry variable <strong>CONFIGFILE</strong> in <i>HKEY_LOCAL_MACHINE\Software\Wow6432Node\think3\thinkteam\2015.2\Environment</i>) 
+		  the name or the database type is not aligned with the installed one.
+       </ol>
+</body>
+</html>

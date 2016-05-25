@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dptnewModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dptnewModelStoreContainer">
+    <EntitySet Name="DPT_Company" EntityType="dptnewModel.Store.DPT_Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DPT_Contact" EntityType="dptnewModel.Store.DPT_Contact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DPT_License" EntityType="dptnewModel.Store.DPT_License" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_DPT_Contact_DPT_Company" Association="dptnewModel.Store.FK_DPT_Contact_DPT_Company">
+      <End Role="DPT_Company" EntitySet="DPT_Company" />
+      <End Role="DPT_Contact" EntitySet="DPT_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DPT_License_DPT_Company" Association="dptnewModel.Store.FK_DPT_License_DPT_Company">
+      <End Role="DPT_Company" EntitySet="DPT_Company" />
+      <End Role="DPT_License" EntitySet="DPT_License" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DPT_Company">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AccountName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AccountType" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="Province" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Website" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DPT_Contact">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Language" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="AccountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DPT_License">
+    <Key>
+      <PropertyRef Name="LicenseID" />
+    </Key>
+    <Property Name="LicenseID" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="AccountName" Type="varchar" MaxLength="200" />
+    <Property Name="AccountNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArticleDetail" Type="nvarchar" MaxLength="10" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="LicenseType" Type="nvarchar" MaxLength="10" />
+    <Property Name="MachineID" Type="nvarchar" MaxLength="25" />
+    <Property Name="Ancestor" Type="nvarchar" MaxLength="25" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="MaintStartDate" Type="datetime" />
+    <Property Name="MaintEndDate" Type="datetime" />
+    <Property Name="Version" Type="nvarchar" MaxLength="50" />
+    <Property Name="OriginalProduct" Type="nvarchar" MaxLength="50" />
+    <Property Name="LicenseKind" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsActive" Type="nchar" MaxLength="10" />
+    <Property Name="HasDongle" Type="nchar" MaxLength="20" />
+    <Property Name="Note" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_DPT_Contact_DPT_Company">
+    <End Role="DPT_Company" Type="dptnewModel.Store.DPT_Company" Multiplicity="1" />
+    <End Role="DPT_Contact" Type="dptnewModel.Store.DPT_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPT_Company">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="DPT_Contact">
+        <PropertyRef Name="AccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DPT_License_DPT_Company">
+    <End Role="DPT_Company" Type="dptnewModel.Store.DPT_Company" Multiplicity="1" />
+    <End Role="DPT_License" Type="dptnewModel.Store.DPT_License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DPT_Company">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="DPT_License">
+        <PropertyRef Name="AccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

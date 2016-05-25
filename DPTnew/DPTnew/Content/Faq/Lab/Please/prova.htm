@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<link rel="stylesheet" type="text/css" href="css/prism.css">
+	<title>Please JS</title>
+<script>
+function color_cycle(){
+	var e=document.getElementById("title").getElementsByTagName("span");
+	for(var n=e.length-1;n>=0;n--){
+		e[n].style.color=Please.make_color({saturation:.7,value:.7})
+	}	
+}
+function please_make_color() {
+ 	document.getElementById('make-color-demo').style.background=Please.make_color()
+}
+function please_make_color_multiple() {
+	var e=document.getElementById("multiple-demo").getElementsByTagName("div");
+	var t=Please.make_color({colors_returned:4});
+	for(var n=e.length-1;n>=0;n--){e[n].style.background=t[n]}
+}
+function please_make_color_based() {
+	var base_color=document.getElementById("base-color");
+	var base_color_picker=document.getElementById("base-color-picker");
+ 	document.getElementById("base-color-demo").style.background=Please.make_color({base_color:base_color_picker.value})
+}
+function please_make_grey_color() {
+	var grey_color=document.getElementById("grey-color");
+	document.getElementById("grey-color-demo").style.background=Please.make_color({greyscale:true})
+}
+function please_make_random_color() {
+	var random_color=document.getElementById("random-color")
+	document.getElementById("random-color-demo").style.background=Please.make_color({golden:false,full_random:true})
+}
+function please_fiddle_color() {
+	var fiddle_hue=document.getElementById("fiddle-hue");
+	var fiddle_sat=document.getElementById("fiddle-sat");
+	var fiddle_val=document.getElementById("fiddle-val");
+	var fiddle_color=document.getElementById("fiddle-color");
+	var e,t,n;
+	if(fiddle_hue.value.length==0)	{e=null}
+	else{e=parseInt(fiddle_hue.value)
+		if(isNaN(e)){e=null}
+	}
+	if(fiddle_sat.value.length==0){t=null}
+	else{t=parseFloat(fiddle_sat.value);
+		if(isNaN(t)){t=null}
+	}
+	if(fiddle_val.value.length==0){n=null}
+	else{n=parseFloat(fiddle_val.value);
+		if(isNaN(n)){n=null}
+	}
+	document.getElementById("fiddle-color-demo").style.background=Please.make_color({golden:false,hue:e,saturation:t,value:n})
+}
+
+function please_scheme_color() {
+	var scheme_type_picker=document.getElementById("scheme-type-picker");
+	var scheme_color_picker=document.getElementById("scheme-color-picker");
+	var scheme_color=document.getElementById("scheme-color");
+	var e=document.getElementById("scheme-demo").getElementsByTagName("div");
+	var t=Please.NAME_to_HSV(scheme_color_picker.value);
+	var n=Please.make_scheme(t,{scheme_type:scheme_type_picker.value,format:"rgb-string"});
+	for(var r=0;r<e.length;r++){e[r].style.background=n[r]}
+}
+
+</script>
+
+
+</head>
+
+<body onload="color_cycle()">
+<div class="container">
+    <div class="hero">
+            <div id="title">
+                <span>P</span>
+                <span>l</span>
+                <span>e</span>
+                <span>a</span>
+                <span>s</span>
+                <span>e</span>
+                <span>.</span>
+                <span>j</span>
+                <span>s</span>
+            </div>
+            <span class="sub-title">The Polite Javascript Color Library</span>
+    </div>
+    
+    
+    <article>
+            <h1>Make a random color</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color(); //random color</code>
+            </pre>
+            <button onclick="please_make_color()">Try It</button>
+            <div id="make-color-demo" class="demo"></div>
+    </article>
+    
+    <article>
+            <h1>Make a few</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color({
+        colors_returned: 4 //set number of colors returned
+    });</code>
+            </pre>
+            <button onclick="please_make_color_multiple()">Try It</button>
+            <div id="multiple-demo" class="clearfix">
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+            </div>
+    </article>   
+    
+    <article>
+            <h1>Make a random color based on another color</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color({
+        base_color: 'orangered' //set your base color
+    });</code>
+            </pre>
+            <select id="base-color-picker">
+                <option value="orangered">Orange Red</option>
+                <option value="gold">Gold</option>
+                <option value="lawngreen">Lawn Green</option>
+                <option value="rebeccapurple">Rebecca Purple</option>
+                <option value="cyan">Cyan</option>
+            </select>
+            <button onclick="please_make_color_based()">Try It</button>
+            <div id="base-color-demo" class="demo"></div>
+    </article> 
+    
+    <article>
+            <h1>Make a random gray</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color({
+        greyscale: true, //for the brits
+        grayscale: true  //for the yanks
+    });</code>
+            </pre>
+            <button onclick="please_make_grey_color()">Try It</button>
+            <div id="grey-color-demo" class="demo"></div>
+    </article>
+        
+    <article>
+            <h1>Or go nuts</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color({
+        golden: false, //disable default
+        full_random: true //go full random
+    });</code>
+            </pre>
+            <button onclick="please_make_random_color()">Try It</button>
+            <div id="random-color-demo" class="demo"></div>
+    </article>    
+    
+    <article>
+            <h1>Fiddle around</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_color({
+        golden: false, //disable default
+        hue: 12, //set your hue manually
+        saturation: .7, //set your saturation manually
+        value: .8 //set your value manually
+    });</code>
+            </pre>
+            <input id="fiddle-hue" type="text" placeholder="Hue (0-360)">
+            <input id="fiddle-sat" type="text" placeholder="Saturation (0.0-1.0)">
+            <input id="fiddle-val" type="text" placeholder="Value (0.0-1.0)">
+            <div style="margin: .5em 0;">
+            <button onclick="please_fiddle_color()">Try It</button>
+            </div>
+            <div id="fiddle-color-demo" class="demo"></div>
+    </article>
+      
+    <article>
+            <h1>Make a color scheme</h1>
+            <pre>
+                <code class="language-javascript">
+    Please.make_scheme({
+        scheme_type: 'analogous', //set scheme type
+        format: 'rgb-string' //give it to us in rgb
+    });</code>
+            </pre>
+            <select id="scheme-type-picker">
+                <option value="mono">monochromatic</option>
+                <option value="complement">complementary</option>
+                <option value="split-complement">split-complementary</option>
+                <option value="double-complement">double-complementary</option>
+                <option value="ana">analogous</option>
+                <option value="triad">triadic</option>
+            </select>
+            <select id="scheme-color-picker">
+                <option value="salmon">Salmon</option>
+                <option value="skyblue">Sky Blue</option>
+                <option value="palegreen">Pale Green</option>
+                <option value="plum">Plum</option>
+            </select>
+            <button onclick="please_scheme_color()">Try It</button>
+            <div id="scheme-demo" class="clearfix">
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+                <div class="demo multiple"></div>
+            </div>
+    </article>
+    
+    <article style="border: 0">
+            <h1>Read the docs</h1>
+            <a class="button" href="http://www.checkman.io/please/Please_docs.txt">Read</a>
+            <h1>Hit the Git</h1>
+            <a class="button" href="https://github.com/Fooidge/PleaseJS">FORK</a>
+    </article>
+          
+</div>
+</body>
+<script type="text/javascript" src="js/prism.js"></script>
+<script type="text/javascript" src="js/Please-compressed.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</html>

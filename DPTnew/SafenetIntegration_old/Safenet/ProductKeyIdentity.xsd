@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ems="http://www.safenet-inc.com/ems"
+	version="1.0" elementFormDefault="qualified" >
+	<xs:element name="productKeyIdentity">
+		<xs:annotation>
+			<xs:documentation>Get Details of Identity corresponding to product key</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productKeyId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="customerEmail" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="customerId" type="xs:int" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="lineItemType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="identityCount" type="xs:int" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="identity" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

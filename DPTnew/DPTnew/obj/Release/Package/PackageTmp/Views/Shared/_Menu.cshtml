@@ -1,0 +1,54 @@
+﻿@{
+  var menus = new[]
+                {
+                   new { LinkText="Home", ActionName="Index",ControllerName="Home",Roles="All"  },
+                   //new { LinkText="Companies", ActionName="Companies",ControllerName="Var",Roles="Var"  },
+                   new { LinkText="All Companies", ActionName="Index",ControllerName="Company",Roles="Admin,Var,SuperUser"  },
+                   new { LinkText="All Licenses", ActionName="Index",ControllerName="License",Roles="Admin,Var,SuperUser"  },
+                   new { LinkText="Licenses", ActionName="Licenses",ControllerName="User",Roles="NormalUser"  },
+                   new { LinkText="Download", ActionName="Index",ControllerName="Download",Roles="All"  },
+                    
+                };
+}
+
+<ul id="menu">
+
+  @if (HttpContext.Current.User.Identity.IsAuthenticated)
+  {
+@*If user is authenticated and has multiple roles, show links having All or ANY user-role role.*@
+    String[] roles = Roles.GetRolesForUser();
+    if (roles.Length > 0)
+    {
+      var links = from item in menus
+                  where item.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                  .Any(x => roles.Contains(x) || x == "All")
+                  select item;
+      foreach (var link in links)
+      {
+    @: <li> @Html.ActionLink(link.LinkText, link.ActionName, link.ControllerName)</li>
+    }
+    }
+    else
+    {
+@*If user has no roles, show links having All or NormalUser Role*@
+    
+      var links = from item in menus
+                  where item.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                  .Any(x => x == "NormalUser" || x == "All")
+                  select item;
+      foreach (var link in links)
+      {
+    @: <li> @Html.ActionLink(link.LinkText, link.ActionName, link.ControllerName)</li>
+    }
+
+    }
+
+    if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+    { 
+    @* <li>@Html.ActionLink("Safenet Sync", "SyncDB", "Company")</li> *@
+    <li>Safenet Sync</li>
+    }
+  }
+  
+@*  *@
+</ul>
