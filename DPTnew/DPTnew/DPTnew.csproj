@@ -192,6 +192,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\IntranetController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\eLearningController.cs" />
@@ -206,6 +207,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ErpModels.cs" />
     <Compile Include="Models\CompanyModels.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\SalesRepModels.cs" />
@@ -220,6 +222,7 @@
     <Content Include="App_Data\ProductList.txt" />
     <Content Include="calcx.dll" />
     <Content Include="clgen.dll" />
+    <Content Include="Content\buttons.dataTables.min.css" />
     <Content Include="Content\datatables.min.css" />
     <Content Include="Content\eLearning\css\style.css" />
     <Content Include="Content\eLearning\EN\15_Sheet_Metal_advanced\ET15_EX01\ET15_EX01_FINAL_TOEND.html" />
@@ -1664,6 +1667,7 @@
     <Content Include="Content\Faq\Lab\Please\please.htm" />
     <Content Include="Content\Faq\Lab\Please\prova.htm" />
     <Content Include="Content\Faq\Lab\ProvaFrame.htm" />
+    <Content Include="Content\images\TDProf_timeline.png" />
     <Content Include="Content\images\ThinkDesign2015_SP3_download.png" />
     <Content Include="Content\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\images\ui-icons_555555_256x240.png" />
@@ -1671,6 +1675,7 @@
     <Content Include="Content\images\ui-icons_777777_256x240.png" />
     <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -2482,12 +2487,18 @@
     <Content Include="lmcrypt4.exe" />
     <Content Include="lmcrypt8.exe" />
     <Content Include="lmgr324a.dll" />
+    <Content Include="Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\Company\table_list.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\jquery-1.12.0.js" />
     <Content Include="Scripts\jquery-1.12.0.min.js" />
     <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.dataTables.yadcf.js" />
     <Content Include="Scripts\jquery.highlight.js" />
     <Content Include="Scripts\jquery_old-1.8.2.js" />
@@ -2501,11 +2512,14 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jszip.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\License\table_list_buttons.js" />
     <Content Include="Scripts\License\table_list.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
+    <Content Include="Scripts\vfs_fonts.js" />
     <Content Include="t3gen.dll" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -2573,6 +2587,8 @@
     <Content Include="Views\eLearning\Index_jp.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Intranet\Index.cshtml" />
+    <Content Include="Views\Intranet\SingleErpRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LicenseObject\LicenseObject.csproj">

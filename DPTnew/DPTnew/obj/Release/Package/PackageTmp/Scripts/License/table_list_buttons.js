@@ -3,6 +3,14 @@
     return target.replace(new RegExp(search, 'g'), replacement);
 };
 
+String.prototype.startsWith = function (pattern) {
+    if (!String.prototype.startsWith) {
+        String.prototype.startsWith = function (searchString, position) {
+            position = position || 0;
+            return this.indexOf(searchString, position) === position;
+        };
+    }
+};
 
 /* init drop down */
 
@@ -102,7 +110,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
 
     initdropdown(myTable);
 
-    var generate2014pwd = function (data, mid) {
+    var generate2014pwd = function (data, mid) {debugger
         var machineId = mid || data.MachineID;
         if (!machineId || machineId.length !== 8) return;
 
@@ -281,7 +289,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
          {
              text: 'Password < 2015',
              className: 'pssw2014',
-             action: function () {
+             action: function () {debugger
                  if (myTable.rows('.selected').count() != 0)
                      generate2014pwd.call(this, myTable.rows('.selected').data()[0]);
              },

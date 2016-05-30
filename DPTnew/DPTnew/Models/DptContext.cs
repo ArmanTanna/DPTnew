@@ -20,6 +20,7 @@ namespace DPTnew.Models
         public DbSet<SalesR> SalesR { get; set; }
         public DbSet<CompanyView> Companies { get; set; }
         public DbSet<LicenseView> Licenses { get; set; }
+        public DbSet<DptErp> ErpRows { get; set; }
 
         public SearchResult<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {

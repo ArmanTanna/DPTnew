@@ -48,38 +48,74 @@
                 <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="blank"><u>New Licensing</u></a></th>
             }
             <th style="width:33%"><a href="~/elearning" target="blank"><u>e-Learning</u></a></th>
-            <th style="width:33%"><a href="#"><u>ThinkDesign Help (Coming soon!)</u></a></th>
+            <th style="width:33%"><a href="http://help.dptcorporate.com/" target="blank"><u>ThinkDesign Help</u></a></th>
         </tr>
         <tr>
             <td>All you need to know about C2V, V2C and Floating Licensing.</td>
             <td>Software training material, like video and step-by-step tutorials, supplied via the web.</td>
-            <td>Release Notes & Help manual</td>
+            <td>Release Notes & Help manual 2016 - Work in Progress.</td>
         </tr>
     </tbody>
 </table>
-
 <br />
 <br />
 
-@if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
-{
-    <h3>FAQs</h3>
-    <text>Click <a href="~/Faq/Index" target="blank">here</a> to access the VAR Guidebook.</text>
-}
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <th style="width:33%"><a href="http://care.think3.eu/default.aspx" target="blank"><u>Case Management</u></a></th>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+                {
+                    <a href="~/Faq/Index" target="blank"><u>FAQs</u></a>
 
-    @* Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
-        <h3 style="color:orange;">We suggest the following:</h3>
-        <ol class="round">
-            <li class="one">
-                <h5>Getting Started</h5>
-               Go to the <a href="~/Licenses/Index">Licenses</a> section to start to ...
-            </li>
-            @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
-            {
+                }
+                @*@if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && !Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") &&
+                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+                {
+                    <a href="~/Faq/Index" target="blank"><u>FAQs</u></a>
+                }*@
+            </th>
+            <th style="width:33%"></th>
 
-            <li class="one">
-                <h5>Sono un VAR</h5>
-                Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
-            </li>
-            }
-        </ol>*@
+        </tr>
+        <tr>
+            <td>Contact our Customer Care and open a New Case. <br />
+            Use your old credentials to access this section.</td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+                { 
+                    <text>Here you can access the VAR Guidebook.</text>
+                }
+                @*@if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && !Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") &&
+                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+                {
+                    <text>Here you can access the User Guidebook.</text>
+                }*@
+            </td>
+            <td></td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+
+
+@* Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
+    <h3 style="color:orange;">We suggest the following:</h3>
+    <ol class="round">
+        <li class="one">
+            <h5>Getting Started</h5>
+           Go to the <a href="~/Licenses/Index">Licenses</a> section to start to ...
+        </li>
+        @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+        {
+
+        <li class="one">
+            <h5>Sono un VAR</h5>
+            Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
+        </li>
+        }
+    </ol>*@

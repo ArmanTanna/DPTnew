@@ -1,0 +1,257 @@
+﻿@model IEnumerable<DPTnew.Models.DptErp>
+
+@{
+    ViewBag.Title = "Modify";
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Intranet")';
+        function submitform() {
+            $.post("/Intranet/Modify", {
+                Email: $("input[name=email]").val(),
+                ActivityDate: $("input[name=activitydate]").val(),
+                Status: $("input[name=status]").val(),
+                Title1: $("input[name=title1]").val(),
+                Title2: $("input[name=title2]").val(),
+                Title3: $("input[name=title3]").val(),
+                Title4: $("input[name=title4]").val(),
+                Title5: $("input[name=title5]").val(),
+                Title6: $("input[name=title5]").val(),
+                Title7: $("input[name=title7]").val(),
+                Title8: $("input[name=title8]").val(),
+                Title9: $("input[name=title9]").val(),
+                Title10: $("input[name=title10]").val(),
+                Description1: $("input[name=description1]").val(),
+                Description2: $("input[name=description2]").val(),
+                Description3: $("input[name=description3]").val(),
+                Description4: $("input[name=description4]").val(),
+                Description5: $("input[name=description5]").val(),
+                Description6: $("input[name=description6]").val(),
+                Description7: $("input[name=description7]").val(),
+                Description8: $("input[name=description8]").val(),
+                Description9: $("input[name=description9]").val(),
+                Description10: $("input[name=description10]").val(),
+                TimeSpent1: $("input[name=timespent1]").val(),
+                TimeSpent2: $("input[name=timespent2]").val(),
+                TimeSpent3: $("input[name=timespent3]").val(),
+                TimeSpent4: $("input[name=timespent4]").val(),
+                TimeSpent5: $("input[name=timespent5]").val(),
+                TimeSpent6: $("input[name=timespent6]").val(),
+                TimeSpent7: $("input[name=timespent7]").val(),
+                TimeSpent8: $("input[name=timespent8]").val(),
+                TimeSpent9: $("input[name=timespent9]").val(),
+                TimeSpent10: $("input[name=timespent10]").val(),
+                Total: $("input[name=total]").val()
+            });
+        }
+
+    </script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($("input[name=activitydate]").val() == "0001-01-01") {
+                var now = new Date();
+                var month = (now.getMonth() + 1);
+                var day = now.getDate();
+                if (month < 10)
+                    month = "0" + month;
+                if (day < 10)
+                    day = "0" + day;
+                var today = now.getFullYear() + '-' + month + '-' + day;
+                $("input[name=activitydate]").val(today);
+            }
+        });
+    </script>
+}
+
+<table id="dpterp" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>
+                    <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.StrActivityDate)</td>
+                <td>
+                    <input type="date" name="activitydate" value="@Html.DisplayFor(modelItem => item.StrActivityDate)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Status)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Total)</td>
+                <td>
+                    <input type="number" name="total" value="@Html.DisplayFor(modelItem => item.Total)" readonly>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title1" value="@Html.DisplayFor(modelItem => item.Title1)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description1" value="@Html.DisplayFor(modelItem => item.Description1)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent1" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent1)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title2" value="@Html.DisplayFor(modelItem => item.Title2)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description2" value="@Html.DisplayFor(modelItem => item.Description2)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent2" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent2)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title3" value="@Html.DisplayFor(modelItem => item.Title3)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description3" value="@Html.DisplayFor(modelItem => item.Description3)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent3" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent3)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title4" value="@Html.DisplayFor(modelItem => item.Title4)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description4" value="@Html.DisplayFor(modelItem => item.Description4)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent4" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent4)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title5" value="@Html.DisplayFor(modelItem => item.Title5)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description5" value="@Html.DisplayFor(modelItem => item.Description5)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent5" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent5)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title6" value="@Html.DisplayFor(modelItem => item.Title6)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description6" value="@Html.DisplayFor(modelItem => item.Description6)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent6" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent6)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title7" value="@Html.DisplayFor(modelItem => item.Title7)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description7" value="@Html.DisplayFor(modelItem => item.Description7)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent7" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent7)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title8" value="@Html.DisplayFor(modelItem => item.Title8)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description8" value="@Html.DisplayFor(modelItem => item.Description8)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent8" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent8)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title9" value="@Html.DisplayFor(modelItem => item.Title9)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description9" value="@Html.DisplayFor(modelItem => item.Description9)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent9" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent9)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="title10" value="@Html.DisplayFor(modelItem => item.Title10)">
+                </td>
+                <td>Description</td>
+                <td>
+                    <input type="text" name="description10" value="@Html.DisplayFor(modelItem => item.Description10)">
+                </td>
+                <td>TimeSpent</td>
+                <td>
+                    <input type="number" name="timespent10" min="0" step="5" value="@Html.DisplayFor(modelItem => item.TimeSpent10)" style="width: auto">
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td><a href="javascript: submitform()">Submit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

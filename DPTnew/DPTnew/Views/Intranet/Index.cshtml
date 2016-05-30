@@ -1,0 +1,344 @@
+﻿@model DPTnew.Models.DptErp
+
+@{
+    ViewBag.Title = "Intranet";
+}
+
+
+@section Scripts {
+    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.ErpDataUrl = '@Url.Action("SingleErpRow", "Intranet")';
+        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Intranet")';
+
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+             '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title1 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description1 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent1 + '</td>' +
+
+              '</tr>' +
+              '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title2 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description2 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent2 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title3 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description3 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent3 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title4 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description4 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent4 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title5 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description5 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent5 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title6 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description6 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent6 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title7 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description7 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent7 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title8 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description8 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent8 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title9 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description9 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent9 + '</td>' +
+
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>Title:</b></td>' +
+                  '<td>' + d.Title10 + '</td>' +
+
+                 '<td><b>Description:</b></td>' +
+                  '<td>' + d.Description10 + '</td>' +
+
+                '<td><b>Time Spent:</b></td>' +
+                  '<td>' + d.TimeSpent10 + '</td>' +
+
+              '</tr>' +
+                   '</table>';
+        }
+
+        $(document).ready(function () {
+
+            var myTable = $("#dpterp").DataTable({
+                serverSide: true,
+                processing: true,
+                ajax: {
+                    type: "POST",
+                    url: "Intranet/Search"
+                },
+                columns: [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                { data: "Email" },
+                { data: "StrActivityDate" },
+                { data: "Status" },
+                { data: "Total" }
+                ],
+                order: [[1, 'desc']],
+                orderClasses: false,
+                select: {
+                    style: 'single'
+                }
+            });
+
+            // Add event listener for opening and closing details
+            $('#dpterp tbody').on('click', 'td.details-control', function () {
+
+                var tr = $(this).closest('tr');
+                var row = myTable.row(tr);
+                var index = row.index();
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    var data = row.data();
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
+            });
+
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+             {
+                 text: 'Modify',
+                 className: 'modify',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.ErpDataUrl, {
+                             Email: data.Email,
+                             ActivityDate: data.StrActivityDate,
+                             Status: data.Status,
+                             Title1: data.Title1,
+                             Title2: data.Title2,
+                             Title3: data.Title3,
+                             Title4: data.Title4,
+                             Title5: data.Title5,
+                             Title6: data.Title6,
+                             Title7: data.Title7,
+                             Title8: data.Title8,
+                             Title9: data.Title9,
+                             Title10: data.Title10,
+                             Description1: data.Description1,
+                             Description2: data.Description2,
+                             Description3: data.Description3,
+                             Description4: data.Description4,
+                             Description5: data.Description5,
+                             Description6: data.Description6,
+                             Description7: data.Description7,
+                             Description8: data.Description8,
+                             Description9: data.Description9,
+                             Description10: data.Description10,
+                             TimeSpent1: data.TimeSpent1,
+                             TimeSpent2: data.TimeSpent2,
+                             TimeSpent3: data.TimeSpent3,
+                             TimeSpent4: data.TimeSpent4,
+                             TimeSpent5: data.TimeSpent5,
+                             TimeSpent6: data.TimeSpent6,
+                             TimeSpent7: data.TimeSpent7,
+                             TimeSpent8: data.TimeSpent8,
+                             TimeSpent9: data.TimeSpent9,
+                             TimeSpent10: data.TimeSpent10,
+                             Total: data.Total
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.ErpDataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+
+                                         });
+                     }
+                 },
+                 enabled: false
+             },
+             {
+                 text: 'New',
+                 className: 'new',
+                 action: function () {
+                     $.post(yourApp.Urls.ErpDataUrl, {
+                         Email: null,
+                         ActivityDate: null,
+                         Status: null,
+                         Title1: null,
+                         Title2: null,
+                         Title3: null,
+                         Title4: null,
+                         Title5: null,
+                         Title6: null,
+                         Title7: null,
+                         Title8: null,
+                         Title9: null,
+                         Title10: null,
+                         Description1: null,
+                         Description2: null,
+                         Description3: null,
+                         Description4: null,
+                         Description5: null,
+                         Description6: null,
+                         Description7: null,
+                         Description8: null,
+                         Description9: null,
+                         Description10: null,
+                         Place1: null,
+                         Place2: null,
+                         Place3: null,
+                         Place4: null,
+                         Place5: null,
+                         Place6: null,
+                         Place7: null,
+                         Place8: null,
+                         Place9: null,
+                         Place10: null,
+                         Total: null
+                     },
+                                     function (result) {
+                                         var url = yourApp.Urls.ErpDataUrl;
+                                         WinId = window.open(url, '_blank');
+                                         WinId.document.open();
+                                         WinId.document.write(result);
+                                         WinId.document.close();
+                                         myTable.rows('.selected').deselect();
+
+                                     });
+                 },
+                 enabled: true
+             }
+                ]
+            });
+            myTable.buttons().container().insertBefore('#dpterp_filter');
+
+            myTable.on('select', function () {
+                var erpRow = myTable.rows('.selected').data()[0];
+                if (!erpRow.Status)
+                    myTable.buttons(['.modify']).enable(true);
+                else
+                    myTable.buttons(['.modify']).disable();
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.modify']).disable();
+            });
+
+
+            myTable.on("draw", function () {
+                var $body = $(myTable.table().body());
+                $body.unhighlight();
+                $body.highlight(myTable.search());
+            });
+        });
+
+    </script>
+}
+
+<div style="width: 1000px">
+    <table id="dpterp" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StrActivityDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+
+            </tr>
+        </thead>
+    </table>
+</div>
+

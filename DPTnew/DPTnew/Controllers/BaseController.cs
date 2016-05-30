@@ -48,6 +48,17 @@ namespace DPTnew.Controllers
             return _db.Companies.Where(x => x.AccountNumber == user.AccountNumber).ToList();
         }
 
+        protected IEnumerable<DptErp> GetErpRows()
+        {
+            var user = WebSecurity.CurrentUserName;
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                return _db.ErpRows.Where(u => u.Email == user).ToList();
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+                return _db.ErpRows.ToList();
+            
+            return null;
+        }
+
         protected IEnumerable<LicenseView> GetLicenses()
         {
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))

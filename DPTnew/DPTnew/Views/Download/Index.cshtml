@@ -30,30 +30,30 @@
                 '<tr>' +
                     '<td>' + d.Product + '</td>' +
                     '<td>' + d.Description + '</td>' +
-                    '<td> <a href="' + d.Download + '"> Download </a></td>' +
+                    '<td> <a href="' + d.Download + '"> Download' + d.Size + ' </a></td>' +
                 '</tr>' + (d.Product1 ?
                 '<tr>' +
                     '<td>' + d.Product1 + '</td>' +
                     '<td>' + d.Description1 + '</td>' +
-                    '<td> <a href="' + d.Download1 + '"> Download </a></td>' +
+                    '<td> <a href="' + d.Download1 + '"> Download' + d.Size1 + ' </a></td>' +
                 '</tr>' : "") +
                  (d.Product2 ?
                 '<tr>' +
                     '<td>' + d.Product2 + '</td>' +
                     '<td>' + d.Description2 + '</td>' +
-                    '<td> <a href="' + d.Download2 + '"> Download </a></td>' +
+                    '<td> <a href="' + d.Download2 + '"> Download' + d.Size2 + ' </a></td>' +
                 '</tr>' : "") +
                 (d.Product3 ?
                 '<tr>' +
                     '<td>' + d.Product3 + '</td>' +
                     '<td>' + d.Description3 + '</td>' +
-                    '<td> <a href="' + d.Download3 + '"> Download </a></td>' +
+                    '<td> <a href="' + d.Download3 + '"> Download' + d.Size3 + ' </a></td>' +
                 '</tr>' : "") +
                 (d.Product4 ?
             '<tr>' +
                 '<td>' + d.Product4 + '</td>' +
                 '<td>' + d.Description4 + '</td>' +
-                '<td> <a href="' + d.Download4 + '"> Download </a></td>' +
+                '<td> <a href="' + d.Download4 + '"> Download' + d.Size4 + ' </a></td>' +
             '</tr>' : "") +
              '</table>';
         }
@@ -61,30 +61,30 @@
         $(document).ready(function () {
             var datacad = [
                 {
-                    "Year": "2015", "Product": "ThinkDesign 2015 64bit SP3", "Description": "Recommended version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe",
-                    "Product1": "ThinkDesign 2015 32bit SP3", "Description1": "SP3 Legacy version for old systems.", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_2015T2_b30502.exe",
-                    "Product2": "ThinkDesign 2015 64bit SP2", "Description2": "This self extracting file will install the official ThinkDesign suite 2015 64bit SP2.", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_64bit_2015T2_b30125.exe",
-                    "Product3": "ThinkDesign 2015 32bit SP2", "Description3": "SP2 Legacy version for old systems.", "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_2015T2_b30125.exe",
-                    "Product4": "Utility tools & Floating Licensing Installer", "Description4": "Floating Licensing Installer, utilities and plug-ins for version 2015.", "Download4": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2015.zip"
+                    "Year": "2015", "Product": "ThinkDesign 2015 64bit SP3", "Description": "Recommended version.", "Size": " - 2.03 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe",
+                    "Product1": "ThinkDesign 2015 32bit SP3", "Description1": "SP3 Legacy version for old systems.", "Size1": " - 2.65 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_2015T2_b30502.exe",
+                    "Product2": "ThinkDesign 2015 64bit SP2", "Description2": "This self extracting file will install the official ThinkDesign suite 2015 64bit SP2.", "Size2": " - 2.03 GB", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_64bit_2015T2_b30125.exe",
+                    "Product3": "ThinkDesign 2015 32bit SP2", "Description3": "SP2 Legacy version for old systems.", "Size3": " - 2.65 GB", "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_2015T2_b30125.exe",
+                    "Product4": "Utility tools & Floating Licensing Installer", "Description4": "Floating Licensing Installer, utilities and plug-ins for version 2015.", "Size4": " - 36 MB", "Download4": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2015.zip"
                 },
                 {
-                    "Year": "2014", "Product": "ThinkDesign 2014 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2014 64bit.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_64bit_2014T1_b20506.exe",
-                    "Product1": "ThinkDesign 2014 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2014 32bit.", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2014.", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2014.zip",
+                    "Year": "2014", "Product": "ThinkDesign 2014 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2014 64bit.", "Size": " - 1.90 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_64bit_2014T1_b20506.exe",
+                    "Product1": "ThinkDesign 2014 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2014 32bit.", "Size1": " - 2.52 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe",
+                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2014.", "Size2": " - 7 MB", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2014.zip",
                 },
                 {
-                    "Year": "2013", "Product": "ThinkDesign 2013 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2013 64bit.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_64bit_2013T1_b21029.exe",
-                    "Product1": "ThinkDesign 2013 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2013 32bit.", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2013.", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2013.zip",
+                    "Year": "2013", "Product": "ThinkDesign 2013 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2013 64bit.", "Size": " - 1.82 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_64bit_2013T1_b21029.exe",
+                    "Product1": "ThinkDesign 2013 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2013 32bit.", "Size1": " - 2.45 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe",
+                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2013.", "Size2": " - 7.0 MB", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2013.zip",
                 },
                 {
-                    "Year": "2012", "Product": "ThinkDesign 2012 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2012 64bit.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_64bit_2012T1_b20312.exe",
-                    "Product1": "ThinkDesign 2012 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2012 32bit.", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2012.", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2012.zip",
+                    "Year": "2012", "Product": "ThinkDesign 2012 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2012 64bit.", "Size": " - 1.90 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_64bit_2012T1_b20312.exe",
+                    "Product1": "ThinkDesign 2012 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2012 32bit.", "Size1": " - 2.31 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe",
+                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2012.", "Size2": " - 6.3 MB", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2012.zip",
                 },
                 {
-                    "Year": "2011", "Product": "ThinkDesign 2011 32bit", "Description": "This self extracting file will install the official ThinkDesign suite 2011 32bit.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_td_2011T1_b410.exe",
-                    "Product1": "Utility tools", "Description1": "Utilities and plug-ins for version 2011.", "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip",
+                    "Year": "2011", "Product": "ThinkDesign 2011 32bit", "Description": "This self extracting file will install the official ThinkDesign suite 2011 32bit.", "Size": " - 2.30 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_td_2011T1_b410.exe",
+                    "Product1": "Utility tools", "Description1": "Utilities and plug-ins for version 2011.", "Size1": " - 3.7 MB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip",
                 }
             ];
             var cadTable = $('#cad').DataTable({
@@ -137,12 +137,12 @@
             });
 
             var dataplm = [
-                { "Product": "thinkPLM 2015 SP3", "Description": "This section includes thinkPLM 2015 SP3 official version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_thinkplm_2015T2_b30502.exe" },
-                { "Product": "thinkPLM 2015 SP2", "Description": "This section includes thinkPLM 2015 SP2.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_thinkplm_2015T2_b30125.exe" },
-                { "Product": "thinkPLM 2014", "Description": "This section includes thinkPLM 2014 official version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_thinkplm_2014T1_b20506.exe" },
-                { "Product": "thinkPLM 2013", "Description": "This section includes thinkPLM 2013 official version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_thinkplm_2013T1_b21029.exe" },
-                { "Product": "thinkPLM 2012", "Description": "This section includes thinkPLM 2012 official version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_thinkplm_2012T1_b20312.exe" },
-                { "Product": "thinkPLM 2011", "Description": "This section includes thinkPLM 2011 official version.", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_thinkplm_2011T1_b410.exe" }
+                { "Product": "thinkPLM 2015 SP3", "Description": "This section includes thinkPLM 2015 SP3 official version.", "Size": " - 1.25 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_thinkplm_2015T2_b30502.exe" },
+                { "Product": "thinkPLM 2015 SP2", "Description": "This section includes thinkPLM 2015 SP2.", "Size": " - 1.25 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_thinkplm_2015T2_b30125.exe" },
+                { "Product": "thinkPLM 2014", "Description": "This section includes thinkPLM 2014 official version.", "Size": " - 1.18 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_thinkplm_2014T1_b20506.exe" },
+                { "Product": "thinkPLM 2013", "Description": "This section includes thinkPLM 2013 official version.", "Size": " - 1.15 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_thinkplm_2013T1_b21029.exe" },
+                { "Product": "thinkPLM 2012", "Description": "This section includes thinkPLM 2012 official version.", "Size": " - 821 MB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_thinkplm_2012T1_b20312.exe" },
+                { "Product": "thinkPLM 2011", "Description": "This section includes thinkPLM 2011 official version.", "Size": " - 813 MB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_thinkplm_2011T1_b410.exe" }
             ];
             var plmTable = $('#plm').DataTable({
                 data: dataplm,
@@ -160,7 +160,7 @@
                 {
                     "data": "Download",
                     "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-                        $(nTd).html("<a href='" + oData.Download + "'> Download </a>");
+                        $(nTd).html("<a href='" + oData.Download + "'> Download" + oData.Size + " </a>");
                     },
                     "orderable": false
                 }
@@ -177,25 +177,27 @@
     </script>
 }
 
-<div style="text-align: left">
-    <h2>ThinkDesign 2015</h2>
-</div>
-<table id="thd" cellspacing="0" >
+
+<table id="thd" cellspacing="0" width="100%">
     <thead>
-        <tr>
+        <tr style="vertical-align:top">
             <td>
+                <h2>ThinkDesign 2015</h2>
+                <br />
                 Download here the official version of the product.<br />
                 ThinkDesign 2015 (x64) SP3 - 2.03 GB
-            </td>
-            <td>
+                <br /><br />
                 <a href="ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe">
                     <img src="~/Content/images/ThinkDesign2015_SP3_download.png">
                 </a>
             </td>
+            <td>
+                <img src="~/Content/images/TDProf_timeline.png" align="right">
+            </td>
         </tr>
     </thead>
 </table>
-<br/>
+<br />
 <br />
 <div style="width: 1000px">
     <table id="cad" class="display" cellspacing="0" width="100%">
