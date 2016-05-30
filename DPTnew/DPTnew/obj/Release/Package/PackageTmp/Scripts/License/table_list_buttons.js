@@ -110,7 +110,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
 
     initdropdown(myTable);
 
-    var generate2014pwd = function (data, mid) {debugger
+    var generate2014pwd = function (data, mid) {
         var machineId = mid || data.MachineID;
         if (!machineId || machineId.length !== 8) return;
 
@@ -238,7 +238,6 @@ var loadLicenseTable = function (dtConfig, superUser) {
              text: 'Install 2015',
              className: 'import',
              action: function () {
-                 debugger
                  if (myTable.rows('.selected').count() != 0) {
                      var datarow = myTable.rows('.selected').data()[0];
                      //upload .c2v
@@ -253,7 +252,6 @@ var loadLicenseTable = function (dtConfig, superUser) {
                          Version: datarow.Version
                      },
                          function (result) {
-                             debugger
                              WinId = window.open('' + yourApp.Urls.createUrl, '_blank');
                              WinId.document.open();
                              WinId.document.write(result);
@@ -289,7 +287,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
          {
              text: 'Password < 2015',
              className: 'pssw2014',
-             action: function () {debugger
+             action: function () {
                  if (myTable.rows('.selected').count() != 0)
                      generate2014pwd.call(this, myTable.rows('.selected').data()[0]);
              },

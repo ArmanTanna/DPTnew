@@ -64,7 +64,6 @@ $(document).ready(function () {
 
     // Add event listener for opening and closing details
     $('#companies tbody').on('click', 'td.details-control', function () {
-        debugger
         var tr = $(this).closest('tr');
         var row = myTable.row(tr);
         var index = row.index();

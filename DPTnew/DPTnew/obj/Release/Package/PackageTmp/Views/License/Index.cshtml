@@ -47,7 +47,6 @@
         }
         /* Formatting function for row details - modify as you need */
         function format(d) {
-            debugger
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                '<tr>' +
@@ -111,7 +110,6 @@
             };
             if ("@ViewBag.IsSuperUser.ToString().ToLower()" == "false") {
                 var searchFilterHandler = function () {
-                    debugger
                     var api = this.api();
                     api.$("td:not(.details-control)").click(function () {
                         api.search(this.innerText).draw();
