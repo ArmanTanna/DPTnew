@@ -10,7 +10,6 @@
     @*<script src="~/Scripts/Company/table_list.js"> </script>*@
     <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.12.3.min.js"></script>
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/dataTables.buttons.min.js"></script>
     <script src="~/Scripts/buttons.flash.min.js"></script>
@@ -19,6 +18,7 @@
     <script src="~/Scripts/vfs_fonts.js"></script>
     <script src="~/Scripts/buttons.html5.min.js"></script>
     <script src="~/Scripts/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.highlight.js"></script>
 
     <script type="text/javascript">
 
@@ -98,7 +98,6 @@
                 orderClasses: false,
                 createdRow: function (row, data, index) {
                     if (data.AccountStatus != null) {
-                        debugger
                         var sub = data.AccountStatus.substring(0, 1);
                         switch (data.AccountStatus.substring(0, 2)) {
                             case "02":
@@ -118,11 +117,12 @@
                 },
             });
 
-            //myTable.on("draw", function () {
-            //    var $body = $(myTable.table().body());
-            //    $body.unhighlight();
-            //    $body.highlight(myTable.search());
-            //});
+            myTable.on("draw", function () {
+                debugger
+                var $body = $(myTable.table().body());
+                $body.unhighlight();
+                $body.highlight(myTable.search());
+            });
 
             // Add event listener for opening licenses page
             $('#companies tbody').on('click', 'td.licenses', function () {
