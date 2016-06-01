@@ -13,8 +13,9 @@ namespace DPTnew.Models
             return source != null && toCheck != null && source.IndexOf(toCheck, comp) >= 0;
         }
 
-        public static SearchParams GetSearchParams(this HttpRequestBase source) 
+        public static List<SearchParams> GetSearchParams(this HttpRequestBase source)
         {
+            var sps = new List<SearchParams>();
             var sp = new SearchParams
             {
                 Start = int.Parse(source.Form["start"]),
@@ -29,16 +30,34 @@ namespace DPTnew.Models
             int orderColumn = int.Parse(source.Form["order[0][column]"]);
             if (orderColumn > 0)
                 sp.OrderBy = source.Form[string.Format("columns[{0}][data]", orderColumn)];
+            sps.Add(sp);
 
             string regex = @"columns\[(\d+)\]\[search\]\[value\]";
-            if (string.IsNullOrEmpty(sp.Value))
+            //if (string.IsNullOrEmpty(sp.Value))
+            //{
+            //  var colIndex = (from k in source.Form.AllKeys where Regex.Match(k, regex).Success && !string.IsNullOrEmpty(source.Form[k]) select Regex.Match(k, regex).Groups[1].Value).FirstOrDefault();
+            //  sp.Value = source.Form[string.Format("columns[{0}][search][value]", colIndex)];
+            //  sp.SearchOn = source.Form[string.Format("columns[{0}][data]", colIndex)];
+            //}
+            var colIndex = (from k in source.Form.AllKeys where Regex.Match(k, regex).Success && !string.IsNullOrEmpty(source.Form[k]) select Regex.Match(k, regex).Groups[1].Value);
+            for (var i = 0; i < colIndex.Count(); i++)
             {
-              var colIndex = (from k in source.Form.AllKeys where Regex.Match(k, regex).Success && !string.IsNullOrEmpty(source.Form[k]) select Regex.Match(k, regex).Groups[1].Value).FirstOrDefault();
-              sp.Value = source.Form[string.Format("columns[{0}][search][value]", colIndex)];
-              sp.SearchOn = source.Form[string.Format("columns[{0}][data]", colIndex)];
+                var sptmp = new SearchParams
+                {
+                    Start = int.Parse(source.Form["start"]),
+                    Length = int.Parse(source.Form["length"]),
+                    Draw = int.Parse(source.Form["draw"]),
+                    Value = source.Form["search[value]"],
+                    OrderDir = source.Form["order[0][dir]"] ?? string.Empty,
+                    SearchOn = string.Empty,
+                    OrderBy = "AccountNumber"
+                };
+                sptmp.Value = source.Form[string.Format("columns[{0}][search][value]", Int32.Parse(colIndex.ElementAt(i)))];
+                sptmp.SearchOn = source.Form[string.Format("columns[{0}][data]", Int32.Parse(colIndex.ElementAt(i)))];
+                sps.Add(sptmp);
             }
 
-            return sp;
+            return sps;
         }
     }
 }

@@ -49,6 +49,9 @@
                 TimeSpent9: $("input[name=timespent9]").val(),
                 TimeSpent10: $("input[name=timespent10]").val(),
                 Total: $("input[name=total]").val()
+            },
+            function (result) {debugger
+                window.confirm("Total: "+ result.Total +" min. \nSaved!");
             });
         }
 

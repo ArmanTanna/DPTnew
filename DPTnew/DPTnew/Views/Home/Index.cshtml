@@ -65,35 +65,26 @@
         <tr>
             <th style="width:33%"><a href="http://care.think3.eu/default.aspx" target="blank"><u>Case Management</u></a></th>
             <th style="width:33%">
+                    <a href="~/FaqUser/Index" target="_blank"><u>User Guidebook</u></a>
+            </th>
+            <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
                 {
-                    <a href="~/Faq/Index" target="blank"><u>FAQs</u></a>
+                    <a href="~/Faq/Index" target="_blank"><u>VAR Guidebook</u></a>
 
                 }
-                @*@if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && !Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") &&
-                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
-                {
-                    <a href="~/Faq/Index" target="blank"><u>FAQs</u></a>
-                }*@
             </th>
-            <th style="width:33%"></th>
 
         </tr>
         <tr>
             <td>Contact our Customer Care and open a New Case. <br />
             Use your old credentials to access this section.</td>
+            <td>Here you can access the User Guidebook.</td>
             <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
-                { 
-                    <text>Here you can access the VAR Guidebook.</text>
-                }
-                @*@if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && !Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") &&
-                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
-                {
-                    <text>Here you can access the User Guidebook.</text>
-                }*@
-            </td>
-            <td></td>
+            @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+            {
+                <text>Here you can access the VAR Guidebook.</text>
+            }</td>
         </tr>
 
     </tbody>

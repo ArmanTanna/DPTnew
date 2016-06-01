@@ -22,7 +22,7 @@ namespace DPTnew.Models
         public DbSet<LicenseView> Licenses { get; set; }
         public DbSet<DptErp> ErpRows { get; set; }
 
-        public SearchResult<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
+        public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {
             IEnumerable<T> allCompanies = new List<T>();
             if (!string.IsNullOrEmpty(sp.Value))
@@ -50,6 +50,11 @@ namespace DPTnew.Models
             else
                 allCompanies = datasource;
 
+            return allCompanies;
+        }
+
+        public SearchResult<T> ConvertToSearchResult<T>(SearchParams sp, IEnumerable<T> allCompanies)
+        {
             var filtered = allCompanies.OrderBy(sp.OrderBy + " " + sp.OrderDir).ToList();
             var data = filtered.Skip(sp.Start).Take(sp.Length).ToList();
             var fCount = filtered.Count();

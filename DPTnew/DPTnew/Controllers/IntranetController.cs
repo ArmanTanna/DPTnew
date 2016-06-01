@@ -29,7 +29,13 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Search()
         {
-            return Json(_db.Search<DptErp>(Request.GetSearchParams(), GetErpRows()), JsonRequestBehavior.AllowGet);
+            var sps = Request.GetSearchParams();
+            var items = GetErpRows();
+            foreach (var sp in sps)
+            {
+                items = _db.Search<DptErp>(sp, items);
+            }
+            return Json(_db.ConvertToSearchResult<DptErp>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Admin,SuperUser")]
@@ -44,7 +50,7 @@ namespace DPTnew.Controllers
         }
         [Authorize(Roles = "Admin,SuperUser")]
         [HttpPost]
-        public ActionResult Modify(DptErp erpSingleRow)
+        public JsonResult Modify(DptErp erpSingleRow)
         {
             using (var db = new DptContext())
             {
@@ -53,14 +59,14 @@ namespace DPTnew.Controllers
                     where rows.Email == erpSingleRow.Email && rows.ActivityDate == erpSingleRow.ActivityDate
                     select rows;
 
-                if (query.Count() == 0)
-                {
-                    erpSingleRow.Total = (erpSingleRow.TimeSpent1.HasValue ? erpSingleRow.TimeSpent1 : 0) + (erpSingleRow.TimeSpent2.HasValue ? erpSingleRow.TimeSpent2 : 0) +
+                erpSingleRow.Total = (erpSingleRow.TimeSpent1.HasValue ? erpSingleRow.TimeSpent1 : 0) + (erpSingleRow.TimeSpent2.HasValue ? erpSingleRow.TimeSpent2 : 0) +
                         (erpSingleRow.TimeSpent3.HasValue ? erpSingleRow.TimeSpent3 : 0) + (erpSingleRow.TimeSpent4.HasValue ? erpSingleRow.TimeSpent4 : 0) +
                         (erpSingleRow.TimeSpent5.HasValue ? erpSingleRow.TimeSpent5 : 0) + (erpSingleRow.TimeSpent6.HasValue ? erpSingleRow.TimeSpent6 : 0) +
                         (erpSingleRow.TimeSpent7.HasValue ? erpSingleRow.TimeSpent7 : 0) + (erpSingleRow.TimeSpent8.HasValue ? erpSingleRow.TimeSpent8 : 0) +
                         (erpSingleRow.TimeSpent9.HasValue ? erpSingleRow.TimeSpent9 : 0) + (erpSingleRow.TimeSpent10.HasValue ? erpSingleRow.TimeSpent10 : 0);
 
+                if (query.Count() == 0)
+                {
                     db.ErpRows.Add(erpSingleRow);
                 }
 
@@ -96,15 +102,11 @@ namespace DPTnew.Controllers
                     row.TimeSpent8 = erpSingleRow.TimeSpent8;
                     row.TimeSpent9 = erpSingleRow.TimeSpent9;
                     row.TimeSpent10 = erpSingleRow.TimeSpent10;
-                    row.Total = (erpSingleRow.TimeSpent1.HasValue ? erpSingleRow.TimeSpent1 : 0) + (erpSingleRow.TimeSpent2.HasValue ? erpSingleRow.TimeSpent2 : 0) +
-                        (erpSingleRow.TimeSpent3.HasValue ? erpSingleRow.TimeSpent3 : 0) + (erpSingleRow.TimeSpent4.HasValue ? erpSingleRow.TimeSpent4 : 0) +
-                        (erpSingleRow.TimeSpent5.HasValue ? erpSingleRow.TimeSpent5 : 0) + (erpSingleRow.TimeSpent6.HasValue ? erpSingleRow.TimeSpent6 : 0) +
-                        (erpSingleRow.TimeSpent7.HasValue ? erpSingleRow.TimeSpent7 : 0) + (erpSingleRow.TimeSpent8.HasValue ? erpSingleRow.TimeSpent8 : 0) +
-                        (erpSingleRow.TimeSpent9.HasValue ? erpSingleRow.TimeSpent9 : 0) + (erpSingleRow.TimeSpent10.HasValue ? erpSingleRow.TimeSpent10 : 0);
+                    row.Total = erpSingleRow.Total;
                 }
                 db.SaveChanges();
             }
-            return View();
+            return Json(erpSingleRow, JsonRequestBehavior.AllowGet);
         }
 
     }

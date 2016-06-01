@@ -9,47 +9,51 @@ using WebMatrix.WebData;
 
 namespace DPTnew.Controllers
 {
-  public class LicenseController : BaseController
-  {
-    // GET: /All Companies/
-    [Authorize(Roles = "Admin,Var,SuperUser")]
-    public ActionResult Index(int pageSize = 10)
+    public class LicenseController : BaseController
     {
-      ViewBag.IsSuperUser = Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser");
-      return View();
+        // GET: /All Companies/
+        [Authorize(Roles = "Admin,Var,SuperUser")]
+        public ActionResult Index(int pageSize = 10)
+        {
+            ViewBag.IsSuperUser = Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser");
+            return View();
+        }
+
+        [Authorize(Roles = "Admin,Var,SuperUser")]
+        [HttpPost]
+        public JsonResult Search()
+        {
+            var sps = Request.GetSearchParams();
+            var items = GetLicenses();
+            foreach (var sp in sps)
+            {
+                items = _db.Search<LicenseView>(sp, items);
+            }
+            return Json(_db.ConvertToSearchResult<LicenseView>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
+        }
+
+
+        public JsonResult StateByLicenceId(string LicenseId)
+        {
+            LicenseState licenseState = new LicenseState();
+            using (var context = new DptContext())
+            {
+                var x = context.Licenses.Where(a => a.LicenseID == LicenseId).ToList().FirstOrDefault();
+                licenseState = new LicenseState()
+                            {
+                                LicenseID = x.LicenseID,
+                                Version = x.Version,
+                                LicenseType = x.LicenseType,
+                                MachineID = x.MachineID,
+                                MaintEndDate = x.MaintEndDate,
+                                Installed = x.Installed,
+                                Exported = x.Exported,
+                                Import = x.Import,
+                                PwdCode = x.PwdCode
+                            };
+            }
+            return Json(licenseState, JsonRequestBehavior.AllowGet);
+        }
+
     }
-
-    [Authorize(Roles = "Admin,Var,SuperUser")]
-    [HttpPost]
-    public JsonResult Search()
-    {
-      return Json(_db.Search<LicenseView>(Request.GetSearchParams(), GetLicenses()), JsonRequestBehavior.AllowGet);
-    }
-
-
-
-
-    public JsonResult StateByLicenceId(string LicenseId)
-    {
-      LicenseState licenseState = new LicenseState();
-      using (var context = new DptContext())
-      {
-        var x = context.Licenses.Where(a => a.LicenseID == LicenseId).ToList().FirstOrDefault();
-        licenseState = new LicenseState()
-                    {
-                      LicenseID = x.LicenseID,
-                      Version = x.Version,
-                      LicenseType = x.LicenseType,
-                      MachineID = x.MachineID,
-                      MaintEndDate = x.MaintEndDate,
-                      Installed = x.Installed,
-                      Exported = x.Exported,
-                      Import = x.Import,
-                      PwdCode = x.PwdCode
-                    };
-      }
-      return Json(licenseState, JsonRequestBehavior.AllowGet);
-    }
-
-  }
 }
