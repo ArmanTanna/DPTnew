@@ -9,6 +9,18 @@
     @*<script src="~/Scripts/Company/table_list.js"> </script>*@
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui.min.js"></script>
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.highlight.js"></script>
+
     <script type="text/javascript">
 
         var yourApp = yourApp || {};
@@ -140,6 +152,10 @@
             var myTable = $("#dpterp").DataTable({
                 serverSide: true,
                 processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
                 ajax: {
                     type: "POST",
                     url: "Intranet/Search"
