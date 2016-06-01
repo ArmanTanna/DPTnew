@@ -132,8 +132,8 @@ function caricaIndex() {
 	clmnsdfs[1] = { targets: 1 , visible: false, searchable: false } //ancora
 	clmnsdfs[2] = { targets: 2 , width: "70%", className: "myleft", 
 	render: function ( data, type, row ) { 
-		if (row[3].substring(0,2) == "l1") return '<a href="../faq.htm#'+ row[1]+'" target="_top">'+ data +'</a>';
-		else return '<a href="../faq2.htm#q'+ row[1]+'" target="_top">'+ data +'</a>';
+	    if (row[3].substring(0, 2) == "l1") return '<a href="../../../Faq/Index#' + row[1] + '" target="_top">' + data + '</a>';
+	    else return '<a href="../../../Faq/Index2#q' + row[1] + '" target="_top">' + data + '</a>';
 		}
 	}  //title
 	clmnsdfs[3] = { targets: 3 , visible: false, searchable: false } //cxpy
