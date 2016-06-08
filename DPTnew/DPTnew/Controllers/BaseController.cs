@@ -55,8 +55,14 @@ namespace DPTnew.Controllers
                 return _db.ErpRows.Where(u => u.Email == user).ToList();
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
                 return _db.ErpRows.ToList();
-            
+
             return null;
+        }
+
+        protected IEnumerable<ActivityTitles> GetActivityTitles()
+        {
+            var user = WebSecurity.CurrentUserName;
+            return _db.ActivityTitles.Where(u => u.Email == user).ToList();
         }
 
         protected IEnumerable<LicenseView> GetLicenses()

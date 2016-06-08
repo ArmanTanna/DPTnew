@@ -127,8 +127,6 @@ var loadLicenseTable = function (dtConfig, superUser) {
         var $machineIdPopup = $(this);
         var onSuccess = function (result) {
 
-            myTable.rows('.selected').deselect();
-
             if ($machineIdPopup && $machineIdPopup.is(":visible")) {
                 $machineIdPopup.dialog("close");
                 $machineIdPopup.find("input#machineid").val("");
@@ -149,6 +147,8 @@ var loadLicenseTable = function (dtConfig, superUser) {
             };
 
             $("#pwd-dialog").dialog(pwdDialogConfig);
+            myTable.rows('.selected').deselect();
+
         };
 
         var headers = {};
@@ -317,12 +317,13 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 var isLocal = /^KID[0-9]+$/.test(data.MachineID);
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
                 var isTdVar = data.PwdCode.startsWith("VA");
+                var isL = /^L/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                  if (isLocal && !isEval && !isTdVar) {
+                  if (isLocal && !isEval && !isTdVar && isL) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }

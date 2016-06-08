@@ -21,6 +21,7 @@ namespace DPTnew.Models
         public DbSet<CompanyView> Companies { get; set; }
         public DbSet<LicenseView> Licenses { get; set; }
         public DbSet<DptErp> ErpRows { get; set; }
+        public DbSet<ActivityTitles> ActivityTitles { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {
