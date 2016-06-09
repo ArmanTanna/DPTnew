@@ -12,14 +12,15 @@ namespace DPTnew.Controllers
     public class LicenseController : BaseController
     {
         // GET: /All Companies/
-        [Authorize(Roles = "Admin,Var,SuperUser")]
+        [Authorize(Roles = "Admin,Var,VarExp,Internal")]
         public ActionResult Index(int pageSize = 10)
         {
-            ViewBag.IsSuperUser = Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser");
+            ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
+            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
         }
 
-        [Authorize(Roles = "Admin,Var,SuperUser")]
+        [Authorize(Roles = "Admin,Var,VarExp,Internal")]
         [HttpPost]
         public JsonResult Search()
         {

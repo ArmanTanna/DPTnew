@@ -17,7 +17,7 @@ using SafenetIntegration;
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "Admin,Var,SuperUser")]
+    [Authorize(Roles = "VarExp,Admin,Var,Internal")]
     public class CompanyController : BaseController
     {
         //
@@ -30,7 +30,7 @@ namespace DPTnew.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin,SuperUser")]
+        [Authorize(Roles = "Admin")]
         public ActionResult SyncDB()
         {
             SentinelEMSWrapper sew;

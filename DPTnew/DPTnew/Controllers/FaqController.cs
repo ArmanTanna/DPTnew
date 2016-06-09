@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace DPTnew.Controllers
 {
-    [Authorize(Roles = "Var, Admin, SuperUser")]
+    [Authorize(Roles = "VarExp,Var,Admin,Internal")]
     public class FaqController : Controller
     {
         //

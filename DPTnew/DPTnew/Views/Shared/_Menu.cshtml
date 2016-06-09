@@ -3,11 +3,11 @@
                 {
                    new { LinkText="Home", ActionName="Index",ControllerName="Home",Roles="All"  },
                    //new { LinkText="Companies", ActionName="Companies",ControllerName="Var",Roles="Var"  },
-                   new { LinkText="All Companies", ActionName="Index",ControllerName="Company",Roles="Admin,Var,SuperUser"  },
-                   new { LinkText="All Licenses", ActionName="Index",ControllerName="License",Roles="Admin,Var,SuperUser"  },
+                   new { LinkText="All Companies", ActionName="Index",ControllerName="Company",Roles="Admin,Var,VarExp,Internal"  },
+                   new { LinkText="All Licenses", ActionName="Index",ControllerName="License",Roles="Admin,Var,VarExp,Internal"  },
                    new { LinkText="Licenses", ActionName="Licenses",ControllerName="User",Roles="NormalUser"  },
                    new { LinkText="Download", ActionName="Index",ControllerName="Download",Roles="All"  },
-                   new { LinkText="Activities", ActionName="Index",ControllerName="Intranet",Roles="Admin,SuperUser"  }
+                   new { LinkText="Activities", ActionName="Index",ControllerName="Intranet",Roles="Admin,Internal"  }
                 };
 }
 
@@ -43,7 +43,7 @@
 
     }
 
-    if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+    if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
     { 
     @* <li>@Html.ActionLink("Safenet Sync", "SyncDB", "Company")</li> *@
     <li>Safenet Sync</li>

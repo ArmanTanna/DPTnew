@@ -17,7 +17,7 @@ using SafenetIntegration;
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "Admin,SuperUser")]
+    [Authorize(Roles = "Admin,Internal")]
     public class IntranetController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
@@ -25,7 +25,7 @@ namespace DPTnew.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin,SuperUser")]
+        [Authorize(Roles = "Admin,Internal")]
         [HttpPost]
         public JsonResult Search()
         {
@@ -38,7 +38,7 @@ namespace DPTnew.Controllers
             return Json(_db.ConvertToSearchResult<DptErp>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,SuperUser")]
+        [Authorize(Roles = "Admin,Internal")]
         [HttpPost]
         public ActionResult SingleErpRow(DptErp erpSingleRow)
         {
@@ -49,7 +49,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,SuperUser")]
+        [Authorize(Roles = "Admin,Internal")]
         [HttpPost]
         public JsonResult Modify(DptErp erpSingleRow)
         {
@@ -76,7 +76,7 @@ namespace DPTnew.Controllers
             return Json(erpSingleRow, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,SuperUser")]
+        [Authorize(Roles = "Admin,Internal")]
         [HttpPost]
         public JsonResult GetActivities()
         {

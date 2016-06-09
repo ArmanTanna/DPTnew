@@ -39,9 +39,9 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<CompanyView> GetCompanies()
         {
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Companies.ToList();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 return GetVarCompanies();
 
             var user = _db.Contacts.Single(u => u.Email == WebSecurity.CurrentUserName);
@@ -51,9 +51,9 @@ namespace DPTnew.Controllers
         protected IEnumerable<DptErp> GetErpRows()
         {
             var user = WebSecurity.CurrentUserName;
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.ErpRows.Where(u => u.Email == user).ToList();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 return _db.ErpRows.ToList();
 
             return null;
@@ -67,7 +67,7 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<LicenseView> GetLicenses()
         {
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "SuperUser"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Licenses.ToList();
 
             var companies = GetCompanyAccountNumbers();
