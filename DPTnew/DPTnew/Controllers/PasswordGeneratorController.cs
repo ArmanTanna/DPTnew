@@ -299,6 +299,38 @@ namespace DptLicensingServer.Controllers
             }
         }
 
+        [HttpGet]
+        [ActionName("Upgrade")]
+        public HttpResponseMessage Upgrade(string licenseId)
+        {
+            try
+            {
+                if (!Authenticate())
+                    return CreateResponse(HttpStatusCode.Unauthorized);
+
+                using (var db = new DptContext())
+                {
+                    var query =
+                    from license in db.Licenses
+                    where license.LicenseID == licenseId
+                    select license;
+                
+                    foreach (LicenseView lic in query)
+                    {
+                        lic.Version = "2014";
+                    }
+                    
+                    db.SaveChanges();
+                }
+
+                return CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+                return CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
         //int xcsde(int key1, int key2, string instring, out string outstring)
         [HttpGet]
         [ActionName("xcsde")]

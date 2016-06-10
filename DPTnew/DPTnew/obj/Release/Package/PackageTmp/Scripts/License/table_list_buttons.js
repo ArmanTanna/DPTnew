@@ -16,15 +16,15 @@ String.prototype.startsWith = function (pattern) {
 
 function initdropdown(table) {
 
-  yadcf.init(table, [
-{ column_number: 1, filter_default_label: "Select" },
-{ column_number: 2, filter_default_label: "Select" },
-{ column_number: 3, filter_default_label: "Select" },
-{ column_number: 4, filter_default_label: "Select" },
-{ column_number: 5, filter_default_label: "Select" },
-{ column_number: 6, filter_default_label: "Select" },
-{ column_number: 7, filter_default_label: "Select" },
-{ column_number: 8, filter_default_label: "Select" }]);
+    yadcf.init(table, [
+  { column_number: 1, filter_default_label: "Select" },
+  { column_number: 2, filter_default_label: "Select" },
+  { column_number: 3, filter_default_label: "Select" },
+  { column_number: 4, filter_default_label: "Select" },
+  { column_number: 5, filter_default_label: "Select" },
+  { column_number: 6, filter_default_label: "Select" },
+  { column_number: 7, filter_default_label: "Select" },
+  { column_number: 8, filter_default_label: "Select" }]);
 
 
 }
@@ -140,12 +140,14 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 height: result.PwdLine ? 250 : "auto",
                 buttons: {
                     OK: function () {
+                        $("#pwd-dialog").prop('title', '');
                         $(this).dialog("close");
                         location.reload();
                     }
                 }
             };
-
+            debugger
+            $("#pwd-dialog").prop('title', 'Your requested password is');
             $("#pwd-dialog").dialog(pwdDialogConfig);
             myTable.rows('.selected').deselect();
 
@@ -292,6 +294,44 @@ var loadLicenseTable = function (dtConfig, superUser) {
                      generate2014pwd.call(this, myTable.rows('.selected').data()[0]);
              },
              enabled: false
+         },
+         {
+             text: 'Upgrade 2014',
+             className: 'upg2014',
+             action: function () {
+                 if (myTable.rows('.selected').count() != 0) {
+                     var headers = {};
+                     headers.LicenseID = myTable.rows('.selected').data()[0].LicenseID;
+                     
+                     var $psw = $("#password");
+                     $psw.text("");
+                     $psw.text("Would you like to upgrade the version to 2014?");
+                     var pwdDialogConfig = {
+                         modal: true,
+                         width: 400,
+                         height: "auto",
+                         buttons: {
+                             OK: function () {
+                                 $(this).dialog("close");
+                                 $.ajax({
+                                     url: "../api/PasswordGenerator/Upgrade?licenseId=" + headers.LicenseID,
+                                     type: 'GET',
+                                     data: null,
+                                     headers: headers,
+                                     dataType: "json",
+                                     success: function (result) {
+                                         $("#pwd-dialog").prop('title', '');
+                                         location.reload();
+                                     }
+                                 });
+                             }
+                         }
+                     };debugger
+                     $("#pwd-dialog").prop('title', 'Upgrade 2014');
+                     $("#pwd-dialog").dialog(pwdDialogConfig);
+                 }
+             },
+             enabled: false
          }
             ]
         });
@@ -312,7 +352,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
 
             //check if license is 2015
             if (data.Version >= '2015') {
-                
+
                 var now = new Date();
                 var isLocal = /^KID[0-9]+$/.test(data.MachineID);
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
@@ -323,7 +363,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                  if (isLocal && !isEval && !isTdVar && isL) {
+                    if (isLocal && !isEval && !isTdVar && isL) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }
@@ -343,6 +383,9 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 } else {
                     if (data.LicenseType.toLowerCase() == "local")
                         myTable.buttons(['.pssw2014']).enable(true);
+                    if (data.LicenseType.toLowerCase() == "local" && parseJsonDate(data.MaintEndDate) > new Date() &&
+                        data.Version < '2014')
+                        myTable.buttons(['.upg2014']).enable(true);
                 }
             }
 
@@ -356,6 +399,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
         myTable.buttons(['.import']).disable();
         myTable.buttons(['.license2014']).disable();
         myTable.buttons(['.pssw2014']).disable();
+        myTable.buttons(['.upg2014']).disable()
     });
 
 
