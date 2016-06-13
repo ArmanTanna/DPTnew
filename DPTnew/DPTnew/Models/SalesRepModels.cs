@@ -7,7 +7,7 @@ using System.Web;
 
 namespace DPTnew.Models
 {
-     [Table("service_salesregion")]
+     [Table("service_SalesRegions")]
     public class SalesR
     {
         public SalesR()

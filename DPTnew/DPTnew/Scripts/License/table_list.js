@@ -21,10 +21,10 @@ function format(d) {
             '<td><b>Ancestor:</b></td>' +
             '<td>' + d[7] + '</td>' +
         '</tr>' +
-        '<tr>' +
-            '<td><b>License Kind:</b></td>' +
-            '<td>' + d[13] + '</td>' +
-        '</tr>' +
+        //'<tr>' +
+        //    '<td><b>License Kind:</b></td>' +
+        //    '<td>' + d[13] + '</td>' +
+        //'</tr>' +
         '<tr>' +
             '<td><b>Note:</b></td>' +
             '<td>' + d[14] + '</td>' +
@@ -55,7 +55,7 @@ $(document).ready(function () {
             { "bVisible": false, },
             null,
             null,
-            { "bVisible": false, },
+            //{ "bVisible": false, },
             { "bVisible": false, }
         ],
         "order": [[1, 'asc']],

@@ -101,7 +101,7 @@ namespace DPTnew.Models
         public string PwdCode { get; set; }
 
         public string Version { get; set; }
-        public string LicenseKind { get; set; }
+        //public string LicenseKind { get; set; }
         public string Note { get; set; }
         public int Installed { get; set; }
         public int Exported { get; set; }

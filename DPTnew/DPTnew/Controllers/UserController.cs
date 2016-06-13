@@ -509,7 +509,7 @@ namespace DPTnew.Controllers
                             }
 
                             ViewBag.ok1 = "You have generated your license.";
-                            ViewBag.ok2 = "You are going to receive a .v2c file to install at your company email address.";
+                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address.";
                             return View("Success");
                         }
                     }

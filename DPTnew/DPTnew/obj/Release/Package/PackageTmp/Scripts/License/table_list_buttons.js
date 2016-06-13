@@ -26,7 +26,6 @@ function initdropdown(table) {
   { column_number: 7, filter_default_label: "Select" },
   { column_number: 8, filter_default_label: "Select" }]);
 
-
 }
 
 /* Formatting function for row details - modify as you need */
@@ -50,8 +49,8 @@ function format(d) {
             '<td><b>Ancestor:</b></td>' +
             '<td>' + d.Ancestor + '</td>' +
 
-            '<td><b>License Kind:</b></td>' +
-            '<td>' + d.LicenseKind + '</td>' +
+            //'<td><b>License Kind:</b></td>' +
+            //'<td>' + d.LicenseKind + '</td>' +
 
             '<td><b>Note:</b></td>' +
             '<td>' + d.Note + '</td>' +
