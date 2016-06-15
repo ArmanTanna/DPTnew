@@ -183,7 +183,7 @@ namespace DPTnew.Controllers
                             }
 
                             ViewBag.ok1 = "You have exported your license.";
-                            ViewBag.ok2 = "You are going to receive a .v2c to install.";
+                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address.";
                             return View("Success");
                         }
                         else
@@ -277,8 +277,8 @@ namespace DPTnew.Controllers
                                 }
 
                             }
-                            //multiple products
-                            else if (products is JArray && !products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
+                            //multiple products - modified the check !
+                            else if (products is JArray && products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
                                 success = true;
                         }
                     }
