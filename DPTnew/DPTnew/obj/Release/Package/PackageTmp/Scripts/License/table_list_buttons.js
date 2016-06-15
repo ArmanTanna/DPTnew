@@ -145,7 +145,8 @@ var loadLicenseTable = function (dtConfig, superUser) {
                     }
                 }
             };
-            $("#pwd-dialog").prop('title', 'Your requested password is');
+            //$("#pwd-dialog").prop('title', 'Your requested password is');
+            $("span.ui-dialog-title").text('Your requested password is');
             $("#pwd-dialog").dialog(pwdDialogConfig);
             myTable.rows('.selected').deselect();
 
@@ -326,7 +327,9 @@ var loadLicenseTable = function (dtConfig, superUser) {
                          }
                      };
                      $("#pwd-dialog").prop('title', 'Upgrade 2014');
+                     $("span.ui-dialog-title").text('Upgrade 2014');
                      $("#pwd-dialog").dialog(pwdDialogConfig);
+                     myTable.rows('.selected').deselect();
                  }
              },
              enabled: false
