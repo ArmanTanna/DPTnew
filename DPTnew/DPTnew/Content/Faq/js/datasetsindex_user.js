@@ -55,7 +55,7 @@ var dataSetIndex = [
 ["13", "td2015nostart", "TD2015 doesn&lsquo;t start, and neither does the previous version", "l1c3p9", "Licensing 2015", "License Manager", "200"],
 ["14", "exportlicense2015", "Can I export my licence 2015?", "l1c3p10", "Licensing 2015", "License Manager", "110"],
 ["15", "howtoexportlicense2015", "How can I export a license?", "l1c3p11", "Licensing 2015", "License Manager", "300"],
-["16", "selfserviceexport", "How does the self-service export functionality work?", "l1c3p12", "Licensing 2015", "License Manager", "400"],
+["16", "selfserviceexport", "How does the self-service export functionality work?", "l1c3p12", "Licensing 2015", "License Manager", "1000"],
 ["17", "dongleondifferentpc2015", "What if I want to use my dongle on a different PC?", "l1c3p13", "Licensing 2015", "License Manager", "60"],
 ["18", "exportlicense2014", "Can I export my licence 2014?", "l1c4p1", "Licensing 2014", "License Manager", "110"],
 ["19", "howtoexportlicense2014", "How can I export a license?", "l1c4p2", "Licensing 2014", "License Manager", "760"],
