@@ -136,20 +136,30 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
+            if (currentlicense != null && currentlicense.MaxExport > 0 && currentlicense.ExportedNum == currentlicense.MaxExport)
+            {
+                ModelState.AddModelError("EXPORT", "Maximum number of export is reached. It's impossible to export the license.");
+                return View("Export", l);
+            }
 
             if (currentlicense != null && currentlicense.Version == "2015")
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex testrgx = new Regex(@"^TEST[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
+                var isL = lrgx.IsMatch(currentlicense.LicenseID);
+                var isTest = testrgx.IsMatch(currentlicense.LicenseID);
+
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isEval && !isTdVar)
+                    if (isLocal && !isEval && !isTdVar && (isTest || isL))
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 
@@ -174,16 +184,19 @@ namespace DPTnew.Controllers
                                 //update state in db
                                 currentlicense.Installed = 0;
                                 currentlicense.Exported = 1;
+                                currentlicense.ExportedNum = currentlicense.ExportedNum + 1;
                                 context.Licenses.Attach(currentlicense);
                                 var entry = context.Entry(currentlicense);
                                 entry.Property(x => x.Installed).IsModified = true;
                                 entry.Property(x => x.Exported).IsModified = true;
+                                entry.Property(x => x.ExportedNum).IsModified = true;
                                 //context.Entry(currentlicense).State = EntityState.Modified;
                                 context.SaveChanges();
                             }
 
+                            var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
                             ViewBag.ok1 = "You have exported your license.";
-                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address.";
+                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email;
                             return View("Success");
                         }
                         else
@@ -277,8 +290,8 @@ namespace DPTnew.Controllers
                                 }
 
                             }
-                            //multiple products - modified the check !
-                            else if (products is JArray && products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
+                            //multiple products 
+                            else if (products is JArray && !products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
                                 success = true;
                         }
                     }
@@ -292,7 +305,7 @@ namespace DPTnew.Controllers
                     //update state in db
                     currentlicense.Exported = 0;
                     currentlicense.Import = 1;
-                    currentlicense.MachineID = "";
+                    currentlicense.MachineID = "ABCDEFGH";
 
                     context.Licenses.Attach(currentlicense);
                     var entry = context.Entry(currentlicense);
@@ -508,8 +521,9 @@ namespace DPTnew.Controllers
                                 context.SaveChanges();
                             }
 
+                            var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
                             ViewBag.ok1 = "You have generated your license.";
-                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address.";
+                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email;
                             return View("Success");
                         }
                     }

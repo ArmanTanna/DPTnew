@@ -115,6 +115,9 @@ namespace DPTnew.Models
         public string ServLicense1 { get; set; }
         public string ServLicense2 { get; set; }
         public string ServLicense3 { get; set; }
+
+        public int ExportedNum { get; set; }
+        public int MaxExport { get; set; }
     }
 
     public class LicenseState

@@ -358,13 +358,14 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 var isLocal = /^KID[0-9]+$/.test(data.MachineID);
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
                 var isTdVar = data.PwdCode.startsWith("VA");
-                var isL = /^L/.test(data.LicenseID);
+                var isL = /^L[0-9]+$/.test(data.LicenseID);
+                var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                    if (isLocal && !isEval && !isTdVar && isL) {
+                    if (isLocal && !isEval && !isTdVar && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }
