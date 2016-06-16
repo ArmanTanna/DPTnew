@@ -305,7 +305,7 @@ namespace DPTnew.Controllers
                     //update state in db
                     currentlicense.Exported = 0;
                     currentlicense.Import = 1;
-                    currentlicense.MachineID = "ABCDEFGH";
+                    currentlicense.MachineID = "KIDABCDEFGH";
 
                     context.Licenses.Attach(currentlicense);
                     var entry = context.Entry(currentlicense);
