@@ -19,6 +19,7 @@ namespace DPTnew.Models
         //public DbSet<Company> Companies { get; set; }
         public DbSet<SalesR> SalesR { get; set; }
         public DbSet<CompanyView> Companies { get; set; }
+        public DbSet<SafenetComapny> SafenetCompanies { get; set; }
         public DbSet<LicenseView> Licenses { get; set; }
         public DbSet<DptErp> ErpRows { get; set; }
         public DbSet<ActivityTitles> ActivityTitles { get; set; }

@@ -39,7 +39,7 @@ namespace DPTnew.Controllers
             cc.UserName.Password = System.Configuration.ConfigurationManager.AppSettings["safenetpassword"];
             var safenetUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["safeneturi"]);
 
-            foreach (CompanyView company in _db.Companies.ToList())
+            foreach (SafenetComapny company in _db.SafenetCompanies.ToList())
             {
                 try
                 {
