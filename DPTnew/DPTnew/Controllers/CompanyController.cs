@@ -38,6 +38,7 @@ namespace DPTnew.Controllers
             cc.UserName.UserName = System.Configuration.ConfigurationManager.AppSettings["safenetusername"];
             cc.UserName.Password = System.Configuration.ConfigurationManager.AppSettings["safenetpassword"];
             var safenetUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["safeneturi"]);
+            string errormsg = "DB Sync failed for: ";
 
             foreach (SafenetComapny company in _db.SafenetCompanies.ToList())
             {
@@ -64,10 +65,10 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
-
+                    errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); ";
                 }
             }
-
+            ViewBag.Message = errormsg;
             return View();
         }
 
