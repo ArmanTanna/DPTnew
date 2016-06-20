@@ -655,7 +655,7 @@ namespace SafenetIntegration
         public void CreateCustomer(JObject customer)
         {
             CheckAuth();
-            if (CustomerExist(new string[] { "crmId=" + customer["CrmId"].Value<string>(), "vendorId=" + VENDOR }))
+            if (CustomerExist(new string[] { "crmId=" + customer["CrmId"].Value<string>(), "vendorId=" + ((customer["ActualBatchCode"].Value<string>() == "DEMOMA") ? SafenetUtilities.DEMOMA : VENDOR) }))
                 throw new SafenetException("Customer with CRM-ID: " + customer["CrmId"].Value<string>() + "already exists", HttpStatusCode.BadRequest);
             string customerXml = BuildCustomer(customer);
             try
