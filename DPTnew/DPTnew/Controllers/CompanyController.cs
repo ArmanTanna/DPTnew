@@ -43,8 +43,8 @@ namespace DPTnew.Controllers
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(company.Email))
-                        continue;
+                    //if (string.IsNullOrEmpty(company.Email))
+                    //    continue;
 
                     sew = new SentinelEMSWrapper(safenetUri, cc);
                     sew.Authentication();
@@ -55,6 +55,8 @@ namespace DPTnew.Controllers
                     data["Locale"] = company.Language;
                     data["CompanyName"] = company.AccountName;
                     data["CrmId"] = company.AccountNumber;
+                    data["ActualBatchCode"] = company.ActualBatchCode;
+                    data["UpdateBatchCode"] = company.UpdateBatchCode;
                     if (sew.CheckExistCustomer(data))
                         sew.UpdateCustomer(data);
                     else

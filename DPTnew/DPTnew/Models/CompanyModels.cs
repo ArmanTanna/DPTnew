@@ -57,6 +57,8 @@ namespace DPTnew.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Language { get; set; }
+        public string ActualBatchCode { get; set; }
+        public string UpdateBatchCode { get; set; }
     }
 
     [Table("DPT_Companies")]

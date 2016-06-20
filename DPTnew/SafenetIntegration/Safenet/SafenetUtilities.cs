@@ -80,7 +80,7 @@ namespace SafenetIntegration.Safenet
         case "german":
           return "DE";
         case "japanese":
-          return "JP";
+          return "JA";
         case "french":
           return "FR";
         default:

@@ -136,7 +136,7 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
-            if (currentlicense != null && currentlicense.MaxExport > 0 && currentlicense.ExportedNum == currentlicense.MaxExport)
+            if (currentlicense != null && currentlicense.MaxExport > 0 && currentlicense.ExportedNum >= currentlicense.MaxExport)
             {
                 ModelState.AddModelError("EXPORT", "Maximum number of export is reached. It's impossible to export the license.");
                 return View("Export", l);
