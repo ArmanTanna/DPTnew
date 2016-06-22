@@ -1,31 +1,26 @@
 ﻿/* Formatting function for row details - modify as you need */
 function format(d) {
     // `d` is the original data object for the row
-    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+    return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
 '<tr>' +
             '<td><b>Start Date:</b></td>' +
             '<td>' + d[8] + '</td>' +
 
             '<td><b>End Date:</b></td>' +
             '<td>' + d[9] + '</td>' +
-        '</tr>' +
-        '<tr>' +
 
-            '<td><b>Maintenance Start Date:</b></td>' +
+            '<td><b>Maint Start Date:</b></td>' +
             '<td>' + d[10] + '</td>' +
-            '<td><b>Maintenance End Date:</b></td>' +
-            '<td>' + d[11] + '</td>'
-        +
+            '<td><b>Maint End Date:</b></td>' +
+            '<td>' + d[11] + '</td>' +
         '</tr>' +
          '<tr>' +
             '<td><b>Ancestor:</b></td>' +
             '<td>' + d[7] + '</td>' +
-        '</tr>' +
         //'<tr>' +
         //    '<td><b>License Kind:</b></td>' +
         //    '<td>' + d[13] + '</td>' +
         //'</tr>' +
-        '<tr>' +
             '<td><b>Note:</b></td>' +
             '<td>' + d[14] + '</td>' +
         '</tr>' +

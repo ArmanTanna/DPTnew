@@ -27,8 +27,16 @@ namespace DPTnew.Controllers
                 filteredcompanies = _db.Companies.Where(x => salesReps.Contains(x.SalesRep.Trim()));
             }
             else
-                filteredcompanies = _db.Companies.Where(x => x.SalesRep.Trim() == salesRep.SalesRep.Trim());
+            {
+                if (salesRep.SalesRep.Trim() == "t3korea")
+                {
+                    var salesReps = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();
 
+                    filteredcompanies = _db.Companies.Where(x => salesReps.Contains(x.SalesRep.Trim()));
+                }
+                else
+                    filteredcompanies = _db.Companies.Where(x => x.SalesRep.Trim() == salesRep.SalesRep.Trim());
+            }
             return filteredcompanies.ToList();
         }
 
