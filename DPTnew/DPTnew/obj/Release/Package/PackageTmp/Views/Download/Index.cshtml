@@ -20,6 +20,9 @@
 
         /* Formatting function for row details - modify as you need */
         function format(d) {
+            debugger
+            var salesReg = '@ViewBag.Message';
+            salesReg = salesReg.toLowerCase().trim();
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                '<tr>' +
@@ -27,34 +30,36 @@
                     '<td><b>Description</b></td>' +
                     '<td><b>Download</b></td>' +
                '</tr>' +
-                '<tr>' +
+                ((salesReg == "japan" && d.Product.indexOf("32bit") > -1) ?
+                "" : '<tr>' +
                     '<td>' + d.Product + '</td>' +
                     '<td>' + d.Description + '</td>' +
                     '<td> <a href="' + d.Download + '"> Download' + d.Size + ' </a></td>' +
-                '</tr>' + (d.Product1 ?
+                '</tr>') +
+                (d.Product1 ? ((salesReg == "japan" && d.Product1.indexOf("32bit") > -1) ? "" :
                 '<tr>' +
                     '<td>' + d.Product1 + '</td>' +
                     '<td>' + d.Description1 + '</td>' +
                     '<td> <a href="' + d.Download1 + '"> Download' + d.Size1 + ' </a></td>' +
-                '</tr>' : "") +
-                 (d.Product2 ?
+                '</tr>') : "") +
+                (d.Product2 ? ((salesReg == "japan" && d.Product2.indexOf("32bit") > -1) ? "" :
                 '<tr>' +
                     '<td>' + d.Product2 + '</td>' +
                     '<td>' + d.Description2 + '</td>' +
                     '<td> <a href="' + d.Download2 + '"> Download' + d.Size2 + ' </a></td>' +
-                '</tr>' : "") +
-                (d.Product3 ?
+                '</tr>') : "") +
+                (d.Product3 ? ((salesReg == "japan" && d.Product3.indexOf("32bit") > -1) ? "" :
                 '<tr>' +
                     '<td>' + d.Product3 + '</td>' +
                     '<td>' + d.Description3 + '</td>' +
                     '<td> <a href="' + d.Download3 + '"> Download' + d.Size3 + ' </a></td>' +
-                '</tr>' : "") +
-                (d.Product4 ?
+                '</tr>') : "") +
+                (d.Product4 ? ((salesReg == "japan" && d.Product4.indexOf("32bit") > -1) ? "" :
             '<tr>' +
                 '<td>' + d.Product4 + '</td>' +
                 '<td>' + d.Description4 + '</td>' +
                 '<td> <a href="' + d.Download4 + '"> Download' + d.Size4 + ' </a></td>' +
-            '</tr>' : "") +
+            '</tr>') : "") +
              '</table>';
         }
 
@@ -62,7 +67,7 @@
             var datacad = [
                 {
                     "Year": "2016", "Product": "ThinkDesign 2016 64bit beta", "Description": "Beta version of ThinkDesign 2016.", "Size": " - 1.86 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20614/dvd_td_64bit_2016T1_b20614.iso",
-                    "Product1": "ThinkDesign 2016 32bit beta", "Description1": "Legacy beta version for old systems.", "Size1": " - 2.24 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20614/dvd_td_2016T1_b20614.iso",   
+                    "Product1": "ThinkDesign 2016 32bit beta", "Description1": "Legacy beta version for old systems.", "Size1": " - 2.24 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20614/dvd_td_2016T1_b20614.iso",
                 },
                 {
                     "Year": "2015", "Product": "ThinkDesign 2015 64bit SP3", "Description": "Recommended version.", "Size": " - 2.03 GB", "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe",
