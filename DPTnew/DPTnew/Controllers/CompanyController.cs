@@ -58,6 +58,7 @@ namespace DPTnew.Controllers
                     data["CrmId"] = company.AccountNumber;
                     data["ActualBatchCode"] = company.ActualBatchCode;
                     data["UpdateBatchCode"] = company.UpdateBatchCode;
+                    data["Description"] = company.Description;
                     if (sew.CheckExistCustomer(data))
                         sew.UpdateCustomer(data);
                     else

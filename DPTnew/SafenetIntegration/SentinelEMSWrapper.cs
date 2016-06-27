@@ -1052,6 +1052,7 @@ namespace SafenetIntegration
                 customerModel.vendorId = SafenetUtilities.DEMOMA;
             else
                 customerModel.vendorId = VENDOR;
+            customerModel.description = customer["Description"].Value<string>();
             return Serialize(customerModel);
         }
 
