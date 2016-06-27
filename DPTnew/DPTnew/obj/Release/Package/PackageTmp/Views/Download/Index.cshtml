@@ -19,8 +19,7 @@
     <script type="text/javascript">
 
         /* Formatting function for row details - modify as you need */
-        function format(d) {
-            debugger
+        function format(d) {debugger
             var salesReg = '@ViewBag.Message';
             salesReg = salesReg.toLowerCase().trim();
             // `d` is the original data object for the row
@@ -30,31 +29,31 @@
                     '<td><b>Description</b></td>' +
                     '<td><b>Download</b></td>' +
                '</tr>' +
-                ((salesReg == "japan" && d.Product.indexOf("32bit") > -1) ?
+                ((salesReg == "japan" && d.Product.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ?
                 "" : '<tr>' +
                     '<td>' + d.Product + '</td>' +
                     '<td>' + d.Description + '</td>' +
                     '<td> <a href="' + d.Download + '"> Download' + d.Size + ' </a></td>' +
                 '</tr>') +
-                (d.Product1 ? ((salesReg == "japan" && d.Product1.indexOf("32bit") > -1) ? "" :
+                (d.Product1 ? ((salesReg == "japan" && d.Product1.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
                     '<td>' + d.Product1 + '</td>' +
                     '<td>' + d.Description1 + '</td>' +
                     '<td> <a href="' + d.Download1 + '"> Download' + d.Size1 + ' </a></td>' +
                 '</tr>') : "") +
-                (d.Product2 ? ((salesReg == "japan" && d.Product2.indexOf("32bit") > -1) ? "" :
+                (d.Product2 ? ((salesReg == "japan" && d.Product2.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
                     '<td>' + d.Product2 + '</td>' +
                     '<td>' + d.Description2 + '</td>' +
                     '<td> <a href="' + d.Download2 + '"> Download' + d.Size2 + ' </a></td>' +
                 '</tr>') : "") +
-                (d.Product3 ? ((salesReg == "japan" && d.Product3.indexOf("32bit") > -1) ? "" :
+                (d.Product3 ? ((salesReg == "japan" && d.Product3.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
                     '<td>' + d.Product3 + '</td>' +
                     '<td>' + d.Description3 + '</td>' +
                     '<td> <a href="' + d.Download3 + '"> Download' + d.Size3 + ' </a></td>' +
                 '</tr>') : "") +
-                (d.Product4 ? ((salesReg == "japan" && d.Product4.indexOf("32bit") > -1) ? "" :
+                (d.Product4 ? ((salesReg == "japan" && d.Product4.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
             '<tr>' +
                 '<td>' + d.Product4 + '</td>' +
                 '<td>' + d.Description4 + '</td>' +

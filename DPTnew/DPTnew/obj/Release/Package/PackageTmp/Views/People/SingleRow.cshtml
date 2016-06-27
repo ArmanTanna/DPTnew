@@ -1,0 +1,115 @@
+﻿@model IEnumerable<DPTnew.Models.People>
+
+@{
+    ViewBag.Title = "Modify";
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.GetPeopleRolesFromDB = '@Url.Action("GetPeopleRolesFromDB", "People")';
+        yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "People")';
+
+        function submitform() {
+            $.post("/People/Modify", {
+                UserId: $("input[name=userId]").val(),
+                Email: $("input[name=email]").val(),
+                FirstName: $("input[name=firstName]").val(),
+                LastName: $("input[name=lastName]").val(),
+                Language: $("input[name=language]").val(),
+                EmailStatus: $("input[name=emailStatus]").val(),
+                AccountNumber: $("input[name=accountNumber]").val(),
+                PrimaryContact: $("input[name=primaryContact]").val(),
+                RoleId: $("#roleName-choice").val(),
+            },
+            function (result) {
+                window.confirm("Saved!");
+            });
+        }
+
+    </script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+
+        $(document).ready(function () {
+            $.post(yourApp.Urls.GetPeopleRolesFromDB, {},
+             function (result) {
+                 for (var i = 0; i < result.length; i++) {
+                     if ($("#roleName-choice").val() != result[i].RoleName)
+                         $("#roleName-choice").append("<option value='" + result[i].RoleId + "'>" + result[i].RoleName + "</option>");
+                 }
+             });
+            if ($("#roleName-choice").val() != "0")
+                $("#roleName-choice").append("<option value='0'>User</option>");
+
+        });
+    </script>
+}
+
+<table id="dptPeople" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.UserId)</td>
+                <td>
+                    <input type="text" name="userId" value="@Html.DisplayFor(modelItem => item.UserId)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>
+                    <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+                <td>
+                    <input type="text" name="firstName" value="@Html.DisplayFor(modelItem => item.FirstName)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.LastName)</td>
+                <td>
+                    <input type="text" name="lastName" value="@Html.DisplayFor(modelItem => item.LastName)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Language)</td>
+                <td>
+                    <input type="text" name="language" value="@Html.DisplayFor(modelItem => item.Language)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.EmailStatus)</td>
+                <td>
+                    <input type="text" name="emailStatus" value="@Html.DisplayFor(modelItem => item.EmailStatus)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountNumber)</td>
+                <td>
+                    <input type="text" name="accountNumber" value="@Html.DisplayFor(modelItem => item.AccountNumber)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.PrimaryContact)</td>
+                <td>
+                    <input type="text" name="primaryContact" value="@Html.DisplayFor(modelItem => item.PrimaryContact)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.RoleName)</td>
+                <td>
+                    <select name="roleName" id="roleName-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.RoleId)">@Html.DisplayFor(modelItem => item.RoleName)</option>
+                    </select>
+                </td>
+            </tr>            
+        }
+    </tbody>
+</table>
+<p><a href="javascript: submitform()">Submit</a></p>

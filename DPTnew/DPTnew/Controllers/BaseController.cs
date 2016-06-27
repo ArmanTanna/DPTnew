@@ -40,6 +40,19 @@ namespace DPTnew.Controllers
             return filteredcompanies.ToList();
         }
 
+        private IEnumerable<People> GetVarPeoples()
+        {
+            IEnumerable<CompanyView> filteredcompanies = GetVarCompanies();
+
+            var accountIds = filteredcompanies.Select(p => p.AccountNumber).ToList();
+
+            IEnumerable<People> filteredcontact = _db.Peoples.Where(item => accountIds.Contains(item.AccountNumber));
+
+            //IEnumerable<Contact> filteredcontact = _db.Contacts.Where(p => p.AccountNumber.Any(x => accountIds.Contains(x.ToString())));
+
+            return filteredcontact.ToList();
+        }
+
         protected IEnumerable<string> GetCompanyAccountNumbers()
         {
             return GetCompanies().Select(x => x.AccountNumber);
@@ -54,6 +67,16 @@ namespace DPTnew.Controllers
 
             var user = _db.Contacts.Single(u => u.Email == WebSecurity.CurrentUserName);
             return _db.Companies.Where(x => x.AccountNumber == user.AccountNumber).ToList();
+        }
+
+        protected IEnumerable<People> GetPeoples()
+        {
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                return _db.Peoples.ToList();
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                return GetVarPeoples();
+
+            return null;
         }
 
         protected IEnumerable<DptErp> GetErpRows()
@@ -71,6 +94,19 @@ namespace DPTnew.Controllers
         {
             var user = WebSecurity.CurrentUserName;
             return _db.ActivityTitles.Where(u => u.Email == user).ToList();
+        }
+
+        protected IEnumerable<MainWebRoles> GetWebMainRoles()
+        {
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                return _db.MainWebRoles.ToList();
+
+            return _db.MainWebRoles.Where(u => u.RoleName.Contains("User")).ToList();
+        }
+
+        protected IEnumerable<PeopleRoles> GetPeopleRoles()
+        {
+            return _db.PeopleRoles.ToList();
         }
 
         protected IEnumerable<LicenseView> GetLicenses()
