@@ -353,11 +353,11 @@ var loadLicenseTable = function (dtConfig, superUser) {
 
             //check if license is 2015
             if (data.Version >= '2015') {
-
                 var now = new Date();
                 var isLocal = /^KID[0-9]+$/.test(data.MachineID);
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
-                var isTdVar = data.PwdCode.startsWith("VA");
+                var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
+                var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
                 var isL = /^L[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
@@ -365,7 +365,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                    if (isLocal && !isEval && !isTdVar && (isTest || isL)) {
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }

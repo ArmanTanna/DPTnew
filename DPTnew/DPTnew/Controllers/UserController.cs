@@ -153,13 +153,15 @@ namespace DPTnew.Controllers
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
+                var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
+                    currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
 
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isEval && !isTdVar && (isTest || isL))
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL))
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 
