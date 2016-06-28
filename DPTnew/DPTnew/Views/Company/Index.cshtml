@@ -22,9 +22,13 @@
 
     <script type="text/javascript">
 
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.DataUrl = '@Url.Action("SingleCompanyRow", "Company")';
+
         /* Formatting function for row details - modify as you need */
         function format(d) {
-
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
              '<tr>' +
@@ -53,21 +57,18 @@
                    '</table>';
         }
 
-
-
         $(document).ready(function () {
-            var searchFilterHandler = function () {
-
-                var api = this.api();
-                api.$("td:not(.licenses,.details-control)").click(function () {
-                    api.search(this.innerText).draw();
-                    //api.columns(this.cellIndex).search( this.innerHTML ).draw();
-                });
-            };
+            //var searchFilterHandler = function () {
+            //    var api = this.api();
+            //    api.$("td:not(.licenses,.details-control)").click(function () {
+            //        api.search(this.innerText).draw();
+            //        //api.columns(this.cellIndex).search( this.innerHTML ).draw();
+            //    });
+            //};
 
             var myTable = $("#companies").DataTable({
-                drawCallback: searchFilterHandler,
-                initComplete: searchFilterHandler,
+                //drawCallback: searchFilterHandler,
+                //initComplete: searchFilterHandler,
                 serverSide: true,
                 processing: true,
                 dom: 'lBfrtip',
@@ -77,6 +78,9 @@
                 ajax: {
                     type: "POST",
                     url: "Company/Search"
+                },
+                select: {
+                    style: 'single'
                 },
                 columns: [
                 {
@@ -119,6 +123,53 @@
                         }
                     }
                 },
+            });
+
+            if("@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true")
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+             {
+                 text: 'Modify',
+                 className: 'modify',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.DataUrl, {
+                             AccountNumber: data.AccountNumber,
+                             AccountName: data.AccountName,
+                             AccountKind: data.AccountKind,
+                             ShortStatus: data.ShortStatus,
+                             SalesRep: data.SalesRep,
+                             Address: data.Address,
+                             ZIP: data.ZIP,
+                             City: data.City,
+                             Province: data.Province,
+                             Country: data.Country,
+                             Email: data.Email,
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.DataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             }
+                ]
+            });
+            myTable.buttons().container().insertBefore('#companies_filter');
+
+            myTable.on('select', function () {
+                var erpRow = myTable.rows('.selected').data()[0];
+                myTable.buttons(['.modify']).enable(true);
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.modify']).disable();
             });
 
             myTable.on("draw", function () {

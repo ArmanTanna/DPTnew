@@ -40,7 +40,7 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,VarExp")]
         [HttpPost]
-        public ActionResult SingleRow(People pplSingleRow)
+        public ActionResult SinglePeopleRow(People pplSingleRow)
         {
             List<People> rows = new List<People>();
             rows.Add(pplSingleRow);

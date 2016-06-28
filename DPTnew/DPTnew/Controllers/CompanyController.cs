@@ -27,6 +27,8 @@ namespace DPTnew.Controllers
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
+            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
         }
 
@@ -97,6 +99,26 @@ namespace DPTnew.Controllers
             return View(company.Licenses);
         }
 
+        [Authorize(Roles = "Admin,VarExp")]
+        [HttpPost]
+        public ActionResult SingleCompanyRow(CompanyView cmpSingleRow)
+        {
+            List<CompanyView> rows = new List<CompanyView>();
+            rows.Add(cmpSingleRow);
+            return View(rows);
+        }
+
+        [Authorize(Roles = "Admin,VarExp")]
+        [HttpPost]
+        public JsonResult Modify(CompanyView cmpSingleRow)
+        {
+            using (var db = new DptContext())
+            {
+
+            }
+
+            return Json(cmpSingleRow, JsonRequestBehavior.AllowGet);
+        }
 
     }
 
