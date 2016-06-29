@@ -95,9 +95,34 @@
                 }
             </td>
         </tr>
-
     </tbody>
 </table>
+</br>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Safenet Sync", "SyncDB", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Synchronize the site company info's with Safenet.</text>
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
 
 
 

@@ -91,7 +91,7 @@ namespace DPTnew.Controllers
             ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
             ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
             //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
-            
+
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
             ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
 
@@ -341,7 +341,10 @@ namespace DPTnew.Controllers
             }
             else
             {
-                prodName.Add(productName + productPostfix);
+                if (productName == "thinkapigsm")
+                    prodName.Add("thinkapi_gsm" + productPostfix);
+                else
+                    prodName.Add(productName + productPostfix);
                 if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
                     prodName.Add("ThinkTeamDOC" + productPostfix);
             }
