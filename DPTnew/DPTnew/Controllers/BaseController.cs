@@ -69,6 +69,14 @@ namespace DPTnew.Controllers
             return _db.Companies.Where(x => x.AccountNumber == user.AccountNumber).ToList();
         }
 
+        protected IEnumerable<Order> GetOrders()
+        {
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                return _db.Orders.ToList();
+
+            return null;
+        }
+
         protected IEnumerable<People> GetPeoples()
         {
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))

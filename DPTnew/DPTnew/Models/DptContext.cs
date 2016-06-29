@@ -26,6 +26,7 @@ namespace DPTnew.Models
         public DbSet<ActivityTitles> ActivityTitles { get; set; }
         public DbSet<PeopleRoles> PeopleRoles { get; set; }
         public DbSet<MainWebRoles> MainWebRoles { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {
