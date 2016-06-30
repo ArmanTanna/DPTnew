@@ -54,7 +54,13 @@ function format(d) {
 
             '<td><b>Note:</b></td>' +
             '<td>' + d.Note + '</td>' +
-        '</tr>' +
+
+            '<td><b>Exported Num:</b></td>' +
+            '<td>' + d.ExportedNum + '</td>' +
+
+            '<td><b>Max Export:</b></td>' +
+            '<td>' + d.MaxExport + '</td>' +
+         '</tr>' +
              '</table>';
 }
 
@@ -301,7 +307,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
                  if (myTable.rows('.selected').count() != 0) {
                      var headers = {};
                      headers.LicenseID = myTable.rows('.selected').data()[0].LicenseID;
-                     
+
                      var $psw = $("#password");
                      $psw.text("");
                      $psw.text("Would you like to upgrade the version to 2014?");
@@ -333,6 +339,46 @@ var loadLicenseTable = function (dtConfig, superUser) {
                  }
              },
              enabled: false
+         },
+         {
+             text: 'Modify',
+             className: 'modify',
+             action: function () {
+                 if (myTable.rows('.selected').count() != 0) {
+                     var data = myTable.rows('.selected').data()[0];
+                     $.post(yourApp.Urls.DataUrl, {
+                         AccountName: data.AccountName,
+                         AccountNumber: data.AccountNumber,
+                         Ancestor: data.Ancestor,
+                         ArticleDetail: data.ArticleDetail,
+                         ED: data.ED,
+                         LicenseID: data.LicenseID,
+                         LicenseType: data.LicenseType,
+                         MSD: data.MSD,
+                         MED: data.MED,
+                         MachineID: data.MachineID,
+                         ProductName: data.ProductName,
+                         Quantity: data.Quantity,
+                         SD: data.SD,
+                         SalesRegion: data.SalesRegion,
+                         SalesRep: data.SalesRep,
+                         ServLicense1: data.ServLicense1,
+                         Version: data.Version,
+                         ExportedNum: data.ExportedNum,
+                         MaxExport: data.MaxExport,
+                         Note: data.Note,
+                     },
+                                     function (result) {
+                                         var url = yourApp.Urls.DataUrl;
+                                         WinId = window.open(url, '_blank');
+                                         WinId.document.open();
+                                         WinId.document.write(result);
+                                         WinId.document.close();
+                                         myTable.rows('.selected').deselect();
+                                     });
+                 }
+             },
+             enabled: false
          }
             ]
         });
@@ -349,8 +395,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
             url: yourApp.Urls.licenseStateUrl,
             data: 'LicenseId=' + license.LicenseID, // Send value of LicenseId
             dataType: 'json', // Choosing a JSON datatype
-        }).done(function (data) {
-
+        }).done(function (data) { 
             //check if license is 2015
             if (data.Version >= '2015') {
                 var now = new Date();
@@ -390,6 +435,9 @@ var loadLicenseTable = function (dtConfig, superUser) {
                         myTable.buttons(['.upg2014']).enable(true);
                 }
             }
+            if (parseJsonDate(data.MaintEndDate) > new Date()) {
+                myTable.buttons(['.modify']).enable(true);
+            }
 
         })
 
@@ -401,7 +449,8 @@ var loadLicenseTable = function (dtConfig, superUser) {
         myTable.buttons(['.import']).disable();
         myTable.buttons(['.license2014']).disable();
         myTable.buttons(['.pssw2014']).disable();
-        myTable.buttons(['.upg2014']).disable()
+        myTable.buttons(['.upg2014']).disable();
+        myTable.buttons(['.modify']).disable();
     });
 
 

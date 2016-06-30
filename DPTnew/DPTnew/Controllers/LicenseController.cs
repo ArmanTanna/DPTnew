@@ -56,5 +56,26 @@ namespace DPTnew.Controllers
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize(Roles = "Admin,VarExp")]
+        [HttpPost]
+        public ActionResult SingleLicenseRow(LicenseView licSingleRow)
+        {
+            List<LicenseView> rows = new List<LicenseView>();
+            rows.Add(licSingleRow);
+            return View(rows);
+        }
+
+        [Authorize(Roles = "Admin,VarExp")]
+        [HttpPost]
+        public JsonResult Modify(LicenseView licSingleRow)
+        {
+            using (var db = new DptContext())
+            {
+
+            }
+
+            return Json(licSingleRow, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

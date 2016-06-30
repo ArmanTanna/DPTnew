@@ -31,6 +31,7 @@
         yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
         yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
         yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
+        yourApp.Urls.DataUrl = '@Url.Action("SingleLicenseRow", "License")';
 
         /* init drop down */
         function initdropdown(table) {
@@ -70,7 +71,12 @@
                     '<td><b>Note:</b></td>' +
                     '<td>' + d.Note + '</td>' +
 
-                '</tr>' +
+                   '<td><b>Exported Num:</b></td>' +
+                   '<td>' + d.ExportedNum + '</td>' +
+
+                   '<td><b>Max Export:</b></td>' +
+                   '<td>' + d.MaxExport + '</td>' +
+               '</tr>' +
                      '</table>';
         }
 

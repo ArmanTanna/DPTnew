@@ -1,0 +1,120 @@
+﻿@model IEnumerable<DPTnew.Models.LicenseView>
+
+@{
+    ViewBag.Title = "Modify";
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "License")';
+
+        function submitform() {
+            $.post("/License/Modify", {
+                AccountNumber: $("input[name=accountNumber]").val(),
+                AccountName: $("input[name=accountName]").val(),
+                LicenseID: $("input[name=licenseID]").val(),
+                ProductName: $("input[name=productName]").val(),
+                ArticleDetail: $("input[name=articleDetail]").val(),
+                LicenseType: $("input[name=licenseType]").val(),
+                Ancestor: $("input[name=ancestor]").val(),
+                MachineID: $("input[name=machineID]").val(),
+                Version: $("input[name=version]").val(),
+                Note: $("input[name=note]").val(),
+                ExportedNum: $("input[name=exportedNum]").val(),
+                MaxExport: $("input[name=maxExport]").val(),
+            },
+            function (result) {
+                window.confirm("Saved!");
+            });
+        }
+
+    </script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+
+        $(document).ready(function () {
+
+        });
+    </script>
+}
+
+<table id="dptLicense" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountNumber)</td>
+                <td>
+                    <input type="text" name="accountNumber" value="@Html.DisplayFor(modelItem => item.AccountNumber)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
+                <td>
+                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
+                <td>
+                    <input type="text" name="licenseID" value="@Html.DisplayFor(modelItem => item.LicenseID)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.ProductName)</td>
+                <td>
+                    <input type="text" name="productName" value="@Html.DisplayFor(modelItem => item.ProductName)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ArticleDetail)</td>
+                <td>
+                    <input type="text" name="articleDetail" value="@Html.DisplayFor(modelItem => item.ArticleDetail)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.LicenseType)</td>
+                <td>
+                    <input type="text" name="licenseType" value="@Html.DisplayFor(modelItem => item.LicenseType)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Ancestor)</td>
+                <td>
+                    <input type="text" name="ancestor" value="@Html.DisplayFor(modelItem => item.Ancestor)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.MachineID)</td>
+                <td>
+                    <input type="text" name="machineID" value="@Html.DisplayFor(modelItem => item.MachineID)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Version)</td>
+                <td>
+                    <input type="text" name="version" value="@Html.DisplayFor(modelItem => item.Version)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Note)</td>
+                <td>
+                    <input type="text" name="note" value="@Html.DisplayFor(modelItem => item.Note)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ExportedNum)</td>
+                <td>
+                    <input type="number" name="exportedNum" value="@Html.DisplayFor(modelItem => item.ExportedNum)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.MaxExport)</td>
+                <td>
+                    <input type="number" name="maxExport" min="0" max="1000" step="1" value="@Html.DisplayFor(modelItem => item.MaxExport)" readonly>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p><a href="javascript: submitform()">Submit</a></p>

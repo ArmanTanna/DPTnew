@@ -44,6 +44,10 @@
             {
                 <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses_it.pdf" target="_blank"><u>New Licensing</u></a></th>
             }
+            @if (HttpContext.Current.Request.UserLanguages[0].Equals("jp-JP"))
+            {
+                <th style="width:33%"><a href="ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf" target="_blank"><u>New Licensing</u></a></th>
+            }
             else
             {
                 <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="_blank"><u>New Licensing</u></a></th>
@@ -97,7 +101,7 @@
         </tr>
     </tbody>
 </table>
-</br>
+        </br>
 <table>
     <tbody>
         <tr>
