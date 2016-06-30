@@ -60,6 +60,9 @@ function format(d) {
 
             '<td><b>Max Export:</b></td>' +
             '<td>' + d.MaxExport + '</td>' +
+
+            '<td><b>Old Product:</b></td>' +
+            '<td>' + d.OriginalProduct + '</td>' +
          '</tr>' +
              '</table>';
 }
@@ -68,7 +71,10 @@ function parseJsonDate(jsonDateString) {
     return new Date(parseInt(jsonDateString.replace('/Date(', '')));
 }
 
-var loadLicenseTable = function (dtConfig, superUser) {
+var enmodifybutton;
+
+var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
+    enmodifybutton = enablemodify;
     var dtDefaults = {
         "columns": [
                 {
@@ -395,7 +401,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
             url: yourApp.Urls.licenseStateUrl,
             data: 'LicenseId=' + license.LicenseID, // Send value of LicenseId
             dataType: 'json', // Choosing a JSON datatype
-        }).done(function (data) { 
+        }).done(function (data) {
             //check if license is 2015
             if (data.Version >= '2015') {
                 var now = new Date();
@@ -435,7 +441,7 @@ var loadLicenseTable = function (dtConfig, superUser) {
                         myTable.buttons(['.upg2014']).enable(true);
                 }
             }
-            if (parseJsonDate(data.MaintEndDate) > new Date()) {
+            if (parseJsonDate(data.MaintEndDate) > new Date() && enmodifybutton) {
                 myTable.buttons(['.modify']).enable(true);
             }
 

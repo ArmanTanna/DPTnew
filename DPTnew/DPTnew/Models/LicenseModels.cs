@@ -118,6 +118,7 @@ namespace DPTnew.Models
 
         public int ExportedNum { get; set; }
         public int MaxExport { get; set; }
+        public string OriginalProduct { get; set; }
     }
 
     public class LicenseState
