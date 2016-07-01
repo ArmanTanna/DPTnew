@@ -30,7 +30,7 @@
                 MaxExport: $("input[name=maxExport]").val(),
             },
             function (result) {
-                window.confirm("Saved!");
+                window.confirm(result);
             });
         }
 
@@ -111,7 +111,7 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.MaxExport)</td>
                 <td>
-                    <input type="number" name="maxExport" min="0" max="1000" step="1" value="@Html.DisplayFor(modelItem => item.MaxExport)" readonly>
+                    <input type="number" name="maxExport" min="0" max="1000" step="1" value="@Html.DisplayFor(modelItem => item.MaxExport)">
                 </td>
             </tr>
         }

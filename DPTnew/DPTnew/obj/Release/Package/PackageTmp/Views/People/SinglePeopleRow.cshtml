@@ -21,14 +21,14 @@
                 Email: $("input[name=email]").val(),
                 FirstName: $("input[name=firstName]").val(),
                 LastName: $("input[name=lastName]").val(),
-                Language: $("input[name=language]").val(),
-                EmailStatus: $("input[name=emailStatus]").val(),
+                Language: $("#language-choice").val(),
+                EmailStatus: $("#emailStatus-choice").val(),
                 AccountNumber: $("input[name=accountNumber]").val(),
-                PrimaryContact: $("input[name=primaryContact]").val(),
+                PrimaryContact: $("#primaryContact-choice").val(),
                 RoleId: $("#roleName-choice").val(),
             },
             function (result) {
-                window.confirm("Saved!");
+                window.confirm(result);
             });
         }
 
@@ -51,6 +51,37 @@
             if ($("#roleName-choice").val() != "0")
                 $("#roleName-choice").append("<option value='0'>User</option>");
 
+            if ($("#language-choice").val() != "english")
+                $("#language-choice").append("<option value='english'>english</option>");
+            if ($("#language-choice").val() != "italian")
+                $("#language-choice").append("<option value='italian'>italian</option>");
+            if ($("#language-choice").val() != "japanese")
+                $("#language-choice").append("<option value='japanese'>japanese</option>");
+            if ($("#language-choice").val() != "french")
+                $("#language-choice").append("<option value='french'>french</option>");
+            if ($("#language-choice").val() != "spanish")
+                $("#language-choice").append("<option value='spanish'>spanish</option>");
+            if ($("#language-choice").val() != "german")
+                $("#language-choice").append("<option value='german'>german</option>");
+            if ($("#language-choice").val() != "portuguese")
+                $("#language-choice").append("<option value='portuguese'>portuguese</option>");
+            if ($("#language-choice").val() != "korean")
+                $("#language-choice").append("<option value='korean'>korean</option>");
+            if ($("#language-choice").val() != "chinese")
+                $("#language-choice").append("<option value='chinese'>chinese</option>");
+
+            if ($("#primaryContact-choice").val() != "yes")
+                $("#primaryContact-choice").append("<option value='yes'>yes</option>");
+            if ($("#primaryContact-choice").val() != "no")
+                $("#primaryContact-choice").append("<option value='no'>no</option>");
+
+            if ($("#emailStatus-choice").val() != "ok")
+                $("#emailStatus-choice").append("<option value='ok'>ok</option>");
+            if ($("#emailStatus-choice").val() != "tobechecked")
+                $("#emailStatus-choice").append("<option value='tobechecked'>tobechecked</option>");
+            if ($("#emailStatus-choice").val() != "unknown")
+                $("#emailStatus-choice").append("<option value='unknown'>unknown</option>");
+
         });
     </script>
 }
@@ -68,27 +99,31 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Email)</td>
                 <td>
-                    <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)" readonly>
+                    <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.FirstName)</td>
                 <td>
-                    <input type="text" name="firstName" value="@Html.DisplayFor(modelItem => item.FirstName)" readonly>
+                    <input type="text" name="firstName" value="@Html.DisplayFor(modelItem => item.FirstName)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.LastName)</td>
                 <td>
-                    <input type="text" name="lastName" value="@Html.DisplayFor(modelItem => item.LastName)" readonly>
+                    <input type="text" name="lastName" value="@Html.DisplayFor(modelItem => item.LastName)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Language)</td>
                 <td>
-                    <input type="text" name="language" value="@Html.DisplayFor(modelItem => item.Language)" readonly>
+                    <select name="roleName" id="language-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.Language)">@Html.DisplayFor(modelItem => item.Language)</option>
+                    </select>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.EmailStatus)</td>
                 <td>
-                    <input type="text" name="emailStatus" value="@Html.DisplayFor(modelItem => item.EmailStatus)" readonly>
+                    <select name="roleName" id="emailStatus-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.EmailStatus)">@Html.DisplayFor(modelItem => item.EmailStatus)</option>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -98,7 +133,9 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.PrimaryContact)</td>
                 <td>
-                    <input type="text" name="primaryContact" value="@Html.DisplayFor(modelItem => item.PrimaryContact)" readonly>
+                    <select name="roleName" id="primaryContact-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.PrimaryContact)">@Html.DisplayFor(modelItem => item.PrimaryContact)</option>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -108,7 +145,7 @@
                         <option selected value="@Html.DisplayFor(modelItem => item.RoleId)">@Html.DisplayFor(modelItem => item.RoleName)</option>
                     </select>
                 </td>
-            </tr>            
+            </tr>
         }
     </tbody>
 </table>

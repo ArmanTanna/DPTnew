@@ -19,7 +19,7 @@
                 AccountNumber: $("input[name=accountNumber]").val(),
                 AccountName: $("input[name=accountName]").val(),
                 AccountKind: $("input[name=accountKind]").val(),
-                ShortStatus: $("input[name=shortStatus]").val(),
+                AccountStatus: $("input[name=accountStatus]").val(),
                 SalesRep: $("input[name=salesRep]").val(),
                 Address: $("input[name=address]").val(),
                 ZIP: $("input[name=zip]").val(),
@@ -29,7 +29,7 @@
                 Email: $("input[name=email]").val(),
             },
             function (result) {
-                window.confirm("Saved!");
+                window.confirm(result);
             });
         }
 
@@ -60,7 +60,7 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.AccountName)</td>
                 <td>
-                    <input type="email" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" readonly>
+                    <input type="email" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)">
                 </td>
             </tr>
             <tr>
@@ -68,9 +68,9 @@
                 <td>
                     <input type="text" name="accountKind" value="@Html.DisplayFor(modelItem => item.AccountKind)" readonly>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.ShortStatus)</td>
+                <td>@Html.DisplayNameFor(model => model.AccountStatus)</td>
                 <td>
-                    <input type="text" name="shortStatus" value="@Html.DisplayFor(modelItem => item.ShortStatus)" readonly>
+                    <input type="text" name="accountStatus" value="@Html.DisplayFor(modelItem => item.AccountStatus)" readonly>
                 </td>
             </tr>
             <tr>
@@ -82,21 +82,21 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Address)</td>
                 <td>
-                    <input type="text" name="address" value="@Html.DisplayFor(modelItem => item.Address)" readonly>
+                    <input type="text" name="address" value="@Html.DisplayFor(modelItem => item.Address)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.ZIP)</td>
                 <td>
-                    <input type="text" name="zip" value="@Html.DisplayFor(modelItem => item.ZIP)" readonly>
+                    <input type="text" name="zip" value="@Html.DisplayFor(modelItem => item.ZIP)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.City)</td>
                 <td>
-                    <input type="text" name="city" value="@Html.DisplayFor(modelItem => item.City)" readonly>
+                    <input type="text" name="city" value="@Html.DisplayFor(modelItem => item.City)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Province)</td>
                 <td>
-                    <input type="text" name="province" value="@Html.DisplayFor(modelItem => item.Province)" readonly>
+                    <input type="text" name="province" value="@Html.DisplayFor(modelItem => item.Province)">
                 </td>
             </tr>
             <tr>
@@ -106,7 +106,7 @@
         </td>
         <td>@Html.DisplayNameFor(model => model.Email)</td>
         <td>
-            <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)" readonly>
+            <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)">
         </td>
         </tr>
         }

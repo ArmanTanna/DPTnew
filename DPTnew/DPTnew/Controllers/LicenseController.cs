@@ -69,12 +69,24 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Modify(LicenseView licSingleRow)
         {
+            if (licSingleRow.MaxExport < 0)
+                return Json("Cannot save negative value for MaxExport", JsonRequestBehavior.AllowGet);
+
             using (var db = new DptContext())
             {
+                var query =
+                    from lic in db.Licenses
+                    where lic.LicenseID == licSingleRow.LicenseID
+                    select lic;
+                if (query.Count() > 0)
+                {
+                    query.FirstOrDefault().MaxExport = licSingleRow.MaxExport;
+                    db.SaveChanges();
+                }
 
             }
 
-            return Json(licSingleRow, JsonRequestBehavior.AllowGet);
+            return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
     }

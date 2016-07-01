@@ -114,10 +114,32 @@ namespace DPTnew.Controllers
         {
             using (var db = new DptContext())
             {
+                try
+                {
+                    var query =
+                from cmp in db.Companies
+                where cmp.AccountNumber == cmpSingleRow.AccountNumber
+                select cmp;
+
+                    if (query.Count() > 0)
+                    {
+                        query.FirstOrDefault().AccountName = cmpSingleRow.AccountName;
+                        query.FirstOrDefault().Address = cmpSingleRow.Address;
+                        query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
+                        query.FirstOrDefault().City = cmpSingleRow.City;
+                        query.FirstOrDefault().Province = cmpSingleRow.Province;
+                        query.FirstOrDefault().Email = cmpSingleRow.Email;
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception e)
+                {
+                    return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
+                }
 
             }
 
-            return Json(cmpSingleRow, JsonRequestBehavior.AllowGet);
+            return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
     }

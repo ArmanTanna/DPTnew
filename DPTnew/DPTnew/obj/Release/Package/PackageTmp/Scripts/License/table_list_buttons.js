@@ -61,7 +61,7 @@ function format(d) {
             '<td><b>Max Export:</b></td>' +
             '<td>' + d.MaxExport + '</td>' +
 
-            '<td><b>Old Product:</b></td>' +
+            '<td><b>Legacy Product:</b></td>' +
             '<td>' + d.OriginalProduct + '</td>' +
          '</tr>' +
              '</table>';

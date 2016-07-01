@@ -56,24 +56,42 @@ namespace DPTnew.Controllers
                 PeopleRoles pplr = new PeopleRoles();
                 pplr.UserId = pplSingleRow.UserId;
                 pplr.RoleId = pplSingleRow.RoleId;
+
+                if (pplSingleRow.RoleId > 0)
+                    db.PeopleRoles.Add(pplr);
+                else
+                {
+                    var query =
+                from ppl in db.PeopleRoles
+                where ppl.UserId == pplr.UserId
+                select ppl;
+                    if (query.Count() > 0)
+                        db.PeopleRoles.Remove(query.FirstOrDefault());
+                }
+                db.SaveChanges();
                 try
                 {
-                    if (pplSingleRow.RoleId > 0)
-                        db.PeopleRoles.Add(pplr);
-                    else
+                    var query =
+                from ppl in db.Peoples
+                where ppl.UserId == pplr.UserId
+                select ppl;
+                    if (query.Count() > 0)
                     {
-                        var query =
-                    from ppl in db.PeopleRoles
-                    where ppl.UserId == pplr.UserId
-                    select ppl;
-                        if (query.Count() > 0)
-                            db.PeopleRoles.Remove(query.FirstOrDefault());
+                        query.FirstOrDefault().Email = pplSingleRow.Email;
+                        query.FirstOrDefault().FirstName = pplSingleRow.FirstName;
+                        query.FirstOrDefault().LastName = pplSingleRow.LastName;
+                        query.FirstOrDefault().Language = pplSingleRow.Language;
+                        query.FirstOrDefault().EmailStatus = pplSingleRow.EmailStatus;
+                        query.FirstOrDefault().PrimaryContact = pplSingleRow.PrimaryContact;
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
                 }
-                catch (Exception e) { }
+                catch (Exception e)
+                {
+                    return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
+                }
             }
-            return Json(pplSingleRow, JsonRequestBehavior.AllowGet);
+            return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Admin,VarExp")]
