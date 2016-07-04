@@ -149,6 +149,7 @@ namespace DPTnew.Controllers
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
+                Regex poolrgx = new Regex(@"^POOL[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -157,11 +158,12 @@ namespace DPTnew.Controllers
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
+                var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
 
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL))
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL || isPool))
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 

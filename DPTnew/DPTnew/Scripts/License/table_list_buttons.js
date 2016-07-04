@@ -160,6 +160,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
             //$("#pwd-dialog").prop('title', 'Your requested password is');
             $("span.ui-dialog-title").text('Your requested password is');
             $("#pwd-dialog").dialog(pwdDialogConfig);
+            $("#version-choice").css("display", "none");
             myTable.rows('.selected').deselect();
 
         };
@@ -307,16 +308,15 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
              enabled: false
          },
          {
-             text: 'Upgrade 2014',
-             className: 'upg2014',
+             text: 'Change Version',
+             className: 'changeversion',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {
                      var headers = {};
-                     headers.LicenseID = myTable.rows('.selected').data()[0].LicenseID;
-
+                     headers = myTable.rows('.selected').data()[0];
                      var $psw = $("#password");
                      $psw.text("");
-                     $psw.text("Would you like to upgrade the version to 2014?");
+                     //$psw.text("Would you like to upgrade the version to 2014?");
                      var pwdDialogConfig = {
                          modal: true,
                          width: 400,
@@ -325,7 +325,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
                              OK: function () {
                                  $(this).dialog("close");
                                  $.ajax({
-                                     url: "../api/PasswordGenerator/Upgrade?licenseId=" + headers.LicenseID,
+                                     url: "../api/PasswordGenerator/Upgrade?licenseId=" + headers.LicenseID + "&version=" + $("#version-choice").val(),
                                      type: 'GET',
                                      data: null,
                                      headers: headers,
@@ -338,9 +338,10 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
                              }
                          }
                      };
-                     $("#pwd-dialog").prop('title', 'Upgrade 2014');
-                     $("span.ui-dialog-title").text('Upgrade 2014');
+                     $("#pwd-dialog").prop('title', 'Select Version');
+                     $("span.ui-dialog-title").text('Select Version');
                      $("#pwd-dialog").dialog(pwdDialogConfig);
+                     $("#version-choice").css("display", "");
                      myTable.rows('.selected').deselect();
                  }
              },
@@ -411,12 +412,13 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
                 var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
                 var isL = /^L[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
+                var isPool = /^POOL[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL)) {
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL || isPool)) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }
@@ -437,8 +439,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
                     if (data.LicenseType.toLowerCase() == "local")
                         myTable.buttons(['.pssw2014']).enable(true);
                     if (data.LicenseType.toLowerCase() == "local" && parseJsonDate(data.MaintEndDate) > new Date() &&
-                        data.Version < '2014')
-                        myTable.buttons(['.upg2014']).enable(true);
+                        data.Version < '2015')
+                        myTable.buttons(['.changeversion']).enable(true);
                 }
             }
             if (parseJsonDate(data.MaintEndDate) > new Date() && enmodifybutton) {
@@ -455,7 +457,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
         myTable.buttons(['.import']).disable();
         myTable.buttons(['.license2014']).disable();
         myTable.buttons(['.pssw2014']).disable();
-        myTable.buttons(['.upg2014']).disable();
+        myTable.buttons(['.changeversion']).disable();
         myTable.buttons(['.modify']).disable();
     });
 

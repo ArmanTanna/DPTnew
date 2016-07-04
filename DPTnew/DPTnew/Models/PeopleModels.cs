@@ -24,6 +24,8 @@ namespace DPTnew.Models
         public string EmailStatus { get; set; }
         public string AccountNumber { get; set; }
         public string PrimaryContact { get; set; }
+        public string FirstNameK { get; set; }
+        public string LastNameK { get; set; }
         public int RoleId { get; set; }
         public string RoleName { get; set; }
     }

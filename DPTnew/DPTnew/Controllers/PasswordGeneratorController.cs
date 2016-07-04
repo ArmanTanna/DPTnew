@@ -301,7 +301,7 @@ namespace DptLicensingServer.Controllers
 
         [HttpGet]
         [ActionName("Upgrade")]
-        public HttpResponseMessage Upgrade(string licenseId)
+        public HttpResponseMessage Upgrade(string licenseId, string version)
         {
             try
             {
@@ -317,7 +317,7 @@ namespace DptLicensingServer.Controllers
                 
                     foreach (LicenseView lic in query)
                     {
-                        lic.Version = "2014";
+                        lic.Version = version;
                     }
                     
                     db.SaveChanges();

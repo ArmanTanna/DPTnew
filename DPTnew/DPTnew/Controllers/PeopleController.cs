@@ -83,6 +83,8 @@ namespace DPTnew.Controllers
                         query.FirstOrDefault().Language = pplSingleRow.Language;
                         query.FirstOrDefault().EmailStatus = pplSingleRow.EmailStatus;
                         query.FirstOrDefault().PrimaryContact = pplSingleRow.PrimaryContact;
+                        query.FirstOrDefault().FirstNameK = pplSingleRow.FirstNameK;
+                        query.FirstOrDefault().LastNameK = pplSingleRow.LastNameK;
                         db.SaveChanges();
                     }
                 }

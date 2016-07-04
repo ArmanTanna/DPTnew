@@ -63,6 +63,12 @@
         }
 
         $(document).ready(function () {
+            if (salesReg == "japan") {
+                $('#product').html("<b>製品</b>");
+                $('#description').html("<b>説明</b>");
+                $('#download').html("<b>ダウンロード</b>");
+            }
+
             var datacad = [
                 {
                     "Year": "2016", "Product": "ThinkDesign 2016 64bit beta", "Description": "Beta version of ThinkDesign 2016.",
@@ -291,13 +297,13 @@
                 <th></th>
             </tr>
             <tr>
-                <td>
+                <td id="product">
                     <b>Product</b>
                 </td>
-                <td>
+                <td id="description">
                     <b>Description</b>
                 </td>
-                <td>
+                <td id="download">
                     <b>Download</b>
                 </td>
             </tr>

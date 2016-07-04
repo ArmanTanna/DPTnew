@@ -25,10 +25,26 @@
                 EmailStatus: $("#emailStatus-choice").val(),
                 AccountNumber: $("input[name=accountNumber]").val(),
                 PrimaryContact: $("#primaryContact-choice").val(),
+                FirstNameK: $("input[name=firstNameK]").val(),
+                LastNameK: $("input[name=lastNameK]").val(),
                 RoleId: $("#roleName-choice").val(),
             },
             function (result) {
-                window.confirm(result);
+                var $psw = $("#password");
+                $psw.text("");
+                $psw.text(result);
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: result ? 250 : "auto",
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                            //location.reload();
+                        }
+                    }
+                };
+                $("#pwd-dialog").dialog(pwdDialogConfig);
             });
         }
 
@@ -113,6 +129,16 @@
                 </td>
             </tr>
             <tr>
+                <td>@Html.DisplayNameFor(model => model.FirstNameK)</td>
+                <td>
+                    <input type="text" name="firstNameK" value="@Html.DisplayFor(modelItem => item.FirstNameK)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.LastNameK)</td>
+                <td>
+                    <input type="text" name="lastNameK" value="@Html.DisplayFor(modelItem => item.LastNameK)">
+                </td>
+            </tr>
+            <tr>
                 <td>@Html.DisplayNameFor(model => model.Language)</td>
                 <td>
                     <select name="roleName" id="language-choice">
@@ -150,3 +176,6 @@
     </tbody>
 </table>
 <p><a href="javascript: submitform()">Submit</a></p>
+<div id="pwd-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+</div>

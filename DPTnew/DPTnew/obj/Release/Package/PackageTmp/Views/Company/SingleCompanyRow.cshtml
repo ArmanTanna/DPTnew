@@ -27,9 +27,27 @@
                 Province: $("input[name=province]").val(),
                 Country: $("input[name=country]").val(),
                 Email: $("input[name=email]").val(),
+                AccountNameK: $("input[name=accountNameK]").val(),
+                AddressK: $("input[name=addressK]").val(),
+                CityK: $("input[name=cityK]").val(),
+                ProvinceK: $("input[name=provinceK]").val(),
             },
             function (result) {
-                window.confirm(result);
+                var $psw = $("#password");
+                $psw.text("");
+                $psw.text(result);
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: result ? 250 : "auto",
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                            //location.reload();
+                        }
+                    }
+                };
+                $("#pwd-dialog").dialog(pwdDialogConfig);
             });
         }
 
@@ -74,6 +92,10 @@
                 </td>
             </tr>
             <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountNameK)</td>
+                <td>
+                    <input type="email" name="accountNameK" value="@Html.DisplayFor(modelItem => item.AccountNameK)">
+                </td>
                 <td>@Html.DisplayNameFor(model => model.SalesRep)</td>
                 <td>
                     <input type="text" name="salesRep" value="@Html.DisplayFor(modelItem => item.SalesRep)" readonly>
@@ -100,16 +122,35 @@
                 </td>
             </tr>
             <tr>
-        <td>@Html.DisplayNameFor(model => model.Country)</td>
-        <td>
-            <input type="text" name="country" value="@Html.DisplayFor(modelItem => item.Country)" readonly>
-        </td>
-        <td>@Html.DisplayNameFor(model => model.Email)</td>
-        <td>
-            <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)">
-        </td>
-        </tr>
+                <td>@Html.DisplayNameFor(model => model.Country)</td>
+                <td>
+                    <input type="text" name="country" value="@Html.DisplayFor(modelItem => item.Country)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>
+                    <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AddressK)</td>
+                <td>
+                    <input type="text" name="addressK" value="@Html.DisplayFor(modelItem => item.AddressK)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CityK)</td>
+                <td>
+                    <input type="text" name="cityK" value="@Html.DisplayFor(modelItem => item.CityK)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.ProvinceK)</td>
+                <td>
+                    <input type="text" name="provinceK" value="@Html.DisplayFor(modelItem => item.ProvinceK)">
+                </td>
+            </tr>
         }
-        </tbody>
-    </table>
-    <p><a href="javascript: submitform()">Submit</a></p>
+    </tbody>
+</table>
+<p><a href="javascript: submitform()">Submit</a></p>
+<div id="pwd-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+</div>
