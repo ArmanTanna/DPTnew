@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DPTnew.Localization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,7 +30,7 @@ namespace DPTnew.Models
         public virtual Company Company { get; set; }
     }
 
-     
+
     public class RegisterExternalLoginModel
     {
         [Required]
@@ -41,20 +42,25 @@ namespace DPTnew.Models
 
     public class LocalPasswordModel
     {
-        [Required(ErrorMessage = "Please Enter Password")]
+        [Required(ErrorMessageResourceType = typeof(Resource),
+        ErrorMessageResourceName = "RequiredFieldPassword")]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "OldPassword", ResourceType = typeof(Resource))]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Password")]
+        [Required(ErrorMessageResourceType = typeof(Resource),
+        ErrorMessageResourceName = "RequiredFieldPassword")]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [Display(Name = "NewPassword", ResourceType = typeof(Resource))]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource),
+        ErrorMessageResourceName = "LengthPassword", MinimumLength = 8)]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "ConfirmNewPassword", ResourceType = typeof(Resource))]
+        [Compare("NewPassword", ErrorMessageResourceType = typeof(Resource),
+            ErrorMessageResourceName = "ConfirmPassword")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -69,7 +75,7 @@ namespace DPTnew.Models
         [Required(ErrorMessage = "Please Enter Password")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        
+
         public string Password { get; set; }
 
         [Display(Name = "Remember me?")]
@@ -119,7 +125,7 @@ namespace DPTnew.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        
+
 
         [Required]
         [Display(Name = "FirstName")]

@@ -39,34 +39,34 @@ namespace DPTnew
             AuthConfig.RegisterAuth();
 
             if (!WebSecurity.Initialized)
-            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "DPT_People", "UserId", "Email", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("DefaultConnection", "DPT_People", "UserId", "Email", autoCreateTables: true);
             var utilitySingleton = SafenetUtilities.Instance;
-            
+
         }
 
         void Application_BeginRequest(object sender, EventArgs args)
-    {
-      HttpContext.Current.Response.AddHeader("Access-Control-Allow-Credentials", "true");
-
-      //using (StreamWriter sw = new StreamWriter("ciaoBefore.txt"))
-      //{
-      //  sw.WriteLine("INIZIO APPLICATION BEGIN");
-      //  sw.WriteLine(HttpContext.Current.Request.HttpMethod);
-      //}
-      if (HttpContext.Current.Request.Headers["Origin"] != null)
-      {
-        var origin = new Uri(HttpContext.Current.Request.Headers["Origin"]);
-        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", origin.OriginalString);
-        if (HttpContext.Current.Request.HttpMethod == "OPTIONS") // for FireFox
         {
-          HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST");
-          HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Token, Content-Type, SafenetUser, SafenetUri, SafenetPassword");
-          HttpContext.Current.Response.End();
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Credentials", "true");
+
+            //using (StreamWriter sw = new StreamWriter("ciaoBefore.txt"))
+            //{
+            //  sw.WriteLine("INIZIO APPLICATION BEGIN");
+            //  sw.WriteLine(HttpContext.Current.Request.HttpMethod);
+            //}
+            if (HttpContext.Current.Request.Headers["Origin"] != null)
+            {
+                var origin = new Uri(HttpContext.Current.Request.Headers["Origin"]);
+                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", origin.OriginalString);
+                if (HttpContext.Current.Request.HttpMethod == "OPTIONS") // for FireFox
+                {
+                    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST");
+                    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Token, Content-Type, SafenetUser, SafenetUri, SafenetPassword");
+                    HttpContext.Current.Response.End();
+                }
+            }
+
+
         }
-      }
-
-
     }
-  }
 
-    }
+}

@@ -1,15 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Customer Care";
+    ViewBag.Title = DPTnew.Localization.Resource.View_HomeIndex_Title;
 }
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
+                @*<h2>@ViewBag.Message</h2>*@
             </hgroup>
             <p>
-                This is the new site to manage your licenses.
+                @DPTnew.Localization.Resource.View_Home_Subtitle
             </p>
 
             @*            @if(WebSecurity.IsAuthenticated){
@@ -29,9 +29,9 @@
     </section>
 }
 
-<h3>Breaking News</h3>
-<text>ThinkDesign 2016 beta is now available! Have a look at the Download section.</text><br />
-<text>Try for free ThinkDesign 2015! Write to us to know more.</text>
+<h3>@DPTnew.Localization.Resource.View_Home_BreakingNews</h3>
+<text>@DPTnew.Localization.Resource.View_Home_Text1</text><br />
+<text>@DPTnew.Localization.Resource.View_Home_Text2</text>
 
 <br />
 <br />
@@ -40,25 +40,25 @@
 <table style="width:100%">
     <tbody>
         <tr>
-            @if (HttpContext.Current.Request.UserLanguages[0].Equals("it-IT"))
+            @if (@ViewBag.Message == "italy")
             {
-                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses_it.pdf" target="_blank"><u>New Licensing</u></a></th>
+                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses_it.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
             }
-            @if (HttpContext.Current.Request.UserLanguages[0].Equals("jp-JP"))
+            @if (@ViewBag.Message == "japan")
             {
-                <th style="width:33%"><a href="ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf" target="_blank"><u>New Licensing</u></a></th>
+                <th style="width:33%"><a href="ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
             }
-            else
+            @if (@ViewBag.Message != "japan" && @ViewBag.Message != "italy")
             {
-                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="_blank"><u>New Licensing</u></a></th>
+                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
             }
-            <th style="width:33%"><a href="~/elearning" target="_blank"><u>e-Learning</u></a></th>
-            <th style="width:33%"><a href="http://help.dptcorporate.com/" target="_blank"><u>ThinkDesign Help</u></a></th>
+            <th style="width:33%"><a href="~/elearning" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_ELearning</u></a></th>
+            <th style="width:33%"><a href="http://help.dptcorporate.com/" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_THelp</u></a></th>
         </tr>
         <tr>
-            <td>All you need to know about C2V, V2C and Floating Licensing.</td>
-            <td>Software training material, like video and step-by-step tutorials, supplied via the web.</td>
-            <td>Release Notes & Help manual 2016 - Work in Progress.</td>
+            <td>@DPTnew.Localization.Resource.View_Home_NewLicensing_Text</td>
+            <td>@DPTnew.Localization.Resource.View_Home_ELearning_Text</td>
+            <td>@DPTnew.Localization.Resource.View_Home_THelp_Text</td>
         </tr>
     </tbody>
 </table>
@@ -68,9 +68,9 @@
 <table style="width:100%">
     <tbody>
         <tr>
-            <th style="width:33%"><a href="http://care.think3.eu/default.aspx" target="_blank"><u>Case Management</u></a></th>
+            <th style="width:33%"><a href="http://care.think3.eu/default.aspx" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a></th>
             <th style="width:33%">
-                <a href="~/FaqUser/Index" target="_blank"><u>User Guidebook</u></a>
+                <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
             </th>
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
@@ -78,24 +78,24 @@
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
-                    <a href="~/Faq/Index" target="_blank"><u>VAR Guidebook</u></a>
+                    <a href="~/Faq/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_VarGuidebook</u></a>
                 }
             </th>
 
         </tr>
         <tr>
             <td>
-                Contact our Customer Care and open a New Case. <br />
-                Use your old credentials to access this section.
+                @DPTnew.Localization.Resource.View_Home_CaseManagement_Text1 <br />
+                @DPTnew.Localization.Resource.View_Home_CaseManagement_Text2
             </td>
-            <td>Here you can access the User Guidebook.</td>
+            <td>@DPTnew.Localization.Resource.View_Home_UserGuidebook_Text</td>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
-                    <text>Here you can access the VAR Guidebook.</text>
+                    <text>@DPTnew.Localization.Resource.View_Home_VarGuidebook_Text</text>
                 }
             </td>
         </tr>

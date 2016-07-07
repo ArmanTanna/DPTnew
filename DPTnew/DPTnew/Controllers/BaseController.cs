@@ -1,8 +1,11 @@
-﻿using DPTnew.Models;
+﻿using DPTnew.Helper;
+using DPTnew.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -13,6 +16,25 @@ namespace DPTnew.Controllers
     public class BaseController : Controller
     {
         protected DptContext _db = new DptContext();
+        
+        protected override void ExecuteCore()
+        {
+            int culture = 0;
+            if (this.Session == null || this.Session["CurrentCulture"] == null)
+            {
+
+                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["Culture"], out culture);
+                this.Session["CurrentCulture"] = culture;
+            }
+            else
+            {
+                culture = (int)this.Session["CurrentCulture"];
+            }
+            // calling CultureHelper class properties for setting  
+            CultureHelper.CurrentCulture = culture;
+
+            base.ExecuteCore();
+        } 
 
         private IEnumerable<CompanyView> GetVarCompanies()
         {

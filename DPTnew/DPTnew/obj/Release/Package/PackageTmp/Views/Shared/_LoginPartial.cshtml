@@ -5,8 +5,8 @@
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: null)
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            @Html.ActionLink(@DPTnew.Localization.Resource.View_HomeIndex_ChangePassword, "Manage", "Account", routeValues: null, htmlAttributes: null)
+            <a href="javascript:document.getElementById('logoutForm').submit()">@DPTnew.Localization.Resource.View_HomeIndex_Logoff</a>
         }
     </text>
 
@@ -26,3 +26,4 @@ else
          <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>-->
     </ul>
 }
+

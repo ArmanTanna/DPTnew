@@ -1,17 +1,31 @@
-﻿@{
+﻿@using System.Globalization
+@using System.Threading;
+@{
     var menus = new[]
                 {
-                   new { LinkText="Home", ActionName="Index",ControllerName="Home",Roles="All"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_Home, ActionName="Index",ControllerName="Home",Roles="All"  },
                    //new { LinkText="Companies", ActionName="Companies",ControllerName="Var",Roles="Var"  },
-                   new { LinkText="All Companies", ActionName="Index",ControllerName="Company",Roles="Admin,Var,VarExp,Internal"  },
-                   new { LinkText="All Licenses", ActionName="Index",ControllerName="License",Roles="Admin,Var,VarExp,Internal"  },
-                   new { LinkText="All Peoples", ActionName="Index",ControllerName="People",Roles="Admin,VarExp"  },
-                   new { LinkText="Licenses", ActionName="Licenses",ControllerName="User",Roles="NormalUser"  },
-                   new { LinkText="Orders", ActionName="Index",ControllerName="Order",Roles="Admin"  },
-                   new { LinkText="Download", ActionName="Index",ControllerName="Download",Roles="All"  },
-                   new { LinkText="Activities", ActionName="Index",ControllerName="Intranet",Roles="Admin,Internal"  }
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_AllCompanies, ActionName="Index",ControllerName="Company",Roles="Admin,Var,VarExp,Internal"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_AllLicenses, ActionName="Index",ControllerName="License",Roles="Admin,Var,VarExp,Internal"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_AllPeoples, ActionName="Index",ControllerName="People",Roles="Admin,VarExp"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_Licenses, ActionName="Licenses",ControllerName="User",Roles="NormalUser"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_Orders, ActionName="Index",ControllerName="Order",Roles="Admin"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_Download, ActionName="Index",ControllerName="Download",Roles="All"  },
+                   new { LinkText=@DPTnew.Localization.Resource.View_Menu_Activities, ActionName="Index",ControllerName="Intranet",Roles="Admin,Internal"  }
                 };
 }
+<ul style="margin-top:10px;">
+    @{
+        CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
+
+        <li><a href="/Home/ChangeCurrentCulture/0">English</a></li>
+
+        <li><a href="/Home/ChangeCurrentCulture/1">Italiano</a></li>
+
+        <li><a href="/Home/ChangeCurrentCulture/2">Japanese</a></li>
+
+    }
+</ul> 
 
 <ul id="menu">
 
@@ -57,3 +71,4 @@
 
     @*  *@
 </ul>
+
