@@ -1,15 +1,15 @@
 ﻿@model DPTnew.Models.LocalPasswordModel
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = @DPTnew.Localization.Resource.ManageAccount;
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>You're logged in as <strong>@ViewBag.User</strong>.</p>
+<p>@DPTnew.Localization.Resource.LoggedIn <strong>@ViewBag.User</strong>.</p>
 
 @if (ViewBag.HasLocalPassword)
 {

@@ -59,6 +59,12 @@
                 '<td>' + (salesReg == "japan" ? d.Description4Jp : d.Description4) + '</td>' +
                 '<td> <a href="' + (salesReg == "japan" ? d.Download4Jp : d.Download4) + '">' + (salesReg == "japan" ? "ダウンロード" : "Download") + d.Size4 + ' </a></td>' +
             '</tr>') : "") +
+                (d.Product5 ? ((salesReg == "japan" && d.Product5.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
+            '<tr>' +
+                '<td>' + (salesReg == "japan" ? d.Product5Jp : d.Product5) + '</td>' +
+                '<td>' + (salesReg == "japan" ? d.Description5Jp : d.Description5) + '</td>' +
+                '<td> <a href="' + (salesReg == "japan" ? d.Download5Jp : d.Download5) + '">' + (salesReg == "japan" ? "ダウンロード" : "Download") + d.Size5 + ' </a></td>' +
+            '</tr>') : "") +
              '</table>';
         }
 
@@ -74,62 +80,77 @@
                     "Year": "2016", "Product": "ThinkDesign 2016 64bit beta", "Description": "Beta version of ThinkDesign 2016.",
                     "ProductJp": "ThinkDesign 2016 64bit ベータ版", "DescriptionJp": "ThinkDesign 2016 のベータ版です。", "Size": " - 1.86 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_64bit_2016T1_b20617.iso", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2016.1build20614/dvd_td_64bit_2016T1_b20614.iso",
-                    "Product1": "ThinkDesign 2016 32bit beta", "Description1": "Legacy beta version for old systems.", "Size1": " - 2.24 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_2016T1_b20617.iso",
+                    "Product1": "ThinkDesign 2016 32bit beta", "Description1": "Legacy beta version for old systems.", "Size1": " - 2.24 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_2016T1_b20617.iso"
                 },
                 {
                     "Year": "2015", "Product": "ThinkDesign 2015 64bit SP3", "Description": "Recommended version.",
                     "ProductJp": "ThinkDesign 2015 64bit SP3", "DescriptionJp": "公式版。", "Size": " - 2.03 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe",
                     "Product1": "ThinkDesign 2015 32bit SP3", "Description1": "SP3 Legacy version for old systems.", "Size1": " - 2.65 GB", "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_2015T2_b30502.exe",
-                    "Product2": "ThinkDesign 2015 64bit SP2", "Description2": "This self extracting file will install the official ThinkDesign suite 2015 64bit SP2.",
-                    "Product2Jp": "ThinkDesign 2015 64bit SP2", "Description2Jp": "この自己解凍ファイルは ThinkDesign suite 2015 64bit SP2 公式版をインストールします。", "Size2": " - 2.03 GB",
-                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_64bit_2015T2_b30125.exe", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2015.2build30105/Selfdvd_td_64bit_2015T2_b30105.exe",
-                    "Product3": "ThinkDesign 2015 32bit SP2", "Description3": "SP2 Legacy version for old systems.", "Size3": " - 2.65 GB",
-                    "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_2015T2_b30125.exe",
-                    "Product4": "Utility tools & Floating Licensing Installer", "Description4": "Floating Licensing Installer, utilities and plug-ins for version 2015.",
-                    "Product4Jp": "ユーティリティツールとフローティングライセンスサーバー", "Description4Jp": "フローティングライセンスサーバーのインストーラーとバージョン 2015 用ユーティリティツール。", "Size4": " - 36 MB",
-                    "Download4": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2015.zip", "Download4Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2015.2/Tools2015.zip"
+                    "Product2": "TDViewerLight 2015 SP3", "Description2": "This self extracting file will install the ThinkDesign Viewer 2015 SP3 application.",
+                    "Product2Jp": "TDViewerLight 2015 SP3", "Description2Jp": "この自己解凍ファイルは ThinkDesign Viewer 2015 SP3 をインストールします。", "Size2": " - 556 MB",
+                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/SelfCD_tdviewer_2015T2_b30502_64bit.exe", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2015.2build30502/SelfCD_tdviewer_2015T2_b30502_64bit.exe",
+                    "Product3": "ThinkDesign 2015 64bit SP2", "Description3": "This self extracting file will install the official ThinkDesign suite 2015 64bit SP2.",
+                    "Product3Jp": "ThinkDesign 2015 64bit SP2", "Description3Jp": "この自己解凍ファイルは ThinkDesign suite 2015 64bit SP2 公式版をインストールします。", "Size3": " - 2.03 GB",
+                    "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_64bit_2015T2_b30125.exe", "Download3Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2015.2build30105/Selfdvd_td_64bit_2015T2_b30105.exe",
+                    "Product4": "ThinkDesign 2015 32bit SP2", "Description4": "SP2 Legacy version for old systems.", "Size4": " - 2.65 GB",
+                    "Download4": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_2015T2_b30125.exe",
+                    "Product5": "Utility tools & Floating Licensing Installer", "Description5": "Floating Licensing Installer, utilities and plug-ins for version 2015.",
+                    "Product5Jp": "ユーティリティツールとフローティングライセンスサーバー", "Description5Jp": "フローティングライセンスサーバーのインストーラーとバージョン 2015 用ユーティリティツール。", "Size5": " - 36 MB",
+                    "Download5": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2015.zip", "Download5Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2015.2/Tools2015.zip"
                 },
                 {
                     "Year": "2014", "Product": "ThinkDesign 2014 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2014 64bit.",
                     "ProductJp": "ThinkDesign 2014 64bit", "DescriptionJp": "この自己解凍ファイルは ThinkDesign suite 2014 64bit 公式版をインストールします。", "Size": " - 1.90 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_64bit_2014T1_b20506.exe", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2014.1build20506/Selfdvd_td_64bit_2014T1_b20506.exe",
-                    "Product1": "ThinkDesign 2014 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2014 32bit.",
-                    "Product1Jp": "ThinkDesign 2014 32bit", "Description1Jp": "この自己解凍ファイルは ThinkDesign suite 2014 32bit 公式版をインストールします。", "Size1": " - 2.52 GB",
-                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2014.",
-                    "Product2Jp": "ユーティリティツール", "Description2Jp": "バージョン 2014 用ユーティリティツール。", "Size2": " - 7 MB",
-                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2014.zip", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2014.1/Tools2014.zip",
+                    "Product1": "TDViewerLight 2014", "Description1": "This self extracting file will install the ThinkDesign Viewer 2014 application.",
+                    "Product1Jp": "TDViewerLight 2014", "Description1Jp": "この自己解凍ファイルは ThinkDesign Viewer 2014 をインストールします。", "Size1": " - 503 MB",
+                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/SelfCD_tdviewer_2014T1_b20506.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2014.1build20506/SelfCD_tdviewer_2014T1_b20506.exe",
+                    "Product2": "ThinkDesign 2014 32bit", "Description2": "This self extracting file will install the official ThinkDesign suite 2014 32bit.",
+                    "Product2Jp": "ThinkDesign 2014 32bit", "Description2Jp": "この自己解凍ファイルは ThinkDesign suite 2014 32bit 公式版をインストールします。", "Size2": " - 2.52 GB",
+                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe",
+                    "Product3": "Utility tools", "Description3": "Utilities and plug-ins for version 2014.",
+                    "Product3Jp": "ユーティリティツール", "Description3Jp": "バージョン 2014 用ユーティリティツール。", "Size3": " - 7 MB",
+                    "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2014.zip", "Download3Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2014.1/Tools2014.zip"
                 },
                 {
                     "Year": "2013", "Product": "ThinkDesign 2013 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2013 64bit.",
                     "ProductJp": "ThinkDesign 2013 64bit", "DescriptionJp": "この自己解凍ファイルは ThinkDesign suite 2013 64bit 公式版をインストールします。", "Size": " - 1.82 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_64bit_2013T1_b21029.exe", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2013.1build21029/Selfdvd_td_64bit_2013T1_b21029.exe",
-                    "Product1": "ThinkDesign 2013 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2013 32bit.",
-                    "Product1Jp": "ThinkDesign 2013 32bit", "Description1Jp": "この自己解凍ファイルは ThinkDesign suite 2013 32bit 公式版をインストールします。", "Size1": " - 2.45 GB",
-                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2013.",
-                    "Product2Jp": "ユーティリティツール", "Description2Jp": "バージョン 2013 用ユーティリティツール。", "Size2": " - 7.0 MB",
-                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2013.zip", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2013.1/Tools2013.zip",
+                    "Product1": "TDViewerLight 2013", "Description1": "This self extracting file will install the ThinkDesign Viewer 2013 application.",
+                    "Product1Jp": "TDViewerLight 2013", "Description1Jp": "この自己解凍ファイルは ThinkDesign Viewer 2013 をインストールします。", "Size1": " - 502 MB",
+                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/SelfCD_tdviewer_2013T1_b21029.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2013.1build21029/SelfCD_tdviewer_2013T1_b21029.exe",
+                    "Product2": "ThinkDesign 2013 32bit", "Description2": "This self extracting file will install the official ThinkDesign suite 2013 32bit.",
+                    "Product2Jp": "ThinkDesign 2013 32bit", "Description2Jp": "この自己解凍ファイルは ThinkDesign suite 2013 32bit 公式版をインストールします。", "Size2": " - 2.45 GB",
+                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe",
+                    "Product3": "Utility tools", "Description3": "Utilities and plug-ins for version 2013.",
+                    "Product3Jp": "ユーティリティツール", "Description3Jp": "バージョン 2013 用ユーティリティツール。", "Size3": " - 7.0 MB",
+                    "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2013.zip", "Download3Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2013.1/Tools2013.zip"
                 },
                 {
                     "Year": "2012", "Product": "ThinkDesign 2012 64bit", "Description": "This self extracting file will install the official ThinkDesign suite 2012 64bit.",
                     "ProductJp": "ThinkDesign 2012 64bit", "DescriptionJp": "この自己解凍ファイルは ThinkDesign suite 2012 64bit 公式版をインストールします。", "Size": " - 1.90 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_64bit_2012T1_b20312.exe", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2012.1build20312/Selfdvd_td_64bit_2012T1_b20312.exe",
-                    "Product1": "ThinkDesign 2012 32bit", "Description1": "This self extracting file will install the official ThinkDesign suite 2012 32bit.",
-                    "Product1Jp": "ThinkDesign 2012 32bit", "Description1Jp": "この自己解凍ファイルは ThinkDesign suite 2012 32bit 公式版をインストールします。", "Size1": " - 2.31 GB",
-                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe",
-                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2012.",
-                    "Product2Jp": "ユーティリティツール", "Description2Jp": "バージョン 2012 用ユーティリティツール。", "Size2": " - 6.3 MB",
-                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2012.zip", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2012.1/Tools2012.zip",
+                    "Product1": "TDViewerLight 2012", "Description1": "This self extracting file will install the ThinkDesign Viewer 2012 application.",
+                    "Product1Jp": "TDViewerLight 2012", "Description1Jp": "バージョン 2012 用ユーティリティツール。", "Size1": " - 270 MB",
+                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/SelfCD_tdviewer_2012T1_b20312.exe", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2012.1build20312/SelfCD_tdviewer_2012T1_b20312.exe",
+                    "Product2": "ThinkDesign 2012 32bit", "Description2": "This self extracting file will install the official ThinkDesign suite 2012 32bit.",
+                    "Product2Jp": "ThinkDesign 2012 32bit", "Description2Jp": "この自己解凍ファイルは ThinkDesign suite 2012 32bit 公式版をインストールします。", "Size2": " - 2.31 GB",
+                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe",
+                    "Product3": "Utility tools", "Description3": "Utilities and plug-ins for version 2012.",
+                    "Product3Jp": "ユーティリティツール", "Description3Jp": "バージョン 2012 用ユーティリティツール。", "Size3": " - 6.3 MB",
+                    "Download3": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2012.zip", "Download3Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2012.1/Tools2012.zip"
                 },
                 {
                     "Year": "2011", "Product": "ThinkDesign 2011 32bit", "Description": "This self extracting file will install the official ThinkDesign suite 2011 32bit.",
                     "ProductJp": "ThinkDesign 2011 32bit", "DescriptionJp": "この自己解凍ファイルは ThinkDesign suite 2011 32bit 公式版をインストールします。", "Size": " - 2.30 GB",
                     "Download": "ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_td_2011T1_b410.exe", "DownloadJp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2011.1build410/Selfdvd_td_2011T1_b410.exe",
-                    "Product1": "Utility tools", "Description1": "Utilities and plug-ins for version 2011.",
-                    "Product1Jp": "ユーティリティツール", "Description1Jp": "バージョン 2011 用ユーティリティツール。", "Size1": " - 3.7 MB",
-                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2011.1/Tools2011.zip",
+                    "Product1": "TDViewerLight 2011", "Description1": "This self extracting file will install the ThinkDesign Viewer 2011 application.",
+                    "Product1Jp": "TDViewerLight 2011", "Description1Jp": "この自己解凍ファイルは ThinkDesign Viewer 2011 をインストールします。", "Size1": " - 269 MB",
+                    "Download1": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip", "Download1Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/2011.1build410/SelfCD_tdviewer_2011T1_b410.exe",
+                    "Product2": "Utility tools", "Description2": "Utilities and plug-ins for version 2011.",
+                    "Product2Jp": "ユーティリティツール", "Description2Jp": "バージョン 2011 用ユーティリティツール。", "Size2": " - 3.7 MB",
+                    "Download2": "ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip", "Download2Jp": "ftp://t3user:t3user2012@ftp.think3.jp/t3software/Tools/2011.1/Tools2011.zip"
                 }
             ];
 

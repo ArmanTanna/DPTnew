@@ -67,7 +67,7 @@ namespace DPTnew.Models
     public class LoginModel
     {
         [Required(ErrorMessage = "Please Enter Email Address")]
-        [Display(Name = "User name (Email Address)")]
+        [Display(Name = "Username (Email Address)")]
         [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$",
         ErrorMessage = "Please Enter Correct Email Address")]
         public string UserName { get; set; }

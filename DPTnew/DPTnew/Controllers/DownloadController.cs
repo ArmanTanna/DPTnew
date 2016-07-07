@@ -21,7 +21,7 @@ namespace DPTnew.Controllers
                 var user = Membership.GetUser().UserName;
                 var contact = db.Contacts.Where(u => u.Email == user).ToList().First();
                 var company = db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().First();
-                ViewBag.Message = company.SalesRegion;
+                ViewBag.Message = company.SalesRegion.Trim().ToLower();
                 return View();
             }
         }

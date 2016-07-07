@@ -205,7 +205,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is the new site to manage your licenses..
+        ///   Looks up a localized string similar to Welcome to the new Customer Care portal!.
         /// </summary>
         public static string View_Home_Subtitle {
             get {
@@ -313,6 +313,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        public static string View_HomeIndex_of {
+            get {
+                return ResourceManager.GetString("View_HomeIndex_of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer Care.
         /// </summary>
         public static string View_HomeIndex_Title {
@@ -349,7 +358,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All Peoples.
+        ///   Looks up a localized string similar to All People.
         /// </summary>
         public static string View_Menu_AllPeoples {
             get {
