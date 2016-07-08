@@ -40,18 +40,7 @@
 <table style="width:100%">
     <tbody>
         <tr>
-            @if (@ViewBag.Message == "italy")
-            {
-                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses_it.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
-            }
-            @if (@ViewBag.Message == "japan")
-            {
-                <th style="width:33%"><a href="ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
-            }
-            @if (@ViewBag.Message != "japan" && @ViewBag.Message != "italy")
-            {
-                <th style="width:33%"><a href="http://www.think3.eu/images/pdf/Licenses.pdf" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
-            }
+            <th style="width:33%"><a href="@DPTnew.Localization.Resource.View_Home_NewLicensingLink" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_NewLicensing</u></a></th>
             <th style="width:33%"><a href="~/elearning" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_ELearning</u></a></th>
             <th style="width:33%"><a href="http://help.dptcorporate.com/" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_THelp</u></a></th>
         </tr>

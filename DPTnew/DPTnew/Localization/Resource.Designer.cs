@@ -79,6 +79,555 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2011 application..
+        /// </summary>
+        public static string Description2011TDViewerLight {
+            get {
+                return ResourceManager.GetString("Description2011TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2011 32bit..
+        /// </summary>
+        public static string Description2011ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Description2011ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2011 official version..
+        /// </summary>
+        public static string Description2011thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2011thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2011..
+        /// </summary>
+        public static string Description2011Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2011Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2012 application..
+        /// </summary>
+        public static string Description2012TDViewerLight {
+            get {
+                return ResourceManager.GetString("Description2012TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2012 32bit..
+        /// </summary>
+        public static string Description2012ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Description2012ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2012 64bit..
+        /// </summary>
+        public static string Description2012ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2012ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2012 official version..
+        /// </summary>
+        public static string Description2012thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2012thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2012..
+        /// </summary>
+        public static string Description2012Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2012Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2013 application..
+        /// </summary>
+        public static string Description2013TDViewerLight {
+            get {
+                return ResourceManager.GetString("Description2013TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2013 32bit..
+        /// </summary>
+        public static string Description2013ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Description2013ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2013 64bit..
+        /// </summary>
+        public static string Description2013ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2013ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2013 official version..
+        /// </summary>
+        public static string Description2013thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2013thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2013..
+        /// </summary>
+        public static string Description2013Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2013Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2014 application..
+        /// </summary>
+        public static string Description2014TDViewerLight {
+            get {
+                return ResourceManager.GetString("Description2014TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2014 32bit..
+        /// </summary>
+        public static string Description2014ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Description2014ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2014 64bit..
+        /// </summary>
+        public static string Description2014ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2014ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2014 official version..
+        /// </summary>
+        public static string Description2014thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2014thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2014..
+        /// </summary>
+        public static string Description2014Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2014Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2015 SP3 application..
+        /// </summary>
+        public static string Description2015TDViewerLightSP3 {
+            get {
+                return ResourceManager.GetString("Description2015TDViewerLightSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SP2 Legacy version for old systems..
+        /// </summary>
+        public static string Description2015ThinkDesign32bitSP2 {
+            get {
+                return ResourceManager.GetString("Description2015ThinkDesign32bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SP3 Legacy version for old systems..
+        /// </summary>
+        public static string Description2015ThinkDesign32bitSP3 {
+            get {
+                return ResourceManager.GetString("Description2015ThinkDesign32bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2015 64bit SP2..
+        /// </summary>
+        public static string Description2015ThinkDesign64bitSP2 {
+            get {
+                return ResourceManager.GetString("Description2015ThinkDesign64bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended version..
+        /// </summary>
+        public static string Description2015ThinkDesign64bitSP3 {
+            get {
+                return ResourceManager.GetString("Description2015ThinkDesign64bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2015 SP2..
+        /// </summary>
+        public static string Description2015thinkPLMSP2 {
+            get {
+                return ResourceManager.GetString("Description2015thinkPLMSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2015 SP3 official version..
+        /// </summary>
+        public static string Description2015thinkPLMSP3 {
+            get {
+                return ResourceManager.GetString("Description2015thinkPLMSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floating Licensing Installer, utilities and plug-ins for version 2015..
+        /// </summary>
+        public static string Description2015Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2015Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legacy beta version for old systems..
+        /// </summary>
+        public static string Description2016ThinkDesign32bitbeta {
+            get {
+                return ResourceManager.GetString("Description2016ThinkDesign32bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beta version of ThinkDesign 2016..
+        /// </summary>
+        public static string Description2016ThinkDesign64bitbeta {
+            get {
+                return ResourceManager.GetString("Description2016ThinkDesign64bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2016 beta version..
+        /// </summary>
+        public static string Description2016thinkPLMbeta {
+            get {
+                return ResourceManager.GetString("Description2016thinkPLMbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip.
+        /// </summary>
+        public static string Download2011TDViewerLight {
+            get {
+                return ResourceManager.GetString("Download2011TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_td_2011T1_b410.exe.
+        /// </summary>
+        public static string Download2011ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Download2011ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2011.1build410/Selfdvd_thinkplm_2011T1_b410.exe.
+        /// </summary>
+        public static string Download2011thinkPLM {
+            get {
+                return ResourceManager.GetString("Download2011thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip.
+        /// </summary>
+        public static string Download2011Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2011Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/SelfCD_tdviewer_2012T1_b20312.exe.
+        /// </summary>
+        public static string Download2012TDViewerLight {
+            get {
+                return ResourceManager.GetString("Download2012TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_2012T1_b20312.exe.
+        /// </summary>
+        public static string Download2012ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Download2012ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_td_64bit_2012T1_b20312.exe.
+        /// </summary>
+        public static string Download2012ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Download2012ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2012.1build20312/Selfdvd_thinkplm_2012T1_b20312.exe.
+        /// </summary>
+        public static string Download2012thinkPLM {
+            get {
+                return ResourceManager.GetString("Download2012thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2012.zip.
+        /// </summary>
+        public static string Download2012Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2012Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/SelfCD_tdviewer_2013T1_b21029.exe.
+        /// </summary>
+        public static string Download2013TDViewerLight {
+            get {
+                return ResourceManager.GetString("Download2013TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_2013T1_b21029.exe.
+        /// </summary>
+        public static string Download2013ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Download2013ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_td_64bit_2013T1_b21029.exe.
+        /// </summary>
+        public static string Download2013ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Download2013ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2013.1build21029/Selfdvd_thinkplm_2013T1_b21029.exe.
+        /// </summary>
+        public static string Download2013thinkPLM {
+            get {
+                return ResourceManager.GetString("Download2013thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2013.zip.
+        /// </summary>
+        public static string Download2013Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2013Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/SelfCD_tdviewer_2014T1_b20506.exe.
+        /// </summary>
+        public static string Download2014TDViewerLight {
+            get {
+                return ResourceManager.GetString("Download2014TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_2014T1_b20506.exe.
+        /// </summary>
+        public static string Download2014ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Download2014ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_td_64bit_2014T1_b20506.exe.
+        /// </summary>
+        public static string Download2014ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Download2014ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2014.1build20506/Selfdvd_thinkplm_2014T1_b20506.exe.
+        /// </summary>
+        public static string Download2014thinkPLM {
+            get {
+                return ResourceManager.GetString("Download2014thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2014.zip.
+        /// </summary>
+        public static string Download2014Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2014Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/SelfCD_tdviewer_2015T2_b30502_64bit.exe.
+        /// </summary>
+        public static string Download2015TDViewerLightSP3 {
+            get {
+                return ResourceManager.GetString("Download2015TDViewerLightSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_2015T2_b30125.exe.
+        /// </summary>
+        public static string Download2015ThinkDesign32bitSP2 {
+            get {
+                return ResourceManager.GetString("Download2015ThinkDesign32bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_2015T2_b30502.exe.
+        /// </summary>
+        public static string Download2015ThinkDesign32bitSP3 {
+            get {
+                return ResourceManager.GetString("Download2015ThinkDesign32bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_td_64bit_2015T2_b30125.exe.
+        /// </summary>
+        public static string Download2015ThinkDesign64bitSP2 {
+            get {
+                return ResourceManager.GetString("Download2015ThinkDesign64bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_td_64bit_2015T2_b30502.exe.
+        /// </summary>
+        public static string Download2015ThinkDesign64bitSP3 {
+            get {
+                return ResourceManager.GetString("Download2015ThinkDesign64bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30125/Selfdvd_thinkplm_2015T2_b30125.exe.
+        /// </summary>
+        public static string Download2015thinkPLMSP2 {
+            get {
+                return ResourceManager.GetString("Download2015thinkPLMSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2015.2build30502/Selfdvd_thinkplm_2015T2_b30502.exe.
+        /// </summary>
+        public static string Download2015thinkPLMSP3 {
+            get {
+                return ResourceManager.GetString("Download2015thinkPLMSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2015.zip.
+        /// </summary>
+        public static string Download2015Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2015Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_2016T1_b20617.iso.
+        /// </summary>
+        public static string Download2016ThinkDesign32bitbeta {
+            get {
+                return ResourceManager.GetString("Download2016ThinkDesign32bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_64bit_2016T1_b20617.iso.
+        /// </summary>
+        public static string Download2016ThinkDesign64bitbeta {
+            get {
+                return ResourceManager.GetString("Download2016ThinkDesign64bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_thinkplm_2016T1_b20617.iso.
+        /// </summary>
+        public static string Download2016thinkPLMbeta {
+            get {
+                return ResourceManager.GetString("Download2016thinkPLMbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
         /// </summary>
         public static string LengthPassword {
@@ -120,6 +669,285 @@ namespace DPTnew.Localization {
         public static string OldPassword {
             get {
                 return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        public static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2011.
+        /// </summary>
+        public static string Product2011TDViewerLight {
+            get {
+                return ResourceManager.GetString("Product2011TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2011 32bit.
+        /// </summary>
+        public static string Product2011ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Product2011ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2011.
+        /// </summary>
+        public static string Product2011thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2011thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string Product2011Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2011Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2012.
+        /// </summary>
+        public static string Product2012TDViewerLight {
+            get {
+                return ResourceManager.GetString("Product2012TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2012 32bit.
+        /// </summary>
+        public static string Product2012ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Product2012ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2012 64bit.
+        /// </summary>
+        public static string Product2012ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2012ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2012.
+        /// </summary>
+        public static string Product2012thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2012thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string Product2012Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2012Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2013.
+        /// </summary>
+        public static string Product2013TDViewerLight {
+            get {
+                return ResourceManager.GetString("Product2013TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2013 32bit.
+        /// </summary>
+        public static string Product2013ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Product2013ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2013 64bit.
+        /// </summary>
+        public static string Product2013ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2013ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2013.
+        /// </summary>
+        public static string Product2013thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2013thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string Product2013Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2013Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2014.
+        /// </summary>
+        public static string Product2014TDViewerLight {
+            get {
+                return ResourceManager.GetString("Product2014TDViewerLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2014 32bit.
+        /// </summary>
+        public static string Product2014ThinkDesign32bit {
+            get {
+                return ResourceManager.GetString("Product2014ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2014 64bit.
+        /// </summary>
+        public static string Product2014ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2014ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2014.
+        /// </summary>
+        public static string Product2014thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2014thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string Product2014Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2014Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2015 SP3.
+        /// </summary>
+        public static string Product2015TDViewerLightSP3 {
+            get {
+                return ResourceManager.GetString("Product2015TDViewerLightSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2015 32bit SP2.
+        /// </summary>
+        public static string Product2015ThinkDesign32bitSP2 {
+            get {
+                return ResourceManager.GetString("Product2015ThinkDesign32bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2015 32bit SP3.
+        /// </summary>
+        public static string Product2015ThinkDesign32bitSP3 {
+            get {
+                return ResourceManager.GetString("Product2015ThinkDesign32bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2015 64bit SP2.
+        /// </summary>
+        public static string Product2015ThinkDesign64bitSP2 {
+            get {
+                return ResourceManager.GetString("Product2015ThinkDesign64bitSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2015 64bit SP3.
+        /// </summary>
+        public static string Product2015ThinkDesign64bitSP3 {
+            get {
+                return ResourceManager.GetString("Product2015ThinkDesign64bitSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2015 SP2.
+        /// </summary>
+        public static string Product2015thinkPLMSP2 {
+            get {
+                return ResourceManager.GetString("Product2015thinkPLMSP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2015 SP3.
+        /// </summary>
+        public static string Product2015thinkPLMSP3 {
+            get {
+                return ResourceManager.GetString("Product2015thinkPLMSP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools &amp; Floating Licensing Installer.
+        /// </summary>
+        public static string Product2015Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2015Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2016 32bit beta.
+        /// </summary>
+        public static string Product2016ThinkDesign32bitbeta {
+            get {
+                return ResourceManager.GetString("Product2016ThinkDesign32bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2016 64bit beta.
+        /// </summary>
+        public static string Product2016ThinkDesign64bitbeta {
+            get {
+                return ResourceManager.GetString("Product2016ThinkDesign64bitbeta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2016 beta.
+        /// </summary>
+        public static string Product2016thinkPLMbeta {
+            get {
+                return ResourceManager.GetString("Product2016thinkPLMbeta", resourceCulture);
             }
         }
         
@@ -201,6 +1029,15 @@ namespace DPTnew.Localization {
         public static string View_Home_NewLicensing_Text {
             get {
                 return ResourceManager.GetString("View_Home_NewLicensing_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.think3.eu/images/pdf/Licenses.pdf.
+        /// </summary>
+        public static string View_Home_NewLicensingLink {
+            get {
+                return ResourceManager.GetString("View_Home_NewLicensingLink", resourceCulture);
             }
         }
         
