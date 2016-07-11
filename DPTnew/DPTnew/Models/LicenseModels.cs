@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using DPTnew.Localization;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -58,24 +59,28 @@ namespace DPTnew.Models
     public class LicenseView
     {
         [Key]
-        [Display(Name = "Licence ID")]
+        [Display(Name = "LicenseId", ResourceType = typeof(Resource))]
         public string LicenseID { get; set; }
 
-        [Display(Name = "Account #")]
+        [Display(Name = "AccountNumber", ResourceType = typeof(Resource))]
         public string AccountNumber { get; set; }
 
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
 
-        [Display(Name = "Product")]
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string ProductName { get; set; }
 
-        [Display(Name = "Article")]
+        [Display(Name = "Article", ResourceType = typeof(Resource))]
         public string ArticleDetail { get; set; }
 
+        [Display(Name = "Quantity", ResourceType = typeof(Resource))]
         public int Quantity { get; set; }
 
-        [Display(Name = "Type")]
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
+        
+        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
         public string Ancestor { get; set; }
 
@@ -90,7 +95,7 @@ namespace DPTnew.Models
         public Nullable<System.DateTime> MaintStartDate { get; set; }
 
         [ScriptIgnore(ApplyToOverrides = true)]
-        [Display(Name = "MED")]
+        [Display(Name = "MED", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<DateTime> MaintEndDate { get; set; }
         public string MED { get { return MaintEndDate != null ? ((DateTime)MaintEndDate).ToString("yyyy-MM-dd") : ""; } }
@@ -99,7 +104,8 @@ namespace DPTnew.Models
         public string SD { get { return MaintEndDate != null ? ((DateTime)StartDate).ToString("yyyy-MM-dd") : ""; } }
 
         public string PwdCode { get; set; }
-
+        
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string Version { get; set; }
         //public string LicenseKind { get; set; }
         public string Note { get; set; }
@@ -109,9 +115,11 @@ namespace DPTnew.Models
 
         public string SalesRep { get; set; }
         public string SalesRegion { get; set; }
+        
+        [Display(Name = "ExpRange", ResourceType = typeof(Resource))]
         public string ExpRange { get; set; }
 
-        [Display(Name = "Type")]
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string ServLicense1 { get; set; }
         public string ServLicense2 { get; set; }
         public string ServLicense3 { get; set; }

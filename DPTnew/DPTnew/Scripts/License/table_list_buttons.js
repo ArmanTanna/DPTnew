@@ -73,7 +73,8 @@ function parseJsonDate(jsonDateString) {
 
 var enmodifybutton;
 
-var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
+var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, btnValExport, btnInstall2015, btnInstallM2015,
+    btnPassword2015, prev, next, search, lengthmenu, info, infofiltered, rowsselected, norowsselected) {
     enmodifybutton = enablemodify;
     var dtDefaults = {
         "columns": [
@@ -96,6 +97,22 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
         "orderClasses": false,
         select: {
             style: 'single'
+        },
+        language: {
+            search: search,
+            lengthMenu: lengthmenu,
+            info: info,
+            infoFiltered: infofiltered,
+            paginate: {
+                previous: prev,
+                next: next
+            },
+            select: {
+                rows: {
+                    0: norowsselected,
+                    1: rowsselected
+                }
+            }
         }
     };
 
@@ -200,7 +217,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
         new $.fn.dataTable.Buttons(myTable, {
             buttons: [
          {
-             text: 'Export',
+             text: btnExport,//'Export',
              className: 'export',
              action: function () {
 
@@ -231,7 +248,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
              enabled: false
          },
           {
-              text: 'Validate Export',
+              text: btnValExport,//'Validate Export',
               className: 'validate_export',
               action: function () {
 
@@ -251,7 +268,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
               enabled: false
           },
          {
-             text: 'Install 2015',
+             text: btnInstall2015,//'Install 2015',
              className: 'import',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {
@@ -280,7 +297,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
              enabled: false
          },
          {
-             text: 'Install < 2015',
+             text: btnInstallM2015,//'Install < 2015',
              className: 'license2014',
              action: function () {
 
@@ -301,7 +318,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
              enabled: false
          },
          {
-             text: 'Password < 2015',
+             text: btnPassword2015,//'Password < 2015',
              className: 'pssw2014',
              action: function () {
                  if (myTable.rows('.selected').count() != 0)
@@ -438,8 +455,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
                 if (data.MachineID == "ABCDEFGH") {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
-                    if (data.LicenseType.toLowerCase() == "local")
-                        myTable.buttons(['.pssw2014']).enable(true);
+                    //if (data.LicenseType.toLowerCase() == "local")
+                    myTable.buttons(['.pssw2014']).enable(true);
                     if (data.LicenseType.toLowerCase() == "local" && parseJsonDate(data.MaintEndDate) > new Date() &&
                         data.Version < '2015')
                         myTable.buttons(['.changeversion']).enable(true);

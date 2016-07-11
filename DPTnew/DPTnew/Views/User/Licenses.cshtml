@@ -23,8 +23,13 @@
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <script src="~/Scripts/License/table_list_buttons.js"> </script>
     <script type="text/javascript">
-        $(document).ready(function () {
-          loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true);
+    $(document).ready(function () {
+        loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true, false, "@DPTnew.Localization.Resource.ButtonExport",
+            "@DPTnew.Localization.Resource.ButtonValidateExport", "@DPTnew.Localization.Resource.ButtonInstall2015",
+            "@DPTnew.Localization.Resource.ButtonInstallMin2015", "@DPTnew.Localization.Resource.ButtonPasswordMin2015",
+            "@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
+            "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
+            "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected");
         });
     </script>
 }
@@ -67,82 +72,82 @@
 
 
             @*<th>
-                @Html.DisplayNameFor(model => model.Ancestor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintStartDate)
-            </th>
-           
-            <th>
-                @Html.DisplayNameFor(model => model.LicenseKind)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.Ancestor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaintStartDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.LicenseKind)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Note)
+                </th>*@
         </tr>
     </thead>
     @*<tbody>
-@foreach (var item in Model) {
-    <tr>
-        <td></td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LicenseID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArticleDetail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-             @if (item.LicenseType == "local")
-        {
-             <text>L</text>
-             }
-        else {
-             <text>F</text>
-             }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MachineID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ancestor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaintStartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaintEndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Version)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LicenseKind)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-             
-    </tr>
-}
-</tbody>*@
+        @foreach (var item in Model) {
+            <tr>
+                <td></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicenseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArticleDetail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                     @if (item.LicenseType == "local")
+                {
+                     <text>L</text>
+                     }
+                else {
+                     <text>F</text>
+                     }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MachineID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ancestor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaintStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaintEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicenseKind)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+
+            </tr>
+        }
+        </tbody>*@
 </table>
 <div id="machineid-dialog" title="Please enter your machineid" style="display:none;">
     <input id="machineid" required="required" type="text" size="8" maxlength="8" />

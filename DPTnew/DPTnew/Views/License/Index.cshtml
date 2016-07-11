@@ -37,11 +37,11 @@
     function initdropdown(table) {
 
         yadcf.init(table, [
-  { column_number: 4, filter_default_label: "Select", data: ["dptxsw", "gbgdm", "tcatiav4", "tdbase", "tddrafting", "tdengineering", "tdengineeringplus", "tdirectrw", "tdmolding", "tdprofessional", "tdstyling", "tdtooling", "tdvar", "tdviewerplus", "tdxchangereader", "thinkapigsm", "thinkcore", "thinkom", "thinkprint", "tteamadd", "tteamdev", "tteamdoc", "tteampcb", "tteampcm", "tteampdm", "webteam"] },
-  { column_number: 5, filter_default_label: "Select", data: ["asf", "pl"] },
-  { column_number: 6, filter_default_label: "Select", data: ["L", "Fx "] },
-  { column_number: 8, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-  { column_number: 9, filter_default_label: "Select", data: ["2008", "2009", "2006", "2011", "2014", "2007", "2005", "2015", "2010", "2012", "2013"] }]);
+  { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["dptxsw", "gbgdm", "tcatiav4", "tdbase", "tddrafting", "tdengineering", "tdengineeringplus", "tdirectrw", "tdmolding", "tdprofessional", "tdstyling", "tdtooling", "tdvar", "tdviewerplus", "tdxchangereader", "thinkapigsm", "thinkcore", "thinkom", "thinkprint", "tteamadd", "tteamdev", "tteamdoc", "tteampcb", "tteampcm", "tteampdm", "webteam"] },
+  { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["asf", "pl"] },
+  { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["L", "Fx "] },
+  { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
+  { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["2008", "2009", "2006", "2011", "2014", "2007", "2005", "2015", "2010", "2012", "2013"] }]);
 
 
 
@@ -125,12 +125,19 @@
             ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
         }
 
-        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true", "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true");
+        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true",
+            "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true",
+            "@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
+            "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
+            "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.Previous",
+            "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search", "@DPTnew.Localization.Resource.lengthmenu",
+            "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered", "@DPTnew.Localization.Resource.rowsSelected",
+            "@DPTnew.Localization.Resource.noRowsSelected");
 
-        });
+    });
 
 
-    </script>
+</script>
 }
 
 @if (ViewBag.IsAdmin || ViewBag.IsVarExp)
