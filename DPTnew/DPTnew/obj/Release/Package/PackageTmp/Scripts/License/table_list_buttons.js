@@ -128,11 +128,13 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify) {
         var postData = {
             tipo: "P",
             machineid: machineId,
-            prodotto: data.PwdCode
+            prodotto: data.PwdCode,
+            artDetail: data.ArticleDetail.toLocaleLowerCase()
         };
-        if (data.ArticleDetail.toLocaleLowerCase() === "asf") {
+        if (data.ArticleDetail.toLocaleLowerCase() === "asf" || data.ArticleDetail.toLocaleLowerCase() === "qsf"
+            || data.ArticleDetail.toLocaleLowerCase() === "msf" || data.ArticleDetail.toLocaleLowerCase() === "tsf") {
             postData.tipo = "T";
-            postData.expdata = data.MED.replaceAll("-", "");
+            postData.expdata = data.MED ? data.MED.replaceAll("-", "") : "";
         }
 
         var $machineIdPopup = $(this);

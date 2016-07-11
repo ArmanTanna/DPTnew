@@ -13,5 +13,6 @@ namespace LicenseObject
       public string prodotto { get; set; }
       public int old { get; set; }
       public string expdata { get; set; }
+      public string artDetail { get; set; }
     }
 }

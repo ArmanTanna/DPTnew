@@ -27,12 +27,44 @@ namespace DptLicensingServer.Controllers
             string machineid = data.machineid;
             string expdata = data.expdata;
             int old = data.old == 0 ? 3 : data.old;
+            IEnumerable<string> h_lid;
+
             if (!Authenticate())
                 return CreateResponse(HttpStatusCode.Unauthorized);
             try
             {
                 if (old > 3 || old < 2 || !acceptedType.Contains(tipo))
                     return CreateResponse(HttpStatusCode.BadRequest);
+
+                if (string.IsNullOrEmpty(expdata))
+                {
+                    if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+                        using (var db = new DptContext())
+                        {
+                            var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                            //update maintenddate in db
+                            if (data.artDetail == "qsf")
+                            {
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
+                                expdata = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
+                            }
+                            if (data.artDetail == "msf")
+                            {
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
+                                expdata = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
+                            }
+                            if (data.artDetail == "tsf")
+                            {
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                                expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
+                            }
+                            db.Licenses.Attach(currentlicense);
+                            var entry = db.Entry(currentlicense);
+                            entry.Property(x => x.MaintEndDate).IsModified = true;
+                            db.SaveChanges();
+                        }
+                }
+
                 string outstr = String.Empty;
                 string outstrres = String.Empty;
                 ILicense licenseManager = new License();
@@ -43,7 +75,6 @@ namespace DptLicensingServer.Controllers
                     Password = outstrres
                 });
 
-                IEnumerable<string> h_lid;
                 if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
                     {
@@ -314,12 +345,12 @@ namespace DptLicensingServer.Controllers
                     from license in db.Licenses
                     where license.LicenseID == licenseId
                     select license;
-                
+
                     foreach (LicenseView lic in query)
                     {
                         lic.Version = version;
                     }
-                    
+
                     db.SaveChanges();
                 }
 
