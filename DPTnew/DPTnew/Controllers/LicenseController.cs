@@ -1,4 +1,5 @@
-﻿using DPTnew.Models;
+﻿using DPTnew.Helper;
+using DPTnew.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace DPTnew.Controllers
         [Authorize(Roles = "Admin,Var,VarExp,Internal")]
         public ActionResult Index(int pageSize = 10)
         {
+            LocalizationHelper.SetLocalization();
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();

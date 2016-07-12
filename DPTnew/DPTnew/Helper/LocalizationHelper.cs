@@ -10,7 +10,7 @@ namespace DPTnew.Helper
 {
     public class LocalizationHelper
     {
-        public string SetLocalization()
+        public static string SetLocalization()
         {
             using (var db = new DptContext())
             {

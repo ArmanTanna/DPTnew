@@ -133,6 +133,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Version.
+        /// </summary>
+        public static string ChangeVersion {
+            get {
+                return ResourceManager.GetString("ChangeVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm new password.
         /// </summary>
         public static string ConfirmNewPassword {
@@ -786,6 +795,15 @@ namespace DPTnew.Localization {
         public static string MED {
             get {
                 return ResourceManager.GetString("MED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify.
+        /// </summary>
+        public static string Modify {
+            get {
+                return ResourceManager.GetString("Modify", resourceCulture);
             }
         }
         

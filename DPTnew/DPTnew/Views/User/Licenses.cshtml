@@ -23,13 +23,14 @@
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <script src="~/Scripts/License/table_list_buttons.js"> </script>
     <script type="text/javascript">
-    $(document).ready(function () {
-        loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true, false, "@DPTnew.Localization.Resource.ButtonExport",
-            "@DPTnew.Localization.Resource.ButtonValidateExport", "@DPTnew.Localization.Resource.ButtonInstall2015",
-            "@DPTnew.Localization.Resource.ButtonInstallMin2015", "@DPTnew.Localization.Resource.ButtonPasswordMin2015",
-            "@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
-            "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
-            "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected");
+        $(document).ready(function () {
+            loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true, false,
+                ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
+                    "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
+                    "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion", "@DPTnew.Localization.Resource.Modify"],
+                    ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
+                     "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
+                     "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
         });
     </script>
 }

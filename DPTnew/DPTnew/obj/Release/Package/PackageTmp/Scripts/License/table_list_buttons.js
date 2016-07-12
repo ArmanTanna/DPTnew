@@ -73,8 +73,7 @@ function parseJsonDate(jsonDateString) {
 
 var enmodifybutton;
 
-var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, btnValExport, btnInstall2015, btnInstallM2015,
-    btnPassword2015, prev, next, search, lengthmenu, info, infofiltered, rowsselected, norowsselected) {
+var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocalization, DTmsgLocalization) {
     enmodifybutton = enablemodify;
     var dtDefaults = {
         "columns": [
@@ -99,18 +98,18 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
             style: 'single'
         },
         language: {
-            search: search,
-            lengthMenu: lengthmenu,
-            info: info,
-            infoFiltered: infofiltered,
+            search: DTmsgLocalization[2],
+            lengthMenu: DTmsgLocalization[3],
+            info: DTmsgLocalization[4],
+            infoFiltered: DTmsgLocalization[5],
             paginate: {
-                previous: prev,
-                next: next
+                previous: DTmsgLocalization[0],
+                next: DTmsgLocalization[1]
             },
             select: {
                 rows: {
-                    0: norowsselected,
-                    1: rowsselected
+                    0: DTmsgLocalization[7],
+                    1: DTmsgLocalization[6]
                 }
             }
         }
@@ -217,7 +216,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
         new $.fn.dataTable.Buttons(myTable, {
             buttons: [
          {
-             text: btnExport,//'Export',
+             text: btnTextLocalization[0],//'Export',
              className: 'export',
              action: function () {
 
@@ -248,7 +247,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
              enabled: false
          },
           {
-              text: btnValExport,//'Validate Export',
+              text: btnTextLocalization[1],//'Validate Export',
               className: 'validate_export',
               action: function () {
 
@@ -268,7 +267,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
               enabled: false
           },
          {
-             text: btnInstall2015,//'Install 2015',
+             text: btnTextLocalization[2],//'Install 2015',
              className: 'import',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {
@@ -297,7 +296,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
              enabled: false
          },
          {
-             text: btnInstallM2015,//'Install < 2015',
+             text: btnTextLocalization[3],//'Install < 2015',
              className: 'license2014',
              action: function () {
 
@@ -318,7 +317,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
              enabled: false
          },
          {
-             text: btnPassword2015,//'Password < 2015',
+             text: btnTextLocalization[4],//'Password < 2015',
              className: 'pssw2014',
              action: function () {
                  if (myTable.rows('.selected').count() != 0)
@@ -327,7 +326,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
              enabled: false
          },
          {
-             text: 'Change Version',
+             text: btnTextLocalization[5],//'Change Version',
              className: 'changeversion',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {
@@ -367,7 +366,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnExport, b
              enabled: false
          },
          {
-             text: 'Modify',
+             text: btnTextLocalization[6],//'Modify',
              className: 'modify',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {

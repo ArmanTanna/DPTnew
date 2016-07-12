@@ -18,7 +18,7 @@ namespace DPTnew.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = new LocalizationHelper().SetLocalization();
+            ViewBag.Message = LocalizationHelper.SetLocalization();
 
             return View();
         }
