@@ -386,7 +386,6 @@ namespace DPTnew.Controllers
 
                 }
 
-
                 using (var context = new DptContext())
                 {
                     currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
@@ -415,7 +414,11 @@ namespace DPTnew.Controllers
                             else
                             {
                                 if (isEval) { type = "EVAL"; }
-                                else { type = "EXPIR"; }
+                                else
+                                {
+                                    type = "EXPIR";
+                                    CheckQMTsf(currentlicense);
+                                }
                             }
                         }
                         else
@@ -427,6 +430,7 @@ namespace DPTnew.Controllers
                             else
                             {
                                 type = "NET_EXPIR";
+                                CheckQMTsf(currentlicense);
                             }
                         }
 
@@ -524,7 +528,14 @@ namespace DPTnew.Controllers
                                 entry.Property(x => x.Installed).IsModified = true;
                                 entry.Property(x => x.Import).IsModified = true;
                                 entry.Property(x => x.MachineID).IsModified = true;
-
+                                if (currentlicense.ArticleDetail == "qsf" || currentlicense.ArticleDetail == "msf" ||
+                                    currentlicense.ArticleDetail == "tsf")
+                                {
+                                    entry.Property(x => x.MaintEndDate).IsModified = true;
+                                    entry.Property(x => x.MaintStartDate).IsModified = true;
+                                    entry.Property(x => x.EndDate).IsModified = true;
+                                    entry.Property(x => x.StartDate).IsModified = true;
+                                }
                                 context.SaveChanges();
                             }
 
@@ -542,6 +553,38 @@ namespace DPTnew.Controllers
             ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license.");
             return View("Create", l);
 
+        }
+
+        private static void CheckQMTsf(LicenseView currentlicense)
+        {
+            if (currentlicense.MED.Replace("-", "") == "20280101")
+            {
+                using (var db = new DptContext())
+                {
+                    //update maintenddate in db
+                    if (currentlicense.ArticleDetail == "qsf")
+                    {
+                        currentlicense.MaintStartDate = DateTime.Now;
+                        currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
+                        currentlicense.StartDate = currentlicense.MaintStartDate;
+                        currentlicense.EndDate = currentlicense.MaintEndDate;
+                    }
+                    if (currentlicense.ArticleDetail == "msf")
+                    {
+                        currentlicense.MaintStartDate = DateTime.Now;
+                        currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
+                        currentlicense.StartDate = currentlicense.MaintStartDate;
+                        currentlicense.EndDate = currentlicense.MaintEndDate;
+                    }
+                    if (currentlicense.ArticleDetail == "tsf")
+                    {
+                        currentlicense.MaintStartDate = DateTime.Now;
+                        currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                        currentlicense.StartDate = currentlicense.MaintStartDate;
+                        currentlicense.EndDate = currentlicense.MaintEndDate;
+                    }
+                }
+            }
         }
 
         //

@@ -36,7 +36,7 @@ namespace DptLicensingServer.Controllers
                 if (old > 3 || old < 2 || !acceptedType.Contains(tipo))
                     return CreateResponse(HttpStatusCode.BadRequest);
 
-                if (string.IsNullOrEmpty(expdata))
+                if (expdata == "20280101")
                 {
                     if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                         using (var db = new DptContext())
@@ -45,35 +45,81 @@ namespace DptLicensingServer.Controllers
                             //update maintenddate in db
                             if (data.artDetail == "qsf")
                             {
+                                currentlicense.MaintStartDate = DateTime.Now;
                                 currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
                                 expdata = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
                             }
                             if (data.artDetail == "msf")
                             {
+                                currentlicense.MaintStartDate = DateTime.Now;
                                 currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
                                 expdata = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
                             }
                             if (data.artDetail == "tsf")
                             {
+                                currentlicense.MaintStartDate = DateTime.Now;
                                 currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
                                 expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
                             }
                             db.Licenses.Attach(currentlicense);
                             var entry = db.Entry(currentlicense);
                             entry.Property(x => x.MaintEndDate).IsModified = true;
+                            entry.Property(x => x.MaintStartDate).IsModified = true;
+                            entry.Property(x => x.EndDate).IsModified = true;
+                            entry.Property(x => x.StartDate).IsModified = true;
                             db.SaveChanges();
                         }
                 }
-
-                string outstr = String.Empty;
-                string outstrres = String.Empty;
-                ILicense licenseManager = new License();
-                licenseManager.NewLicense(old, tipo, prodotto, machineid, expdata, out outstr);
-                licenseManager.ChangeMID(outstr, machineid, "4", out outstrres);
-                JObject newLicenseResult = JObject.FromObject(new
+                IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
+                IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
+                IEnumerable<string> TTeamAddBundle = new List<string> { "REPLICATEDVAULT", "TTEAMECR-ECO", "TTEAMPDMXCHNGXTD", "TTEAMPDMXCHANGES", "TTEAMPDMXCHNGXAC", "TTEAMPDMXCHNGXPE", "TTEAMPDMXCHNGXSW", "TTEAMMAINTAIN" };
+                IEnumerable<string> TTeamAddCode = new List<string> { "RV", "TG", "YB", "YC", "YD", "YE", "YF", "TH" };
+                JObject newLicenseResult;
+                if (prodotto.Substring(0, 2) == "IX") //TDIRECTRW
                 {
-                    Password = outstrres
-                });
+                    var pwd = "";
+                    for (int i = 0; i < TDIRECTBundle.Count(); i++)
+                    {
+                        prodotto = TDIRECTCode.ElementAt(i) + prodotto.Substring(2);
+                        string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
+                        pwd += TDIRECTBundle.ElementAt(i) + ":" + outstrres + ";";
+                    }
+                    newLicenseResult = JObject.FromObject(new
+                    {
+                        Password = pwd
+                    });
+                }
+                else
+                {
+                    if (prodotto.Substring(0, 2) == "AD") // TTEAMADD
+                    {
+                        var pwd = "";
+                        for (int i = 0; i < TTeamAddBundle.Count(); i++)
+                        {
+                            prodotto = TTeamAddCode.ElementAt(i) + prodotto.Substring(2);
+                            string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
+                            pwd += TTeamAddBundle.ElementAt(i) + ":" + outstrres + ";";
+                        }
+                        newLicenseResult = JObject.FromObject(new
+                        {
+                            Password = pwd
+                        });
+                    }
+                    else
+                    {
+                        string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
+                        newLicenseResult = JObject.FromObject(new
+                        {
+                            Password = outstrres
+                        });
+                    }
+                }
 
                 if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
@@ -97,6 +143,16 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.InternalServerError, resp);
             }
+        }
+
+        private static string CalculatePassword(string tipo, string prodotto, string machineid, string expdata, int old)
+        {
+            string outstr = String.Empty;
+            string outstrres = String.Empty;
+            ILicense licenseManager = new License();
+            licenseManager.NewLicense(old, tipo, prodotto, machineid, expdata, out outstr);
+            licenseManager.ChangeMID(outstr, machineid, "4", out outstrres);
+            return outstrres;
         }
 
         //void ChangeMID(string product, string newMID, string outFamily, out string outstr)
@@ -302,6 +358,47 @@ namespace DptLicensingServer.Controllers
                 if (!Authenticate())
                     return CreateResponse(HttpStatusCode.Unauthorized);
                 string pwdline = String.Empty;
+                IEnumerable<string> h_lid;
+                if (expdate == "20280101")
+                {
+                    if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+                        using (var db = new DptContext())
+                        {
+                            var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                            //update maintenddate in db
+                            if (currentlicense.ArticleDetail == "qsf")
+                            {
+                                currentlicense.MaintStartDate = DateTime.Now;
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
+                                expdate = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
+                            }
+                            if (currentlicense.ArticleDetail == "msf")
+                            {
+                                currentlicense.MaintStartDate = DateTime.Now;
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
+                                expdate = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
+                            }
+                            if (currentlicense.ArticleDetail == "tsf")
+                            {
+                                currentlicense.MaintStartDate = DateTime.Now;
+                                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                                currentlicense.StartDate = currentlicense.MaintStartDate;
+                                currentlicense.EndDate = currentlicense.MaintEndDate;
+                                expdate = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
+                            }
+                            db.Licenses.Attach(currentlicense);
+                            var entry = db.Entry(currentlicense);
+                            entry.Property(x => x.MaintEndDate).IsModified = true;
+                            entry.Property(x => x.MaintStartDate).IsModified = true;
+                            entry.Property(x => x.EndDate).IsModified = true;
+                            entry.Property(x => x.StartDate).IsModified = true;
+                            db.SaveChanges();
+                        }
+                }
                 IFlexLicense licenseManager = (IFlexLicense)new License();
                 licenseManager.FlexLicense(flexkind, feature, Version, numServ, machineid1, machineid2, machineid3, nlic, expdate, vend_string, typelic, expkind, param, out pwdline);
                 JObject checkMIDsResult = JObject.FromObject(new
@@ -309,13 +406,14 @@ namespace DptLicensingServer.Controllers
                     PwdLine = pwdline
                 });
 
-                IEnumerable<string> h_lid;
                 if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
                     {
                         var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                         //update machineid in db
                         currentlicense.MachineID = machineid1;
+                        currentlicense.Vend_String = vend_string;
+                        currentlicense.FlexType = typelic;
                         db.Licenses.Attach(currentlicense);
                         var entry = db.Entry(currentlicense);
                         entry.Property(x => x.MachineID).IsModified = true;

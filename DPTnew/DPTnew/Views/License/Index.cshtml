@@ -142,9 +142,16 @@
 
 @if (ViewBag.IsAdmin || ViewBag.IsVarExp)
 {
-
     <div id="machineid-dialog" title="Please enter your machineid" style="display: none;">
         <input id="machineid" required="required" type="text" size="8" maxlength="8" />
+    </div>
+    <div id="floating-dialog" title="Please enter the info's:" style="display:none;">
+        Machine ID: <input id="machineidf" name="macid" required="required" type="text" size="8" maxlength="8" />
+        Vendor String: <input id="vendstring" name="vString" required="required" type="text" />
+        Flex type:<select id="flexType-choice">
+            <option value="0">Feature</option>
+            <option value="1">Increment</option>
+        </select>
     </div>
     <div id="pwd-dialog" title="Your requested password is" style="display: none;">
         <strong style="position: absolute; margin-top: 20px;" id="password"></strong>

@@ -18,7 +18,7 @@ namespace DPTnew.Helper
                 var contact = db.Contacts.Where(u => u.Email == user).ToList().First();
                 var company = db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().First();
                 
-                var salesProv = db.SalesR.Where(x => x.SalesRegion.Trim().ToLower() == company.SalesRegion.Trim().ToLower()).Select(x => x.SalesProvince).FirstOrDefault();
+                var salesProv = db.SalesR.Where(x => x.SalesRep.Trim().ToLower() == company.SalesRep.Trim().ToLower()).Select(x => x.SalesProvince).FirstOrDefault();
 
                 if (salesProv.Contains("italy"))
                 {

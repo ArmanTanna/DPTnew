@@ -162,11 +162,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
             }
             var $psw = $("#password");
             $psw.text("");
-            $psw.text(result.Password || result.PwdLine.replaceAll("\\\"", "\""));
+            $psw.html(result.Password ? result.Password.replaceAll(";", "\n") : result.PwdLine.replaceAll("\\\"", "\""));
             var pwdDialogConfig = {
                 modal: true,
-                width: 400,
-                height: result.PwdLine ? 250 : "auto",
+                width: 600,
+                height: 250,
                 buttons: {
                     OK: function () {
                         $("#pwd-dialog").prop('title', '');
@@ -299,19 +299,44 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
              text: btnTextLocalization[3],//'Install < 2015',
              className: 'license2014',
              action: function () {
-
                  if (myTable.rows('.selected').count() != 0) {
-                     $("#machineid-dialog").dialog({
-                         resizable: false,
-                         height: 140,
-                         modal: true,
-                         buttons: {
-                             "Install": function () { generate2014pwd.call(this, myTable.rows('.selected').data()[0], $("#machineid").val()) },
-                             Cancel: function () {
-                                 $(this).dialog("close");
+                     if (myTable.rows('.selected').data()[0].LicenseType == "local") {
+                         $("#machineid-dialog").dialog({
+                             resizable: false,
+                             height: 140,
+                             modal: true,
+                             buttons: {
+                                 "Install": function () {
+                                     generate2014pwd.call(this, myTable.rows('.selected').data()[0], $("#machineid").val())
+                                 },
+                                 Cancel: function () {
+                                     $(this).dialog("close");
+                                 }
                              }
-                         }
-                     });
+                         });
+                     }
+                     else {
+                         $("#floating-dialog").dialog({
+                             resizable: false,
+                             height: 250,
+                             modal: true,
+                             buttons: {
+                                 "Install": function () {
+                                     var header = myTable.rows('.selected').data()[0];
+                                     header.FlexType = $("#flexType-choice").val();
+                                     header.MachineID = $("input[name=macid]").val();
+                                     header.Vend_String = $("input[name=vString]").val();
+                                     header.PwdCode = header.PwdCode.split(",")[0] + "," + header.PwdCode.split(",")[1] + "," +
+                                         header.MachineID + "," + header.Quantity + "," + (header.MED ? header.MED.replaceAll("-", "") : "")
+                                     + "," + header.Vend_String + "," + header.FlexType + "," + (header.ArticleDetail == "pl" ? 2 : 0);
+                                     generate2014pwd.call(this, header, header.MachineID)
+                                 },
+                                 Cancel: function () {
+                                     $(this).dialog("close");
+                                 }
+                             }
+                         });
+                     }
                  }
              },
              enabled: false
@@ -342,17 +367,42 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                          buttons: {
                              OK: function () {
                                  $(this).dialog("close");
-                                 $.ajax({
-                                     url: "../api/PasswordGenerator/Upgrade?licenseId=" + headers.LicenseID + "&version=" + $("#version-choice").val(),
-                                     type: 'GET',
-                                     data: null,
-                                     headers: headers,
-                                     dataType: "json",
-                                     success: function (result) {
-                                         $("#pwd-dialog").prop('title', '');
-                                         location.reload();
+                                 if ($("#version-choice").val() > headers.Version) {
+                                     $.ajax({
+                                         url: "../api/PasswordGenerator/Upgrade?licenseId=" + headers.LicenseID + "&version=" + $("#version-choice").val(),
+                                         type: 'GET',
+                                         data: null,
+                                         headers: headers,
+                                         dataType: "json",
+                                         success: function (result) {
+                                             $("#pwd-dialog").prop('title', '');
+                                             location.reload();
+                                         }
+                                     });
+                                 } else {
+                                     switch ($("#version-choice").val()) {
+                                         case "2008":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "D1";
+                                             break;
+                                         case "2009":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "E3";
+                                             break;
+                                         case "2011":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "G1";
+                                             break;
+                                         case "2012":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "H1";
+                                             break;
+                                         case "2013":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "I1";
+                                             break;
+                                         case "2014":
+                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "J1";
+                                             break;
+                                         default:
                                      }
-                                 });
+                                     generate2014pwd.call(this, headers);
+                                 }
                              }
                          }
                      };

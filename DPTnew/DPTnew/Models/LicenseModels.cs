@@ -121,8 +121,8 @@ namespace DPTnew.Models
 
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string ServLicense1 { get; set; }
-        public string ServLicense2 { get; set; }
-        public string ServLicense3 { get; set; }
+        public string Vend_String { get; set; }
+        public int? FlexType { get; set; }
 
         public int ExportedNum { get; set; }
         public int MaxExport { get; set; }
