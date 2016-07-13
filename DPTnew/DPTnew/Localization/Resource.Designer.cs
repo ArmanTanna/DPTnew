@@ -682,7 +682,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_2016T1_b20617.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20712/dvd_td_2016T1_b20712.iso.
         /// </summary>
         public static string Download2016ThinkDesign32bitbeta {
             get {
@@ -691,7 +691,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_td_64bit_2016T1_b20617.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20712/dvd_td_64bit_2016T1_b20712.iso.
         /// </summary>
         public static string Download2016ThinkDesign64bitbeta {
             get {

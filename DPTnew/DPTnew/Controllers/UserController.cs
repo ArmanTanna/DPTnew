@@ -163,7 +163,7 @@ namespace DPTnew.Controllers
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL || isPool))
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 

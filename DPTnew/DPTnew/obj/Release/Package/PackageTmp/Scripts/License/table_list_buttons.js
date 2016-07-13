@@ -486,7 +486,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                 }
                 //check for export
                 if (data.Installed == 1 && maintenddate >= now) {
-                    if (isLocal && !isEval && !isTdVar && !isTdirect && (isTest || isL || isPool)) {
+                    if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
                     }
                 }
