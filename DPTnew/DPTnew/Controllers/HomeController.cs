@@ -16,7 +16,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index()
         {
-            LocalizationHelper.SetLocalization();            
+            //LocalizationHelper.SetLocalization();            
             return View();
         }
 
