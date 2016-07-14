@@ -44,7 +44,7 @@ namespace DPTnew.Helper
                         break;
                 }
 
-                Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
+                //Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
 
             }
         }

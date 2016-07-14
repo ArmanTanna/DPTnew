@@ -1204,6 +1204,24 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download here the beta version of the new release..
+        /// </summary>
+        public static string View_Download_Text1 {
+            get {
+                return ResourceManager.GetString("View_Download_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2016 beta (x64) - 1.86 GB.
+        /// </summary>
+        public static string View_Download_Text2 {
+            get {
+                return ResourceManager.GetString("View_Download_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Breaking News.
         /// </summary>
         public static string View_Home_BreakingNews {
