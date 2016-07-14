@@ -178,7 +178,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2011 application..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2011 application..
         /// </summary>
         public static string Description2011TDViewerLight {
             get {
@@ -214,7 +214,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2012 application..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2012 application..
         /// </summary>
         public static string Description2012TDViewerLight {
             get {
@@ -259,7 +259,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2013 application..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2013 application..
         /// </summary>
         public static string Description2013TDViewerLight {
             get {
@@ -304,7 +304,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2014 application..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2014 application..
         /// </summary>
         public static string Description2014TDViewerLight {
             get {
@@ -349,7 +349,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the ThinkDesign Viewer 2015 SP3 application..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2015 SP3 application..
         /// </summary>
         public static string Description2015TDViewerLightSP3 {
             get {

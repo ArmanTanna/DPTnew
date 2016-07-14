@@ -31,6 +31,11 @@ namespace DPTnew.Helper
                 //    Localization.Resource.Culture = new CultureInfo("ja-JP");
                 //    CultureHelper.CurrentCulture = 2;
                 //}
+                //else if (salesProv.Contains("japan"))
+                //{
+                //    Localization.Resource.Culture = new CultureInfo("ko-KR");
+                //    CultureHelper.CurrentCulture = 3;
+                //}
                 //else
                 //{
                 //    Localization.Resource.Culture = new CultureInfo("en-US");

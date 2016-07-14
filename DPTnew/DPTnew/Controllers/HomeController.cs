@@ -47,6 +47,8 @@ namespace DPTnew.Controllers
                     break;
                 case 2: Localization.Resource.Culture = new CultureInfo("ja-JP");
                     break;
+                case 3: Localization.Resource.Culture = new CultureInfo("ko-KR");
+                    break;
                 case 0:
                 default: Localization.Resource.Culture = new CultureInfo("en-US");
                     break;
