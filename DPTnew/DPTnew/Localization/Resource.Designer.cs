@@ -88,6 +88,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decrypt password.
+        /// </summary>
+        public static string ButtonDecryptPwd {
+            get {
+                return ResourceManager.GetString("ButtonDecryptPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string ButtonExport {

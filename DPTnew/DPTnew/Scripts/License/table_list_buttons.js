@@ -416,7 +416,54 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
              enabled: false
          },
          {
-             text: btnTextLocalization[6],//'Modify',
+             text: btnTextLocalization[6],
+             className: 'decryptpwd',
+             action: function () {
+                 var $psw = $("#password-dialog");
+                 var pwdDialogConfig = {
+                     modal: true,
+                     width: 400,
+                     height: "auto",
+                     buttons: {
+                         OK: function () {
+                             $(this).dialog("close");
+                             if ($("#pwd").val() !== "") {
+                                 $.ajax({
+                                     url: "../api/PasswordGenerator/CheckMIDs?pwd=" + $("#pwd").val(),
+                                     type: 'GET',
+                                     data: null,
+                                     headers: null,
+                                     dataType: "json",
+                                     success: function (result) {
+                                         var $psw = $("#decrypt-dialog");
+                                         $psw.find("#machineidp").val(result.Codice);
+                                         $psw.find("#expdate").val(result.DataExp);
+                                         $psw.find("#product").val(result.Prod);
+                                         $psw.find("#resdays").val(result.Res_Days);
+                                         $psw.find("#version").val(result.Vers);
+                                         var pwdDialogConfig = {
+                                             modal: true,
+                                             width: 350,
+                                             height: 400,
+                                             buttons: {
+                                                 OK: function () {
+                                                     location.reload();
+                                                 }
+                                             }
+                                         };
+                                         $("#decrypt-dialog").dialog(pwdDialogConfig);
+                                     }
+                                 });
+                             }
+                         }
+                     }
+                 };
+                 $("#password-dialog").dialog(pwdDialogConfig);
+             },
+             enabled: true
+         },
+         {
+             text: btnTextLocalization[7],//'Modify',
              className: 'modify',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {
