@@ -42,38 +42,7 @@ namespace DptLicensingServer.Controllers
                         using (var db = new DptContext())
                         {
                             var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
-                            //update maintenddate in db
-                            if (data.artDetail == "qsf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdata = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
-                            }
-                            if (data.artDetail == "msf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdata = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
-                            }
-                            if (data.artDetail == "tsf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
-                            }
-                            db.Licenses.Attach(currentlicense);
-                            var entry = db.Entry(currentlicense);
-                            entry.Property(x => x.MaintEndDate).IsModified = true;
-                            entry.Property(x => x.MaintStartDate).IsModified = true;
-                            entry.Property(x => x.EndDate).IsModified = true;
-                            entry.Property(x => x.StartDate).IsModified = true;
-                            db.SaveChanges();
+                            expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
                         }
                 }
                 IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
@@ -143,6 +112,43 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.InternalServerError, resp);
             }
+        }
+
+        private static string CheckQMTsf(string artDetail, string expdata, DptContext db, LicenseView currentlicense)
+        {
+            //update maintenddate in db
+            if (artDetail == "qsf")
+            {
+                currentlicense.MaintStartDate = DateTime.Now;
+                currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
+                currentlicense.StartDate = currentlicense.MaintStartDate;
+                currentlicense.EndDate = currentlicense.MaintEndDate;
+                expdata = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
+            }
+            if (artDetail == "msf")
+            {
+                currentlicense.MaintStartDate = DateTime.Now;
+                currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
+                currentlicense.StartDate = currentlicense.MaintStartDate;
+                currentlicense.EndDate = currentlicense.MaintEndDate;
+                expdata = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
+            }
+            if (artDetail == "tsf")
+            {
+                currentlicense.MaintStartDate = DateTime.Now;
+                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                currentlicense.StartDate = currentlicense.MaintStartDate;
+                currentlicense.EndDate = currentlicense.MaintEndDate;
+                expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
+            }
+            db.Licenses.Attach(currentlicense);
+            var entry = db.Entry(currentlicense);
+            entry.Property(x => x.MaintEndDate).IsModified = true;
+            entry.Property(x => x.MaintStartDate).IsModified = true;
+            entry.Property(x => x.EndDate).IsModified = true;
+            entry.Property(x => x.StartDate).IsModified = true;
+            db.SaveChanges();
+            return expdata;
         }
 
         private static string CalculatePassword(string tipo, string prodotto, string machineid, string expdata, int old)
@@ -365,38 +371,7 @@ namespace DptLicensingServer.Controllers
                         using (var db = new DptContext())
                         {
                             var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
-                            //update maintenddate in db
-                            if (currentlicense.ArticleDetail == "qsf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(90);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdate = DateTime.Now.AddDays(90).ToString("yyyyMMdd");
-                            }
-                            if (currentlicense.ArticleDetail == "msf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(30);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdate = DateTime.Now.AddDays(30).ToString("yyyyMMdd");
-                            }
-                            if (currentlicense.ArticleDetail == "tsf")
-                            {
-                                currentlicense.MaintStartDate = DateTime.Now;
-                                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
-                                currentlicense.StartDate = currentlicense.MaintStartDate;
-                                currentlicense.EndDate = currentlicense.MaintEndDate;
-                                expdate = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
-                            }
-                            db.Licenses.Attach(currentlicense);
-                            var entry = db.Entry(currentlicense);
-                            entry.Property(x => x.MaintEndDate).IsModified = true;
-                            entry.Property(x => x.MaintStartDate).IsModified = true;
-                            entry.Property(x => x.EndDate).IsModified = true;
-                            entry.Property(x => x.StartDate).IsModified = true;
-                            db.SaveChanges();
+                            expdate = CheckQMTsf(currentlicense.ArticleDetail, expdate, db, currentlicense);
                         }
                 }
                 IFlexLicense licenseManager = (IFlexLicense)new License();
