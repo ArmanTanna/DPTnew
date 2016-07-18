@@ -15,11 +15,10 @@ namespace DPTnew.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            //LocalizationHelper.SetLocalization();            
+        {      
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             return View();
         }
-
 
         public ActionResult About()
         {

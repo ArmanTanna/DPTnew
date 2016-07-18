@@ -10,7 +10,7 @@ namespace DPTnew.Helper
 {
     public class LocalizationHelper
     {
-        public static string SetLocalization()
+        public static string GetSalesProv()
         {
             using (var db = new DptContext())
             {
@@ -45,5 +45,33 @@ namespace DPTnew.Helper
                 return company.SalesRegion.Trim().ToLower();
             }
         }
+
+        public static void SetLocalization(object session)
+        {
+
+            if (session != null && ((int)session) == 1)
+            {
+                Localization.Resource.Culture = new CultureInfo("it-IT");
+                CultureHelper.CurrentCulture = 1;
+            }
+            else if (session != null && ((int)session) == 2)
+            {
+                Localization.Resource.Culture = new CultureInfo("ja-JP");
+                CultureHelper.CurrentCulture = 2;
+            }
+            else if (session != null && ((int)session) == 3)
+            {
+                Localization.Resource.Culture = new CultureInfo("ko-KR");
+                CultureHelper.CurrentCulture = 3;
+            }
+            else
+            {
+                Localization.Resource.Culture = new CultureInfo("en-US");
+                CultureHelper.CurrentCulture = 0;
+            }
+
+            return;
+        }
+
     }
 }

@@ -18,7 +18,8 @@ namespace DPTnew.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = LocalizationHelper.SetLocalization();
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            ViewBag.Message = LocalizationHelper.GetSalesProv();
 
             return View();
         }
