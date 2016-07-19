@@ -25,9 +25,9 @@ namespace DPTnew.Controllers
                 //    return View("Index_it");
                 //if (lang.Language == "japanese")
                 //    return View("Index_jp");
-                if (Localization.Resource.Culture != null && Localization.Resource.Culture.Name == "it-IT")
+                if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 1)
                     return View("Index_it");
-                if (Localization.Resource.Culture != null && Localization.Resource.Culture.Name == "ja-JP")
+                if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
                     return View("Index_jp");
                 return View();
             }

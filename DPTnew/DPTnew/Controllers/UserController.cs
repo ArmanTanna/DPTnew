@@ -287,7 +287,7 @@ namespace DPTnew.Controllers
                             {
                                 JObject singleproduct = (JObject)products;
                                 //product is the same and has no feature (the features have been deleted)
-                                if (singleproduct["name"].ToString().Trim().ToLower() == currentlicense.ProductName && singleproduct.Property("feature") == null)
+                                if ((singleproduct["name"].ToString().Trim().ToLower() == currentlicense.ProductName && singleproduct.Property("feature") == null) || singleproduct["name"].ToString().Trim().ToLower() != currentlicense.ProductName)
                                 {
                                     //correct
                                     success = true;
