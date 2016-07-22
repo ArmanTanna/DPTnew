@@ -85,6 +85,7 @@ namespace DPTnew.Controllers
                         query.FirstOrDefault().PrimaryContact = pplSingleRow.PrimaryContact;
                         query.FirstOrDefault().FirstNameK = pplSingleRow.FirstNameK;
                         query.FirstOrDefault().LastNameK = pplSingleRow.LastNameK;
+                        query.FirstOrDefault().Status = pplSingleRow.Status;
                         db.SaveChanges();
                     }
                 }

@@ -35,6 +35,54 @@ namespace DPTnew.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult SyncDB()
         {
+            using (var db = new DptContext())
+            {
+                db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
+                var query =
+                from cmp in db.Companies
+                where cmp.AccountStatus == "03 - Active Customer" || cmp.AccountStatus == "06 - Partner" ||
+                    cmp.AccountStatus == "04 - Not Active Customer" || cmp.AccountStatus == "04b - Not Active Customer OM"
+                    || cmp.AccountStatus == "01 - Prospect"
+                select cmp;
+                if (query.Count() > 0)
+                {
+                    foreach (var cmp in query.ToList())
+                    {
+                        SafenetComapny sfnc = new SafenetComapny();
+                        sfnc.AccountNumber = cmp.AccountNumber;
+                        sfnc.AccountName = cmp.AccountName;
+                        sfnc.Email = cmp.Email;
+                        sfnc.FirstName = "DPT";
+                        sfnc.LastName = "User";
+                        sfnc.Description = "Company";
+
+                        var pc =
+                        from pcl in db.Peoples
+                        where pcl.AccountNumber == sfnc.AccountNumber && pcl.PrimaryContact == "yes"
+                        select pcl;
+
+                        if (pc.Any())
+                            sfnc.Language = pc.FirstOrDefault().Language;
+                        else
+                            sfnc.Language = "English";
+
+                        db.SafenetCompanies.Add(sfnc);
+                    }
+                    db.SaveChanges();
+                }
+            }
+
+            string errormsg = SaveCompaniesToSafenetDB();
+            ViewBag.Message = errormsg;
+            using (var db = new DptContext())
+            {
+                db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
+            }
+            return View();
+        }
+
+        private string SaveCompaniesToSafenetDB()
+        {
             SentinelEMSWrapper sew;
             var cc = new ClientCredentials();
             cc.UserName.UserName = System.Configuration.ConfigurationManager.AppSettings["safenetusername"];
@@ -71,8 +119,7 @@ namespace DPTnew.Controllers
                     errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); ";
                 }
             }
-            ViewBag.Message = errormsg;
-            return View();
+            return errormsg;
         }
 
         [HttpPost]
@@ -141,6 +188,46 @@ namespace DPTnew.Controllers
                     return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
                 }
 
+                if (cmpSingleRow.AccountStatus == "03 - Active Customer" || cmpSingleRow.AccountStatus == "06 - Partner" ||
+                    cmpSingleRow.AccountStatus == "04 - Not Active Customer" || cmpSingleRow.AccountStatus == "04b - Not Active Customer OM"
+                    || cmpSingleRow.AccountStatus == "01 - Prospect")
+                {
+                    var q =
+                     from cmp in db.SafenetCompanies
+                     where cmp.AccountNumber == cmpSingleRow.AccountNumber
+                     select cmp;
+
+                    if (q.Count() > 0)
+                    {
+                        q.FirstOrDefault().AccountName = cmpSingleRow.AccountName;
+                        q.FirstOrDefault().Email = cmpSingleRow.Email;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        SafenetComapny sfnc = new SafenetComapny();
+                        sfnc.AccountNumber = cmpSingleRow.AccountNumber;
+                        sfnc.AccountName = cmpSingleRow.AccountName;
+                        sfnc.Email = cmpSingleRow.Email;
+                        sfnc.FirstName = "DPT";
+                        sfnc.LastName = "User";
+                        sfnc.Description = "Company";
+
+                        var pc =
+                        from pcl in db.Peoples
+                        where pcl.AccountNumber == cmpSingleRow.AccountNumber && pcl.PrimaryContact == "yes"
+                        select pcl;
+
+                        if (pc.Count() > 0)
+                            sfnc.Language = pc.FirstOrDefault().Language;
+                        else
+                            sfnc.Language = "English";
+
+                        db.SafenetCompanies.Add(sfnc);
+                        db.SaveChanges();
+                    }
+                    SaveCompaniesToSafenetDB();
+                }
             }
 
             return Json("Saved!", JsonRequestBehavior.AllowGet);

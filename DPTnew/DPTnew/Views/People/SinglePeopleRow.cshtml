@@ -28,6 +28,7 @@
                 FirstNameK: $("input[name=firstNameK]").val(),
                 LastNameK: $("input[name=lastNameK]").val(),
                 RoleId: $("#roleName-choice").val(),
+                Status: $("#status-choice").val()
             },
             function (result) {
                 var $psw = $("#password");
@@ -98,6 +99,10 @@
             if ($("#emailStatus-choice").val() != "unknown")
                 $("#emailStatus-choice").append("<option value='unknown'>unknown</option>");
 
+            if ($("#status-choice").val() != 0)
+                $("#status-choice").append("<option value='0'>0</option>");
+            if ($("#status-choice").val() != 1)
+                $("#status-choice").append("<option value='1'>1</option>");
         });
     </script>
 }
@@ -169,6 +174,12 @@
                 <td>
                     <select name="roleName" id="roleName-choice">
                         <option selected value="@Html.DisplayFor(modelItem => item.RoleId)">@Html.DisplayFor(modelItem => item.RoleName)</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Status)</td>
+                <td>
+                    <select name="status" id="status-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.Status)">@Html.DisplayFor(modelItem => item.Status)</option>
                     </select>
                 </td>
             </tr>

@@ -421,29 +421,47 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Legacy beta version for old systems..
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2016 application..
         /// </summary>
-        public static string Description2016ThinkDesign32bitbeta {
+        public static string Description2016TDViewerLight {
             get {
-                return ResourceManager.GetString("Description2016ThinkDesign32bitbeta", resourceCulture);
+                return ResourceManager.GetString("Description2016TDViewerLight", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beta version of ThinkDesign 2016..
+        ///   Looks up a localized string similar to TD 2016 legacy version for old systems..
         /// </summary>
-        public static string Description2016ThinkDesign64bitbeta {
+        public static string Description2016ThinkDesign32bit {
             get {
-                return ResourceManager.GetString("Description2016ThinkDesign64bitbeta", resourceCulture);
+                return ResourceManager.GetString("Description2016ThinkDesign32bit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2016 beta version..
+        ///   Looks up a localized string similar to Official release of ThinkDesign 2016..
         /// </summary>
-        public static string Description2016thinkPLMbeta {
+        public static string Description2016ThinkDesign64bit {
             get {
-                return ResourceManager.GetString("Description2016thinkPLMbeta", resourceCulture);
+                return ResourceManager.GetString("Description2016ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2016 official version..
+        /// </summary>
+        public static string Description2016thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floating Licensing Installer, utilities and plug-ins for version 2016..
+        /// </summary>
+        public static string Description2016Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2016Utilitytools", resourceCulture);
             }
         }
         
@@ -691,29 +709,47 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20712/dvd_td_2016T1_b20712.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/tdviewer_2016T1_b20718_64bit.iso.
         /// </summary>
-        public static string Download2016ThinkDesign32bitbeta {
+        public static string Download2016TDViewerLight {
             get {
-                return ResourceManager.GetString("Download2016ThinkDesign32bitbeta", resourceCulture);
+                return ResourceManager.GetString("Download2016TDViewerLight", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20712/dvd_td_64bit_2016T1_b20712.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/dvd_td_2016T1_b20718.iso.
         /// </summary>
-        public static string Download2016ThinkDesign64bitbeta {
+        public static string Download2016ThinkDesign32bit {
             get {
-                return ResourceManager.GetString("Download2016ThinkDesign64bitbeta", resourceCulture);
+                return ResourceManager.GetString("Download2016ThinkDesign32bit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20617/dvd_thinkplm_2016T1_b20617.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/dvd_td_64bit_2016T1_b20718.iso.
         /// </summary>
-        public static string Download2016thinkPLMbeta {
+        public static string Download2016ThinkDesign64bit {
             get {
-                return ResourceManager.GetString("Download2016thinkPLMbeta", resourceCulture);
+                return ResourceManager.GetString("Download2016ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/dvd_thinkplm_2016T1_b20718.iso.
+        /// </summary>
+        public static string Download2016thinkPLM {
+            get {
+                return ResourceManager.GetString("Download2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2016.zip.
+        /// </summary>
+        public static string Download2016Utilitytools {
+            get {
+                return ResourceManager.GetString("Download2016Utilitytools", resourceCulture);
             }
         }
         
@@ -1114,29 +1150,47 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 32bit beta.
+        ///   Looks up a localized string similar to TDViewerLight 2016.
         /// </summary>
-        public static string Product2016ThinkDesign32bitbeta {
+        public static string Product2016TDViewerLight {
             get {
-                return ResourceManager.GetString("Product2016ThinkDesign32bitbeta", resourceCulture);
+                return ResourceManager.GetString("Product2016TDViewerLight", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 64bit beta.
+        ///   Looks up a localized string similar to ThinkDesign 2016 32bit.
         /// </summary>
-        public static string Product2016ThinkDesign64bitbeta {
+        public static string Product2016ThinkDesign32bit {
             get {
-                return ResourceManager.GetString("Product2016ThinkDesign64bitbeta", resourceCulture);
+                return ResourceManager.GetString("Product2016ThinkDesign32bit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2016 beta.
+        ///   Looks up a localized string similar to ThinkDesign 2016 64bit.
         /// </summary>
-        public static string Product2016thinkPLMbeta {
+        public static string Product2016ThinkDesign64bit {
             get {
-                return ResourceManager.GetString("Product2016thinkPLMbeta", resourceCulture);
+                return ResourceManager.GetString("Product2016ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2016.
+        /// </summary>
+        public static string Product2016thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools &amp; Floating Licensing Installer.
+        /// </summary>
+        public static string Product2016Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2016Utilitytools", resourceCulture);
             }
         }
         
@@ -1204,7 +1258,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download here the beta version of the new release..
+        ///   Looks up a localized string similar to Download here the official release!.
         /// </summary>
         public static string View_Download_Text1 {
             get {
@@ -1213,7 +1267,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 beta (x64) - 1.86 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2016 (x64) - 1.9 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -1312,7 +1366,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 beta is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to The official release of ThinkDesign 2016 is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {

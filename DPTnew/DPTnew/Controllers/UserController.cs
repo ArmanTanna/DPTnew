@@ -265,11 +265,12 @@ namespace DPTnew.Controllers
                     JObject contentresult = JObject.Parse(content);
 
                     var currentpkey = currentlicense.MachineID.Remove(0, 3);
+                    var cpkey = currentlicense.MachineID.Remove(0, 4);
 
                     string pkey = (string)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["id"];
 
                     //if c2v is related to the correct key
-                    if (currentpkey == pkey)
+                    if (currentpkey == pkey || cpkey == pkey)
                     {
 
 
