@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+ 
+<title>Untitled Document</title>
+
+</head>
+
+<body> 
+<div class="cd-faq-content">        
+		<p><strong>FlexNet</strong> (formerly FLEXlm) is a network license manager used by many software developers to control the use of their software products with a client-server approach. You just install a license server on a PC with a dongle, and all clients get the licenses from that server, simply defining a few system variables.</p>
+        
+        <br>
+        <p><b>Server Installation</b></p>
+        <ol class="myol1">
+        <li>Check if your server has one of the following, supported operating systems:
+            <ul class="myul">
+              <li>Microsoft® Windows® 2008 R2 Server 64 bit</li>
+              <li>Microsoft® Windows® 2003 R2 Server 64 bit</li>
+              <li>Microsoft® Windows® 7 32 and 64 bit</li>
+            </ul><br>
+        <li>Install ThinkDesign on a computer (not necessarily the server), in order to download the software required to perform the server installation.<br>
+        <br>
+		<li>Copy the installation directory <i>C:\Program Files\think3\version number\common\drivers\hardlock</i> on the server, double-click on the <strong>hldrv32.exe</strong> file and confirm all steps to install the dongle driver; then plug the dongle in the USB port.<br>
+        <br>
+		<li>Send an email to <a href ="pwdrelease@think3.eu">pwdrelease@think3.eu</a>, specifying the dongle ID and asking for password computing.</p>
+  
+        <ul class="myul">
+          <li>For products with version up to 2011.1, you will receive password strings like:<br>
+          <i>FEATURE &lt;product code&gt; thinkflx &lt;product version&gt; &lt;date&gt; &lt;quantity&gt; &lt;license code&gt; VENDOR_STRING=&lt;customer name&gt; NOTICE=&lt;notice code&gt;
+INCREMENT &lt;product code&gt; thinkflx &lt;product version&gt; &lt;date&gt; &lt;quantity&gt; &lt;license code&gt; VENDOR_STRING=&lt;customer name&gt; NOTICE=&lt;notice code&gt;</i></li>
+          <li>For products with version starting from 2012.1, you will receive password strings like:<br>
+          <i>FEATURE &lt;product code&gt; thinkdmn &lt;product version&gt; &lt;date&gt; &lt;quantity&gt; VENDOR_STRING=&lt;customer name&gt; NOTICE=&lt;notice code&gt; SIGN=&lt;license code&gt;
+INCREMENT &lt;product code&gt; thinkdmn &lt;product version&gt; &lt;date&gt; &lt;quantity&gt; VENDOR_STRING=&lt;customer name&gt; NOTICE=&lt;notice code&gt; SIGN=&lt;license code&gt;</i></li>
+         </ul>
+       
+         <p>You have a string beginning with FEATURE when you add new product licenses; while you have a string beginning with INCREMENT when you add new licenses of a product already inserted in the license file (i.e. you already have a string beginning with FEATURE for the product).</p><br>
+        <br>
+		<li>Copy the installation directory <i>C:\Program Files\think3\version number\common\drivers\flexlm</i> on the server directory <i>C:\flexlm</i>, and configure the <i>license.lic</i> file.
+
+        <ul class="myul">
+          <li>Uncomment the first row <i>#SERVER &lt;hostname&gt; CLCODE=&lt;hostid&gt;7171</i>, and replace &lt;hostname&gt; with the name of the server and &lt;hostid&gt; with the dongle ID, so that you should obtain a row of this type:<br>
+<i>SERVER ServerName CLCODE=HUS00123 7171</i></li>
+          <li>Wishing to run products starting from version 2012.1, uncomment the second row, getting:<br>
+<i>DAEMON thinkdmn C:\flexlm\thinkdmn.exe</i></li>
+          <li>Wishing to run products up to version 2011.1, uncomment the third row, in order to have:<br>
+<i>DAEMON thinkflx C:\flexlm\thinkflx.exe</i></li>
+          <li>Add the password strings that you received from <a href ="pwdrelease@think3.eu">pwdrelease@think3.eu</a></li>
+            </ul><br>
+	    <br>
+        <li>Double-click on the lmtools.exe file included in the <i>C:\flexlm</i> directory, and choose the <strong>Config Services</strong> tab.</p>
+            <ul class="myul">
+              <li>In the <b>Service Name</b> box, insert the name of the <strong>Service</strong> you want to define.
+              <li>In the <b>Path to the lmgrd.exe file</b> box, click on the <strong>Browse</strong> button and select the <i>C:\flexlm\lmgrd.exe</i> file.
+              <li>In the <b>Path to the license file</b> box, click on the <b>Browse</b> button and select the <i>C:\flexlm\license.lic</i> file.
+              <li>In the <b>Path to the debug log file </b>box, define the file in which you want FlexNet to write the log (for example the <i>C:\flexlm\thinkdesign.log</i> file).
+              <li>Check the <b>Use Services</b> checkbox if you want FlexNet to run as a service.
+              <li>Check the <b>Start Server checkbox at Power Up</b> if you want FlexNet to automatically start at the server boot.
+              <li>Click on the <b>Save Service</b> button to save the service just configured (the <strong>Remove Service </strong>button can be used to delete it).
+              </ul>
+            
+        	<br>
+            <img class="centerImage" 
+            src="../img/1.1 Floating_licenses_2014.png">
+            <br>
+        	<li>In the <strong>Start/Stop/Reread</strong> tab, you can:</p>
+              
+         <ul class="myul">
+          <li>Start the license server clicking on the <b>Start Server</b> button.
+          <li>Stop the license server clicking on the <b>Stop Server</b> button.
+          <li>Force the re-read of the license file, when you edit and update it with the license server running, clicking on the <b>EeRead License File</b> button.
+           </ul>
+            
+        <br>
+        <img class="centerImage" 
+        src="../img/1.2 Floating_licenses_2014.png">
+          <br>
+         <li>In the <strong>Server Status</strong> tab, you can see the license server status clicking on the <strong>Perform Status Enquiry</strong> button.</p>
+           <br>
+           <img class="centerImage"
+           src="../img/1.3 Floating_licenses_2014.png">
+           <br>
+        </ol>
+
+           <p><b>Client Installation</b></p>
+           <br>
+           <p>1. Check if your client has one of the following, supported operating systems:</p>
+             <ul class="myul">
+                 <li>Microsoft® Windows® 7 32 and 64 bit</li>
+                 <li>Microsoft® Windows® XP 32 and 64 bit</li>
+             </ul>
+           <br>
+           <p>2. Install on the computer the products you want to run.</p>
+           <br>
+           <p>3. Define the following system variables in <b>Control Panel</b> &rarr; <b>System</b> &rarr; <b>Advanced System Settings</b>.<br>
+		   The <b>System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
+		   In the <b>System variables</b> section, click the <b>New</b> button.</p><br> 
+		   
+           <ul class="myul">
+             <li><b>LICETYPE</b><br>
+               <i>LICETYPE=FLEX</i><br> 
+               The system uses local licenses first, then floating ones<br>
+               <i>LICETYPE=NOFLEX</i><br> 
+               The system does not use floating licenses, but only local ones<br>
+               <i>LICETYPE=FIRSTFLEX</i><br> 
+               The system uses floating licenses first, then local ones<br>
+               <i>LICETYPE=ONLYFLEX</i><br>
+               The system uses only floating licenses</li>
+             <br>
+             
+             <li><b>LM_LICENSE_FILE</b><br>
+               It has to be defined with the value portnumber@&lt;hostname&gt;.<br>
+               If in the license file of the server, the first row is defined as follows:<br>
+               <i>SERVER ServerName CLCODE=HUS00123 7171</i><br>
+               in the client, you have to define the system variable as follows:<br>
+               <i>LM_LICENSE_FILE=7171@ServerName</i></li>
+             </ul>
+             <br>  
+            <p>4. Only if you want to use our products by Windows® Terminal Server Sessions, you have to define another variable <em>T3TSS=YES</em> to have the products running, and each instance of the products will get a license from the license server.</p>
+</body>
+</html>

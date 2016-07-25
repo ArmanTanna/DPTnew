@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<title>Untitled Document</title>
+
+</head>
+
+<body> 
+	   <p>To uninstall Sentinel, open <strong>Command Prompt (CMD)</strong> as <strong>Administrator (Run as Administrator)</strong>.<br>
+         Type <i>C:\Program Files\think3\2015.2\common\haspdinst –r</i>, then press <strong>Enter</strong>. A message is displayed informing you that the Sentinel LDK Run-time Environment has been successfully removed.<br>
+		<br>
+		You may have to repeat the command as many times as you have installed Sentinel.<br>
+		<br>
+		For this, check the System Registry. 
+        Follow this path to find the <strong>InstCount Key</strong>: 
+        <i>HKEY_LOCAL_MACHINE\SOFTWARE\Aladdin Knowledge Systems\HASP\Driver\Installer\</i></p>
+        <br> 
+        <img class="centerImage" src="../img/1.2_Sentinel issues.jpg">
+        <br> 
+        <p>For every <i>haspdinst –i</i> run, the <strong>InstCount Key</strong> value has been increased by one.<br>
+		If you have tried to install Sentinel several times, to completely uninstall it, you must launch <i>haspdinst –i</i> until you reset this counter.<br>
+        <br>
+		<p>The Sentinel LDK Run-time Environment installer utilities contain an automatic mechanism that prevents more than one copy of the Run-time Environment from being installed on a single computer, even if multiple protected applications are installed on the computer. The Run-time Environment installer utilities employ a counter that keeps track of the number of protected applications installed on a given computer. For each installation after the first, the installer simply increments 
+        the counter instead of actually installing an additional copy of the Run-time Environment. Similarly, the counter is decremented each time the Run-time Environment is uninstalled.<br>
+        The Run-time Environment is not actually uninstalled until the last protected application is uninstalled.</p>
+</body>
+</html>

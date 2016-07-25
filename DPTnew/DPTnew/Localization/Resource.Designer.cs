@@ -1366,7 +1366,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The official release of ThinkDesign 2016 is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to The &lt;b&gt;official release of ThinkDesign 2016&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -1375,7 +1375,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2015! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2016! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {
