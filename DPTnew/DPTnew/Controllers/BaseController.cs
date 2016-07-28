@@ -16,7 +16,7 @@ namespace DPTnew.Controllers
     public class BaseController : Controller
     {
         protected DptContext _db = new DptContext();
-        
+
         protected override void ExecuteCore()
         {
             int culture = 0;
@@ -34,7 +34,7 @@ namespace DPTnew.Controllers
             CultureHelper.CurrentCulture = culture;
 
             base.ExecuteCore();
-        } 
+        }
 
         private IEnumerable<CompanyView> GetVarCompanies()
         {
@@ -118,6 +118,22 @@ namespace DPTnew.Controllers
                 return _db.ErpRows.ToList();
 
             return null;
+        }
+
+        protected IEnumerable<DptCases> GetCases()
+        {
+            var user = WebSecurity.CurrentUserName;
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                return _db.Cases.ToList();
+
+            var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            {
+                var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
+                var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
+                return _db.Cases.Where(c => companies.Contains(c.AccountNumber));
+            }
+            return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber);
         }
 
         protected IEnumerable<ActivityTitles> GetActivityTitles()

@@ -148,7 +148,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
             artDetail: data.ArticleDetail.toLocaleLowerCase()
         };
         if (data.ArticleDetail.toLocaleLowerCase() === "asf" || data.ArticleDetail.toLocaleLowerCase() === "qsf"
-            || data.ArticleDetail.toLocaleLowerCase() === "msf" || data.ArticleDetail.toLocaleLowerCase() === "tsf") {
+            || data.ArticleDetail.toLocaleLowerCase() === "msf" || data.ArticleDetail.toLocaleLowerCase() === "tsf"
+            || data.ArticleDetail.toLocaleLowerCase() === "wsf") {
             postData.tipo = "T";
             postData.expdata = data.MED ? data.MED.replaceAll("-", "") : "";
         }

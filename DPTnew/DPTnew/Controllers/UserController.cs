@@ -530,7 +530,7 @@ namespace DPTnew.Controllers
                                 entry.Property(x => x.Import).IsModified = true;
                                 entry.Property(x => x.MachineID).IsModified = true;
                                 if (currentlicense.ArticleDetail == "qsf" || currentlicense.ArticleDetail == "msf" ||
-                                    currentlicense.ArticleDetail == "tsf")
+                                    currentlicense.ArticleDetail == "tsf" || currentlicense.ArticleDetail == "wsf")
                                 {
                                     entry.Property(x => x.MaintEndDate).IsModified = true;
                                     entry.Property(x => x.MaintStartDate).IsModified = true;
@@ -581,6 +581,13 @@ namespace DPTnew.Controllers
                     {
                         currentlicense.MaintStartDate = DateTime.Now;
                         currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                        currentlicense.StartDate = currentlicense.MaintStartDate;
+                        currentlicense.EndDate = currentlicense.MaintEndDate;
+                    }
+                    if (currentlicense.ArticleDetail == "wsf")
+                    {
+                        currentlicense.MaintStartDate = DateTime.Now;
+                        currentlicense.MaintEndDate = DateTime.Now.AddDays(7);
                         currentlicense.StartDate = currentlicense.MaintStartDate;
                         currentlicense.EndDate = currentlicense.MaintEndDate;
                     }

@@ -754,15 +754,6 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ExpRange.
-        /// </summary>
-        public static string ExpRange {
-            get {
-                return ResourceManager.GetString("ExpRange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Showing _START_ to _END_ of _TOTAL_ entries.
         /// </summary>
         public static string info {
@@ -777,6 +768,15 @@ namespace DPTnew.Localization {
         public static string infofiltered {
             get {
                 return ResourceManager.GetString("infofiltered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LastExp.
+        /// </summary>
+        public static string LastExp {
+            get {
+                return ResourceManager.GetString("LastExp", resourceCulture);
             }
         }
         

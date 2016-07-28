@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<title>Untitled Document</title>
+
+</head>
+
+<body> 
+		<p>A C2V file is correct when it contains both the <strong>SL_AdminMode</strong> section and the <strong>SL_UserMode</strong> one. 
+        Here below is an example:</p><br>
+        <pre style="font-size:10pt;margin-left:4px">
+        &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+		&lt;hasp_info&gt;
+  		&lt;host_fingerprint type="<b>SL-AdminMode</b>" 
+        crc="3913458469"&gt;...&lt;/host_fingerprint&gt;
+  		&lt;host_fingerprint type="<b>SL-UserMode</b>" vendorid="110137" 
+        crc="3016243691"&gt;...&lt;/host_fingerprint&gt;
+		&lt;/hasp_info&gt;</pre>
+        <br>
+        <p>If an user without Administrator Rights generates a C2V file, it will present only the <strong>SL_AdminMode</strong> section.</p><br>
+        <pre style="font-size:10pt;margin-left:4px">
+        &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+		&lt;hasp_info&gt;&lt;/host_fingerprint&gt;
+  		&lt;host_fingerprint type="<b">SL-UserMode</b>" vendorid="110137" 
+        crc="3016243691"&gt;...&lt;/host_fingerprint&gt;
+		&lt;/hasp_info&gt;</pre>
+        <br>
+        <p>If you get a 'wrong' C2V file, try and re-generate it, making sure you have Administrator Rights on the PC.
+		If the problem persists, please open a Case in the Customer Care portal.</p>
+	
+        
+</body>
+</html>

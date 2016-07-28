@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Chart.js demo</title>
+	
+	  <head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/chartist/0.7.2/chartist.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/chartist/0.7.2/chartist.min.css">
+
+
+
+<script>
+	
+	var data = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  series: [
+    [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+    [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
+  ]
+};
+
+var options = {
+  seriesBarDistance: 10
+};
+
+var responsiveOptions = [
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+
+
+</script>
+</head>
+<body>
+
+<!-- pie chart canvas element -->
+<div class="ct-chart ct-perfect-fourth"></div>
+</body>
+</html>
+
+
+</body>
+</html>
+

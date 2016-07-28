@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DPTnew.Models.DptCaseHistory>
+
+@{
+    ViewBag.Title = "Case History";
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+    </script>
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+        });
+    </script>
+}
+
+<table id="dptCaseHistory" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CaseLogId)</td>
+                <td>
+                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseLogId)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.StrCreatedOn)</td>
+                <td>
+                    <input type="date" name="createdOn" value="@Html.DisplayFor(modelItem => item.StrCreatedOn)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Description)</td>
+                <td>
+                    <input type="text" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Details)</td>
+                <td>
+                    <input type="text" name="details" value="@Html.DisplayFor(modelItem => item.Details)" readonly>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

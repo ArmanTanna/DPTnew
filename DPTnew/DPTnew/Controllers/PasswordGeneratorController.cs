@@ -141,6 +141,14 @@ namespace DptLicensingServer.Controllers
                 currentlicense.EndDate = currentlicense.MaintEndDate;
                 expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
             }
+            if (artDetail == "wsf")
+            {
+                currentlicense.MaintStartDate = DateTime.Now;
+                currentlicense.MaintEndDate = DateTime.Now.AddDays(7);
+                currentlicense.StartDate = currentlicense.MaintStartDate;
+                currentlicense.EndDate = currentlicense.MaintEndDate;
+                expdata = DateTime.Now.AddDays(7).ToString("yyyyMMdd");
+            }
             db.Licenses.Attach(currentlicense);
             var entry = db.Entry(currentlicense);
             entry.Property(x => x.MaintEndDate).IsModified = true;

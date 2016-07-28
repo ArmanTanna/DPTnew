@@ -1,0 +1,307 @@
+﻿@model DPTnew.Models.DptCases
+
+@{
+    ViewBag.Title = "Case Management";
+}
+
+
+@section Scripts {
+    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.highlight.js"></script>
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.CaseDataUrl = '@Url.Action("NewCaseRow", "Case")';
+        yourApp.Urls.CaseHistoryUrl = '@Url.Action("NewCaseHistoryRow", "Case")';
+        yourApp.Urls.GetCaseHistoryUrl = '@Url.Action("CaseHistories", "Case")';
+
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+             '<tr>' +
+                  '<td><b>Submitted by:</b></td>' +
+                  '<td>' + d.Contact + '</td>' +
+
+                 '<td><b>Severity:</b></td>' +
+                  '<td>' + d.Severity + '</td>' +
+
+              '</tr>' +
+              '<tr>' +
+                  '<td><b>Product:</b></td>' +
+                  '<td>' + d.Product + '</td>' +
+
+                  '<td><b>Version:</b></td>' +
+                  '<td>' + d.ProductVersion + '</td>' +
+
+              '</tr>' +
+               '<tr>' +
+
+                  '<td><b>Platform:</b></td>' +
+                  '<td>' + d.Platform + '</td>' +
+
+                  '<td><b>MachineId:</b></td>' +
+                  '<td>' + d.MachineId + '</td>' +
+
+              '</tr>' +
+              '<tr>' +
+
+                  '<td><b>TD Platform:</b></td>' +
+                  '<td>' + d.PlatformVersion + '</td>' +
+
+                  '<td><b>Details:</b></td>' +
+                  '<td>' + d.Details + '</td>' +
+
+              '</tr>' +
+              '<tr>' +
+
+                  '<td><b>File:</b></td>' +
+                  '<td>' + (d.File ? d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
+              '</tr>' +
+              '</table>';
+        }
+
+        $(document).ready(function () {
+
+            var myTable = $("#dptcase").DataTable({
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "Case/Search"
+                },
+                columns: [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                { data: "CaseId" },
+                { data: "Description" },
+                { data: "Type" },
+                { data: "Status" },
+                { data: "CCEngineer" },
+                { data: "StrCreatedOn" }
+                ],
+                order: [[1, 'desc']],
+                orderClasses: false,
+                select: {
+                    style: 'single'
+                }
+            });
+
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+             {
+                 text: 'Modify',
+                 className: 'modify',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.CaseDataUrl, {
+                             CaseId: data.CaseId,
+                             StrCreatedOn: data.StrCreatedOn,
+                             StrModifiedOn: data.StrModifiedOn,
+                             Description: data.Description,
+                             Details: data.Details,
+                             Product: data.Product,
+                             ProductVersion: data.ProductVersion,
+                             Severity: data.Severity,
+                             Platform: data.Platform,
+                             PlatformVersion: data.PlatformVersion,
+                             MachineId: data.MachineId,
+                             Status: data.Status,
+                             Type: data.Type,
+                             AccountNumber: data.AccountNumber,
+                             AccountName: data.AccountName,
+                             CCEngineer: data.CCEngineer,
+                             CCEngineerId: data.CCEngineerId,
+                             Contact: data.Contact,
+                             ContactId: data.ContactId
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.CaseDataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             },
+             {
+                 text: 'New',
+                 className: 'new',
+                 action: function () {
+                     $.post(yourApp.Urls.CaseDataUrl, {
+                         CaseId: null,
+                         StrCreatedOn: null,
+                         Description: null,
+                         Details: null,
+                         Product: null,
+                         ProductVersion: null,
+                         Severity: null,
+                         Platform: null,
+                         PlatformVersion: null,
+                         MachineId: null,
+                         Status: null,
+                         Type: null,
+                         AccountNumber: null,
+                         AccountName: null,
+                         CCEngineer: null,
+                         CCEngineerId: null,
+                         Contact: null,
+                         ContactId: null
+                     },
+                                         function (result) {
+                                             var url = yourApp.Urls.CaseDataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                 },
+                 enabled: true
+             },
+             {
+                 text: 'Update',
+                 className: 'update',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.CaseHistoryUrl, {
+                             CaseId: data.CaseId,
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.CaseHistoryUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             },
+             {
+                 text: 'History',
+                 className: 'history',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.GetCaseHistoryUrl, {
+                             caseId: data.CaseId,
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.GetCaseHistoryUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             }
+                ]
+            });
+            myTable.buttons().container().insertBefore('#dptcase_filter');
+
+            myTable.on('select', function () {
+                var caseRow = myTable.rows('.selected').data()[0];
+                if (caseRow.Status !== "Frozen" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
+                    myTable.buttons(['.modify']).enable(true);
+                if (caseRow.Status !== "Frozen")
+                    myTable.buttons(['.update']).enable(true);
+                myTable.buttons(['.history']).enable(true);
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.modify']).disable();
+                myTable.buttons(['.update']).disable();
+                myTable.buttons(['.history']).disable();
+            });
+
+
+            myTable.on("draw", function () {
+                var $body = $(myTable.table().body());
+                $body.unhighlight();
+                $body.highlight(myTable.search());
+            });
+
+            // Add event listener for opening and closing details
+            $('#dptcase tbody').on('click', 'td.details-control', function () {
+
+                var tr = $(this).closest('tr');
+                var row = myTable.row(tr);
+                var index = row.index();
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    var data = row.data();
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
+            });
+
+        });
+
+    </script>
+}
+
+<div style="width: 1000px">
+    <table id="dptcase" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CCEngineer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StrCreatedOn)
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+

@@ -115,9 +115,9 @@ namespace DPTnew.Models
 
         public string SalesRep { get; set; }
         public string SalesRegion { get; set; }
-        
-        [Display(Name = "ExpRange", ResourceType = typeof(Resource))]
-        public string ExpRange { get; set; }
+
+        [Display(Name = "LastExp", ResourceType = typeof(Resource))]
+        public string LastExp{ get; set; }
 
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string ServLicense1 { get; set; }
