@@ -170,6 +170,8 @@ namespace DPTnew.Controllers
                         ue.CrmId = dpt_Company;
                         ue.EntType = "PROTECTIONKEY_UPDATE";
                         ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
+                        if (ue.ProtectionKeyId.StartsWith("0"))
+                            ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
 
                         ue.Encoded = true;
@@ -265,12 +267,13 @@ namespace DPTnew.Controllers
                     JObject contentresult = JObject.Parse(content);
 
                     var currentpkey = currentlicense.MachineID.Remove(0, 3);
-                    var cpkey = currentlicense.MachineID.Remove(0, 4);
+                    if (currentpkey.StartsWith("0"))
+                        currentpkey = currentlicense.MachineID.Remove(0, 4);
 
                     string pkey = (string)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["id"];
 
                     //if c2v is related to the correct key
-                    if (currentpkey == pkey || cpkey == pkey)
+                    if (currentpkey == pkey)
                     {
 
 

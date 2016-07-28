@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DPTnew.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,14 +15,14 @@ namespace DPTnew.Controllers
 
         public ActionResult Index()
         {
-            if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
+            if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                 return RedirectToAction("Index_jp");
             return View();
         }
 
         public ActionResult Index_jp()
         {
-            if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
+            if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                 return View();
             return RedirectToAction("Index");
         }
@@ -31,14 +32,14 @@ namespace DPTnew.Controllers
 
         public ActionResult Index2()
         {
-            if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
+            if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                 return RedirectToAction("Index2_jp");
             return View();
         }
 
         public ActionResult Index2_jp()
         {
-            if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
+            if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                 return View();
             return RedirectToAction("Index2");
         }

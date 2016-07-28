@@ -19,15 +19,9 @@ namespace DPTnew.Controllers
         {
             using (var db = new DptContext())
             {
-                var user = Membership.GetUser().UserName;
-                //var lang = db.Contacts.Where(u => u.Email == user).ToList().First();
-                //if (lang.Language == "italian")
-                //    return View("Index_it");
-                //if (lang.Language == "japanese")
-                //    return View("Index_jp");
-                if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 1)
+                if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 1)
                     return View("Index_it");
-                if (Session["CurrentCulture"] != null && ((int)Session["CurrentCulture"]) == 2)
+                if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                     return View("Index_jp");
                 return View();
             }
