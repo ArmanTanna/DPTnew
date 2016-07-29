@@ -92,16 +92,20 @@ namespace DPTnew.Controllers
                     newCase.Severity = caseRow.Severity;
                     newCase.Status = "Open";
                     newCase.Type = "Bug";
+                    db.Cases.Add(newCase);
+                    db.SaveChanges();
+
                     if (file != null)
                     {
                         var basePath = "C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case";
-                        var folder = (_db.Cases.Max(x => x.CaseId) + 1).ToString();
+                        var folder = db.Cases.Local[0].CaseId.ToString();
                         var path = basePath + "\\" + folder;
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
                             newCase.File = path + "\\" + file.FileName;
                             file.SaveAs(newCase.File);
+                            db.SaveChanges();
                         }
                         catch (Exception e)
                         {
@@ -109,11 +113,10 @@ namespace DPTnew.Controllers
                             return View("Success");
                         }
                     }
-                    db.Cases.Add(newCase);
                 }
                 else
                 {
-                    foreach (DptCases ncase in query)
+                    foreach (DptCases ncase in query.ToList())
                     {
                         ncase.ModifiedOn = DateTime.Now;
                         ncase.CCEngineer = caseRow.CCEngineer;
@@ -126,10 +129,20 @@ namespace DPTnew.Controllers
                             ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
                             return View("Success");
                         }
+                        if (ncase.Status != caseRow.Status)
+                        {
+                            var dcl = new DptCaseLog();
+                            dcl.CaseId = caseRow.CaseId;
+                            dcl.CreatedBy = Membership.GetUser().UserName;
+                            dcl.CreatedOn = DateTime.Now;
+                            dcl.Status = caseRow.Status;
+                            db.CaseLogs.Add(dcl);
+                            db.SaveChanges();
+                        }
                         ncase.Status = caseRow.Status;
+                        db.SaveChanges();
                     }
                 }
-                db.SaveChanges();
             }
             ViewBag.ok1 = "The new case is saved correctly!";
             return View("Success");
@@ -153,16 +166,20 @@ namespace DPTnew.Controllers
             chl.CreatedOn = DateTime.Now;
             chl.Description = caseHistoryRow.Description;
             chl.Details = caseHistoryRow.Details;
+            chl.CreatedBy = Membership.GetUser().UserName;
+            _db.CaseHistories.Add(chl);
+            _db.SaveChanges();
             if (file != null)
             {
                 var basePath = "C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
-                var folder = (_db.CaseHistories.Count(x => x.CaseId == caseHistoryRow.CaseId) + 1).ToString();
+                var folder = _db.CaseHistories.Local[0].CaseHistoryId.ToString();
                 var path = basePath + "\\" + folder;
                 try
                 {
                     System.IO.Directory.CreateDirectory(path);
                     chl.File = path + "\\" + file.FileName;
                     file.SaveAs(chl.File);
+                    _db.SaveChanges();
                 }
                 catch (Exception e)
                 {
@@ -170,12 +187,6 @@ namespace DPTnew.Controllers
                     return View("Success");
                 }
             }
-            _db.CaseHistories.Add(chl);
-            try
-            {
-                _db.SaveChanges();
-            }
-            catch (Exception e) { }
             ViewBag.ok1 = "The case update is saved correctly!";
             return View("Success");
         }

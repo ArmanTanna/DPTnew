@@ -24,9 +24,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayNameFor(model => model.CaseLogId)</td>
+                <td>@Html.DisplayNameFor(model => model.CaseHistoryId)</td>
                 <td>
-                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseLogId)" readonly>
+                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseHistoryId)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.StrCreatedOn)</td>
                 <td>
@@ -37,6 +37,10 @@
                 <td>@Html.DisplayNameFor(model => model.Description)</td>
                 <td>
                     <input type="text" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.CreatedBy)</td>
+                <td>
+                    <input type="text" name="createdBy" value="@Html.DisplayFor(modelItem => item.CreatedBy)" readonly>
                 </td>
             </tr>
             <tr>

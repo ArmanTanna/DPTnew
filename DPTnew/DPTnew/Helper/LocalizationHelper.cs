@@ -43,11 +43,13 @@ namespace DPTnew.Helper
                         Localization.Resource.Culture = new CultureInfo("ja-JP");
                         return CultureHelper.CurrentCulture = 2;
                     }
-                    if (lang.Language != "italian" && lang.Language != "japanese")
+                    if (lang.Language == "korean")
                     {
-                        Localization.Resource.Culture = new CultureInfo("en-US");
-                        return CultureHelper.CurrentCulture = 0;
+                        Localization.Resource.Culture = new CultureInfo("ko-KR");
+                        return CultureHelper.CurrentCulture = 3;
                     }
+                    Localization.Resource.Culture = new CultureInfo("en-US");
+                    return CultureHelper.CurrentCulture = 0;
                 }
             }
             else
@@ -57,23 +59,19 @@ namespace DPTnew.Helper
                     Localization.Resource.Culture = new CultureInfo("it-IT");
                     return CultureHelper.CurrentCulture = 1;
                 }
-                else if (((int)session) == 2)
+                if (((int)session) == 2)
                 {
                     Localization.Resource.Culture = new CultureInfo("ja-JP");
                     return CultureHelper.CurrentCulture = 2;
                 }
-                else if (((int)session) == 3)
+                if (((int)session) == 3)
                 {
                     Localization.Resource.Culture = new CultureInfo("ko-KR");
                     return CultureHelper.CurrentCulture = 3;
                 }
-                else
-                {
-                    Localization.Resource.Culture = new CultureInfo("en-US");
-                    return CultureHelper.CurrentCulture = 0;
-                }
+                Localization.Resource.Culture = new CultureInfo("en-US");
+                return CultureHelper.CurrentCulture = 0;
             }
-            return 0;
         }
 
     }

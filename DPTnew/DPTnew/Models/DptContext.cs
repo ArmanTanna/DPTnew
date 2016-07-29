@@ -29,6 +29,7 @@ namespace DPTnew.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<DptCases> Cases { get; set; }
         public DbSet<DptCaseHistory> CaseHistories { get; set; }
+        public DbSet<DptCaseLog> CaseLogs { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {

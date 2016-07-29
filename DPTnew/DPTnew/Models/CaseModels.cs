@@ -71,18 +71,31 @@ namespace DPTnew.Models
         public HttpPostedFileBase file { get; set; }
     }
 
-    [Table("DPT_CaseLog")]
+    [Table("DPT_CaseHistory")]
     public class DptCaseHistory
+    {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int CaseHistoryId { get; set; }
+        public int CaseId { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
+        public string CreatedBy { get; set; }
+        public string Description { get; set; }
+        public string Details { get; set; }
+        public string File { get; set; }
+    }
+
+    [Table("DPT_CaseLog")]
+    public class DptCaseLog
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int CaseLogId { get; set; }
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
-        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
-        public string Description { get; set; }
-        public string Details { get; set; }
-        public string File { get; set; }
+        public string CreatedBy { get; set; }
+        public string Status { get; set; }        
     }
 
 }
