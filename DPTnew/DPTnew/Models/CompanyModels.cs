@@ -25,13 +25,19 @@ namespace DPTnew.Models
         public string AccountStatus { get; set; }
         [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string ShortStatus { get; set; }
+        [Display(Name = "Address", ResourceType = typeof(Resource))]
         public string Address { get; set; }
+        [Display(Name = "ZIP", ResourceType = typeof(Resource))]
         public string ZIP { get; set; }
+        [Display(Name = "City", ResourceType = typeof(Resource))]
         public string City { get; set; }
+        [Display(Name = "Province", ResourceType = typeof(Resource))]
         public string Province { get; set; }
         public string Region { get; set; }
         public string Language { get; set; }
+        [Display(Name = "Country", ResourceType = typeof(Resource))]
         public string Country { get; set; }
+        [Display(Name = "Email", ResourceType = typeof(Resource))]
         public string Email { get; set; }
         [Display(Name = "SalesRep", ResourceType = typeof(Resource))]
         public string SalesRep { get; set; }

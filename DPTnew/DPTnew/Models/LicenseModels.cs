@@ -79,7 +79,7 @@ namespace DPTnew.Models
 
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
-        
+
         [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
         public string Ancestor { get; set; }
@@ -104,7 +104,7 @@ namespace DPTnew.Models
         public string SD { get { return MaintEndDate != null ? ((DateTime)StartDate).ToString("yyyy-MM-dd") : ""; } }
 
         public string PwdCode { get; set; }
-        
+
         [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string Version { get; set; }
         //public string LicenseKind { get; set; }
@@ -117,7 +117,7 @@ namespace DPTnew.Models
         public string SalesRegion { get; set; }
 
         [Display(Name = "LastExp", ResourceType = typeof(Resource))]
-        public string LastExp{ get; set; }
+        public string LastExp { get; set; }
 
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string ServLicense1 { get; set; }
@@ -127,6 +127,7 @@ namespace DPTnew.Models
         public int ExportedNum { get; set; }
         public int MaxExport { get; set; }
         public string OriginalProduct { get; set; }
+        public string Action { get; set; }
     }
 
     public class LicenseState
@@ -144,52 +145,60 @@ namespace DPTnew.Models
 
     public class LicenseBase
     {
-
+        [Display(Name = "LicenseId", ResourceType = typeof(Resource))]
         public string LicenseID { get; set; }
 
-        [Display(Name = "Product")]
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string ProductName { get; set; }
 
-        [Display(Name = "Article")]
+        [Display(Name = "Article", ResourceType = typeof(Resource))]
         public string ArticleDetail { get; set; }
 
+        [Display(Name = "Quantity", ResourceType = typeof(Resource))]
         public int Quantity { get; set; }
 
-        [Display(Name = "Type")]
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
 
-        [Display(Name = "Protection Key")]
+        //[Display(Name = "Protection Key")]
+        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
 
-        [Display(Name = "Maintenance End Date")]
+        //[Display(Name = "Maintenance End Date")]
+        [Display(Name = "MED", ResourceType = typeof(Resource))]
         public string MaintEndDate { get; set; }
 
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string Version { get; set; }
 
     }
 
     public class Entitlement
     {
-
+        [Display(Name = "LicenseId", ResourceType = typeof(Resource))]
         public string LicenseID { get; set; }
 
-        [Display(Name = "Product")]
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string ProductName { get; set; }
 
-        [Display(Name = "Article")]
+        [Display(Name = "Article", ResourceType = typeof(Resource))]
         public string ArticleDetail { get; set; }
 
+        [Display(Name = "Quantity", ResourceType = typeof(Resource))]
         public int Quantity { get; set; }
 
-        [Display(Name = "Type")]
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
 
-        [Display(Name = "Protection Key")]
+        //[Display(Name = "Protection Key")]
+        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
 
-        [Display(Name = "Maintenance End Date")]
+        //[Display(Name = "Maintenance End Date")]
+        [Display(Name = "MED", ResourceType = typeof(Resource))]
         public string MaintEndDate { get; set; }
 
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string Version { get; set; }
 
         [Display(Name = ".C2V File")]

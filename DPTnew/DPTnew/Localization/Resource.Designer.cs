@@ -79,6 +79,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Article.
         /// </summary>
         public static string Article {
@@ -151,6 +160,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm new password.
         /// </summary>
         public static string ConfirmNewPassword {
@@ -165,6 +183,15 @@ namespace DPTnew.Localization {
         public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
             }
         }
         
@@ -754,6 +781,42 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are exporting this license:.
+        /// </summary>
+        public static string ExportingLicense {
+            get {
+                return ResourceManager.GetString("ExportingLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export License.
+        /// </summary>
+        public static string ExportLicense {
+            get {
+                return ResourceManager.GetString("ExportLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate License.
+        /// </summary>
+        public static string GenerateLicense {
+            get {
+                return ResourceManager.GetString("GenerateLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Showing _START_ to _END_ of _TOTAL_ entries.
         /// </summary>
         public static string info {
@@ -768,6 +831,15 @@ namespace DPTnew.Localization {
         public static string infofiltered {
             get {
                 return ResourceManager.GetString("infofiltered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are installing this license:.
+        /// </summary>
+        public static string InstallingLicense {
+            get {
+                return ResourceManager.GetString("InstallingLicense", resourceCulture);
             }
         }
         
@@ -1204,6 +1276,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Province.
+        /// </summary>
+        public static string Province {
+            get {
+                return ResourceManager.GetString("Province", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity.
         /// </summary>
         public static string Quantity {
@@ -1231,7 +1312,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SalesRep.
+        ///   Looks up a localized string similar to Sales Rep.
         /// </summary>
         public static string SalesRep {
             get {
@@ -1578,6 +1659,15 @@ namespace DPTnew.Localization {
         public static string View_Menu_Orders {
             get {
                 return ResourceManager.GetString("View_Menu_Orders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZIP.
+        /// </summary>
+        public static string ZIP {
+            get {
+                return ResourceManager.GetString("ZIP", resourceCulture);
             }
         }
     }
