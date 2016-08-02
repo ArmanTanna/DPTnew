@@ -97,7 +97,7 @@ namespace DPTnew.Controllers
 
                     if (file != null)
                     {
-                        var basePath = "C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case";
+                        var basePath = "C:\\inetpub\\wwwroot\\Case";//"C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case";
                         var folder = db.Cases.Local[0].CaseId.ToString();
                         var path = basePath + "\\" + folder;
                         try
@@ -171,7 +171,8 @@ namespace DPTnew.Controllers
             _db.SaveChanges();
             if (file != null)
             {
-                var basePath = "C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
+                var basePath = "C:\\inetpub\\wwwroot\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
+                //"C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
                 var folder = _db.CaseHistories.Local[0].CaseHistoryId.ToString();
                 var path = basePath + "\\" + folder;
                 try

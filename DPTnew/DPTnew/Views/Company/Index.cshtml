@@ -82,6 +82,22 @@
                 select: {
                     style: 'single'
                 },
+                language: {
+                    search: "@DPTnew.Localization.Resource.Search",
+                    lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                    info: "@DPTnew.Localization.Resource.info",
+                    infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                    paginate: {
+                        previous: "@DPTnew.Localization.Resource.Previous",
+                        next: "@DPTnew.Localization.Resource.Next",
+                    },
+                    select: {
+                        rows: {
+                            0: "@DPTnew.Localization.Resource.noRowsSelected",
+                            1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
+                    }
+                },
                 columns: [
                 {
                     "className": 'details-control',
@@ -99,7 +115,7 @@
                      "className": 'licenses',
                      "orderable": false,
                      "data": null,
-                     "defaultContent": '<button>Licenses</button>'
+                     "defaultContent": '<button>'+"@DPTnew.Localization.Resource.View_Menu_Licenses"+'</button>'
                  }
                 ],
                 //order: [[1, 'asc']],
@@ -125,46 +141,46 @@
                 },
             });
 
-            if("@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true")
-            new $.fn.dataTable.Buttons(myTable, {
-                buttons: [
-             {
-                 text: 'Modify',
-                 className: 'modify',
-                 action: function () {
-                     if (myTable.rows('.selected').count() != 0) {
-                         var data = myTable.rows('.selected').data()[0];
-                         $.post(yourApp.Urls.DataUrl, {
-                             AccountNumber: data.AccountNumber,
-                             AccountName: data.AccountName,
-                             AccountKind: data.AccountKind,
-                             AccountStatus: data.AccountStatus,
-                             SalesRep: data.SalesRep,
-                             Address: data.Address,
-                             ZIP: data.ZIP,
-                             City: data.City,
-                             Province: data.Province,
-                             Country: data.Country,
-                             Email: data.Email,
-                             AccountNameK: data.AccountNameK,
-                             AddressK: data.AddressK,
-                             CityK: data.CityK,
-                             ProvinceK: data.ProvinceK,
-                         },
-                                         function (result) {
-                                             var url = yourApp.Urls.DataUrl;
-                                             WinId = window.open(url, '_blank');
-                                             WinId.document.open();
-                                             WinId.document.write(result);
-                                             WinId.document.close();
-                                             myTable.rows('.selected').deselect();
-                                         });
-                     }
-                 },
-                 enabled: false
-             }
-                ]
-            });
+            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true")
+                new $.fn.dataTable.Buttons(myTable, {
+                    buttons: [
+                 {
+                     text: '@DPTnew.Localization.Resource.Modify',
+                     className: 'modify',
+                     action: function () {
+                         if (myTable.rows('.selected').count() != 0) {
+                             var data = myTable.rows('.selected').data()[0];
+                             $.post(yourApp.Urls.DataUrl, {
+                                 AccountNumber: data.AccountNumber,
+                                 AccountName: data.AccountName,
+                                 AccountKind: data.AccountKind,
+                                 AccountStatus: data.AccountStatus,
+                                 SalesRep: data.SalesRep,
+                                 Address: data.Address,
+                                 ZIP: data.ZIP,
+                                 City: data.City,
+                                 Province: data.Province,
+                                 Country: data.Country,
+                                 Email: data.Email,
+                                 AccountNameK: data.AccountNameK,
+                                 AddressK: data.AddressK,
+                                 CityK: data.CityK,
+                                 ProvinceK: data.ProvinceK,
+                             },
+                                             function (result) {
+                                                 var url = yourApp.Urls.DataUrl;
+                                                 WinId = window.open(url, '_blank');
+                                                 WinId.document.open();
+                                                 WinId.document.write(result);
+                                                 WinId.document.close();
+                                                 myTable.rows('.selected').deselect();
+                                             });
+                         }
+                     },
+                     enabled: false
+                 }
+                    ]
+                });
             myTable.buttons().container().insertBefore('#companies_filter');
 
             myTable.on('select', function () {
@@ -212,11 +228,11 @@
 
 
             yadcf.init(myTable, [
-      { column_number: 3, filter_default_label: "Select", data: ["customer", "partner", "educational"] },
-      { column_number: 4, filter_default_label: "Select", data: ["03 - Active Customer", "06 - Partner", "05 - Ex Customer", "02 - Only Legacy", "04 - Not Active Customer", "04b - Not Active Customer OM", "07 - Ex Partner"] },
+      { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["customer", "partner", "educational"] },
+      { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["03 - Active Customer", "06 - Partner", "05 - Ex Customer", "02 - Only Legacy", "04 - Not Active Customer", "04b - Not Active Customer OM", "07 - Ex Partner"] },
       //{ column_number: 5, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-      { column_number: 5, filter_default_label: "Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"]},
-      { column_number: 6, filter_default_label: "Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
+      { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
+      { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
 
         });
 

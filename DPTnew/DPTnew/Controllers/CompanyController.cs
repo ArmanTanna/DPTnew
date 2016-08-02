@@ -13,6 +13,7 @@ using WebMatrix.WebData;
 using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
+using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
@@ -25,6 +26,7 @@ namespace DPTnew.Controllers
 
         public ActionResult Index(int pageSize = 10)
         {
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");

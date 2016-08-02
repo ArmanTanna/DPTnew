@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DPTnew.Localization;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,15 @@ namespace DPTnew.Models
     public class CompanyView
     {
         [Key]
-        [Display(Name = "Account #")]
+        [Display(Name = "AccountNumber", ResourceType = typeof(Resource))]
         public string AccountNumber { get; set; }
-        [Display(Name = "Account Name")]
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
-        [Display(Name = "Kind")]
+        [Display(Name = "Kind", ResourceType = typeof(Resource))]
         public string AccountKind { get; set; }
-        [Display(Name = "Status")]
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string AccountStatus { get; set; }
-        [Display(Name = "Status")]
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string ShortStatus { get; set; }
         public string Address { get; set; }
         public string ZIP { get; set; }
@@ -32,8 +33,10 @@ namespace DPTnew.Models
         public string Language { get; set; }
         public string Country { get; set; }
         public string Email { get; set; }
+        [Display(Name = "SalesRep", ResourceType = typeof(Resource))]
         public string SalesRep { get; set; }
         public string SalesRegion { get; set; }
+        [Display(Name = "LastExp", ResourceType = typeof(Resource))]
         public string LastExp { get; set; }
         public string ServCompany1 { get; set; }
         public string ServCompany2 { get; set; }
