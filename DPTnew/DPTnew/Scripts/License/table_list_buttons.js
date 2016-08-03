@@ -438,6 +438,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                                      success: function (result) {
                                          var $psw = $("#decrypt-dialog");
                                          $psw.find("#machineidp").val(result.Codice);
+                                         $psw.find("#ancestor").val(result.Ancestor);
                                          $psw.find("#expdate").val(result.DataExp);
                                          $psw.find("#product").val(result.Prod);
                                          $psw.find("#resdays").val(result.Res_Days);
@@ -445,7 +446,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                                          var pwdDialogConfig = {
                                              modal: true,
                                              width: 350,
-                                             height: 400,
+                                             height: 450,
                                              buttons: {
                                                  OK: function () {
                                                      location.reload();

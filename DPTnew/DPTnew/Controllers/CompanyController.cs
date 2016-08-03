@@ -179,8 +179,6 @@ namespace DPTnew.Controllers
                         query.FirstOrDefault().Province = cmpSingleRow.Province;
                         query.FirstOrDefault().Email = cmpSingleRow.Email;
                         query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
-                        query.FirstOrDefault().AddressK = cmpSingleRow.AddressK;
-                        query.FirstOrDefault().CityK = cmpSingleRow.CityK;
                         query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
                         db.SaveChanges();
                     }

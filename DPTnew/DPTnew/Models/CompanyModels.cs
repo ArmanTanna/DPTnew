@@ -49,8 +49,6 @@ namespace DPTnew.Models
         public string ServCompany3 { get; set; }
 
         public string AccountNameK { get; set; }
-        public string AddressK { get; set; }
-        public string CityK { get; set; }
         public string ProvinceK { get; set; }
         
         public string FirstName { get; set; }

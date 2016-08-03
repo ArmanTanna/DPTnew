@@ -13,20 +13,22 @@ using WebMatrix.WebData;
 using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
+using System.Net.Mail;
+using System.ComponentModel.DataAnnotations;
 
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "Admin,Internal,Var,VarExp")]
     public class CaseController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
         {
-            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.VarUserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             return View();
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public JsonResult Search()
         {
@@ -59,6 +61,12 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Insert(UpdateCase caseRow, HttpPostedFileBase file)
         {
+            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
+                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar")))
+            {
+                ViewBag.ok1 = "Only the zip or rar file are accepted!";
+                return View("Success");
+            }
             using (var db = new DptContext())
             {
                 var query = from ucase in db.Cases
@@ -73,7 +81,9 @@ namespace DPTnew.Controllers
                     newCase.Contact = caseRow.Contact;
                     try
                     {
-                        newCase.ContactId = _db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault().UserId;
+                        var usr = _db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
+                        newCase.ContactId = usr.UserId;
+                        newCase.Language = usr.Language;
                     }
                     catch (Exception e)
                     {
@@ -81,6 +91,7 @@ namespace DPTnew.Controllers
                         return View("Success");
                     }
                     newCase.CreatedOn = DateTime.Now;
+                    newCase.CreatedBy = Membership.GetUser().UserName;
                     newCase.Description = caseRow.Description;
                     newCase.Details = caseRow.Details;
                     newCase.MachineId = caseRow.MachineId;
@@ -97,7 +108,7 @@ namespace DPTnew.Controllers
 
                     if (file != null)
                     {
-                        var basePath = "C:\\inetpub\\wwwroot\\Case";//"C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case";
+                        var basePath = "E:\\Case";
                         var folder = db.Cases.Local[0].CaseId.ToString();
                         var path = basePath + "\\" + folder;
                         try
@@ -138,6 +149,10 @@ namespace DPTnew.Controllers
                             dcl.Status = caseRow.Status;
                             db.CaseLogs.Add(dcl);
                             db.SaveChanges();
+                            MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                            mail.Subject = "Case Update";
+                            mail.Body = "The case state is changed";
+                            SendMail(mail);
                         }
                         ncase.Status = caseRow.Status;
                         db.SaveChanges();
@@ -146,6 +161,16 @@ namespace DPTnew.Controllers
             }
             ViewBag.ok1 = "The new case is saved correctly!";
             return View("Success");
+        }
+
+        private void SendMail(MailMessage mail)
+        {
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = true;
+            client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
+            client.Send(mail);
         }
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
@@ -161,6 +186,12 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Update(UpdateCase caseHistoryRow, HttpPostedFileBase file)
         {
+            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
+                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar")))
+            {
+                ViewBag.ok1 = "Only the zip or rar file are accepted!";
+                return View("Success");
+            }
             var chl = new DptCaseHistory();
             chl.CaseId = caseHistoryRow.CaseId;
             chl.CreatedOn = DateTime.Now;
@@ -171,8 +202,7 @@ namespace DPTnew.Controllers
             _db.SaveChanges();
             if (file != null)
             {
-                var basePath = "C:\\inetpub\\wwwroot\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
-                //"C:\\AAIT\\Visual Studio 2013\\Projects\\DPTnew\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
+                var basePath = "E:\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
                 var folder = _db.CaseHistories.Local[0].CaseHistoryId.ToString();
                 var path = basePath + "\\" + folder;
                 try
@@ -192,7 +222,6 @@ namespace DPTnew.Controllers
             return View("Success");
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {

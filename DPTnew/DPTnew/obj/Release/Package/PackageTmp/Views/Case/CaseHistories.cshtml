@@ -48,6 +48,12 @@
                 <td>
                     <input type="text" name="details" value="@Html.DisplayFor(modelItem => item.Details)" readonly>
                 </td>
+                <td>@Html.DisplayNameFor(model => model.File)</td>
+                <td>
+                    <a href="@Url.Content(item.File.Replace("E:\\Case","T3-Case"))">
+                        @Html.DisplayFor(modelItem => item.File.Split('\\')[item.File.Split('\\').Length - 1])
+                    </a>                     
+                </td>
             </tr>
         }
     </tbody>

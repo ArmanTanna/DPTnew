@@ -19,6 +19,7 @@ namespace DPTnew.Models
         public DateTime CreatedOn { get; set; }
         [Display(Name = "Submitted On")]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
+        public string CreatedBy { get; set; }
         public DateTime ModifiedOn { get; set; }
         [Display(Name = "Modified On")]
         public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
@@ -34,6 +35,7 @@ namespace DPTnew.Models
         public string Type { get; set; }
         public string AccountNumber { get; set; }
         public string AccountName { get; set; }
+        public string Language { get; set; }
         [Display(Name = "Assigned To")]
         public string CCEngineer { get; set; }
         public int CCEngineerId { get; set; }
@@ -95,7 +97,7 @@ namespace DPTnew.Models
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         public string CreatedBy { get; set; }
-        public string Status { get; set; }        
+        public string Status { get; set; }
     }
 
 }

@@ -28,8 +28,6 @@
                 Country: $("input[name=country]").val(),
                 Email: $("input[name=email]").val(),
                 AccountNameK: $("input[name=accountNameK]").val(),
-                AddressK: $("input[name=addressK]").val(),
-                CityK: $("input[name=cityK]").val(),
                 ProvinceK: $("input[name=provinceK]").val(),
             },
             function (result) {
@@ -76,15 +74,15 @@
                 <td>
                     <input type="text" name="accountNumber" value="@Html.DisplayFor(modelItem => item.AccountNumber)" readonly>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
-                <td>
-                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)">
-                </td>
-            </tr>
-            <tr>
                 <td>@Html.DisplayNameFor(model => model.AccountKind)</td>
                 <td>
                     <input type="text" name="accountKind" value="@Html.DisplayFor(modelItem => item.AccountKind)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
+                <td>
+                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.AccountStatus)</td>
                 <td>
@@ -112,13 +110,19 @@
                 </td>
             </tr>
             <tr>
+                <td>@Html.DisplayNameFor(model => model.Province)</td>
+                <td>
+                    <input type="text" name="province" value="@Html.DisplayFor(modelItem => item.Province)">
+                </td>
                 <td>@Html.DisplayNameFor(model => model.City)</td>
                 <td>
                     <input type="text" name="city" value="@Html.DisplayFor(modelItem => item.City)">
                 </td>
-                <td>@Html.DisplayNameFor(model => model.Province)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ProvinceK)</td>
                 <td>
-                    <input type="text" name="province" value="@Html.DisplayFor(modelItem => item.Province)">
+                    <input type="text" name="provinceK" value="@Html.DisplayFor(modelItem => item.ProvinceK)">
                 </td>
             </tr>
             <tr>
@@ -129,22 +133,6 @@
                 <td>@Html.DisplayNameFor(model => model.Email)</td>
                 <td>
                     <input type="email" name="email" value="@Html.DisplayFor(modelItem => item.Email)">
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.AddressK)</td>
-                <td>
-                    <input type="text" name="addressK" value="@Html.DisplayFor(modelItem => item.AddressK)">
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CityK)</td>
-                <td>
-                    <input type="text" name="cityK" value="@Html.DisplayFor(modelItem => item.CityK)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.ProvinceK)</td>
-                <td>
-                    <input type="text" name="provinceK" value="@Html.DisplayFor(modelItem => item.ProvinceK)">
                 </td>
             </tr>
         }

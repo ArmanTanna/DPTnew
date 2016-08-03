@@ -68,9 +68,8 @@
 
               '</tr>' +
               '<tr>' +
-
                   '<td><b>File:</b></td>' +
-                  '<td>' + (d.File ? d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
+                  '<td>' + (d.File ? '<a href="' + d.File.replace("E:\\Case", "T3-Case") + '">' + d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
               '</tr>' +
               '</table>';
         }
@@ -100,6 +99,7 @@
                 { data: "Type" },
                 { data: "Status" },
                 { data: "CCEngineer" },
+                { data: "Language" },
                 { data: "StrCreatedOn" }
                 ],
                 order: [[1, 'desc']],
@@ -183,50 +183,50 @@
                                              myTable.rows('.selected').deselect();
                                          });
                  },
-                 enabled: true
+                 enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true" || "@ViewBag.VarUserRole.ToString().ToLower()" == "true"
              },
-             {
-                 text: 'Update',
-                 className: 'update',
-                 action: function () {
-                     if (myTable.rows('.selected').count() != 0) {
-                         var data = myTable.rows('.selected').data()[0];
-                         $.post(yourApp.Urls.CaseHistoryUrl, {
-                             CaseId: data.CaseId,
-                         },
-                                         function (result) {
-                                             var url = yourApp.Urls.CaseHistoryUrl;
-                                             WinId = window.open(url, '_blank');
-                                             WinId.document.open();
-                                             WinId.document.write(result);
-                                             WinId.document.close();
-                                             myTable.rows('.selected').deselect();
-                                         });
-                     }
+                 {
+                     text: 'Update',
+                     className: 'update',
+                     action: function () {
+                         if (myTable.rows('.selected').count() != 0) {
+                             var data = myTable.rows('.selected').data()[0];
+                             $.post(yourApp.Urls.CaseHistoryUrl, {
+                                 CaseId: data.CaseId,
+                             },
+                                             function (result) {
+                                                 var url = yourApp.Urls.CaseHistoryUrl;
+                                                 WinId = window.open(url, '_blank');
+                                                 WinId.document.open();
+                                                 WinId.document.write(result);
+                                                 WinId.document.close();
+                                                 myTable.rows('.selected').deselect();
+                                             });
+                         }
+                     },
+                     enabled: false
                  },
-                 enabled: false
-             },
-             {
-                 text: 'History',
-                 className: 'history',
-                 action: function () {
-                     if (myTable.rows('.selected').count() != 0) {
-                         var data = myTable.rows('.selected').data()[0];
-                         $.post(yourApp.Urls.GetCaseHistoryUrl, {
-                             caseId: data.CaseId,
-                         },
-                                         function (result) {
-                                             var url = yourApp.Urls.GetCaseHistoryUrl;
-                                             WinId = window.open(url, '_blank');
-                                             WinId.document.open();
-                                             WinId.document.write(result);
-                                             WinId.document.close();
-                                             myTable.rows('.selected').deselect();
-                                         });
-                     }
-                 },
-                 enabled: false
-             }
+                 {
+                     text: 'History',
+                     className: 'history',
+                     action: function () {
+                         if (myTable.rows('.selected').count() != 0) {
+                             var data = myTable.rows('.selected').data()[0];
+                             $.post(yourApp.Urls.GetCaseHistoryUrl, {
+                                 caseId: data.CaseId,
+                             },
+                                             function (result) {
+                                                 var url = yourApp.Urls.GetCaseHistoryUrl;
+                                                 WinId = window.open(url, '_blank');
+                                                 WinId.document.open();
+                                                 WinId.document.write(result);
+                                                 WinId.document.close();
+                                                 myTable.rows('.selected').deselect();
+                                             });
+                         }
+                     },
+                     enabled: false
+                 }
                 ]
             });
             myTable.buttons().container().insertBefore('#dptcase_filter');
@@ -235,7 +235,7 @@
                 var caseRow = myTable.rows('.selected').data()[0];
                 if (caseRow.Status !== "Frozen" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.modify']).enable(true);
-                if (caseRow.Status !== "Frozen")
+                if (caseRow.Status !== "Frozen" && ("@ViewBag.UserRole.ToString().ToLower()" == "true" || "@ViewBag.VarUserRole.ToString().ToLower()" == "true"))
                     myTable.buttons(['.update']).enable(true);
                 myTable.buttons(['.history']).enable(true);
             });
@@ -271,6 +271,10 @@
                 }
             });
 
+            yadcf.init(myTable, [
+            { column_number: 4, filter_default_label: "Select", data: ["Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
+            { column_number: 6, filter_default_label: "Select", data: ["english", "japanese", "italian", "chinese", "french", "german"] },
+            ]);
         });
 
     </script>
@@ -295,6 +299,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CCEngineer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Language)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StrCreatedOn)

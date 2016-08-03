@@ -32,7 +32,7 @@
                 if ($("#Product").val() == "GBG DM")
                     $("#ProductVersion").append('<option value="old">old</option>');
 
-                if ($("#Product").val() == "TD PLM" || $("#Product").val() == "ZmackMind") {
+                if ($("#Product").val() == "TD PLM") {
                     $("#ProductVersion").append('<option value="2009.3">2009.3</option>');
                     $("#ProductVersion").append('<option value="2010.1">2010.1</option>');
                 }
@@ -76,31 +76,27 @@
     </div>
 
     <table>
-        @if (ViewBag.UserRole.ToString().ToLower() == "false")
-        {
-
-            <tr>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.Product)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("Product", new List<SelectListItem>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Product)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Product", new List<SelectListItem>
                 {
                     new SelectListItem{ Text="thinkdesign", Value = "thinkdesign", Selected = true },
                     new SelectListItem{ Text="GBG DM", Value = "GBG DM" },
                     new SelectListItem{ Text="TD PLM", Value = "TD PLM" },
-                    new SelectListItem{ Text="thinkPLM", Value = "thinkPLM" },
-                    new SelectListItem{ Text="ZmackMind", Value = "ZmackMind" }
+                    new SelectListItem{ Text="thinkPLM", Value = "thinkPLM" }
                  }, new { style = "width : 250px" })
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.ProductVersion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("ProductVersion", new List<SelectListItem>
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.ProductVersion)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ProductVersion", new List<SelectListItem>
                 {
                     new SelectListItem{ Text="2009.3", Value = "2009.3", Selected = true },
                     new SelectListItem{ Text="2010.1", Value = "2010.1" },
@@ -111,37 +107,37 @@
                     new SelectListItem{ Text="2015.2", Value = "2015.2" },
                     new SelectListItem{ Text="2016.1", Value = "2016.1" }
                  }, new { style = "width : 250px" })
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.Severity)
-                    </div>
-                    <div class="editor-field" style="width: 250px;">
-                        @Html.DropDownList("Severity", new List<SelectListItem>
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Severity)
+                </div>
+                <div class="editor-field" style="width: 250px;">
+                    @Html.DropDownList("Severity", new List<SelectListItem>
                 {
                     new SelectListItem{ Text="Low", Value = "Low", Selected = true },
                     new SelectListItem{ Text="Medium", Value = "Medium" },
                     new SelectListItem{ Text="High", Value = "High" }
                  }, new { style = "width : 250px" })
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.MachineId)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.MachineId, new { required = "required" })
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.Platform)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("Platform", new List<SelectListItem>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.MachineId)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.MachineId)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Platform)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Platform", new List<SelectListItem>
                 {
                     new SelectListItem{ Text="All", Value = "All", Selected = true },
                     new SelectListItem{ Text="Windows 10 64bit", Value = "Windows 10 64bit" },
@@ -163,42 +159,41 @@
                     new SelectListItem{ Text="PC - WIN95", Value = "PC - WIN95" },
                     new SelectListItem{ Text="PC - WIN2000", Value = "PC - WIN2000" }
                 }, new { style = "width : 250px" })
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.PlatformVersion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("PlatformVersion", new List<SelectListItem>
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.PlatformVersion)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("PlatformVersion", new List<SelectListItem>
                 {
                     new SelectListItem{ Text="Both", Value = "Both", Selected = true },
                     new SelectListItem{ Text="Win32", Value = "Win32" },
                     new SelectListItem{ Text="x64", Value = "x64" }
                  }, new { style = "width : 250px" })
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.AccountName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("AccountName", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.Contact)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("Contact", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-        }
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.AccountName)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("AccountName", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Contact)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Contact", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
+                </div>
+            </td>
+            <td></td>
+        </tr>
         @if (ViewBag.UserRole.ToString().ToLower() == "true")
         {
             <tr>
