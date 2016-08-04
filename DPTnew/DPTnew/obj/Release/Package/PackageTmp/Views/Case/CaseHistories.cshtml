@@ -50,9 +50,16 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.File)</td>
                 <td>
-                    <a href="@Url.Content(item.File.Replace("E:\\Case","T3-Case"))">
-                        @Html.DisplayFor(modelItem => item.File.Split('\\')[item.File.Split('\\').Length - 1])
-                    </a>                     
+                    @if (item.File != null)
+                    {
+                        <a href="@Url.Content(item.File.Replace("E:\\Case","T3-Case"))">
+                            @Html.DisplayFor(modelItem => item.File.Split('\\')[item.File.Split('\\').Length - 1])
+                        </a>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.File)
+                    }
                 </td>
             </tr>
         }

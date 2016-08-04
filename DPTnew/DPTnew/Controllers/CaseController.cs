@@ -101,8 +101,24 @@ namespace DPTnew.Controllers
                     newCase.Product = caseRow.Product;
                     newCase.ProductVersion = caseRow.ProductVersion;
                     newCase.Severity = caseRow.Severity;
-                    newCase.Status = "Open";
                     newCase.Type = "Bug";
+                    if (!string.IsNullOrEmpty(caseRow.CCEngineer))
+                    {
+                        newCase.CCEngineer = caseRow.CCEngineer;
+                        try
+                        {
+                            newCase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
+                        }
+                        catch (Exception e)
+                        {
+                            ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
+                            return View("Success");
+                        }
+                        newCase.Status = "Working";
+                    }
+                    else
+                        newCase.Status = "Open";
+
                     db.Cases.Add(newCase);
                     db.SaveChanges();
 
@@ -131,6 +147,7 @@ namespace DPTnew.Controllers
                     {
                         ncase.ModifiedOn = DateTime.Now;
                         ncase.CCEngineer = caseRow.CCEngineer;
+                        ncase.MachineId = caseRow.MachineId;
                         try
                         {
                             ncase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
@@ -154,7 +171,8 @@ namespace DPTnew.Controllers
                             mail.Body = "The case state is changed";
                             SendMail(mail);
                         }
-                        ncase.Status = caseRow.Status;
+                        if (caseRow.Status != "Open")
+                            ncase.Status = caseRow.Status;
                         db.SaveChanges();
                     }
                 }

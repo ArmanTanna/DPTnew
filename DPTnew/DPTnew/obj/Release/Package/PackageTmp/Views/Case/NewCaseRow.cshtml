@@ -129,7 +129,7 @@
                     @Html.LabelFor(model => model.MachineId)
                 </div>
                 <div class="editor-field">
-                    @Html.TextBoxFor(model => model.MachineId)
+                    @Html.TextBoxFor(model => model.MachineId)*
                 </div>
             </td>
             <td>
@@ -202,7 +202,7 @@
                         @Html.LabelFor(model => model.CCEngineer)
                     </div>
                     <div class="editor-field">
-                        @Html.TextBoxFor(model => model.CCEngineer)
+                        @Html.TextBoxFor(model => model.CCEngineer)*
                     </div>
                 </td>
                 <td>
@@ -218,10 +218,10 @@
                     new SelectListItem{ Text="Waiting on Customer", Value = "Waiting on Customer" },
                     new SelectListItem{ Text="Closed", Value = "Closed" },
                     new SelectListItem{ Text="Frozen", Value = "Frozen" }
-                 }, new { style = "width : 250px" })
+                 }, new { style = "width : 250px" })*
                     </div>
                 </td>
-                <td></td>
+                <td>When you modify the case only the (*) fields are updated!</td>
             </tr>
         }
     </table>
@@ -231,7 +231,6 @@
     <div class="editor-field">
         @Html.TextBoxFor(model => model.file, new { type = "file" })
     </div>
-
 
     <input type="submit" />
 }
