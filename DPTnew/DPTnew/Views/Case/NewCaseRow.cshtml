@@ -190,7 +190,7 @@
                         @Html.LabelFor(model => model.CCEngineer)
                     </div>
                     <div class="editor-field">
-                        @Html.TextBoxFor(model => model.CCEngineer)*
+                        @Html.TextBoxFor(model => model.CCEngineer, new { @placeholder = "CC Engineer email" })*
                     </div>
                 </td>
                 <td>
@@ -214,10 +214,10 @@
         }
     </table>
     <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.file)
+        @Html.LabelFor(model => model.File)
     </div>
     <div class="editor-field">
-        @Html.TextBoxFor(model => model.file, new { type = "file" })
+        @Html.TextBoxFor(model => model.File, new { type = "file" })
     </div>
     <div>
         Warning: only one file (*.zip,*.rar) of maximum 1 GB can be uploaded!

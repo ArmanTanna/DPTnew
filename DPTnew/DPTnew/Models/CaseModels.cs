@@ -15,6 +15,7 @@ namespace DPTnew.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Case ID")]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "Submitted On")]
@@ -46,6 +47,7 @@ namespace DPTnew.Models
 
     public class UpdateCase
     {
+        [Display(Name = "Case ID")]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "Submitted On")]
@@ -70,7 +72,7 @@ namespace DPTnew.Models
         public int CCEngineerId { get; set; }
         public string Contact { get; set; }
         public int ContactId { get; set; }
-        public HttpPostedFileBase file { get; set; }
+        public HttpPostedFileBase File { get; set; }
     }
 
     [Table("DPT_CaseHistory")]
@@ -78,10 +80,14 @@ namespace DPTnew.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Case History ID")]
         public int CaseHistoryId { get; set; }
+        [Display(Name = "Case ID")]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
+        [Display(Name = "Created On")]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
         public string Description { get; set; }
         public string Details { get; set; }

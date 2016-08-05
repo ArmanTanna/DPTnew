@@ -97,7 +97,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Decrypt password.
+        ///   Looks up a localized string similar to Decrypt password &lt; 2015.
         /// </summary>
         public static string ButtonDecryptPwd {
             get {
@@ -115,7 +115,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Install 2015.
+        ///   Looks up a localized string similar to Install.
         /// </summary>
         public static string ButtonInstall2015 {
             get {
@@ -151,7 +151,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change Version.
+        ///   Looks up a localized string similar to Change Version &lt; 2015.
         /// </summary>
         public static string ChangeVersion {
             get {
