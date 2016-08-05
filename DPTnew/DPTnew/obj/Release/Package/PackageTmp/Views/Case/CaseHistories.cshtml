@@ -34,19 +34,9 @@
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Description)</td>
-                <td>
-                    <input type="text" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>
-                </td>
                 <td>@Html.DisplayNameFor(model => model.CreatedBy)</td>
                 <td>
                     <input type="text" name="createdBy" value="@Html.DisplayFor(modelItem => item.CreatedBy)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Details)</td>
-                <td>
-                    <input type="text" name="details" value="@Html.DisplayFor(modelItem => item.Details)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.File)</td>
                 <td>
@@ -60,6 +50,31 @@
                     {
                         @Html.DisplayFor(modelItem => item.File)
                     }
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Description)</td>
+                <td>
+                    <input type="text" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Details)</td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @readonly = "readonly" })
+                    @*<input type="text" name="details" value="@Html.EditorFor(modelItem => item.Details)" readonly>*@
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div>
+                        <text>
+                            <font color="red">
+                                ------------------------------------------------------------------------------------------
+                            </font>
+                        </text>
+                    </div>
                 </td>
             </tr>
         }

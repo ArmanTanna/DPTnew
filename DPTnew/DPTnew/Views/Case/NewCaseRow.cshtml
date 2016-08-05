@@ -32,10 +32,6 @@
                 if ($("#Product").val() == "GBG DM")
                     $("#ProductVersion").append('<option value="old">old</option>');
 
-                if ($("#Product").val() == "TD PLM") {
-                    $("#ProductVersion").append('<option value="2009.3">2009.3</option>');
-                    $("#ProductVersion").append('<option value="2010.1">2010.1</option>');
-                }
                 if ($("#Product").val() == "thinkdesign" || $("#Product").val() == "thinkPLM") {
                     $("#ProductVersion").append('<option value="2009.3">2009.3</option>');
                     $("#ProductVersion").append('<option value="2010.1">2010.1</option>');
@@ -72,7 +68,7 @@
         @Html.LabelFor(model => model.Details)
     </div>
     <div class="editor-field">
-        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "5", required = "required" })
+        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "8", required = "required" })
     </div>
 
     <table>
@@ -84,9 +80,8 @@
                 <div class="editor-field">
                     @Html.DropDownList("Product", new List<SelectListItem>
                 {
-                    new SelectListItem{ Text="thinkdesign", Value = "thinkdesign", Selected = true },
+                    new SelectListItem{ Text="ThinkDesign", Value = "thinkdesign", Selected = true },
                     new SelectListItem{ Text="GBG DM", Value = "GBG DM" },
-                    new SelectListItem{ Text="TD PLM", Value = "TD PLM" },
                     new SelectListItem{ Text="thinkPLM", Value = "thinkPLM" }
                  }, new { style = "width : 250px" })
                 </div>
@@ -150,14 +145,7 @@
                     new SelectListItem{ Text="Win Server 2008 64bit", Value = "Win Server 2008 64bit" },
                     new SelectListItem{ Text="Win Server 2008 32bit", Value = "Win Server 2008 32bit" },
                     new SelectListItem{ Text="Win Server 2003 64bit", Value = "Win Server 2003 64bit" },
-                    new SelectListItem{ Text="Win Server 2003 32bit", Value = "Win Server 2003 32bit" },
-                    new SelectListItem{ Text="PC - WINXP 64bit", Value = "PC - WINXP 64bit" },
-                    new SelectListItem{ Text="PC - WINXP", Value = "PC - WINXP" },
-                    new SelectListItem{ Text="PC - WINNT", Value = "PC - WINNT" },
-                    new SelectListItem{ Text="PC - WINME", Value = "PC - WINME" },
-                    new SelectListItem{ Text="PC - WIN98", Value = "PC - WIN98" },
-                    new SelectListItem{ Text="PC - WIN95", Value = "PC - WIN95" },
-                    new SelectListItem{ Text="PC - WIN2000", Value = "PC - WIN2000" }
+                    new SelectListItem{ Text="Win Server 2003 32bit", Value = "Win Server 2003 32bit" }
                 }, new { style = "width : 250px" })
                 </div>
             </td>
@@ -231,6 +219,8 @@
     <div class="editor-field">
         @Html.TextBoxFor(model => model.file, new { type = "file" })
     </div>
-
+    <div>
+        Warning: only one file (*.zip,*.rar) of maximum 1 GB can be uploaded!
+    </div>
     <input type="submit" />
 }

@@ -399,7 +399,7 @@ namespace DPTnew.Controllers
                     dpt_Company = currentlicense.AccountNumber;
                 }
 
-                if (currentlicense != null && currentlicense.Version == "2015")
+                if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
                 {
                     //check for import
                     if (currentlicense.Import == 1)
@@ -439,7 +439,11 @@ namespace DPTnew.Controllers
                         }
 
                         //building product
-                        string productPostfix = "_20152" + type;
+                        string productPostfix = "";
+                        if (currentlicense.Version == "2015") 
+                            productPostfix = "_" + currentlicense.Version + "2" + type;
+                        if (currentlicense.Version == "2016")
+                            productPostfix = "_" + currentlicense.Version + "1" + type;
 
                         //EVAL or LOCAL PL
                         if (type == "PL" || type == "EVAL")

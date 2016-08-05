@@ -15,6 +15,7 @@ using System.ServiceModel.Description;
 using SafenetIntegration;
 using System.Net.Mail;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace DPTnew.Controllers
 {
@@ -52,13 +53,15 @@ namespace DPTnew.Controllers
                 var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountName).ToList()).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
-                ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+                ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             }
             return View(caseRow);
         }
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Insert(UpdateCase caseRow, HttpPostedFileBase file)
         {
             if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
@@ -92,8 +95,8 @@ namespace DPTnew.Controllers
                     }
                     newCase.CreatedOn = DateTime.Now;
                     newCase.CreatedBy = Membership.GetUser().UserName;
-                    newCase.Description = caseRow.Description;
-                    newCase.Details = caseRow.Details;
+                    newCase.Description = System.Net.WebUtility.HtmlDecode(caseRow.Description);
+                    newCase.Details = System.Net.WebUtility.HtmlDecode(caseRow.Details);
                     newCase.MachineId = caseRow.MachineId;
                     newCase.ModifiedOn = DateTime.Now;
                     newCase.Platform = caseRow.Platform;
@@ -168,7 +171,7 @@ namespace DPTnew.Controllers
                             db.SaveChanges();
                             MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
                             mail.Subject = "Case Update";
-                            mail.Body = "The case state is changed";
+                            mail.Body = "Dear User, \n\nThe case status has changed.\n\nBest Regards,\n\nCustomer Care team";
                             SendMail(mail);
                         }
                         if (caseRow.Status != "Open")
@@ -202,6 +205,7 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Update(UpdateCase caseHistoryRow, HttpPostedFileBase file)
         {
             if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
@@ -213,8 +217,8 @@ namespace DPTnew.Controllers
             var chl = new DptCaseHistory();
             chl.CaseId = caseHistoryRow.CaseId;
             chl.CreatedOn = DateTime.Now;
-            chl.Description = caseHistoryRow.Description;
-            chl.Details = caseHistoryRow.Details;
+            chl.Description = System.Net.WebUtility.HtmlDecode(caseHistoryRow.Description);
+            chl.Details = System.Net.WebUtility.HtmlDecode(caseHistoryRow.Details);
             chl.CreatedBy = Membership.GetUser().UserName;
             _db.CaseHistories.Add(chl);
             _db.SaveChanges();
@@ -243,7 +247,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {
-            return View(_db.CaseHistories.Where(c => c.CaseId == caseId));
+            return View(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
         }
 
 
