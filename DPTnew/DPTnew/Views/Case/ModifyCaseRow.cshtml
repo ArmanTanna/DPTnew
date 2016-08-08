@@ -1,0 +1,144 @@
+﻿@model IEnumerable<DPTnew.Models.UpdateCase>
+
+@{
+    ViewBag.Title = "Case Management";
+}
+
+@section Scripts {
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        function submitform() {
+            $.post("/Case/Modify", {
+                CaseId: $("input[name=id]").val(),
+                MachineId: $("input[name=machineId]").val(),
+                CCEngineer: $("input[name=ccEngineer]").val(),
+                Status: $("#status-choice").val()
+            },
+            function (result) {
+                var $psw = $("#password");
+                $psw.text("");
+                $psw.text(result);
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: result ? 250 : "auto",
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                            //location.reload();
+                        }
+                    }
+                };
+                $("#pwd-dialog").dialog(pwdDialogConfig);
+            });
+        }
+
+        $(document).ready(function () {
+            if ($("#status-choice").val() != "Open")
+                $("#status-choice").append("<option value='Open'>Open</option>");
+            if ($("#status-choice").val() != "Working")
+                $("#status-choice").append("<option value='Working'>Working</option>");
+            if ($("#status-choice").val() != "Waiting on R&D")
+                $("#status-choice").append("<option value='Waiting on R&D'>Waiting on R&D</option>");
+            if ($("#status-choice").val() != "Waiting on Customer")
+                $("#status-choice").append("<option value='Waiting on Customer'>Waiting on Customer</option>");
+            if ($("#status-choice").val() != "Closed")
+                $("#status-choice").append("<option value='Closed'>Closed</option>");
+            if ($("#status-choice").val() != "Frozen")
+                $("#status-choice").append("<option value='Frozen'>Frozen</option>");
+        });
+    </script>
+}
+
+<table id="dptcase" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CaseId)</td>
+                <td>
+                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Description)</td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @readonly = "readonly" })
+                    @*<input type="email" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>*@
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Details)</td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @readonly = "readonly" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Product)</td>
+                <td>
+                    <input type="text" name="product" value="@Html.DisplayFor(modelItem => item.Product)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.ProductVersion)</td>
+                <td>
+                    <input type="text" name="productVersion" value="@Html.DisplayFor(modelItem => item.ProductVersion)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MachineId)</td>
+                <td>
+                    <input type="text" name="machineId" value="@Html.DisplayFor(modelItem => item.MachineId)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Severity)</td>
+                <td>
+                    <input type="text" name="severity" value="@Html.DisplayFor(modelItem => item.Severity)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Platform)</td>
+                <td>
+                    <input type="text" name="platform" value="@Html.DisplayFor(modelItem => item.Platform)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.PlatformVersion)</td>
+                <td>
+                    <input type="text" name="platformVersion" value="@Html.DisplayFor(modelItem => item.PlatformVersion)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
+                <td>
+                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Contact)</td>
+                <td>
+                    <input type="text" name="contact" value="@Html.DisplayFor(modelItem => item.Contact)" readonly>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CCEngineer)</td>
+                <td>
+                    <input type="text" name="ccEngineer" placeholder="CC Engineer email" value="@Html.DisplayFor(modelItem => item.CCEngineer)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Status)</td>
+                <td>
+                    <select name="Status" id="status-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.Status)">@Html.DisplayFor(modelItem => item.Status)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="javascript: submitform()">Submit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="pwd-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+</div>

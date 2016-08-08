@@ -1,226 +1,226 @@
-﻿@model DPTnew.Models.UpdateCase
+﻿@model IEnumerable<DPTnew.Models.UpdateCase>
 
 @{
     ViewBag.Title = "Case Management";
 }
 
 @section Scripts {
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript">
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.GetContacts = '@Url.Action("GetContacts", "Case")';
+        yourApp.Urls.UploadFile = '@Url.Action("UploadFile", "Case")';
 
         var companies = JSON.parse(atob('@ViewBag.Companies'));
+        function submitform() {
+            if ($("#item_Description").val() == "" || $("#item_Details").val() == "") {
+                var $psw = $("#password");
+                $psw.text("");
+                $psw.text("Please fill out Description and details fields!");
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: 250,
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                };
+                $("#pwd-dialog").dialog(pwdDialogConfig);
+            }
+            else
+                $.post("/Case/Insert", {
+                    Description: $("#item_Description").val(),
+                    Details: $("#item_Details").val(),
+                    Product: $("#product-choice").val(),
+                    ProductVersion: $("#productVersion-choice").val(),
+                    Severity: $("#severity-choice").val(),
+                    MachineId: $("input[name=machineId]").val(),
+                    Platform: $("#platform-choice").val(),
+                    PlatformVersion: $("#platformVersion-choice").val(),
+                    AccountName: $("#accountName-choice").val(),
+                    Contact: $("#contact-choice").val()
+                },
+                function (result) {
+                    $("#caseRowID").val(result); 
+                    $("#msg").val("The new case has been saved correctly!");
+                    $("#msgConfirm").val("Choose file or click on Submit");
+                    var pwdDialogConfig = {
+                        modal: true,
+                        width: 400,
+                        height: 300
+                        //buttons: {
+                        //    OK: function () {
+                        //        $(this).dialog("close");
+                        //    }
+                        //}
+                    };
+                    $("#machineid-dialog").dialog(pwdDialogConfig);
+                });
+        }
+
         $(document).ready(function () {
             for (var i = 0; i < companies.length; i++) {
-                $("#AccountName").append('<option value="' + companies[i] + '">' + companies[i] + '</option>');
+                $("#accountName-choice").append('<option value="' + companies[i] + '">' + companies[i] + '</option>');
             }
 
-            $("#AccountName").change(function () {
-                $("#Contact").empty();
-                $.post(yourApp.Urls.GetContacts, { companyName: $("#AccountName").val() },
+            $("#accountName-choice").change(function () {
+                $("#contact-choice").empty();
+                $.post(yourApp.Urls.GetContacts, { companyName: $("#accountName-choice").val() },
                      function (result) {
                          for (var i = 0; i < result.length; i++) {
-                             $("#Contact").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
+                             $("#contact-choice").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
                          }
                      });
             });
 
-            $("#Product").change(function () {
-                $("#ProductVersion").empty()
-                if ($("#Product").val() == "GBG DM")
-                    $("#ProductVersion").append('<option value="old">old</option>');
+            $("#product-choice").change(function () {
+                $("#productVersion-choice").empty()
+                if ($("#product-choice").val() == "GBG DM")
+                    $("#productVersion-choice").append('<option value="old" selected>old</option>');
 
-                if ($("#Product").val() == "thinkdesign" || $("#Product").val() == "thinkPLM") {
-                    $("#ProductVersion").append('<option value="2009.3">2009.3</option>');
-                    $("#ProductVersion").append('<option value="2010.1">2010.1</option>');
-                    $("#ProductVersion").append('<option value="2011.1">2011.1</option>');
-                    $("#ProductVersion").append('<option value="2012.1">2012.1</option>');
-                    $("#ProductVersion").append('<option value="2013.1">2013.1</option>');
-                    $("#ProductVersion").append('<option value="2014.1">2014.1</option>');
-                    $("#ProductVersion").append('<option value="2015.2">2015.2</option>');
-                    $("#ProductVersion").append('<option value="2016.1">2016.1</option>');
+                if ($("#product-choice").val() == "thinkdesign" || $("#product-choice").val() == "thinkPLM") {
+                    $("#productVersion-choice").append('<option value="2009.3" selected>2009.3</option>');
+                    $("#productVersion-choice").append('<option value="2010.1">2010.1</option>');
+                    $("#productVersion-choice").append('<option value="2011.1">2011.1</option>');
+                    $("#productVersion-choice").append('<option value="2012.1">2012.1</option>');
+                    $("#productVersion-choice").append('<option value="2013.1">2013.1</option>');
+                    $("#productVersion-choice").append('<option value="2014.1">2014.1</option>');
+                    $("#productVersion-choice").append('<option value="2015.2">2015.2</option>');
+                    $("#productVersion-choice").append('<option value="2016.1">2016.1</option>');
                 }
             });
         });
     </script>
 }
 
-@using (Html.BeginForm("Insert", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-
-    <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.CaseId)
-    </div>
-    <div class="editor-field">
-        @Html.TextBoxFor(model => model.CaseId, new { @readonly = "readonly" })
-    </div>
-
-    <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Description)
-    </div>
-    <div class="editor-field">
-        @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1", required = "required" })
-    </div>
-
-    <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Details)
-    </div>
-    <div class="editor-field">
-        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "8", required = "required" })
-    </div>
-
-    <table>
-        <tr>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.Product)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("Product", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="ThinkDesign", Value = "thinkdesign", Selected = true },
-                    new SelectListItem{ Text="GBG DM", Value = "GBG DM" },
-                    new SelectListItem{ Text="thinkPLM", Value = "thinkPLM" }
-                 }, new { style = "width : 250px" })
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.ProductVersion)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("ProductVersion", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="2009.3", Value = "2009.3", Selected = true },
-                    new SelectListItem{ Text="2010.1", Value = "2010.1" },
-                    new SelectListItem{ Text="2011.1", Value = "2011.1" },
-                    new SelectListItem{ Text="2012.1", Value = "2012.1" },
-                    new SelectListItem{ Text="2013.1", Value = "2013.1" },
-                    new SelectListItem{ Text="2014.1", Value = "2014.1" },
-                    new SelectListItem{ Text="2015.2", Value = "2015.2" },
-                    new SelectListItem{ Text="2016.1", Value = "2016.1" }
-                 }, new { style = "width : 250px" })
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.Severity)
-                </div>
-                <div class="editor-field" style="width: 250px;">
-                    @Html.DropDownList("Severity", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="Low", Value = "Low", Selected = true },
-                    new SelectListItem{ Text="Medium", Value = "Medium" },
-                    new SelectListItem{ Text="High", Value = "High" }
-                 }, new { style = "width : 250px" })
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.MachineId)
-                </div>
-                <div class="editor-field">
-                    @Html.TextBoxFor(model => model.MachineId)*
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.Platform)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("Platform", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="All", Value = "All", Selected = true },
-                    new SelectListItem{ Text="Windows 10 64bit", Value = "Windows 10 64bit" },
-                    new SelectListItem{ Text="Windows 8 64bit", Value = "Windows 8 64bit" },
-                    new SelectListItem{ Text="Windows 8 32bit", Value = "Windows 8 32bit" },
-                    new SelectListItem{ Text="Windows 7 64bit", Value = "Windows 7 64bit" },
-                    new SelectListItem{ Text="Windows 7 32bit", Value = "Windows 7 32bit" },
-                    new SelectListItem{ Text="Win Vista 64bit", Value = "Win Vista 64bit" },
-                    new SelectListItem{ Text="Win Vista 32bit", Value = "Win Vista 32bit" },
-                    new SelectListItem{ Text="Win Server 2008 64bit", Value = "Win Server 2008 64bit" },
-                    new SelectListItem{ Text="Win Server 2008 32bit", Value = "Win Server 2008 32bit" },
-                    new SelectListItem{ Text="Win Server 2003 64bit", Value = "Win Server 2003 64bit" },
-                    new SelectListItem{ Text="Win Server 2003 32bit", Value = "Win Server 2003 32bit" }
-                }, new { style = "width : 250px" })
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.PlatformVersion)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("PlatformVersion", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="Both", Value = "Both", Selected = true },
-                    new SelectListItem{ Text="Win32", Value = "Win32" },
-                    new SelectListItem{ Text="x64", Value = "x64" }
-                 }, new { style = "width : 250px" })
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.AccountName)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("AccountName", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" style="font-size: 1.2em;">
-                    @Html.LabelFor(model => model.Contact)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownList("Contact", new SelectList(string.Empty, "Value", "Text"), new { style = "width : 250px" })
-                </div>
-            </td>
-            <td></td>
-        </tr>
-        @if (ViewBag.UserRole.ToString().ToLower() == "true")
+<table id="dptcase" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
         {
             <tr>
+                <td>@Html.DisplayNameFor(model => model.CaseId)</td>
                 <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.CCEngineer)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.CCEngineer, new { @placeholder = "CC Engineer email" })*
-                    </div>
+                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
                 </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Description)</td>
                 <td>
-                    <div class="editor-label" style="font-size: 1.2em;">
-                        @Html.LabelFor(model => model.Status)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("Status", new List<SelectListItem>
-                {
-                    new SelectListItem{ Text="Open", Value = "Open", Selected = true },
-                    new SelectListItem{ Text="Working", Value = "Working" },
-                    new SelectListItem{ Text="Waiting on R&D", Value = "Waiting on R&D" },
-                    new SelectListItem{ Text="Waiting on Customer", Value = "Waiting on Customer" },
-                    new SelectListItem{ Text="Closed", Value = "Closed" },
-                    new SelectListItem{ Text="Frozen", Value = "Frozen" }
-                 }, new { style = "width : 250px" })*
-                    </div>
+                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @required = "required" })
+                    @*<input type="email" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>*@
                 </td>
-                <td>When you modify the case only the (*) fields are updated!</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Details)</td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Product)</td>
+                <td>
+                    <select name="product" id="product-choice">
+                        <option value="ThinkDesign" selected>thinkdesign</option>
+                        <option value="GBG DM">GBG DM</option>
+                        <option value="thinkPLM">thinkPLM</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.ProductVersion)</td>
+                <td>
+                    <select name="productVersion" id="productVersion-choice">
+                        <option value="2009.3" selected>2009.3</option>
+                        <option value="2010.1">2010.1</option>
+                        <option value="2011.1">2011.1</option>
+                        <option value="2012.1">2012.1</option>
+                        <option value="2013.1">2013.1</option>
+                        <option value="2014.1">2014.1</option>
+                        <option value="2015.2">2015.2</option>
+                        <option value="2016.1">2016.1</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Severity)</td>
+                <td>
+                    <select name="severity" id="severity-choice">
+                        <option value="Low" selected>Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.MachineId)</td>
+                <td>
+                    <input type="text" name="machineId" value="@Html.DisplayFor(modelItem => item.MachineId)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Platform)</td>
+                <td>
+                    <select name="platform" id="platform-choice">
+                        <option value="All" selected>All</option>
+                        <option value="Windows 10 64bit">Windows 10 64bit</option>
+                        <option value="Windows 8 64bit">Windows 8 64bit</option>
+                        <option value="Windows 8 32bit">Windows 8 32bit</option>
+                        <option value="Windows 7 64bit">Windows 7 64bit</option>
+                        <option value="Windows 7 32bit">Windows 7 32bit</option>
+                        <option value="Win Vista 64bit">Win Vista 64bit</option>
+                        <option value="Win Vista 32bit">Win Vista 32bit</option>
+                        <option value="Win Server 2008 64bit">Win Server 2008 64bit</option>
+                        <option value="Win Server 2008 32bit">Win Server 2008 32bit</option>
+                        <option value="Win Server 2003 64bit">Win Server 2003 64bit</option>
+                        <option value="Win Vista 32bit">Win Server 2003 32bit</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.PlatformVersion)</td>
+                <td>
+                    <select name="platformVersion" id="platformVersion-choice">
+                        <option value="Both" selected>Both</option>
+                        <option value="Win32">Win32</option>
+                        <option value="x64">x64</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
+                <td>
+                    <select name="accountName" id="accountName-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.AccountName)">@Html.DisplayFor(modelItem => item.AccountName)</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Contact)</td>
+                <td>
+                    <select name="contact" id="contact-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.Contact)">@Html.DisplayFor(modelItem => item.Contact)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="javascript: submitform()">Submit</a></td>
             </tr>
         }
-    </table>
-    <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.File)
-    </div>
-    <div class="editor-field">
-        @Html.TextBoxFor(model => model.File, new { type = "file" })
-    </div>
-    <div>
-        Warning: only one file (*.zip,*.rar) of maximum 1 GB can be uploaded!
-    </div>
-    <input type="submit" />
-}
+    </tbody>
+</table>
+<div id="pwd-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+</div>
+<div id="machineid-dialog" title="Upload File" style="display: none;">
+    @using (Html.BeginForm("UploadFile", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="text" name="msg" id="msg" readonly />
+
+        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
+
+        <label for="newCaseID">Case ID: </label>
+
+        <input type="text" name="caseRowID" id="caseRowID" readonly />
+
+        <input type="file" name="file" id="file" accept=".zip,.rar" />
+
+        <input type="submit" />
+    }
+</div>

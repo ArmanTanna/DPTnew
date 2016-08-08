@@ -27,6 +27,7 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.CaseDataUrl = '@Url.Action("NewCaseRow", "Case")';
+        yourApp.Urls.ModifyDataUrl = '@Url.Action("ModifyCaseRow", "Case")';
         yourApp.Urls.CaseHistoryUrl = '@Url.Action("NewCaseHistoryRow", "Case")';
         yourApp.Urls.GetCaseHistoryUrl = '@Url.Action("CaseHistories", "Case")';
 
@@ -117,7 +118,7 @@
                  action: function () {
                      if (myTable.rows('.selected').count() != 0) {
                          var data = myTable.rows('.selected').data()[0];
-                         $.post(yourApp.Urls.CaseDataUrl, {
+                         $.post(yourApp.Urls.ModifyDataUrl, {
                              CaseId: data.CaseId,
                              StrCreatedOn: data.StrCreatedOn,
                              StrModifiedOn: data.StrModifiedOn,
@@ -139,7 +140,7 @@
                              ContactId: data.ContactId
                          },
                                          function (result) {
-                                             var url = yourApp.Urls.CaseDataUrl;
+                                             var url = yourApp.Urls.ModifyDataUrl;
                                              WinId = window.open(url, '_blank');
                                              WinId.document.open();
                                              WinId.document.write(result);

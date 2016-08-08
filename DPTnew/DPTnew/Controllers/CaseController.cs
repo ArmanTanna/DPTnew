@@ -56,86 +56,85 @@ namespace DPTnew.Controllers
                 ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             }
-            return View(caseRow);
+            List<UpdateCase> rows = new List<UpdateCase>();
+            rows.Add(caseRow);
+            return View(rows);
         }
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Insert(UpdateCase caseRow, HttpPostedFileBase file)
+        public ActionResult Insert(UpdateCase caseRow)
         {
-            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
-                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar")))
-            {
-                ViewBag.ok1 = "Only the zip or rar file are accepted!";
-                return View("Success");
-            }
+            int caseId = 0;
             using (var db = new DptContext())
             {
-                var query = from ucase in db.Cases
-                            where ucase.CaseId == caseRow.CaseId
-                            select ucase;
-
-                if (query.Count() == 0)
+                var newCase = new DptCases();
+                newCase.AccountName = caseRow.AccountName;
+                newCase.AccountNumber = _db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault().AccountNumber;
+                newCase.Contact = caseRow.Contact;
+                try
                 {
-                    var newCase = new DptCases();
-                    newCase.AccountName = caseRow.AccountName;
-                    newCase.AccountNumber = _db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault().AccountNumber;
-                    newCase.Contact = caseRow.Contact;
-                    try
-                    {
-                        var usr = _db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
-                        newCase.ContactId = usr.UserId;
-                        newCase.Language = usr.Language;
-                    }
-                    catch (Exception e)
-                    {
-                        ViewBag.ok1 = "The Contact doesn't exist in the DB!";
-                        return View("Success");
-                    }
-                    newCase.CreatedOn = DateTime.Now;
-                    newCase.CreatedBy = Membership.GetUser().UserName;
-                    newCase.Description = System.Net.WebUtility.HtmlDecode(caseRow.Description);
-                    newCase.Details = System.Net.WebUtility.HtmlDecode(caseRow.Details);
-                    newCase.MachineId = caseRow.MachineId;
-                    newCase.ModifiedOn = DateTime.Now;
-                    newCase.Platform = caseRow.Platform;
-                    newCase.PlatformVersion = caseRow.PlatformVersion;
-                    newCase.Product = caseRow.Product;
-                    newCase.ProductVersion = caseRow.ProductVersion;
-                    newCase.Severity = caseRow.Severity;
-                    newCase.Type = "Bug";
-                    if (!string.IsNullOrEmpty(caseRow.CCEngineer))
-                    {
-                        newCase.CCEngineer = caseRow.CCEngineer;
-                        try
-                        {
-                            newCase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
-                        }
-                        catch (Exception e)
-                        {
-                            ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
-                            return View("Success");
-                        }
-                        newCase.Status = "Working";
-                    }
-                    else
-                        newCase.Status = "Open";
+                    var usr = _db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
+                    newCase.ContactId = usr.UserId;
+                    newCase.Language = usr.Language;
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ok1 = "The Contact doesn't exist in the DB!";
+                    return View("Success");
+                }
+                newCase.CreatedOn = DateTime.Now;
+                newCase.CreatedBy = Membership.GetUser().UserName;
+                newCase.Description = caseRow.Description;
+                newCase.Details = caseRow.Details;
+                newCase.MachineId = caseRow.MachineId;
+                newCase.ModifiedOn = DateTime.Now;
+                newCase.Platform = caseRow.Platform;
+                newCase.PlatformVersion = caseRow.PlatformVersion;
+                newCase.Product = caseRow.Product;
+                newCase.ProductVersion = caseRow.ProductVersion;
+                newCase.Severity = caseRow.Severity;
+                newCase.Type = "Bug";
+                newCase.Status = "Open";
 
-                    db.Cases.Add(newCase);
-                    db.SaveChanges();
+                db.Cases.Add(newCase);
+                db.SaveChanges();
+                caseId = db.Cases.Local[0].CaseId;
+            }
+            return Json(caseId, JsonRequestBehavior.AllowGet);
+        }
 
-                    if (file != null)
+        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [HttpPost]
+        public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file)
+        {
+            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
+                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar") /*||
+                file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
+            {
+                ViewBag.ok1 = "Only the *.zip, and *.rar file are accepted!";
+                return View("Success");
+            }
+
+            if (file != null)
+            {
+                var caseID = Convert.ToInt64(caseRowID);
+                var query = from ucase in _db.Cases
+                            where ucase.CaseId == caseID
+                            select ucase;
+                if (query.Count() > 0)
+                {
+                    var basePath = "E:\\Case";
+                    var folder = caseRowID;
+                    var path = basePath + "\\" + folder;
+                    foreach (DptCases ncase in query.ToList())
                     {
-                        var basePath = "E:\\Case";
-                        var folder = db.Cases.Local[0].CaseId.ToString();
-                        var path = basePath + "\\" + folder;
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
-                            newCase.File = path + "\\" + file.FileName;
-                            file.SaveAs(newCase.File);
-                            db.SaveChanges();
+                            ncase.File = path + "\\" + file.FileName;
+                            file.SaveAs(ncase.File);
+                            _db.SaveChanges();
                         }
                         catch (Exception e)
                         {
@@ -144,44 +143,63 @@ namespace DPTnew.Controllers
                         }
                     }
                 }
-                else
+                ViewBag.ok1 = "The uploaded file has been saved correctly!";
+                return View("Success");
+            }
+            ViewBag.ok1 = "The new case has been saved correctly!";
+            return View("Success");
+        }
+
+        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [HttpPost]
+        public ActionResult ModifyCaseRow(UpdateCase caseRow)
+        {
+            List<UpdateCase> rows = new List<UpdateCase>();
+            rows.Add(caseRow);
+            return View(rows);
+        }
+
+        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [HttpPost]
+        public ActionResult Modify(UpdateCase caseRow)
+        {
+            var query = from ucase in _db.Cases
+                        where ucase.CaseId == caseRow.CaseId
+                        select ucase;
+            if (query.Count() > 0)
+            {
+                foreach (DptCases ncase in query.ToList())
                 {
-                    foreach (DptCases ncase in query.ToList())
+                    ncase.ModifiedOn = DateTime.Now;
+                    ncase.CCEngineer = caseRow.CCEngineer;
+                    ncase.MachineId = caseRow.MachineId;
+                    try
                     {
-                        ncase.ModifiedOn = DateTime.Now;
-                        ncase.CCEngineer = caseRow.CCEngineer;
-                        ncase.MachineId = caseRow.MachineId;
-                        try
-                        {
-                            ncase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
-                        }
-                        catch (Exception e)
-                        {
-                            ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
-                            return View("Success");
-                        }
-                        if (ncase.Status != caseRow.Status)
-                        {
-                            var dcl = new DptCaseLog();
-                            dcl.CaseId = caseRow.CaseId;
-                            dcl.CreatedBy = Membership.GetUser().UserName;
-                            dcl.CreatedOn = DateTime.Now;
-                            dcl.Status = caseRow.Status;
-                            db.CaseLogs.Add(dcl);
-                            db.SaveChanges();
-                            MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
-                            mail.Subject = "Case Update";
-                            mail.Body = "Dear User, \n\nThe case status has changed.\n\nBest Regards,\n\nCustomer Care team";
-                            SendMail(mail);
-                        }
-                        if (caseRow.Status != "Open")
-                            ncase.Status = caseRow.Status;
-                        db.SaveChanges();
+                        ncase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
                     }
+                    catch (Exception e)
+                    {
+                        return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
+                    }
+                    if (ncase.Status != caseRow.Status)
+                    {
+                        var dcl = new DptCaseLog();
+                        dcl.CaseId = caseRow.CaseId;
+                        dcl.CreatedBy = Membership.GetUser().UserName;
+                        dcl.CreatedOn = DateTime.Now;
+                        dcl.Status = caseRow.Status;
+                        _db.CaseLogs.Add(dcl);
+                        _db.SaveChanges();
+                        MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                        mail.Subject = "Case Update";
+                        mail.Body = "Dear User, \n\nThe case status has changed.\n\nBest Regards,\n\nCustomer Care team";
+                        SendMail(mail);
+                    }
+                    ncase.Status = caseRow.Status;
+                    _db.SaveChanges();
                 }
             }
-            ViewBag.ok1 = "The new case is saved correctly!";
-            return View("Success");
+            return Json("The new case has been modified correctly!", JsonRequestBehavior.AllowGet);
         }
 
         private void SendMail(MailMessage mail)
@@ -198,49 +216,70 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult NewCaseHistoryRow(UpdateCase caseRow)
         {
-            caseRow.Description = "";
-            caseRow.Details = "";
-            return View(caseRow);
+            List<UpdateCase> rows = new List<UpdateCase>();
+            rows.Add(caseRow);
+            return View(rows);
         }
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Update(UpdateCase caseHistoryRow, HttpPostedFileBase file)
+        public ActionResult Update(UpdateCase caseHistoryRow)
         {
-            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
-                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar")))
-            {
-                ViewBag.ok1 = "Only the zip or rar file are accepted!";
-                return View("Success");
-            }
+            int casehId = 0;
             var chl = new DptCaseHistory();
             chl.CaseId = caseHistoryRow.CaseId;
             chl.CreatedOn = DateTime.Now;
-            chl.Description = System.Net.WebUtility.HtmlDecode(caseHistoryRow.Description);
-            chl.Details = System.Net.WebUtility.HtmlDecode(caseHistoryRow.Details);
+            chl.Description = caseHistoryRow.Description;
+            chl.Details = caseHistoryRow.Details;
             chl.CreatedBy = Membership.GetUser().UserName;
             _db.CaseHistories.Add(chl);
             _db.SaveChanges();
+            casehId = _db.CaseHistories.Local[0].CaseHistoryId;
+
+            return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [HttpPost]
+        public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file)
+        {
+            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
+                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar") /*||
+                file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
+            {
+                ViewBag.ok1 = "Only the *.zip and *.rar file are accepted!";
+                return View("Success");
+            }
             if (file != null)
             {
-                var basePath = "E:\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
-                var folder = _db.CaseHistories.Local[0].CaseHistoryId.ToString();
-                var path = basePath + "\\" + folder;
-                try
+                var casehID = Convert.ToInt64(casehId);
+                var query = from uhcase in _db.CaseHistories
+                            where uhcase.CaseHistoryId == casehID
+                            select uhcase;
+                if (query.Count() > 0)
                 {
-                    System.IO.Directory.CreateDirectory(path);
-                    chl.File = path + "\\" + file.FileName;
-                    file.SaveAs(chl.File);
-                    _db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    ViewBag.ok1 = "Cannot save the uploaded file!";
-                    return View("Success");
+
+                    var basePath = "E:\\Case" + "\\" + caseRowID;
+                    var folder = casehID;
+                    var path = basePath + "\\" + folder;
+                    foreach (DptCaseHistory ncase in query.ToList())
+                    {
+                        try
+                        {
+                            System.IO.Directory.CreateDirectory(path);
+                            ncase.File = path + "\\" + file.FileName;
+                            file.SaveAs(ncase.File);
+                            _db.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+                            ViewBag.ok1 = "Cannot save the uploaded file!";
+                            return View("Success");
+                        }
+                    }
                 }
             }
-            ViewBag.ok1 = "The case update is saved correctly!";
+            ViewBag.ok1 = "The new history case has been saved correctly!";
             return View("Success");
         }
 
