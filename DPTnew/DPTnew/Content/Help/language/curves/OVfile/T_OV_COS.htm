@@ -1,0 +1,190 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<title>Curves On Surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Curves On Surfaces</h2>
+
+<ul class="noleft">
+<li><a href="#U1">General concepts</a></li>
+
+<li><a href="#RN2005T2">Associativity</a></li>
+
+<li><a href="#U2">Dynamic highlighting for Curves On Surfaces and surface boundaries</a></li>
+</ul>
+
+<br>
+<br>
+<h4><a name="U1"></a>General concepts</h4>
+
+<p style="margin-bottom:0;">A special type of curves is available in <b>think<font color="#FF0F00">3</font></b> applications: <i>Curve on Surface</i> (from now on in this document: COS).<br>
+Curves on surfaces are curves which keep a link to the surfaces they were created on. Thanks to this basic characteristic, their behavior is very smart and can be very useful in a number of situations.<br>
+</p>
+
+<p style="margin-bottom:0;">A number of commands enable you to create COS curves:</p>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_11.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+32">Boundary Curve</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_13.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+34">Intersect Curve</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_10.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+38">Isoparametric Curve</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/cv_15/FWfile/T_FW_cv_15.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_06.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1376">Offset on Surface</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_14.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+39">Section Curve</span></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_12.htm"><span class="UI_COMMAND" id="tdesign.msg+_EK_CMD_ENT_+18">Silhouette Curve</span></a></li>
+</ul>
+
+<p style="margin-bottom:0;">An <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is available in the selection list of all the commands in the above list.</p>
+
+<ul class="noleft" style="margin-bottom:0;margin-top:0">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curve will be a COS.</li>
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, an additional option is available under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curves will be <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G4">G4</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G2">continuity 2</a> ("Curvature" continuity).</li>
+</ul>
+</li>
+</ul>
+
+<p>If you interrupt any of the commands of the above list, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all.<br>
+Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/RESTOREbutton.gif" align="absmiddle" border="0"> ) will be displayed on top of the selection list. If you select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/RESTOREbutton.gif" align="absmiddle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+ When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.</p>
+
+<p>Some additional notes:</p>
+
+<ul class="noleft">
+<li>The <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_07.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+123">Split Curve</span></a> command applies also to COS curves. After splitting, the resulting curves will still be COS curves.</li>
+
+<li>The COS curve type is available in the <span class="UI_COMMAND" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box.<br>
+<br>
+<img src="../../rn_2005T1/images/SelectionFilter.gif"><br>
+&nbsp;</li>
+
+<li>Selection of COS curves is enabled in all commands for which it makes sense.</li>
+
+<li>The capability of controlling the visualization of base surfaces can be most useful especially when working with complex models, when you might need to temporarily hide or how a base surface in order to have a better understanding of the model itself. Two commands are available for this goal: 
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_hidebasesurface.htm"><span class="UI_OPTION" id="TDView.msg+_TDVIEW_LABEL_+15">Hide Base Surface</span></a><br>
+ to hide the base surface of a COS curve.</li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_showbasesurface.htm"><span class="UI_OPTION" id="TDView.msg+_TDVIEW_LABEL_+14">Show Base Surface</span></a><br>
+ to display the base surface of a COS curve.</li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Please note that if you move the cursor onto a curve of the Curve On Surface type whose base surface is hidden, a dotted outline of the latter will be displayed.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>When you copy a COS curve with a <a href="mk:@MSITStore:transf.chm::/language/transform/OVfile/T_OV_Transform.htm">geometric transformation command</a>, the base surface will be copied as well. For details, see " <a href="mk:@MSITStore:transf.chm::/language/transform/OVfile/T_OV_Transform.htm#COSCOPY">Copying curves of the Curve On Surface type</a>".</li>
+</ul>
+
+<p>A specific command can be used in order to convert COS curves to ordinary 3D NURBS: <span class="UI_COMMAND" id="Page.msg+Page+3160">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND" id="ContextMenu_ToolbarsList.msg+ContextMenu_ToolbarsList+575">Curve</span><img src="../../../images/general/litarr.gif"> <a href="../FWfile/T_FW_COS23d.htm" onclick="return CmdWindow()"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+7672">Convert Curve to 3D Curve</span></a>.<br>
+ Once the command is started, select the COS curve to be converted into an ordinary 3D NURBS. All the links between the curve and the surfaces it was related to will be removed.</p>
+
+<p>It is possible to use the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_25.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1081">Smart Delete</span></a> command to delete <i>Curve on Surface</i> (COS) too.</p>
+
+<br>
+<!-- From RN 2005T2, added 09-Nov-05 -->
+<h4><a name="RN2005T2"></a>Associativity</h4>
+
+<p style="margin-bottom:3px;">In all commands with which you can create curves of the Curve on Surfaces type, if you select both the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> (see further details on associativity in the " <a href="mk:@MSITStore:help.chm::/language/curves/OVfile/T_OV_curves.htm#Assoc">Associativity</a>" section of "An Overview on Curves") and the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check boxes, what you will obtain is an associative Curve on Surface.</p>
+
+<ul class="noleft" style="margin-top:2px;margin-bottom:2px;">
+<li>Associative curves on surfaces are <i>recalculated</i> at any change of the surface and of the entities they are associated with.</li>
+
+<li>Non-associative curves on surfaces are simply <i>updated</i> at any change of the surface they are related to.</li>
+</ul>
+
+<p style="margin-bottom:3px;margin-top:3px;">This capability can be very useful in many situations.<br>
+For example, suppose you project a curve onto a surface using the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span> command. Suppose the resulting curve is a Curve on Surface (that is: you checked the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> box).</p>
+
+<ul class="noleft" style="margin-top:2px">
+<li>If the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is <i>not</i> checked, the resulting curve will <i>not</i> be linked to the curve it derives from. If you modify the original curve, the projected curve will not change.</li>
+
+<li>If the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is checked, the resulting curve will be linked to the curve it derives from. If you modify the original curve, the projected curve will change accordingly.</li>
+</ul>
+
+<table>
+<tr valign="top">
+<td>Again, for example, suppose you create some isoparametric curves of the Curve on Surface type on the face of a solid, across a hole on such face.</td>
+<td><img border="1" src="../../../images/curves/COS01.gif"> </td>
+</tr>
+</table>
+
+<table>
+<tr valign="top">
+<td width="15" align="left"><img src="../../../images/general/bullet_black.gif" align="baseline"></td>
+<td>When the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is checked, if you delete the hole the isoparametric curves will be recreated so as to fill the gap left by the hole.</td>
+<td><img border="1" src="../../../images/curves/COS02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td width="15" align="left"><img src="../../../images/general/bullet_black.gif" align="baseline"></td>
+<td>When the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is <i>not</i> checked, if you delete the hole the isoparametric curves will not be recreated so as to fill the gap left by the hole that is no longer there, as the surface they were created on was a hidden surface coincident with the solid face, but not the selected solid face itself (as signaled through an appropriate warning at creation time).</td>
+<td><img border="1" src="../../../images/curves/COS03.gif"></td>
+</tr>
+</table>
+
+<h4><a name="U2"></a>Dynamic highlighting for Curves On Surfaces and surface boundaries</h4>
+
+<p>Selection of Curves on Surfaces and of surface boundaries is really easy thanks to the dynamic highlighting mechanism.</p>
+
+<ul class="noleft">
+<li>When the cursor moves onto a surface boundary: 
+
+<ul class="noleft">
+<li>The boundary is highlighted using a larger width</li>
+
+<li>The surface it belongs to and the isoparametric curves of the latter are drawn using a dotted line.</li>
+</ul>
+
+<br>
+<img border="1" src="../../../images/rn_2005T1/SEL_BOUNDARY.gif"><br>
+&nbsp;</li>
+
+<li>When the cursor moves onto a Curve on Surface entity, the surface it belongs to and the isoparametric curves of the latter are drawn using a dotted line.<br>
+<br>
+<img border="1" src="../../../images/rn_2005T1/SEL_COS.gif"><br>
+&nbsp;</li>
+</ul>
+
+<p>The dynamic highlighting solutions described above can be very useful especially in cases of complex models, in order to easily understand which surface a boundary belongs to or a Curve on Surface is related to. In addition, displaying the surface boundary with a larger width enables you to distinguish it from any overlapping curves.</p>
+
+<hr color="silver">
+</body>
+</html>
+

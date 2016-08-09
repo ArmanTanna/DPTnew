@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a Countersunk Hole</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating a Countersunk Hole </h3>
+
+<p>A countersunk hole has two diameters, but the transition between the bigger diameter and the smaller diameter is in the form of a tapered cone. In this hole type, you need to define the countersunk diameter, hole diameter, depth of the hole, and the countersunk angle.<br><br>
+
+ For the purpose of the tutorial create a rectangular block of size 100*50*50 and follow the steps given below to create the counterbored hole, as shown in the image below. <br><br>
+<img src="../../../images/features/Countersunk_2.gif" alt="" width="250" height="150" border="1"><br><br>
+</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_ft_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span></a> command and ensure the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box is cleared.<br><br></li>
+
+
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+71">From 2 lines</span> option from the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> drop-down list. Now, click on the face on which the hole is to be placed. You will notice that two edges of the solid are automatically selected for the <b>First Line</b> and <b>Second Line</b> selectors and their respective mini-dialog boxes have been displayed with the default values.<br><br>
+
+ To reset the edge selection, right-click on the respective selector and select the <b>Reset</b> option to select the new edge.<br><br></li>
+
+<li>Enter <b>25</b> in the <b>1st Distance</b> mini-dialog box for the <b>First Line</b> selector and <b>50</b> in the <b>2nd Distance</b> mini-dialog box for the <b>Second Line</b> selector.<br><br> </li>
+
+<li>Next, select the <b>CounterSunk</b> option from the <b>Hole type</b> drop-down list and the <b>Thru all</b> option from the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+7">Extension</span> drop-down list, if it is not already selected. The multiple mini-dialog boxes get displayed. <br><br></li>
+
+<li>Enter <b>25</b>(hole diameter) in the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+6">Diameter</span> mini-dialog box and <b>45</b>(countersunk diameter) in the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+50">Head diameter</span> mini-dialog box.<br><br></li>
+
+<li> To enter the countersunk angle you need to click on the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to display the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+14">Head angle</span> mini-dialog box. Enter <b>45</b> in this mini-dialog box.<br><br></li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" alt="" border="0" align="absmiddle"> to confirm your selections and create the countersunk hole. Click <img src="../../../images/general/CANCELbutton.gif" alt="" border="0" align="absmiddle"> to discard your changes<br><br></li>
+
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<br>
+If the model is component you need to select the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+1">X-Components</span> check box and the component for the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+3">Components</span> selector from the selection list to create a hole. To reselect the components, right-click on <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+3">Components</span> to select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> and then select the involved components. <br><br> You cannot add fillets or chamfers while creating a hole through components.</td>
+ </ul>
+</tr>
+</table><br><br>
+<hr color="silver">
+<h5>Also try to...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_simple_blind_hole.htm"><b>Create a simple blind hole</a></b></li>
+
+<li><a href="T_HW_simple_cylindrical.htm"><b>Create a simple hole on cylindrical surface</a></b></li>
+
+<li><a href="T_HW_shaped_hole.htm"><b>Create a standard countersunk hole and standard simple threaded hole</a></b></li>
+<li><a href="T_HW_thru_counterbored_hole.htm"><b>Create a through counterbored hole</a></b></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_PointDefinition.htm"><b>Define a point on a face</b></a></li>
+
+<li><a href="T_HW_AddThreadtoHoleAndShaft.htm"><b>Add a thread to a simple hole or shaft</b></a></li>
+
+<li><a href="../../HWfile/T_HW_SymmetryInvert.htm"><b>Symmetry and Invert Direction handles</b></a></li>
+</ul>
+
+</body>
+</html>
+

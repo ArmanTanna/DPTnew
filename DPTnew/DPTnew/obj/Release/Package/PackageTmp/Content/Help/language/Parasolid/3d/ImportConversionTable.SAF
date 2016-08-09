@@ -1,0 +1,170 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Parasolid to think3 conversion table</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h2>Parasolid to think3 conversion table</h2>
+
+<p>Here is a general conversion table showing how Parasolid entities are mapped to the ones of <b>think<font color="#FF0F00">3</font></b> when converting a Parasolid model to the <b>think<font color="#FF0F00">3</font></b> format.</p>
+
+<TABLE border=1 bordercolor="white">
+	<thead>
+	<TR>
+		<td bordercolor="navy" bgcolor="#DCDCDC"><b>Parasolid entity</b></TD>
+		<td bordercolor="navy" bgcolor="#DCDCDC"><b>think3 entity to which it is converted</b></TD>
+	</TR>
+	</thead>
+
+	<TR>
+		<td bordercolor="navy">POINT</TD>
+		<td bordercolor="navy"><b>3D Point</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">GEOM_COMPOSITE_CURVE</TD>
+		<td bordercolor="navy"><b>NURBS curve</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">BSPLINE_CURVE</TD>
+		<td bordercolor="navy"><b>NURBS curve</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">ELLIPSE</TD>
+		<td bordercolor="navy"><b>3D Ellipse</b> or <b>NURBS Curve</b>, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">CIRCLE</TD>
+		<td bordercolor="navy"><b>3D Arc</b> or <b>NURBS Curve</b>, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">LINE</TD>
+		<td bordercolor="navy"><b>3D Line</b> or <b>NURBS Curve</b>, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">PARABOLA</TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">HYPERBOLA</TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">INTERSECTION_CURVE</b></TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">OFFSET_CURVE</TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">COMPOSITE CURVE</TD>
+		<td bordercolor="navy"><b>Set of independent curves</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">GEOM_PLANE</TD>
+		<td bordercolor="navy"><b>Plane</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">CYLINDER</TD>
+		<td bordercolor="navy"><b>Cylinder</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">BSPLINE_SURFACE</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">SURF_OF_EXTRUSION</TD>
+		<td bordercolor="navy"><b>Tabulated cylinder</b> or <b>NURBS Curve</b>, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">SURF_OF_REVOLUTION</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">OFFSET_SURFACE</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">CONE</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">SPHERE</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">TORUS</TD>
+		<td bordercolor="navy"><b>NURBS surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">MANIFOLD_SOLID_BREP</TD>
+		<td bordercolor="navy"><b>Solid</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">OPEN_BODY</TD>
+		<td bordercolor="navy"><b>Open solid</b>; if the open shell contains just one face, <b>Surface</b> </TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">SURFACE</TD>
+		<td bordercolor="navy"><b>Surface</b></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">NAME</TD>
+		<td bordercolor="navy"><b>Component Name</b>, if the <b>Convert Hierarchy</b> <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">COLOR</TD>
+		<td bordercolor="navy"><i>Converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy">LAYER</TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+</TABLE>
+
+<hr color="silver">
+</body>
+</html>

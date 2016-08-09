@@ -1,0 +1,486 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Sheet Metal workflow in think3</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26;margin-top:4;}
+</style>
+
+<style type="text/css">
+.littop{margin-top:1;}
+</style>
+
+<style type="text/css">
+h3{margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h1>Sheet Metal workflow in think3</h1>
+
+<p>This document explains the workflow of the Sheet Metal module in <b>think<font color="#FF0F00">3</font></b>.</p>
+
+<ul class="noleft">
+<li><a href="#SM_1"><b>Basic philosophy</b></a></li>
+
+<li><a href="#SM_2"><b>Sheet Metal Parameters</b></a></li>
+
+<li><a href="#SM_3"><b>Starting from scratch</b></a></li>
+
+<li><a href="#SM_4"><b>Starting from an existing solid</b></a></li>
+
+<li><a href="#SM_5"><b>Bend</b></a></li>
+
+<li><a href="#SM_5a"><b>Step Bend</b></a></li>
+
+<li><a href="#SM_6"><b>Thick Sheet Metal features</b></a></li>
+
+<li><a href="#SM_7"><b>Unbend and Rebend</b></a></li>
+
+<li><a href="#SM_8"><b>Reliefs</b></a></li>
+
+<li><a href="#SM_9"><b>The role of Smart Objects</b></a></li>
+
+<li><a href="#SM_10"><b>Drawing Layout</b></a></li>
+</ul>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos</i> on Sheet Metal has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8" ><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational videos on Sheet Metal here: <a href="../../tocpages/EL_SheetMetal.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Sheet Metal</b></a>.<br> Enjoy your lessons!</td></tr></table><br><br>
+
+<h3><a name="#SM_1"></a>Basic philosophy</h3>
+
+<br>
+<p class="littop">The final goal for a Sheet Metal user is to be able to design a manufacturable 3D part. In order to achieve this goal, he/she needs to "see" the part both in a flattened state (typically as a drawing to be sent to the shop floor) and as a 3D object (taking into account deformations caused by the bending process).</p>
+
+<p>The fundamental idea behind <b>think<font color="#FF0F00">3</font></b>'s Sheet Metal philosophy is that the user is not forced to follow a single predefined approach. In fact, it is possible to start from scratch or to start from an existing, possibly imported, model as well. In any case the user can mix these two approaches and will take advantage of the set of specific features and of an enlarged and powerful library of Sheet Metal specific Smart Objects.</p>
+
+<h3><a name="#SM_2"></a>Sheet Metal Parameters</h3>
+
+<br>
+<p class="littop">In order to be manufactured, a Sheet Metal part must satisfy a number of requirements that make the bending and forming process feasible.</p>
+
+<p>In particular the characteristics of the material to be bent and of the manufacturing tools have to be specified (i.e: material thickness, bend allowance, bend radius, etc.)</p>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application provides a set of global parameters (the <a href="../HWfile/IDP_SET_SHEET_METAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span></a> category of the 
+
+
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span>) that are automatically assigned to an object when the first Sheet Metal feature is created.</p>
+
+
+
+
+
+<p>Because in the <b>think<font color="#FF0F00">3</font></b> application it is possible to create models containing multiple solids it is mandatory that each solid has its own set of Sheet Metal parameters. Therefore, a <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span> Parameters page is accessible by right-clicking on the solid icon in the 
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. The page is available only if the corresponding solid has at least one Sheet Metal specific feature.</p>
+
+
+
+
+
+<h3><a name="#SM_3"></a>Starting from scratch</h3>
+
+<br>
+<p class="littop">The first step in designing a Sheet Metal part from scratch is usually one of the following two:</p>
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td></td>
+<td>Sketch a closed profile (i.e: a rectangle) and extrude it. In this case the Thickness equals the extrusion depth.</td>
+<td width="120" bordercolor="black"><img src="images/Image128.gif" width="112" height="48"></td>
+</tr>
+
+<tr valign="top">
+<td>
+<p>&nbsp;</p>
+</td>
+<td></td>
+</tr>
+
+<tr valign="top">
+<td></td>
+<td>Sketch an open profile (i.e: a L-shaped profile) and extrude it with thickness option on. In this case Thickness equals the extrusion thickness. The <a href="../FWfile/T_FW_ExtrudedSolid.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span></a> command is available to accomplish this task.</td>
+
+
+
+
+<td width="120" bordercolor="black"><img src="images/Image129.gif" width="90" height="103"></td>
+</tr>
+</table>
+
+<p>After the solid has been created using one of the two methods above, the user can add specific Sheet Metal features like <a href="../FWfile/T_FW_Flange.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span></a> and <a href="../FWfile/T_FW_SketchedBend.htm">
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6996">Sketched Bend</span></a>.<br>
+
+
+
+
+ <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> is used to add side walls while 
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6996">Sketched Bend</span> is used to explicitly add a bend to existing faces.</p>
+
+
+
+
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td width="200" bordercolor="black"><img src="images/ImageNB01.gif"></td>
+<td width="200" bordercolor="black"><img src="images/ImageNB02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span></td>
+
+
+
+
+<td><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6996">Sketched Bend</span></td>
+
+
+
+
+</tr>
+</table>
+
+<br>
+ 
+<p>The user does not generally need to specify thickness when applying Sheet Metal features: the system determines it automatically. If this is not possible a warning is displayed but it&rsquo;s anyway possible to go on with the command. In this case the user has to explicitly specify a thickness.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Inherited thickness</b>
+<br>
+This is a fundamental concept: when applying Sheet Metal features, the program will infer Thickness from the solid to which features are applied (if possible). This means that in the Sheet Metal Parameters page the thickness field will be flagged as inherited and grayed out.</td></tr></table>
+
+<br>
+<p>Each Sheet Metal feature provides a set of parameters (bend radius, k-factor, etc.) representing a subset of all the existing Sheet Metal Parameters.</p>
+
+<p>Each of the feature specific parameters can either be inherited from the solid or set locally (i.e: general bend radius for a solid could be 2, but for a given flange it could be set to 4, typically because of a different tool used to bend the flange).</p>
+
+<p>If a Sheet Metal parameter for a solid is modified, all Sheet Metal features inheriting that parameter will be updated. The Sheet Metal parameters are available in a bend table, which can be managed by using the <a href="T_OV_BTM.htm"><b><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span></b></a>. The bend radius values available in the bend table can be directly accessed and used while creating a Sheet Metal feature.</p>
+
+
+
+
+
+<h3><a name="#SM_4"></a>Starting from an existing solid</h3>
+
+<br>
+<p class="littop">Many times it&rsquo;s not possible to know in advance which manufacturing process will be used to produce a given piece. Or simply the piece could have been already designed (i.e: by subcontractor). Being able to flatten a generic solid is then a fundamental capability.</p>
+
+<p>There are two typical problems when dealing with an existing solid:</p>
+
+<ul class="noleft">
+<li>Precision. Especially if imported from external systems, the solid could be poorly designed and have a non uniform thickness, "almost" parallel faces or "almost" cylindrical roundings</li>
+
+<li>How/where to open it. A typical solid cannot be flattened. There are not enough degrees of freedom. Take a shelled box. To flatten it the side faces should be "ripped" (open). This way they will detach from each other so that they can be flattened</li>
+</ul>
+
+<p>Starting from version 8.0, <b>think<font color="#FF0F00">3</font></b> focuses on the second issue, the most common, while the first will be faced in future versions.</p>
+
+<p>The assumption is that the starting solid has a constant thickness or, if this is not the case, that a shell feature is applicable to achieve it. This assumption does not apply for some features like slots, holes and fillets.</p>
+
+<p>At this point the key feature to flatten the solid is a <a href="../FWfile/T_FW_Rip.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6995">Edge Rip</span></a>.</p>
+
+
+
+
+
+<p>All the user has to do is just to select edges where the solid has to be "opened". (<i>rip</i>)</p>
+
+<img border="1" src="images/ImageNB03.gif"> 
+
+<p>or sketch a profile that splits a face in two pieces (<a href="../FWfile/T_FW_SketchedRip.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6997">Sketched Rip</span></a>).</p>
+
+
+
+
+
+<img border="1" src="images/ImageNB04.gif"><b><br>
+<br>
+</b> 
+
+<p>In both cases a little gap will also be created.</p>
+
+<p>At this point the solid is ready to be unbent.</p>
+
+<h3><a name="#SM_5"></a><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6991">Bend</span></h3>
+
+
+
+
+
+<br>
+<p class="littop">There are cases in which it is not possible to apply the same Sheet Metal parameters to all operations (for instance when different tools are used). In these cases it&rsquo;s possible to explicitly create a <a href="../FWfile/T_FW_Bend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6991">Bend</span></a> feature assigning specific parameters.</p>
+
+
+
+
+
+<p>Bend features can be applied to sharp edges and fillets.</p>
+
+<p><img border="1" src="images/ImageNB10.gif"></p>
+
+<h3><a name="#SM_5a"></a><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span></h3>
+
+
+
+
+
+<br>
+<p class="littop">There are cases in which it is not possible create a rolled Sheet Metal due to manufacturing constraints. In Such a situation the rolled portion of the sheet metal can be converted into a series of bends. These bends are called <a href="../FWfile/T_FW_Step_Bend.htm"><b><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span></b></a>.</p>
+
+
+
+
+
+<p><img src="../../../images/sheetmetal/step_bend_OV.gif" border="1"></p>
+
+<h3><a name="#SM_6"></a>Thick Sheet Metal Features</h3>
+
+<br>
+<p class="littop">Features like slots, holes, chamfers and fillets on the Sheet Metal that defy the "uniform thickness rule" are defined as Thick Sheet Metal Features (TSMF). You can view the TSMF below:</p>
+
+<p><img border="1" src="../../../images/sheetmetal/usecases/TSMF_15.gif"></p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<ul class="noleft">
+<li>Adding bends to existing fillets/sharp edges before adding TSMF (chamfers/slots/holes) is mandatory.</li>
+
+<li>None of TSMF should disturb the bend region except slots/chamfers along entire side face edge.</li>
+
+<li>Normal side face option may not work as expected in TSMF cases.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h3><a name="#SM_7"></a><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> &amp; 
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6993">Rebend</span></h3>
+
+
+
+
+
+<br>
+<p class="littop">Whatever the approach used to build the part, sooner or later it will have to be flattened, thus providing a visual check on how the sheet metal will be cut, if there are any outstanding issues (for example: a wrongly shaped or too small/big relief) and, what is most important, enabling to add additional features while the model is flat (for example: a slot across a bend) to verify later what the result after the bending operation will be.</p>
+
+<p>The <a href="../FWfile/T_FW_Unbend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span></a> feature enables to flatten the whole object of just a part of it (<i>global unbend</i>, <i>local unbend</i>). There is no need to add fillets or explicit bends (see below) in order to unbend an object. Models with sharp edges can immediately be unbent.</p>
+
+
+
+
+
+<p>Sharp edges are unbent inheriting Sheet Metal parameters (relief type, k-factor, etc.) from the solid.</p>
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td bordercolor="black"><img src="images/ImageNB05.gif"></td>
+<td bordercolor="black"><img src="images/ImageNB06.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><i>Unbend flange</i></td>
+<td><i>Unbend rip (sharp edges)</i></td>
+</tr>
+</table>
+
+<p class="notop">When an object is (globally or partially) unbent it is then possible to re-bend it. As it is the case when applying an unbend, the <a href="../FWfile/T_FW_Rebend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6993">Rebend</span></a> feature can be either global or local.</p>
+
+
+
+
+
+<img border="1" src="images/ImageNB07.gif"><br>
+<i>Rebend rip</i> 
+
+<p>Standard and specific SM features can be added while the model is flattened. For instance a hole can be cut across a flattened bend and then a rebend feature applied.</p>
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td bordercolor="black"><img src="images/ImageNB08.gif"></td>
+<td bordercolor="black"><img src="images/ImageNB09.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><i>Hole across bend</i></td>
+<td><i>Rebend</i></td>
+</tr>
+</table>
+
+<h3><a name="#SM_8"></a>Reliefs</h3>
+
+<br>
+<p class="littop">Under certain conditions, bending operations can undesirably stretch or even break a piece of sheet metal. To avoid these problems, different kinds of reliefs are used. The <b>think<font color="#FF0F00">3</font></b> application enables the user to specify if and which kind of bend and corner relief must be applied.</p>
+
+<p>Bend relief is typically used between two surfaces, typically with flanges, while corner relief is used when three or more faces meet at a vertex.</p>
+
+<p>Reliefs are not individual features. They are "parameters" of Sheet Metal features like bend, flange, etc.</p>
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td bordercolor="black"><img src="images/ImageNB100.gif"></td>
+<td bordercolor="black"><img src="images/ImageNB101.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><i>Bend relief</i></td>
+<td><i>Corner relief</i></td>
+</tr>
+</table>
+
+<p>Note that a corner relief like result can also be obtained using the <a href="../FWfile/T_FW_CloseCorner.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6994">Close Corner</span></a> feature:</p>
+
+
+
+
+
+<p><img border="1" src="images/ImageNB12.gif"><br>
+<i>Close corner</i></p>
+
+<h3><a name="#SM_9"></a>The role of Smart Objects</h3>
+
+<br>
+<p class="littop">Smart Objects play a fundamental role in <b>think<font color="#FF0F00">3</font></b> Sheet Metal solution. They are used both to support forming operations and to extend basic Sheet Metal features, building new functionalities on top of standard features like flange or bend.</p>
+
+<p>Sheet Metal Smart Objects inherit all relevant parameters (thickness, bend radius, etc&hellip;) from the object they are applied to.</p>
+
+<p><b><i>Forming operations</i></b></p>
+
+<p>In addition to being bent, Sheet Metal objects can also be stretched or formed using specific tools.</p>
+
+<p><b>think<font color="#FF0F00">3</font></b> provides the following forming Smart Objects:</p>
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td bordercolor="black"><img src="images/Louver.gif"></td>
+<td bordercolor="black"><img src="images/Dimple.gif"></td>
+<td bordercolor="black"><img src="images/Cutout.gif"></td>
+<td bordercolor="black"><img src="images/Bead.gif"></td>
+<td bordercolor="black"><img src="images/Lance.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><i>Louver</i></td>
+<td><i>Dimple</i></td>
+<td><i>Cutout</i></td>
+<td><i>Bead</i></td>
+<td><i>Lance</i></td>
+</tr>
+</table>
+
+<p><b><i>Extending standard Sheet Metal features</i></b></p>
+
+<p>A number of useful Sheet Metal features are obtained as extension/specialization of the standard set available.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Creating customized Sheet Metal Smart Objects</b> 
+
+<p>You are enabled to create your own customized Sheet Metal Smart Objects. The ones shipped with <b>think<font color="#FF0F00">3</font></b> are just examples. You can easily use them as "templates" to create your own ones. If you right-click on a Sheet Metal Smart Object in the <a href="mk:@MSITStore:help.chm::/language/SmartObjects/HWfile/T_HW_sobj03.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6172">Smart Object</span> palette</a> and select 
+
+
+
+<span class="UI_OPTION" id="ContextMenu_Palette.msg+ContextMenu_Palette+6720">Properties</span>, in the 
+
+
+
+<span class="UI_OPTION" id="idp_pl_preview.msg+idp_pl_preview+1">Preview &amp; Description</span> tab you will find the model used to create the Smart Object. You can use the model both to see how the Smart Object was created and to create a new one by customizing it as you like.</p>
+
+
+
+
+</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p><i>Hem</i> is a typical example (for details about all the available hems, see the description of the <a href="../FWfile/T_FW_Hem.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7137">Hem</span></a> command). It is a flange with a fixed angle of 180&deg;. It can be very useful, as it prevents you from having to redefine the 180&deg; angle every time.</p>
+
+
+
+
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td bordercolor="black"><img src="images/ImageNB102.gif"></td>
+<td bordercolor="black"><img src="images/ImageNB103.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><i>Hem</i></td>
+<td><i>Tab flange</i></td>
+</tr>
+</table>
+
+<p>Sheet Metal Smart Objects enabling you to perform the closure between two different pieces are also available.</p>
+
+<h3><a name="#SM_10"></a>Drawing Layout</h3>
+
+<br>
+<p>To obtain a flat pattern drawing of the Sheet Metal part, the <b>think<font color="#FF0F00">3</font></b> application offers a new type of view: <a href="../FWfile/T_FW_FlatPatternView.htm"><span class="UI_OPTION" id="ButtonToolbar_DrawingViews.msg+ButtonToolbar_DrawingViews+6891">Flat Pattern View</span></a>. This view creates a flattened drawing irrespectively of the model state (model could also be in bend state).</p>
+
+
+<p>Sheet Metal drawings can optionally show bend lines and textual information associated to each bend line (angle, bend direction, etc.). See the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DVPS_SHEETMETAL.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span>- 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+725">Flat Pattern</span></a> category page of 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> for further details).</p>
+
+<img border="1" src="images/ImageNB15.gif"> 
+
+<p>Relief lines can optionally be removed from the drawing.</p>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

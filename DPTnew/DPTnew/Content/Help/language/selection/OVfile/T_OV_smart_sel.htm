@@ -1,0 +1,106 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Smart selection commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft {margin-top:0; margin-left:22;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Smart selection commands</h2>
+
+<p>In addition to the multiple selection operators, the program features several smart selection commands that enable selection of entities based on the context of the active command.<br>
+<br>
+The main differences of smart selection commands from the multiple selection operators are:</p>
+
+<ul class="noleft">
+<li>Smart selection commands are available only for certain commands<br>
+</li>
+
+<li>Smart selection commands are available only on post selection mode while the multiple selection operators can be in post or pre-selection modes<br>
+</li>
+</ul>
+
+<p>To select these commands, right-click to display the context-sensitive menu, and then choose <b>Select</b> to display a list of commands. Alternatively, you can customize your toolbar to include these commands, so that you can use them when they turn active (due to the use of a supported command).</p>
+
+<p>Smart selection commands that enable selection of entities based on their significance &nbsp;&#151;&nbsp; that is, selection of entities that are somehow related (geometrically, topologically, associatively, etc.) &nbsp;&#151;&nbsp; are as follows:</p>
+
+<table cellpadding="12" border="0">
+<tr valign="top">
+<td valign="top"><a href="../FWfile/T_FW_Contour.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span> command enables you to make curve selection as the contour of a face. You can decide whether to include <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+8">All Contours</span> or just the <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+10">Internal Contours</span> or the <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+9">External Contour</span> in the selection.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top"><a href="../FWfile/T_FW_loop.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7867">Loop</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7867">Loop</span> enables you to make curve selection in form of edges forming a loop.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../FWfile/T_FW_loop_from_to.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7893">From-To Loop</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7893">From-To Loop</span> command enables you to select only a portion of the loop formed by a set of edges. You need to select two edges of the loop that will act as the start and end edges. All the edges lying in-between the two selected edges will automatically get selected.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../FWfile/T_FW_tangent_chain.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7895">Tangent Chain</span></a></td>
+<td>On making use of <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7895">Tangent Chain</span> command you need to select only one edge and all other edges forming a tangential chain with your selection are automatically selected.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../FWfile/T_FW_propagated_faces.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7894">Propagated Faces</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7894">Propagated Faces</span> command enables you to make selection of faces in a group that propagate from one another. You just need to select a face and all the faces that propagate from the selection automatically get selected. You also have an option to select a stop face; it represents a boundary that stops the selection propagation.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../FWfile/T_FW_tangent.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7869">Tangent Faces</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7869">Tangent Faces</span> command enables you to make selection of faces in a group that are tangent to one another. You just need to select a face and all the faces that tangentially propagate from the selection automatically get selected.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top"><a href="../FWfile/T_FW_sibling.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7868">Siblings</span></a></td>
+<td>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7868">Siblings</span> command enables you to select all the siblings created by the same command. Siblings are the entities created as a result of multiple events, such as isoparametric or boundary curves.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top"><a href="..\FWfile\T_FW_CreaseAngle.htm"><b>Crease Angle</b></a></td>
+<td>The <b>Crease Angle</b> command enables you to make mesh facet selection using as criteria the angle between the normal of the picked facet and the normal of the other facets of the mesh.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top"><a href="..\FWfile\T_FW_GeodesicDistance.htm"><b>Geodesic Distance</b></a></td>
+<td>The <b>Geodesic Distance</b> command enables you to make mesh facet selection using as criteria the distance between the picked point on the facet and the other facets of the mesh.</td>
+</tr>
+
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_basic03.htm"><b>Multiple selection operators</b></a></li>
+
+<li><a href="T_OV_basic01.htm"><b>Selection and Preselection</b></a></li>
+
+<li><a href="T_OV_basic02.htm"><b>Clicking on entities</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

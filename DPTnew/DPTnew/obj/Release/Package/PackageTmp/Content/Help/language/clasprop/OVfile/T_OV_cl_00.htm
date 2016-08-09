@@ -1,0 +1,227 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="internally">
+<meta name="BelongsTo" content="TDD">
+<title>Classes and properties</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+ #docframe  
+{
+   width : 400;
+  height : 500;
+}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26;margin-top:0}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();">
+
+
+<h3>Classes and properties</h3>
+
+<p>In several applications, it may be necessary to associate alphanumeric information to the <SPAN id="TWOD">model/</SPAN>drawing or parts of the drawing<SPAN id="TWOD">/model (solids, simple entities)</SPAN>. For this purpose, the application has non-graphic entities (strings, integers or real numbers) which can be associated to the <SPAN id="TWOD">model/</SPAN>drawing or to <SPAN id="TWOD">component </SPAN>entities: these are the <i>properties</i> (<b>UDP=User Defined Property</b>).</p>
+
+<ul class="noleft">
+<li>A property may only exist in relation to an entity of the <SPAN id="TWOD">model/</SPAN>drawing or to the <SPAN id="TWOD">model/</SPAN>drawing itself. If you delete the entities to which the property is associated, you also delete the property.</li>
+
+<li>You can use the program to create and view the properties associated to the <SPAN id="TWOD">model/</SPAN>drawing or to entities; you can also display the content by inserting <i>symbolic text</i>.</li>
+
+<li>To use a property, you must specify its characteristics by creating the relative <i>property class</i> (<b>UDC=User Defined Class</b>).</li>
+
+<li>Several different property classes can be associated to every entity, but only one property of a certain class can be associated to that entity.</li>
+</ul>
+
+<p>This section describes:</p>
+
+<ul class="noleft">
+<li><a href="#Classes"><b>Property classes</b></a></li>
+
+<li><a href="#Names"><b>Rules for class names</b></a></li>
+
+<li><a href="#Empty_classes"><b>Empty classes</b></a></li>
+
+<li><a href="#functioning"><b>Functioning and commands</b></a></li>
+
+<li><a href="#Importing_models"><b>Importing <SPAN id="TWOD">models</SPAN><SPAN id="HIDETD">drawings</SPAN> and properties</b></a></li>
+
+<li><a href="#Symbolic_annotations"><b>How to display the properties</b></a></li>
+</ul>
+
+<br>
+<a name="Classes"></a>
+<h4>Property classes</h4>
+
+<p>The property class identifies the set of characteristics of the properties to be assigned. A property class is defined by:</p>
+
+<ul class="noleft">
+<li><i>an unambiguous name.</i></li>
+
+<li><i>the type of property</i> (characters, integers, real numbers).</li>
+
+<li><i>the maximum number of elements</i> (dimensions).</li>
+
+<li><i>the assignability characteristics</i> of the property, that is, the possibility of being assigned to the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN><SPAN id="TWOD">, to a solid</SPAN> or to a general entity.</li>
+
+<li><i>the protections</i> for reading, writing and deleting the class and/or property, once it has been assigned.</li>
+</ul>
+
+<p>The definition of a property class makes it possible to assign properties belonging to the class defined, whose content matches the type specified.</p>
+
+<br>
+<a name="Names"></a>
+<h4>Names of the property classes</h4>
+
+<p>The names of the property classes are subject to the following conventions:</p>
+
+<ul class="noleft">
+<li>maximum length 128 characters.</li>
+
+<li>the first character must NOT be a number.</li>
+
+<li>the rest of the characters may be letters, numbers or the <b>-</b> (minus), <b>_</b> (underscore) and <b>$</b> (dollar) characters.</li>
+</ul>
+
+<p>The letters contained in the name are converted by the program to uppercase. Therefore, in all the application output (lists and global variables), the name of a property class or a property is in uppercase.</p>
+
+<br>
+<a name="Empty_classes"></a>
+<h4>Empty classes</h4>
+
+<p>When there is no property associated to an entity or the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> for a defined property class, the class is said to be <i>empty</i>. Deletion and some types of modification of a class may only be performed if the class is empty; for example, changing the type of a class when properties are already assigned could cause problems.</p>
+
+<br>
+<a name="functioning"></a>
+<h4>Functioning</h4>
+
+<p>Association of properties to the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> or parts of the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> requires the following:</p>
+
+<ol class="litleft">
+<li>define the corresponding property class.</li>
+
+<li>assign the properties by associating them to the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> or to one or more parts of the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> and assigning values.</li>
+</ol>
+
+<p>For example, to assign the codes to the parts of a <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN>, a "code" class with the appropriate characteristics must be defined (which, in the majority of cases, may be an alphanumeric - string -<SPAN id="TWOD">, which can only be assigned to solids</SPAN>).</p>
+
+<p>The operations for the property and the class require the following commands:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/clasprop/cl_01.bmp"></td>
+<td><a href="../FWfile/T_FW_cl_01.htm"><b>Create UDC</b></a></td>
+<td>Defines a new property class</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/clasprop/cl_02.bmp"></td>
+<td><a href="../FWfile/T_FW_cl_02.htm"><b>Modify UDC</b></a></td>
+<td>Modifies a property class</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/clasprop/cl_03.bmp"></td>
+<td><a href="../FWfile/T_FW_cl_03.htm"><b>Delete UDC</b></a></td>
+<td>Deletes a property class</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/clasprop/cl_04.bmp"> </td>
+<td><a href="../FWfile/T_FW_cl_04.htm"><b>Assign UDP</b></a></td>
+<td>Assigns a property to an entity or to the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN></td>
+</tr>
+
+<tr>
+<td><img src="../../../images/clasprop/cl_05.bmp"></td>
+<td><a href="../FWfile/T_FW_cl_05.htm"><b>Modify UDP</b></a></td>
+<td>Modifies the value of a property already assigned to an entity.</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/clasprop/cl_06.bmp"></td>
+<td><a href="../FWfile/T_FW_cl_06.htm"><b>Delete UDP</b></a></td>
+<td>Deletes the assigning of a property to an entity</td>
+</tr>
+</table>
+
+<p>In addition to the above commands, to control UDCs and UDPs of the <SPAN id="TWOD">model/</SPAN>drawing itself, see also:</p>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_create_UDC.htm">How to create a UDC and assign the corresponding UDP to the <SPAN id="TWOD">model/</SPAN>drawing</a></li>
+
+<li><a href="../HWfile/T_HW_delete_UDC.htm">How to delete a UDC, removing its assignment from the <SPAN id="TWOD">model/</SPAN>drawing</a></li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<br>
+Copies of objects do NOT maintain the properties assigned to the original.<SPAN id="TWOD"> Furthermore, if features are added to a solid, the previously assigned properties are deleted.</SPAN></td>
+</tr>
+</table>
+
+<br>
+<br>
+<a name="Importing_models"></a>
+<h4>Importing <SPAN id="TWOD">models</SPAN><SPAN id="HIDETD">drawings</SPAN> and properties</h4>
+
+<p>If another <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> contained in a file is imported to the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN>, the non-empty classes and the relative properties are also imported. The application manages problems of incompatibility between classes with the same name in the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> and the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> you want to import.</p>
+
+<p>Two classes are considered to be incompatible if:</p>
+
+<ul class="noleft">
+<li>they have the same name, but are different types.</li>
+
+<li>they have the same name and are the same type, when the class you want to import has a maximum number of elements which is higher than that in the corresponding class of the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN>.</li>
+</ul>
+
+<p>In the event of incompatibility, the program automatically modifies the name of the class to be imported, adding a suffix consisting of the "<b>_</b>" character and a sequence number (from 1 to 100).</p>
+
+<p>For example, a Character CODE class is defined in the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN>. An Integer CODE class is defined in the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> you want to import. It will be imported with the name CODE_1.</p>
+
+<p>If the properties of the imported <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> have the same name as those in the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> but they are not incompatible, the properties imported may be referred to classes which are slightly different from the original ones, in terms of assignability and protections. The values assigned, however, will be maintained.</p>
+
+<p>For example, the C CODE is defined in the current <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN>, assignable to all but not to the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> as a whole. A C CODE is also defined in the <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> to be imported, also assignable to all. After the import, all the CODE properties assigned to any entities of the imported <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> are maintained while any properties assigned to the imported <SPAN id="TWOD">model</SPAN><SPAN id="HIDETD">drawing</SPAN> as a whole are lost.<br>
+<br>
+</p>
+
+<br>
+<a name="Symbolic_annotations"></a>
+<h4>How to display the properties</h4>
+
+<p>A set of symbolic notations (see "<b>Symbolic text</b>") can be used within text and dimensions to display the property values.</p>
+
+<p>For example, to display the value of a property assigned to an entity in a label, use the symbolic text <b>$QS{</b><i>property_name</i><b>}</b>. If a CODE property is defined, you can add the text $QS{CODE} in the label to display the CODE value:</p>
+
+<SPAN id="TWOD"><p><img src="../../../images/clasprop/cli01_00.gif"><br>
+<br>
+You can try to obtain the example above by opening the file called cl_01_06.e3 and adding the label $QS{CODE}.</p></SPAN>
+
+<p>Similarly, you can use the symbolic text <b>$M{</b><i>property_name</i><b>}</b> to display the value of a property assigned to the <SPAN id="TWOD">model/</SPAN>drawing.</p>
+
+<hr color="silver">
+</body>
+</html>

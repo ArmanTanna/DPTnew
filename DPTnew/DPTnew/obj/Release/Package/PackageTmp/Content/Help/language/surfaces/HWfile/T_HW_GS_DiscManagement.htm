@@ -1,0 +1,103 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using the discontinuity management options of the Global Sweep command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Using the discontinuity management options of the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command</h2>
+
+
+<p style="margin-bottom: 5px;">When using the <a href="../FWfile/T_FW_GlobalSweep.htm#Match"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a> command, a warning is displayed at each location where the <i>motion</i> is not continuous (there may be cases where, though the drive is only G0 at a certain location, the selected 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is such that the resulting motion is continuous).</p>
+
+
+<table cellpadding="5%">
+<tr valign="top">
+<td><img border="1" src="../images/GS_DISCMOT01.gif"></td>
+<td>In this case, the drive contour is G0 at the highlighted location. The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is set to 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+15">Along one plane</span> and the resulting motion is not continuous. Then the warning is displayed.</td>
+
+</tr>
+
+<tr valign="top">
+<td><img border="1" src="../../../images/surfaces/GS_DISCMOT02.gif"></td>
+<td>If the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is set to 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+10">Constant</span>, then the resulting motion is continuous, notwithstanding the G0 discontinuity at the highlighted location. Hence, no warning is displayed.</td>
+
+</tr>
+
+<tr valign="top">
+<td><img border="1" src="../images/GS_DISCMOT03.gif"></td>
+<td>In this case, though just for 0.2&ordm;, the drive contour is not G1, but just G0, at the highlighted location. If the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is set to 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+15">Along one plane</span> a transition is performed and the warning is displayed.</td>
+
+</tr>
+</table>
+
+<p>As you can see, the warning can be useful to detect discontinuities even when they can be unexpected, like in this case.</p>
+
+<p>When the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+32">Position of Section</span> handle is dragged <i>just upon</i> a discontinuity, there are actually three possible ways to position the section (on the discontinuity, on the left or on the right). Hence, a context menu can be displayed by right-clicking on the 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+32">Position of Section</span> handle.</p>
+
+
+<table style="margin-bottom:5">
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+36">Link to both transition sides</span></td>
+
+<td>Perform the transition considering the actual section curve you have selected.</td>
+<td><img border="1" src="../images/GS_CM01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+37">Link to left transition side</span></td>
+
+<td>Perform the transition considering the section as lying <i>before</i> (on the left of) the discontinuity.</td>
+<td><img border="1" src="../images/GS_CM02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+38">Link to right transition side</span></td>
+
+<td>Perform the transition considering the section as lying after (on the right of) the discontinuity.</td>
+<td><img border="1" src="../images/GS_CM03.gif"></td>
+</tr>
+</table>
+
+<p>Please note that if the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+32">Position of Section</span> handle is <i>close</i> to the discontinuity but <i>not just on</i> it, then the same context menu is displayed, but no check box is available on it. If you choose one of the options, the 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+32">Position of Section</span> handle will be positioned exactly on the discontinuity.</p>
+
+<hr color="silver">
+</body>
+</html>
+

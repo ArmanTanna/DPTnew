@@ -1,0 +1,111 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Drag&amp;Drop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<h2><a name="ol_hw_04"></a>Drag &amp; Drop</h2>
+
+<p>You can move or copy one or more objects just using the mouse just by dragging and dropping them.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Selecting the origin of the drag operation</b> <br>
+When selecting a set of entities for a <i>Drag &amp; Drop</i> operation, the origin point used to drag the entities will be: 
+
+<ul class="noleft" style="margin-bottom:0">
+<li>A special point, if you click close enough to it&nbsp;&#151;&nbsp;i.e: inside its <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_SNAP.htm"><b>Snap trap</b></a>.</li>
+
+<li>The closest end point, mid point or center point, if you click outside the trap of all existing special points (and the <b>Point on Curve</b> snap is not set in the <a href="mk:@MSITStore:selsna.chm::/language/snap/FWfile/T_FW_to_14_11.htm"><b>Customize AutoSnap</b></a> dialog box), unless the selected entity is a component, in which case any point you may have clicked will be used as the origin, no matter where it is.</li>
+
+<li style="list-style: none">Therefore, in order to select a special point, click very close to it.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>You can proceed as follows.</p>
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Click on the object with the left mouse button (you can use it for both 2D<span id="TWOD">/3D</span> objects and text). You can also snap to a special point of the object.<br>
+<br>
+<img border="1" src="../../../images/ole/oli03_04.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Hold down the mouse button and drag the object to the new position.<br>
+<br>
+<img border="1" src="../../../images/ole/oli04_04.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Release the mouse button to drop the object in the new position<span id="TWOD">: mind that unless you snap to a special point, the drop position you indicate is always projected onto the Work Plane</span>.<br>
+<br>
+<img border="1" src="../../../images/ole/oli05_04.gif"><br>
+<br>
+The drop action can be done in the following three different ways: 
+
+<ul class="noleft">
+<li>If you are not holding down any other key on the keyboard when you release the mouse button, the object is moved (if you drop it in the same document) or copied (if you drop it in another document).</li>
+
+<li>If you hold down the <b>CTRL</b> key, the entity&nbsp;&#151;&nbsp;except variation profiles&nbsp;&#151;&nbsp;is copied before you release the mouse button. This copy is linked to the original entity and is created without the drive dimensions (if any) of the original.</li>
+
+<li>If you hold down the <b>CTRL</b> and <b>SHIFT</b> keys, the entity is copied before you release the mouse button, but, in this case, the copy is not linked in any way to the original entity.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+The positioned or constrained parts when moved using drag &amp; drop is visualized in <span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+207">Shaded View</span>.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li style="list-style: none"><span id="TWOD"></span></li>
+
+<li><a href="T_HW_CollisionDetection.htm"><strong>Collision detection during drag &amp; drop</strong></a></li>
+
+<li><a href="T_HW_ol_04_CopyAndPaste.htm"><b>Copying and pasting an object using Drag &amp; Drop</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

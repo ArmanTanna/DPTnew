@@ -1,0 +1,96 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Warnings of the Capping command related to incompatibilities</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel=stylesheet type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+.notop{margin-top:0;}
+.nobottom{margin-bottom:0;}
+.notopbot{margin-top:0;margin-bottom:0;}
+</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<A name=top></A>
+<H3>Warnings of the Capping command related to incompatibilities</H3>
+<p class="nobottom">The <a  href="../FWfile/T_FW_Capping.htm"><b>Capping</b></a> command performs compatibility checks for tangency, curvature and position continuity among the existing constraints.<br>
+When an incompatibility is detected, an appropriate warning is displayed. In such situations, as there is an actual mathematical incompatibility, in order to obtain an acceptable result, it's not possible to indicate a general strategy. Generally, you just have two alternatives:</p>
+<ul class="noleft">
+<li>Modify the geometry so that the incompatibility conditions are removed from the points where the issues occur</li>
+<li>If possible, apply lighter constraints (for example, if you are applying curvature continuity, apply only tangency continuity, etc.).</li>
+</ul>
+<p style="margin-bottom:5px;">See below some typical incompatibility situations.</p>
+<ul class="noleft">
+<li><a href="#tangency">Compatibility check for tangency continuity</a></li>
+<li><a href="#curvature">Compatibility check for curvature continuity</a></li>
+<li><a href="#position">Compatibility check for position continuity</a></li>
+</ul>
+<br>
+<h5><a name="tangency"></a>Compatibility check for tangency continuity<hr color="silver"></h5>
+<p class="notopbot">An <i>incompatibility in tangency</i> occurs whenever two curves used as constraints meet at a point where they have different tangent planes.<br><br>
+The picture below displays an incompatibility between the blue surfaces. The two red arrows show the normal vectors of the tangent planes at the common point. As you can see they are not collinear.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/CappingIncompatibilityTangency.gif"><BR><BR>
+If you start the <b>Capping</b> command, select the three curves as in the following picture and set the <b>Constraint</b> to <b>Position + tangent</b>:
+<BR><BR><IMG border=1 SRC="../images/cap-inco-01.gif"><BR><BR>
+after asking for a preview ( <IMG align="absmiddle" SRC="../../../images/general/preview.gif"> ) the <b>Show Warnings</b> button ( <IMG align="absmiddle" SRC="../../../images/general/warnings_on_new.gif"> ) is displayed. If you click it, the following warning will be displayed:
+<BR><BR><IMG border=1 SRC="../images/cap-inco-02.gif"><BR><BR>
+When such a warning is displayed, to obtain an acceptable result beyond the mathematical incompatibility you can modify the involved geometry in order to remove the critical situations or apply lighter constraints. For example, if you apply only <b>Position</b> continuity to the above model, you will get a clean result with no warnings.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/CappinWa01.gif"><BR>&nbsp;<BR>
+
+<h5><a name="curvature"></a>Compatibility check for curvature continuity<hr color="silver"></h5>
+<p class="notopbot">An <i>incompatibility in curvature</i> occurs at the point where two curves having different curvatures meet. <br><br>
+In the following picture, there are two points of incompatibility in curvature (in yellow). It's easy to see that the curvatures of the cylinders are not the same, even if there is no incompatibility in tangency at these points, since there is a common tangent plane.<BR><BR><IMG border=1 SRC="../../../images/surfaces/CappingIncompatibilityCurvature.gif"><BR><BR>
+If you start the <b>Capping</b> command, select the three curves as in the following picture as <b>Group 1</b> setting the <b>Constraint</b> to <b>Position + tangent + curvature</b>, and the fourth curve as <b>Group 2</b> with the <b>Constraint</b> set to <b>Position</b>:
+<BR><BR><IMG border=1 SRC="../images/cap-inco-03.gif"><BR><BR>
+after asking for a preview ( <IMG align="absmiddle" SRC="../../../images/general/preview.gif"> ) the <b>Show Warnings</b> button ( <IMG align="absmiddle" SRC="../../../images/general/warnings_on_new.gif"> ) is displayed. If you click it, the following warning will be displayed:
+<BR><BR><IMG border=1 SRC="../images/cap-inco-04a.gif"><BR><BR>
+When such a warning is displayed, to obtain an acceptable result beyond the mathematical incompatibility you can modify the involved geometry in order to remove the critical situations or apply lighter constraints.
+<BR>&nbsp;<BR>
+<h5><a name="position"></a>Compatibility check for position continuity<hr color="silver"></h5>
+<p class="notopbot">An <i>incompatibility in position</i> occurs when two different points of two constraints have a common projection point onto the initial shape.<br>
+<br>Here are some typical situations in which an incompatibility in position occurs.
+<p>In the case of a <i>grid of curves</i>, like in the following example, suppose the blue curves are selected as <b>Constraint Boundaries</b> and the brown curves are selected as <b>Constraint Internal Curves</b>.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/NW01.gif"><BR><BR>
+What you get after asking for a preview ( <IMG align="absmiddle" SRC="../../../images/general/preview.gif"> ) and clicking the <b>Show Warnings</b> button ( <IMG align="absmiddle" SRC="../../../images/general/warnings_on_new.gif"> ) is the following warning:
+<BR><BR><IMG border=1 SRC="../images/NWlast.gif"><BR><BR>
+As you can see in the picture below, even if the initial curves do not intersect, their projections on the initial shape do, and this generates the incompatibility situation.
+<BR><BR><IMG SRC="../../../images/surfaces/NW02.gif"><BR><BR><br><br>
+Another critical situation is when there is <i>incompatibility between boundary and internal curves</i>, like in the following model.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/CAP-Bou-01.gif"><BR><BR>
+The black curve does not intersect the green one, but their projections on the initial shape coincide.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/Bou99.gif"><BR><BR>
+So, if you select the green curves as boundaries and the black one as internal constraints, indicate an initial single curvature shape using the blue line as the axis, you will get the following warning:
+<BR><BR><IMG border=1 SRC="../images/CAP-Bou-02.gif"><BR><BR><br><br>
+Finally, there are situations in which an incompatibility in position can occur only when just one curve is involved. <i>If there is a silhouette in the direction of projection</i>, different points may have the same projection onto the initial shape.<br>
+In the model of the following example, suppose you select the blue curve as a boundary constraint and the brown one as an internal constraint. 
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/L-Sil01.gif"><BR><BR>
+The warning you will get is the following:
+<BR><BR><IMG border=1 SRC="../images/L-Sil02.gif"><BR><BR>
+In fact, the two black points in the picture below are the silhouette points of the curve in the direction of projection. <BR><BR><IMG border=1 SRC="../../../images/surfaces/L-Sil03.gif"><br><br>
+In the neighborhood of the silhouette points, you can find a lot of couples of points having the same projection onto the initial surface (in the example, the three red points have the same projection).
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/L-Sil04.gif">
+
+<hr color="silver">
+</body>
+</HTML>

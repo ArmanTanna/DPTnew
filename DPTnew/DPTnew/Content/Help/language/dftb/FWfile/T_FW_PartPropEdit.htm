@@ -1,0 +1,181 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(81,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- <meta name="Author" content="Marco Springhetti">
+<meta name="Revisor" content="Chitti Sowjanya"> -->
+<meta name="Revisor" content="Nicola Binaghi">
+<meta name="2016t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Edit (Part Properties)</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- Error handler removed 03 June 2014 -->
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span><img alt="" src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="idd_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span><img alt="" src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span> command enables you to edit the selected component Part Properties.</p>
+
+<table border="0" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="" style="margin-top: 5px;">
+<tr valign="top">
+<td colspan="2">The command selection list features the following option:</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+33">Component</span></td>
+<td>This selector enables you to select the component of which you wish to edit the Part Properties.</td>
+</tr>
+</table>
+
+<p>When you select the component, the program displays a dialog box that enables you to edit the Part Properties of the selected component. You can customize the part properties using the <a href="mk:@MSITStore:XMLEditor.chm::/language/XMLEditor/XMLEditor.htm"><b>XMLEditor</b></a> tool. However, you can also <a href="T_FW_PartPropertiesTab.htm#cust">customize part descriptions</a> bearing &lt;&gt; symbol as postfix from the dictionary.</p>
+
+<p>The <span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span> area collects the actual Part Data fields. Refer to <a href="T_FW_PartPropertiesTab.htm">Part Properties Tab of the File Properties Dialog Box</a> for details on how to use these controls.</p>
+
+<p>The command dialog box also enables you to execute the following commands:</p>
+
+<ul class="noleft" style="margin-bottom: 0px; margin-top: 0px;">
+<li><span class="UI_COMMAND" id="idd_edit_partdata.msg+idd_edit_partdata+14">OK</span><br>
+To close the dialog box applying your changes.</li>
+
+<li><span class="UI_COMMAND" id="idd_edit_partdata.msg+idd_edit_partdata+15">Cancel</span><br>
+To close the dialog box discarding your changes.</li>
+
+<li><span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+16">Remove</span><br>
+To clear all fields.</li>
+</ul>
+<h4 style="margin-bottom:0;">Other Important Features</h4>
+<ul class="noleft" style="margin-top:0";>
+<li><a href="#CMENU">Availability from the
+context menu in the Part List Editor table</a></li>
+<li><a href="#CBS">Add custom properties shown as check
+boxes</a></li>
+<li><a href="#Differentiate">Differentiate the hidden and unhidden
+components rows in the Part List Editor table</a></li>
+<li><a href="#Restrict">Restrict user to enter only specific data
+type while editing the cells in the Part List Editor table</a></li>
+<li><a href="#FINAL">Other features</a></li>
+</ul>
+
+
+<p style="margin-bottom:0;"><b><a name="CMENU"></a>Availability from the context menu in the Part List Editor table</span></b></p>
+
+<p style="margin-top:0;">It is possible to launch the <b>Edit Part Data</b> command  from the context menu <b>Edit
+Part Properties</b> option of the Part List Editor table. It will be shown in the
+context menu upon selection of only one row. <br>On closure of the <b>Part
+Data</b> dialog, the part list is updated. </span></p>
+
+
+
+<p><img border=1 width=602 height=351
+id="Picture 2" src="Partlist_files/image001.jpg" alt=EditPartData.png></p>
+<!--  -->
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-IN>&nbsp;</span></p>
+
+<p style="margin-bottom:0;"><b><a name="CBS"></a>Add custom
+properties shown as check boxes</b></p>
+
+<p style="margin-top:0;margin-bottom:0;">Data properties could of Integer, Text and Real data types and, if a new
+custom properties named like “<b><i>anyname</i>_BOOL</b>” is added and its data
+type is Integer, we internally consider it as <i>Boolean</i> in the Part List Editor. 
+<br>This property will
+be shown as check-box in the part list editor. If the value of the property is
+0, then the check box in Part List for that component will be unchecked, else
+checked.<br>Example: </p>
+
+<p style="margin-top:0;margin-bottom:0;">Here a user wants
+to create a new property called IGNOREINBOM_BOOL, which has to be shown as
+Check Box in part list.<br><br></p>
+
+<p style="margin-top:0;margin-bottom:2;"><img border=1 width=464 height=549
+id="Picture 0" src="Partlist_files/image002.jpg" alt="Custom Property.png"></p>
+
+<p style="margin-top:0;margin-bottom:2;"><img border=1 width=602 height=344
+id="Picture 4" src="Partlist_files/image003.jpg" alt="PartList Options.png"><br></p>
+
+<p style="margin-top:0;margin-bottom:2;"><img border=1 width=602 height=253
+id="Picture 5" src="Partlist_files/image004.jpg" alt=checkboxAsValue.png></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-IN>&nbsp;</span></p>
+
+<p style="margin-top:0;margin-bottom:0;"><b><a name="Differentiate"></a>Differentiate
+the hidden and unhidden components rows in Part List Editor table</b></p>
+
+<p style="margin-top:0;margin-bottom:0;">To help users
+identify the hidden
+components from unhidden ones, the text of the rows corresponding to the column is shown in Italics. </p>
+
+<p style="margin-top:0;margin-bottom:0;">The context menu shows
+<b>Hide Entities</b> or <b>Unhide Entities</b> or both, depending on the
+components selected in the Part List.</p>
+
+<p style="margin-top:0;margin-bottom:0;"><img border=1 width=601 height=292
+id="Picture 1" src="Partlist_files/image005.jpg" alt=ItalianForHidden.png></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-IN>&nbsp;</span></p>
+
+<p style="margin-top:0;margin-bottom:0;"><b><a name="Restrict"></a>Restrict users
+to enter only specific data type while editing the cells in Part List Editor</b></p>
+
+<p style="margin-top:0;margin-bottom:0;">Each column
+is a property and has a data type associated. We restrict users from entering
+any other data type in the column.</p>
+
+<p style="margin-top:0;margin-bottom:0;">Example: RELQTY is of data type Real and hence doesn’t accept any
+Characters while typing.</p>
+
+<p style="margin-bottom:0;"><b><a name="CMENU"></a>Other features</span></b></p>
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> has is improved for the MoldDesign user.<br>
+You can configure whether the column in the dialog box is editable or read only.<br>
+You can automatically calculate the size (bounding box) of a component and include it in the Part List.</p>
+
+
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> contains two extra columns, which show the <b>COMPONENT NAME</b> and the <b>HIERARCHY LEVEL</b> of the component in the assembly. These columns are fixed and not editable, moreover they are not considered when you <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+101">Export to CSV</span>.</p>
+<p>Another important feature is the presence of the <b>Hide entities</b> and the <b>Unhide entities</b> commands in the context menu along with the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6958">Zoom Entities</span> command; after selecting a component, they can hide/unhide the selected entities to allow you a better visualization of your model.
+
+<br>
+The <span class="UI_COMMAND" id="idd_add_coloumn.msg+idd_add_coloumn+26">Editable Property</span> check box enables you to configure whether the column in the  <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> dialog box is editable or read only.</p> 
+<br>
+<div align="center"><img border="1" src="../images/EditableProperty.png"></div>
+<br>
+<p>The editable columns  have a white background, the others are grayed out.</p>
+<p>Two further properties are available in the list of columns in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+574">Columns</span> category of the <b>Part List Options</b> dialog box:</p>
+<table style="margin-left:25;">
+	<tr>
+	<td valign="top"><b>CompSizeAuto</b>
+</td>
+	<td>It is a checkbox in part list editor and determines whether the size has to be automatically calculated. When  selected, the program automatically calculates the size of the component; the content of the corresponding field of the <b>CompSize</b> column is not editable. When cleared, the string in the corresponding field of the <b>CompSize</b> column is editable. By default the check box is selected.</td>
+	</tr>
+	<tr>
+	<td valign="top"><b>CompSize</b>
+ </td>
+	<td>It is a string like <i>142L x 82W x 17H</i> (length x width x height). The automatic value is the bounding-box of the component with respect to the axis of the component itself.</td>
+	</tr>
+
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

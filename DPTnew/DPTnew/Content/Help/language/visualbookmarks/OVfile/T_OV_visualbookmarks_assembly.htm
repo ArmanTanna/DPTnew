@@ -1,0 +1,74 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Visual Bookmarks in assemblies - Overview</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22;margin-top:4;}</style>
+
+<style>.litleft{margin-left:26;margin-top:4;}</style>
+
+<style>.littop{margin-top:1;}</style>
+
+<style>h3{margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+<h3><a name="#VB_3"></a>Notes for Visual Bookmarks in assemblies</h3>
+<P class="littop">Visual Bookmarks provide a fast and simple way to save and restore the general state of an assembly by managing the visual appearance, the feature activation status and the presence or absence of Spreadsheet variables.
+</p>
+
+<p>When you define a Visual Bookmark related to entities, you must specify, in addition to the hide/unhide, component load status, component Light Representation, ... parameters, how the entities that don't exist when the Visual Bookmark is saved behave.
+Typically, this occurs in assemblies.
+Suppose that a Visual Bookmark is saved on an assembly including the A and B components. The former is unloaded, the latter is loaded. Later on, the assembly is modified and a new C  component is included. When the Visual Bookmark is restored on the modified assembly, clearly A must be unloaded and B loaded; but the behavior on C depends on the user's intention. 
+As a general rule, the behavior for "new" entities can be chosen among the following choices:</p>
+
+<ol>
+<li>leave them as they are
+<li>load (unhide) them
+<li>unload (hide) them
+</ol>
+
+<p>When you open a model, in the file selection box you can select a Visual Bookmark that will be applied at loading. An additional check-box in the file selection box enables you to load any <b>X-Reference (component)</b> in the <i>Lightest</i> Representation (i.e. <b>Quick Load</b>), regardless of what is specified in the selected Visual Bookmark.</p>
+
+<p>You can also use Visual Bookmarks as a useful tool in team work by specifying a <i>user's context</i>: for instance, an assembly may include a Visual Bookmark named "Joe", that specifies the way it must be opened by the user Joe and another Visual Bookmark named "Mary" for another user with a similar goal. In <b>Options</b> you can optionally specify that every Visual Bookmark must be automatically re-saved whenever the model to which the Visual Bookmark is attached is saved.</p>
+
+<p>When you work with an assembly, you must declare if a Visual Bookmark saved/restored at the assembly level can affect either the whole assembly hierarchy or the top level only.
+A specific option enables you to specify if the Visual Bookmark <i>propagates</i> to all the lower assembly levels.<p>
+
+<p>Suppose that an assembly includes the C1 component and the S sub-assembly, and the sub-assembly includes the C2 and C3 components. When you create a Visual Bookmark and you've not selected the recursive option, only the status of the C1 component and S sub-assembly is saved. If you select the recursive option, also the status of C2 and C3 is included.</p>
+
+<p>Working with an assembly, you can generate the exploded views and capture these views as special category of visual bookmarks. These bookmarks can be captured without any limitation on the numbers and at every level of the assembly hierarchy. You can have a bookmark showing the components separated along a straight line for a spare parts catalog or product manual and another one showing path lines for component assembly process. You can generate 2D exploded views with the default bookmark orientation of components or choose to edit them.</p> 
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application provides functions to export a Visual Bookmark (or a whole <a href="mk:@MSITStore:help.chm::/language/glossary/T_category.htm"><b>Category</b></a> of Visual Bookmarks) from a model &nbsp;&#151;&nbsp; and typically an assembly &nbsp;&#151;&nbsp; and to import it into another. The export function creates a small .vbk file that can be easily transferred to another user or document; this file can be imported into an existing assembly, by adding the Visual Bookmark/Category to it.</p>
+
+
+<p>For Visual Bookmarks created starting from Mating events, you can apply the Visual Bookmark to edit single constraints and then use the <b>Reverse</b> command to restore the more general situation.</p>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_visualbookmarks.htm"><b>An Overview on Visual Bookmarks</b></a>
+<li><a href="mk:@MSITStore:help.chm::/language/LightReps/OVfile/T_OV_LightReps.htm"><b>An Overview on Light Representations</b></a></li>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_VB.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_VB.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Visual Bookmarks</b></a></p>
+<hr color="silver">
+</body>
+</html>

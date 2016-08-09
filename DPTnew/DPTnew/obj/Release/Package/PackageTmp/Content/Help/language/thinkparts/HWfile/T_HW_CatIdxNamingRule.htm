@@ -1,0 +1,209 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10000,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Defining a naming rule for catalogs and indexes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Defining a naming rule for catalogs and indexes</h4>
+
+<p>The <b>thinkteam</b> naming rule applies also to <b>thinkparts</b> <span class="UI_COMMAND" id="tmmserv.msg+_NORM_+1">Index</span> and 
+
+<span class="UI_COMMAND" id="tmmserv.msg+_NORM_+4">Catalog</span> entity types.</p>
+
+<p>Prerequisite to this procedure is the availability of a <b>thinkparts</b> and <b>thinkPLM</b> licence. You need to login <b>thinkPLM</b> as administrator.</p>
+
+<p>The goal of this job is to show the steps required to create a naming rule to automatically assign a name to <b>thinkparts</b> catalogs and indexes.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Since when you execute the steps below you change your <b>thinkPLM</b> database structure, you may want to make a backup of it or work on a scratch copy.</td>
+</tr>
+</table>
+
+
+<br>
+ 
+
+<table summary="">
+<tr valign="top">
+<td><b>1</b></td>
+<td>Start the <a href="mk:@MSITStore:tt.chm::/language/QueryView/FWFile/T_FW_DataStructureManager.htm">
+<span class="UI_COMMAND" id="tt.msg+tt+326">Data Structure Manager</span></a> command and access the 
+<a href="mk:@MSITStore:tt.chm::/language/tools/FWfile/T_FW_FlagTypes.htm">
+
+<span class="UI_COMMAND" id="IDD_TT_TYPES_WIZARD.msg+IDD_TT_TYPES_WIZARD+31">Type Flags</span></a> command.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <span class="UI_COMMAND" id="tmmserv.msg+_NORM_+1">Index</span> entity type in the left pane and check the 
+
+<span class="UI_COMMAND" id="IDD_TT_FLAG.msg+IDD_TT_FLAG+6">To be edited</span> and 
+
+<span class="UI_COMMAND" id="IDD_TT_FLAG.msg+IDD_TT_FLAG+7">To be selected</span> check boxes, then click 
+
+<span class="UI_COMMAND" id="IDD_TT_FLAG.msg+IDD_TT_FLAG+4">Save</span>. Repeat for the 
+
+<span class="UI_COMMAND" id="tmmserv.msg+_NORM_+4">Catalog</span> entity type. By doing this, you are making the two entity types editable with the 
+
+<span class="UI_COMMAND" id="tt.msg+tt+326">Data Structure Manager</span> command. Close the 
+
+<span class="UI_COMMAND" id="IDD_TT_TYPES_WIZARD.msg+IDD_TT_TYPES_WIZARD+31">Type Flags</span> dialog box when done.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Expand the <span class="UI_COMMAND" id="tmmserv.msg+_REVISIONABLE_+23">Revisable Entity</span> entry in the 
+
+<span class="UI_COMMAND" id="tt.msg+tt+326">Data Structure Manager</span> left pane and select the 
+
+<span class="UI_COMMAND" id="tmmserv.msg+_NORM_+4">Catalog</span> entity type. You will repeat the next steps for the 
+
+<span class="UI_COMMAND" id="tmmserv.msg+_NORM_+1">Index</span> entity type later.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click the <span class="UI_COMMAND" id="IDD_TT_TYPES_WIZARD.msg+IDD_TT_TYPES_WIZARD+21">Edit Type</span> command and check the 
+
+<span class="UI_OPTION" id="IDD_TT_REVTYPE_WIZARD.msg+IDD_TT_REVTYPE_WIZARD+11">Naming rule</span> checkbox to enable the naming rule customization.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Edit the naming rule according with your needs; for example, enter <i>CAT</i> as <span class="UI_OPTION" id="IDD_TT_REVTYPE_WIZARD.msg+IDD_TT_REVTYPE_WIZARD+12">Prefix</span>, set the 
+
+<span class="UI_OPTION" id="IDD_TT_REVTYPE_WIZARD.msg+IDD_TT_REVTYPE_WIZARD+14">Number of digits</span> field to <i>3</i> and the 
+
+<span class="UI_OPTION" id="IDD_TT_REVTYPE_WIZARD.msg+IDD_TT_REVTYPE_WIZARD+16">Start value</span> field to <i>1</i>, so that the first catalog name will be generated as <i>CAT001</i>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Close the wizard when you are done by clicking <span class="UI_COMMAND" id="IDD_TT_REVTYPE_WIZARD.msg+IDD_TT_REVTYPE_WIZARD+1">Finish</span>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Repeat the last steps for the <span class="UI_COMMAND" id="tmmserv.msg+_NORM_+1">Index</span> entity type.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Check that everything works as expected by starting the <a href="../FWfile/T_FW_CatManager.htm"><span class="UI_COMMAND" id="tt.msg+tt+219">Catalog Manager</span></a>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>Click the <span class="UI_COMMAND" id="IDD_TP_MANAGER.msg+IDD_TP_MANAGER+36">New Catalog</span> command and then click the <b>...</b> button next to the 
+
+<span class="UI_OPTION" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+7">Name</span> field and check that the name is generated according with the naming rule defined.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>10</b></td>
+<td>Repeat the previous step using <span class="UI_COMMAND" id="IDD_TP_MANAGER.msg+IDD_TP_MANAGER+35">New Index</span>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>11</b></td>
+<td>Before ending the test, reset the <span class="UI_COMMAND" id="IDD_TT_FLAG.msg+IDD_TT_FLAG+6">To be edited</span> and 
+
+<span class="UI_COMMAND" id="IDD_TT_FLAG.msg+IDD_TT_FLAG+7">To be selected</span> flags for both entity types, in order to avoid modifying the properties of these types by mistake.</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

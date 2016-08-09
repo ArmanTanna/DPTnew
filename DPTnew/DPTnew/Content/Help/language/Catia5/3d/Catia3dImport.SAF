@@ -1,0 +1,50 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Converting from CATIA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Converting from CATIA</h3>
+
+<p>The application can <a href="../Catia_01.htm">open</a> CATIA models.</p>
+
+<h4>General concepts</h4>
+
+<ul class="noleft">
+<li>Entities are converted according to the <a href="Catia3d01.htm">Conversion table - From CATIA format</a>.</li>
+
+<li>Conversion is performed according to the current values of the parameters of the <a href="../options.htm">CATIA Conversion Options</a> dialog box opened by selecting <b>Options</b>.</li>
+</ul>
+
+<h4>Tips on converting models from CATIA</h4>
+
+<p>Try to open your CATIA file at least once or twice and see what you get. After examining the results, set to the proper values those parameters which mainly affect conversion accordingly to the results you've obtained and open the file again</p>
+
+<p>If you have troubles obtaining surfaces instead of solids in the application (your solids are split to their component surfaces), check the "<font face="Courier New">3d granularity</font>" value in the <a href="../Catia_02.htm">log file</a> of the last conversion you tried to perform. If the value you can read in the log file is higher than the tolerance value specified in the <a href="../options.htm">CATIA Conversion Options</a>, this is probably the cause of your problems.</p>
+
+<p>You have two possibilities:</p>
+
+<ul class="noleft">
+<li>Try to "close" the solid using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm"><b>Make Solid</b></a> command and specifying the proper tolerance value (<b>Edit tolerance</b>: a bigger value than the one you read in the log file)</li>
+
+<li>Re-generate the model with the proper tolerance value in the original environment, convert it to the CATIA format and open it again in the application.</li>
+</ul>
+
+<p>Reading the <a href="../ErrorFileLoad.htm">error file</a> of the conversion process is the most direct and simplest way to check conversion errors. In such file, errors are logged, which will help identify where the problem is.</p>
+
+<hr color="silver">
+</body>
+</html>
+

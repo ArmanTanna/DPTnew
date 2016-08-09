@@ -1,0 +1,86 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Converting from think3 3D to IGES</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h3>Converting from think3 3D to IGES</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application can <a href="../ig_03.htm">save</a> models to the IGES format.</p>
+
+<h4>General concepts</h4>
+
+<ul class="noleft">
+<li>Entities are converted according to the <b><a href="ig3d02.htm">think3 to IGES 3D conversion table</a></b>.</li>
+
+<li>Conversion is performed according to the current values of the parameters of the <b>IGES Options</b> dialog box opened by selecting <span class="UI_COMMAND" id="eklib.msg+eklib+349">Options</span>.</li>
+
+<li>Layers are converted as per map table defined in the <a href="../../file/IDPP_IGES_LAYERS.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the IGES Conversion Options. If no mapping is defined, the "Layer" prefix (if present) is dropped from the name while conversion.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><b>General warning on conversion of 3D</b> think<font color="#FF0F00">3</font> models to <b>IGES</b><br>
+<br>
+ To know exactly to which IGES entities <b>think<font color="#FF0F00">3</font></b> entities are converted, see the conversion table.<br>
+<br>
+In general, this is what happens:</p>
+
+<ul class="noleft">
+<li><b>think<font color="#FF0F00">3</font></b> curves are converted to their IGES corresponding curves</li>
+
+<li><b>think<font color="#FF0F00">3</font></b> surfaces are converted to their IGES corresponding surfaces</li>
+
+<li><b>think<font color="#FF0F00">3</font></b> solids are converted to IGES <b>Manifold Solid B-Rep Object</b> (<i>entity 186</i>).</li>
+
+<li>You can convert solids to their component surfaces by clearing the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+75">Save/Load solid entities</span> check box in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> page <b>IGES Options</b> dialog box.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h4>Tips</h4>
+
+<p>When converting a 3D model to the IGES format, you obviously need to check the results of the conversion process by loading the IGES file you created to the target environment. The following are some tips:</p>
+
+<ul class="noleft">
+
+<li>If the conversion fails, you can try to do one of the following: 
+
+<ul class="noleft">
+<li>Try to select the check boxes under <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+390">Convert to NURBS</span>, in order to force conversion of any specialized curves and surfaces to NURBS. The target environment might not manage specialized curves and surfaces.</li>
+
+<li>Try to select the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+92">Map 143:0 to 144:0</span> check box, in the case the target environment does not recognize IGES 143:0 entities.</li>
+
+<li>Try to select both the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+390">Convert to NURBS</span> and <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+92">Map 143:0 to 144:0</span> check boxes.</li>
+
+<li>Try to select both the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+390">Convert to NURBS</span> and <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+92">Map 143:0 to 144:0</span> check boxes and the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+94">Map rational to not rational</span>, in the case the target environment manages only non-rational curves and surfaces.</li>
+</ul>
+</li>
+
+<li>Reading the <a href="../ig_04.htm">log file</a> of the conversion process is the most direct and simplest way to check conversion errors. In such file, errors are logged in appropriate sections, which will help identify where the problem is.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

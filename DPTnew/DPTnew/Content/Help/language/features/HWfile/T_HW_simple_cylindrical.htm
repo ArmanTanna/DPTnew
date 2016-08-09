@@ -1,0 +1,144 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Revisor" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>Creating a Hole on a Cylindrical Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/NPT.htm">National Pipe Thread</a>"</p>
+<hr color="red" size="10"> -->
+<h3>Creating a Hole on a Cylindrical Surface</h3>
+
+<p>To create a hole on the cylindrical surface of the solid you need to create a cylinder of size 35(diameter)*75(height). Follow the steps given below to create a simple hole on cylindrical face of a solid having an axial symmetry (for example, a cylindrical or conical face).</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_ft_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span></a> command and ensure the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box is cleared.<br>
+<br>
+</li>
+
+<li>Next, select the cylindrical face on which the hole is to be created.<br>
+<br>
+</li>
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> drop-down list is automatically set to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+180">Cylindrical</span> option, if not make the change. <a name="Ref_origin"></a>The origin is placed by default on either of the side faces (top or bottom). To move the origin to the other face, right-click on the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+181">Reference to origin</span> selector and choose <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span>.<br>
+<br>
+</li>
+
+<li><a name="Radial_direction"></a>The reference direction (from which the hole direction is measured) can be defined in three different ways. This can be done by using one of the options available in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+182">Radial direction</span> drop-down list.<br>
+<br>
+</li>
+
+<ul class="noindent">
+<li><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span> - The reference direction will be in the same direction as the one obtained by joining the two selected points by a straight line.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> - The reference direction will be in the same direction as that of the selected line.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+113">End point</span> - The reference direction will be in the same direction as the one defined by joining the selected point with the origin by a straight line.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li>The various parameters that will define the location of the hole on the cylindrical face are shown below.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/features/hole_cyl.gif" border="1"></td>
+<td valign="bottom">
+<ol>
+<li>Point at which the hole (axis) will be created</li>
+
+<li>Height of the hole from origin</li>
+
+<li>Origin</li>
+
+<li>Direction of the hole</li>
+
+<li>Angle (between the hole direction and the reference direction)</li>
+
+<li>Reference direction</li>
+</ol>
+</td>
+</tr>
+</table>
+
+The point for the hole creation is specified using the Cylindrical Coordinate (<img src="../images/rtz.gif" align="absmiddle">) system.<br>
+<br>
+</li>
+
+<li>Next, you need to enter values in the displayed mini-dialog boxes to create hole. Enter <b>15</b> in the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+6">Diameter</span> mini-dialog box and to specify the height of the hole (axis) from the origin enter <b>25</b> in the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+22">Distance</span> mini-dialog box.<br>
+<br>
+</li>
+
+<li>Next, to specify the direction of the hole with respect to the reference direction enter <b>45</b> in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span> mini-dialog box.<br>
+<br>
+<br>
+</li>
+
+<li style="list-style: none">
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The default option is <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+113">End point</span> and the point that is initially selected for this option is the one on which you clicked to select the cylindrical surface.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the simple blind hole, as shown in the image below. Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.<br>
+</li>
+
+<li style="list-style: none"><br>
+<br>
+<img src="../../../images/features/hole_cyl_face.gif" border="1"></li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The above mentioned steps can also be followed for creating shaped hole and shaft on axially symmetric faces.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<hr color="silver">
+<h5>Also try to...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_simple_blind_hole.htm"><b>Create a simple blind hole</b></a></li>
+
+<li><a href="T_HW_COuntersunkhole.htm"><b>Create a countersunk hole</b></a></li>
+
+<li><a href="T_HW_shaped_hole.htm"><b>Create a standard countersunk hole and standard simple threaded hole</b></a></li>
+
+<li><a href="T_HW_thru_counterbored_hole.htm"><b>Create a through counterbored hole</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_PointDefinition.htm"><b>Define a point on a face</b></a></li>
+
+<li><a href="T_HW_AddThreadtoHoleAndShaft.htm"><b>Add a thread to a simple hole or shaft</b></a></li>
+
+<li><a href="../../HWfile/T_HW_SymmetryInvert.htm"><b>Symmetry and Invert Direction handles</b></a></li>
+</ul>
+</body>
+</html>
+

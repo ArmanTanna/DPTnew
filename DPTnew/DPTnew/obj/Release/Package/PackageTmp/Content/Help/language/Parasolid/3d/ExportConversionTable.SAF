@@ -1,0 +1,204 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>think3 to Parasolid conversion table</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h2>think3 to Parasolid conversion table</h2>
+
+<p>Here is a general conversion table showing how <b>think<font color="#FF0F00">3</font></b> entities are mapped to the Parasolid ones when converting a <b>think<font color="#FF0F00">3</font></b> file to the Parasolid format.</p>
+
+<TABLE border=1 bordercolor="white">
+	<thead>
+	<TR>
+		<td bordercolor="navy" bgcolor="#DCDCDC"><b>think3 entity</b></TD>
+		<td bordercolor="navy" bgcolor="#DCDCDC"><b>Parasolid entity to which it is converted</b></TD>
+	</TR>
+	</thead>
+
+	<TR>
+		<td bordercolor="navy"><b>Point</b></TD>
+		<td bordercolor="navy">Point</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>NURBS curve</b></TD>
+		<td bordercolor="navy">BSpline curve</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Line</b></TD>
+		<td bordercolor="navy">BSpline curve</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Arc</b></TD>
+		<td bordercolor="navy">BSpline curve</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Ellipse</b></TD>
+		<td bordercolor="navy">BSpline curve</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Offset curve</b></TD>
+		<td bordercolor="navy">BSpline curve</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>NURB surface</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Cylinder</b></TD>
+		<td bordercolor="navy">Cylinder</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Plane</b></TD>
+		<td bordercolor="navy">Plane</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Offset surface</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Ruled surface</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Blend surface</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Tabulated cylinder</b></TD>
+		<td bordercolor="navy">Sweep</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Surface of revolution</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Coons surface</b></TD>
+		<td bordercolor="navy">BSpline surface</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Trimmed surface</b></TD>
+		<td bordercolor="navy">Face</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Vertex</b></TD>
+		<td bordercolor="navy">Vertex</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Edge</b></TD>
+		<td bordercolor="navy">Edge</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>UV curve</b></TD>
+		<td bordercolor="navy">Coedge</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>UV loop</b></TD>
+		<td bordercolor="navy">Loop</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Face</b></TD>
+		<td bordercolor="navy">Face</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Shell</b></TD>
+		<td bordercolor="navy">Shell</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Manifold solid</b></TD>
+		<td bordercolor="navy">Body, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Color</b></TD>
+		<td bordercolor="navy">Top entity only (No solid multicolor and color for trimmed surface)</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Layer</b></TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Component name</b></TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Font style</b></TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Width</b></TD>
+		<td bordercolor="navy"><i>Not converted</i></TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Blank</b></TD>
+		<td bordercolor="navy">Solids only (No curves nor surfaces)</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Datum plane</b></TD>
+		<td bordercolor="navy">Plane, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Datum point</b></TD>
+		<td bordercolor="navy">Point, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Datum curve</b></TD>
+		<td bordercolor="navy">BSpline curve, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+
+	<TR>
+		<td bordercolor="navy"><b>Profile</b></TD>
+		<td bordercolor="navy">BSpline curves, if the relevant <a href="../options.htm">option</a> is checked</TD>
+	</TR>
+</table>
+
+<hr color="silver">
+</body>
+</html>

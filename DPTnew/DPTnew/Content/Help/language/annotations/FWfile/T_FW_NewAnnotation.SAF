@@ -1,0 +1,79 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="internally">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>New Annotation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style>.noleft{margin-left: 22;margin-top:0;margin-bottom:0;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Insert<img src="../../../images/general/litarr.gif">Annotation</p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <B>New Annotation</B> command enables you to add a new annotation to the model. The command can also be started from the context menu displayed by right-clicking in the <a  href="../OVfile/T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a>.</p>
+
+<p>You will have to specify the point in the model which the Annotation will be anchored to: the <b><a  href="../OVfile/T_OV_Glossary.htm#PointofInterest">Point of Interest</a></b>. Before actually specifying the point, you can choose whether to indicate a <b>Snap point</b> or a point on a face of a solid (<b>Point on face</b>).</p>
+
+<p>In the <b>Insert</b> drop-down list you can select the type of the Annotation to be created.</p>
+ 
+<ul class="noleft">
+<li>The <b>Text</b> type enables you to create an Annotation consisting only of some text.</li>
+<li>The <b>From file</b> type enables you to associate to associate an external document to the annotation.</li>
+<li>The <b>From Internet</b> type enables you to specify a <a  href="../OVfile/T_OV_glossary.htm#URL">URL</a> to be opened and viewed in the expanded annotation.</li></ul>
+
+<p>To order and classify annotations, using the <b>Category</b> drop-down list you can define categories which the annotations will be assigned to. You can always choose to assign a new annotation to an existing category or to create a new category and assign the annotation to the latter.</p>
+
+<p>To simplify the search operations using the <a  href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Filter</b></a> box on top of the <a  href="../OVfile/T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a>, you can define as many <a  href="../OVfile/T_OV_Glossary.htm#Keywords"><i>keywords</i></a> as you like, by typing them, separated by a comma, in the <b>Keywords</b> box.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+When an annotation is referenced to an external file (i.e.: it is of the <b>From File</b> type), the program stores the entire path name, including the drive letter identifying the disk drive (for example, C:\ProgramFiles\AssociatedDocuments\XYZ.doc). If your system is connected to a network, you should refer to the specific network drive using the following syntax:
+<P><B>\\<I>machine_name</I>\<I>disk_name</I>\<I>path_name</I></B><P>
+
+rather than using a syntax that uses virtual disk drives (such as <B>J:\<I>path_name</I></B>). If you use virtual disk drives, when a drawing file is opened on a computer other than the one on which it was created, the program won't be able to find the external file if the virtual disk drives defined on the two computers don't correspond.
+<P>In addition, verify that the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_ASSEMBLY_ADVANCED.htm"><b>Keep absolute file path</b></a> check box is selected on the <B>Assembly/Shared Group</B> category of <b>System Options</b>. If this check box is not selected, the program stores the file path in a relative form, in which case it may not be valid for all the computers on the network.
+</td></tr></table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_NewAnnotation.htm"><b>Create a New Annotation</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Annotations.htm"><b>An Introduction to Annotations</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationEntity.htm"><b>The Annotation Entity</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationGUI.htm"><b>Annotations: the User Interface</b></a></li>
+<li><a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Annotations: Filter and Filter Options</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationOperations.htm"><b>Annotations: User Operations</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationBook.htm"><b>Annotations and Visual Bookmarks</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationComponent.htm"><b>Annotations in Assemblies</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationPrinting.htm"><b>Printing out Annotations</b></a></li>
+<li><a href="../OVfile/T_OV_Glossary.htm"><b>Glossary</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Annotations</b></a></p>
+<hr color="silver">
+</body>
+</html>

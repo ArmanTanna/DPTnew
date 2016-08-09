@@ -1,0 +1,203 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Document properties (Symbolic Texts)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<link href="../../JSandSTYLES/txteffects.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4><a name="Document properties"></a>Document properties</h4>
+
+<p>What follows is the list of predefined document properties. To add a properties of the list:</p>
+<ol>
+<li>Start the <a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_09.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1443">Text</span></a> command</li>
+
+
+<li>Select <b>Document properties</b> from the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+11">Text from Dictionary</span> drop-down list</li>
+
+
+<li>Expand (click <b>+</b>) the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+11">Text from Dictionary</span> node and choose the predefined property you like in the list of the dialog box that opens</li>
+
+
+<li>Drag and click to define the position of the symbolic text</li>
+</ol>
+
+<table border="1"  bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="">
+<tr>
+<td class="HEADER"><b><font color="navy">PROPERTY</font></b></td>
+<td class="HEADER"><b><font color="navy">INTERNAL NAME</font></b></td>
+<td class="HEADER"><b><font color="navy">TYPE</font></b></td>
+<td class="HEADER"><b><font color="navy">SIZE</font></b></td>
+<td class="HEADER"><b><font color="navy">MEANING</font></b></td>
+</tr>
+
+<tr>
+<td><b>Document Name</b></td>
+<td><b>DOCNAME</b></td>
+<td>char</td>
+<td>16</td>
+<td>Document name</td>
+</tr>
+
+<tr>
+<td><b>Document Revision</b></td>
+<td><b>DOCPROG</b></td>
+<td>integer</td>
+<td>&#151;</td>
+<td>Document revision number (1, 2, 3, ...)</td>
+</tr>
+
+<tr>
+<td><b>Revision Label</b></td>
+<td><b>DOCLABEL</b></td>
+<td>character</td>
+<td>1</td>
+<td>Document revision label (a, b, c ...)</td>
+</tr>
+
+<tr>
+<td><b>Release Date</b></td>
+<td><b>DOCDATE</b></td>
+<td>date</td>
+<td>&#151;</td>
+<td>Date the document reached the <b>Released</b><span class="HideThis"> (<b>Released</b>)</span> status</td>
+
+</tr>
+
+<tr>
+<td><b>Document Status</b></td>
+<td><b>DOCSTATE</b></td>
+<td>character</td>
+<td>1</td>
+<td>Document status (<b>WorkInProgress</b><span class="HideThis"> (<b>Work In Progress</b>)</span>, <b>Published</b>
+<span class="HideThis"> (<b>Published</b>)</span>, <b>Released</b>
+<span class="HideThis"> (<b>Released</b>)</span>, <b>Suspended</b>
+<span class="HideThis"> (<b>Suspended</b>)</span>, <b>UnderChange</b>
+<span class="HideThis"> (<b>Under Change</b>)</span>, <b>Cancelled</b>
+<span class="HideThis"> (<b>Cancelled</b>)</span>)</td>
+
+</tr>
+
+<tr>
+<td><b>Description</b></td>
+<td><b>DOCDES</b></td>
+<td>character</td>
+<td>64</td>
+<td>Document description</td>
+</tr>
+
+<tr>
+<td><b>File Name</b></td>
+<td><b>DOCFILE</b></td>
+<td>character</td>
+<td>32</td>
+<td>File name</td>
+</tr>
+
+<tr>
+<td><b>Folder</b></td>
+<td><b>DOCPATH</b></td>
+<td>character</td>
+<td>80</td>
+<td>File path</td>
+</tr>
+
+<tr>
+<td><b>File Type</b></td>
+<td><b>DOCEXTE</b></td>
+<td>character</td>
+<td>4</td>
+<td>File extension</td>
+</tr>
+
+<tr>
+<td><b>Inserted by</b></td>
+<td><b>DOCOPEC</b></td>
+<td>character</td>
+<td>32</td>
+<td>Name of the user who created the document</td>
+</tr>
+
+<tr>
+<td><b>Modified by</b></td>
+<td><b>DOCOPEM</b></td>
+<td>character</td>
+<td>32</td>
+<td>Name of the user who last modified the document</td>
+</tr>
+
+<tr>
+<td><b>Created on</b></td>
+<td><b>DOCCDATE</b></td>
+<td>date</td>
+<td>&#151;</td>
+<td>Date the document was created (<i>format depending on the current language</i>; <i>see also</i> "<a href="T_OV_ST_DateProperty.htm">How to format a date property</a>")</td>
+</tr>
+
+<tr>
+<td><b>Last Modified on</b></td>
+<td><b>DOCMDATE</b></td>
+<td>date</td>
+<td>&#151;</td>
+<td>Date the document was last modified (<i>format depending on the current language</i>; <i>see also</i> "<a href="T_OV_ST_DateProperty.htm">How to format a date property</a>")</td>
+</tr>
+
+<tr>
+<td><b>Comment</b></td>
+<td><b>DOCCOMM</b></td>
+<td>character</td>
+<td>64</td>
+<td>Comment</td>
+</tr>
+
+<tr>
+<td><b>Main Scale</b></td>
+<td><b>DOCPRSCALE</b></td>
+<td>real</td>
+<td>&#151;</td>
+<td>Primary Document scale</td>
+</tr>
+
+<tr>
+<td><b>Secondary Scale List</b></td>
+<td><b>DOCSECCALE</b></td>
+<td>character</td>
+<td>&#151;</td>
+<td>List of scales used in the layout views different from the Main Scale</td>
+</tr>
+
+<tr>
+<td><b>Small Entities Filter</b></td>
+<td><b>DOCSEFILT</b></td>
+<td>character</td>
+<td>&#151;</td>
+<td>List of values of the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1469">Filter entities smaller than:</span> option and the view names it is associated with. For example: <tt>"1 (b,c), 1.5 (e)"</tt> means that views <tt>b</tt> and <tt>c</tt> filter entities smaller than 1 drawing unit, and view <tt>e</tt> filters entities smaller that 1.5 drawing units</td>
+
+</tr>
+</table>
+</div>
+
+<hr color="silver">
+</body>
+</html>
+

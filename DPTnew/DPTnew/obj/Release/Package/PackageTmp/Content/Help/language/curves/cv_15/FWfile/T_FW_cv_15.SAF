@@ -1,0 +1,178 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Project Curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="../../../../JSandSTYLES/Frames.js">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff" onresize="self.location.reload();" onload="viaMk();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1394">Project</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p><a name="Project_DirChoice"></a>The <span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+65">Project Curve</span> command enables you to create new curves (on a plane or surface) as the projection of existing curves, which are to be selected for the 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span> selector.</p>
+
+
+<p style="margin-bottom:0">There are six different ways of projection that can be selected from the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+131">Method</span> drop-down list:</p>
+
+
+<table cellspacing="2" cellpadding="2">
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+46">Normal</span></td>
+
+<td>To project existing curves onto planes/surfaces in a direction normal to the surfaces.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+47">Pierce direction</span></td>
+
+<td>To project existing curves onto planes or surfaces in a specified pierce direction.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+48">Laying down</span></td>
+
+<td>To lay down existing curves onto a surface without changing the length and shape of the curves. The original curves and the curves laid down are matched by associating a point on the curve with a point on the surface. The curves are fitted with a polyline. The plane containing each section of the polyline is rotated so that it coincides with the fitting plane of the surface using the smaller of the two possible rotation angles. You should use the <i>laying down</i> method when projecting a curve onto a surface that curves in only one direction and is linear or almost linear in the other (such as a ruled surface, cylinder, or cone).<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+49">Mapping</span></td>
+
+<td>You can control the proportions of the resultant curves relative to the original curves: 
+
+<ul class="noleft">
+<li>By automatically resizing the curves to fit onto the surface</li>
+
+<li>By specifying the proportions of the resultant curves relative to the originals, using an appropriate reference system on the surface</li>
+</ul>
+
+The original curves may be either plane or skew curves. Before being mapped onto the surface, the curves are projected orthographically onto a plane defined by three specified points. This project is then mapped onto the surface. For this reason, plane curves yield more accurate results. You should use the <i>mapping</i> method when projecting a curve onto a surface that curves in two directions (such as a torus or sphere).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+314">View direction</span></td>
+
+<td>To project existing curves onto planes/surfaces along the view direction.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+391">Conic</span></td>
+
+<td>To create the conic projection of a set of curves onto surfaces or a plane. The selected curves will be projected in a conic way using a given point as apex (see the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+146">Point</span> item in the selection list), which <i>cannot</i> lie in between the curves to be projected and the surfaces onto which the projection must be created.<br>
+
+<br>
+<img border="1" src="../../../../images/rn_2006T2/CONIC00.gif"></td>
+</tr>
+</table>
+
+
+<p>The <a href="../../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box enables you to create curves that retain a link to the surface they derive from. See further details on associativity for curves of the <i>Curve on Surface (COS)</i> type in "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm#RN2005T2">Curves on Surface</a>".</p>
+
+
+
+<p style="margin-bottom:0">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box enables you to create curves of the <i>Curve on Surface (COS)</i> type. (See "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>" for details.)</p>
+
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curves will be of the Curve on Surface type.</li>
+
+<li>When the check box is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span> check box is available under 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: 
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+
+<p><iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../jsoptions/KeepAllArcs.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe></p> 
+
+<p style="margin-bottom:0"><a name="thru_all"></a>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+446">Thru all</span> is present under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> when the projection 
+<span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+131">Method</span> is selected as 
+<span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+47">Pierce direction</span> or 
+<span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+314">View direction</span>.</p>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+	<td><ul class="noleft">
+<li>When the check box is selected, the curve will be projected on to all the underlying faces of the surface below the silhouette line in the projection direction. See the image on right.</li>
+<li>When the check box is cleared, the curve will be projected only on the surface/face that it encounters first in the projection direction. Hence, no projection will take place on the underlying surfaces/faces.</li>
+</ul></td>
+	<td><img src="../../../../images/curves/Project_curve-thru_all.gif" border="1"></td>
+</tr>
+</table>
+
+
+<p>If you close the command abruptly, your selections and settings are not lost; they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all. Next time you start the command the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list, which when selected all the previous selections and settings will be restored.</p>
+
+
+<p>When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection. Further details in the "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>" document.</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_cv_01_15_02.htm"><b>Project a curve in a direction normal to a plane</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_01_15_03.htm"><b>Project a curve orthographically onto a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_02_15_03.htm"><b>Project a curve onto a surface along a pierce direction</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_03_15_01.htm"><b>Lay down a curve onto a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_03_15_02.htm"><b>Lay down a curve representing text onto a cylindrical surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_04_15_01.htm"><b>Map curves onto a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_cv_04_15_02.htm"><b>Map a curve representing text onto a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_ViewDirection.htm"><b>Project a curve onto a surface along the view direction</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

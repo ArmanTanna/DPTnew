@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+
+<meta name="T_2016t1" content="translate">
+<TITLE>Subdivision Solid</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+<meta name="Revisor" content="NIBI">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<style> .litleft
+{
+margin-left: 25;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"   bgcolor="white">
+<!-- <hr color="red" size="10"> -->
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+4506">Solid</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7908">Subdivision Solid</span></p>
+<hr color="#63a9d8">
+</table>
+<!-- <p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2014T1/whatsnew.htm#PRJ897">Subdivision Solid</a>"</p>
+<hr color="red" size="10"> -->
+<p>The <B>Subdivision Solid</B> command enables you to modify a Subdivision solid in a number of possible manners, that is by creating features on it, moving it, creating drawing layouts of it, and so on. In addition, you can modify a Subdivision solid by editing its controlling mesh.
+
+<br><br><img border=1 src="../images/SSO_01.png"><br><br></p>
+
+<p>The command is based on the standard use of markers. When the mouse is placed over a face, edge or vertex, the latter is highlighted in the default thinkdesing mouse-over color (namely red). When the marker is clicked upon, it is highlighted (in orange by default) and selected. Holding the <b>&lt;CTRL&gt;</b> key and clicking on an item will deselect it if it was in the selection, otherwise it will add it to the current selection. <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1101">Window</span> and <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+6699">Lasso</span> selection methodsa are also enabled. Furthermore, whenever a <i>current selection</i> is available, an item is added to the context menu (accessed by right-clicking anywhere in the drawing area) called <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+164">Reset Current Selection</span>, so as to enable you to empty the current selection.</p>
+
+<p style="margin-bottom:0;">Once you have selected the Subdivision solid, the associated mesh is displayed, and you can select the <B>Edit Mode</B>.<br>
+
+<b>Split face</b>, <b>Remove face</b> and <b>Subdivide face</b> modes enable you to perform the homonymous actions, the selection being performed directly onto the face markers. <!-- Move and Extrude face modes have been modified and a new  <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+31">Add face</span> mode appears in the drop-down list.</p> -->
+<br><b>Move</b>: For move operations, there is only one mode in which any selected markers can:</p>
+<ol class="litleft" style="margin-top:0;">
+<li>Be dragged freely with the mouse, following the dragging method specified in the software input mode (modified in <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span><img src="../../images/general/litarr.gif"><b>Input</b> or in <b>System Options</b><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7652">Input</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+68">Mouse Input</span></b>)</li>
+<li>Be dragged along certain axes after pressing the same keys as in Control Point Editing (in the work plane: 'x' for the X-axis, 'y' for the Y-axis, 'w' for the  Z-axis, and along the screen: 'v' for the vertical axis, 'h' for the horizontal and 'd' for the depth, this last one being mapped along the horizontal). Note that to leave this mode either <b>&lt;ESC&gt;</b> or the last key is pressed again.</li>	
+Use the <span class="UI_COMMAND" id="ctx_cm1.msg+_CTX_CM1_+173">Transform</span> tool to move the selection more precisely.</li>
+<li>Use the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+22">Scale</span> tool to stretch the selection along specified axes.</li>
+<li>Use the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDCMDCOMMON_SPEECH_+59">Symmetry</span> tool to specify a symmetry plane and move the selection along with its symmetrical equivalent, if any, in mirror motions with respect to the chosen plane.</li>
+</ol>
+<p><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+7">Extrude face</span> provides you with a <i>depth handle</i> to control the length at which the extrusion is made. Simply select the face to extrude and the handle will appear at the default length (that which was previously used). The handle can then be dragged or the depth can be entered manually to get the desired shape. Do note that as before, if during the extrude operation two faces coincide exactly, that is their vertices match, the faces will be destroyed and the shape fused on these vertices.
+<br><br><img border=1 src="../images/SSO_EXTRUDE.png">
+</p>
+
+
+<p><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+31">Add face</span> enables you to to add a face. It is a counterpart to the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+8">Remove face</span> mode. If the selection of edges is valid, the standard preview button appears at the top of the selection list. When this is clicked, the corresponding face will be built and the underlying solid updated. Do note that the added face will be the smallest possible given the selection as illustrated below.
+<br><br><img border=1 src="../images/SSS_LAURENT.png">
+</p>
+
+<p><b>More Options</b><br>A number of useful options are available so as to make the command more effective.<br>This menu is shared by every mode. It contains utilities for the selection and display of markers and 
+a set of <a href="../../globalshape/HWfile/T_HW_QualityChecks.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a> commands.</p>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Selection and Related Movement</b><br>
+As for Selection and Related Movement, please take into account that pressing the <b>&lt;SHIFT&gt;</b> or <b>&lt;CTRL&gt;</b> keys will enable you&nbsp;&#151;&nbsp;as it ordinarily is in multiple selection commands of this type&nbsp;&#151;&nbsp;to select/deselect multiple entities respectively in a row/adjacent <i>or</i> freely add/subtract one or more entities to the current selection.
+</td></tr></table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Convert_to_Subdivision_Solid.htm"><b>Create a New Subdivision Solid</b></a></li>
+<li><a href="../../globalshape/HWfile/T_HW_QualityChecks.htm"><b>Perform Quality Checks</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

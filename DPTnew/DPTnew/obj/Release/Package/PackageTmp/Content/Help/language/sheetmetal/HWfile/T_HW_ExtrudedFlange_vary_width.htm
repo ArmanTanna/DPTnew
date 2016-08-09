@@ -1,0 +1,145 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="translate">
+<title>Job: Adding extruded flanges of varying length</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Adding extruded flanges of varying length</h3>
+
+<p>To accomplish this task, open file "ExtFlan03.e3". After starting the <a href="../FWfile/T_FW_ExtrudedFlange.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6998">Extruded Flange</span></a> command, proceed as follows.</p>
+
+
+<ol class="noleft">
+<li>Select the profile that will be used to define the direction of the flange.<br>
+<br>
+<img src="../../../images/sheetmetal/exf_width_1.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="5%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>About the profile</b> <br>
+The profile to be selected must: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>be open</li>
+
+<li>contain only lines and arcs</li>
+
+<li>have one of its endpoints on an edge of the solid.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+To change the selected profile, right-click on <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+125">Profile</span>, choose 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and select another profile.<br>
+
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list, select 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+103">Edges</span>.<br>
+
+<br>
+</li>
+
+<li>Select the edges on which you want to create the flange. The preview of the flange will be displayed. For this tutorial, make the selection as shown below.<br>
+<br>
+<img src="../../../images/sheetmetal/exf_width_2.gif" border="1"><br>
+<br>
+To change the selected edges, right-click on <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+103">Edges</span>, choose 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform the selection again.<br>
+
+<br>
+</li>
+
+<li>To define the length of the flange, in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+106">Extension</span> drop-down list under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, select 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+70">1st distance and 2nd distance</span>. The 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+42">1st Distance</span> and 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+43">2nd Distance</span> mini-dialog boxes are displayed on the model.<br>
+
+<br>
+<img src="../images/exf_width_4.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+163">At each edge</span> check box under 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+106">Extension</span>. The 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+42">1st Distance</span> and 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+43">2nd Distance</span> mini-dialog boxes are displayed for each selected edge.<br>
+
+<br>
+<img src="../images/exf_width_3.gif" border="1"><br>
+<br>
+Note that the mini-dialog boxes are active for one edge at a time. To cycle between the mini-dialog boxes either click on it or use the <b>TAB</b> key.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+42">1st Distance</span> mini-dialog box, type the distance of the starting side face of the flange from the first end point of the selected edge. Then hit the <b>TAB</b> key. A preview is displayed.<br>
+
+<br>
+<img src="../images/exf_width_5.gif" border="1"><br>
+<br>
+In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+43">2nd Distance</span> mini-dialog box, type the distance of the ending side face of the flange from the second end point of the selected edge.<br>
+
+<br>
+<img src="../images/exf_width_6.gif" border="1"><br>
+<br>
+</li>
+
+<li>Repeat the previous step for other edges.<br>
+<br>
+<img src="../images/exf_width_7.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the flange.<br>
+<br>
+<img src="../../../images/sheetmetal/exf_width_8.gif" border="1"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Using the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+163">At each edge</span> option it is possible to overcome the face over lapping issue that arises while applying the 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6998">Extruded Flange</span> command on concave edges.<br>
+
+<br>
+<img src="../../../images/sheetmetal/flange_overlap.gif" border="1"> <br>
+<br>
+By appropriately specifying the flange extension on the concave edges, the overlapping of the flanges can be avoided, as shown in the following image.<br>
+<br>
+<img src="../../../images/sheetmetal/exf_width_9.gif" border="1"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

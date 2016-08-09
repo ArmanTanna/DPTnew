@@ -1,0 +1,159 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t2" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Data Exchange Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Data Exchange Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.2 introduces the following enhancement in the Data Exchange commands.</p>
+
+<ul class="noleft">
+<li><a href="#605">Enhancements in DWG font mapping</a></li>
+
+<li><a href="#565">The new <span class="UI_COMMAND_NOBOLD" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+10">Font Converter</span> tool</a></li>
+</ul>
+
+<br>
+ 
+
+<hr color="silver">
+<!--P0000605=RAJA-->
+<h2><a name="605"></a>Enhancement of DWG font mapping</h2>
+
+<p>In this version, the commonly used true type <i>(.ttf)</i> and shape <i>(.shx)</i> fonts of the <b>AutoCAD</b> application can be mapped in the <b>ThinkDesign</b> application more efficiently. The <i>.shx</i> font of the <b>AutoCAD</b> application is supported by the vector <i>(.aa)</i> fonts represented by 'v' in the <b>ThinkDesign</b> application.<br>
+<br>
+The following enhancements have been done in the <span class="UI_COMMAND" id="eklib.msg+eklib+188">Add</span> dialog box, as shown in the image below. This dialog box is displayed on selecting the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+292">Add</span> button in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+291">Font</span> category of the <b>DXF/DWG Options</b> dialog box.<br>
+<br>
+<img src="Images/Add.gif" border="0"><br>
+<br>
+ The <span class="UI_COMMAND" id="eklib.msg+eklib+188">Add</span> dialog box has two areas. The left side is dedicated to the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+7">AutoCAD font</span> settings and the right side is meant for the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> settings. The options are tabulated below:<br>
+<br>
+</p>
+
+<a name="AutoCAD"></a><a name="thinkdesign"></a>
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td><span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+7">AutoCAD font</span> area</td>
+<td>
+<ol>
+<li>The <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+7">AutoCAD font</span> edit box enables you to enter the <i>shape (.shx)</i> font type of the <b>AutoCAD</b> application.<br>
+<br>
+</li>
+
+<li><span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+4+1">ttf</span> and <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+4+2">shx</span> are the two options in the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+7">AutoCAD font</span> drop-down list. The <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+4+1">ttf</span> are true type fonts and belong to <i>Windows</i> fonts. The <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+4+2">shx</span> are shape fonts of the <b>AutoCAD</b> application. These are customized fonts.<br>
+<br>
+</li>
+
+<li>The <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+8">bigfont</span> check box activates on selecting <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+4+2">shx</span> from the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+7">AutoCAD font</span> drop-down list. Enter the font type in the <span class="UI_COMMAND" id="idd_table_add_font.msg+idd_table_add_font+8">bigfont</span> edit box to be mapped.<br>
+<br>
+</li>
+</ol>
+</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> area</td>
+<td>
+<ol>
+<li>The <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> drop-down list (<b>1</b> as shown in the image above) enables you to select the font type of <b>ThinkDesign</b> based on the option selected from the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> drop-down list (<b>2</b>).<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+5+1">ttf</span> option in the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> drop-down list (<b>2</b>) to map a <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+5+1">ttf</span> font of the <b>AutoCAD</b> application. The <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+5+2">v</span> represents a <i>vector</i> font and it is a customized font of the <b>ThinkDesign</b> application.<br>
+<br>
+</li>
+
+<li>The <span class="UI_COMMAND" id="idd_table_add_font.msg+idd_table_add_font+10">Multibyte font</span> check box activates on selecting the <span class="UI_DROPDOWNITEM" id="idd_table_add_font.msg+idd_table_add_font+5+2">v</span> option from the <span class="UI_OPTION" id="idd_table_add_font.msg+idd_table_add_font+9">ThinkDesign font</span> drop-down list (<b>2</b>). Select the required font type from the <span class="UI_COMMAND" id="idd_table_add_font.msg+idd_table_add_font+10">Multibyte font</span> drop-down list. It enables you to convert the big fonts of the <i>.shx</i> format into the corresponding font in the <b>ThinkDesign</b> application. Twelve new vector fonts have been added in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1073">Alternative:</span> drop-down list of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span><b>-</b><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span><b>-</b><a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_FONT.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1069">Font &amp; Frame</span></a> category and the same font types are available in the <span class="UI_COMMAND" id="idd_table_add_font.msg+idd_table_add_font+10">Multibyte font</span> drop-down list.<br>
+<br>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--P0000565=RAJA-->
+<h2><a name="565"></a>The new <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+10">Font Converter</span> tool</h2>
+
+<p><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+10">Font Converter</span> is a new tool that enables you to convert the <i>shape.shx</i> and big font <i>shape.shx</i> files of the <b>AutoCAD</b> application into the respective <i>vector (.aa)</i> font of the <b>ThinkDesign</b> application. To access this tool, select <b>All Programs<img src="../../images/general/litarr.gif">think3<img src="../../images/general/litarr.gif">ThinkDesign <i>version number</i><img src="../../images/general/litarr.gif">Utilities<img src="../../images/general/litarr.gif">Fonts Converter</b> from the start menu. The <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+10">Font Converter</span> dialog box gets displayed, as shown below.<br>
+<br>
+<img src="Images/Font_converter.gif" border="0"><br>
+<br>
+ The options in the dialog box are tabulated below:<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+1">shp/shx font file</span></td>
+<td>Enables you to import the <i>.shx</i> font of the <b>AutoCAD</b> application by using the <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+4">Browse</span> button.</td>
+</tr>
+
+<tr>
+<td width="90"><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+2">shp/shx bigfont file</span></td>
+<td>Enables you to import the big fonts <i>.shp/.shx</i> of the <b>AutoCAD</b> application by using the <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+4">Browse</span> button.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+3">Preview</span></td>
+<td>Enables you to enter a text for preview. To see the preview of the text in the preview box, select the <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+5">Preview</span> button.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+6">Face-name</span></td>
+<td>Enables you to assign a name to the font being converted.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+7">Save as .aa</span></td>
+<td>Enables you to convert a <i>.shx/.shp</i> font into a vector <i>(.aa)</i> font file.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+11">Save as .shp</span></td>
+<td>Enables you to convert a <i>.shx</i> font file into the <i>.shp</i> font file.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+9">Help</span></td>
+<td>Displays the help documents.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+8">Exit</span> </td>
+<td>Enables you to exit the <span class="UI_COMMAND" id="FontsConverter.msg+_FONTCONVERTERMANAGER_LABEL_+10">Font Converter</span> tool.</td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--P0000563=UJWAL MANHAS
+<!== ###########################################Project SEPARATOR###################### -->
+</body>
+</html>
+

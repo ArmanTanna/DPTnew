@@ -1,0 +1,159 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<script language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+	 return true;
+}
+window.onerror = errorHandler;
+</script>
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Job: Multistretching a Set of Entities</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLEs/t32000vNOHR.css" REL="stylesheet" TYPE="text/css">
+
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style>.noleft{margin-left:22;}</style>
+
+<style>.noleft0{margin-top:0;margin-left:22;margin-bottom:0;}</style>
+
+<style>.littop{margin-top:0;margin-bottom:2}</style>
+
+<style>.litleft{margin-left:28;margin-top:0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+
+<H3>Multistretching a Set of Entities</h3>
+<p>After starting the <a  href="../FWfile/T_FW_Multistretch.htm"><b>Multistretch Entities</b></a> command, proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Define the selection window (one or more) by clicking in its two opposite vertices (entities crossed by the selection window will be stretched, while the ones inside it will be translated).<BR><BR><img border=1 src="../../../images/transform/MST01.gif"><BR><BR>The set of handles is displayed (for further details on the handles, sse the description of the <a  href="../FWfile/T_FW_Multistretch.htm"><b>Multistretch Entities</b></a> command).
+<br><br><img border=1 src="../../../images/transform/MST02.gif"><br><br>
+End selection by right-clicking and selecting <b>Continue</b> in the context menu.
+To change the selected entities, right-click on <b>Entities</b>, select <b>Reset</b> in the context menu and perform selection again.<p></p>
+</td>
+<tr valign="top">
+<td><b>2</b></td>
+<td><i>Optionally</i>, you can redefine the origin of the transformation, if the default one doesn't meet your requirements.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" cellspacing="5%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Default position of the origin</b><br>
+By default, the position of the origin depends on the selected entities.
+<table align="center" width="90%">
+<tr valign="top">
+<td class="ver9" width="210"><b>Selection</b></td>
+<td class="ver9"><b>Origin</b><p class="littop"></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Set of two or more entities</i></td>
+<td class="ver9">Center of the viewport<p></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Group</i></td>
+<td class="ver9">Group Origin<p class="littop"></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Shared Group</i></td>
+<td class="ver9">Group Origin&nbsp;&#151;&nbsp;Axis Orientation same as the one used in the group definition<p class="littop"></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Arc/Circle</i></td>
+<td class="ver9">Center<p class="littop"></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Curve</i></td>
+<td class="ver9"><i>If you clicked on the curve</i>: 
+first endpoint, second endpoint or mid point, depending on which is closest to the point you clicked on. <i>If you selected the curve without clicking on it</i> (for example, using a window selection): first endpoint<p class="littop"></p></td>
+</tr>
+<tr valign="top">
+<td class="ver9"><i>Selection by clicking</i><br>(remaining cases)</td>
+<td class="ver9">The point you clicked on.</td>
+</tr>
+</table>
+</td></tr></table><br>
+
+To define a different starting point, you can choose one of the following methods:
+<ul class="noleft0">
+<li>Double-click on the handle and specify the new starting point
+<li>Click on <b>Handle Origin</b> in the selection list to expand it, click on <b>Start point</b> and then specify the new starting point
+<li>Click on <b>Handle Origin</b> in the selection list to expand it, right-click on <b>Start point</b>, select <b>Reset</b> in the context menu and then specify the new starting point.
+</ul>
+<br>In this example, we clicked on the origin handle and then specified the mid point of the central top line:
+<br><br><img border=1 src="../images/MST03.gif">
+<p></p></td>
+</tr>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><i>Optionally</i>, you can redefine the initial orientation of the axes.<br>
+The <SPAN id="TWOD">X,Y and Z</SPAN><SPAN id="HIDETD">X and Y</SPAN> axes are initially parallel to the <SPAN id="TWOD">corresponding Work Plane</SPAN><SPAN id="HIDETD">coordinate</SPAN> axes. To modify the initial orientation of the axes, you can choose one of the following methods:
+<ul class="noleft0">
+<li>Double-click on an axis and then click on a line you want to re-align it to.
+<li>Select <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+18">Axis Alignment</span> to expand it. In the <b>X/Y<SPAN id="TWOD">/Z</SPAN> Axis</b> drop-down lists, select:
+
+<table>
+<tr valign="top">
+<td><b>Line</b></td>
+<td>to align the axis to a line. Select the line.</td>
+</tr>
+<tr valign="top">
+<td><b>2 Points</b></td>
+<td>to align the axis to the direction identified by the two points. Select the two points.</td>
+</tr>
+<tr valign="top">
+<td><b>End point</b></td>
+<td>to align the axis so that its secon endpoint coincides with a point. Select the point.</td>
+</tr>
+</table>
+</ul>
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Define the end point of the transformation in one of the follwoing methods:
+<ul class="noleft0">
+<li>Clicking the central handle and then specifying the end point of the transformation.
+<li>Dragging the origin or typing the translation values into the <b>Move X/Y</b> boxes boxes which show up when you pick the handle. <BR><BR><img border=1 src="../images/MST04.gif"><BR>&nbsp;
+<li>Dragging the handles at the end points or by typing the X, Y<SPAN id="TWOD">, Z</SPAN> components of the translation into the <b>Delta</b> boxes which show up when you pick the handle.<BR>&nbsp;
+</ul>
+
+To change the selected end point, you can choose one of the following methods:
+<ul class="noleft0">
+<li>Click on the handle and specify the new end point
+<li>Click on <b>Handle Origin</b> in the selection list to expand it, click on <b>End point</b> and then specify the new end point
+<li>Click on <b>Handle Origin</b> in the selection list to expand it, right-click on <b>End point</b>, select <b>Reset</b> in the context menu and then specify the new end point.
+</ul>
+
+<p>To undo the transformation you can check in the preview, before actually applying it and quitting the command, click the <img border=0 src="../../../images/rn_800/UndoLast.gif"> button.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td valign="baseline"><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and apply the transformation. 
+<BR><BR><img border=1 src="../../../images/transform/MST05.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td></td>
+</tr>
+</table>
+</table>
+
+<hr color="silver">
+</body>
+</html>

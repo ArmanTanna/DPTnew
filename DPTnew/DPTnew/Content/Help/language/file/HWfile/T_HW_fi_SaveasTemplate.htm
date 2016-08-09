@@ -1,0 +1,95 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta name="Author" content="Chitti Sowjanya">
+<meta name="T_2009t1" content="translate">
+<title>Job: How to create customized document templates</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTDC();HideTR();">
+<h4><a name="Customizing">How to Create Customized Document Templates</a></h4>
+
+<p>For any reason of your requirement, you may need to create customized <a href="../../glossary/T_Templates.htm">document template</a>. For example, you might need to create a template for detail part drawings that might use layer names such as, Contour, Hidden, Center, Text and Dimensions. The application enables you to create your own customized document templates as described further in this document.</p>
+
+<p>In this tutorial, let us consider creating a customized drawing template. To do so, proceed as follows.</p>
+
+<ol>
+<li>Start the application and open an empty drawing (by using the <a href="../FWfile/T_FW_fi_01_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7215">Drawing from Template</span></a> command) or any saved drawing (using <a href="../FWfile/T_FW_fi_02.htm"><span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1037">Open</span></a> command) that you want to take as reference for a new drawing template.<br>
+<br>
+</li>
+
+<li>Define various parameters and customize few initial settings like <a href="mk:@MSITStore:Layers.chm::/language/Layers/OVfile/T_OV_LayerOperations.htm">layer properties</a>, <a href="mk:@MSITStore:forcus.chm::/language/format/HWfile/T_HW_Createstyle.htm">dimension style</a>, text styles etc.<br>
+<br>
+</li>
+
+<li>Save the drawing using the <a href="../FWfile/T_FW_fi_SaveasTemplate.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7217">Save as Template</span></a> command. The program displays a <span class="UI_OPTION" id="idd_save_template.msg+idd_save_template+1">Save as Template</span> dialog box, in which you need to <a name="Name"></a>provide the name for the template file in the edit box or choose an existing file from the available list. In this case, name it as <i>Test_template.e2</i>.<br>
+ <SPAN id="TWOD">Now, it will be available in the list of the <a href="../jsoptions/Current_Template_01.htm"><span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+2">Current templates</span></a> options, which can be chosen using the <a href="../jsoptions/ChangeTemplate.htm"><span class="UI_OPTION" id="idd_startup.msg+idd_startup+18">Change</span></a> button.<br>
+<br>
+Note that the customized templates are stored in the <i>Template</i> subfolder of your <a href="../../customize/OVfile/UserFolder.htm">user folder</a>.<br></SPAN>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+
+
+<p>In order to verify your work, open a new drawing from the saved template. To do so, proceed as follows:</p>
+
+<ol>
+<li>Click <a href="../FWfile/T_FW_fi_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_File.msg+ButtonToolbar_File+6318">New File</span></a> (<img src="../../../images/icons/icons_new/ID_NEW.bmp">) button, to display the <span class="UI_COMMAND" id="idd_startup.msg+idd_startup+1">ThinkDesign</span> dialog box as shown in the image below.<br>
+<br>
+<img src="../images/Startup_dialog.gif" border="0"><br>
+<br>
+Note that by default the current<SPAN id="TWOD"> model and</SPAN> drawing template<SPAN id="TWOD">s are</SPAN> <SPAN id="HIDETD">is</SPAN> set to <b>ISO-mm</b>.<br>
+<br>
+</li>
+
+<li>Click <span class="UI_OPTION" id="idd_startup.msg+idd_startup+18">Change</span> button. The <span class="UI_COMMAND" id="idd_new_startup_options.msg+idd_new_startup_options+1">Change Templates</span> dialog box is displayed as shown in the image below.<br>
+<br>
+<img src="../images/ChangeTemplate_dialog.gif" border="1"><br>
+<br>
+It enables you to choose <SPAN id="TWOD">between the </SPAN>the current template <a href="../jsoptions/Current_Template.htm">options</a>: <SPAN id="TWOD"><span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+3">Model:</span> and/or </SPAN><span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+4">Drawing:</span>.<br>
+<br>
+</li>
+
+<li>Choose the customized template (<i>Test_template</i>) from the <span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+4">Drawing:</span> drop-down list and click <b>OK</b>.<br>
+ The chosen drawing template is reflected in the <span class="UI_OPTION" id="idd_startup.msg+idd_startup+17">Drawing:</span> option in the <span class="UI_OPTION" id="idd_startup.msg+idd_startup+15">Current templates</span> area, as shown in the image below.<br>
+<br>
+<img src="../images/Selected_template.gif" border="0"><br>
+<br>
+</li>
+
+<li>Select the <b>Drawing</b> icon from the <span class="UI_COMMAND" id="idd_startup.msg+idd_startup+1">ThinkDesign</span> dialog box and click <b>OK</b>.<br>
+It opens a new drawing document with the customized template settings.</li>
+</ol>
+
+<br>
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

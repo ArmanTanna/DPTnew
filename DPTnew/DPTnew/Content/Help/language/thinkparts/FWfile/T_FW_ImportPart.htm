@@ -1,0 +1,45 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<script language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+	 return true;
+}
+window.onerror = errorHandler;
+</script>
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Import (thinkparts)</TITLE>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<p>The <B>Import</B> command enables you to insert the selected part as component in your <b>think<font color="#FF0F00">3</font></b> <SPAN id="TWOD">3D model or</SPAN> drawing.</p>
+
+<p>You can find this command in the context menu of the query view dialog that opens when you run the <b>Open</b> command on a catalog of parts, if you started <b>thinkparts</b> from within the <b>think<font color="#FF0F00">3</font></b> application and you have a valid document open, <SPAN id="TWOD">either a 3D model or</SPAN> a 2D drawing. Instead of selecting the component and clicking <b>Import</b> in the context menu, you can double click on the part in the list. </p> 
+
+<p id="HIDEP">Upon execution, the component will be created according to the specifications of the selected part and will be positioned in the open document. In other words, the mating constraints the part was assigned when it was built will be required when positioning the part as a component (if no positioning constraints were applied to the part when it was built, you can simply position it in the model and then apply to it the mating constraint that will take it to the proper position).</p>
+
+<HR color="silver">
+<H5>Try to...</H5>
+<UL class="noleft">
+<LI id="HIDELI"><a href="../HWfile/T_HW_Import3D.htm"><b>Import a thinkparts component in a thinkdesign model</b></a></LI>
+<LI><a href="../HWfile/T_HW_Import2D.htm"><b>Import a thinkparts component in a thinkdesign drawing</b></a></LI>
+</UL>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,352 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Part Modeling Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+<h1>New Part Modeling Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Part Modeling functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#653">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7525">Rib</span> command</a></li>
+
+<li><a href="#659">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1589">Cut/Split</span> command</a></li>
+
+<li><a href="#663">Enhancement in the selection of Work Plane axes in solids/features</a></li>
+
+<li><a href="#P656">Enhancement in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+1">Interactive Modeling Move Faces</span> and <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+7">Interactive Modeling Offset Faces</span> commands</a></li>
+
+<li><a href="#P755">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7732">Invert Solid Normals</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!-- PRJ: P0000653 - OWN: Nicola Castano' -->
+<h2><a name="653"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7525">Rib</span> command</h2>
+
+<p>The new <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_Rib.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7525">Rib</span></a> command enables you to create a thin wall structure on the component to increase the strength of the whole component. The thickness of the rib is controlled by the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+7">Thickness</span> mini-dialog box available in the Graphics Area. The <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+243">Offset</span> mini-dialog box is available to create a rib at an offset from the profile. Also, the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+6">Angle</span> mini-dialog box is available to create a rib at an angle. The following images show an example of a simple rib creation.</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td valign="top"><img src="../../images/rn_td_2010T1/Rib_1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif" align="center"></td>
+<td valign="top"><img src="../../images/rn_td_2010T1/Rib_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Profile of the Rib</b></td>
+<td></td>
+<td align="center"><b>Rib</b></td>
+</tr>
+</table>
+
+<p>On selecting the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node from the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7525">Rib</span> selection list, you can access advanced parameters like <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_Rib.htm#COMRA"><span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+48">Common radius</span></a> and <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_Rib.htm#BARA"><span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+47">Base radius</span></a>. An example of a rib created by using advanced parameters is shown in the images below.</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td><img src="../../images/rn_td_2010T1/Advance_Rib_1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif" align="center"></td>
+<td><img src="../../images/rn_td_2010T1/Advance_Rib_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Profile of the Rib</b></td>
+<td></td>
+<td align="center"><b>Rib created using advance parameters</b></td>
+</tr>
+</table>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000659 - OWN: Anna Elisabetta Ziri -->
+<h2><a name="659">The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1589">Cut/Split</span> command</a></h2>
+
+<p>The new <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_11.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1589">Cut/Split</span></a> command replaces the previously existing <span class="OLD">Cut</span> command. The new command enables you to cut and split a solid by using a surface, datum plane, or skin.<br>
+<br>
+The <span class="UI_COMMAND" id="TDSolidsUI.msg+_TDSOLIDSUI_LABEL_+6">Split</span> check box is provided in the <span class="UI_COMMAND" id="TDSolidsUI.msg+_TDSOLIDSUI_LABEL_+4">Cut/Split Solid</span> selection list.</p>
+
+<ul>
+<li>When selected, the selected solid is split by the cutting surface.</li>
+
+<li>When cleared, the split operation is not performed.</li>
+</ul>
+
+<p>Cut and split are two separate parametric entities displayed in the Model Structure.</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000633 - OWN: Anna Elisabetta Ziri -->
+ 
+
+<h2><a name="663"></a>Enhancement in the selection of Work Plane axes in solids/features</h2>
+
+<p>In this version, you will be able to select the Work Plane axis as the direction for feature creation in the following commands. New options have been provided in the respective drop-down lists, as listed in the table below.</p>
+
+<table align="center" style="margin-left:30" cellspacing="2" cellpadding="2" border="1" style="margin-bottom:9;">
+<tr>
+<td align="center"><b>Command Name</b></td>
+<td align="center"><b>Location in Selection List</b></td>
+<td align="center"><b>New Options</b></td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01_solid.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6803">Linear Solid</span></a>, <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+4363">Linear Protrusion</span></a>, <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_Sl_03_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+421">Linear Slot</span></a> </td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> <img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/solids/sl_02/FWfile/T_FW_sl_02_solid.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6807">Rotational Solid</span></a>, <a href="mk:@MSITStore:solids.chm::/language/solids/sl_02/FWfile/T_FW_sl_02.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+4364">Rotational Protrusion</span></a>, <a href="mk:@MSITStore:solids.chm::/language/solids/sl_02/FWfile/T_FW_sl_02_02.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+415">Rotational Slot</span></a> </td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> drop-down list</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span></a>, <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1560">Shaft</span></a></td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+73">Polar</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+41">Reference direction</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+126">Cartesian</span> <img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+41">Reference direction</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+180">Cylindrical</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+182">Radial direction</span></li>
+</ul>
+</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/features/ft_15/FWfile/T_FW_ft_15.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+441">Solid Pattern</span></a></td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+5">Type:</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+5">Linear</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+7">Linear-linear</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+8">Linear-angular</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+44">Curves-linear</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+45">Linear-curves</span></li>
+</ul>
+
+<span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+5">Type:</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+6">Angular</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+8">Linear-angular</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+9">Angular-linear</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+10">Angular-angular</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+47">Angular-curves</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+46">Curves-angular</span></li>
+
+<li><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+8">Linear-angular</span></li>
+</ul>
+</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span><br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_14.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+439">Mirror Solid</span></a></td>
+<td valign="top"><span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+14">First Symmetry Plane</span> and <span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+15">Second Symmetry Plane</span> drop-down list 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span></li>
+</ul>
+
+<br>
+<br>
+<span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+14">First Symmetry Plane</span> and <span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+15">Second Symmetry Plane</span> drop-down list 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span> <img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span></li>
+</ul>
+</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/fwfile/T_FW_Sl_01_09.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+25">Datum Point</span></a></td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+192">Point On:</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+2">Face</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+73">Polar</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+41">Reference direction</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+126">Cartesian</span> <img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+41">Reference direction</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+180">Cylindrical</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+182">Radial direction</span><br>
+<br>
+</li>
+</ul>
+
+<span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+192">Point On:</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+2">Face</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+89">Intersection</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span></li>
+</ul>
+</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span><br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/FWfile/T_FW_Sl_03_09.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+29">Datum Plane</span></a></td>
+<td valign="top"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list: 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></li>
+</ul>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></li>
+</ul>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+19">More Conditions</span> drop-down list 
+
+<ul>
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+53">Perpendicular &amp; axis</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+54">Angle &amp; axis</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span><br>
+<br>
+</li>
+</ul>
+</td>
+<td valign="top">
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span><br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P656 - OWN: Marco Amagliani -->
+<h2><a name="P656"></a>Enhancement in the <span class="UI_OPTION" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+1">Interactive Modeling Move Faces</span> and <span class="UI_OPTION" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+7">Interactive Modeling Offset Faces</span> commands</h2>
+
+<p>The new <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+39">Fillet Reconstruction</span> drop-down list in the <a href="mk:@MSITStore:ism.chm::/language/ISM/FWfile/T_FW_move_face.htm"><span class="UI_OPTION" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+1">Interactive Modeling Move Faces</span></a> and <a href="mk:@MSITStore:ism.chm::/language/ISM/FWfile/T_FW_offset_face.htm"><span class="UI_OPTION" id="ButtonToolbar_ISM.msg+ButtonToolbar_ISM+7">Interactive Modeling Offset Faces</span></a> commands enable you to manage G1 continuous fillets more effectively. Three new options, <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+22">None</span>, <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+36">Only Safe</span>, and <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+37">All</span> are available in the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+39">Fillet Reconstruction</span> drop-down list. Also, you can offset a selected fillet surface, without changing the fillet type. </p>
+
+<p>The fillet is reconstructed by evaluating the tolerance value entered in the <span class="UI_COMMAND" id="TDTweak.msg+_TDTWEAK_LABEL_+40">Fillet Recognition Tolerance</span> text box. Based on the tolerance value, the software computes whether the reconstruction or offset operation can be done to the selected fillet surface or not.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P755 - OWN: Jacques Goussard -->
+<h2><a name="P755">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7732">Invert Solid Normals</span> command</a></h2>
+
+<p>Using the <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/Sl_inv_normal.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7732">Invert Solid Normals</span></a> command you can now apply a global inversion to all normals to make them point towards the same direction. As a result, you do not have to select the normals individually to invert their direction. The inversion takes place based on one of the options selected in the new <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+15">Inversion Mode</span> drop-down list, which is available when the <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+4">Mode</span> is set to <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+3">Local</span>. Refer to the <a href="Curves.htm#P755">Enhancement in the Invert Surface command</a> topic for some illustrations.</p>
+
+<p>The direction of all the normals can be simultaneously inverted by using the new <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+16">Exchange all normals</span> option.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+</body>
+</html>
+

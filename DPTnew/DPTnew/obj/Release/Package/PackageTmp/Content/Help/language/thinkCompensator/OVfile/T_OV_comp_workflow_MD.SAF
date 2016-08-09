@@ -1,0 +1,50 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Compensator Workflow for Measured Data</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Compensator Workflow for Measured Data</h2>
+
+<p>For making <i>compensation</i> or <i>adaptation</i> using Measured Data, the workflow is the following:</p>
+
+<ul class="noleft">
+<li>The inputs for the process are the Initial Mesh (from CAD model) and the Measured Mesh (from scanned data). It is necessary to first adjust the relative positioning of the two mesh to allign them. This is required as both mesh entities may not have been defined in the same coordinates system. This step is achieved using the <a href="../FWfile/T_FW_Pre-Alignment.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7755">Pre-Alignment</span></a> and <a href="../FWfile/T_FW_Optimize.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7757">Optimize Alignment</span></a> commands.<br><br> </li>
+
+
+<li>Once aligned, the <a href="../FWfile/T_FW_IMD.htm"><span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span></a> (for compensation) or <a href="../FWfile/T_FW_AMD.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span></a> command (for adaptation) will be used to find the correspondence between initial and target mesh and to compute the transformation corresponding to the compensation/adaptation process. The result is a small GSM surface, which contains the computed transformation.<br><br></li>
+
+<li> This transformation surface can then be used by the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMR.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7012">GSM Replicate</span></a> command to apply the modification on the initial mesh. In case of 'Adaptation', the modified initial mesh will fit the measured one, while in case of 'Compensation', it will correspond to the proposed geometry to be used as the compensated one.<br><br></li>
+
+<li>Additional tools (like <a href="../FWfile/T_FW_blankholder.htm"><span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span></a> command) can be used to update the environment of the compensated/adapted part.</li>
+
+</ul>
+
+<hr color="silver">
+<h5>Related topics...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_thinkcompensation.htm">An Overview of Compensator</a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

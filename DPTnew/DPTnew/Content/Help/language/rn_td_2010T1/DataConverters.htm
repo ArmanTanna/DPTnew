@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<meta name="BelongsTo" content="TDD">
+<title>New Data Exchange Functionalities and Improvements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<a name="top"></a> 
+
+<h1>New Data Exchange Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Data Exchange functionalities.</p>
+
+<ul class="noleft"><!--<li id="HIDELI"><a href="#644A">New AcrobatProExt Integration plug-in</a></li>
+<li id="HIDELI"><a href="#644">Enhancement in the file converter</a></li>
+<li id="HIDELI"><a href="#644A">Read <span class="UI_COMMAND_NOBOLD" id="eklib.msg+td_filext+55">Solidworks file (*.sld*;*.SLD*)</span></a></li>
+<li id="HIDELI"><a href="#563">Save *.e3 file as PDF</a></li>-->
+<li><a href="#e2">Save *.e2 file as PDF</a></li>
+
+<li id="HIDELI"><a href="#809">Save as STL file</a></li>
+
+<li><a href="#NON">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span> category of Catia V5 Options, ProEngineer Options, and Parasolid Options dialog boxes.</a></li>
+
+<li><a href="#SAV">Enhancement in the IGES Options - <span class="UI_COMMAND_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> category</a></li>
+</ul>
+
+<hr color="silver">
+<!-- P0000644, 747, and 748 = Ujwal and Guru
+<h2 id="HIDEH2"><a name="644A"></a>New AcrobatProExt Integration plug-in</h2>
+
+<p id="HIDEP">The <b>AcrobatProExt Integration</b> plug-in has been introduced in this version. This plug-in enables you to read files of different formats like <span class="UI_COMMAND" id="eklib.msg+td_filext+45">Catia V5 file (*.CATP*)</span> and <span class="UI_COMMAND" id="eklib.msg+td_filext+46">ProEngineer file (*.prt*;*.asm*;*.neu*)</span>. This plug-in enables you to save *.e3 files in the PDF (Portable Document Format).</p>
+
+<p id="HIDEP">To install this plug-in, the <b>AcrobatProExt Integration</b> check box has been introduced in the custom window of the <i><a href="mk:@MSITStore:tdein.chm::/language/tdein/install.htm">installation wizard</a></i>. On selecting this check box, you will be able to install the <b>AcrobatProExt Integration</b> plug-in during the installation process.</p>
+
+<p id="HIDEP">You need an additional license to use the <b>AcrobatProExt Integration</b> plug-in to read and save files.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif">
+P0000644, 747, and 748 = Ujwal and Guru
+<h2 id="HIDEH2"><a name="644"></a>Enhancement in the file converter</h2>
+
+<p id="HIDEP">Other than using <b>TD-Direct</b> you will be able to read the <span class="UI_COMMAND" id="eklib.msg+td_filext+45">Catia V5 file (*.CATP*)</span>, <span class="UI_COMMAND" id="eklib.msg+td_filext+46">ProEngineer file (*.prt*;*.asm*;*.neu*)</span>, and <span class="UI_OPTION" id="eklib.msg+td_filext+44">Parasolid file (*.x_*;*.X_*)</span> by using the <a href="#644A"><b>AcrobatProExt Integration</b></a> plug-in.</p>
+
+<p id="HIDEP">In case you want to switch from the <b>TD-Direct</b> to AcrobatProExt Integration plug-in or vice-versa, the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+667">TD Direct</span> and <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+668">AcrobatProExt Integration</span> radio buttons have been introduced under the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+666">Translator selection for multi-CAD file formats</span> area of the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span> category in the <b>Catia V5 Options</b>, <b>ProEngineer Options</b>, and <b>Parasolid Options</b> dialog boxes.<br>
+<br>
+</p>
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif">  ###########################################Project SEPARATOR###################### 
+<h2 id="HIDEH2"><a name="644A"></a>Read <span class="UI_COMMAND" id="eklib.msg+td_filext+55">Solidworks file (*.sld*;*.SLD*)</span></h2>
+
+<p id="HIDEP">From this version, you will be able to read <span class="UI_COMMAND" id="eklib.msg+td_filext+55">Solidworks file (*.sld*;*.SLD*)</span> by using the <a href="#644A"><b>AcrobatProExt Integration</b></a> plug-in.</p>
+
+<p id="HIDEP">The options in the <b>Solidworks Options</b> dialog box can be used to do the settings for the file conversion.</p>-->
+<!--<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"> 
+</p>
+-->
+<h2><a name="e2"></a>Save *.e2 file as PDF</h2>
+
+<p>You can save *.e2 files in the PDF (Portable Document Format). The <span class="UI_COMMAND" id="eklib.msg+td_filext+54">Adobe PDF file (*.pdf)</span> option has been introduced in the <b>Save as Type</b> drop-down list of the file selection box.</p>
+
+<p>To support this conversion process, the <b>ThinkDesign PDF Printer</b> gets automatically installed during the installation process.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- P0000563=OWN==UJWAL MANHAS-->
+ <!--<h2 id="HIDEH2"><a name="563"></a>Save *.e3 file as PDF</h2>
+
+<p id="HIDEP">You can save *.e3 files as PDF (Portable Document Format). The <span class="UI_COMMAND" id="eklib.msg+td_filext+54">Adobe PDF file (*.pdf)</span> option has been introduced in the <b>Save as Type</b> drop-down list of the file selection box.</p>
+
+<p id="HIDEP">The options in the <b>PDF Options</b> dialog box can be used to do the settings for PDF conversion.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif">  ###########################################Project SEPARATOR###################### 
+ P0000809= Stefiano Pippa-->
+ 
+
+<h2 id="HIDEH2"><a name="809"></a>Save as STL format</h2>
+
+<p id="HIDEP">It is possible to save solids, surfaces, and <a href="mk:@MSITStore:solids.chm::/language/NMandOs/OVfile/Open-Solids.htm">open solids/skin</a> into <a href="mk:@MSITStore:cnv.chm::/language/stl/stl_00.htm">STL format</a> to convert them into meshes. The current enhancement generates more accurate mesh; as a result, you can get better 3D printing of STL models.</p>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span>
+
+<h5><a name="NON"></a>Enhancement in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span> category of Catia V5 Options, ProEngineer Options, and Parasolid Options dialog boxes.</h5>
+
+<p>The new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+659">Non-manifold solids to surfaces</span> option has been introduced in this category. When selected, it enables you to convert non-manifold solids into surfaces.</p>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h5><a name="SAV"></a>Enhancement in the IGES Options - <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> category</h5>
+
+<p>In this version, the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+638">Match UV curves with edge curves</span> option has been introduced in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_IGES_LOAD_HEALING.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+416">Healing</span></a> area of the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> category in the <b>IGES Options</b> dialog box.</p>
+
+<p>A trimmed surface boundary is determined by UV curves and these UV curves need to match with 3D curves. In order to ensure the regeneration of UV-curves from the 3D curves, the new <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+638">Match UV curves with edge curves</span> option has to be selected.</p>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

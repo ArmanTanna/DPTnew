@@ -1,0 +1,292 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(500,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Curve Target Curvature</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1109">Curve</span><img src="../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+7891">Target Curvature</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command enables you to modify a contour by changing its curvature plot. In many situations you may have contours with a curvature plot that is smooth along the largest part of the contour itself, but with some zones that are not. In these cases you may want to change the curvature of those parts by defining new curves with a curvature plot such that the one of the curves to modify matches the defined and selected curvature curves. In fact, if the curvature plot of a contour is not completely smooth, shapes derived from that curve may actually be bad ones.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><b>Note</b> <br>
+Please take into account that the command refers to the <i>curvature</i>&nbsp;&#151;&nbsp; <i>not</i> to the radius of curvature&nbsp;&#151;&nbsp;and that the curvature plots you can use as references for a comparison between the selected curves and the target ones can be obtained through the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_CurveCurvature.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span></a> command: 
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>With the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+13">Reverse</span> check box <i>cleared</i></li>
+
+
+<li>With a <i>positive</i> value of the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+16">Scale</span>, so that the quantity drawn along the normal has the same sign as the curvature.</li>
+
+</ul>
+
+In addition, also consider that <a name="CTX_CurveTargetCurvature_Reverse"></a>the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+69">Reverse</span> check box is available the selection list. Similarly to what happens in the 
+<span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span> command, it enables you to work with a target curvature plot that can be considered as reverted or not. Please note that you can use the 
+<span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span> command during a session of the 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command (without interrupting it) so as to check the shape of the curvature plot for the modified curves in the preview. 
+
+
+<ul class="noleft">
+<li>When the check box is not selected, the target curvature is considered as not reverted.</li>
+
+<li>When the check box is selected, the target curvature is considered as reverted.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<p>First of all, display the curvature plot with a certain value of the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+70">Scale</span>. Then proceed as follows.</p>
+
+
+<ol style="margin-left:28;margin-top:0;margin-bottom:0;">
+<li>Display the curvature plot of the contour and set the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+70">Scale</span> to the desired value.<br>
+
+<br>
+<img border="1" src="../../../images/rn_2006T2/TargCurv02.gif"><br>
+<br>
+If the curvature plot is not completely smooth, start the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command.</li>
+
+
+<li><a name="CTX_CurveTargetCurvature_Curves"></a>Select the set of curves to be modified (<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+5">Curves</span>)<br>
+
+<br>
+<img border="1" src="../../../images/rn_2006T2/TargCurv01.gif"><br>
+<br>
+</li>
+
+<li><a name="CTX_CurveTargetCurvature_SameContinuity"></a>To set the same continuity conditions at both ends of the curve check the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+37">Same Continuity</span> box. Uncheck it to differentiate it.</li>
+
+
+<li><a name="CTX_CurveTargetCurvature_Continuity"></a>Select the continuity conditions (<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+38">Continuity</span>) you want to set, which can be: 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+31">Position</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+32">Tangency</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+33">Curvature</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+34">Torsion</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+35">Smooth curvature</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+36">Curvature plot curvature</span>. See "
+<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm"><i>Continuity Types</i></a>" for details.</li>
+
+
+<li><a name="CTX_CurveTargetCurvature_CurvatureCurves"></a>Select the target <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+7">Curvature Curves</span> (curves representing the curvature plot which matches your needs). See also details in "<a href="#TGD">Target curves and tangency discontinuity points</a>".<br>
+
+<br>
+<img border="1" src="../../../images/rn_2006T2/TargCurv03.gif"><br>
+<br>
+</li>
+
+<li><a name="CTX_CurveTargetCurvature_Scale"></a>Set the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+70">Scale</span> to the same value as the one you used for the curvature plot of the original contour.</li>
+
+
+<li><a name="CTX_CurveTargetCurvature_ProjectOn"></a>In the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+91">Project Onto</span> drop-down list you can choose one of the following options. 
+
+
+<table>
+<tr valign="top">
+<td width="60"><span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+93">Plane</span></td>
+
+<td>A projection plane to be defined using one of the methods available in the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+6">Projection Plane</span> drop-down list. See "<a href="../jsoptions/Plane.htm"><i>Plane Definition Modes</i></a>" for details.</td>
+
+</tr>
+
+<tr valign="top">
+<td width="60"><span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+92">View</span></td>
+
+<td>The view plane.</td>
+</tr>
+</table>
+
+A message is also issued, providing the maximum distance between the projection of the initial curve on the selected plane and the projection of the modified curve on the same plane and also highlighting its location. 
+
+<table border="1" bordercolor="white" cellpadding="0%" cellspacing="0%" style="margin-top:6px;">
+<tr valign="top">
+<td bordercolor="black"><img src="../../../images/rn_2007T1/TGC01.gif" border="0" style="margin-bottom: 0px;"> 
+
+<table border="1" bordercolor="white" style="margin-top:0;" cellpadding="0%">
+<tr valign="top" style="margin-top: 0; padding-top: 0px;">
+<td style="background: Yellow; border: thin solid Silver; font-family: 'MS Sans Serif'; font-size: 8; margin-top: 0;"><span class="UI_OPTION_NOBOLD" id="TDDUI.msg+_TDDUI_WARNTTIP_+10">Max. distance on the projection plane from the initial curve</span>=12.5209 mm</td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+ Select <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+92">View</span>. Take into account the modification will performed according to the following scheme: 
+
+
+<ul class="noleft">
+<li>The set of selected curves is first projected onto the selected plane.</li>
+
+<li>The modification is applied to the projected contour.</li>
+
+<li>The curves thus obtained are then re-projected onto a temporary support surface based on the selected original contour so as to get the final 3D contour.</li>
+</ul>
+</li>
+
+<li><a name="CTX_CurveTargetCurvature_Default"></a>The scale and reverse <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+73">Default</span> check box is also available in the selection list. 
+
+
+<ul class="noleft">
+<li>When the box is cleared, you can make your own choices manually.</li>
+
+<li>When the check box is selected, best fit values for scale and reverse are automatically computed once you have provided the curve, the target curvature and the projection plane.</li>
+</ul>
+</li>
+
+<li>Confirm to obtain the modified curve:<br>
+<br>
+<img border="1" src="../../../images/rn_2006T2/TargCurv04.gif"><br>
+<br>
+If you display the curvature plot, you will see the one of the modified curve is smooth:<br>
+<br>
+<img border="1" src="../../../images/rn_2006T2/TargCurv05.gif"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Constraint compatibility</b><br>
+Please note that if the continuity conditions you have set are not compatible with the curvature curves you have selected, the ones that will actually be taken into account are the continuity constraints.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>The result is computed with an optimization process for which you can set some parameters under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node.<br>
+
+ <a name="CTX_CurveTargetCurvature_Optimization"></a>Under <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+80">Optimization Parameters</span>: 
+
+
+<table>
+<tr valign="top">
+<td><a name="CTX_CurveTargetCurvature_MaxNoLoops"></a><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+75">Max. No. of loops</span></td>
+
+<td>Enables you to set the maximum number of iterations. Decrease the number to reduce the execution time (but the result will generally be worse)</td>
+</tr>
+</table>
+
+<a name="CTX_CurveTargetCurvature_FormFactor"></a>And, under <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+81">Form Factor</span>: 
+
+
+<table>
+<tr valign="top">
+<td><a name="CTX_CurveTargetCurvature_Degree"></a><span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+71">Degree</span></td>
+
+<td>Enables you to enter the polynomial method of the form factor: 1 is linear, 2 parabolic, 3 cubic and so on.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="CTX_CurveTargetCurvature_Flexibility"></a><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+72">Flexibility</span></td>
+
+<td>Enables you to set the flexibility of the result. Increase this number to better optimize the result.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="CTX_CurveTargetCurvature_DefaultFF"></a><span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+73">Default</span> </td>
+
+<td>enables you to choose whether the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+71">Degree</span> and 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+72">Flexibility</span> values are to be set automatically or not: 
+
+
+<ul class="noleft">
+<li>When the box is cleared, you can make your own <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+71">Degree</span> and 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+72">Flexibility</span> choices manually.</li>
+
+
+<li>When the box is checked, appropriate values for <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+71">Degree</span> and 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+72">Flexibility</span> are provided according to the continuity constraints.</li>
+
+</ul>
+</td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_CurveTargetCurvature_Associative"></a>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box enables you to control the associativity of the result (see "
+<a href="mk:@MSITStore:help.chm::/language/curves/OVfile/T_OV_curves.htm#Assoc.htm"><i>Associativity</i></a>" for details). 
+
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curve will be associative. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.<br>
+
+<br>
+<img src="../images/TGC02.gif" border="1" style="margin-bottom:4px;"></li>
+
+<li>When the check box is cleared, the resulting curve will not be associative.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-top:10px;">
+<tr>
+<td bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span> <b>and</b> 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+73">Default</span><br>
+
+ Please note that in associative mode (that is, when the <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span> box is checked), if a 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+73">Default</span> box is checked, the corresponding parameters (scale and reverse or degree and flexibility values) are not saved. As a consequence, when rebuilding the model they are computed automatically.</td>
+
+</tr>
+</table>
+</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><a name="TGD"></a><b>Target curves and tangency discontinuity points</b><br>
+<p>Also target <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+7">Curvature Curves</span> with tangency discontinuity points can be used: tangency discontinuity points will be taken into account in the computation to generate the plot.</p>
+
+
+<p>In the following image the violet curve is the original curve, while the green ones are the curvature target curves.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/TGC_before.gif"><br>
+<br>
+ And here is the result of the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> in the new version.<br>
+
+<br>
+ <img border="1" src="../../../images/rn_2008T1/TGC_after.gif"><br>
+<br>
+</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

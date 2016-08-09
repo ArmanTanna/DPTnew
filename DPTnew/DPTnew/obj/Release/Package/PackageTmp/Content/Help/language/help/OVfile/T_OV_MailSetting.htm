@@ -1,0 +1,68 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Setting the e-mail options</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Setting the e-mail options</h2>
+
+<p>The <b>Mode</b> drop-down list in the <b>Send e-mail</b> area of the <b>General</b> category of the <b>System Options</b> determines the way e-mail messages are sent by the command:<br>&nbsp;
+<ul class="noleft">
+<li><b><a href="../../help/FWfile/T_FW_SendANote.htm">Send a note</a></b>
+
+</ul>
+Possible values are:<BR></P>
+<table border=0>
+<tr valign="top">
+<td>
+<b>Direct</b>
+</td>
+<td>If this option is active, e-mail are sent immediately. 
+Execution is slowed down until the e-mail sending process is over. 
+Any e-mail problems might cause the program
+ to get blocked.
+</td></tr>
+<tr valign="top">
+<td>
+<b>Asynchronous</b>
+</td>
+<td>When the <b>Send</b> or <b>Finish</b> buttons are pressed, a background e-mail sending process is
+started in background. Any e-mail problem might cause the sending process to be blocked.</td></tr>
+<tr valign="top">
+<td>
+<b>Deferred</b>
+</td>
+<td>When the <b>Send</b> or <b>Finish</b> buttons are pressed, an auxiliary 
+"SendMail" folder is created under the "thinkdesign" subfolder in the 
+main MS-Windows directory of your PC. A specific subfolder is created for each e-mail message. The name of this subfolder includes a postfix displaying the sending time.
+<br>To send the mail, you have to run the <a  href="../HWfile/T_HW_Mail.htm"><b>mail.exe</b></a> program (from <b>Start => Run</b> or from a MS-DOS window).
+</td></tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

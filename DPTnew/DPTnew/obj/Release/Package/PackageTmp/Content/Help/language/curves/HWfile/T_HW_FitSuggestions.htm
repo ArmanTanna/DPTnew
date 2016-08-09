@@ -1,0 +1,61 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Fitting Curves: Suggestions and Tips</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Fitting Curves: Suggestions and Tips</h4>
+
+<p>When using the <a href="../FWfile/T_FW_cv_02.htm"><b>Fit Curve</b></a> command, whichever the method you choose in the <b>From</b> drop-down list, here are some suggestions and tips.</p>
+
+<ul class="noleft">
+<li>Generally, the higher the degree, the better the fit. It is always a good idea to try fitting curves with low degrees, however, because they are <i>smoother</i> than those with high degrees. As the degree increases, so does the probability of adding points of inflection.<br>
+&nbsp;</li>
+
+<li>To avoid receiving an error message, always maintain the correct relationship between control points, degree, and continuity, as defined by the <a href="../../MathConc/T_MC_cv_01.htm">fundamental relationship between control points, degree, continuity and number of arcs for a NURBS</a>. For example, if the number of control points you specify is greater than the number of points to be fitted, an error message is displayed.<br>
+&nbsp;</li>
+
+<li>It is often more convenient to indicate the arc joints manually rather than letting the program calculate them automatically. To specify the joints manually, in the <b>Approximation</b> drop-down list under <b>More Options</b>, choose <b>Select arc joints</b>.<br>
+&nbsp;</li>
+
+<li>It may be convenient to fit a set of points with more than one fitted curve (to divide the set of points into convenient subsets) and then link up the resulting curves.<br>
+&nbsp;</li>
+
+<li>When the number of control points is equal to the number of points to be fitted, you obtain an interpolated curve (the resulting curve passes through all the indicated points). In such cases, however, the resulting curve may have unwanted oscillations and be very different from the curve you expected to obtain.<br>
+&nbsp;</li>
+
+<li>Significant improvements can be obtained by selecting the most appropriate <b>Parameterization</b> type (you can change the type and interactively asses the result in the preview, so as to choose the best one) and by properly setting the tolerances used to control the sampling (using the controls under <b>Advanced Options</b>).</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,248 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a Spined Surface from one boundary and one drive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Creating a Spined Surface from one boundary and one drive</h2>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_sr_11.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+72">Spined Surface</span></a> command, you can proceed as follows (<i>please note that you can follow this step-by-step example by loading file</i>: "spsrf_1b_1d.e3").<br>
+
+
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>To obtain an <i>associative</i> surface, that is an open solid&nbsp;&#151;&nbsp;a <i>Skin</i>&nbsp;&#151;&nbsp; retaining a link to its base curves, so that if you modify such curves the surface will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> box. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the spine curve (or chain of curves) and end selection by right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_1b_1d_01.gif"><br>
+<br>
+To change the selected spine curve (for example if you selected the wrong one by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+53">Spine</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> and perform selection again.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the boundary curve and end selection by right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_1b_1d_02.gif"><br>
+<br>
+To change the selected boundary curve (for example if you selected the wrong one by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+151">Boundaries</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> and perform selection again.<br>
+
+
+<br>
+A preview is immediately displayed:<br>
+<br>
+<img border="1" src="../images/spinesrf_1b_1d_OK_01.gif"><br>
+<br>
+For the surface to extend in the opposite direction, select the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+5">Invert</span> check box.<br><br>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="6%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Selecting chains of curves</b><br>
+Please note that selecting a chain of curves as just one boundary is not allowed. If the boundary you want consists of a chain curves, group them into a single <a href="mk:@MSITStore:prf.chm::/language/sketcher/OVfile/T_OV_sk_00_01.htm">profile</a> before starting the 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+72">Spined Surface</span> command.</td>
+
+
+</tr>
+</table>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Select the drive curve (or chain of curves) and end selection by right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+
+<br>
+<img border="1" src="../images/spinesrf_1b_1d_OK_02.gif"><br>
+<br>
+To change the selected drive curve (for example if you selected the wrong one by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+11">1st Drive</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> and perform selection again.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to display additional options. 
+
+
+
+<ul class="noleft">
+<li>If the spine is a chain of curves, you can choose whether to obtain a single surface or as many surfaces as the number of curves the spine is made of. Select one of the options in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+65">Surfaces</span> drop-down list. <i>See</i> "<a href="T_HW_sr_11_surfaces.htm">Setting the number of resulting surfaces</a>" for further details.</li>
+
+
+
+<li>You can define the orientation of the boundary curve along the spine, by selecting an option in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+16">Orientation</span> drop-down list. <i>See</i> "<a href="T_HW_sr_11_orientation.htm">Setting the Orientation of a Spined Surface</a>" for further details.</li>
+
+
+
+<li>You can define the variation of the surface section, by selecting the options in the drop-down lists: 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+43">Variation</span></td>
+
+
+<td>Enables you to select the type of variation to be applied to the section along the path: 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+8">Angle</span></td>
+
+
+<td>to vary the section by rotating it through an angle according to the law specified in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+40">Law</span> drop-down list</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+22">Scale</span></td>
+
+
+<td>to vary the section by a scale factor according to the law specified in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+40">Law</span> drop-down list.</td>
+
+
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+40">Law</span></td>
+
+
+<td>Enables you to select the variation law to be applied to the section <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+8">Angle</span> or 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+22">Scale</span>, depending on which of the two has been selected in the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+43">Variation</span> drop-down list: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+66">Linear</span></td>
+
+
+<td>to vary the value linearly from the value entered into the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+13">First</span> box to the one entered into the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+15">Last</span> box</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+67">Parabolic</span></td>
+
+
+<td>to vary the value between the values entered into the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+13">First</span>, 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+14">Middle</span> and 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+15">Last</span> boxes</td>
+
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<i>See</i> "<a href="T_HW_sr_11_variation.htm">Varying the Section of a Spined Surface</a>" for further details.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_1b_1d_OK_03.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Ticks and Trips</h5>
+<ul class="noleft">
+<li><a href="T_HW_sr_11_surfaces.htm"><b>Setting the number of resulting surfaces</b></a></li>
+<li><a href="T_HW_sr_11_variation.htm"><b>Varying the Section of a Spined Surface</b></a></li>
+<li><a href="T_HW_sr_11_orientation.htm"><b>Setting the Orientation of a Spined Surface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Plane</title>
+<meta name="Author" content="Nicola Binaghi">
+<meta name="Revisor" content="Sanjib Sahu">
+<meta name="T_2009t1" content="translate">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+<p style="margin-bottom:0;">While offsetting on a plane (<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+50">On</span> is set to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span>), the offset of a 3D curve is computed by using a reference plane. Select the plane definition method in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></td>
+<td>A face of a solid (to be selected for the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+29">Face</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></td>
+<td>The plane which contains the three points (to be specified for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span></td>
+<td>An existing plane (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></td>
+<td>A plane passing through an axis and a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selectors, respectively).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></td>
+<td>A plane orthogonal to an axis and passing through a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selectors, respectively).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></td>
+<td>A plane defined through the coefficient values of its Cartesian equation (<b>A</b><i>x</i>+<b>B</b><i>y</i>+<b>C</b><i>z</i>+<b>D</b>=0), to be specified in the respective mini-dialog boxes (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+84">Coeff. A</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+85">Coeff. B</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+86">Coeff. C</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+87">Coeff. D</span>), and at a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selector).</td>
+</tr>
+</table>
+
+<p style="margin-top:0;">See "<i><a href="../../HWfile/T_HW_AxisLine.htm" target="_top">How to define an axis or a line</a></i>" for details on making selection for <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>.</p>
+
+<p style="margin-bottom:0;"><a name="CTX_CTX_OffsetCurveOnSurfaceProjection"></a>The projection mode can be chosen in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+372">Projection</span> drop-down list.</p>
+
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+46">Normal</span></td>
+<td class="ver9">Enables you to create the offset curve using a normal projection.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+314">View direction</span></td>
+<td>Enables you to create the offset curve using a projection along the current view direction.</td>
+</tr>
+</table>
+
+<p>The 3D offset of a curve is then created according to the following internal procedure:<br>
+<br>
+</p>
+
+<div align="center"><img src="../../../images/curves/ONS-01.gif" border="1"></div>
+
+<br>
+<ol class="litleft">
+<li>The set of selected curves (<font color="red"><b>C</b></font>) is first projected onto the selected plane (<font face="symbol"><b>P</b></font>) along the selected projection direction.</li>
+
+<li>A planar offset (<b>C''</b>) of the projected curves (<b>C'</b>) is created on the selected plane according to the distance value you set.</li>
+
+<li>The curves thus obtained are then projected onto a temporary support surface (<font face="symbol"><b>S</b></font>) obtained by sweeping the selected original curves along the selected projection direction.<br>
+The resulting curves are the 3D offsets of the selected ones (<font color="green"><b>Cr</b></font>).</li>
+</ol>
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Job: Setting the number of resulting surfaces</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>
+.notop{margin-top:0;}
+</style>
+
+<style>
+.noleft{margin-left:22;margin-top:3;margin-bottom:0;}
+</style>
+
+<style>
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style>blockquote{margin-left:22;margin-top:2;margin-bottom:0;}</style>
+
+<style>.litleft{margin-left:26; margin-top:0;margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h3>Setting the number of resulting surfaces</h3>
+<p class="notop">When creating a <a  href="../FWfile/T_FW_sr_11.htm"><b>Spined Surface</b></a> starting from:
+<ul class="noleft">
+<li><a href="#chain">One boundary and a spine made of <i>a chain</i> of curves</a>
+<li><a href="#multi">More than two boundaries</a>
+</ul>
+you can choose whether to obtain a single surface or as many surfaces as the number of curves the spine is made of in the first case, or as many surfaces as the ones needed to connect each couple of subsequent boundaries in the latter. 
+<h5><a name="chain"></a>One boundary and a spine made of a chain of curves</h5>
+<p class="notop"><hr color="silver">In the following example a single boundary (the red curve) is to be moved along a spine composed of a line (the blue one) and a curve (the green one); there is tangency continuity in the common endpoint.<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_01.gif"><BR><BR>
+<ol class="litleft">
+<li>After selecting the blue and the green curves as the spine and the red curve as the boundary, in the <b>Surfaces</b> drop-down list under <b>More Options</b> select <b>Many surfaces</b>. The following illustration displays the result:<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_02.gif"><BR><BR>
+As you can see, the program has created a different surface for each of the curves the spine is made of.<br>&nbsp;
+<li>If you select the <b>One surface</b> option instead, a single surface will be created:<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_03.gif"><BR><BR>
+</ol>
+<p>To try the example above load file "spsrf_chain.e3".
+<h5><a name="multi"></a>More than two boundaries</h5>
+<p class="notop"><hr color="silver">In the following example the three red boundaries have to be connected along the blue spine.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_04.gif"><BR><BR>
+<ol class="litleft">
+<li>After selecting the blue spine and the three boundaries, n the <b>Surfaces</b> drop-down list under <b>More Options</b> select <b>Many surfaces</b>. The following illustration displays the result:<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_06.gif"><BR><br>As you can see, the program has created a different surface between each couple of subsequent boundaries.
+<li>If you select the <b>One surface</b> option instead, a single surface will be created:<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_surfaces_05.gif">
+</ol>
+<p>To try the example above load file "spsrf_multi.e3".
+
+<hr color="silver">
+</body>
+</html>

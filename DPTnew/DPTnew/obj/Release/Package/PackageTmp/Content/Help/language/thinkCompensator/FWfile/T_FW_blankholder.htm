@@ -1,0 +1,128 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(535,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Blankholder Addendum and Part</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+7">Blankholder Addendum and Part</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span> command enables you to modify the die environment based on the result obtained by the adaptation/compensation process.</p>
+
+<p>During the die design process, you might have completed one or more process compensation obtaining some <i>deformed surfaces</i>. These deformations compensate only the <i>Part</i> areas of the die. The <span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span> command enables you to change other portions of the die to accommodate the compensation result.</p>
+
+<p><a name="inputs"></a>On starting the command, you need to make the following inputs in the form of solid skins, refer to the image below.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td colspan="3"><img src="../../../images/thinkcompensator/blankholder.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td width="130"><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+302">Blankholder</span></td>
+<td>It is the area that connects the Addendum to the die sides.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+303">Addendum</span></td>
+<td>It is the portion of the die that has to change to accommodate the compensated parts.</td>
+</tr>
+
+<tr>
+<td colspan="3"><br>
+Following inputs can be made in groups.</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+306">Closing faces</span></td>
+<td>It represents the holes (open areas) of the part.</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+301">Deformed Surface</span></td>
+<td>It is the GSM surface (containing the computed transformation) obtained after applying the process compensation or adaptation.</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+304">Part</span></td>
+<td>It is the part on which compensation/adaptation has been applied.</td>
+</tr>
+</table>
+
+<p>To make selections under multiple groups, use the <span class="UI_OPTION" id="CommonUI.msg+_CommonUI_TOOLTIP_+12">Next Group</span> button <img src="../../../images/general/navigate.gif" align="absmiddle"> available besides <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+136">Group</span>. You can return to the previous group by selecting the <span class="UI_OPTION" id="CommonUI.msg+_CommonUI_TOOLTIP_+11">Previous Group</span> button. The current group number is displayed in the corresponding text box.</p>
+
+<p><a name="GSM"></a>Using the options under the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+305">GSM options</span> node, you can make the settings for various GSM parameters. The values of <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+63">Bulge</span> (see "<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_BulgeSamples.htm">An example of the Bulge factor</a>") and of <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+68">Roundness</span> (see "<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_RoundnessSamples.htm">An example of Roundness</a>") can be set. Under the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMChecking.htm#Precision"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span></a> node, you can define the various tolerance values.</p>
+
+<p>Under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node, following options are available:</p>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMbend03.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span></a> node - make various settings for approximation.</li>
+
+<li><a name="fixed"></a>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+307">With Fixed Compensated Part</span> check box enables you to define whether the compensated part remains fixed or not while applying the command. 
+
+<ul class="noleft">
+<li>When selected, the deformed parts remain as fixed and the Blankholder is rigidly moved (without any scaling) to match the part.</li>
+
+<li>When cleared, the Blankholder remains fixed, and the deformed parts are rigidly moved together to match the Blankholder.<br>
+<br>
+</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">Some results are shown below:<br>
+<img src="../../../images/thinkcompensator/blankholder-fix.gif" border="1"></p>
+
+<ol class="noleft">
+<li>The original die parts.</li>
+
+<li>With the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+307">With Fixed Compensated Part</span> check box cleared.</li>
+
+<li>With the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+307">With Fixed Compensated Part</span> check box selected.</li>
+</ol>
+
+<hr color="silver">
+
+<h5>Related topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_thinkcompensation.htm"><b>An Overview of Compensator</b></a></li>
+<li><a href="../OVfile/T_OV_adaptation.htm"><b>An Overview of Adaptation</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

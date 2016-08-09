@@ -1,0 +1,58 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Symbolic References (Glossary)</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style>	#docframe  
+{
+ 		width : 380;
+		height : 480;
+}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>Symbolic References</h4>
+
+<p>In CAD systems, parametric references are absolute, that is they identify the entities which provide the reference in the context where it was created. In addition, these absolute references are based upon the geometric nature of the referenced entity. As an example, if a solid is build upon a <b>Work Plane</b> defined on a component face, the solid uses an absolute reference towards <i>that</i> face of <i>that</i> component. If the component is replaced or modified, the parametric reference most likely breaks. This doesn't occur if the replacing component is topologically very similar to the replaced one, so that the new referenced face is found by chance. Anyway, the component cannot be replaced by another one where the reference plane is defined by a datum plane instead of a solid face.</p>
+
+<p>In order to prevent this parametric reference breaking, <b>think<font color="#FF0F00">3</font></b> applications will provide end-users with Symbolic References, which identify parametric references by means of names.</p>
+
+<p>Any geometric entity created by a parametric operation can be declared to be a Symbolic Reference any time. When <b>think<font color="#FF0F00">3</font></b> application commands such as <b>Mating</b> use such entity as a parametric reference, the Symbolic Reference is stored in addition to the absolute reference. As a consequence, the referenced entity can be successfully replaced by any other entity that you consider to be functionally equivalent and that you tagged with the same Symbolic Reference name.</p>
+
+<p>You can attach a Symbolic Reference to any of the following parametric entities:
+<ul>
+<li>solid/component faces, datum planes
+<li>solid/component edges, datum axes
+<li>solid/component vertices, datum points
+<li>profile curves and vertices
+</ul></p>
+
+<p>Just to have an idea on how you can use Symbolic References, suppose you have your own library of standard parts, some of which are functionally equivalent and interchangeable. In these last ones, you attribute Symbolic References to the entities that will be used when mating the parts in an assembly. When you design the assembly, in the <b>Mating</b> command you specify to restrict the selection exclusively to the entities associated with Symbolic References. Consequently, the assembly is completely symbolic. When you replace a part with an equivalent one, the Symbolic Reference is automatically resolved and the assembly keeps working.</p>
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

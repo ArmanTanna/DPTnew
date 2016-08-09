@@ -1,0 +1,237 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Bend Table types and flat length calculation</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:22;margin-top:4;}
+</style>
+
+<style type="text/css">
+.littop{margin-top:1;}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+h3{margin-bottom:0;}
+</style>
+
+<style type="text/css">
+blockquote{margin-top:0;margin-bottom:0;margin-left:22;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Bend Table types and flat length calculation</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application supports seven types of bend tables, corresponding to the different ways of computing the Bend allowance value:
+</p>
+
+<ul class="noleft">
+<li><a href="#K-Coeff"><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+12">K-coeffient</span></a> (default)<br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the K-coefficient values, which are listed in the table.<br>
+&nbsp;</li>
+
+<li><a href="#K-Factor"><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+9">K-factor</span></a><br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the K-factor values, which are listed in the table.<br>
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+10">Bend allowance</span><br>
+
+
+Bend allowance values are listed directly in the bend table. For any angle <b><font face="Symbol">a</font></b>, Bend allowance is the product of Bend allowance for 90&deg; bend angle and the <b><font face="Symbol">a</font>/90</b> ratio:<br>
+<br>
+<b>BA = (BA for 90&deg;) . <font face="Symbol">a</font>/90</b><br>
+&nbsp;</li>
+
+<li><a href="#Bend_Deduction"><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+11">Bend deduction</span></a><br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the Bend deduction values, which are listed in the table.<br>
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+13">Allowance internal</span><br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the  internal allowance values, which are listed in the table.<br>
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+14">Allowance external</span><br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the  external allowance values, which are listed in the table.<br>
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+15">Internal sharp edge</span><br>
+
+
+Bend allowance&nbsp;&#151;&nbsp;and thus development length&nbsp;&#151;&nbsp;is computed based on the internal sharp edge allowance values, which are listed in the table.<br>
+&nbsp;</li>
+</ul>
+
+<p class="notop">The total flat length <b>L</b> is determined as shown in the following illustration:</p>
+
+<p><img border="1" src="../../../images/sheetmetal/totallength.gif"><br>
+<br>
+<b>L</b> = <b>L1</b> + <b>BA</b> + <b>L2</b></p>
+
+<p>where:</p>
+
+<table>
+<tr valign="top">
+<td><b>R</b></td>
+<td>is the internal bending radius</td>
+</tr>
+
+<tr valign="top">
+<td><b>T</b></td>
+<td>is the thickness</td>
+</tr>
+
+<tr valign="top">
+<td><b>t</b></td>
+<td>is calculated based on the K-factor (in which case <img src="../../../images/sheetmetal/tmin.gif" align="middle">) or on the bend table</td>
+</tr>
+
+<tr valign="top">
+<td><b><font face="Symbol">a</font></b></td>
+<td>is the bend angle</td>
+</tr>
+
+<tr valign="top">
+<td><b>BA</b></td>
+<td>is the Bend allowance that will be calculated using different formulas based on the type of bend table.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h5><a name="K-coeff"></a><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+12">K-coeffient</span></h5>
+
+
+
+<hr color="silver">
+<p class="notop">The K-coefficient (K<sub>C</sub>) is a deformation coefficient which can be positive or negative (and is different from the K-factor (K<sub>F</sub>)). The default bend table in the <b>think<font color="#FF0F00">3</font></b> application is based on the K-coefficient.<br>
+</p>
+
+<p>There are two different formulas used to compute the developed length depending on the bend angle.</p>
+
+<table border="1" bordercolor="white" bgcolor="white">
+<tr valign="top">
+<td><img src="../../../images/general/bulldot3.gif"></td>
+<td>If the bend angle is smaller than 90&deg; (<b><font face="Symbol" size="+1">a</font></b> &lt; <b><font face="Symbol" size="+1">p</font>/2</b>):<br>
+<img src="../../../images/sheetmetal/kcoefflessthan90.gif"><br>
+while the relation between the K-coefficient and the K-factor is:<br>
+<img src="../../../images/sheetmetal/kc1.gif"> </td>
+<td bordercolor="black"><img src="../../../images/sheetmetal/alt90.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bulldot3.gif"></td>
+<td>If the bend angle is greater than or equal to 90&deg; (<b><font face="Symbol" size="+1">a</font></b> &ge; <b><font face="Symbol" size="+1">p</font>/2</b>):<br>
+<img src="../../../images/sheetmetal/kcoeffgtthan90.gif"> <br>
+while the relation between the K-coefficient and the K-factor is:<br>
+<img src="../../../images/sheetmetal/kc2.gif"> </td>
+<td bordercolor="black"><img src="../../../images/sheetmetal/age90.gif"></td>
+</tr>
+</table>
+
+<h5><a name="K-Factor"></a><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+9">K-factor</span></h5>
+
+
+
+<hr color="silver">
+<p class="notop">The K-factor is the ratio of distance from the inside face to the neutral line (t) and thickness T:<br>
+<img src="../../../images/sheetmetal/kfactor_meaning.gif" border="0" align="middle"><br>
+The Bend allowance BA is the arc length measured along the neutral line (the one between the two red markers in the following illustration).<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/kfactor.gif"><br>
+<br>
+The following formula will be used to calculate the Bend allowance:<br>
+<br>
+<img src="../../../images/sheetmetal/BA1.gif"><br>
+where:</p>
+
+<table>
+<tr valign="top">
+<td><b>R</b></td>
+<td>is the internal radius</td>
+</tr>
+
+<tr valign="top">
+<td><b><font face="Symbol">a</font></b></td>
+<td>is the bend angle in radiants.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h5><a name="Bend_Deduction"></a><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+11">Bend deduction</span></h5>
+
+
+
+<hr color="silver">
+<p class="notop">Bend deduction is the length to be subtracted from the developed edges when they are developed just by extending them to their intersection as displayed in the following illustration:<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/BendDeduction0.gif"><br>
+<br>
+In this case the development length is:<br>
+<br>
+<b>L</b> = <b>D1</b> + <b>D2</b> - <b>B<sub>D</sub></b><br>
+<br>
+where B<sub>D</sub> is the Bend deduction value.</p>
+
+<p>If the bend angle is 90&deg; (<b><font face="Symbol">a</font></b>=90&deg;), Bend allowance is:<br>
+<br>
+<img src="../../../images/sheetmetal/BA01.gif"><br>
+Bend Table files of type Bend deduction support only an angle of 90&deg;.<br>
+<br>
+For <i>any</i> angle <b><font face="Symbol">a</font></b>, Bend allowance is the product of Bend allowance for 90&deg; bend angle and the <img src="../../../images/sheetmetal/BA03.gif" align="middle"> ratio:<br>
+<br>
+<img src="../../../images/sheetmetal/BA02.gif"> </p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_BT00.htm"><b>Bend Table</b></a></li>
+<li><a href="T_OV_BT03.htm"><b>Bend Table Parameters</b></a></li>
+<li><a href="T_OV_BTM.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span><b> - Overview</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

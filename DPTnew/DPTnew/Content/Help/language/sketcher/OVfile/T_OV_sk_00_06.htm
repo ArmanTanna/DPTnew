@@ -1,0 +1,53 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2008t1" content="internally">
+<title>Rules for applying constraints</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+   
+<style>.noleft {margin-top:0; margin-left:22;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Rules for applying constraints</h3>
+
+<p>Profiles from which you will create solids (for example, by applying a linear sweep or extrusion), should generally be created when the Work Plane is set to <B>World</B>. When you create a profile used to add a feature to a solid (such as a slot, hole, or protrusion), however, you should first position the Work Plane to the face on  which you want to add the feature, so that the profile is constrained to lie on that face.</p>
+
+<p>When the Work Plane is not set to <B>World</B> (that is, the Work Plane is not the xy-plane of the World coordinate system), the following constraints should be avoided:
+<UL class="noleft">
+<LI>horizontal direction
+<LI>vertical direction
+<LI>fixed (ground) points</LI>  
+</ul></p>
+
+<p>When you create a profile on a Work Plane aligned with the face of an existing solid (for the purpose of adding a feature to that solid), you should constrain the direction of that profile relative to the solid using any of the following constraints:
+<UL class="noleft">
+<LI>perpendicularity
+<LI>parallelism
+<LI>tangency</LI></ul></p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_sk_00.htm"><b>Profiles</b></a></li>
+<li><a href="T_OV_sk_00_05.htm"><b>Geometrical and dimensional constraints</b></a></li>
+<li><a href="../FWfile/T_FW_sk_10.htm"><b>Applying constraints automatically</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Profiles</b></a></p>
+<hr color="silver">
+</body>
+</html>

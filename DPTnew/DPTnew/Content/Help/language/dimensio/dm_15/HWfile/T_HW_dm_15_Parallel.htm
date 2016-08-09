@@ -1,0 +1,150 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Parallel Dimensioning (Special point)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+P{text-align: justify;margin-top:4;margin-bottom:0;}
+td{margin-top:0; margin-bottom:0;}
+tr{margin-top:0; margin-bottom:0;}
+blockquote{margin-left: 10;margin-top:0;margin-bottom:0;margin-right: 1;text-align: justify;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4><a name="parallel"></a>Parallel Dimensioning Between Points</h4>
+
+<p>The following illustration helps you understand the process of creating Parallel dimensions using the <a href="../FWfile/T_FW_dm_15.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4607">Smart</span></a> command.</p>
+
+
+
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td><b>1</b>&nbsp;</td>
+<td>When you start the <a href="../FWfile/T_FW_dm_15.htm"><b>Smart Dimension</b></a> command, the program prompts you to select an entity. Click to select an entity or a snap point.<br>
+<br>
+<img border="1" src="../../../../images/dimensio/dm_15/dm_15_51.gif">
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>You are prompted to select a snap point. Click to select another snap point.<br>
+<br>
+<img border="1" src="../../../../images/dimensio/dm_15/dm_15_52.gif"> <br>
+<br>
+ Notice that the program immediately displays the first dimension, which moves as you move the cursor. The alignment of the dimension is determined by the option set in the current <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+48">Orientation</span> drop-down list.
+
+
+
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>For instance, select the horizontal alignment from the <a href="../FWfile/T_FW_dm_15.htm#orient"><span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+48">Orientation</span></a> drop-down list.<br>
+
+
+&nbsp; 
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>You are prompted to enter the positioning point. Simply click to specify the location of the dimension line.<br>
+<br>
+<img border="1" src="../../../../images/dimensio/dm_15/dm_15_61.gif"><br>
+<br>
+Prior to specifying the location of dimension line, it is also possible to perform the following actions: 
+
+<ul>
+<li><a name="Format"></a>Using the <a href="T_HW_dm_15_Formats.htm"><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+13">Dimension Format</span></a> option you can create the dimensions in any desired format.</a></li>
+
+
+
+<li><a name="Style"></a>By clicking on the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm#dimension">
+<span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+14">Entity Properties</span></a> option, the 
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> window shows up, that enables you to control appearance of the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+756">Dimension</span> and 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+979">Text</span> entities.</li>
+
+
+</ul>
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td><a name="chain"></a> After inserting the first parallel dimension, select the snap point for the next dimension. The point will be highlighted with a <b>X</b> symbol.<br>
+<br>
+<img src="../../../../images/dimensio/dm_15/dm_15_chain1.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>To create a set of linear dimensions measured from a common starting point, select the dimension line (created in the first step). When you pause the cursor over a significant dimension line, the program displays a tooltip indicating: <span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+491">Select here to insert parallel dimensions</span>. On selecting it, a parallel dimensioning scheme will be initiated with the first entity as the origin.<br>
+
+
+Note that the program automatically sets the <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+7">Type</span> to 
+
+<span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+58">Parallel</span> option in the command's selection list; and the prompt (<i>Select a snap point</i>) repeats so that you can continue to insert additional parallel dimensions.<br>
+
+
+<br>
+<img src="../images/dm_15_par1.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Select the remaining snap points to be part of this chain dimension; thereby the appropriate chain dimension is inserted automatically.<br>
+Note that you need not select the points sequentially; if any intermittent points are selected, the chain dimensioning will be adjusted accordingly as shown in below illustration:<br>
+<br>
+<img src="../../../../images/dimensio/dm_15/dm_15_par2.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

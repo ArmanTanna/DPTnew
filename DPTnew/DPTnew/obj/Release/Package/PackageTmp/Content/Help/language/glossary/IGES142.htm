@@ -1,0 +1,72 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Trimmed Surfaces and the IGES entity #142</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+<style> .litleft{margin-left: 26;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4>Trimmed Surfaces and the IGES entity #142</h4>
+<p style="margin-top:0;margin-bottom:0">A trimmed surface in the IGES format is an entity #144. An entity #142&nbsp;&#151;&nbsp;<i>Curve on parametric surface</i>&nbsp;&#151;&nbsp;is associated with each entity #144&nbsp;&#151;&nbsp;<i>Trimmed surface</i>.</p>
+<p style="margin-top:3;margin-bottom:0">
+The entity #142 contains all the information about how the surface is to be trimmed. A parameter section for an entity #142 is like the following:
+<BR><BR><IMG border=1 SRC="../../images/general/ent142.gif"><BR><BR>
+<p style="margin-top:3;margin-bottom:0">
+A curve on a parametric surface is given by:
+<ol class="litleft">
+<li>The <i>mapping</i> C and an indication that the curve lies on on the surface S(u,v)</li>
+<li>The mappings B and S whose composition gives the curve C</li>
+</ol>
+<p style="margin-top:3;margin-bottom:0">
+The parametric data section contains three pointers:
+<ol class="litleft" style="list-style: lower-alpha;">
+<li>A pointer to the surface S(u,v)</li>
+<li>A pointer to the u,v space curve (isoparametric curve). A pointer to the curve from which B(t) is derived</li>
+<li>A pointer to model space curve (3D curve). A pointer to the mapping C(t)<br>
+	It also contains two flags:</li>
+<li>A flag to indicate how the curve was created</li>
+<li>A flag to indicate which of the two alternative representations was preferred by the sending system.</li>
+</ol>
+<p style="margin-top:0;margin-bottom:0">The meaning of the second flag is:
+<table>
+<tr valign="top">
+<td width="20">0</td>
+<td>unspecified</td>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>The isoparametric curve is preferred (S or B)</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>The 3D curve is preferred (C)</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>The isoparametric and the 3D curves are equally preferred.<br>&nbsp;</td>
+</tr>
+</table>
+<p style="margin-top:3;margin-bottom:0">
+See also <I>Initial Graphics Exchange 
+Specification (IGES) Version 4.0</I>, NBSIR 88-3813, June 1988, page 3. </FONT>
+
+<HR color="silver">
+</body>
+</html>

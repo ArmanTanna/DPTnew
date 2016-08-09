@@ -1,0 +1,186 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>New Curve &amp; Surface Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Curve &amp; Surface Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements in the Curve &amp; Surface commands.</p>
+
+<ul class="noleft">
+<li><a href="#P485">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span> command</a></li>
+
+<li><a href="#P486">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7617">Drafter</span> command</a></li>
+
+<li><a href="#P488">The new <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> for curve and surface editing</a></li>
+
+<li><a href="#P539"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1081">Smart Delete</span> applicable on COS</a></li>
+
+<li><a href="#P481">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span> command</a></li>
+
+<li><a href="#P483">Enhanced <span class="UI_OPTION_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+80">Section Matching</span> during Global and Rotational sweep</a></li>
+
+<li><a href="#P494">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+65">Project Curve</span> command</a></li>
+
+<li><a href="#P482">Enhancement in <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+93">Quality Checks</span></a></li>
+
+<li><a href="#P489">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+47">Offset Curve on Surface</span> command</a></li>
+
+<li><a href="#P497">Enhancement in Curvature Plotting within the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+6140">Insert Curve through Interpolation Points</span> command</a></li>
+
+<li><a href="#HQRE">Enhancement in <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span></a></li>
+
+<ul class="noleft">
+<li><a href="#CCB11602">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7753">Mesh Analyzer</span> command</a></li>
+</ul>
+</li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P485 - OWN: Jacques Goussard -->
+<h2><a name="P485">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span> command</a></h2>
+
+<p>The <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_RotationalSweep.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span></a> command is now associative and hence the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> check box has been introduced in the selection list. Also, the powerful GSM engine is now associated with this command and can be activated by selecting <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+128">GSM</span> in the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_RotationalSweep.htm#scaling"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+123">Scaling</span></a> drop-down list under the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+5">Drive Curves</span> node. For GSM scaling transformation, the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_RotationalSweep.htm#flex"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+129">Flexibility</span></a> drop-down list is available enabling you to manage the shape of the controlled modification.<br>
+<br>
+</p>
+
+<p>Optionally, you can select <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+124">None</span> in the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+123">Scaling</span> drop-down list to allow the use of the drive curve only to control the rotational motion, without having any deformation effect.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: P486 - OWN: Jing Cheng -->
+<h2><a name="P486">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7617">Drafter</span> command</a></h2>
+
+<p>A new <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_Drafter.htm#transition"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+275">Transition</span></a> check box has been introduced in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> selection list to manage situations where the drive surface is G1 continuous but both drive surfaces and drive curves are not G1-continuous internally. On selecting this check box, some transition surfaces are generated to ensure complete surface continuity.<br>
+<br>
+</p>
+
+<p>Also, the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7617">Drafter</span> command is now associative, thus the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_Drafter.htm#associate"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span></a> check box has been introduced in the selection list.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: P488 - OWN: Patrick Bosinco -->
+<h2><a name="P488">The new <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> for curve and surface editing</a></h2>
+
+<p>The new <a href="mk:@MSITStore:help.chm::/language/curves/mc_01/HWfile/T_HW_mirror_mode.htm#mirror_mode"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span></a> check box has been introduced in the <a href="mk:@MSITStore:help.chm::/language/curves/mc_01/FWfile/T_FW_mc_01.htm"><span class="UI_COMMAND" id="tdesign.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span></a> and <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_ms_08.htm"><span class="UI_COMMAND" id="tdesign.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> selection lists. It enables you to maintain continuity of the curve/surface being edited with respect to the virtual mirror of the entity. Additional options under the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> node give you the full control to define the type of continuity (<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+21">Position</span>, <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+22">Tangent</span> or <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+157">Smooth curvature</span>) to be maintained about a user selected plane.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: P539 - OWN: Lucia Cattabriga -->
+<h2><a name="P539"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1081">Smart Delete</span> applicable on COS</a></h2>
+
+<p>With this improvement you will be able to use the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_25.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1081">Smart Delete</span></a> command to delete <i>Curve on Surface</i> (COS) curves too.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### --> <!-- PRJ: P481 - OWN: Patrick Bosinco -->
+<h2><a name="P481">The new <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span> command</a></h2>
+
+<p><a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_design_difference.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span></a> is a new info command that enables you to compare two (nearly identical) skins for finding small differences between them. It can typically be used to detect presence of any relative bulge, compute distances between areas having differences or find the modifications applied over the skins.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### --> <!-- PRJ: P483 - OWN: Jacques Goussard -->
+<h2><a name="P483">Enhanced <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+80">Section Matching</span> during Global and Rotational sweep</a></h2>
+
+<p>It is now possible to achieve transversal G1 continuity of surfaces being produced from section curves having same number of G1 continuous spans while preserving their correspondence. To facilitate this, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+87">All discontinuities with reparameterization</span> option has been introduced in the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_GlobalSweep.htm#SEMAT"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+81">Matching type</span></a> drop-down list under the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+80">Section Matching</span> node. This new option is analogous to the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+84">All discontinuities</span> options.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### --> <!-- PRJ: P494 - OWN: Jing Cheng -->
+<h2><a name="P494">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+65">Project Curve</span> command</a></h2>
+
+<p>The new <a href="mk:@MSITStore:help.chm::/language/curves/cv_15/FWfile/T_FW_cv_15.htm#thru_all"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+446">Thru all</span></a> check box has been introduced under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <a href="mk:@MSITStore:help.chm::/language/curves/cv_15/FWfile/T_FW_cv_15.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span></a> selection list. It is available when the projection <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+131">Method</span> is selected as <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+47">Pierce direction</span> or <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+314">View direction</span>. On selecting this check box, the curve will be projected onto all the underlying surfaces, including on the parts of the surfaces below the silhouette line in the projection direction.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+
+ <!-- PRJ: P482 - OWN: Patrick Bosinco -->
+<h2><a name="P482">Enhancement in <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+93">Quality Checks</span></a></h2>
+
+<p>The <a href="General.htm#P482"><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span></a> tab has been introduced in the <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span> dialog box.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+
+
+ <!-- PRJ: P489 - OWN: Jing Cheng -->
+<h2><a name="P489">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+47">Offset Curve on Surface</span> command</a></h2>
+
+<p>With the improvements in this version the curves with bad continuity are better managed for the offset operation performed by the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_06.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+47">Offset Curve on Surface</span></a> command. On using the <a href="mk:@MSITStore:help.chm::/language/curves/jsoptions/UseReferenceSurface.htm"><span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+438">Use inferred surface</span></a> check box you can achieve better continuity of the offset curve. In case of a gap (G0 discontinuity) occurs between two parts of the resulting offset curve (due to the configuration of the original curves), selecting the new <a href="mk:@MSITStore:help.chm::/language\curves\FWfile\T_FW_cv_06.htm#blend"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span></a> check box obtains a smooth transition.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### --> <!-- PRJ: P497 - OWN: Patrick Bosinco -->
+<h2><a name="P497">Enhancement in Curvature Plotting within the <span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+6140">Insert Curve through Interpolation Points</span> command</a></h2>
+
+<p>On starting the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_CurveCurvature.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7586">Curvature</span></a> command, when the <a href="mk:@MSITStore:help.chm::/language/curves/mc_11/FWfile/T_FW_mc_08_11.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+6140">Insert Curve through Interpolation Points</span></a> command is still running, will henceforth display additional options in the selection list. In previous version the <span class="OLD">Analysis</span> dialog box used to be displayed instead. These additional options are the same as that of the <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span> selection list. This new behavior is the same as that observed with the <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+6797">Insert Curve through Control Points</span> command.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ 
+
+<h2><a name="HQRE"></a>Enhancement in <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span></h2>
+
+<p>The following enhancement has been made in the commands of <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span>.</p>
+
+<!-- PRJ: CCB11602 - OWN: Nicolas Rejneri -->
+<h3><a name="CCB11602"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7753">Mesh Analyzer</span> command</h3>
+
+<p>The new <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+163">Show curvature variation</span> option has been introduced for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list in the <a href="mk:@MSITStore:HQRE.chm::/language/HQRE/FWfile/T_FW_mesh_analyzer.htm"><span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+150">Mesh Analyzer</span></a> selection list. It enables you to visualize the presence of variation in the curvature of the mesh. The variation is computed by analyzing the curvature at one point with respect to the curvature computed on its neighboring points.<br>
+<br>
+</p>
+
+<p>The new <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+220">Copy</span> check box has been introduced under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. It is available when the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> is set to <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+156">Add normal to mesh</span>.</p>
+
+<ul>
+<li>When selected, the modifications are applied on the copy of the original mesh. Hence, the original mesh remains unaffected.</li>
+
+<li>When cleared, the modifications are applied on the original mesh itself and no new mesh is created.<br>
+<br>
+</li>
+</ul>
+
+<p>Note: The <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+156">Add normal to mesh</span> option was formerly known as <span class="OLD">Insert Grid with Normal</span>.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+</body>
+</html>
+

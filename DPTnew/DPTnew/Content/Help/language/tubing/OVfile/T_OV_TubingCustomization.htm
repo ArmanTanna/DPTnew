@@ -1,0 +1,408 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t3" content="translate">
+<meta name="New licensing" content="modified">
+<title>An Overview of Tubing Customization</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h1>An Overview of Tubing Customization</h1>
+
+<p>Before you start creating your custom tubing catalogs, you should become familiar with the following rules and conventions that apply to the customization of Tubing.</p>
+
+<ul class="noleft">
+<li><a href="#components">Tubing components and path</a></li>
+
+<li><a href="#cover">Covering a Tubing Path</a></li>
+
+<li><a href="#line">Lines Catalogs</a></li>
+
+<li><a href="#part">Parts Catalogs</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<a name="components"></a> 
+
+<h4>Tubing components and path</h4>
+
+<p>In order to create a pipe, you have to create the pipe path (or network) by drawing a chain of segments that may cross. Then you cover the path with Tubing parts that the program finds in the catalog of Tubing components and that it sizes according to the Nominal Pipe Size (NPS) or Diameter Nominal (DN) dimension that you require. Here is an example of pipe path:</p>
+
+<img src="../../../images/tubing/TCust_Path.jpg" alt="" vspace="3" border="1"> 
+
+<p>The following is the definition of some of the terms used in Tubing:</p>
+
+<table border="0" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="">
+<tr>
+<td valign="top" style="font-variant: small-caps; font-weight: bold;">Path</td>
+<td>Any 2D or 3D polyline that connects two or more points. In <b>ThinkDesign</b> the path is a 2D or 3D profile. The path is composed of:
+<ul class="noleft" style="margin-bottom: 0px;">
+<li><b>Segments</b> (<font color="#FF0000"><b>1</b></font>)<br>
+Segments are automatically covered with fittings. Reference segments may be used, but are ignored by Tubing when covering the path.</li>
+
+<li><b>Nodes</b> (<font color="#FF0000"><b>2</b></font>, <font color="#FF0000"><b>3</b></font>)<br>
+Nodes are the connections between two or more segments that may generate Elbows, Tees, Crosses. Nodes with more than 4 segments must be managed manually.</li>
+</ul>
+
+</td>
+</tr>
+
+<tr>
+<td valign="top" style="font-variant: small-caps; font-weight: bold;">Fittings</td>
+<td>These Tubing components include Tubes (<font color="#FF0000"><b>1</b></font>), Flanges, Elbows (<font color="#FF0000"><b>2</b></font>), Tees (<font color="#FF0000"><b>3</b></font>), Crosses, Sockets, Nipples. The program is able to select and orient these components automatically based on the shape of the Tubing path.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top" style="font-variant: small-caps; font-weight: bold;">Other parts</td>
+<td>All Tubing components such as Valves, Pressure gauges, Degasifiers, etc. that are not Fittings and require additional user input to cover the Tubing path correctly.</td>
+</tr>
+
+<tr valign="top">
+<td valign="top" style="font-variant: small-caps; font-weight: bold;">Covering the path</td>
+<td>The action of covering the Tubing path with the fittings consists of two basic steps:<br>
+<ol class="noleft" style="margin-bottom: 0px;">
+<li>the user declares the Tubing Nominal Pipe Size (NPS) or Diameter Nominal (DN) and chooses the type of line from the library</li>
+
+<li>the program retrieves from the Tubing library the fittings with matching NPS or DN and applies them to the path</li>
+</ul></td>
+</tr>
+</table>
+
+<p>A <b>thinkparts</b> library of samples of these components is provided with the software. The library is initialized the first time you start one of the Tubing commands. You are also enabled to create you own catalogs of custom parts and add custom parts to the existing catalogs<!-- , provided you have the <b>thinkparts</b> license -->.</p>
+
+<p>&nbsp;</p>
+
+<a name="cover"></a> 
+
+<h4>Covering a Tubing Path</h4>
+
+<p>The process of covering a Tubing Path requires the following to be available:</p>
+
+<ul class="noleft">
+<li>Catalogs of lines. Sample catalogs of lines are provided to you. It is your responsibility to maintain the catalog of lines that describe your customized tubing catalogs.</li>
+
+<li>Catalogs of Tubing parts with all parts required to cover a Tubing path (Tubes, Elbows, Tees, etc.) according to NPS or DN standards.</li>
+
+<li>Values of the catalogs of Tubing parts according to the required nominal value. The Nominal Pipe Size (NPS) or Diameter Nominal (DN) values follow international specifications. See an example with some common values in the following image:<br>
+<br>
+<img src="../../../images/tubing/TCust_NPS.gif" alt="" vspace="3" border="1"></li>
+</ul>
+
+<p>When you assign the nominal diameter to the Tubing required to cover a path, and the program finds all components that fit the requirements, the Tubing path can be covered:</p>
+
+<img src="../../../images/tubing/TCust_NPS.jpg" alt="" vspace="3" border="1"> 
+
+<p>&nbsp;</p>
+
+<a name="line"></a> 
+
+<h4>Lines Catalogs</h4>
+
+<p>A Line Catalog is an ordered list of components that can be assembled to form the tubing line. One or more Line Catalogs may be defined according to the type of fluid to be transported, the fluid temperature and the fluid pressure.</p>
+
+<p>For example, a galvanized iron service line (for water, compressed air, etc.), could be composed of:</p>
+
+<ul class="noleft">
+<li>1/4" through 3" threaded tubes</li>
+
+<li>Fittings (cast iron): 
+
+<ul class="noleft">
+<li>45&deg; and 30&deg; elbows</li>
+
+<li>Tees and reducing tees</li>
+
+<li>Couplings and reducing couplings</li>
+
+<li>Nipples</li>
+
+<li>Plugs and caps</li>
+</ul>
+</li>
+
+<li>Other parts: 
+
+<ul class="noleft">
+<li>Butterfly valves</li>
+
+<li>Gate valves</li>
+
+<li>Globe valves</li>
+
+<li>Horizontal and vertical valves</li>
+
+<li>Pressure gauge</li>
+</ul>
+</li>
+</ul>
+
+<p>Sample Line catalogs are installed by the program the first time you use one of the Tubing commands, and you are enabled to manage them with the <b>thinkparts</b> <span class="UI_COMMAND" id="tt.msg+tt+219">Catalog Manager</span> command:<br>
+
+<img src="../images/TCust_LineCat.gif" alt="" vspace="3" border="0"></p>
+
+<p>In order to create your own Line catalogs, you can edit a copy (see <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CopyCatalog.htm">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+25">Copy Catalog</span></a>) of an existing one, paying attention to not remove or add columns.</p>
+
+
+<p>Each row in the Line catalog follows the rules in the table below. The <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_EditValues.htm">
+<span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span></a> command enables you to edit the catalog.</p>
+
+
+<table border="0" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="">
+<tr valign="top" style="font-variant: small-caps; font-weight: bold;">
+<td>Row header</td>
+<td>Description</td>
+</tr>
+
+<tr valign="top">
+<td><b>Part</b></td>
+<td>The generic short name of the part. The program displays this datum when the user has to choose the element type.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Catalog</b></td>
+<td>A short description of the part category. The program displays this datum when the user has to choose the element type.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Catalog ID</b></td>
+<td>The name of the catalog that contains the 3D model of the part. You find this information in the <span class="UI_COMMAND" id="CATALOGUE.msg+CATALOGUE+4">Catalog code:</span> field of the catalog properties</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>A.ID</b></td>
+<td>The Application IDentifies indicates to the program the type of part master model. The allowed values are:<br>
+<br>
+
+<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="" style="margin-top: 5px;">
+<tr valign="top">
+<td ><b>A.ID Value</b></td>
+<td>Catalog ID Prefix</td>
+<td>Tube</td>
+</tr>
+
+<tr valign="top">
+<td><b>0</b></td>
+<td>TT</td>
+<td>Tube</td>
+</tr>
+
+<tr valign="top">
+<td><b>1</b></td>
+<td>TF</td>
+<td>Flange</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>TE</td>
+<td>Elbow</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>TC</td>
+<td>Tee or Y</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>TC</td>
+<td>Cross</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>TC</td>
+<td>Coupling</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>TC</td>
+<td>Nipple</td>
+</tr>
+
+<tr valign="top">
+<td><b>70</b></td>
+<td>UN</td>
+<td>Other part on Node</td>
+</tr>
+
+<tr valign="top">
+<td><b>71</b></td>
+<td>UE</td>
+<td>Other part on Segment</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Insert</b></td>
+<td>A flag with the following values:
+<table border="1" cellspacing="0" cellpadding="3" bordercolor="#C0C0C0" style="margin-top: 5px;">
+<tr>
+<td><b>0</b></td>
+<td>The program can insert the part automatically in the line</td>
+</tr>
+
+<tr valign="top">
+<td><b>1</b></td>
+<td>The user is required to insert the part manually in the line</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Representation</b></td>
+<td>The name of the part representation class. You find this information in the <span class="UI_COMMAND" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+20">Name:</span> field in the 
+<span class="UI_COMMAND" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+19">Class attributes</span> area of the 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Representations.htm">
+<span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+2">Representations</span></a> command wizard.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Size (")</b></td>
+<td>The name of the field that contains the <a href="#cover">NPS or DN</a> value of the part. You find this information in the <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+19">List of fields</span> table of the 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_NewCatalog.htm#Step_03">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+14">Edit</span></a> command when applied to a catalog.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Red. Size (")</b></td>
+<td>The name of the field that contains the reduced diameter of the part, if any. You find this information in the <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+19">List of fields</span> table of the 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_NewCatalog.htm#Step_03">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+14">Edit</span></a> command when applied to a catalog. Enter <tt>None</tt> when not used.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Length (mm)</b></td>
+<td>The name of the field that controls the part length. This value is mandatory and must be set to <b>TD_LENGTH</b> when <b>A.ID</b> is set to <tt>0</tt> (Tube). You find this information in the <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+19">List of fields</span> table of the 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_NewCatalog.htm#Step_03">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+14">Edit</span></a> command when applied to a catalog. Enter <tt>None</tt> when not used.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Curve</b></td>
+<td>The name of the field that controls the angular value of the elbow, if applicable. This value is mandatory when <b>A.ID</b> is set to <tt>2</tt> (Elbows) and <tt>3</tt> (Tees at a different angle than 90&deg; and Y's). You find this information in the <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+19">List of fields</span> table of the 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_NewCatalog.htm#Step_03">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+14">Edit</span></a> command when applied to a catalog. Enter <tt>None</tt> when not used.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Origin</b></td>
+<td>The name that you have assigned to the Symbolic Reference that identifies the part origin.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Input</b></td>
+<td>The name that you have assigned to the Symbolic Reference that identifies the input flow.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Output</b></td>
+<td>The name that you have assigned to the Symbolic Reference that identifies the output flow.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Secondary Output</b></td>
+<td>The name that you have assigned to the Symbolic Reference that identifies the reduced diameter secondary output. Enter <tt>None</tt> when the secondary output is not present or matches the nominal diameter.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a name="part"></a> 
+
+<h4>Parts Catalogs</h4>
+
+<p>Any parametric <b>think<font color="#FF0F00">3</font></b> 3D model can be used as master model for a Tubing parts catalog, provided that:</p>
+
+<ul class="noleft">
+<li>The master model represents one of the elements listed in the <b>A.ID</b> table of the <a href="#line">Lines catalog</a></li>
+
+<li>Each Tube and Coupling master model contains the variable <tt>TD_LENGTH</tt> that drives the tube length and Symbolic References that identify the part origin, input, output and, if needed, the reduced output:<br>
+<img src="../../../images/tubing/TCust_Tube.gif" alt="" vspace="3" border="1"></li>
+
+<li>Each Elbow master model contains a variable that drives the angular aperture of the part and Symbolic References of type point that identify the part origin, input and output. Note that the origin is actually the network node:<br>
+<img src="../../../images/tubing/TCust_Elbow.gif" alt="" vspace="3" border="1"></li>
+
+<li>Each Tee, Y and Cross model contains Symbolic References of type point that identify the part origin, input, outputs and, if needed, the reduced diameter secondary output:<br>
+<img src="../../../images/tubing/TCust_Tee.gif" alt="" vspace="3" border="1"></li>
+</ul>
+
+<p>When the above criteria are met, the program is able to position the elements of the line correctly, by connecting the outputs to the inputs of the following parts and propagating the diameter reduction along the path:</p>
+
+<img src="../../../images/tubing/TCust_Assembly.jpg" alt="" vspace="3" border="1"> 
+
+<p>While building the Parts catalog, you should take care in defining the following parameters for the use with Tubing:</p>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Representations.htm">
+<span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+2">Representations</span></a> command:<br>
+
+<ul class="noleft">
+<li>Take note of the representation class name, as you will need to enter it when defining the Lines catalog</li>
+
+<li>Set the representation type attribute to <tt>LOCAL_REFERENCE</tt>, required by the Tubing application</li>
+</ul>
+</li>
+
+<li>Add to each part catalog a mandatory variable that will contain the NPS or DN values applicable to the part.</li>
+
+<li>Use the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_EditValues.htm">
+<span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span></a> to enter the values of the part variables corresponding to the applicable NPS or DN values.</li>
+
+</ul>
+
+<p>If you require <b>ThinkDesign</b> to insert automatically the Line axis in the layout, add to your customized parts a profile made of curves of type Reference to represent the part axis. <a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_CL_01.HTM">Create</a> the User Defined Property <tt>TD_CENTERLINE</tt> of type 
+<span class="UI_DROPDOWNITEM" id="idd_pcl_define.msg+idd_pcl_define+3837+1">Integer</span> and 
+<a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_CL_04.HTM">assign</a> it to the profile with value=1. When you later add to the layout a view of the Tubing line, the program will display the axes, provided that the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+634">Profile references</span> options is checked.</p>
+
+
+
+
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_Tubing.htm"><b>An Overview of Tubing</b></a></li>
+<li><a href="../HWfile/T_HW_customize.htm"><b>Creating Customized Tubing Catalog</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

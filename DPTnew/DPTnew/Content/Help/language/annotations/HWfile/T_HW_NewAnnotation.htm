@@ -1,0 +1,130 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Job: Creating a New Annotation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+  
+
+<h4 class="nobot">Creating a New Annotation</h4>
+<p class="notop">After starting the <a  href="../FWfile/T_FW_NewAnnotation.htm"><b>New Annotation</b></a> command&nbsp;&#151;&nbsp;remember the command can also be started from the context menu displayed by right-clicking in the <a  href="../OVfile/T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a>&nbsp;&#151;&nbsp;proceed as follows.
+<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <b>Insert</b> drop-down list, select the annotation type.
+<table>
+<tr valign="top">
+<td width="110"><b>Text</b></td>
+<td>The annotation will consist of plain text. As soon as the point of interest is specified, a dialog box will be displayed to enable you to type in the annotation text.</td>
+</tr>
+<tr valign="top">
+<td><b>From file</b></td>
+<td>The annotation will consist of an external document. A file load dialog box is displayed enabling you to attach the desired external file to the annotation. In the <b>Files of type</b> drop-down list you can select the type of file to be used (for instance, a Microsoft&reg; Excel or Microsoft&reg; Word file might be selected).  
+<BR><BR><IMG border=1 SRC="../images/InsertFromFile.gif"><BR><BR> 
+When the note is expanded, a dialog box will display the referenced document.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>From Internet</b></td>
+<td>The annotation will consist of a <a  href="../OVfile/T_OV_glossary.htm#URL">URL</a> to be opened and viewed in the expanded annotation. Upon expanding the annotation, a web browser will appear in the expanded annotation’s frame and will load the page or document identified by the URL address, enabling you to open a web page from an annotation (which can be <i>very</i> useful: suppose a company’s ISO documents were contained in a Company intranet. This annotation would allow the engineer to quickly view the relevant ISO document with the annotation).<br>
+The URL browser <b>Insert from Internet</b> dialog box is provided to enter the desired URL string.  
+<BR><BR><IMG SRC="../images/AnnoURL.gif"><BR><BR>
+The <b>Address</b> box is also a drop-down list containing all of the URLs most recently typed into this dialog, so that reusing URLs is very simple.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Category</b> drop-down list, select the <b>Category</b> which the new annotation will belong to. Select <b>New Category</b> to create a new one, and then to enter the new category name in the <b>Name</b> box.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Optionally, in the <b>Keywords</b> box, type the keywords (separated by a comma) you want to associate with the annotation in order to simplify the search operations using the <a  href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Filter</b></a> box on top of the <a  href="../OVfile/T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a>.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Point of Interest</b> drop-down list, select the type of point of interest to be specified:
+<table><tr valign="top">
+<td width="110"><b>Snap point</b></td>
+<td>A special point such as a vertex, a datum point, a point on an edge, or the center or mid-point of an edge.</td><td><img border=1 src="../images/snappoint.gif"></td>
+</tr>
+<tr valign="top">
+<td><b>Point on face</b></td>
+<td>A point on a face of a solid.</td><td><img border=1 src="../../../images/annotations/poinonface.gif"></td>
+</tr>
+</table>
+</td></tr>
+<tr valign="top"><td><b>5</b></td>
+<td>Depending on the type chosen in step 4, you will have to select:
+<ul class="noleft">
+<li>A special point, if you selected <b>Snap point</b>, as in the following illustration<BR><BR><IMG border=1 SRC="../images/anno19.gif"><BR><BR>To change the selected point, right-click on <b>Point</b>, select <b>Reset</b> in the context menu and specify another point.<br>&nbsp;</li>
+<li>A face of a solid, if you selected <b>Point on face</b>
+<br><br><img border=1 src="../../../images/annotations/pointonface.gif"><br><br>The point used to select the face is automatically selected as the point of interest. To change the point, right-click on <b>Point</b>, select <b>Reset</b> in the context menu and specify another point. To change also the face, right-click on <b>Face</b>, select <b>Reset</b> in the context menu and specify another face.
+</li>
+</ul>
+<ul class="noleft">
+<li>If the annotation you have selected is of the <b>From File</b> or <b>From Internet</b> type, the annotation label shows up as soon as the point of interest is selected. <BR><BR><IMG border=1 SRC="../images/label.gif"><BR><BR>The default label is the name of the selected file. Change it as you like.<br>&nbsp;
+<li>If the annotation you have selected is of the <b>Text</b> type, a dialog box is displayed. Type in the annotation text. The first line will be used as the annotation label. To move from one line to another, use the ENTER key.
+<BR><BR><IMG SRC="../images/TextBox.gif"><BR><BR>
+Double-click on an empty zone in the Graphics Area to confirm and create the annotation.
+</ul>
+
+<p></p> </td>
+</tr>
+
+
+<tr valign="top">
+<td valign="baseline"><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the Annotation. 
+
+<BR><BR><IMG border=1 SRC="../images/fine.gif"><BR><BR>Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+
+</table>
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Modifying an Annotation</b>
+<br>The above procedure also applies to the <a  href="../FWfile/T_FW_ModifyAnnotation.htm"><b>Modify Entity</b></a> command: when you start the command, the same selection list is displayed, so that you can change any setting exactly the same way as when you defined it.
+</td></tr></table><br>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Annotations.htm"><b>An Introduction to Annotations</b></a>
+<li><a href="../OVfile/T_OV_AnnotationEntity.htm"><b>The Annotation Entity</b></a>
+<li><a href="../OVfile/T_OV_AnnotationGUI.htm"><b>Annotations: the User Interface</b></a>
+<li><a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Annotations: Filter and Filter Options</b></a>
+<li><a href="../OVfile/T_OV_AnnotationOperations.htm"><b>Annotations: User Operations</b></a>
+<li><a href="../OVfile/T_OV_AnnotationBook.htm"><b>Annotations and Visual Bookmarks</b></a>
+<li><a href="../OVfile/T_OV_AnnotationPrinting.htm"><b>Printing out Annotations</b></a>
+<li><a href="../OVfile/T_OV_Glossary.htm"><b>Glossary</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

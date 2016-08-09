@@ -1,0 +1,79 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Specialized conversion (Curves)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4>Specialized conversion</h4>
+
+<table bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">When the <b>Fix</b> mode of the <a href="../curves/FWfile/T_FW_C2N.htm"><b>Convert to NURBS</b></a> command is set to <b>Tolerance</b>, all curves are generally converted to cubic curves.<br>
+Selecting the <b>Specialized</b> check box under <b>More Options</b> you can obtain "specialized" NURBS curves instead.<br>
+<br>
+
+<table border="1" bordercolor="navy" bgcolor="white" cellpadding="15%">
+<tr>
+<td class="noteme" bordercolor="white"><b>Specialized conversion should be performed only if really needed</b>
+<p>Take into account what follows:</p>
+
+<ul class="noleft">
+<li>Many packages do not support rational curves; if you need to exchange data with one of those packages, you will have to deselect the <b>Specialized</b> check box, as the curves you obtain from a special conversion process are generally rational.</li>
+
+<li>On the other hand, rational curves obtained running a special conversion process are much more accurate and have a lower number of control points.</li>
+</ul>
+
+<br>
+ The following illustration displays the control points of an arc when converted into a NURBS with the <b>Specialized</b> check box selected and deselected respectively: 
+
+<table align="center">
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><img border="1" src="../../images/curves/CNV-S.gif"></td>
+<td><img border="1" src="../../images/curves/CNV-NS.gif"></td>
+</tr>
+
+<tr>
+<td>Specialized</td>
+<td>Not Specialized</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,209 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using additional conversion options (More Options)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Using additional conversion options (More Options)</h3>
+
+<p class="notop">Depending on the method you have selected in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> drop-down list, different options will be available under the 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node of the <a href="../FWfile/T_FW_sr_21.htm">
+
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span></a> command.</p>
+
+
+
+<table align="center">
+<tr valign="top">
+<td class="ver9" align="center"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> set to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+130">Tolerance</span></td>
+
+
+<td class="ver9" align="center"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> set to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+214">Parameters</span></td>
+
+
+<td class="ver9" align="center"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> set to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+375">Advanced</span></td>
+
+
+</tr>
+
+<tr valign="top">
+<td><img border="1" src="../images/C2NMO_TOL.gif"></td>
+<td><img border="1" src="../images/C2NMO_PAR.gif"></td>
+<td><img border="1" src="../images/C2NMO_ADV.gif"></td>
+</tr>
+</table>
+
+<br>
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+131">Specialized conversion</span></td>
+
+
+<td>Enables you to control the type of the resulting NURBS surfaces. 
+
+<ul class="noleft">
+<li>When this box is selected surfaces are converted to specialized NURBS. Specialized NURBS are much more accurate and have a lower number of control points. See "<a href="../../Notes/T_SpecializedConversion.htm">Specialized conversion</a>" for details.</li>
+
+<li>When the box is cleared, surfaces are converted to non-specialized NURBS.<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+452">Keep initial degree</span></td>
+
+
+<td>This check box is active only when the <b>Continuity order</b> is set to <b>Maximum</b>. 
+
+<ul class="noleft">
+<li>When selected, the resulting surface will have the same degree as the original one.</li>
+
+<li>When not selected, the resulting surface degree may differ.<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+374">Keep original domain</span></td>
+
+
+<td>Enables you to control the domain of the resulting entity. 
+
+<ul class="noleft">
+<li>When this check box is selected, the domain of the resulting entity will have the same size as the one of the original entity.</li>
+
+<li>When not selected, the domain of the resulting entity may differ from the original (and be smaller).<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+539">Use initial no. of arcs</span></td>
+
+
+<td>
+<ul class="noleft">
+<li>When the box is checked, you can perform the conversion based on the number of arcs of the entity to convert: this number is added to the specified maximum number of arcs, so as to have a more coherent result for each surface.</li>
+
+<li>When the box is cleared, the initial number of arcs of the entity to convert is not taken into account.<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+455">Update deviation</span></td>
+
+
+<td>Enables you to control the precision of the resulting surfaces. 
+
+<ul class="noleft">
+<li>When this check box is not selected, the resulting entity will keep its own local precision value.</li>
+
+<li>When selected, the achieved precision will be assigned to the local precision of the resulting entity.<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+462">Output type</span></td>
+
+
+<td>Enables you to select the output type for the resulting surfaces. 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+470">Standard</span></td>
+
+
+<td>To convert the selected surfaces without splitting them.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+453">Single-patch surfaces</span></td>
+
+
+<td>To convert the selected surfaces by splitting them into as many single-patch surfaces as required.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+454">Bezier surfaces</span></td>
+
+
+<td>To convert the selected surfaces by splitting them into as many Bezier surfaces as required (that is, single-patch surfaces for which the U and V parameters vary in the range [0,1]).</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Some notes about the choice of the output type</b> <br>
+If the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> mode is set to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+130">Tolerance</span>, the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+131">Specialized conversion</span> option is grayed out when the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+454">Bezier surfaces</span> output type is selected because it would generate rational NURBS, which cannot be split into Bezier surfaces.<br>
+
+
+The splitting options cannot be applied to associative surfaces, as from one initial surface you get several ones, causing the new surfaces to have the current color. Apart from the color the generation of the new surfaces depends on the current value of the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_DISPLAY.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+41">Base entities</span></a> drop-down list in the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+4">General</span> category of the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+245">Document Properties</span>. When the 
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+42+3">Modify</span> option is selected, associative surfaces are not deleted but simply hidden.</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

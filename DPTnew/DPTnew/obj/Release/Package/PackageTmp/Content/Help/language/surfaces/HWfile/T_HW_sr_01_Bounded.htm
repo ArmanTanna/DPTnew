@@ -1,0 +1,169 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_20091" content="translate">
+<title>Job: Creating a Bounded Plane</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{;margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Creating a Bounded Plane</h2>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_sr_01.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+76">Plane Surface</span></a> command, proceed as follows:</p>
+
+
+
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>To obtain an <i>associative</i> plane, that is an open solid&nbsp;&#151;&nbsp;a <i>Skin</i>&nbsp;&#151;&nbsp; retaining a link to its bounding curves, so that if you modify such curves the plane will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> box. The 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_GRP_HTREE+148">Bounded plane</span> icon will be displayed in the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> once the plane is created. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span>.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the plane boundaries, which can be: 
+
+<ul class="noleft">
+<li>A chain of plane curves (you can right-click on one of the curves and select the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../../images/general/litarr.gif">
+<a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm">
+
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4688">Chain from This</span></a> operator to speed up the selection of boundaries.</li>
+
+
+
+<li>A profile.</li>
+
+<li>Surface boundaries.<br>
+<br>
+<img border="1" src="../../../images/surfaces/plane_bounded_01.gif"></li>
+</ul>
+
+<br>
+To change the selected boundaries, right-click on <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+88">Boundaries</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Notes about selection in Associative Mode</b> <br>
+When creating a bounded plane in <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> through the 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span> mode of the 
+
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+76">Plane Surface</span> command, the creation of more than one plane skin deriving from different loops of selected bounds is not allowed. A mechanism is provided to facilitate the selection operations. In fact, only chains <i>originating a single plane</i> can be selected.<br>
+
+
+<br>
+ 
+
+<p>For example, in case of window selection of more than one single loop of boundaries, only one loop is taken into account and the following message is displayed: "<i><span class="UI_OPTION_NOBOLD" id="tdesign.msg+_SURFACE_UI_WARNTTIP_+21">Select only chains identifying a single plane</span></i>".<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/BPL01.gif"><br>
+<br>
+</p>
+
+<p>On the other hand, if you try to select two closed loops by picking the boundaries one by one, you will see that the selection of the boundary which would close the second loop is not allowed, and that a specific message is issued:<br>
+<br>
+</p>
+
+<table border="1" bordercolor="black" style="margin-bottom:0; margin-left:30;" cellspacing="0%" cellpadding="0%">
+<tr valign="top">
+<td bordercolor="white"><img src="../../../images/rn_2007T1/BPL02.gif" style="margin-bottom:0;"> 
+
+<table border="1" bordercolor="white" style="margin-top:0;" cellpadding="2%" cellspacing="0%">
+<tr valign="top" style="margin-top: 0; padding-top: 0px;">
+<td style="margin-top: 0;"><img src="../../../images/rn_2007T1/Separator01.gif"></td>
+<td bordercolor="black" style="background: #FFFFE1; font-family: 'MS Sans Serif'; font-size: 8; margin-top: 0;"><span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_SURFACE_UI_WARNTTIP_+21">Select only chains identifying a single plane</span></td>
+
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+A preview of the plane is displayed:<br>
+<br>
+<img border="1" src="../../../images/surfaces/plane_bounded_02.gif"><br>
+<br>
+The arrow indicates the plane normal. If necessary, reverse its direction by double-clicking on it:<br>
+<br>
+<img border="1" src="../images/plane_bounded_invert.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td width="15"><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the plane.<br>
+<br>
+<img border="1" src="../../../images/surfaces/plane_bounded_03.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_sr_01_MoreConditions.htm"><b>Applying additional conditions when creating a plane</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

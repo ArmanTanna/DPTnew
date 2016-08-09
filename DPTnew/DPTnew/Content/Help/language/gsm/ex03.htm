@@ -1,0 +1,104 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>An introductory modeling sample</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>An introductory modeling sample</h3>
+<p class="notop">We'll apply the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command to a <i>skin</i>: a set of surfaces describing a 
+
+shape (please refer to the <a href="ex00.htm"><b>Introductory Examples</b></a> for the basic information you need to better understand this document).<br>&nbsp;
+<ol class="litleft">
+<li>Load file "GM_EX_04.e3" and start the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command.
+
+In this case we have a skin, a set of 3 
+surfaces that are <I><B>trimmed</B> and <B>tangent</B></I>.
+<BR><BR><IMG border=1 SRC="images/EX_04_01.gif"><BR>&nbsp;
+<li>Now, referring to <a href="ex01.htm"><b>The Advanced GSM Command User Interface</b></a>, you will have the following:
+<ul class="noleft">
+<li>What to <b>Modify</b>: Three surfaces (a skin)
+<li>What to <b>Preserve</b>: The outer green boundary. <I>How</I>: Keeping position
+<li>What to <b>Match</b>: one of tangent curves with another one. <I>How: </I>Target position.<br>&nbsp;
+</ul>
+<li>Select the three surfaces.<br>&nbsp;
+<li>Click on <b>Curves (Group1)</b> under <b>Preserving Curves</b> and select the green boundaries (you can use the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_vw_95.htm"><b>Selection Filter</b></a> command and set the color to green. Then use <b>Select All</b>.). In the <b>Constraint</b> drop-down list select <b>Keep position</b>:
+
+<BR><BR><IMG border=1 SRC="images/EX_04_02.gif"><BR>&nbsp;
+<li>Under <b>Matching Curves</b>, click on <b>Initial curves</b> and select the blue curves (you can use the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_vw_95.htm"><b>Selection Filter</b></a> command and set the color to blue). Then click on <b>Target curves</b> and select the red curves. Set the <b>Constraint</b> drop-down list to <b>Target position</b>.
+
+<BR><BR><IMG border=1 SRC="images/EX_04_03.gif"><BR>&nbsp;
+<li>This is the result when you click <img src="../../images/general/OKbutton.gif" border="0">:<BR><BR><IMG border=1 SRC="images/66.gif"><BR>&nbsp;
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+We didn't actually apply a transformation, but rather <i>a set of rules</i> (matching, preserving) <i>to a set of existing rules</i> (tangency between trimmed surfaces). The initial surfaces are untrimmed an re-trimmed all at once according to the new rules in order to obtain the desired result.
+</td></tr></table><br>
+<li>In order to achieve a more suitable shape, 
+some <b>Shape Control</b> tools are available: Stiffness, Roundness, Bulge (<i>see also</i> 
+"<a  href="../globalshape/HWfile/T_HW_GMChecking.htm#Shape"><b>Set the parameters controlling the shape of the resulting surfaces</b></a>"). Click <b>Shape Control</b> under <b>More Options</b>.<br>
+Let's change the <b>Bulge</b> factor. In this case, changing from <b>Small</b> to <b>Medium</b>, a suitable 
+shape is achieved.
+<br><br><IMG src="images/88-bulge.gif"> <BR>&nbsp; 
+
+<TABLE>
+  <TR>
+    <TD>
+   <IMG border=1 src="images/77.gif"></TD>
+    <TD>
+<IMG border=1 src="images/99-final.gif"></TD></TR>
+  <TR>
+    <TD>
+   Bulge: 
+      <B><I>Small</I></B></TD>
+    <TD>
+      Bulge: 
+      <B><I>Medium</I></B></TD></TR></TABLE>
+	  </ol>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,105 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2007t1" content="internally">
+<title>Job: Propagating isoparametric curves to adjacent surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Propagating isoparametric curves to adjacent surfaces</h4>
+
+<p>To accomplish this task, you can open file: &quot;<i>IsoparametricPropagation.e3</i>&quot;.<br>
+<br>
+<img border="1" src="../../../images/curves/ISP-01.gif"><br>
+<br>
+It's a simple parallelepiped created as <b>Linear Solid</b>. One of the edges has been filleted. The fillet surface has tangency continuity ( <a href="../../MathConc/T_MC_ContinuityClassification.htm#G1">G1</a> ) with the two faces it connects, while all the other faces have only positional continuity ( <a href="../../MathConc/T_MC_ContinuityClassification.htm#G0">G0</a> ).</p>
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After starting the <a href="../FWfile/T_FW_cv_10.htm"><b>Isoparametric Curve</b></a> command, select the surface on which you want to create the isoparametric curves.<br>
+<br>
+<img border="1" src="../../../images/curves/ISP-02.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>As the <b>Type</b> drop-down list was set to <b>U</b> and <b>No. of curves</b> reads 1, you will get one U-isoparametric curve on the surface through the point used to pick the surface.<br>
+<br>
+<img border="1" src="../../../images/curves/ISP-03.gif"><br>
+<br>
+You can drag the handle to the desired position for the curve, or type in the <b>U</b> value. The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+369">Propagate to surface</span> under 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> is set to 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+10">None</span>, so the isoparametric curve will not be propagated to any adjacent surface.<br>
+
+
+<br>
+<img border="1" src="../../../images/curves/ISP-04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+369">Propagate to surface</span> to 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+362">Tangent</span>. An additional isoparametric will be created on the adjacent surface with tangency continuity ( <a href="../../MathConc/T_MC_ContinuityClassification.htm#G1">G1</a> )&nbsp;&#151;&nbsp;the fillet surface&nbsp;&#151;&nbsp;and on the second face the fillet is between.<br>
+
+
+<br>
+<img border="1" src="../../../images/curves/ISP-05.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+369">Propagate to surface</span> to 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+363">Adjacent</span>. An isoparametric curve for each of the adjacent surfaces with positional continuity ( <a href="../../MathConc/T_MC_ContinuityClassification.htm#G0">G0</a> ) will be created.<br>
+
+
+<br>
+<img border="1" src="../../../images/curves/ISP-06.gif"> <br>
+<br>
+The additional curves will follow the "direction" of the original isoparametric curve, that is if the first curve was an U isoparametric curve, the additional ones may be either U or V curves on their own surfaces, but they will retain the same direction as the first curve.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+369">Propagate to surface</span> to 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+365">By parameter</span>. An isoparametric curve for each of the adjacent surfaces with positional continuity ( <a href="../../MathConc/T_MC_ContinuityClassification.htm#G0">G0</a> ) will be created, retaining the same type&nbsp;&#151;&nbsp;thus probably <i>not</i> the same direction&nbsp;&#151;&nbsp;as the original isoparametric curve: as it is a U curve, the additional isoparametric curves will be U curves.<br>
+<br>
+<img border="1" src="../../../images/curves/ISP-07.gif"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

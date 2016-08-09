@@ -1,0 +1,53 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<TITLE>Illustration of a Vertex-Point on face constraint situation</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<div align="center" style="font-size:20;"><font color="red"><b><i>Work in Progress</i></b></font></div>
+
+<H3>Illustration of a Vertex-Point on face constraint situation</H3>
+
+<p>The following illustration explains a situation where you will need to use a complex mating with a combination of <b>Vertex-Point on face</b> constraint.
+
+<TD>The below picture shows a lever/cam sub assembly, which is a part of a bigger machine.<br><br>
+<img src="../images/Point_face1.gif" border="1" ><br><br>
+The point of interest here is to check the mating possibilities between these two components.<br>A closer look at the components show that you can have a <b>Concentricity</b> constraint between the lever and hole on the cam.
+<p class="rn_desc">
+<img src="../images/Point_face4.gif" border="1"><br><br>
+For the second constraint you do not have a plane face available for mating. Note here that the shaft (Component in Blue), intercepts the hole on the Cam.
+<p class="rn_desc">
+<img src="../../../images/assembly/Point_face3.gif" border="1"><br><br>
+To deal with this kind of situation, you have the <b>Point on face</b> constraint.
+<p class="rn_desc">
+<img src="../images/Point_face2.gif" border="1"><br><br>
+You can select the vertex on the lever as shown and place a constraint of <b>Type</b>, <b>On face</b> by selecting the surface of the shaft (highlighted).</b>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+If the geometry you are working on does not provide for a vertex, you can use a datum point instead. </td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

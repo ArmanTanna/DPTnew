@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD> 
+
+<meta name="T_2010t1" content="internally">
+<TITLE>Job: Notes on X-Reference Components</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+  
+<h4>Notes on X-Reference Components</h4>
+
+<p>
+<ul class="noleft">
+
+<li><b>If the selected X-Reference component contains outgoing references
+</b> ...<br>
+... and you position more than one instance of it into an assembly <i>different from the one where it was designed</i>, after importing that component it will not be possible <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_05_12.htm">to re-evaluate the model</a>. A message is displayed to warn you about this situation. In fact, when re-evaluating, the program can't solve the outgoing references. Thus it will display the 
+<a href="mk:@MSITStore:help.chm::/language/history/HWfile/T_HW_ht_08.htm"><b>Error</b></a> dialog box)<br>&nbsp;
+
+<li><b>When a component is referenced to an external file</b> ...<br> the program stores the entire path name, including the drive letter identifying the disk drive (for example, C:\Models\Components\component.e3). If your system is connected to a network, you should refer to the specific network drive using the following syntax:
+<br><B>\\<I>machine_name</I>\<I>disk_name</I>\<I>path_name</I></B><br>
+rather than using a syntax that uses virtual disk drives (such as <B>J:\<I>path_name</I></B>). If you use virtual disk drives, when an assembly file is opened on a computer other than the one on which it was created, the program won't be able to find the external file if the virtual disk drives defined on the two computers don't correspond.
+<br>In addition, verify that the <B>Keep absolute file path</B> check box is selected in the <B>Assembly/Shared Group</B> category of the <B>System Options</B>. If this check box is not selected, the program stores the file path in a relative form, in which case it may not be valid for all the computers on the network.<br>&nbsp;
+<li>Very complex models may contain numerous external references. When the component files reside on disks shared across a network, it may be difficult to exchange information between the current model and the external files.  In these cases, you should store a copy of the component on your computer. To store a local copy:
+<TABLE>
+<TR VALIGN=top>
+<TD><B>1</B>&nbsp;</TD>
+<TD>Right-click on the component, and choose <B>Properties</B> in the context menu.</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>2</B></TD>
+<TD>In the <b>Component</b> category, select the <B>Local copy</B> check box, and then click <B>OK</B>.
+</TD>
+</TR>
+</TABLE><br>
+<li>If you deselect the <b>Local copy</b> box, a warning is displayed to inform you that the current version of the local copy X-Reference (component) might be different from the version that is saved in the external file; you are then asked whether you want to keep the local copy or reload the X-Reference (component).
+<ul class="noleft">
+<li>If you reload the X-Reference (component), you will have to save only the model
+<li>If you keep the current version of the local copy X-Reference (component), you'll have to save both the model and the X-Reference.
+</ul>
+
+<br>
+</ul>
+</p>
+
+<hr color="silver">
+</body>
+</html>
+

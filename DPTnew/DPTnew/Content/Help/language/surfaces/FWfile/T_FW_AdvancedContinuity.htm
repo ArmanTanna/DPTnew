@@ -1,0 +1,74 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(506,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Advanced Surface Continuity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script> -->
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7510">Advanced Continuity</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+90">Advanced Surface Continuity</span> command enables you to modify continuity between surfaces and sets of surfaces (with consecutive boundaries). The result of the command is a new set of surfaces matching the chosen continuity conditions (while the original ones will still be there).</p>
+
+<p><a name="mode"></a>Continuity can be applied to match a <i>curve</i> or a <i>target shape</i>, which can be defined using the <a href="../OVfile/T_OV_Shape_Constraint_Surf.htm"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+220">Mode</span></a> drop-down list.</p>
+
+<p>After selecting a set of consecutive surface boundaries (i.e.: a <i>chain</i> of surface boundaries) to be modified (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+126">Boundaries to Be Modified</span>) and a chain of surface boundaries and/or of 3D curve entities (from now on, the term <i>contour</i> will be used in the place of chain of boundaries/curves) to be used as the reference contour (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+125">Reference Curves or Surface Boundaries</span>), the program determines and highlights the ones to be preserved (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+92">Preserving</span>).</p>
+
+<p>You will be able to set the continuity conditions between the two contours and also along the contour marked as <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+92">Preserving</span>, which can be positional, tangency or curvature continuity (and also "free", in the case of the contour to be preserved). As to the meaning of continuity types, see " <a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm">Continuity Types</a>". Please note that if the reference contains a curve entity (i.e.: not a surface boundary), only positional continuity can be applied.</p>
+
+<p>You can also change the portions of both the contours to modify and of the reference one by supplying the desired initial and final parameter values (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+127">U0</span>, <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+130">U1</span>), or by dragging the corresponding appropriate handles.</p>
+
+<p>You can model the shape of the resulting surface by setting the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+107">Bulge</span> factor under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.</p>
+
+<p>A preview mechanism is always available, enabling you to interactively assess the result you are obtaining.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
+
+
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
+</tr>
+</table> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+215">Surface Continuity</span> command</b><br>
+ Please note that Positional and Tangent continuity between couples of single surfaces can also be applied using the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_ms_01.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+215">Surface Continuity</span></a> command.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_AdvancedContinuity.htm"><b>Modify continuity between two sets of surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Marco Springhetti">
+<title>Job: Inserting Balloons Automatically</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h4>Inserting Balloons Automatically</h4>
+
+<p>After starting the <a href="../FWfile/T_FW_AutoBal.htm"><span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span></a> command, proceed as follows.</p>
+
+<table border="0" bordercolor="#C0C0C0" cellspacing="3" cellpadding="3" summary="">
+<tr valign="top">
+<td width="20" align="right"><b>1</b></td>
+<td>Select the views in which you want the balloons to be displayed.<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB01.gif"><br>
+<br>
+To change the selected views, right-click on <span class="UI_COMMAND" id="tdesign.msg+_DRAWING_UI_LABEL_+2">Views</span>, select <b>Reset</b> in the context menu and perform the selection again.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Importance of the view selection order</b><br>
+The order used to select views may be important. In fact, if a part is visible in more than one view, the corresponding balloon will be displayed in the view you selected first.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20" align="right"><b>2</b></td>
+<td>Click <img alt="" src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img alt="" src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selection and insert the balloons.<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB02.gif"><br>
+<br>
+Click <img alt="" src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your selections. 
+
+<p>Please note that, as the view selection order determines the views to which balloons are added, if you had selected first the view on the right and then the one on the left, balloons would have been added to the isometric view, as shown below.<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB06.gif"></p>
+</td>
+</tr>
+</table>
+
+<p>Now, suppose you want to move some of the balloons from the planar view on the left to the isometric view on the right. Proceed as follows:</p>
+
+<ol class="litleft">
+<li>Double-click on the planar view to set it as the <a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_gp_05.htm">current group</a>.</li>
+
+<li>Delete the balloons you want to move to the other view (right-click on each of the balloons to be removed and select <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+3974">Delete</span> in the context menu)<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB03.gif"><br>
+&nbsp;</li>
+
+<li>Double-click on an empty area of the drawing to reset the current group to the <a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_gp_08.htm">top level</a>.</li>
+
+<li>Start the <a href="../FWfile/T_FW_AutoBal.htm"><span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span></a> command and select the isometric view on the right.<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB04.gif"><br>
+&nbsp;</li>
+
+<li>Click <img alt="" src="../../../images/general/OKbutton.gif" border="0" align="absmiddle">. The balloons you removed from the planar view on the right are now displayed on the isometric view.<br>
+<br>
+<img alt="" border="1" src="../../../images/dimensio/AB05.gif"></li>
+</ol>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Manual and Automatic Ballooning</b> <br>
+In order to add balloons to a drawing you can use either the <a href="../FWfile/T_FW_AutoBal.htm"><span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span></a> or the <a href="../FWfile/T_FW_Balloon.htm"><span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span></a> commands or both of them as you like. For example, you may decide to add some of the balloons manually and the others automatically. Furthermore, if you delete some of the existing balloons from a view in order to add them to a different view, you can add them automatically or manually, choosing the method you believe the best to meet your requirements.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_InsertBalloon.htm"><b>Inserting Balloons Manually</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

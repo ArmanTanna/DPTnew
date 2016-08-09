@@ -1,0 +1,106 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(306,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>New Free Hand Curve</title>
+<meta name="T_2009t1" content="translate">
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7907">Free Hand on Surface</span></p>
+<hr color="#63a9d8">
+<br>&nbsp;<br>
+
+<p><a name="CTX_Insert_Sketched_COS"></a>The <span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+6">Insert Free Hand Curve on Surface</span> command ( <img src="../../../images/rn_2007T1/SKCO_ICO_INS.gif" align="absmiddle"> ) enables you to quickly and easily sketch one or more curves on selected surfaces or solid faces. The resulting curves will be of the Curve on Surface type (from now on: COS). You can proceed as follows.</p>
+
+
+<p style="margin-bottom:6px;">Once the command has been started, select the surface(s) you want your curve to lie on.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SKCOS01.gif"><br>
+<br>
+Once the surfaces are selected, right-click and select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span>. Now you can start sketching.</p>
+
+
+<p>By default, the resulting curve is a COS and its maximum degree can be 7. The latter can be defined under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> through the 
+<span class="UI_OPTION" id="FreeHandUI.msg+_FREEHANDUI_LABEL_+3">Degree</span> box:</p>
+
+
+<ul class="noleft">
+<li>When the box is cleared, the COS curve degree is automatically adjusted.</li>
+
+<li>When the box is checked, you can enter the desired curve degree in the adjacent box that shows up. The maximum value allowed is 7. The higher the degree, the more flexible the curve.</li>
+</ul>
+
+<p>When you start sketching, as soon as the pen touches the tablet, the cursor disappears. When you start moving the pen on the tablet, the curve shows up. To stop sketching, move the pen away from the tablet.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SKCOS02.gif"><br>
+<br>
+At this point, you can confirm the creation of the sketched curve or modify it with a second "stroke". In fact, you can sketch again on top of the first curve; the second stroke preview shows up:<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SKCOS03.gif"><br>
+<br>
+If the distance between the second stroke sketch and the first is small enough, when you release the pen at the final end point of the second stroke sketch the whole preview will be modified (otherwise it will be ignored):<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SKCOS04.gif"><br>
+<br>
+You can iterate this process as many times as you like.<br>
+<br>
+A local <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button ( <img src="../../../images/thinkspeed/Undo.gif" align="absmiddle"> ) shows up on top of the selection list after your first stroke and is then available to undo each stroke. Similarly, a 
+<span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> button ( <img src="../../../images/thinkspeed/Redo.gif" align="absmiddle"> ) becomes available to redo undone strokes.</p>
+
+
+<br>
+<p style="margin-bottom:10px;">Please note that by using a specific feature of the Wacom&reg; pen&nbsp;&#151;&nbsp;that is, by turning it upside-down&nbsp;&#151;&nbsp;, the command also enables you to delete entire curves or portions of the sketched curves. A <i>balloon</i> cursor is displayed to warn you have entered the erase mode. Please note that the higher the pressure of the pen onto the tablet, the larger the area that will be deleted and the bigger the balloon that will be displayed.<br>
+The local <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> and 
+<span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> buttons are available also to undo/redo erasures.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Warnings and Notes</b> 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>If you sketch a curve on a solid face (including skins), a hidden duplicate surface will be created so as to enable the COS creation.</li>
+
+<li>Should you convert the COS curve resulting from this command to a NURBS, the degree of the latter would be 9, regardless of the actual degree you set for the COS.</li>
+
+<li><a name="CTX_Modify_Sketched_COS"></a>Sketched COS curves can be modified using the <a href="T_FW_MSCOS.htm"><span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+8">Modify Free Hand Curve on Surface</span></a> (&nbsp;<img src="../../../images/rn_2007T1/SKCO_ICO_MOD.gif" align="absmiddle">&nbsp;) command.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

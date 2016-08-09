@@ -1,0 +1,188 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Capping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+6834">Capping</span> </p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Capping</b></i> 
+</td>
+ --></tr>
+</table>
+<br>&nbsp;<br>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command enables you to fill "islands" or "holes" in surfaces or to create surfaces through curves, for example if you have a "wireframe" structure to be covered with surfaces.</p>
+
+
+<p>After creating an initial filling surface, constraints can be added to it in order to modify its shape so that it matches your requirements. The shape of the initial surface can be selected in the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. The method can be 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+138">Automatic</span>, in which case the program will automatically choose the best type of filling surface among (portions of) a plane, a cylinder or a sphere. Otherwise you can explicitly specify the type of filling surface to be used: a portion of a plane to be defined (
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span>); a portion of a cylinder (
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span>) which you can specify the axis and radius of; a portion of a sphere (
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span>), to be defined through its center and radius; an 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+149">Existing surface</span>, in which case you will have to choose a <b>Projection type</b> suitable for the surface you selected. Final results depend on the chosen projection type and on the corresponding direction.</p>
+
+
+
+
+<p style="margin-bottom:0;"><a name="Capping_Constraints"></a>By choosing the corresponding item in the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span> drop-down list (
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+131">Boundary curves</span>, 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+135">Internal curves</span>, 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+134">Internal points</span>, 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span>) you can set constraints about position, tangency and curvature continuity both along boundary curves and along internal curves. Constraints can also be defined for internal points.</p>
+
+
+
+
+<ul class="noleft">
+<li>Boundary curves are optional: if you only specify internal curves and/or points, you will obtain capping surfaces through the specified curves/points not trimmed along the boundaries.<br>
+Positional continuity is required among boundary curves belonging to the same group of selection (<i>not</i> required for internal curves). If more than one group of selection is defined for boundaries, positional continuity is required between groups, while you can select internal curves which are not closed.</li>
+
+<li><a name="Virtual_vertices"></a>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span> option is available so as to enable you to improve the shape of the resulting surface in certain cases of incompatibility. A virtual vertex is defined when two curves are supposed to "cross" each other without necessarily having real intersections. The said situation refers to <i>positional</i> incompatibilities, but virtual vertices can be used to solve <i>tangency</i> or <i>curvature</i> incompatibilities as well.<br>
+
+
+
+&nbsp;<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Please note that virtual vertices are <i>by no means</i> a method to solve or even to bypass chaining issues along the boundaries: boundary curves always need to be correctly chained. The situations in which they can be profitably applied are described below.</td>
+</tr>
+</table>
+
+<br>
+When the intersection among the selected curves (for example between a boundary curve and an internal curve) is not real, the surface you would get might not be as good as expected or required. In such a case, for example, using the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span> option can really help you improve the final result.</li>
+
+
+
+</ul>
+
+<p>While the original objects remain unchanged, the result of the operation is the creation of a surface of the "GSM" type describing the new shape. A set of special options is provided to convert such surfaces into NURBS surfaces, in the case you need to export them to some environment different from <b>think<font color="#FF0F00">3</font></b>.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base curves, so that if you modify the base curves the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+
+<br>
+ <b>Restoring selections after an interruption</b><br>
+If you interrupt the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all, which might take a long time, at least in complex situations.<br>
+
+
+
+Next time you start the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command, in fact, the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list. If you select the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+
+
+
+When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection. It is not possible to restore the frozen selection after the first use of the preview.<br>
+
+
+
+Further details in "<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings in curve and surface commands</a>".</td>
+
+</tr>
+</table>
+
+<br>
+ 
+
+<p>A set of <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm">
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a> commands is also available.</p>
+
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_capping.htm"><b>Create a capping surface</b></a></li>
+<li><a href="../HWfile/T_HW_Capping_VV.htm"><b>Use the Virtual vertices option of the Capping command</b></a></li>
+<li><a href="../HWfile/T_HW_Capping_ExistingS.htm"><b>Create a capping surface starting from an existing surface</b></a></li>
+<li><a href="../HWfile/T_HW_CappingShape.htm"><b>Define the shape of the initial surface</b></a></li>
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMChecking.htm"><b>Check your results</b></a></li>
+
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMbend03.htm"><b>Get NURBS surfaces instead of specialized ones</b></a></li>
+
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm"><b>Perform Quality Checks</b></a></li>
+
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_CappingWarnings.htm"><b>Warnings of the Capping command related to incompatibilities</b></a></li>
+<li><a href="mk:@MSITStore:gsm.chm::/language/gsm/brenda02.htm"><b>Modifying legacy surfaces with GSM</b></a></li>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

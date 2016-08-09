@@ -1,0 +1,195 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a blend surface between two selected surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+.notop
+{
+margin-top: 0;
+}
+.litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a blend surface between two selected surfaces</h3>
+
+<p>After starting the <a href="../FWfile/T_FW_FilletSurface.htm"><b>Double fillet</b></a> command, proceed as follows.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the two surfaces between which the blend surface must be created.<br>
+<br>
+<img border="1" src="../../../images/surfaces/DF-01.gif"><br>
+<br>
+To change the selected surfaces, right-click on <b>1st Surface</b> and/or on <b>2nd Surface</b>, choose <b>Reset</b> in the context menu and perform selection again. 
+
+<p>As soon as the surfaces are selected, an arrow representing the normal is displayed on each of them. The arrow identifies the side on which the fillet/chamfer will be created. To invert the direction of each arrow (and thus the side the fillet/chamfer will be applied to) double-click on the arrow.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>How to quicly reorient the surface normals</b><br>
+ The <b>Quadrant</b> selector enables you to select the quadrant where the fillet/chamfer is to be created: with just one click, all the normals will be automatically reoriented so as to allow the creation of the blend surface, rather than having to select each of the corresponding arrows.<br>
+To use this method, do the following: 
+
+<ol class="litleft">
+<li>Click on <b>Quadrant</b> in the selection list</li>
+
+<li>Click in the quadrant you want the blend surface to be created in.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Type</b> drop-down list, select the type of blend surface to be created: 
+
+<table>
+<tr valign="top">
+<td><b>Fillet</b></td>
+<td>to create a rounded blend surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Chamfer</b></td>
+<td>to create a straight blend surface</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>If you selected the <b>Fillet</b> type, in the <b>Radius</b> drop-down list choose the type of variation for the blend surface radius: 
+
+<table>
+<tr valign="top">
+<td><b>Constant</b></td>
+<td>to create a blend surface whose radius remains constant along the filleted edge</td>
+</tr>
+
+<tr valign="top">
+<td><b>Variable</b></td>
+<td>to create a blend surface whose radius varies linearly along the edge from a minimum to a maximum value</td>
+</tr>
+
+<tr valign="top">
+<td><b>Parabolic</b></td>
+<td>to create a blend surface whose radius varies parabolically between three values along the edge.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Specify the value(s) of the radius: 
+
+<ul class="noleft">
+<li><b>Radius</b>&nbsp;&#151;&nbsp;if you selected the <b>Constant</b> radius mode<br>
+<br>
+<img border="1" src="../images/DF-02.gif"><br>
+&nbsp;</li>
+
+<li><b>Start Radius</b> and <b>End Radius</b>&nbsp;&#151;&nbsp;if you selected the <b>Variable</b> radius mode<br>
+<br>
+<img border="1" src="../images/DF-03.gif"><br>
+&nbsp;</li>
+
+<li><b>Start Radius</b>, <b>Middle Radius</b> and <b>End Radius</b>&nbsp;&#151;&nbsp;if you selected the <b>Parabolic</b> radius mode<br>
+<br>
+<img border="1" src="../images/DF-04.gif"></li>
+</ul>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the <b>Extension</b> drop-down list, select the extension and the trimming mode: 
+
+<table>
+<tr valign="top">
+<td><b>Disabled</b></td>
+<td>to create a blend surface whose length is only as long as the length at which the two selected surfaces actually intersect</td>
+</tr>
+
+<tr valign="top">
+<td><b>Full</b></td>
+<td>to create a blend surface whose length extends to the outermost edges of either surface (which ever is longer) at the point where the two surfaces intersect</td>
+</tr>
+
+<tr valign="top">
+<td><b>Trimmed</b></td>
+<td>to create a blend surface whose length at the point where it intersects with the selected surface is extended or trimmed to match the length of the surface at that intersection. If the <b>Automatic cut</b> check box (<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm"><b>Construction-Advanced</b></a> category of the <b>System Options</b>) is selected, the portions of the selected surfaces extending beyond the new blend surface are automatically eliminated.</td>
+
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the blend surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/DF-05.gif"> 
+<br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

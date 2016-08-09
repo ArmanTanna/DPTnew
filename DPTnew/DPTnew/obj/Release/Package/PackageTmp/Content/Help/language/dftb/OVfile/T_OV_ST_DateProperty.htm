@@ -1,0 +1,58 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>How to format a date property</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE>.noleft{margin-left:22}</STYLE>
+
+<STYLE>.litleft{margin-left:26}</STYLE>
+
+<STYLE> .menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+<style> .formula{font-size: 11pt; font-family: Verdana,Arial;}</style>
+
+<style> .HEADER{font-size: 9pt; font-family: Verdana,Arial;}</style>
+
+<style> .smallformula{font-size: 10pt; font-family: Verdana,Arial; font-weight: bold; color: navy}</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<h4><a name="dateformatting"></a>How to format a date property</h4>
+<p>Suppose you want to display a date with a certain format inside your drawing, for example: "23-November-2001". You can proceed as follows.
+<ol class="litleft">
+<li><a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_cl_01.htm">Create</a> a character class named "mydate" 
+
+<li><a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_cl_04.htm">Assign it to the drawing</a> giving it the following value: "11/23/01"
+
+<li><a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_09.htm">Create a text</a> like the following:<br><br>
+
+<table border=1 bordercolor="navy"><tr><td>&nbsp;<p class="formula">&nbsp;<b>$M{</b>mydate<b>:F("#date(</b>%d-%B-%Y<b>)")}</b></p>&nbsp;</td></tr></table><br>and position it into the drawing.
+</ol>
+If the <b>Symbolic text expansion</b> check box in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b> is selected, the string:<br><br>23-November-2001<br><br>will be displayed.<br>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Formatting a date</b><p>You can format a date property as you like best using the <b>F("#date(</b><i>date format</i><b>)")</b> option. <p>See the complete list of date formatting codes in "<b><a href="T_OV_ST_DateFormats.htm">Date formatting codes</a></b>". See also <b><a href="T_OV_STsyntax.htm">Syntax of symbolic expressions</a></b>.
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

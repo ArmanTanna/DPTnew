@@ -1,0 +1,134 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Compute Distances</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td align="left"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+5">Compute Distances</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+12">Compute Distances</span> command is an effective tool to compute the distances between points and a shape. In fact, it provides the distances of a specified set of points from a selected shape based on a chosen projection law and also provides information about the maximum, minimum and mean distances. After starting the command, you can use the following selection list options to proceed.</p>
+
+<ul class="noleft">
+<li>In the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+127">Points</span> drop-down list, you can choose the input method for the points: 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+125">ASCII file</span></td>
+<td>To read the points in an ASCII ".pt" file, in which each line contains the coordinates of one point in the World Reference system (the coordinate separator is a blank character). In this case, the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+132">Browse</span> option will be displayed in the selection list. By selecting it, a file selection box will be displayed enabling you to select the required point file. The unit of measure for the point coordinates can also be selected in the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+4">Unit of Measurement</span> drop-down list.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+126">Standalone</span></td>
+<td>To select the points (by using the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+127">Points</span> selector) directly in the model through a window selection (or even one by one).</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Then you can select the surface (or face) from which you want to compute the distance of the selected points (by using the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+112">Surfaces</span> selector).<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+121">Projection type</span> drop-down list, you can select the projection law to be used when computing the distance values: 
+
+<table>
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+120">Normal</span></td>
+<td>The points will be projected orthogonally onto the shape.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+116">Flat surface</span></td>
+<td>The point will be projected using a linear projection along a specified direction (using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+117">Double curvature</span></td>
+<td>The points will be projected using a spherical projection for which you will have to specify the center.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+118">Single curvature</span></td>
+<td>The points will be projected using a cylindrical projection for which you will have to specify the axis (using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list).</td>
+</tr>
+</table>
+</li>
+
+<li style="list-style: none"><br>
+</li>
+
+<li>The <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+211">Max. presumed distance</span> check box enables you to specify a threshold value. 
+
+<ul class="noleft">
+<li>When the check box is selected, the system discards the distance-to-shape computation of points that are farther than the threshold value, which is to be specified in the corresponding text box. Hence, there is significant reduction in the computation time.</li>
+
+<li>When the check box is cleared, all the points are included in the computation. Also, the text box is not available.</li>
+</ul>
+
+<br>
+</li>
+
+<li>By selecting the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+122">Save Points with Projection</span> option, you are enabled to save the initial points to an ASCII ".pt" file.<br>
+<br>
+</li>
+
+<li>By selecting the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+123">Save Projected Points</span> option, you are enabled to save the coordinates of the points projected on the shape to an ASCII ".pt" file.<br>
+<br>
+</li>
+
+<li>By selecting the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+124">Save Points without Projection</span> option, you are enabled to save the points that have no projection on the shape to an ASCII ".pt" file.<br>
+<br>
+</li>
+</ul>
+
+<p>Once the distances have been computed, the markers displayed on the points in the model and the graphs&nbsp;&#151;&nbsp;see "<i><a href="../HWfile/T_HW_graphs.htm">Displaying graphs in Compensator</a>" for details on how to obtain graphs in <b>Compensator</b>&nbsp;&#151;&nbsp;are separated into three differently colored zones:</i></p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td rowspan="3"><img border="1" src="../../../images/rn_2007T1/CMP_COLORS.gif"></td>
+<td><b>1</b> : Minimum distances - low threshold</td>
+</tr>
+
+<tr>
+<td><b>2</b> : Low threshold - high threshold</td>
+</tr>
+
+<tr>
+<td><b>3</b> : High threshold - maximum distances</td>
+</tr>
+</table>
+
+<p>The default values for low and high threshold are used in the computation, but you can change them to better focus on a particular range.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/CMP_CMPD.gif"><br>
+<b>1 -</b> <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+150">Distribution</span>&nbsp;&nbsp;&nbsp; <b>2 -</b> <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+151">Repartition</span></p>
+
+<hr color="silver">
+</body>
+</html>
+

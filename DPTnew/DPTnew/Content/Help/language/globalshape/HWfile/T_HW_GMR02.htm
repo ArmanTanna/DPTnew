@@ -1,0 +1,135 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<title>Job: Replicating a GSM Bend and a GSM Twist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Replicating a GSM Bend and a GSM Twist</h3>
+
+<p>In this task you will apply a controlled modification to a solid by performing on it the same actions already applied to a surface (using the <a href="../FWfile/T_FW_GMBend.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span></a> and the <a href="../FWfile/T_FW_GMTwist.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+22">GSM Twist</span></a> commands). To accomplish this task, open file "GlobalReplicate_02.e3"</p>
+
+
+<p><img border="1" src="../../../images/globalshape/AGR01.gif"></p>
+
+<p>To obtain this model, a <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span> command was applied first, and then a 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+22">GSM Twist</span>.</p>
+
+
+<p>Start the <a href="../FWfile/T_FW_GMR.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+180">GSM Replicate</span></a> command and proceed as follows.</p>
+
+
+<br>
+<br>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+181">Deformed reference entity</span> drop-down list, select 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+21">Surface</span>. Then click on the surface on the right, as in the following illustration:<br>
+
+<br>
+<img border="1" src="../../../images/globalshape/AGR02.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>To define the level of the controlled modifications to apply (for example: 1 - only last one; 2 - last one and the one before ... and so on), first click on <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to expand it, then select the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> box and choose <b>1</b> 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1649">GSM Twist</span> both in the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+182">From level</span> and in the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+183">To level</span> drop-down lists.<br>
+
+<br>
+<img border="1" src="../images/AGR03.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the solid you want to modify.<br>
+In the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> drop-down list (under 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span>) select 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+116">Solid</span>, then click on the solid.<br>
+
+<br>
+<img border="1" src="../../../images/globalshape/AGR05.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>To see a preview, select the <b>Preview (</b> <img src="../../../images/general/preview.gif" align="middle"> ) button.<br>
+<br>
+<img border="1" src="../../../images/globalshape/AGR06.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Now, try to see what happens if you apply the first of the two controlled modifications instead of the last one. In the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+182">From level</span> and 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+183">To level</span> drop-down lists select <b>2</b> 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1648">GSM Bend</span> (which is the controlled modification applied first, so its number is the greatest in the list). Then select the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> ( <img src="../../../images/general/preview.gif" align="middle"> ) button.<br>
+
+<br>
+<img border="1" src="../../../images/globalshape/AGR07.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Finally, to apply both controlled modifications, select <b>1</b> <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1649">GSM Twist</span> in the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+182">From level</span> drop-down list and <b>2</b> 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1648">GSM Bend</span> in the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+183">To level</span> drop-down list.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections modify the shape of the object.<br>
+<br>
+<img border="1" src="../../../images/globalshape/AGR08.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

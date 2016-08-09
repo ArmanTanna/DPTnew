@@ -1,0 +1,254 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Interaction with other commands from Insert Feature Mode</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4 class="nobot">Interaction with other commands from Insert Feature Mode</h4>
+
+<p>When you start the <a href="../FWfile/T_FW_InsertFeatureMode.htm"><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+6967">Insert Feature Mode</span></a> command, you activate an insert feature session that may require object updating and intermediate model rebuilding &nbsp;&#151;&nbsp; and certainly requires a final <a href="../FWfile/T_FW_ht_08.htm">rebuild</a> &nbsp;&#151;&nbsp; on the solid involved in the action, any time you drag or remove the line of demarcation, displayed by the command.</p>
+
+<p>From this session, you can carry out <i>other</i> actions on the solid you are working at, such as adding a profile on a face, or on different objects, such as adding a new feature to another solid, but some actions/<b>think<font color="#FF0F00">3</font></b> commands are completely or partially inactivated.</p>
+
+<p>Here you find a list of the ones that cannot be carried out, with some notes.</p>
+<table border="1" cellpadding="5" cellspacing="1">
+<tr>
+<td bgcolor="#dcdcdc"><b>Actions -</b> think<font color="#FF0F00">3</font> commands</td>
+<td bgcolor="#dcdcdc"><b>Notes</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1041">Save</span>, 
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1043">Save As</span>, 
+<span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+4299">Insert from File</span>, 
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span></td>
+
+<td>not allowed</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span></td>
+
+
+
+
+
+
+
+<td>not allowed</td>
+</tr>
+
+<tr>
+<td><b>Geometric Transformations</b> (<span class="UI_OPTION" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+5892">Mirror</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+5891">Multistretch</span>)</td>
+
+
+
+
+
+
+
+<td>not allowed</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1093">Roll Back</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+602">Roll Back Here</span></td>
+
+
+
+
+
+
+
+<td>not allowed</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+605">Deactivate Feature</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+516">Delete Feature</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span></td>
+
+
+
+
+
+
+
+<td>not allowed on the features which are deactivated by the line of demarcation</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+4869">Edit 2D Profile</span></td>
+
+
+
+
+
+
+
+<td>not allowed on the profiles which are deactivated by the line of demarcation</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4307">New Component</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify_Assembly.msg+MenuBar_Document_Modify_Assembly+4509">Set Current</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4319">Break Component</span>, 
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify_Assembly.msg+MenuBar_Document_Modify_Assembly+4510">Top Level</span></td>
+
+
+
+
+
+
+
+<td>not allowed; you need to end the command when you apply it to a component</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> (
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span>) commands in 
+
+
+
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span></b></td>
+
+
+
+
+
+
+
+<td>not allowed</td>
+</tr>
+
+<tr>
+<td><b><span class="UI_OPTION" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1430">Break Solid</span> with the 
+
+
+
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span> option</b></td>
+
+
+
+
+
+
+
+<td>not allowed</td>
+</tr>
+</table>
+
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,591 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>thinkdesign Text Markup Language (TML)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+ {
+ margin-left: 22;
+ margin-top: 0;
+ margin-bottom:0;
+ }
+</style>
+
+<style type="text/css">
+ p{
+   text-align : justify;
+ }
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3 style="margin-bottom:4px;">think3 application Text Markup Language (TML)</h3>
+
+<p style="margin-top:0px;">TML (the <b>think<font color="#FF0F00">3</font></b> application Text Markup Language) is an XML-like&nbsp;&#151;&nbsp;and XML-compliant&nbsp;&#151;&nbsp;text markup language provided with the program in order to support and create multiline texts <b><a href="#DTD">(*)</a></b>. The following sections explain how to create multiline texts using TML formatting.</p>
+
+<ul class="noleft">
+<li><a href="#TEXT">Foreword</a></li>
+
+<li><a href="#TAGS">TML Tags</a></li>
+
+<li><a href="#Escape">Escape Sentences</a></li>
+</ul>
+
+<h5 style="margin-bottom:4px;"><a name="TEXT"></a>Foreword</h5>
+
+<hr color="silver">
+<p style="margin-top:0px;margin-bottom:0;">Text will be recognized as formatted multiline text if it starts with the <b>&lt;TEXT version="1.0"&gt;</b> tag, and it ends with the <b>&lt;/TEXT&gt;</b> tag. Any text without the starting <b>&lt;TEXT version="1.0"&gt;</b> will be treated as plain unformatted text.</p>
+
+<p style="margin-top:6px;margin-bottom:0;">Once you have started your formatted text by typing the <b>&lt;TEXT version="1.0"&gt;</b> tag, you can go on writing it using the available TML tags.</p>
+
+<ul class="noleft">
+<li>A tag is a code interpreted by the program as a text formatting instruction. All TML tags are enclosed in angular brackets: "<tt>&lt;<i>TAG ..&gt;</i></tt>".<br>
+</li>
+
+<li>Tags can have <i>attributes</i>. An attribute specifies additional information concerning the desired behavior of the chosen tag and is to be specified inside the tag in the form: attribute="<i>value</i>". For example in:<br>
+<tt>&lt;FONT face="Arial"&gt;</tt><br>
+the "<tt>face</tt>" attribute specifies which type of characters is to be used in the subsequent text.</li>
+
+<li>To properly define the portion of text to be formatted, a <i>closing</i> tag must be inserted just after the text to be formatted in a certain way. For example, if a certain string is to be displayed using the Courier characters, you will have to write:<br>
+<tt>&lt;FONT face="Courier"&gt;<i>text to be written in Courier</i>&lt;/FONT&gt;</tt>.<br>
+The &lt;BR/&gt; and &lt;SP/&gt; tags (see below) do not need a closing instruction.<br>
+Graphically, you can appreciate the difference as tags not needing a corresponding closing tag end with a slash (<tt>&lt;BR<b>/</b>&gt;</tt>, <tt>&lt;SP<b>/</b>&gt;</tt>), while all opening tags do not have any slash (for example: <tt>&lt;FONT ...&gt;</tt>) and all closing tags begin with a slash rather than ending with it (for example: <tt>&lt;<b>/</b>FONT&gt;</tt>).</li>
+
+<li>Tags can be nested in order to obtain proper formatting. The sequence of opening/closing tags must be XML-compliant. In other words, the last tag opened before the text must be closed for the first. The following sequence is correct:<br>
+<tt>&lt;B&gt;&lt;I&gt;Correct Text: bold and italic&lt;/I&gt;&lt;/B&gt;</tt><br>
+The following is incorrect:<br>
+<tt>&lt;B&gt;&lt;I&gt;Correct Text: bold and italic&lt;/B&gt;&lt;/I&gt;</tt><br>
+To avoid confusing tag nesting, the following sequence:<br>
+<tt>&lt;B&gt; Let's &lt;I&gt; try &lt;/B&gt; again &lt;/I&gt;</tt><br>
+Must be rewritten as follows:<br>
+<tt>&lt;B&gt; Let's &lt;I&gt; try &lt;/I&gt;&lt;/B&gt;&lt;I&gt; again &lt;/I&gt;</tt></li>
+</ul>
+
+<br style="margin-top:6px">
+<br>
+<p>Here is the list of the available TML tags. A description of each is available by following the corresponding links.</p>
+
+<table align="center">
+<tr valign="top">
+<td width="100"><a href="#B"><b>B</b></a></td>
+<td>Displays text in bold.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#BR"><b>BR/</b></a></td>
+<td>Breaks the line.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#COLOR"><b>COLOR</b></a></td>
+<td>Defines the color of text.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#EXTRASPACE"><b>EXTRASPACE</b></a></td>
+<td>Enlarges the space between subsequent characters.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#FONT"><b>FONT</b></a></td>
+<td>Defines the text font.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#I"><b>I</b></a></td>
+<td>Displays text in italic.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#LINE"><b>LINE</b></a></td>
+<td>Underlines text, or creates lines through or over it.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#NOWRAP"><b>NOWRAP</b></a></td>
+<td>Prevents text from wrapping.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#SIZE"><b>SIZE</b></a></td>
+<td>Defines text height.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#SIZEX"><b>SIZEX</b></a></td>
+<td>Applies multiplication factor to the current text height.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#SLANT"><b>SLANT</b></a></td>
+<td>Defines text slant.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#SP"><b>SP/</b></a></td>
+<td>Defines white space size.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#STACK"><b>STACK</b></a></td>
+<td>Creates stacked rows of text.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#STRETCH"><b>STRETCH</b></a></td>
+<td>Rescales text.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#STRETCHX"><b>STRETCHX</b></a></td>
+<td>Applies multiplication factor to the current text stretch.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#TEXTV"><b>TEXT</b></a></td>
+<td>Defines text as formatted text.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#VALIGN"><b>VALIGN</b></a></td>
+<td>Defines the vertical alignment of text.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#Comment"><i>Comment</i></a></td>
+<td>Enables you to insert comments (not interpreted and not displayed).</td>
+</tr>
+</table>
+
+<p>A summary of TML tags and attributes is provided in the <a href="#TAGS"><b>TML Tags</b></a> table.</p>
+
+<h5 style="margin-bottom:4px;"><a name="TAGS"></a>TML Tags</h5>
+
+<hr color="silver">
+<table width="480">
+<tr valign="top" bgcolor="#c6c6c6">
+<td width="200"><b>Tag</b></td>
+<td width="280"><b>Description and Notes</b></td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td valign="top" style="font-size:9pt;"><a name="B"></a>&lt;<b>B</b>&gt;</td>
+<td>Bold. The text within the &lt;B&gt; and &lt;/B&gt; tags will be displayed in bold. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;B&gt;Bold Text&lt;/B&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<b>Bold Text</b></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="top" style="font-size:9pt;"><a name="BR"></a>&lt;<b>BR/</b>&gt;</td>
+<td>Line break: everything you write after the tag will be displayed on a new line. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>First Line&lt;BR/&gt;Second Line</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">First line<br>
+Second Line</p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td valign="top" style="font-size:9pt;"><a name="COLOR"></a>&lt;<b>COLOR index="</b><i>n</i><b>"</b>&gt;</td>
+<td>Text color. The index attribute enables you to specify a color in think3 application's color table: a number from 0 to 63 (see <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_fo_01.htm"><b>Color</b></a> for details on how to get color numbers). 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;COLOR index="3"&gt;Green Text&lt;/COLOR&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><font color="blue">Green Text</font></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="top" style="font-size:9pt;"><a name="EXTRASPACE"></a><b>&lt;EXTRASPACE factor="</b><i>x</i><b>"&gt;</b></td>
+<td>Enables you to expand the spaces between subsequent letters by multiplying the single space extension by the factor value (a floating number). 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;EXTRASPACE factor="4"&gt;Word&lt;/EXTRASPACE&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;margin-bottom:0px;">W&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;&nbsp;d</p>
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><i>rather than:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">Word</p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td valign="top" style="font-size:9pt;"><a name="FONT"></a><b>&lt;FONT face="</b><i>font name</i><b>"&gt;</b><br>
+<b>&lt;FONT quality="truetype|stroke"&gt;</b> </td>
+<td>Enables you to specify the font to be used. You can use both True Type fonts and <a href="mk:@MSITStore:draft.chm::/language/geometry/OVfile/T_OV_FontTable.htm">think3 application vectorial fonts</a> by specifying respectively <tt>quality="truetype"</tt> (default) <i>or</i> <tt>quality="stroke"</tt>. In the latter case, the name to be specified in the <tt>face</tt> attribute is the number of the vectorial font. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">As True Type fonts are assumed as the default ones, to use a True Type font you only need to specify its name using the <tt>face</tt> attribute. The following text:<br>
+<tt>&lt;FONT face="Arial Black"&gt;These words are to be displayed in Arial Black&lt;/FONT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><font face="Arial Black">These words are to be displayed in Arial Black</font></p>
+
+<p style="margin-top:0px;margin-left:15px;text-align:left;font-size:9pt;">To use a vectorial font, you will have to specify the <tt>quality="stroke"</tt> attribute. This way, the text:<br>
+<tt>&lt;FONT quality="stroke" face="3"&gt;The Auld Inn&lt;/FONT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/GothicText.gif"></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="top" style="font-size:9pt;"><a name="I"></a><b>&lt;I&gt;</b></td>
+<td>Italic. The text within the &lt;I&gt; and &lt;/I&gt; tags will be displayed in italic. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;I&gt;Italic Text&lt;/I&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><i>Italic Text</i></p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="LINE"></a><b>&lt;LINE<br>
+ over="y|n"<br>
+ under="y|n"<br>
+ strikeout="y|n"&gt;</b></td>
+<td>Enables you to add a line under, over or through the text. The default value of the <tt>under</tt> attribute is "y" (so that if you specify the tag <tt>Line</tt> with no attribute the text will be underlined) while it is "n" for each other attribute (no line displayed); the order is free. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/LineTag.gif"><br>
+<br>
+</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="font-size:9pt"><a name="NOWRAP"></a><b>&lt;NOWRAP&gt;</b></td>
+<td>Text within the <tt>&lt;NOWRAP&gt;</tt> and <tt>&lt;/NOWRAP&gt;</tt> tags cannot be wrapped: carriage return is inhibited.</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="SIZE"></a><b>&lt;SIZE height="</b><i>h</i><b>"&gt;</b></td>
+<td>Text height. Enables you to define the text height by specifying a non-negative floating value. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;SIZE height="18"&gt;E&lt;/SIZE&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<br style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<br>
+<p style="margin-top:0;margin-left:15px;font-size=18pt;">E</p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="SIZEX"></a><b>&lt;SIZEX factor="</b><i>m</i><b>"&gt;</b></td>
+<td>Text with character height. Enables you to apply a multiplication factor to the current size value (where <tt>factor</tt> is a non-negative floating value. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;SIZEX factor="2"&gt;E&lt;/SIZEX&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<br style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<br>
+<p style="margin-top:0;margin-left:15px;font-size=36pt;">E</p>
+
+that is the current size is 2.0, a <b>SIZEX</b> factor of <tt>"2"</tt> will produce text with a character height of <tt>"4"</tt>.</td>
+</tr>
+
+<tr valign="top">
+<td style="font-size:9pt"><a name="SLANT"></a><b>&lt;SLANT angle="</b>a<b>"&gt;</b></td>
+<td>Enables you to determine the obliquing angle or slant of text characters, measured clockwise relative to the vertical. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>&lt;SLANT angle="45"&gt;E&lt;/SLANT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../../../images/geometry/Slant.gif"></p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="SP"></a><b>&lt;SP size="</b><i>n</i><b>"/&gt;</b></td>
+<td>Blank spaces. Enables you to insert as many blank spaces as specified by <tt>size="<i>n</i>"</tt>, where <i>n</i> is an integer non-null value. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><tt>First&lt;SP size="20"/&gt;Second</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;margin-bottom:0px;">First&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second</p>
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><i>rather than:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">First&nbsp;Second</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1" style="font-size:9pt;"><b>About white spaces</b> <br>
+TML adopts HTML white space policy: 
+
+<ul class="noleft">
+<li style="font-size:9pt;">All <b>TAB</b>s and line breaks are ignored.</li>
+
+<li style="font-size:9pt;">Continuous blank spaces are shrinked to a single space. The first encountered is kept (spaces with different font format have different width). All blanks and tabs at the beginning of a new line are ignored.</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="font-size:9pt"><a name="STACK"></a><b>&lt;STACK<br>
+separator="none</b>|<b>line</b>|<b>slash"<br>
+scale="</b><i>s</i><b>"&gt;</b><br>
+<b>&lt;SR&gt;</b> ... <b>&lt;/SR&gt;</b> </td>
+<td>Enables you to create orderly piles of rows, which can also be nested. The <tt>&lt;STACK&gt;</tt> tag defines a section within which each <tt>&lt;SR&gt;</tt> tag is a row. Using the <tt>separator</tt> attribute, you can choose the row separator: 
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td valign="center"><tt>none</tt></td>
+<td bordercolor="black"><img src="../images/SeparatorNone.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><tt>line</tt></td>
+<td bordercolor="black"><img src="../images/SeparatorLine.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><tt>slash</tt></td>
+<td bordercolor="black"><img src="../images/SeparatorSlash.gif"></td>
+</tr>
+</table>
+
+Height of texts within <tt>&lt;SR&gt;</tt> tags is by default scaled by a 0.7 factor. You can define the scale of texts in rows by using the attribute <tt>scale="<i>n</i>"</tt> where <i>n</i> is a non negative floating value. Some important notes: 
+
+<ul class="noleft">
+<li style="font-size:9pt;"><tt>&lt;STACK&gt;</tt> tags can contain only <tt>&lt;SR&gt;</tt> tags.</li>
+
+<li style="font-size:9pt;"><tt>&lt;SR&gt;</tt> tags cannot contain <tt>&lt;NOWRAP&gt;</tt> and <tt>&lt;BR/&gt;</tt> tags: line wrapping is disabled in stack rows.</li>
+
+<li style="font-size:9pt;"><tt>&lt;STACK&gt;</tt> tags can be nested.</li>
+</ul>
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">The following text:<br>
+<tt>&lt;TEXT version="1.0"&gt;<br>
+&lt;VALIGN type="center"&gt;<br>
+Here is a pile of rows:<br>
+&lt;STACK separator="line" scale="1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SR&gt;Row1&lt;/SR&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SR&gt;Row2&lt;/SR&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SR&gt;Row3&lt;/SR&gt;<br>
+&lt;/STACK&gt;<br>
+&lt;/VALIGN&gt;<br>
+&lt;/TEXT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/StackTag.gif"><br>
+<br>
+The following text contains nested stacks:<br>
+<tt>&lt;TEXT version="1.0"&gt;<br>
+&lt;VALIGN type="center"&gt;<br>
+Here is a pile of rows:<br>
+&lt;STACK separator="line" scale="1"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SR&gt;Row1&lt;/SR&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;SR&gt;Row2<br>
+ &nbsp;&nbsp;&nbsp;&lt;STACK separator="line"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;SR&gt;Sub-Row11&lt;/SR&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;SR&gt;Sub-Row12&lt;/SR&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/STACK&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/SR&gt;<br>
+&lt;/STACK&gt;<br>
+&lt;/VALIGN&gt;<br>
+&lt;/TEXT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>and will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/NestedStacks.gif"></p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="STRETCH"></a><b>&lt;STRETCH xscale="</b>s<b>"&gt;</b></td>
+<td>Enables you to rescale the text by applying the value of the <tt>xscale</tt> attribute to the horizontal direction of the text bounding box. 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">The following text:<br>
+<tt>&lt;STRETCH xscale="3"&gt;think3&lt;/STRETCH&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/stretched.gif"></p>
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><i>rather than:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/nonstretched.gif"></p>
+</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="STRETCHX"></a><b>&lt;STRETCHX xscale="</b>x<b>"&gt;</b></td>
+<td>Enables you to rescale the text by applying the multiplication factor to the current stretch value (where <tt>xscale</tt> is a non-negative floating value.) 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">The following text:<br>
+<tt>&lt;STRETCHX xscale="2"&gt;think3&lt;/STRETCHX&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/stretchedx.gif"></p>
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;">that is the current stretch value is 2.0, a <b>STRETCHX</b> factor of <tt>"2"</tt> further stretch text along the horizontal direction two times.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="font-size:9pt"><a name="TEXTV"></a><b>&lt;TEXT version="1.0"&gt;</b></td>
+<td>This is the root tag. Any text without the starting <b>&lt;TEXT version="1.0"&gt;</b> will be treated as plain unformatted text.</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td style="font-size:9pt"><a name="VALIGN"></a><b>&lt;VALIGN type="bottom"</b>|<b>"top"</b>|<b>"center"&gt;</b></td>
+<td>Enables you to define the vertical alignment of text with respect to the highest character in the line: top, center or bottom (default). 
+
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">The following text is an example of vertically aligned text:<br>
+<tt>&lt;TEXT version="1.0"&gt;<br>
+&lt;SIZE height="20"&gt;<br>
+Big Text&lt;/SIZE&gt;<br>
+&lt;VALIGN type="center"&gt;<br>
+&lt;SIZE height="8"&gt;<br>
+Small Text&lt;/SIZE&gt;<br>
+&lt;/VALIGN&gt;<br>
+&lt;/TEXT&gt;</tt></p>
+
+<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;"><img src="../images/valigncenter.gif"></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="font-size:9pt"><a name="Comment"></a><b>&lt;!-- --&gt;</b></td>
+<td>Comment tag. Any text beginning with:<br>
+<tt>&lt;!--</tt><br>
+and ending with:<br>
+<tt>--&gt;</tt><br>
+will be interpreted as a comment and will not be formatted, nor will it be displayed.</td>
+</tr>
+</table>
+
+<h5 style="margin-bottom:4px;"><a name="ESCAPE"></a>Escape Sentences</h5>
+
+<hr color="silver">
+<p style="margin-top:3px;">Here is the list of the five XML built-in characters, to be used in order to ensure a correct XML syntax.<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top" bgcolor="#c6c6c6">
+<td width="200"><b>Character</b></td>
+<td width="300" align="center"><b>Meaning</b></td>
+</tr>
+
+<tr valign="top">
+<td><b>&amp;gt;</b></td>
+<td align="center">&gt;</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td><b>&amp;amp;</b></td>
+<td align="center">&amp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>&amp;apos;</b></td>
+<td align="center">'</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td><b>&amp;lt;</b></td>
+<td align="center">&lt;</td>
+</tr>
+
+<tr valign="top">
+<td><b>&amp;quot;</b></td>
+<td align="center">"</td>
+</tr>
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td><b>&amp;#x1234;</b><br>
+<b>&amp;#x10FFFD;</b></td>
+<td align="center" valign="middle">Unicode characters using their hexadecimal codes.</td>
+</tr>
+</table>
+
+<br>
+<p>&nbsp;</p>
+
+<hr color="silver">
+<p style="margin-top:0; margin-bottom:0; font-size: 80%;"><b><a name="DTD"></a>(*)</b>&nbsp;<i>Users familiar with XML may want to <a href="TML_DTD.htm">click here</a> to take a look at the DTD file used by TML.</i></p>
+
+<hr color="silver">
+</body>
+</html>
+
+

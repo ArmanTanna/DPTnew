@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Inserting a datum point on edge</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Inserting a datum point on an edge</h3>
+
+<p>The <a  href="../FWfile/T_FW_sl_01_09.htm"><b>Datum Point</b></a> command enables you to insert a datum point on an edge or on its extension.</p>
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>In the <b>Point on</b> drop-down list select <b>Edge</b>.<p></p></td>
+</tr>
+<TR VALIGN=top>
+<TD><B>2</B></TD>
+<TD>Click to select an edge of a solid. To change the selected edge, right-click on <B>Edge</B>  in the selection list, choose <b>Reset</b> in the context menu and select another edge.<p></p>
+</TD>
+</TR>
+<TR VALIGN=top>
+<TD><B>3</B></TD>
+<TD>The method to locate the point along the edge depends on the type of edge.<br>&nbsp;
+<ul class="noleft">
+<li>If you select a straight edge or a circular arc, the <b>Type</b> drop-down list is displayed in the selection list.
+<ul class="noleft">
+<li>In the case of a straight edge, you can select:
+<table>
+<tr valign="top">
+<td><b>Distance</b></td>
+<td>In this case you will have to type the distance value along the edge into the <b>Distance</b> mini-dialog box or to drag the handle to the position where to locate the datum point</td>
+<td><img border=1 src="../images/LineDistance.gif"></td>
+</tr>
+</table>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Positioning the datum point on the edge extension</b><br>
+You can easily position the datum point on the extension of the edge rather than on the edge itself. Proceed as follows.
+<table>
+<tr>
+<td><ol class="litleft">
+<li>Position the cursor on the red marker of the <b>Distance</b> value. The <b>Invert Direction</b> tooltip will be displayed.
+<li>Double-click on the red marker: the point will be located at the given <b>Distance</b> value on the outer extension of the edge.</td>
+<td><img border=1 src="../images/EdgeExtension.gif"></td>
+</ol></tr></table>
+<p><b>Setting distance from the opposite end point</b><br>
+You can easily locate the datum point by defining its distance from the opposite end point of the edge. Proceed as follows:
+<table>
+<tr>
+<td><ol class="litleft">
+<li>Position the cursor on the green marker of the end point. The <b>Invert Origin</b> tooltip will be displayed.
+<li>Double-click on the green marker: the green marker will be positioned onto the opposite end point.</td>
+<td><img border=1 src="../images/Invertorigin.gif"></td>
+</ol></tr></table>
+
+</td></tr></table><br>
+<table>
+<tr valign="top">
+<td><b>Parameter</b></td>
+<td>In this case you will have to type the value of the edge parameter (between 0 and 1) into the <b>U</b> mini-dialog box or to drag the handle to the position where to locate the datum point.</td>
+<td><img border=1 src="../images/LineParameter.gif"></td>
+</tr>
+</table>
+<li>In the case of a circular arc, you can select:
+<table>
+<tr valign="top">
+<td><b>Center</b></td>
+<td>To locate the point at the center of the arc or circle.</td>
+<td><img border=1 src="../../../../images/solids/sl_09/ArcCenter.gif"></td>
+</tr>
+<tr valign="top">
+<td><b>Parameter</b></td>
+<td>In this case you will have to type the value of the edge parameter (between 0 and 1) into the <b>U</b> mini-dialog box or to drag the handle to the position where to locate the datum point.</td>
+<td><img border=1 src="../images/ArcParameter.gif"></td>
+</tr>
+</table>
+</ul>
+<li>
+If you select an edge that is neither a straight line nor a circular arc, but a generic curve, the red cross handle is displayed together with the <b>U</b> mini-dialog box.
+<table>
+<tr valign="top">
+<td>Type the parameter value (between 0 and 1) into the <b>U</b> mini-dialog box, or drag the handle to the position where to locate the point.</td><td><img border=1 src="../images/CurveParameter.gif"></td></tr></table>
+</ul>
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the point. Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

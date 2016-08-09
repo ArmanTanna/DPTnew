@@ -1,0 +1,158 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Bend Table Manager</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h1><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span></h1>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> is a highly user-friendly tool to manage the bend table data. It gives the user the flexibility to visualize the data in a spreadsheet format, edit it and create new bend tables. All this can be done using the 
+<span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+1">Bend Table Manager</span> dialog box, which is invoked by starting the <a href="../FWfile/T_FW_BTM.htm"><b>
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span></b></a> command form the menu bar.<br>
+
+<br>
+<img src="../images/btm1.gif"><br>
+<br>
+The <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> saves the bend table data in the Extended Markup Language (XML) format. It also supports the CSV file format, enabling the user to view the bend table data in Microsoft Excel.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The releases prior to 2006T1 made use of *.bt files for storing the bend table data. The data in those *.bt files need to be imported in the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> before using them. Once imported, they are converted and saved in the XML format. Hence, updating of *.bt files manually is not required.</td>
+
+</tr>
+</table>
+
+<p>The various user interface items of the <span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+1">Bend Table Manager</span> dialog box are explained below:</p>
+
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+2">Table type:</span></td>
+
+<td>The bend table data can support the following types: 
+
+<ul>
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+10">Bend allowance</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+9">K-factor</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+11">Bend deduction</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+12">K-coeffient</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+13">Allowance internal</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+14">Allowance external</span></li>
+
+
+<li><span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+15">Internal sharp edge</span></li>
+
+</ul>
+
+The option selected in the <span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+2">Table type:</span> drop-down list will be displayed as the last column of the table, as shown in the figure below.<br>
+
+<br>
+<img src="../images/btm2.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+21">Unit:</span></td>
+
+<td>Bend table data is displayed in the same unit of measure that has been set for the current document. The <span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+21">Unit:</span> drop-down list in the 
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> remains grayed out and displays only the currently set unit. The data in the 
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> is displayed either in 
+<span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+17">Millimeters (mm)</span> or 
+<span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+18">Inches (in)</span>.<br>
+
+<br>
+However, if the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> is invoked while no document is open, the 
+<span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+21">Unit:</span> drop-down list will be active and the desired display unit can be selected in it.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Table</b></td>
+<td>The table is composed of five columns and multiple rows. Each row displays the values of the corresponding header. It is possible to add new rows and delete the existing ones. Each row can also be copied into a new one. The last column will display the value of the parameter selected in the <span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+2">Table type:</span> drop-down list.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+8">Print</span></td>
+
+<td><img src="../../../images/sheetmetal/print.gif" align="absmiddle"> Select this button to print the bend table data as shown in the user interface.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Import</b></td>
+<td><img src="../../../images/sheetmetal/import.gif" align="absmiddle"> Choose this button to open the <span class="UI_OPTION" id="SMBendTableUI.msg+_SMBENDTABLEUI_LABEL_+8">Import CSV/bt File in Bend Table Manager</span> dialog box from which the *.csv or *.bt file can be selected for importing it into the 
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_bend_table_mgr.msg+idd_bend_table_mgr+12">Filter</span></td>
+
+<td>Use this button to toggle the display of the filter settings area. On applying the filter, the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span> displays only those data that adhere to the filter settings.</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_BT00.htm"><b>Bend Table</b></a></li>
+<li><a href="T_OV_BT03.htm"><b>Bend Table Parameters</b></a></li>
+<li><a href="T_OV_BT02.htm"><b>Bend Table types and flat length calculation</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Try to...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Data_BTM.htm"><b>Create Sheet Metal Features using Bend Table data</b></a></li>
+<li><a href="../HWfile/T_HW_BTM_cust.htm"><b>Customize a Bend Table File</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

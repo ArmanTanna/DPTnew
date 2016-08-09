@@ -1,0 +1,233 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(320,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally">
+<title>Isoparametric Curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.ver8{
+font-family: Verdana;
+font-size: 8pt;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1384">Isoparametric</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:0">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+38">Isoparametric Curve</span> command enables you to create isoparametric curves on one or more selected surfaces, even if belonging to solids (for details on isoparametric curves, <i>see</i> "<a href="../OVfile/T_OV_ISO.htm">Isoparametric Curves (General Concepts)</a>").</p>
+
+
+
+<p></p>
+
+<p style="margin-bottom:0">By selecting the proper option in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span> drop-down list, you can create isoparametric curves for a selected surface in one of the following ways:</p>
+
+
+
+<ul class="noleft" style="margin-bottom:3px;">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+289">U parameter</span> and 
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+290">V parameter</span><br>
+
+
+
+
+to create isoparametric curves respectively along u (iso-u: u=constant and v variable in the range [0,1]) or along v (iso v: v=constant and u variable in the range [0,1]).<br>
+You can specify a point on the surface which the isoparametric curve must be through (if the point you specify does not lie on the surface, it will be projected onto it along the view direction). Once the point is specified, the <b>U</b> or <b>V</b> mini-dialog box/handle pair is displayed, so as to enable you to specify a different parameter value or to drag the curve to the desired position.</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+315">UV parameter</span><br>
+
+
+
+
+to create an isoparametric curve along u and an isoparametric curve along v intersecting at the point you picked to select the surface. The <b>U</b> and <b>V</b> mini-dialog box/handle pairs are available to specify different parameter values or to interactively drag the curves on the surface.</li>
+</ul>
+
+<p>The number of curves to be created can be specified in the <b>No. of curves</b> box. When the specified value is greater than one, a <b>U</b> or <b>V</b> (or both, depending on the chosen <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span>) mini-dialog box/handle pair is displayed on the first and on the last curve, so as to enable you to extend or restrict the portion of the surface where the isoparametric curves will lie upon just by dragging the handles or by specifying the initial and final parameter values.<br>
+
+
+
+
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Selecting more than one surface</b><br>
+Multiple surface selection is supported. 
+
+<ul class="noleft" style="margin-bottom:0">
+<li>If you first select a surface and then another one and so on, the isoparametric curve will be created on each of the selected surfaces at a point corresponding to the parameter value of the first surface selected. That is, if the point you selected on the first surface was u=0.3, an isoparametric will be created on each of the other surface at their own points u=0.3. If you change the parameter value in the mini-dialog box or drag the handle, the position will be updated accordingly on each selected surface.</li>
+
+<li>If you select the surfaces using a window selection (that is, picking no point on any surface), the isoparametric curve will be created at a location u=0.5 or v=0.5 (or both), depending on the selected <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span>. If you change the parameter value in the mini-dialog box or drag the handle, the position will be updated accordingly on each selected surface.</li>
+
+
+
+
+</ul>
+</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;">A <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+369">Propagate to surface</span> drop-down list is available under 
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> so as to enable you to <i>propagate</i> the isoparametric curve you are creating to the adjacent surfaces, that is you will be able to create&nbsp;&#151;&nbsp;on adjacent surfaces&nbsp;&#151;&nbsp;isoparametric curves consecutive to the one created on the selected surface. The available values are the following:</p>
+
+
+
+
+
+<table style="margin-top:4;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+10">None</span></td>
+
+
+
+
+<td>The isoparametric curve will not be propagated to adjacent surfaces.</td>
+<td><IMG border=1 SRC="../../../images/curves/ISO_NONE.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+362">Tangent</span></td>
+
+
+
+
+<td>An isoparametric curve for each of the adjacent surfaces with tangency continuity (<a href="../../MathConc/T_MC_ContinuityClassification.htm#G1">G1</a>) will be created. The additional curves will follow the "direction" of the original isoparametric curve, that is if the first curve was an U isoparametric curve, the additional ones may be either U or V curves on their own surfaces, but they will retain the same direction as the first curve.</td>
+<td><IMG border=1 SRC="../../../images/curves/ISO_TAN.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+363">Adjacent</span></td>
+
+
+
+
+<td>An isoparametric curve for each of the adjacent surfaces with positional continuity (<a href="../../MathConc/T_MC_ContinuityClassification.htm#G0">G0</a>) will be created. The additional curves will follow the "direction" of the original isoparametric curve, that is if the first curve was an U isoparametric curve, the additional ones may be either U or V curves on their own surfaces, but they will retain the same direction as the first curve.</td>
+<td><IMG border=1 SRC="../../../images/curves/ISO_ADJ.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+365">By parameter</span></td>
+
+
+
+
+<td>An isoparametric curve for each of the adjacent surfaces with positional continuity (<a href="../../MathConc/T_MC_ContinuityClassification.htm#G0">G0</a>) will be created, retaining the same type&nbsp;&#151;&nbsp;thus probably <i>not</i> the same direction&nbsp;&#151;&nbsp;as the original isoparametric curve: if it is a U curve, the additional isoparametric curves will be U curves. The same in the case of V curves.</td>
+<td><IMG border=1 SRC="../../../images/curves/ISO_BYP.gif"></td>
+</tr>
+</table>
+
+<p style="margin-bottom:0">An <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is available in the selection list, enabling you to create curves of the "Curve on Surface" type (See "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>" for details).</p>
+
+
+
+
+
+<ul class="noleft">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curves will be of the Curve on Surface type.</li>
+
+
+
+
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, an additional option is available under 
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: 
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+
+
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+
+<p>The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box is also available, enabling you to create curves which retain a link to the surface they derive from. See further details on associativity for curves of the Curve on Surface type in "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm#RN2005T2">Curves on Surface</a>".</p>
+
+
+
+
+
+<p>If you interrupt the command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all.<br>
+Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/LastTransformation.gif" align="absmiddle" border="0" alt=""> ) will be displayed on top of the selection list. If you select the 
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/LastTransformation.gif" align="absmiddle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+
+
+
+
+When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.</p>
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_IsoparametricCurve.htm"><b>Insert isoparametric curves on a surface</b></a></li>
+<li><a href="../HWfile/T_HW_Iso2.htm"><b>Propagating isoparametric curves to adjacent surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

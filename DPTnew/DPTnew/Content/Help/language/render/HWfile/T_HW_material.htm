@@ -1,0 +1,96 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t3" content="translate">
+<title>Job: Applying Material to a Model</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Applying Material to a Model</h2>
+
+<p>In this tutorial you will apply different materials to the model from the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span> palette. Open the <i>Wheel_Rim.e3</i> file available in the <i>Samples/render</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_Light_command.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span></a> command. Select <b>Light1</b> from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> drop-down list and select the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> check box.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+10">Spot</span> option from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+15">Type</span> drop-down list. Now expand the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+15">Type</span> node and select the <span class="UI_OPTION" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+104">Shadows</span> check box in the selection list.<br>
+<br>
+</li>
+
+<li>Now orient this light using the <a href="mk:@MSITStore:help.chm::/language/ACAD/view/FWfile/T_FW_av_14.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+6946">Four Viewports</span></a> command, as shown in the image below.<br>
+<br>
+ <img src="../../../images/rendering/material1.gif" border="1"><br>
+<br>
+ Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections for lighting.<br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7883">Rendering Library</span> command to get the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span> palette. Click on the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab to get the library materials.<br>
+<br>
+</li>
+
+<li>Under the <b>Predefined</b> folder, select the <b>Shadow Catcher</b> folder. Right-click on the <b>Shadow Catcher</b> in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu.<br>
+<br>
+</li>
+
+<li>Then select the surface under the rim, as highlighted in the image below. The shadow catcher is applied on to the surface.<br>
+<br>
+<img src="../../../images/rendering/material_shadow.gif" border="1"><br>
+<br>
+</li>
+
+<li>Under the <b>Metals</b> folder, select the <b>Steel</b> folder. Right-click on the <b>Polished Steel</b> in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu. Now select the rim part as highlighted in the image below.<br>
+<br>
+<img src="../../../images/rendering/material_rim.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the <b>Gold</b> folder under the <b>Metal</b> folder. Right-click on the <b>Polished Gold</b> and select the <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu.<br>
+<br>
+</li>
+
+<li>Then select the alphabets <i>think</i> in the model one by one to apply the material.<br>
+<br>
+</li>
+
+<li>Expand the <b>Metal Finishes</b> node and select the <b>Enamel</b> folder. Right-click on the <b>Red Enamel</b> in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu. Select the <b>3</b> numerical in the rim.<br>
+<br>
+</li>
+
+<li>All the materials attached to the model are listed under <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+1">Materials</span> in the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> tree.<br>
+<br>
+</li>
+
+<li>Click on the <a href="../FWfile/T_FW_render_preview.htm"><span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+6">Rendering Preview</span></a> command to get the final rendered image as shown in the image below.<br>
+<br>
+<img src="../../../images/rendering/material_final.gif" border="1"><br>
+<br>
+</li>
+</ol>
+
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

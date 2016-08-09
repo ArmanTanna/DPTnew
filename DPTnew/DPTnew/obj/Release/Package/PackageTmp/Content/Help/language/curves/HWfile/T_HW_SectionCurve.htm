@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating parallel section curves on a surface</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Creating parallel section curves on a surface</h3>
+
+<p>Once you have started the <a href="../FWfile/T_FW_cv_14.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+291">Section Curve</span></a> command, you can proceed as follows (<i>please note that you can follow this step-by-step example by loading file:</i> "cv_01_14.e3").<br>
+
+<br>
+<img border="1" src="../../../images/curves/SC-01.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+265">Entities</span> drop-down list select 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+41">Surfaces</span>. Select the surface you want to create the section curves on and end selection.<br>
+
+ <br>
+<img border="1" src="../../../images/curves/SC-02.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+220">Sampling Mode</span> drop-down list select 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+221">Parallel</span>.<br>
+
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> drop-down list, select the method to be used to define the section plane. For details on the plane definition method, see "
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>".<br>
+
+ To go on with this step-by-step example, select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span>.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> drop-down list, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> and click on the X axis of the Work Plane. Then click on the point as shown in the following illustration:<br>
+
+<br>
+<img border="1" src="../images/SC-03.gif"><br>
+<br>
+The preview of the section curve is immediately displayed:<br>
+<br>
+<img border="1" src="../../../images/curves/SC-04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+266">No. of sections</span> box, type the number of section curves you want to obtain. A preview of the section curves, along with the <b>Section distance</b> mini-dialog box and the corresponding handle are displayed.<br>
+
+<br>
+<img border="1" src="../images/SC-05.gif"><br>
+<br>
+In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+267">Section distance</span> box, type the distance to be established between two subsequent section curves or drag the handle until you get the appropriate value. Section curves are created on the surface in a certain direction starting from the one through the point you specified. To reverse the direction, double-click on the handle:<br>
+
+<br>
+<img border="1" src="../images/SC-06.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+268">Layer increment</span> and 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+269">Color increment</span> boxes, specify the increments to the layer (each subsequent section curve will lay on a newly created layer named <i>M</i>, where M=current layer + increment) and to the color number to be automatically assigned at the creation of each subsequent section curve (the color number is the one displayed in the color palette: see also "
+<a href="mk:@MSITStore:forcus.chm::/language/attributes/HWfile/T_HW_SetColor.htm">Setting and Modifying the Color</a>").<br>
+
+In this example, we left the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+268">Layer increment</span> to its default value (0) and set the 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+269">Color increment</span> to 1.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curves.<br>
+<br>
+<img border="1" src="../../../images/curves/SC-07.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

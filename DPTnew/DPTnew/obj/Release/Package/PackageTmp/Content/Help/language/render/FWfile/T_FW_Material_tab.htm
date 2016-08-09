@@ -1,0 +1,103 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>Material Tab</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src="../../../JSandSTYLES/Frames.js"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff" onload="viaMk();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();"> 
+
+<h2>Material Tab</h2>
+
+<p>The <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab is available in the <a href="T_FW_Render_library.htm"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span></a> palette. The <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab displays the material library with predefined set of standard materials. All the materials are categorized and saved in an appropriate folder. By exploring the folders you can browse through the various materials in it and see their preview in the <a href="../HWfile/T_HW_Parts_Render_library.htm#lib2">preview pane</a><br><br>
+
+<ul class="noleft">
+<li><a href="#mat1">Applying a Material</a></li>
+<li><a href="#mat2">Edit a Material</a></li>
+
+</ul>
+</p>
+
+<h3><a name="mat1">Applying a Material</a></h3>
+
+<p>In the material tab, different materials are available in the predefined folders. The preview of the materials is seen in the preview pane of the material tab.<br>
+
+The following are the four method of applying a material.
+<ul class="noleft">
+<li>Select the entity from the Graphics Area, right-click on the material in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu.</li>
+
+<li>Drag the material from the preview pane and drop it over the entity.</li>
+
+<li>Right-click on the material in the preview pane, choose <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu and select the entity in the Graphics Area. Then right click and select <span class="UI_OPTION" id="idd_ekeddat.msg+idd_ekeddat+2">Cancel</span> to end the selection.</li>
+
+<li>Select the entity from the Graphics Area and double click on the material in the preview pane.</li>
+</ul>
+Once a material is attached, it is displayed in the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> structure under the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+1">Materials</span> node. 
+</p>
+
+<h3><a name="mat2">Edit a Material</a></h3>
+
+<p>The applied material can be edited to your requirement using the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list. While editing the material, you can customize the visual properties like <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+10">Texture Color</span>, <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span>, <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span> and <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span>. The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> list can be started in two ways:
+
+<ul class="noleft">
+<li>Right-click on the material name under the material node in the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> structure and select <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span> from the context menu.</li>
+<li>Right-click on the material surface on the model and select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7885">Material</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7886">Edit</span> from the context menu.</li>
+</ul>
+
+The following <a href="../HWfile/T_HW_visual_properties.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+18">Visual Properties</span></a> can be edited on the material applied.<br>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+	<td valign="top"><a href="../HWfile/T_HW_color_texture.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+10">Texture Color</span></a></td>
+	<td>Enables you to edit the color and texture of the material applied.</td>
+</tr>
+<tr>
+	<td valign="top"><a href="../HWfile/T_HW_Reflectance.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span></a></td>
+	<td>Enables you to edit the reflectance which is the amount of incident light being reflected from the material surface.</td>
+</tr>
+<tr>
+	<td valign="top"><a href="../HWfile/T_HW_transparency.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span></a></td>
+	<td>Enables you to edit the transparency which is the amount of light transmitted throught the material surface.</td>
+</tr>
+<tr>
+	<td valign="top"><a href="../HWfile/T_HW_bumps.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span></a></td>
+	<td>Enables you to edit the smoothness of the material surface.</td>
+</tr>
+</table><br>
+<span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+14">Texture Mapping</span>: Mapping of the textures can aslo be done if a wrapped material is applied. This option is available only if a wrapped material is applied.<br><br>
+
+<span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+20">Density</span>: The density of the material applied can be defined under the physical properties. The unit of the density is set gm/cm&sup3;<br><br></p>
+
+ 
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/yellow_note.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe>
+
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+</body>
+</html>

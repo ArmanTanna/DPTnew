@@ -1,0 +1,226 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<title>Grid Characteristics</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<h1>Grid Characteristics</h1>
+
+<p>The grid is an array of equally spaced nodes that are arranged in an orthographic manner. The grid acts as a mode of reference; when the grid is visible, every point specified using the mouse automatically snaps to the nearest grid node. <span id="TWOD">The grid also provides a sense of scale of the model.</span></p>
+
+
+<p>The Grid nodes are positioned at the intersection of Grid lines, which can be continuous or dotted as shown below.<br>
+<br>
+<img src="../../../images/view/Grid.gif" border="1"><br>
+<br>
+</p>
+
+<h5>Grid terminology</h5>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+352">Step:</span> <b>:</b> It is the minimum distance between the nodes</li>
+
+
+<li><b>Major line :</b> These are the continuous lines in the grid</li>
+
+<li><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+353">Major line subdivisions:</span> <b>:</b> It is number of divisions present between the subsequent Major lines (by the dotted lines)</li>
+
+</ul>
+
+<p>The display of the grid is turned ON or OFF by using the <a href="../FWfile/T_FW_GridS.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+7109">Static Grid</span></a> and <a href="../FWfile/T_FW_GridOff.htm">
+<span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+7105">Grid Off</span></a> commands. 
+<span id="TWOD">There are two types of Grids available in the <b>think<font color="#FF0F00">3</font></b> application:</span></p>
+
+
+<ul class="noleft">
+<li id="HIDELI"><a href="#stat_grid">Standard Grid</a></li>
+
+<li id="HIDELI"><a href="#ref_grid">Reference Grid</a></li>
+</ul>
+
+<p id="HIDEP">Both these grids are generalized as Static Grid and can be displayed over the graphics area in all the environment &mdash; <span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span>, 
+<span class="UI_OPTION" id="eklib.msg+eklib+558">2D Profile</span> and 
+<span class="UI_OPTION" id="eklib.msg+eklib+559">3D Profile</span>.</p>
+
+
+<h4 id="HIDEH4"><a name="stat_grid"></a>Standard Grid</h4>
+
+<p id="HIDEP">The Standard Grid is a normal two-dimensional grid having the following characteristics:</p>
+
+<ul class="noleft">
+<li id="HIDELI">In the <span class="UI_OPTION" id="eklib.msg+eklib+558">2D Profile</span> environment, the grid remains parallel to the screen unless you dynamically rotate the view.</li>
+
+
+<li id="HIDELI">The grid will not be visible under extreme positive and negative magnification (zoom).</li>
+
+<li id="HIDELI">The grid can be rotate only up to a limit, after that it becomes invisible.</li>
+
+<li id="HIDELI">The grid can be individually turned ON or OFF in each environment.</li>
+</ul>
+
+<h4 id="HIDEH4"><a name="ref_grid">Reference Grid</a></h4>
+
+<p id="HIDEP">It is an upgraded form of the Standard Grid having many dynamic features. The Reference Grid is displayed as three perpendicular planes, which can be turned ON/OFF singularly. The Reference Grid in different view orientations is shown below.</p>
+
+<table id="F2DNOTVISIBLE" cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/view/ref-grid_1.gif" border="1"></td>
+<td><img src="../images/ref-grid_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Rotated view</b></td>
+<td align="center"><b>Orthographic orthogonal view</b></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table id="F2DNOTVISIBLE" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+All the controls for the Reference Grid (including its enabling/disabling) are available in the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7118">
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_GRID.htm">Grid</a></span> and its branch categories ( 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1506">
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_3D_REFERENCE_GRID.htm">Reference</a></span> & 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1521">
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_3D_REFERENCE_GRID_ADVANCED.htm">Advanced</a></span>) of the 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span>.</td>
+
+</tr>
+</table>
+
+<p id="HIDEP">The 3D Reference Grid works differently in the <a href="../FWfile/T_FW_Orthogonal.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7552">Orthogonal Projection</span></a> and <a href="../FWfile/T_FW_Perspective.htm">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7551">Perspective Projection</span></a> modes and for the orthogonal and rotated views. In the Perspective mode, the grid is shown only in the rotated views and the grid labels are never displayed. However, in the Orthographic mode the grid is visible in both the orthogonal and rotated views and in the orthogonal views, the labels are displayed. Note that the Standard and Reference grids cannot be viewed simultaneously. The main characteristics of the Reference Grid are:</p>
+
+
+<h5 id="HIDEH5">Grid orientation</h5>
+
+<ul>
+<li id="HIDELI">The grid is initially displayed in the default orthogonal orientations (<span class="UI_OPTION" id="MenuBar_Document_View_NamedViews.msg+MenuBar_Document_View_NamedViews+1255">Front</span>, 
+<span class="UI_OPTION" id="MenuBar_Document_View_NamedViews.msg+MenuBar_Document_View_NamedViews+1253">Top</span> and 
+<span class="UI_OPTION" id="MenuBar_Document_View_NamedViews.msg+MenuBar_Document_View_NamedViews+1257">Left</span>).</li>
+
+
+<li id="HIDELI">The grid can be oriented with the work plane and vice-versa.</li>
+
+<li id="HIDELI">The grid, by default passes through the world origin. However, it is possible to move the grid origin to the current work plane origin.</li>
+
+<li id="HIDELI">The alignment of the grid can be either <a href="mk:@MSITStore:forcus.chm::/language/options/reference_grid/jsoptions/set_to.htm">set to</a> the 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1584+1">World</span> (world X, Y & Z directions) or to the 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1584+2">Current work plane</span> orientation.</li>
+
+</ul>
+
+<h5 id="HIDEH5">Grid visualization</h5>
+
+<ul>
+<li id="HIDELI">When the grid is viewed orthogonally, it covers the entire graphics area.</li>
+
+<li id="HIDELI">When viewed from the perspective/rotated angle, the extent of the grid is limited to the bounding box of the scene.</li>
+
+<li id="HIDELI">The percentage extension of the grid can be changed from 100% to 300% with respect to the bounding box limits.</li>
+
+<li id="HIDELI">The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1510">Origin axes</span> of the grid are displayed boldly with special color to make them prominent. The visualization of the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1510">
+<a href="mk:@MSITStore:forcus.chm::/language/options/reference_grid/jsoptions/origin_axis.htm">Origin axes</a></span> can be turned ON/OFF.</li>
+
+</ul>
+
+<h5 id="HIDEH5">Grid spacing</h5>
+
+<ul>
+<li id="HIDELI">The grid step will be same as that defined for the Static Grid.</li>
+
+<li id="HIDELI">The grid spacing is <a href="mk:@MSITStore:forcus.chm::/language/options/reference_grid/jsoptions/auto_adjust.htm">auto-refinable</a>. It means that while zooming, the minor and major lines automatically adjust their subdivision with respect to the current zoom level.</li>
+
+
+<li id="HIDELI">The Reference grid is refined as per the values specified for the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+352">Step:</span> and 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+353">Major line subdivisions:</span> in the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+350">Static grid</span> area for the 
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_GRID.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+349">Grid</span></a> category of 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span>.</li>
+
+</ul>
+
+<h5 id="HIDEH5">Grid labels</h5>
+
+<ul>
+<li id="HIDELI">The text labels with the numeric values of the major lines are displayed on all the four sides of the graphics area.</li>
+
+<li id="HIDELI">The grid labels are visible only when the grid is viewed orthogonally.</li>
+
+<li id="HIDELI">It is possible to customize and turn <a href="mk:@MSITStore:forcus.chm::/language/options/reference_grid/jsoptions/show.htm">ON/OFF</a> the display of labels.</li>
+
+</ul>
+
+<h5 id="HIDEH5">Grid snap</h5>
+
+<ul>
+<li id="HIDELI">It is possible to enable or disable the Reference Grid snap by using the <span class="UI_OPTION" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+1667">Tools</span> <img src="../../images/general/litarr.gif" align="absmiddle"> 
+<span class="UI_OPTION" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+4628">Snap</span> <img src="../../images/general/litarr.gif" align="absmiddle"> 
+<span class="UI_OPTION" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+7909">
+<a href="mk:@MSITStore:selsna.chm::/language/snap/FWfile/T_FW_ref_grid.htm">Reference Grid</a></span> option from the menu bar.</li>
+
+
+<li id="HIDELI">The snap points are the intersections of the grid lines at the current level of refinement. Hence, when the grid is automatically refined while zooming, the snap is changed to adjust to the new grid steps.</li>
+
+<li id="HIDELI">If the input mode (<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span> <img src="../../images/general/litarr.gif" align="absmiddle"> 
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7652">Input</span>) is 
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7655">
+<a href="mk:@MSITStore:forcus.chm::/language/options/inputoutput/jsoptions/to_03_11_OP_1.htm">On View</a></span>, the snap on the grid will work only if it is viewed orthogonally.</li>
+
+
+<li id="HIDELI">If the input mode is <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7656">On Work Plane</span>, the snap will work only on the <i>active grid plane</i> (displayed in a different color). The <i>active grid plane</i> is that reference plane which shares its origin and orientation with the Work Plane (the Work Plane should not be hidden).</li>
+
+</ul>
+
+<h5 id="HIDEH5">Work Plane alignment</h5>
+
+<ul>
+<li id="HIDELI">The Work Plane can be aligned with one of the Reference Grid planes by using the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7894">
+<a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_first_axis.htm">On First Axis</a></span>, 
+<span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7895">
+<a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_second_axis.htm">On Second Axis</a></span> or 
+<span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7896">
+<a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_third_axis.htm">On Third Axis</a></span> commands.</li>
+
+</ul>
+
+<table id="F2DNOTVISIBLE" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+As the Reference Grid is relative to the working area, each component has its own Reference Grid. When a component is set as current in an assembly, the static grid (Standard or Reference) associated to its working area becomes active.</td>
+</tr>
+</table>
+
+<hr color="navy">
+</body>
+</html>
+

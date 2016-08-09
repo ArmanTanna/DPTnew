@@ -1,0 +1,60 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<title>Hidden lines computation:</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../../JSandSTYLES/OPTIONS.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+blockquote{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFE1">
+<p>Enables you to choose the computation mode to generate a drawing view. The possible computation modes are as follows:</p>
+
+<table>
+<tr valign="top">
+<td class="ver9"><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+1">Software</span></td>
+<td class="ver9">In this mode, the drawing view is generated accurately based on the software information.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Hardware</span></td>
+<td class="ver9">In this mode, the drawing view is generated faster based on the hardware information. In this case, each generated view will be associated with a precision value and the entities smaller than this value cannot be excluded by hidden line algorithm.</td>
+</tr>
+</table>
+<br><br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b>
+<ul>
+<li>The new option is active only when the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+628">Representation:</span> is set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span> and the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+631">Show dashed hidden lines</span> option is not selected in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+623">Visibility</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+627">Geometry</span> area.</li>
+
+<li>This option works on all views except the flat pattern, exploded, cross-section and developed views. Also, it is not effective with components in light representations.</li>
+
+<li>If the option is set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Hardware</span>, the resulting drawing will be <i>not</i> &nbsp;compatible with any of the previous versions.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="navy">
+<table align="center">
+<tr>
+<td><a href="../../IDPP_ATT_VPS_VIEWS.htm"><img border="0" src="../../../../../images/general/FromPopupToMain.gif" alt="Up to Category Page"></a></td>
+</tr>
+</table>
+</body>
+</html>
+

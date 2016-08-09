@@ -1,0 +1,195 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta name="Author" content="Chitti Sowjanya">
+<meta name="T_2009t3" content="translate">
+<title>XML Editor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTDC();HideTR();">
+<h2>XML Editor</h2>
+
+<p>The <b>XMLEditor</b> is a highly user-friendly tool to manage the <span id="TWOD"><a href="mk:@MSITStore:solids.chm::/language/features/HWfile/Customise_STDhole_EDITOR.htm">standard hole table</a> standard hole data and</span> dictionaries information in a table format, add new items and override the existing ones. <span id="TWOD">In case of Hole STD Table, you can also duplicate the data.</span> The <b>XMLEditor</b> manages and saves the data in the Extended Markup Language (XML) format. <a name="start"></a>There are two approaches to start the <b>XMLEditor</b>:</p>
+
+<ol class="noleft">
+<li><a name="Utility"></a><b>All Programs<img src="../../images/general/litarr.gif">think3<img src="../../images/general/litarr.gif">ThinkDesign <i>version number</i><img src="../../images/general/litarr.gif">Utilities<img src="../../images/general/litarr.gif">XML Editor</b></li>
+
+<li><a name="exe"></a><a href="mk:@MSITStore:help.chm::/language/customize/OVfile/InstallationFolder.htm">Installation folder</a>/thinkdesign/bin/NET/<b>XMLEditor.exe</b><br>
+<br>
+</li>
+</ol>
+
+<p>On starting the tool, the <b>XMLEditor</b> dialog box is displayed. If you start the <b>XMLEditor</b> from the <a href="mk:@MSITStore:help.chm::/language/customize/OVfile/InstallationFolder.htm">installation folder</a>, before doing any customization of data, you need to configure the files (System and User) and the options by using the <a href="#config"><b>Configuration</b></a> command from the menu bar.<br>
+<br>
+</p>
+
+<b><a name="function"></a>Key functionality of XML files</b> 
+
+<p>When for the first time the <b>XMLEditor</b> is used to update a <span id="TWOD">standard hole table or</span> dictionary file, the original (system) file in not modified, rather a copy of the same file is made at "<i><a href="mk:@MSITStore:help.chm::/language/customize/OVfile/UserFolder.htm">User folder</a>/Application Data/think3/thinkdesign/version number/files/dictionaries/*.xml</i>" with the updated information. Hereafter, the <b>XMLEditor</b> accesses the dictionary <span id="TWOD">or standard hole</span> data from the file at the new location and it is the one that gets customized. Due to this functionality of <b>XMLEditor</b>, the original <span id="TWOD">standard hole table or</span> dictionary file remains preserved inside the installation folder. However, there is also a possibility to modify the default data in the system files.<br>
+<br>
+In fact using xml editor without input version you could set your root folder in a different thinkdesign version to change default value and also remove root folder and set the user = root and try to modify the system values changing the file attributes.<br>
+<br>
+To do so:<br>
+<br>
+</p>
+
+<ol class="noleft">
+<li>Start the <b>XMLEditor</b> from the <a href="#exe">installation folder</a>.</li>
+
+<li>Select <b>Configurations</b> command; the <b>Configurations</b> dialog box is displayed.</li>
+
+<li>In the <b>Configurations</b> dialog box, select the <b>Folders</b> tab. Set the path of both the <b>System files</b> and the <b>User files</b> equal to "<a href="mk:@MSITStore:help.chm::/language/customize/OVfile/UserFolder.htm">User folder</a>/Application Data/think3/thinkdesign/version number/files".</li>
+
+<li>Select the command: <b>Hole STD Table</b> or <b>Dictionaries</b>.</li>
+
+<li>Modify the default data. The modification you have done overrides the default data in the system files.</li>
+</ol>
+
+<p>The <span id="TWOD">common</span> user interface items <span id="TWOD">for the <b>Hole STD Table</b> and <b>Dictionaries</b></span> in the <b>XMLEditor</b> dialog box are explained below:</p>
+
+<a name="menu"></a> 
+
+<table>
+<tr valign="top">
+<td><a name="config"></a><b>Configuration</b></td>
+<td>The controls in the <b>Configuration</b> dialog box enable you to specify <a href="#folder">folder</a> paths and set the general <a href="#opt">options</a>. The dialog box contains the following tabs:<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><a name="folder"></a><b>Folder</b></td>
+<td>Contains the following edit boxes. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="15%"><b>System files (read-only)</b></td>
+<td>Displays the default location (<a href="mk:@MSITStore:help.chm::/language/customize/OVfile/InstallationFolder.htm">Installation folder</a>/thinkdesign/files) of the saved system files. Refer to "<a href="#function">Key functionality of files</a>" section for more details.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="userfolder"></a><b>User files</b></td>
+<td>Enables you to specify the location to save the user customized files. You can modify the default one(<a href="mk:@MSITStore:help.chm::/language/customize/OVfile/UserFolder.htm">User folder</a>/Application Data/think3/thinkdesign/version number/files) by using the Browse (<img src="../../images/general/xml_browse.gif" border="0" align="absmiddle">) button.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr valign="top">
+<td bordercolor="#ffffe1"><a name="note"></a><b>Note</b><br>
+If you start the <b>XMLEditor</b> from the <a href="#Utility">Utilities</a>, it is not possible to change the <b>System files (read-only)</b> and the <b>User files</b> as they have been defined in accordance with the product paths.</td>
+</tr>
+</table>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="opt"></a><b>Options</b></td>
+<td>Enables you to determine: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="15%"><a name="User_color"></a><b>Color user item</b></td>
+<td>Enables you to choose the color to be used to highlight the <i>user</i> created or modified items. Select the Browse (<img src="../../images/general/xml_browse.gif" border="0" align="absmiddle">) button to open the color palette to select a different color. The current color is displayed on the Browse button.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Select Languages</b></td>
+<td>Enables you to choose the language, in which the user interface should be displayed, from the drop-down list. By default, it is <b>English (United States)</b>.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Use date to back up file</b></td>
+<td>When the check box is selected, the current date and time is appended in the file name. For example, Enumerations.xml.<i>Friday_4_17h_39_37</i>.bck<br>
+When cleared, date is not included in the back up file name. For example, Enumerations.xml.bck</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr id="HIDETR" valign="top">
+<td><a href="mk:@MSITStore:solids.chm::/language/features/HWfile/Customise_STDhole_EDITOR.htm"><b>Hole STD Table</b></a></td>
+<td>Displays an editor window, which enables you to customize of Hole STD Table parameters.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a href="mk:@MSITStore:DFTB.chm::/language/DFTB/HWfile/T_HW_EditDictionaries.htm"><b>Dictionaries</b></a></td>
+<td>Enables you to determine the type of dictionaries (<b>Enumerations</b> and <a href="mk:@MSITStore:DFTB.chm::/language/dftb/OVfile/T_OV_SymbolicTexts.htm"><b>Symbolic Text</b></a>) to be customized. When a dictionary is selected, an editor window is displayed to allow customization on the chosen dictionary.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="#SAVE"></a><b>Save table</b></td>
+<td>Enables you to save the active table changes to the related <i>*.xml</i> file(s).<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Close table</b></td>
+<td>Enables you to close the active table.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Exit</b></td>
+<td>Enables you to close the <b>XMLEditor</b> application. If there are any open tables that you have edited but have not yet saved, a confirmation dialog box affirms whether you want to save the changes before closing.</td>
+</tr>
+</table>
+
+<!-- <table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10">
+<tr valign="top">
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The releases prior to 2009.1 made use of <i>*.tab</i> files for storing the data. The data in those <i>*.tab</i> files need to be imported in the <b>XMLEditor</b> before using them. Once imported, they are converted and saved in the XML format.  Hence, updating of <i>*.tab</i> files manually is no more required. </td>
+</tr>
+</table>-->
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li id="HIDELI"><a href="Standard_Hole_XML_Editor.htm"><b>Customization of the Standard Hole Parameters</b></a></li>
+
+<li><a href="UI_Dictionaries.htm"><b>XMLEditor User Interface: Dictionaries</b></a></li>
+
+<li><a href="mk:@MSITStore:DFTB.chm::/language/dftb/OVfile/T_OV_SymbolicTexts.htm"><b>Symbolic Texts</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li id="HIDELI"><a href="mk:@MSITStore:solids.chm::/language/features/HWfile/Customise_STDhole_EDITOR.htm"><b>Customization of Metric Coarse Pitch Thread Form</b></a></li>
+
+<li><a href="mk:@MSITStore:DFTB.chm::/language/DFTB/HWfile/T_HW_EditDictionaries.htm"><b>Customize a dictionary</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

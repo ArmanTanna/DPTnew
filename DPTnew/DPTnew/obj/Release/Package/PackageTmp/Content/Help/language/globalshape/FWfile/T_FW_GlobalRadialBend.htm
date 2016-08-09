@@ -1,0 +1,105 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(520,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>GSM Radial Bend</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7173">Radial Bend</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+193">GSM Radial Bend</span> command enables you to radially bend entire shapes composed of solids, surfaces and other entities (curves and points) along an axis of revolution. A bend line is used to define the portion of the selected entities which the controlled modification has to be applied to.</p>
+
+<p>Applying radial compressions or dilatations to shapes can be quite useful especially in concept design when <i>"exploring"</i> new shapes.</p>
+
+<p>Depending on the mode to be chosen in the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+194">Perpendicular</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, you can determine whether to apply the controlled modification in such a way that:</p>
+
+<ul class="noleft">
+<li>All the entities that were perpendicular to the direction selected as the axis of revolution remain perpendicular to it after applying the controlled modification (<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+192">Axis of revolution</span>)</li>
+
+<li>All the entities that were perpendicular to the direction selected as the bend line remain perpendicular to it after applying the controlled modification (<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+46">Bend line</span>).</li>
+</ul>
+
+<p>As to the difference between the two methods and how to use them, we strongly recommend that you read "<a href="../HWfile/T_HW_GlobalRadialBend00.htm">Using the GSM Radial Bend command and its different methods</a>".</p>
+
+<p>In some simple situations, the command can also be used to apply a draft angle to static solids&nbsp;&#151;&nbsp;for example, as the ones imported from other CAD environments.</p>
+
+<p>Once the objects and the direction to be bent are selected (the latter is defined by a line, whose length also defines the portion of the selected objects to be actually bent), handles will be displayed to enable you to interactively bend the selected objects (as for the meaning of the handles, see the step-by-step examples listed in the "Try to" section below). As you drag a handle, a dynamical preview will be displayed, enabling you to control the operation. Bending is performed in a polar reference: instead of dragging handles you can set the values of the length and of the polar angle. Also the length of the line used as a reference for bending can be changed: it defines the portion of the set of selected objects which will actually be modified.</p>
+
+<p>You can also set the continuity values and other constraints at the end points of the line defining the portion to be bent.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+To retain links to the component surfaces, so that if you modify a component surface the solid will be modified accordingly, select the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+155">Associative Mode</span> check box in the command selection list.</td>
+
+</tr>
+</table>
+
+<p>A specific mechanism for self intersection detection is also active. When a self intersection is detected, the program will display the surfaces delimiting the area within which self intersections occur: if the modified entities are inside that area, self intersections will occur; no self intersection will occur if the modified entities are outside that area.</p>
+
+<p>A set of <a href="../HWfile/T_HW_QualityChecks.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a> commands is also available.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_GlobalRadialBend03.htm"><b>Apply a radial bending to a solid - 1</b></a></li>
+
+<li><a href="../HWfile/T_HW_GlobalRadialBend01.htm"><b>Apply a radial bending to a solid - 2</b></a></li>
+
+<li><a href="../HWfile/T_HW_GlobalRadialBend02.htm"><b>Get acquainted with the GSM Radial Bend command</b></a></li>
+
+<li><a href="../HWfile/T_HW_GMbend02.htm"><b>Apply constraints along the cutting lines</b></a></li>
+
+<li><a href="../HWfile/T_HW_GMbend03.htm"><b>Get NURBS surfaces instead of specialized ones</b></a></li>
+
+<li><a href="../HWfile/T_HW_QualityChecks.htm"><b>Perform Quality Checks</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_GlobalRadialBend00.htm"><b>Using the GSM Radial Bend command and its different methods</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_GMadvanced.htm"><b>The benefits of GSM</b></a></li>
+</ul>
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Global Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

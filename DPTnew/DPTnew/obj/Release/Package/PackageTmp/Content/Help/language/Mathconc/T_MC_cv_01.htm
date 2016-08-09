@@ -1,0 +1,106 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Relationship between control points, degree, continuity and number of arcs</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h5>Relationships between control points, degree, continuity and number of arcs</h5>
+
+<p>The following equations show the relationship of 
+the number of control points as a function of the degree of the curve, its continuity, and the number of arcs
+in a NURBS curve. The equations differ depending on whether continuity is the same at each joint or not.</p>
+
+<ul class="noleft">
+<li>When continuity is the same at each joint (<i>which happens in most cases</i>):<br>&nbsp;
+<table>
+<tr valign="middle">
+<td width="30"><b>(1)</b></td>
+<td><IMG border=1 SRC="../../images/general/NURBS-General.gif"></td>
+</tr>
+</table>
+where:
+
+<TABLE BORDER=0 >
+<TR>
+<TD ALIGN=left VALIGN=top><I>np</I></TD>
+<TD ALIGN=left VALIGN=top> is the number of control points</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>deg</I></TD>
+<TD ALIGN=left VALIGN=top> is the degree of the curve</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>con</I></TD>
+<TD ALIGN=left VALIGN=top> is the continuity of the curve</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>na</I></TD>
+<TD ALIGN=left VALIGN=top> is the number of arcs.</TD></TR>
+</TABLE><br>&nbsp;
+
+</li>
+<li>When continuity can be different at each joint (as, for example, in the case of a curve obtained by <a  href="../curves/HWfile/T_HW_JoinCurves.htm">joining a chain of existing curves</a>):<br>&nbsp;
+<table>
+<tr valign="middle">
+<td width="30"><b>(1')</b></td>
+<td><IMG border=1 SRC="../../images/general/NURBS-Join.gif"></td>
+</tr>
+</table>
+where:
+<TABLE BORDER=0 >
+<TR>
+<TD ALIGN=left VALIGN=top><I>np</I></TD>
+<TD ALIGN=left VALIGN=top> is the number of control points</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>deg</I></TD>
+<TD ALIGN=left VALIGN=top> is the degree of the curve</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>cont(i)</I></TD>
+<TD ALIGN=left VALIGN=top>is the continuity between the i-th arc and the next one</TD></TR>
+
+<TR>
+<TD ALIGN=left VALIGN=top><I>na</I></TD>
+<TD ALIGN=left VALIGN=top> is the number of arcs.</TD></TR>
+
+</TABLE>
+</ul>
+
+</UL>From equations (1) and (1'), you can see that by increasing the degree
+of a curve, you can increase its <I>flexibility</I>.
+<P>By 
+increasing the number of arcs, you can obtain &quot;local control.&quot; Thus,
+if there is more than 1 arc, you can move each of the control points on
+the curve without changing the position of the other control points.
+<P>If you enter only the minimum number of control points (equal to
+the degree of the curve plus 1), you obtain a curve with a single arc
+(i.e., a <I>Bezier curve</I>).
+
+<hr color="silver">
+</body>
+</html>
+
+

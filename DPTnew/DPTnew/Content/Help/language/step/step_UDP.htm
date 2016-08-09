@@ -1,0 +1,50 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<title>Entity Name Support for STEP format</title>
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>Entity Name Support for STEP format</h2>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application supports <i>reading and writing</i> entity names <i>to and from</i> STEP format. To save entity name to STEP files you need to create an User Defined Class (by using the <a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_CL_01.HTM">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_UserDefinedProperties.msg+MenuBar_Document_Insert_UserDefinedProperties+4622">Create UDC</span></a> command) with its 
+<span class="UI_OPTION" id="idd_pcl_define.msg+idd_pcl_define+3835">Name:</span> as <b>TD_ENTITY_NAME</b> and the 
+<span class="UI_OPTION" id="idd_pcl_define.msg+idd_pcl_define+3836">Type:</span> set to 
+<span class="UI_DROPDOWNITEM" id="idd_pcl_define.msg+idd_pcl_define+3837+3">Character</span>. <i>(Refer to the 
+<a href="mk:@MSITStore:help.chm::/language/clasprop/HWfile/T_HW_cl_01_01.htm"><b>Insert a new class of user defined properties</b></a> document for details on how to insert and User Defined Class.)</i></p>
+
+
+<img src="../IGES/images/iges_UDC.gif"> 
+
+<p>For the specified class, using the <a href="mk:@MSITStore:help.chm::/language/clasprop/FWfile/T_FW_CL_04.HTM">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_UserDefinedProperties.msg+MenuBar_Document_Insert_UserDefinedProperties+4623">Assign UDP</span></a> command assign the User Defined Property to any entity (like solid, surfaces or curves) and then set its value as the name to be allocated to the entity for the STEP conversion. <i>(Refer to the 
+<a href="mk:@MSITStore:help.chm::/language/clasprop/HWfile/T_HW_cl_04.htm"><b>Assign user defined properties to entity</b></a> document for details on how to specify a value to the User Defined Property.)</i></p>
+
+
+<img src="../IGES/images/iges_UDP.gif"> 
+
+<p>If you <a href="step_03.htm">save the solid to a STEP file</a>, then the entity will be saved with the name property also applied to it. Similarly, if you try to <a href="step_01.htm">load a STEP file</a> containing an entity which the name is applied to, the same name will be assigned to the <b>think<font color="#FF0F00">3</font></b> entity as the property value for the <b>TD_ENTITY_NAME</b> class.</p>
+
+<hr color="silver">
+</body>
+</html>
+

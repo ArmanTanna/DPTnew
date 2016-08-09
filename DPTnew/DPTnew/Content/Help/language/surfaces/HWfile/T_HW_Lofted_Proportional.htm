@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Creating a lofted surface starting from four curves (Proportional)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating a lofted surface starting from four curves (Proportional)</h3>
+
+<p>In this tutorial, you will create a <i>proportional</i> lofted surface starting from four curves. Open the <i>proportional.e3</i> file available in the <i>samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below:</p>
+
+<ol class="noleft">
+<li>In the loaded model you can see two orthogonal sets of parallel curves (the blue ones are the <i>drives</i>, and the red ones are <i>the boundaries</i>).<br>
+<br>
+<img border="1" src="../../../images/surfaces/Lofted_Proportional_01.gif"><br>
+<br>
+</li>
+
+<li>Start the <a href="../FWfile/T_FW_Lofted.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span></a> command and in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+106">Select As</span> drop-down list, select <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+107">Grid</span>.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> check box to obtain an <a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surface (Skin)</a>, so that if you modify the boundary curves the surface will be modified accordingly.<br>
+<br>
+</li>
+
+<li>Select the blue curves (the <i>drives</i>) as the first set of curves for the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+109">Boundary Set A</span> selector and end selection.<br>
+<br>
+<img border="1" src="../../../images/surfaces/Lofted_Proportional_02.gif"><br>
+<br>
+A preview is displayed, as shown in the image below.<br>
+<br>
+<img border="1" src="../images/Lofted_Proportional_03.gif"><br>
+<br>
+To change the selected curves (for example, if you selected the wrong ones by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+109">Boundary Set A</span> in the selection list, select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+<br>
+</li>
+
+<li>If the preview displays an unwanted twist in the surface, select the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+5">Invert</span> check box to remove it. This behavior depends on whether or not the two boundary curves have the same orientation. If they don't, the resulting proportional surface will be twisted. Selecting the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+5">Invert</span> check box enables to remove the twist.<br>
+<br>
+</li>
+
+<li>Select the red curves (the <i>boundaries</i>) as the second set of curves for the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+110">Boundary Set B</span> selector and end selection. Now the preview will be displayed, as shown in the image below.<br>
+<br>
+<img border="1" src="../../../images/surfaces/Lofted_Proportional_04.gif"><br>
+<br>
+To change the selected curves (for example if you selected the wrong ones by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+110">Boundary Set B</span> in the selection list, select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+<br>
+</li>
+
+<li>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+112">Type</span> drop-down list is set to <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+113">Default</span>. Change it to <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+117">Proportional</span>.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+6">1st Weight</span> and <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+7">2nd Weight</span> respectively, type the values of the weights of the two boundary curves. The greater the weight of one curve relative to the other, the more the shape of the resulting proportional surface is affected by the corresponding curve.<br>
+<br>
+<img border="1" src="../images/Lofted_Proportional_05.gif"><br>
+<br>
+</li>
+
+<li>Under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> - <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+121">Surface Type Options</span> node, you have additional options to customize the <i>Proportional</i> surface parameters.<br>
+<br>
+ <i>See <a href="T_HW_sr_10_Orientation.htm"><b>Setting the Orientation of a Proportional surface</b></a> for details on selecting the orientation.</i><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/propo_2b_2d_03.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.<br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

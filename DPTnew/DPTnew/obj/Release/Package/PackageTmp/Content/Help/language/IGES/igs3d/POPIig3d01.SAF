@@ -1,0 +1,491 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>IGES 3D to think3 conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>IGES 3D to think3 conversion table</h2>
+
+<p>Here is a general conversion table showing how IGES entities are mapped to the ones of <b>think<font color="#FF0F00">3</font></b> when converting an IGES 3D model to the <b>think<font color="#FF0F00">3</font></b> format.</p>
+
+<table border="1" bordercolor="white" summary="">
+<thead>
+<tr>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>IGES<br>
+ entity number</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>IGES entity denomination</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>Corresponding think3</b> <br>
+ <b>entity to which it is converted</b></td>
+</tr>
+</thead>
+
+<thead>
+<tr>
+<td bordercolor="navy"><b>100</b></td>
+<td bordercolor="navy"><b>Circular Arc</b> </td>
+<td bordercolor="navy"><b>Arc</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>102</b></td>
+<td bordercolor="navy"><b>Composite Curve</b></td>
+<td bordercolor="navy"><b>Exploded into its component curves</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>104</b></td>
+<td bordercolor="navy"><b>Conic Arc</b></td>
+<td bordercolor="navy"><b>NURBS curve</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>106</b></td>
+<td bordercolor="navy"><b>Copious data</b></td>
+<td bordercolor="navy"><b>Exploded into its component lines</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>108</b></td>
+<td bordercolor="navy"><b>Plane</b></td>
+<td bordercolor="navy"><b>Plane</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>110</b></td>
+<td bordercolor="navy"><b>Line</b></td>
+<td bordercolor="navy"><b>Line</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>112</b></td>
+<td bordercolor="navy"><b>Parametric Spline Curve</b></td>
+<td bordercolor="navy"><b>NURBS curve</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>114</b></td>
+<td bordercolor="navy"><b>Parametric Spline Surface</b></td>
+<td bordercolor="navy"><b>NURBS surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>116</b></td>
+<td bordercolor="navy"><b>Point</b></td>
+<td bordercolor="navy"><b>Point</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>118</b></td>
+<td bordercolor="navy"><b>Ruled surface</b></td>
+<td bordercolor="navy"><b>Ruled surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>120</b></td>
+<td bordercolor="navy"><b>Surface of Revolution</b></td>
+<td bordercolor="navy"><b>NURBS surface</b> </td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>122</b></td>
+<td bordercolor="navy"><b>Tabulated Cylinder</b></td>
+<td bordercolor="navy"><b>Tabulated Cylinder</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>124</b></td>
+<td bordercolor="navy"><b>Transformation Matrix</b></td>
+<td bordercolor="navy"><b>Transformation</b> <b>Matrix</b> (internally used by the program only)</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>125</b>(125_0)</td>
+<td bordercolor="navy"><b>Flash</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>126</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Curve</b></td>
+<td bordercolor="navy"><b>NURBS curve</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>128</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Surface</b></td>
+<td bordercolor="navy"><b>NURBS surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>130</b></td>
+<td bordercolor="navy"><b>Offset Curve</b></td>
+<td bordercolor="navy"><b>Offset Curve</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>140</b></td>
+<td bordercolor="navy"><b>Offset Surface</b></td>
+<td bordercolor="navy"><b>Offset Surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>141</b></td>
+<td bordercolor="navy"><b>Boundary</b></td>
+<td bordercolor="navy"><b>Trimming curves</b> (for internal use only, not accessible as independent entities in the model)</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>142</b> </td>
+<td bordercolor="navy"><b>Curve on Parametric Surface</b></td>
+<td bordercolor="navy">for internal use only, not accessible as independent entities in the model. See also <a href="../../glossary/IGES142.htm">Trimmed Surfaces and the IGES entity #142</a>.</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>143</b></td>
+<td bordercolor="navy"><b>Bounded Surface</b></td>
+<td bordercolor="navy"><b>Trimmed surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>144</b></td>
+<td bordercolor="navy"><b>Trimmed Parametric Surface</b></td>
+<td bordercolor="navy"><b>Trimmed surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>150</b></td>
+<td bordercolor="navy"><b>Block</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>152</b></td>
+<td bordercolor="navy"><b>Right Angular Wedge</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>154</b></td>
+<td bordercolor="navy"><b>Right Circular Cylinder</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>156</b></td>
+<td bordercolor="navy"><b>Right Circular Cone Frustum</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>158</b></td>
+<td bordercolor="navy"><b>Sphere</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>160</b></td>
+<td bordercolor="navy"><b>Torus</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>162</b></td>
+<td bordercolor="navy"><b>Solid of Revolution</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>164</b></td>
+<td bordercolor="navy"><b>Solid of Linear Extrusion</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>168</b></td>
+<td bordercolor="navy"><b>Ellipsoid</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>180</b></td>
+<td bordercolor="navy"><b>Boolean Tree</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>182</b></td>
+<td bordercolor="navy"><b>Selected Component</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>184</b></td>
+<td bordercolor="navy"><b>Solid Assembly</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>186</b></td>
+<td bordercolor="navy"><b>Manifold Solid B-Rep Object</b></td>
+<td bordercolor="navy"><b>Solid</b> <br>
+(if the <b>Save/Load solid entities</b> check box is selected in the <a href="../ig_options.htm">IGES Conversion Options</a>. Otherwise, solids are split into their component surfaces.)</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>190</b></td>
+<td bordercolor="navy"><b>Plane Surface</b></td>
+<td bordercolor="navy"><b>Plane</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>192</b></td>
+<td bordercolor="navy"><b>Right Circular Cylindrical Surface</b></td>
+<td bordercolor="navy"><b>Cylinder</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>194</b></td>
+<td bordercolor="navy"><b>Right Circular Conical Surface</b></td>
+<td bordercolor="navy"><b>NURBS Surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>196</b></td>
+<td bordercolor="navy"><b>Spherical Surface</b></td>
+<td bordercolor="navy"><b>NURBS Surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>198</b></td>
+<td bordercolor="navy"><b>Toroidal Surface</b></td>
+<td bordercolor="navy"><b>NURBS Surface</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>202</b></td>
+<td bordercolor="navy"><b>Angular Dimension</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>204</b> (204_0)</td>
+<td bordercolor="navy"><b>Curve Dimension</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>206</b></td>
+<td bordercolor="navy"><b>Diameter Dimension</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>208</b></td>
+<td bordercolor="navy"><b>Flag Note</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>210</b></td>
+<td bordercolor="navy"><b>General Label</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>212</b></td>
+<td bordercolor="navy"><b>General Note</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>214</b></td>
+<td bordercolor="navy"><b>Leader (Arrow)</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>216</b></td>
+<td bordercolor="navy"><b>Linear Dimension</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>218</b></td>
+<td bordercolor="navy"><b>Ordinate Dimension</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>220</b></td>
+<td bordercolor="navy"><b>Point Dimension</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>222</b></td>
+<td bordercolor="navy"><b>Radius Dimension</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>228</b></td>
+<td bordercolor="navy"><b>General Symbol</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>230</b></td>
+<td bordercolor="navy"><b>Sectioned Area</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>302</b></td>
+<td bordercolor="navy"><b>Associativity Definition</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>304</b> </td>
+<td bordercolor="navy"><b>Line Font Definition</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>308</b></td>
+<td bordercolor="navy"><b>Subfigure Definition</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>310</b></td>
+<td bordercolor="navy"><b>Text Font Definition</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>312</b></td>
+<td bordercolor="navy"><b>Text Display Template</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>314</b></td>
+<td bordercolor="navy"><b>Color Definition</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>320</b></td>
+<td bordercolor="navy"><b>Network Subfigure Definition</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>322</b></td>
+<td bordercolor="navy"><b>Attribute Table Definition</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>402</b></td>
+<td bordercolor="navy"><b>Associativity Instance</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>404</b></td>
+<td bordercolor="navy"><b>Drawing</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>406</b></td>
+<td bordercolor="navy"><b>Property</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>406 Form 1</b></td>
+<td bordercolor="navy"><b>Definition levels Property</b></td>
+<td bordercolor="navy"><b>Layers</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>408</b></td>
+<td bordercolor="navy"><b>Singular Subfigure Instance</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>410</b></td>
+<td bordercolor="navy"><b>View</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>412</b></td>
+<td bordercolor="navy"><b>Rectangular Array Subfigure Instance</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>414</b></td>
+<td bordercolor="navy"><b>Circular Array Subfigure Instance</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>416</b> </td>
+<td bordercolor="navy"><b>External Reference</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>418</b></td>
+<td bordercolor="navy"><b>Nodal Load/Constraint</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>420</b></td>
+<td bordercolor="navy"><b>Network Subfigure Instance</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>422</b></td>
+<td bordercolor="navy"><b>Attribute Table Instance</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>430</b></td>
+<td bordercolor="navy"><b>Solid Instance</b></td>
+<td bordercolor="navy"><i>Not converted</i></td>
+</tr>
+</thead>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

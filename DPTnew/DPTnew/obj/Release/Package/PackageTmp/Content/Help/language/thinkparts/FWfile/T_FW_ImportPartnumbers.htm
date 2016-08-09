@@ -1,0 +1,86 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t3" content="internally">
+<TITLE>Import Partnumbers (thinkparts)</TITLE>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<p>The <img src="../../../images/thinkparts/ImportPartnumbers.gif" align="absmiddle"> <b>Import Partnumbers</b> command imports from a portable file created with the <b>Export Partnumbers</b> command the component data of the parts of a catalog.</p>
+
+<p>You can find this command in the context menu that displays when right-clicking on a catalog in the <b>Catalog Manager</b> browser frame.</p>
+
+<p>Upon execution, the command opens a file selection box that enables you to explore your file system in order to locate the file with the data to be imported. The default file name is the selected catalog name, with extension <i>tppn</i>.<br>
+Although the file name is not mandatorily the one proposed by <b>thinkparts</b>, it must have been created for an existing catalog, otherwise the import operation will fail, indicating a <i>Wrong catalog name</i> error message.<br>
+Use the <a href="T_FW_Import.htm"><b>Import</b></a> command to import the catalog if your installation does not have an appropriate one.</p>
+
+<p id="HIDEP">Once the part numbers have been imported (you may have to refresh the <a href="T_FW_CatManager.htm#step_03"><b>Contents</b></a> tab to visualize the codified parts) you may use them in your assemblies and BOM's as the are recognized as <b>thinkPLM</b> components by the system.</p>
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1"><b>Import issues</b><br>
+<p>Whenever you import data in an existing structure, a few issues arise concerning the data already existing or the receiving data structure <SPAN id="TWOD">(<b>thinkPLM</b> database configuration)</SPAN> not matching the sender's. Among these:
+</p>
+<table border="0" bordercolor="navy">
+	<tr valign="top">
+		<td class="hea"><b>The catalog does not exist</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>An error is displayed and the operation is immediately interrupted. Use the <b>Import</b> command to import a suitable catalog</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>The part in the catalog does not exist</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>An error is displayed and the operation is interrupted.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>The component does not exist</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>A new component will be created with all the attributes available in the receiving structure</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>The component exists and is released</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>No action will be taken</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>The component exists and is not released</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>The component attributes will be updated with the new values</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>One or more attributes do not exist in the receiving structure</b></td>
+		<td class="hea">&nbsp;</td>
+		<td>The attribute(s) will be ignored</td>
+	</tr>
+</table>
+
+</td>
+	</tr>
+</table>
+</p>
+
+<HR color="silver">
+<H5>Related Topics</H5>
+<UL class="noleft">
+<li><a href="T_FW_ExportPartnumbers.htm"><b>Export Partnumbers</b></a></li>
+<li><a href="T_FW_Import.htm"><b>Import</b></a></li>
+</UL>
+
+<HR color="silver">
+</BODY>
+</HTML>

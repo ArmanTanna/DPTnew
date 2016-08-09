@@ -1,0 +1,81 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Create beneficial Parent - Child constraints by only choosing the external entities you really need</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Create beneficial Parent - Child constraints by only choosing the external entities you really need</h3>
+
+<p>When you apply a constraint to an external entity (for example, dimensioning a rectangular profile to an edge of another feature on the solid), a Parent - Child relationship is formed. That means that the position of the child feature (the rectangular profile) will be dependent upon the position of the parent feature. As the parent feature moves, so will the child.</p>
+
+<p>So, choose carefully the reference entities. See the following example:</p>
+
+<ul class="noleft">
+<li><b>Wrong</b>: profile related to fillet edges. What if you need to remove or change the fillet? 
+
+<p><img border="1" src="images/profiles_31.gif"></p>
+</li>
+</ul>
+
+<ul class="noleft">
+<li><b>Correct</b>: profile related to the base edges. If you change/delete the fillet, the profile still follows the design intent. <br><br>
+<img border="1" src="images/profiles_32.gif">
+</li>
+</ul>
+
+<p>Also, choose the same, common reference to better control the model:</p>
+
+<ul class="noleft">
+<li>The slot, the shaft and the pattern all relate to the same external entities. Simple and easy to control.<br>
+<br>
+</li>
+
+<li>The common external entities are referred to the same feature (<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6803">Linear Solid</span>).<br>
+
+<br>
+<img border="1" src="images/profiles_33.gif"><br><br>
+</li>
+</ul>
+
+<p>So, what is the problem? If you use too many external entities to constrain a profile, you will create unnecessary links that will make your model complex and difficult to manage. Base your dependencies on common references, if possible. However, if you need to relate the shafts to the slot, it is not a problem to do so. It is a good practice to refer to the same entities when possible to keep the structure simple.</p>
+
+<p>If you need to break a Parent - Child relationship, you can right-click on the profile, choose <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4869">Edit 2D Profile</span> and delete the dependent constraints (or right-click on the profile in the Model Structure and select 
+<a href="mk:@MSITStore:solids.chm::/language/solids/sl_16.htm">
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4773">Unlink</span></a>).</p>
+
+
+<h4>Where are the external entities?</h4>
+
+<p>A challenge you may face is that you may forget some of the parent entities you established. To view the entities that a profile is dependent on, you must right-click on the profile, select <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4869">Edit 2D Profile</span>, right-click again and select 
+<a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_41.htm">
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1319">Show External Entities</span></a>. The parent entities to that profile will now highlight. Also, the history in which the constraints were established determines the hierarchy for the constraint relationships for editing them. Thus, this functionality offers a lot of control, but an overuse or poorly thought out use of it adds unnecessary complexity. The question to ask yourself is "Do I really need to do this?". Remember, you can always add or remove constraints later, as needed.</p>
+
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

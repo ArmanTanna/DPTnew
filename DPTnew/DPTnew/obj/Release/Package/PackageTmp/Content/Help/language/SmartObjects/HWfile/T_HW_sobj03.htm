@@ -1,0 +1,144 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<title>Job: Library (Smart Object) - Using the Smart Object Palette</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a>
+
+<h4>Using the Smart Object Palette</h4>
+
+<p>The Smart Object Palette is a powerful tool enabling you to create and manage 
+Smart Object libraries. In the installation folder a "SO_libraries" subfolder is available. It contains a set of subfolders, each of which corresponds to a tab displayed in the Palette.</p>
+<P></P>
+<p>Any of the actions you can perform on Smart Objects can be executed by selecting a Smart Object in the Palette, right-clicking and selecting one of the commands in the shortcut menu.</p>
+<ul class="noleft">
+<li><a href="#object"><b>Right-clicking on an object in the palette</b></a>
+<li><a href="#empty"><b>Right clicking on an empty area in the palette</b></a>
+</ul>
+<p>&nbsp;</p>
+<p><i><b><a name="object"></a>When you right-click on an object in the palette:</b></i><hr color="silver" align="left"></p>
+<b>Insert</b>
+<blockquote>
+To add a Smart Object to the model. Once the <b>Insert</b> command is started, you can proceed as described in <A href="T_HW_sobj_Insert.htm"><b>Inserting Smart Objects</b></A>. <br>If you have selected a <a href="../OVfile/T_OV_sobj03.htm"><b>Smart Shape</b></a> or a <a href="../OVfile/T_OV_sobj02.htm"><b>Smart Profile</b></a>, select the insertion mode in the <b>Insertion mode</b> drop-down list in the Parameter Area:
+<table>
+<tr valign="top">
+<td width="80"><b>Add</b></td>
+<td>to add the Smart Object to the model</td>
+</tr>
+<tr valign="top">
+<td><b>Subtract</b></td>
+<td>to subtract the Smart Object from the model</td>
+</tr>
+<tr valign="top">
+<td><b>New object</b></td>
+<td>to add the Smart Object to the model as a new object</td>
+</tr>
+</table>
+<p class="notop">Please note that if you have associated a DLL with a Smart Object using the <b>Custom Insertion DLL <img src="../../../images/general/blackarrow.gif"> Insert</b> command (see below), the insertion method may differ from the one described above.<p></p>
+</blockquote>
+<p><a href="T_HW_sobj_GeometricReferences.htm"><b>Show references</b></a>
+<blockquote>
+to view the mandatory geometric references which will be required at insertion time. See <a href="T_HW_sobj_GeometricReferences.htm"><b>Viewing geometric references</b></a> for details.
+</blockquote>
+
+<p><b>Bitmaps</b>&nbsp;<img src="../../../images/general/blackarrow.gif">
+<blockquote>
+<table>
+<tr valign="top">
+<td><A href="T_HW_sobj_AssignBitmaps.htm"><b>Assign</b></A>
+<blockquote>To change the default bitmaps (the one used by the palette and the preview one). The required format is ".gif" or ".bmp"; allowed sizes are 64x64 and 128x128. See <b><A href="T_HW_sobj_AssignBitmaps.htm">Assigning Bitmaps</A></b> for a detailed description.</blockquote></td>
+</tr></table>
+<table></table>
+<tr valign="top">
+<td><a href="T_HW_sobj_ExportBitmaps.htm"><b>Export</b></a>&nbsp;<img src="../../../images/general/blackarrow.gif">&nbsp;<br><b>Preview/Thumbnail</b><blockquote>Each of the two bitmaps (the <b>Thumbnail</b> one and the <b>Preview</b> one) can be saved to an external file (for a detailed description, see <a href="T_HW_sobj_ExportBitmaps.htm"><b>Exporting Bitmaps</b></a>). You can then modify the bitmaps with an image editor and assign them to the Smart Object again using <a href="T_HW_sobj_AssignBitmaps.htm"><b>Assign</b></a>.</blockquote></td>
+</tr>
+</table>
+</blockquote>
+
+<p><a href="T_HW_sobj_Message.htm"><b>Message File</b></a>&nbsp;<img src="../../../images/general/blackarrow.gif">&nbsp;<b>Extract
+/Insert</b>
+<blockquote>
+To localize the message files automatically associated with the Smart Objects when they are saved. For a detailed description, see <a href="T_HW_sobj_Message.htm"><b>Localizing prompts</b></a>.
+</blockquote>
+<p><b>Custom Insertion DLL</b></a>&nbsp;<img src="../../../images/general/blackarrow.gif">
+<blockquote>
+<table>
+<tr valign="top">
+<td><b>Extract</b></td>
+<td>To export the DLL used to control the insertion method to an external file. A file selection box is displayed to save the DLL to the desired file. Once you have saved the DLL, you can modify it and associate it again to the Smart Object using <b>Insert.</b> </td>
+</tr>
+<tr valign="top">
+<td><b>Insert</b></td>
+<td>To associate a customized DLL (created using the API COM set) with the Smart Object, in order to control its insertion method. The DLL must have the same name as the Smart Object. As soon as the command is selected, a file selection box is displayed to enable you to select the DLL to be associated with the Smart Object.</td>
+</tr>
+<tr valign="top">
+<td><b>Remove</b></td>
+<td>To remove a customized DLL previously associated with the Smart Object. If you remove the DLL, at insertion time you will have to proceed as described in <A href="T_HW_sobj_Insert.htm"><b>Inserting Smart Objects</b></A>.</td>
+</tr>
+</table>
+</blockquote>
+<p><b>Cut Selection</b>
+<blockquote>
+To cut the Smart Object from the current tab of the palette. Cut objects can be pasted using <b>Paste</b>.
+</blockquote>
+<p><b>Copy Selection</b>
+<blockquote>
+To copy the Smart Object from the current tab of the palette. Copied objects can be pasted using <b>Paste</b>.
+</blockquote>
+<p><b>Delete Selection</b>
+<blockquote>To delete the Smart Object from the Palette.</blockquote>
+<p><b>Rename</b>
+<blockquote>To rename the Smart Object.</blockquote>
+<p><b>Properties</b>
+<blockquote>To display information about the properties of the selected Smart Object. See <b><a href="T_HW_sobj_Properties.htm">Displaying the properties of a selected Smart Object</a></b> for a detailed description. Using the <b>Properties</b> command, you can also attach files to a Smart Object, as described in <a href="T_HW_sobj_AttachedFiles.htm"><b>Attaching files to a Smart Object</b></a>.
+</blockquote><p></p>
+<p>&nbsp;</p>
+<p><a name="empty"></a><i><b>When you right-click on an empty area in the palette</b></i>:<hr color="silver" align="left"></p>
+<p><b>Refresh</b>
+<blockquote>To update the palette once you have <a href="T_HW_sobj_Save.htm">saved</a> a new Smart Object to the library, so that the new object is displayed in the list.</blockquote>
+<p><b>View</b>&nbsp;<img src="../../../images/general/blackarrow.gif">&nbsp;
+<b>Bitmaps</b>/<b>Icons</b>
+<blockquote>To display the Smart Objects in the palette either as:</blockquote>
+
+
+<table style="margin-left:30;">
+<tr valign="top">
+<td><b>Icons</b></td>
+<td><img src="../HWfile/images/icons.gif"></td>
+</tr>
+<tr valign="top">
+<td><b>Bitmaps</b></td>
+<td><img src="../HWfile/images/bitmaps.gif"></td>
+</tr>
+</table>
+
+<p><b>Arrange Tabs</b>&nbsp;<img src="../../../images/general/blackarrow.gif">&nbsp;<b>Right/Down</b>
+<blockquote>To position the palette either to the right or onto the lower portion of the graphics area.</blockquote>
+<p><b>Paste</b>
+<blockquote>To paste objects you previously cut or copied</blockquote>
+
+<hr color="silver">
+<h5>Tips and tricks</h5>
+<ul class="noleft">
+<li><b><a href="../HWfile/T_HW_sobj_YourOwnLibrary.htm">How to create your own Smart Object library</a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

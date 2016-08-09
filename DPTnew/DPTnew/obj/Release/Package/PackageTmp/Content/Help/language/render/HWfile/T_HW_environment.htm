@@ -1,0 +1,134 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t3" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>Job: Applying Environment to a Model</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Applying Environment to a Model</h2>
+
+<p>In this tutorial you will apply an environment for a boat model. Open the <i>boat.e3</i> file available in the <i>Samples/render</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>The model is a representation of a boat. Setting up the lighting is important for a good rendered image. For this tutorial we will set up three lights for the model.<br>
+<br>
+</li>
+
+<li>Start the <a href="../FWfile/T_FW_Light_command.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span></a> command. Ensure that the <b>Ambient</b> light is selected from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> drop-down list.<br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+<ul class="noleft">
+<li>It is mandatory to select the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> check box after selecting the light form the corresponding drop-down list. If the check box is cleared, then the selected light will not be activated and hence no light will be displayed in the Graphics Area.<br>
+<br>
+</li>
+
+<li>Clear the <a href="../FWfile/T_FW_Light_command.htm#fixed"><span class="UI_OPTION" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+300">Fixed To View</span></a> check box so that the orientation of lights remains fixed with respect to the model.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Now select the <b>Light0</b> from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> drop-down list.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+15">Type</span> drop-down list select the <span class="UI_OPTION" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+6">Distant</span> option. Expand the node and select the <span class="UI_COMMAND" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+104">Shadows</span> check box.<br>
+<br>
+</li>
+
+<li>Now orient this light using the <a href="mk:@MSITStore:help.chm::/language/ACAD/view/FWfile/T_FW_av_14.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+6946">Four Viewports</span></a> command, as shown in the image below.<br>
+<br>
+ <img src="../../../images/rendering/light0_orientation.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the <b>Light1</b> from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> drop-down list and <span class="UI_OPTION" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+6">Distant</span> option from the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+15">Type</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Now orient the light, as shown in the image below.<br>
+<br>
+ <img src="../../../images/rendering/light1_orientation.gif" border="1"><br>
+<br>
+ Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections for lighting.<br>
+<br>
+</li>
+
+<li>Select one of the view (highlighted in the image above) and start the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+6942">Viewports</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+6943">Single Viewport</span> command to view the model in single view as shown in the image below.<br>
+<br>
+<img src="../../../images/rendering/environment1.gif" border="1"><br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span> command. Ensure that the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+7">Image</span> option from the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> drop-down list is selected.<br>
+<br>
+</li>
+
+<li>Expand the node and select <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+3">Browse</span> option from the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+7">Image</span> drop-down list. The <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+36">Browse for File</span> dialog box is displayed.<br>
+<br>
+</li>
+
+<li>Select the <i>environment1.jpg</i> image from the <i>Samples/render</i> folder of your installation.<br>
+<br>
+ <img src="../../../images/rendering/environment2.gif" alt="" width="447" height="326" border="0"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections for the environment.<br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7883">Rendering Library</span> command, the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span> palette is displayed.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab, select <b>Shadow Catcher</b> under the <b>Predefined</b> folder.<br>
+<br>
+</li>
+
+<li>In the preview pane, right-click on the <b>Shadow Catcher</b> and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu. Then select the surface under the model to apply the shadow catcher material as shown in the image below.<br>
+<br>
+<img src="../../../images/rendering/environment4.gif" alt="" width="458" height="230" border="0"><br>
+<br>
+</li>
+
+<li>Now select the <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span> command to view the rendered image, as shown in the image below.<br>
+<br>
+<img src="../../../images/rendering/environment3.bmp" border="1"></li>
+</ol>
+
+<br>
+<br>
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

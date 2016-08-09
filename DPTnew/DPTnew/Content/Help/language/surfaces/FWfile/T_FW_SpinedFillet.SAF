@@ -1,0 +1,217 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally">
+<title>Spined Fillet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.myyellowcursor{"background:"#ffffe1";cursor:s-resize;border-width:1px;border-color:#000000"}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1431">Fillet</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1435">Spined</span> </p>
+<hr color="#63a9d8">
+</table>
+
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+485">Spined Fillet</span> command enables you to create fillet surfaces between two selected groups of surfaces along a spine curve chain.</p>
+
+<ul class="noleft">
+<li>The number of surfaces in the first group may differ from that in the second group.</li>
+
+<li>Two drive curve chains can be used, if necessary.</li>
+</ul>
+
+<p style="margin-top:0;">The fillet surface will have a circular section if you do not select the two drives. Instead, if you do indicate the drive curve chains&nbsp;&#151;&nbsp;one of which must lie in the first group of surfaces and the other in the second group&nbsp;&#151;&nbsp;the drive curve chains are the loci of the start and end points (u = 0, and u = 1, respectively) of the sections of the fillet surfaces. Along the drives, the fillet surface is tangent to the selected surfaces.</p>
+
+<p style="margin-bottom:0px;">In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_SPEECH_+490">Type</span> drop-down list you can select the type of fillet to be created:</p>
+
+
+
+
+<table>
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+491">Constant radius</span></td>
+
+
+
+<td>When this type is selected, you will have to specify two groups of surfaces and a spine curve chain. The resulting fillet will have the same radius along the whole spined curve chain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+492">Variable radius</span></td>
+
+
+
+<td>When this type is selected, in addition to the two groups of surfaces and to the spine curve chain, you will also be enabled to specify a <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+309">Start Radius</span> value and an 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+310">End Radius</span> value for the resulting fillet to vary from-to. You can also specify as many 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+486">Internal Points</span> as you like, where the radius value can be specified in a specific 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+61">Radius</span> mini-dialog box.<br>
+
+
+
+ <br>
+<img border="1" src="../images/SPFL01.gif"><br>
+<br>
+The internal points can also be specified using the snap commands. Furthermore, it is not necessary to indicate them exactly on the spine chain: wherever you specify them, they will be projected onto it.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+493">With drives</span></td>
+
+
+
+<td>When this type is selected, no radius is to be specified&nbsp;&#151;&nbsp;as it will automatically be determined by the construction constraints, but two drive curve chains: one on surfaces of <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+483">Group A</span> (
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+488">Drive 1 Curves</span>) and one on surfaces of 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+484">Group B</span> (
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+489">Drive 2 Curves</span>). The resulting fillet will join the two surfaces through the two drive chains, along which it will also establish tangency continuity. In the following illustration <b>A</b> and <b>B</b> are respectively 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+483">Group A</span> and 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+484">Group B</span>, <b>1</b> and <b>2</b> are 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+488">Drive 1 Curves</span> and 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+489">Drive 2 Curves</span>, while <b>S</b> is the chain of 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+487">Spine Curves</span>.<br>
+
+
+
+ <br>
+<img border="1" src="../../../images/surfaces/SPFL02.gif"><br>
+<br>
+Some notes: 
+
+<ul class="noleft" style="margin-top:0;">
+<li>If both drive chains are selected, the fillet section will not be a circular arc but a cubic curve.</li>
+
+<li>It is also possible to select only one chain of drive curves. In this case the resulting fillet will be a circular arc through the selected drive chain and be tangent along it, while on the opposite side it will just be tangent.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;">The fillet <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+497">Extension</span> can be chosen among the three available items of the selection list:</p>
+
+
+
+
+<table>
+<tr valign="top">
+<td width="90"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+494">Disabled</span> </td>
+
+
+
+<td>Creates a blend surface whose length is only as long as the length at which the two selected surfaces actually intersect.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SMALL_Disabled.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+495">Full</span></td>
+
+
+
+<td>Creates a blend surface whose length extends to the outermost edges of either surface (which ever is longer) at the point where the two surfaces intersect.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SMALL_Filled.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+496">Trimmed</span></td>
+
+
+
+<td>Creates a blend surface whose length at the point where it intersects with the selected surface is extended or trimmed to match the length of the surface at that intersection. If the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+34">Automatic cut</span> check box (
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span> - 
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the 
+
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span>) is selected, the portions of the selected surfaces extending beyond the new blend surface are automatically eliminated.<br>
+
+ <br>
+<img border="1" src="../../../images/surfaces/SMALL_Trimmed.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><b><a href="../HWfile/T_HW_SpinedFillet_Constant.htm">Create a spined fillet with constant radius</a></b></li>
+<li><b><a href="../HWfile/T_HW_SpinedFillet_Variable.htm">Create a spined fillet with variable radius</a></b></li>
+<li><b><a href="../HWfile/T_HW_SpinedFillet_Drives.htm">Create a spined fillet with drives</a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

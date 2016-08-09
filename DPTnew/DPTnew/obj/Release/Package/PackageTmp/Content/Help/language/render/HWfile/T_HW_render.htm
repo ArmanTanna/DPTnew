@@ -1,0 +1,73 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Dynamic and Static Rendering</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Dynamic and Static Rendering</h3>
+   
+
+<P>
+Rendering is the process of generating an image from a model. A model to be rendered it should contain geometry, texture, lighting and shading information. The rendering is mainly of two types:
+<ul class="noleft">
+<li><a href="#ren1">Dynamic Rendering</a></li>
+<li><a href="#ren2">Static Rendering</a></li> 
+</ul> 
+</P> 
+<h4><a name="ren1">Dynamic Rendering</a></h4>
+<p><b>Dynamic Rendering</b> is a fast rendering process. This type of rendering gives an approximate and quick rendered image. Dynamic rendering can support textures, true transparency, true shadows and bumps. In this type of rendering, there is compromise on the quality of the rendered image but enables you to actually have a look of the rendering information applied on the model. You can rotate the 3D model to view the rendering information applied. The features of dynamic rendering are:
+<ul class="noleft">
+<li>Fast Rendering</li>
+<li>Compromise on the quality of the rendered image</li>
+<li>Rendering is performed using the <b>Open GL</b> libraries.</li>
+<li>There are only finite lights available. The number of lights available is 8.</li>
+</ul>
+
+</p>
+
+<h4><a name="ren2">Static Rendering</a></h4>
+<p><b>Static Rendering</b> is a slow rendering process. The rendered image is of very high quality and gives a very realistic effect to the image. The simulation of realistic lighting, shadows, atmosphere, environments, color, texture, and optical effects such as the refraction of light is of very high quality and realistic. The features of static rendering are:
+<ul class="noleft">
+<li>The rendered image is of very high quality.</li>
+<li>The process is slow.</li>
+<li>High quality shadow is rendered</li>
+<li>Special effects are visualized at its best.</li>
+<li>All the light studios are rendered with all its light.</li>
+</ul>
+
+</p>
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_Render_commands.htm">Rendering</a></li>
+<li><a href="../jsoptions/yellow_note.htm">Note</a></li>
+</ul>
+<hr color="silver">
+
+</body>
+</html>

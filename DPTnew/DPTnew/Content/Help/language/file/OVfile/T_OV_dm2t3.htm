@@ -1,0 +1,202 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>GBG DraftMaker to think3 conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft {margin-top:0; margin-left:22;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>GBG DraftMaker to think3 conversion table</h2>
+
+<p>Click <a href="mk:@MSITStore:tdein.chm::/language/tdein/CompatibilityMap.htm">here</a> to know about the supported DraftMaker versions.</p>
+
+
+<table border="1" cellpadding="5" cellspacing="1">
+<tr valign="top">
+<td class="draftmaker" align="middle"><b>GBG DraftMaker entity</b></td>
+<td align="middle"><b>think<font color="#FF0F00">3</font> entity<br>
+2D environment</b></td>
+<td align="middle"><b>think<font color="#FF0F00">3</font> entity<br>
+ 3D environment</b></td>
+<td align="middle"><b>Preference parameters controlling conversion</b></td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Point</b></td>
+<td><b>Point</b></td>
+<td><b>Point</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Line</b></td>
+<td><b>Line</b></td>
+<td><b>Line</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Arc</b></td>
+<td><b>Arc</b></td>
+<td><b>Arc</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Circle</b></td>
+<td><b>Arc</b> (360&deg;)</td>
+<td><b>Arc</b> (360&deg;)</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Polyline</b></td>
+<td><b>Exploded into lines</b> <br>
+(as many as the polyline points)</td>
+<td><b>Exploded into lines<br>
+</b> (as many as the polyline points)</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Open Normal Spline</b> </td>
+<td>Plane <b>NURBS</b> curve, degree = 3</td>
+<td>Plane <b>NURBS</b> curve, degree = 3</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>Cyclic Spline</b> </td>
+<td>Plane closed <b>NURBS</b> curve, degree = 3</td>
+<td>Plane closed <b>NURBS</b> curve, degree = 3</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>Anti-Cyclic Spline</b> </td>
+<td>Plane closed <b>NURBS</b> curve, degree = 3</td>
+<td>Plane closed NURBS curve, degree = 3</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Ellipse</b></td>
+<td><b>Ellipse</b></td>
+<td><b>Ellipse</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Parabola</b></td>
+<td>Plane <b>NURBS</b> curve, degree = 2</td>
+<td>Plane <b>NURBS</b> curve, degree = 3</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Hyperbola</b></td>
+<td>Plane <b>NURBS</b> curve, degree = 2</td>
+<td>Plane <b>NURBS</b> curve, degree = 3</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Text</b></td>
+<td><b>Text</b></td>
+<td><b>Text</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Symbolic texts</b> </td>
+<td><b>Symbolic texts</b> </td>
+<td><b>Symbolic texts</b> </td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Dimension</b></td>
+<td><b>Dimension</b></td>
+<td><b>Dimension</b></td>
+<td class="comment">Exploded into its component entities if the <b>Dimension/label</b> check-box is selected under <b>Disassemble on loading</b> in the <b>DXF/DWG/DM Options</b> dialog box, accessible from the file selection box displayed when loading and saving a file.</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Arc Length Dimension</b> </td>
+<td><b>Exploded into its component entities</b> </td>
+<td><b>Exploded into its component entities</b> </td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>X-Hatch</b></td>
+<td><b>X-Hatch</b>,<br>
+ if the curves of both the external boundary curves and the boundary curves of the isles form one or more closed loops.<br>
+If the boundary curves are not closed, a <b>Group</b> named ".G_XH_DISAG" is created, containing all the component entities of the X-Hatch (lines).</td>
+<td><b>X-Hatch</b>,<br>
+if the curves of both the external boundary curves and the boundary curves of the isles form one or more closed loops.<br>
+If the boundary curves are not closed, it is <b>exploded into its component entities (lines)</b>.</td>
+<td class="comment">Exploded into its component entities if the <b>X-Hatch</b> check-box is selected under <b>Disassemble on loading</b> in the <b>DXF/DWG/DM Options</b> dialog box, accessible from the file selection box displayed when loading and saving a file.</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Group</b></td>
+<td><b>Group</b></td>
+<td><b>Exploded into its component entities</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Symbol (description)</b></td>
+<td><b>Not converted</b></td>
+<td><b>Not converted</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>Symbol</b> (instance of a symbol, also known as "jump")</td>
+<td><b>Group</b></td>
+<td><b>Exploded into its component entities</b></td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>UDC</b> (User Defined Class)</td>
+<td><b>UDC</b> (User Defined Class)</td>
+<td><b>UDC</b> (User Defined Class)</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="draftmaker"><b>UDP</b> (User Defined Property)</td>
+<td><b>UDP</b> (User Defined Property)</td>
+<td><b>UDP</b> (User Defined Property)</td>
+<td bgcolor="#dcdcdc">&nbsp;</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+</body>
+</html>
+

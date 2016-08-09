@@ -1,0 +1,202 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(43,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Optimize Alignment</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7886">Optimize Alignment</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7757">Optimize Alignment</span> command enables you to improve the optimization of meshes, which might have been already brought closer using the <a href="T_FW_Pre-Alignment.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7755">Pre-Alignment</span></a> commands. This tool is capable of managing correspondence defined in multiple zones, simultaneously. Hence, a set of zones of one mesh can be matched to a corresponding set of zones in the other mesh.</p>
+
+<p><a name="inputs"></a>On starting the command you need to select the <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+9">Movable Mesh</span> and <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+10">Reference Mesh</span>. To achieve the optimization, the <i>movable mesh</i> is translated to match the <i>reference mesh</i>.</p>
+
+<p><a name="limits"></a>You can optionally define the zones that need to be matched. For the <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+5">Limits</span> selector, select the curves that define the boundary of the mesh zone. You need to do the same both for <i>movable mesh</i> and <i>reference mesh</i>; hence, the <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+5">Limits</span> selector is available both under <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+9">Movable Mesh</span> and <span class="UI_SELECTOR" id="CommonUI.msg+_CommonUI_LABEL_+10">Reference Mesh</span> nodes. For each mesh, you can additionally define:</p>
+
+<ul class="noleft">
+<li><a name="max_dist"></a><span class="UI_OPTION" id="CommonUI.msg+_CommonUI_LABEL_+7">Max. presumed distance</span> - It is the criteria for nodes not too far from the boundary curves to define whether they are to be considered within the boundary or not. The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> value can be presumed as the radius of a pipe along the contour. The value should be large enough to contain several triangles (within the pipe) on each side of the contour, but not too large to avoid ambiguities.<br>
+<br>
+</li>
+
+<li><a name="min_dist"></a><span class="UI_OPTION" id="CommonUI.msg+_CommonUI_LABEL_+6">Min. distance</span> - The distance of the nodes from the boundary curve should be more than the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+4">Min. Distance</span> value to be considered for analysis. Hence, it enables you to exclude those nodes that are very close to the boundary limits.<br>
+<br>
+</li>
+
+<li><a name="invert"></a><span class="UI_OPTION" id="CommonUI.msg+_CommonUI_LABEL_+4">Invert</span> - It enables you to define which portion of the mesh with respect to the boundary curve is to be used for the analysis. 
+
+<ul>
+<li>When the check box is selected, the portion of the mesh lying outside the boundary curve is analyzed.</li>
+
+<li>When the check box is cleared, the portion of the mesh lying within the confines of the boundary curve is analyzed.<br>
+<br>
+</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Zones"></a>You can repeat the above steps with another set of meshes (and its limits) by treating it as a new group. To do so, use the <span class="UI_OPTION" id="CommonUI.msg+_CommonUI_TOOLTIP_+12">Next Group</span> button <img src="../../../images/general/navigate.gif" align="absmiddle"> available besides <span class="UI_OPTION" id="CommonUI.msg+_CommonUI_LABEL_+1">Mesh Zones</span>. You can return to the previous group by selecting the <span class="UI_OPTION" id="CommonUI.msg+_CommonUI_TOOLTIP_+11">Previous Group</span> button. The current group number is displayed in the corresponding text box. Even though you select different movable meshes in different groups, they are all treated as a single one during the alignment. Hence, the final result is always a single transformation.</p>
+
+<p>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you will find the following options:</p>
+
+<ul class="noleft">
+<li><a name="Tolerance"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+235">Target Tolerance</span> - You are enabled to enter the tolerance value within which the optimization is made. Once the target tolerance is reached, the computation process stops. However, there is no guarantee that this tolerance could actually be achieved depending on the complexity.<br>
+<br>
+</li>
+
+<li><a name="Copy"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+233">Copy</span> check box- When selected a copy of the movable mesh is retained at its original location.<br>
+<br>
+</li>
+
+<li><a name="Hide"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+12">Hide</span> check box - When selected, the <i>movable mesh</i> is made hidden during the display of the preview.<br>
+<br>
+</li>
+
+<li><a name="Insert"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+10">Insert Transformation Reference</span> check box - When selected, a mesh element (representing the transformation) is created, which can be used by the <a href="T_FW_Replicate.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7761">Replicate Alignment</span></a> command to modify the position of other entities by performing on them the same controlled transformation.<br>
+<br>
+</li>
+
+<li><a name="Algorithm"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+275">Algorithm options</span> - The options under this node define the methodology adopted to achieve the optimization. 
+
+<ul class="noleft">
+<li><a name="iterations"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+234">No. of iterations</span> - It enables you to enter in the maximum number of iterations (loops) allowed in the optimization process. If this number is too small, the process will stop before reaching the best possible solution. Otherwise, the process can stop before this value, if the result becomes stable.<br>
+<br>
+</li>
+
+<li><a name="Discard"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+242">Discarded points by distance (%)</span> - It enables you to enter the relative distance value beyond which the mesh nodes are not included in the optimization process. This value is in reference to the specified <a href="#Threshold"><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+237">Threshold</span></a>. The system evaluates each node distance and a histogram subdivision is calculated, as shown below.<br>
+<br>
+<img src="../../../images/thinkcompensator/cut_off.gif" border="1"><br>
+<br>
+The system evaluates the cut value (blue line in the above image), defined as the distance that contains the (100-X) % of distances, and discards the X % that has distance bigger than this cut value. Hence, if the entered value is 0%, all the points are included in the optimization loop, while if it is 100%, no point is included and thus the system will not be able to make a computation.<br>
+<br>
+</li>
+
+<li><a name="Threshold"></a>The <i>Threshold</i> is the range within which the two meshes are supposed to be matched. At each optimization loop, all the nodes of the two sets that are farther than this value are not considered in the optimization. The bigger is this value, the more are the matched points per iteration and longer is the computation time. In the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+237">Threshold</span> drop-down list select: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+239">Absolute</span> - Enter the absolute threshold value in the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+236">Threshold value</span> text box.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+238">Relative</span> - Enter the relative threshold value in the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+236">Threshold value</span> <b>(%)</b> text box. It is a percentage of the maximum bounding box diagonal of movable and fixed mesh.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+264">Automatic</span> - The threshold value is automatically calculated.<br>
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+It is not true that a bigger threshold value means a better optimization. If the two meshes are quite near, a big threshold value only increases the computation time.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="Optimization"></a>In the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+245">Optimization mode</span> drop-down list select the mode of mesh node correspondence to achieve optimization: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+243">Point to point</span> - This method minimizes the distance between the meshes nodes. The global minimization is performed between two clouds of points. This method gives generally good result, especially in case of correctly pre-aligned objects. If the meshes represent single curvature objects the result can be shifted perpendicularly to the curvature plane.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+244">Point to plane</span> - This method minimizes the distance between mesh nodes and the planes defined by other mesh nodes and normals. The minimization is performed between a cloud of points and the opposite cloud of planes. This algorithm is available only if the two sets have a support that allows the calculation of the normal vector for the points. It gives good results when the meshes represent double curvature objects that are already correctly pre-aligned.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+276">Global - point to point</span> - This method minimizes the distance between the meshes nodes, using a general minimization algorithm. The global minimization is performed between two clouds of points. This method generally needs more iteration to converge, and it is slower in execution. It gives generally good result, regardless of the initial shape and the initial alignment, if provided enough iterations to run.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a name="Advanced"></a>Under the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+266">Advanced options</span> node, you can define:</li>
+
+<li style="list-style: none">
+<ul class="noleft">
+<li><a name="Sampling"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+246">Sampling (%)</span> - It enables you to define the relative number of points (mesh nodes) to be used for optimization process. Before the start of the algorithm the mesh is decimated, that is, reduce the number of triangles in the mesh without any significant changes in its shape. Sampling is useful when the meshes are huge, resulting in big computation time.</li>
+
+<li><a name="mode"></a>The <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+241">Correspondence mode</span> drop-down list enables you to decide how the system identifies the matching for the optimization. You can select: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+251">Nearest point</span> - This method uses a nearest neighbor search to identify the correspondence.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+252">Projected point</span> - This method uses a pierce projection on the opposite set to identify the correspondence.</li>
+
+<li><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+253">Nearest projected point</span> - This method, at first identifies the projection point and then it searches the nearest point to this in the opposite set.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td rowspan="5"><img src="../../../images/thinkcompensator/correspondence.gif" border="1"></td>
+<td><b>1</b></td>
+<td>Guess point</td>
+</tr>
+
+<tr>
+<td><b>2</b></td>
+<td>Guess point normal</td>
+</tr>
+
+<tr>
+<td><b>3</b></td>
+<td>Nearest point</td>
+</tr>
+
+<tr>
+<td><b>4</b></td>
+<td>Projected point</td>
+</tr>
+
+<tr>
+<td><b>5</b></td>
+<td>Nearest projected point</td>
+</tr>
+</table>
+
+<br>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><a name="Default"></a><span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+265">Default</span> - Selecting it will reset all the <span class="UI_OPTION" id="BestFitUI.msg+_BestFitUI_LABEL_+275">Algorithm options</span> values to the default ones.</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_Alignment.htm">An Overview on <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span></a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

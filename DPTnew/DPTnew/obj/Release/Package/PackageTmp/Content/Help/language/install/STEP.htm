@@ -1,0 +1,50 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Memory issues when importing big STEP models - Troubleshooting</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.menu{font-size: 10pt; font-family: Arial;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:28;margin-top:1}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4>Memory issues when importing big STEP models</h4>
+
+<p>When importing big model files in the STEP format, the memory usage can be higher than expected, thus possibly resulting in a degrade of the system performance.</p>
+
+<p>Most of the said issues can be solved by importing the model entities like surfaces rather than solid entities, which can be done by unchecking the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+142">Save/Load solid entities</span> box in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_STEP.htm">
+<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span></a> page of the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_02.htm"><span class="UI_COMMAND" id="ButtonToolbar_File.msg+ButtonToolbar_File+167">Open File</span></a> command options, once you have selected the STEP format.</p>
+
+<p>Please take into account that if you import model entities as surfaces rather than as solids, operations like interference checking or matings will not be enabled. You can easily solve this issue by converting to solids only the very surfaces involved in the operation you intend to perform by using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+23">Make Solid</span></a> command. The selected surfaces will be converted to <i>skins</i>, that is open solids, that can be processed as real solids though their memory occupation is still very low.</p>
+
+
+<hr color="silver">
+</body>
+</html>
+

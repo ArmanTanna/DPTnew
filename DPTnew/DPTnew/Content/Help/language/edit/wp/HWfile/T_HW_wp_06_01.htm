@@ -1,0 +1,48 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Why move the Work Plane onto a curve</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h4>Why move the Work Plane onto a curve</h4>
+
+<p>One possible reason for moving the Work Plane onto a curve would be to create a <a href="mk:@MSITStore:solids.chm::/language/solids/sl_03/FWfile/T_FW_sl_01_03.htm">spined solid connecting some section curves</a>. The orientation needs to be the same for all those curves. Otherwise, you might get some unexpected twistings. <p>
+
+In this illustration, the Work Plane has been moved onto each of the three curves, always using the same reference plane (the one in the picture).
+<p><img border=1 src="../../../../images/edit/wp/wpi93_06.gif"></p>
+<p>The Work Plane is automatically set this way:<br>&nbsp;
+<ul class="noleft">
+<li>The Z axis is the direction of the tangent to the curve in the selection point
+<li>The X axis is the direction of the normal to the curve
+<li>The Y axis is the direction of the binormal.
+</ul>
+
+<p>Another way to get the same result is to use the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_09.htm"><b>Spined Curve</b></a> command. 
+
+
+<hr color="silver">
+</body>
+</html>

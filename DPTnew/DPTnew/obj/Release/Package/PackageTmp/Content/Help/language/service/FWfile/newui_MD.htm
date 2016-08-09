@@ -1,0 +1,114 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Mini-Dialog Boxes and Handles</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();">
+
+<a name="top"></a> 
+
+<h4><a name="MiniDialog"></a>Mini-Dialog Boxes and Handles</h4>
+
+<p>A <i>mini-dialog box</i> is an input box positioned exactly on the corresponding geometric item of which you might want to change the proposed size or some geometric property:<br>
+<br>
+<img border="1" src="../images/MiniDialog.gif"><br>
+<br>
+</p>
+
+<p style="margin-bottom:0;">You can use mini-dialog boxes as usual interface controls. For example:</p>
+
+<ul class="noleft">
+<li>If the mini-dialog box is composed of an edit box displaying a numeric value, you can change the proposed value by typing it in, thus modifying the size of the corresponding geometric item</li>
+
+<li>If the mini-dialog box displays a check box, you can select/deselect the check box.</li>
+</ul>
+
+<p>A preview mechanism displays the geometric items modified according to the new value you typed in.</p>
+
+<p style="margin-bottom:0;">To confirm the value you typed in a box, do one of the following:</p>
+
+<ul class="noleft">
+<li>Press the <b>TAB</b> key.</li>
+
+<li>Click somewhere else.</li>
+</ul>
+
+<p style="margin-bottom:0;">One of all the existing mini-dialog boxes is the <i>current option</i>, that is the one which you can perform actions on. You can recognize the current option very easily by its background color.<br>
+When you are editing a mini-dialog box, you can move to the next mini-dialog box using the <b>TAB</b> key (or explicitly clicking on them with your mouse). The first time you Press the <b>TAB</b> key, the value that is currently displayed in the mini-dialog box will be acquired. Press the <b>TAB</b> key a second time to move to the next mini-dialog box. The mini-dialog box you move onto becomes the current option.<br>
+Use <b>SHIFT+TAB</b> to move to the previous mini-dialog box rather than to the next one.</p>
+
+<p style="margin-bottom:0;">Some additional actions can be performed on the current option just by right-clicking and selecting the options of the context menu:</p>
+
+<ul class="noleft">
+<li>Selecting <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+8">Hidden Dynamic Grid</span> you can limit the values which can be assigned to a geometric item through its mini-dialog box to a set of predefined ones at fixed intervals</li>
+
+
+<li>Selecting <span class="UI_COMMAND" id="tdesign.msg+_EK_INIT_+43">Help</span>, you can get help on what you have to do (<b>How to go on</b>), on the option itself (<b>Option:</b><i>Option Name</i>), on the command the options belongs to, or access some job descriptions and methodology articles involving the current option (for complete information, see "
+<a href="mk:@MSITStore:chelp.chm::/language/service/FWfile/helpsystem.htm">The Help System</a>")</li>
+
+
+<li>In some situations in which it makes sense, some actions on the option itself are also available, as in the case of the <b>Invert</b> and <b>Symmetric</b> items, respectively enabling you to change the sign of the value you typed in and to distribute the value symmetrically about the geometric item.</li>
+</ul>
+
+<p>In a number of situations when a geometric item can be modified either in size or direction or in both, a <i>handle</i> is also displayed together with the mini-dialog box. You can drag the handle about in order to interactively change the size of the corresponding geometric item, thus having to explicitly indicate no numeric value. While you move the handle, the mini-dialog box will display the updated numeric value of the corresponding geometric item, in a way which depends on the grid settings (see the <b><a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_GRID.htm"><b>Grid</b></a></b> category of the 
+<span class="UI_COMMAND" id="eklib.msg+optsmsg+1">Document Properties</span>).</p>
+
+
+<p id="HIDEP">From time to time, the presence of the dialog boxes may constitute an obstacle in the evaluation of the geometry; in this cases it may be useful to use the <a href="../../tools/FWfile/T_FW_HideMinidialogs.htm"><span class="UI_CONTEXT" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+7">Hide Minidialogs</span></a> and <a href="../../tools/FWfile/T_FW_ShowMinidialogs.htm">
+<span class="UI_CONTEXT" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+6">Show Minidialogs</span></a> commands to temporarily conceal them.<br>
+
+Alternately, you can drag and drop the mini-dialog boxes away from the geometry it is obstructing. To do so, click the left mouse button on the mini-dialog area, hold it down and drag the mini-dialog to a new position; release the mouse button when the position is reached. The result of the above mentioned feature is shown in the image below:<br>
+<br>
+<img src="../../rn_2008T1/images/dragndrop.gif" border="1"><br>
+<br>
+</p>
+
+<p style="margin-bottom:0;" id="HIDEP">Please note that the mini-dialog will return to the default position if:</p>
+
+<ul class="noleft">
+<li id="HIDELI">You pan, rotate or zoom the model or drawing</li>
+
+<li id="HIDELI">You change the view</li>
+
+<li id="HIDELI">You edit the mini-dialog or drag its corresponding handle.</li>
+</ul>
+
+<br>
+ 
+<p id="HIDEP">For further details on the use of handles, see "<a href="mk:@MSITStore:solids.chm::/language/HWfile/T_HW_SymmetryInvert.htm">Symmetry and Invert Direction handles</a>".</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><a name="#Bkey"></a><b>Blocking mini-dialog values through the keyboard</b> <br>
+In some <span id="TWOD">3D profile or</span> drafting commands, you can enter some of the values by moving the mouse or by typing them into the corresponding mini-dialog box. In those commands, the value displayed in the mini-dialog box is also continually updated according to the new position of the mouse while it is moving (for example, while creating a polyline, the angle value shown in the box varies as you change the cursor position). In some situations, it can be very useful to be able to <i>block</i> the value displayed in the mini-dialog box (for example, while creating a polyline, you may want to fix the angle, so as to be able to change the length as you prefer, making sure the angle does not vary).<br>
+
+Starting from this version, it is possible to block the value displayed in a mini-dialog box of any command of the mentioned types just by pressing the <b>B</b> key of the keyboard. When you press the <b>B</b> key (no matter whether capital or not), the value in the mini-dialog will not change. The blockage affects only the current action: next command, or next action in the same command where a different mini-dialog box is involved are not affected, unless you press <b>B</b> again.<br>
+As a consequence, no other action can be associated to the said key, which is to be considered reserved.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,169 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(508,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+<meta name="T_2010t1" content="translate">
+<title>Trim Surface with Limits</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script> -->
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff"<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1155">Trim with Limits</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+354">Trim Surface with Limits</span> command enables you to trim one or more surfaces of any kind using selected limiting entities, which may be curves or other surfaces: you will have to select the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+351">Limits</span> (curves or surfaces), the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+132">Surfaces</span> to be trimmed and, on such surfaces, the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+438">Regions to Keep</span>.</p>
+
+
+
+
+<p>If the limiting entities are curves, they need not necessarily lie on the surfaces to be trimmed, in which case their projection onto the surfaces along the view direction (of the view in which they were selected) will be used for trimming, unless you have selected the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+540">Disable Projection</span> check box. In fact, when this box is cleared, automatic projection along the view direction is enabled. When it is checked, projection is disabled (which might be useful, for example, when the selected surfaces are more than one and the limits are curves lying on the said surfaces: in this case no projection is actually needed).
+
+
+
+<br>
+Please note that the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+540">Disable Projection</span> check box is automatically checked when the selected limits are curves of the Curve on Surface type and the surfaces to be trimmed are their base surfaces.</p>
+
+
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>What happens if the view direction changes?</b><br>
+Suppose you select the limits, the surface and the regions to keep. Then you rotate the model with the mouse, which implies a view direction change. In this case, when the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+540">Disable Projection</span> check box is cleared, if you click the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+443">Update Projection</span> button on top of the selection list ( <img src="../../../images/icons/UpdateProjection.gif" align="absmiddle"> ), the 
+
+
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+438">Regions to Keep</span> selector will be reset, so as to enable you to perform a new selection based on the new view direction.</td>
+
+
+
+</tr>
+</table>
+
+<p>The limiting curves (i.e.: the ones actually used for trimming, which means their projections, in the case they don't lie on the surfaces) must never intersect and must form no loop inside one another (if they do, the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+438">Regions to Keep</span> cannot be univocally determined). In such cases, the trimming operation must be carried out in two stages: first trim with one set of limits, then trim with a second set.</p>
+
+
+
+
+<p style="margin-bottom:0;">When the limits are curves, the following situations may occur:</p>
+
+<ol class="litleft">
+<li>The limiting curve(s) does (do) not reach the boundary of the surface(s).</li>
+
+<li>The limiting set of curves does not form a chain.</li>
+</ol>
+
+<p style="margin-top:0;">In the default mode, in case 1 the curves are automatically extended, while in case 2 the chain is automatically adjusted (that is: gaps between free endpoints will be automatically closed if the distance is smaller than the value corresponding to the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+427">Parameter Domain (%)</span> value under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> - 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+425">Advanced Options</span>; the default value of such parameter is studied so as to match most situations in which you might reasonably want to automatically close the chain, but you can change it as you like in specific cases). This process is called "<i>healing</i>". Please note that the healing process of cases 1 and 2 does <i>not</i> take place when the limits are surfaces.</p>
+
+
+
+
+<p>But, if the result automatically obtained by the program should not satisfy you, a proper set of options is available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to enable you to perform operations manually so as to heal the trimming as you like. See "<a href="../HWfile/T_HW_TrimLimitOptions.htm">Using the Proximity Radius, Manual Repair and Advanced Options</a>" for further details on the options and "<a href="../OVfile/T_OV_TrimWithLimits.htm">Trimming with healing</a>" for a general overview of the healing methods.</p>
+
+
+
+
+
+<p style="margin-bottom:0;">An additional option is also available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: 
+
+
+
+<a name="HighQualityApproximation"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. It enables you to control the quality of the curve actually used for trimming, based on the curve/border selected as a limit.</p> 
+
+
+
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the check box is selected, the curve actually used as a limit will be <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or 
+<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G4">G4</a> continuous and will have higher degree.</li>
+
+
+<li>When the check box is cleared, the curve actually used as a limit will have the same degree and continuity as the curve/border you selected.</li>
+</ul>
+</li>
+</ul>
+
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
+
+
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
+</tr>
+</table>
+<br><br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restoring selection</b><br>
+When the command is applied to some entities, the settings used in the operation are stored by the program. Next time you start the command, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img border="0" src="../../../images/rn_800/LastTransform.gif" align="absmiddle"> ) is displayed on top of the selection list. If you click it, the parameter settings will automatically be restored to the values used last time you used the command and applied to the selected entities when you select <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle">.<br>
+
+
+
+See &quot;<a href="../../curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>&quot; for details</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_TrimWithLimits.htm"><b>Trim a surface using limiting curves</b></a></li>
+<li><a href="../HWfile/T_HW_TrimLimitOptions.htm"><b>Use the Proximity Radius, Manual Repair and Advanced Options</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_TrimWithLimits.htm"><b>Trimming with healing</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

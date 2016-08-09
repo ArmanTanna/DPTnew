@@ -1,0 +1,48 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t2" content="translate">
+<meta name="Author" content="Marco Springhetti">
+<title>Import from report CSV (thinkparts)</title>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideTR();HideTDC();">
+<p>The <img src="../../../images/icons/icons_medium/id_report.bmp" alt="" border="0" align="absmiddle"> <span class="UI_COMMAND" id="IDD_TP_EDITVALUES.msg+IDD_TP_EDITVALUES+5">Import from report CSV</span> command enables you to add the values contained in a ".csv" file to the selected catalog.<br>
+</p>
+
+<p>This command is located in the dialog box of the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_EditValues.htm"><span class="UI_COMMAND" id="IDD_TT_TP_CBR_POPUP.msg+IDD_TT_TP_CBR_POPUP+20">Edit Values</span></a> command.</p>
+
+<p>To generate a template file with the correct columns layout, use the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_ReportCSV.htm"><span class="UI_COMMAND" id="IDD_TP_EDITVALUES.msg+IDD_TP_EDITVALUES+4">CSV Report</span></a> command.</p>
+
+<p>The second column in the ".csv" file contains the row number. To change the order in which the rows are displayed by <b>thinkparts</b>, change the row numbers accordingly.</p>
+
+<p>After editing the ".csv" file, import its contents with <span class="UI_COMMAND" id="IDD_TP_EDITVALUES.msg+IDD_TP_EDITVALUES+5">Import from report CSV</span>.<br>
+Before importing the new values, the program resets the current table. This means that the table of values after the import operation contains only the values as you saved in the ".csv" file: the lines you remove are deleted; those you edit are updated and those you add are appended in the position according to the index value in the second column of the file.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%"  id="F2DNOTVISIBLE">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">In order to get a correct format of the Microsoft Excel file, the CSV format <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+47">Separator:</span> parameter in the <a href="mk:@MSITStore:common.chm::/language/thinkteamoptions/IDPP_TT_OPTS_REPORT.htm"><span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+38">Report</span></a> category of the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_OPTS_THINKPARTS.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>-<b>thinkparts</b> category</a> must be aligned with the <b>List separator</b> parameter in the <b>Number</b> tab of the system <b>Regional Settings</b> that are displayed from <b>Control Panel</b>.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

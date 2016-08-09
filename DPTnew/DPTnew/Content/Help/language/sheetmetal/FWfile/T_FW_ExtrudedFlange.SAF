@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Extruded Flange</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6998">Extruded Flange</span></p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6998">Extruded Flange</span> command enables you to create a flange starting from an open profile (containing only lines and arcs) with one of its endpoints on an edge of a solid. The flange thickness is automatically inherited and is the same as that of the solid. The bends are automatically created where necessary.</p>
+
+<p>By selecting the appropriate option in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list, you can choose the method for edge selection to create the flange on it.</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+103">Edges</span></td>
+
+<td>The flange is created on a single edge or on multiple edges.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+104">Chain</span></td>
+
+<td>The flange is created on all the edges in a chain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+105">Tangency Chain</span></td>
+
+<td>The flange is created on all the edges that are tangent in a chain.</td>
+</tr>
+</table>
+
+<p>You can define the length of the flange by using the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+106">Extension</span> option available under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, either by specifying the distances of the side faces of the flange from the end points of the selected edge, or by specifying one of this distance values and the actual width of the flange.</p>
+
+
+<p><a name="each_edge"></a>If you select more than one edge, and the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+106">Extension</span> is set to 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+70">1st distance and 2nd distance</span>, the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+163">At each edge</span> check box is available that is be used to specify the flange length over each edge. On selecting this check box, the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+42">1st Distance</span> and 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+43">2nd Distance</span> mini-dialog boxes are displayed for each selected edge. The mini-dialog boxes are active for one edge at a time. To cycle between the mini-dialog boxes either click on it or use the <b>TAB</b> key.</p>
+
+
+<p>If you select more than one edge, or choose the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+104">Chain</span> or 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+105">Tangency Chain</span> types, you can control the command behavior at the corners formed by the adjacent edges. To extend the flanges so that they cover the corner formed by two edges and meet&nbsp;&#151;&nbsp;at a distance given by the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+107">Gap</span> value under 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span>&nbsp;&#151;&nbsp;at the bisector line, select the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+111">Miter</span> check box under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. Deselect the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+111">Miter</span> check box to prevent flanges from covering the corners.</p>
+
+<p>Finally, when all the selected edges are coplanar, the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+117">Keep Orientation</span> check box under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enables you to create multiple extruded flanges maintaining the angle between the profile and the plane on which all the edges lie, rather than the one between the first edge and the corresponding outer surface.</p>
+
+<p>To locally change any of the Sheet Metal parameters related to this command (see <a href="../HWfile/IDP_SET_SHEET_METAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span></a> category of the 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span>), select 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> and proceed as described in <a href="../OVfile/T_OV_LocalData.htm"><b>Local Properties and the Lock Marker</b></a>.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ExtrudedFlange.htm"><b>Add flanges to a solid starting from a profile</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange2.htm"><b>Add an extruded flange to a solid</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange_Chain.htm"><b>Add an extruded flange to a solid using chain option</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange_tangency_chain.htm"><b>Add an extruded flange to a solid using tangency chain option</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange_vary_width.htm"><b>Add extruded flanges of varying length</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange3.htm"><b>Add extruded flanges to a chain of solid edges</b></a></li>
+<li><a href="../HWfile/T_HW_ExtrudedFlange_fixed.htm"><b>Add extruded flanges to coplanar edges of a solid controlling the orientation of the profile</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_SheetMetal.htm"><b>Sheet Metal Workflow</b></a></li>
+<li><a href="../OVfile/T_OV_BT00.htm"><b>The Bend Table</b></a></li>
+<li><a href="../OVfile/T_OV_LocalData.htm"><b>Local Properties and the Lock Marker</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

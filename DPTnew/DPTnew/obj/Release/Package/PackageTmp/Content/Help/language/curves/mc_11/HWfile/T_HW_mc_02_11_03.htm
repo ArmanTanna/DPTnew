@@ -1,0 +1,72 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Job: Controlling the curve continuity (curve interpolation points)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22; margin-top:0;}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h4>Controlling the curve continuity</h4>
+<p>When editing interpolation points with the <a  href="../FWfile/T_FW_mc_11.htm"><b>Curve Interpolation Points</b></a> command, you can set the continuity conditions of the selected curve at its common point with another curve.</p>
+<p>Proceed as follows:<p>
+<table>
+<tr valign="top">
+<td width=25><b>1</b></td>
+<td>Click on <b>More Options</b> and select the type of continuity you want to apply from the <b>Snap</b> drop-down list:
+<ul class="noleft">
+<li><b>Positional</b> 
+                &#8212; positional continuity: the two points coincide and no condition is applied to the tangent vectors of the two curves in the common point.
+<li><b>Tangent</b> 
+                &#8212; tangency continuity: the two points coincide and the tangent vectors of the two curves in the common point lie on the same direction.
+<li><b>Perpendicular</b> &#8212; perpendicularity continuity: the two points coincide and the tangent vectors of the two curves in the common point are perpendicular.
+</ul></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Drag the end point of the spline curve
+
+
+ and snap 
+      it to the other curve you want to apply the continuity conditions to. 
+<br><br><img border=1 src="../images/mcl90_11.gif"><br><br>
+The continuity type you specified will be applied.<br>&nbsp; 
+<table border=1 bordercolor="white">
+<tr valign="top">
+<td width="100"><b>Positional</b></td>
+<td bordercolor="black"><img src="../images/mcl91_11.gif"></td>
+</tr>
+<tr valign="top">
+<td width="100"><b>Tangent</b></td>
+<td bordercolor="black"><img src="../images/mcl92_11.gif"></td>
+</tr>
+<tr valign="top">
+<td width="100"><b>Perpendicular</b></td>
+<td bordercolor="black"><img src="../images/mcl93_11.gif"></td>
+</tr>
+
+</table>
+</td></tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Double-click to confirm the changes you made.</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

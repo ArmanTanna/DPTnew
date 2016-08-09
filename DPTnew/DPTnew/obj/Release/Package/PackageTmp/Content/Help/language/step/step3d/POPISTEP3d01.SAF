@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>STEP to think3 conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>STEP to think3 conversion table</h2>
+
+<p>Here is a general conversion table showing how STEP entities are mapped to the ones of <b>think<font color="#FF0F00">3</font></b> when converting a STEP file to the <b>think<font color="#FF0F00">3</font></b> format.</p>
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>STEP entity denomination</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>think3 entity to which it is converted</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>AP (Application Protocol)</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>POINT</b></td>
+<td bordercolor="navy"><i>ignored</i></td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>LINE</b></td>
+<td bordercolor="navy">Line</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>CIRCLE</b></td>
+<td bordercolor="navy">Arc</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>PLANE</b></td>
+<td bordercolor="navy">Plane</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>CYLINDRICAL_SURFACE</b></td>
+<td bordercolor="navy">Cylinder</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>B_SPLINE_CURVE_WITH_KNOTS</b></td>
+<td bordercolor="navy">NURBS curve</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>MANIFOLD_SOLID_BREP</b></td>
+<td bordercolor="navy">Solid</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>UNCERTAIN_MEASURE_WITH_UNIT</b></td>
+<td bordercolor="navy">Unit of measure</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Hierarchy</b></td>
+<td bordercolor="navy">Assembly (<a href="#ASM">*</a>)</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>PRODUCT_NAME</b></td>
+<td bordercolor="navy">Component Name</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>PRODUCT_ID</b></td>
+<td bordercolor="navy">Component Name if COMPONENT_NAME is null</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>COLOUR_RGB</b></td>
+<td bordercolor="navy">Color</td>
+<td bordercolor="navy"><b>AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>PRESENTATION_LAYER_ASSIGNMENT</b></td>
+<td bordercolor="navy">Layer</td>
+<td bordercolor="navy"><b>AP214</b></td>
+</tr>
+
+</table>
+
+<hr color="silver" align="left" width="200">
+<p style="margin-top:0; font-size:9pt;"><a name="ASM"></a>(*) See specific notes on assembly management in <a href="step3d00.htm">Converting from STEP to think3</a>. See also the <b>Assembly conversion modes</b> area in the <a href="mk:@MSITStore:cnv.chm::/language/step/step_options.htm">STEP Conversion Options</a>.</p>
+
+
+<hr color="silver">
+</body>
+</html>
+

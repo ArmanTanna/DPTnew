@@ -1,0 +1,239 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10108,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<title>Heal Mesh Faces</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();ResizeIFrame1();ResizeIFrame2();ResizeIFrame3();ResizeIFrame4();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+28">Fix</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+9">Remove Wrong Faces</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+12">Remove Wrong Faces</span> command enables you to heal the mesh removing <a href="#abnormal">abnormal faces</a>, <a href="#intersecting">auto-intersecting faces</a>, <a href="#irregular">irregular faces</a> and <a href="#singularities">singularities</a>. The goal of the procedure is to achieve a topologically correct model.</p>
+
+<h2><a name="abnormal"></a>Fix the mesh from abnormal faces</h2>
+
+<ol class="noleft">
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+17">Remove Wrong Faces</span> selection list, choose <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+18">Abnormal faces</span> in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+119">Remove</span> drop-down list.<br>
+<br>
+<img src="../images/abnormal-faces.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the mesh you would like to heal with abnormal faces.<br>
+<br>
+To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
+<br>
+</li>
+
+<li>The program automatically checks for and selects abnormal faces and subsequently shows the analysis result in the selection list.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/abnormal-faces-detection.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Abnormal faces detection</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;">Click the <b>OK</b> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation and exit the procedure, or the <b>Apply</b> button <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to apply the operation, or the <b>Cancel</b> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.</li>
+</ol>
+
+<h2><a name="intersecting"></a>Fix the mesh for self-intersecting faces</h2>
+
+<ol class="noleft">
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+17">Remove Wrong Faces</span> selection list, choose <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+19">Self-intersecting faces</span> in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+119">Remove</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select the mesh you would like to heal with self-intersecting faces.<br>
+<br>
+</li>
+
+<li>The program automatically checks for and selects self-intersecting faces and subsequently shows the analysis result in the selection list.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/self-intersections.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Self-intersecting faces detection</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe2" name="MyIframe2" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame2()" scrolling="no"></iframe><br>
+<br>
+</li>
+</ol>
+
+<h2><a name="irregular"></a>Fix the mesh for irregular faces</h2>
+
+<ol class="noleft">
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+17">Remove Wrong Faces</span> selection list, choose <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+20">Irregular faces</span> in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+119">Remove</span> drop-down list, additional check-boxes are now displayed.<br>
+<br>
+<img src="../images/heal-irregular-faces.gif" border="1"><br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+21">Max. edge length &gt;</span> </td>
+<td>deletes triangles with at least one edge longer than the specified value</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+22">Triangle area &gt;</span> </td>
+<td>deletes triangles with the area larger than the specified value</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+23">Max. edge length and min. edge length ratio &gt;</span> </td>
+<td>deletes triangles with maximum edge length / minimum edge length ratio higher than the specified value</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+24">Max. edge length and heigth ratio &gt;</span> </td>
+<td>deletes triangles with maximum edge length / height ratio higher than the specified value</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Select the mesh you would like to heal for irregular faces.<br>
+<br>
+</li>
+
+<li>The program automatically checks for and selects the irregular faces and subsequently shows the analysis result in the selection list.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/irregular.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Irregular faces detection</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe3" name="MyIframe3" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame3()" scrolling="no"></iframe><br>
+<br>
+</li>
+</ol>
+
+<h2><a name="singularities"></a>Fix the mesh for singularities</h2>
+
+<ol class="noleft">
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+17">Remove Wrong Faces</span> selection list, choose <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+25">Singularities</span> in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+119">Remove</span> drop-down list, additional check-boxes are now displayed.<br>
+<br>
+<img src="../images/singularities-count.gif" border="1"><br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+26">Isolated vertices</span> </td>
+<td>deletes vertices from the point cloud that do not belong to any face</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+27">Interlaced faces</span> </td>
+<td>deletes adjacent faces with a common edge, for which the angle between their normals is less than the specified value (in degrees)</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+28">Faces with 2 boundary edges</span> </td>
+<td>deletes faces with two boundary edges (edges belonging to a single triangle)</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+29">Small clusters</span></td>
+<td>deletes small isolated clusters of triangles, if the number of vertices in the cluster is less than the specified value</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Select the mesh you would like to heal for singularities.<br>
+<br>
+</li>
+
+<li>The program automatically checks for and selects singularities and subsequently shows the analysis result in the selection list.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/singular-clusters.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Singularities detection</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe4" name="MyIframe4" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame4()" scrolling="no"></iframe><br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Restore Selection modality for selections and settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" language="javascript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff" onload="viaMk();HideThreeD();">
+
+
+
+<h2>Restore Selection modality for selections and settings in curve <span id="TWOD">and surface</span> commands</h2>
+
+<p>For most curve <span id="TWOD">and surface</span> commands, if you interrupt the command session your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all, which might take a long time, at least in complex situations. The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif"> ) is displayed on top of the selection list. It enables you to restore selections and settings as described below.</p>
+
+<ul class="noleft">
+<li>When you run a command for the first time, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button is not yet enabled and it is grayed out.<br>
+
+As soon as you perform a selection or change the value of one of the command settings, the button will be visible and available.</li>
+
+<li>If you quit a command using the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+2">Cancel</span> option, next time you run it again: 
+
+<ul class="noleft">
+<li>If the command was quitted without performing any selection or changing any setting, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button will still look grayed out.</li>
+
+<li>If at least one selection had been performed or one setting had been changed, the selection/setting was stored by the command and the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button will be visible and available. When you click it, the said selections/settings will be restored.</li>
+</ul>
+</li>
+
+<li>If you quit a command by clicking <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span>, all the selections you performed and the settings you changed will be stored by the command. Next time you run it, the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button will be available. When you click it, all the previous selections and settings will be restored.</li>
+
+<li>If you select the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> button, all the last selections you performed and the settings you changed will be updated by the command. The 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button will be immediately available: if you click it, the previous selections and settings will be restored.</li>
+</ul>
+
+<p>Once you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button and the selections/settings have been restored, the button is grayed out.</p>
+
+<hr color="silver">
+</body>
+</html>

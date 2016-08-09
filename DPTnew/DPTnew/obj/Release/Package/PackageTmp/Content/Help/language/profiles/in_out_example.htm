@@ -1,0 +1,63 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Decide if it is better to work with your 2D geometry entities in or out of Edit Profile - Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Decide if it is better to work with your 2D geometry entities in or out of Edit Profile: Example</h3>
+
+<p>Construction lines have been used to draw the exact desired shape, as if you were working just in 2D with any 2D product: very fast since no constraints need to be added.</p>
+
+<p><img border="1" src="images/profiles_03.gif"></p>
+
+<p>Construction lines have been deleted or hidden (see <a href="valid_profiles.htm">Create valid 2D profiles for creating 3D models</a>). Add a linear protrusion. Changes on the face the profile has been drawn onto, make the Work Plane, and so the profile and the protrusion change accordingly (not the shape, just the position).</p>
+
+<p><img border="1" src="images/profiles_04.gif"></p>
+
+<p>However, changes on the base solid don't reflect on the profile, nor on the protrusion, since no <i>rules</i>, no constraints have been added. Therefore the position of the protrusion is not defined, is not predictable. This approach is good when later changes are not needed.</p>
+
+<p><img border="1" src="images/profiles_05.gif"></p>
+
+<p>On the other hand, if changes are needed and specific design intent needs to be preserved, we have to insert some intelligence on the shape, by means of constraints. See the following example. To do this, making use of the 2D Profile environment is probably the way to go for, since most constraints will be added automatically. However, keep in mind that, in the <b>think<font color="#FF0F00">3</font></b> application, you can add constraints whenever you want in the design process.</p>
+
+<p>Here are the constraints we want (accordingly to the desired design intent).</p>
+
+<p><img border="1" src="images/profiles_06.gif"></p>
+
+<p>Changing the base solid the protrusion behaves as desired.</p>
+
+<p><img border="1" src="images/profiles_07.gif"></p>
+
+<p>The protrusion shape can also be changed by means of dimensions.</p>
+
+<p><img border="1" src="images/profiles_08.gif"></p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="in_out_profile_mode.htm"><b>Decide if it is better to work with your 2D geometry entities in or out of Edit Profile</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,143 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9169,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Applying a shape compensation using Compensator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Applying a shape compensation using Compensator</h3>
+
+<p>In the following step-by-step example you will use <b>Compensator</b> and the GSM functionalities in order to apply a shape compensation to a model (<i>Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</i>).<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ01.jpg"></p>
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<p>After converting the nominal and the compensated mesh file from the F.E.A. tool to the ".pt" format, you will interactively assess the result of the conversion and, once you state it is ok, you will compute the global field identification and automatically generate a small shape "<i>containing</i>" the modification to be applied to the whole model. Finally, using the Global Modeling functionalities, you will actually apply the compensation to the entire model.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_extractpoints.htm"><span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+10">Extract Points</span></a> command.<br>
+<br>
+</li>
+
+<li>Click <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+90">Browse for FEM File</span> in the selection list. A file selection box will show up. Select the <i>nominal</i> mesh file to be opened and click <b>Open</b> to open it. In order to save it to the ".pt" format, do the following: 
+
+<ol class="noleft">
+<li>Click <b>OK</b> (<img src="../../../images/general/OKbutton.gif" align="absmiddle">) on top of the selection list.</li>
+
+<li>A file selection box shows up, proposing the ".pt" extension for the final file to be saved. Select the file and click <b>Save</b>.</li>
+</ol>
+
+<br>
+A ".pt" ASCII file with the coordinates of the points of the nominal mesh file is created.<br>
+<br>
+</li>
+
+<li>Again using <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+10">Extract Points</span> and proceeding exactly the same way as you have just done for the nominal mesh file, save the compensated mesh file to the ".pt" format.<br>
+<br>
+</li>
+
+<li>To check the quality of the extracted points, start the <a href="../FWfile/T_FW_displaydisplacementfield.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+49">Show Displacement Field</span></a> command.<br>
+ Click <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+2">Browse for Initial Points</span> and select the nominal ".pt" file. Do the same for the compensated ".pt" file, by clicking <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+3">Browse for Target Points</span>. Evaluate the displacement field by checking the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+10">Show displacement field</span> box. What is being displayed are the vectors joining points in the nominal part with the corresponding ones in the compensated part.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ02.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+</li>
+
+<li>Set the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+50">Scale</span> to a suitable value.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ03.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+</li>
+
+<li>Everything looks fine. Start the <a href="../FWfile/T_FW_globalfieldidentification.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span></a> command.<br>
+ Click <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+2">Browse for Initial Points</span> and load the nominal ".pt" file, then click <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+3">Browse for Target Points</span> and load the compensated ".pt" file.<br>
+<br>
+</li>
+
+<li>Make sure the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+66">Tolerance</span> value is appropriate.<br>
+<br>
+</li>
+
+<li>Apply the command. A message box displaying the number of loops and the minimum, maximum and mean distance values is displayed. Click <b>OK</b> and continue.<br>
+<br>
+The small GSM surface is created.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ05.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+</li>
+
+<li>Start the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMR.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+180">GSM Replicate</span></a> command. As the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+181">Deformed reference entity</span> select the small surface previously created.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ06.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+As the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span>, select the whole model.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ07.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+</li>
+
+<li>Under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, clear the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span> box, in order to display also the original entities, so as to be able to appreciate the compensation (by seeing the difference between the original and the compensated shape).<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ08.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+You can rotate the model to better evaluate the deformation:<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ09.jpg"> 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+
+<br>
+<br>
+Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections.<br>
+<br>
+<img border="1" src="../../../images/thinkCompensator/MJ10.jpg">. 
+
+<div style="font-family: Verdana; font-size: 10; font-style: italic;">Courtesy of Atlas Tool Inc., 29880 Groesbeck Highway Roseville, MI 48066-1925</div>
+</li>
+</ol>
+
+<br>
+<hr color="silver">
+</body>
+</html>
+

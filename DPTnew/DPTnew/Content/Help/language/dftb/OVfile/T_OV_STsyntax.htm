@@ -1,0 +1,233 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Syntax of symbolic expressions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<style type="text/css">
+.noleft{margin-left:22}
+</style>
+
+<style type="text/css">
+ .menu{font-size: 10pt; font-family: Arial;}
+</style>
+
+<style type="text/css">
+ .formula{font-size: 11pt; font-family: Verdana,Arial;}
+</style>
+
+<style type="text/css">
+ .HEADER{font-size: 9pt; font-family: Verdana,Arial;}
+</style>
+
+<style type="text/css">
+ .smallformula{font-size: 10pt; font-family: Verdana,Arial; font-weight: bold; color: navy}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff" onload="viaMk();HideThreeD()">
+
+
+
+<h3><a name="syntax"></a>Syntax of symbolic expressions</h3>
+
+<table border="0" bordercolor="white" summary="">
+<tr>
+<td>The general syntax for symbolic expressions is the following:
+<br>
+<br>
+<table summary="">
+<tr>
+<td>&nbsp;
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1" cellpadding="10%" summary="">
+<tr>
+<td bordercolor="#ffffe1">
+<p class="formula">&nbsp;<b>$</b><i>sym</i><b>{</b><i>name</i>[<b>(</b><i>n</i><b>)</b>|<b>(</b><i>n</i><sub>1</sub><b>:</b><i>n</i><sub>2</sub><b>)</b>][<b>:</b><i>option</i><b>(</b><i>option_value</i><b>)</b>][<b>="</b><i>default description</i><b>"</b>]<b>}</b></p>
+</td>
+</tr>
+</table>
+
+
+<br>
+</td>
+</tr>
+</table>
+
+
+<br>
+where: 
+
+<ul class="noleft">
+<li>All parts in bold&nbsp;&mdash;&nbsp;such as <b>$</b>, <b>{</b>&nbsp;&#151;&nbsp;, are invariant (required and not to be modified)</li>
+
+<li>[<i>item</i>] (brackets) indicate <i>item</i> is optional</li>
+
+<li><b>|</b> (pipe) indicates an alternative (<i>a</i><b>|</b><i>b</i> means <i>a</i> is alternative to <i>b</i>)</li>
+</ul>
+
+and:
+<br>
+<br>
+<table summary="">
+<tr valign="top">
+<td width="120"><i>sym</i></td>
+<td>is the symbol identifier. A list of all the available identifiers is provided in "<a href="T_OV_STavailable.htm">Available Symbolic Expression Identifiers</a>"</td>
+</tr>
+
+<tr valign="top">
+<td><i>name</i></td>
+<td>is the name of the user defined property to be displayed.</td>
+</tr>
+
+<tr valign="top">
+<td><i>n</i> or <i>n</i><sub>1</sub>, <i>n</i><sub>2</sub></td>
+<td>are indexes available only for use with integer/real array variables</td>
+</tr>
+
+<tr valign="top">
+<td><i>option</i></td>
+<td>is one of the following options: 
+
+<table summary="">
+<tr valign="top">
+<td><b>F</b></td>
+<td>to indicate a C-like format in the <i>option_value</i> with the following conventions: 
+
+<table summary="">
+<tr valign="top">
+<td><b>F("#date(</b><i>date format</i><b>)")</b></td>
+<td>applied to a string property, assumes it is a date and formats it as indicated by the <i>date format</i> expression inside parentheses.
+<br>
+Have a look at the <a href="T_OV_ST_DateFormats.htm">list of valid date formatting codes you can use</a>.
+<br>
+The property can contain a date in any format allowed by the current settings of the <b>Start<img alt="error-file:DeleteMe.htm" src="../../images/general/litarr.gif">Control Panel<img alt="error-file:DeleteMe.htm" src="../../images/general/litarr.gif">Regional settings<img alt="error-file:DeleteMe.htm" src="../../images/general/litarr.gif">Date</b> tab of your Microsoft&reg; Windows environment.
+<br>
+For example: If the property "mydate" has been defined, assigned to the drawing and its value is 11/23/99, you can create a string like the following: $M{mydate:F("#date(%d-%B-%Y)")} and this will display the date: 23-November-1999.</td>
+</tr>
+
+<tr valign="top">
+<td><b>F("#clear(</b><i>mask</i><b>)")</b></td>
+<td>conventional format for blanking: if the result matches the <i>mask</i>, the string is blanked. You can use the <b>@</b> wildcard, in the place of any number of any character.
+<br>
+This option can be useful, for example, to blank the string showing a number, when it has a certain value.
+<br>
+Suppose you have defined an integer property "servicecode" and assigned it to the model with the (n) value. You can decide not to display your service code when its value is zero. You just have to create a text string like the following: $M{servicecode:F("#clear(0)"}. The service code will be displayed whenever it is not zero, but not when it is zero.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>F</b><i>num</i></td>
+<td>to refer to global logical formats, where <i>num</i> can be one of the following: 
+
+<table summary="">
+<tr valign="top">
+<td align="right"><b>0</b></td>
+<td>number of decimal places contained in output data on the User Interface</td>
+</tr>
+
+<tr valign="top">
+<td><b>11</b></td>
+<td>number of decimal places in dimensions; specifying a negative value automatically eliminates insignificant digits.</td>
+</tr>
+
+<tr valign="top">
+<td><b>12</b></td>
+<td>number of decimal places in dual dimensions; specifying a negative value automatically eliminates insignificant digits.</td>
+</tr>
+
+<tr valign="top">
+<td><b>13</b></td>
+<td>number of decimal places in dimension tolerances; specifying a negative value automatically eliminates insignificant digits.</td>
+</tr>
+
+<tr valign="top">
+<td><b>14</b></td>
+<td>number of decimal places in tolerances of dual dimensions; specifying a negative value automatically eliminates insignificant digits.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><SPAN id="TWOD"><b>S</b></SPAN></td>
+<td><SPAN id="TWOD">
+to be used only with the <a href="T_OV_STavailable.htm">symbolic expression</a> <b>QSM{<i>name</i>}</b>, searches <i>name</i> <b>within the assembly hierarchy. <i>option_value</i> follows these conventions:</b> 
+
+<table summary="">
+<tr valign="top">
+<td width="50"><b>S(#,#)</b></td>
+<td>A couple of integer numbers separated by a comma specify the search target assembly levels and the search order left to right. The numbers may be: 
+
+<ul class="noleft">
+<li class="noleft"><i>0</i> &mdash; to represent the top level of the assembly;</li>
+
+<li class="noleft"><i>-1</i> &mdash; to represent the bottom level of the assembly;</li>
+
+<li class="noleft"><i>-2</i> &mdash; to represent the entities within the top or bottom level components, whether visible or not;</li>
+
+<li class="noleft"><i>a positive number</i> &mdash; to represent a specific level from the top.</li>
+</ul>
+
+<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="0" summary="">
+<tr valign="top">
+<td colspan="2" style="font: bold; font-variant: small-caps;"><i>Examples</i></td>
+</tr>
+
+<tr valign="top">
+<td width="60"><i>:S(-1,0)</i></td>
+<td>the search for the property starts from the lowest level component (-1) and continues upwards (0).</td>
+</tr>
+
+<tr valign="top">
+<td><i>:S(1,1)</i></td>
+<td>the search for the property is limited to the components at the first level from the top.</td>
+</tr>
+
+<tr valign="top">
+<td><i>:S(1,-2)</i></td>
+<td>the search for the property starts from the components at the first level from the top (1) and continues to the lowest level entities contained in the bottom level components (-2).</td>
+</tr>
+
+<tr valign="top">
+<td><i>:S(0,-2)</i></td>
+<td>the search starts from the top level (0) and continues to the lowest level entities contained in the bottom level components (-2). Note that in this case the property may be found even in top level entities not contained in any component.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table></SPAN>
+</td>
+</tr>
+
+<tr valign="top">
+<td><i>default description</i></td>
+<td>is the string that will be displayed when the <b>Symbolic text expansion</b> check box in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b> is <i>not</i> selected. If the default description is omitted, when the symbolic text expansion is not active, the string which describes the notation will be displayed (for example, if you have an "int_diameter" variable, when the symbolic text expansion is active, the&nbsp;symbolic text $V{int_diameter} will display the value of the variable; on the contrary, if the symbolic text expansion is not active and no default description is defined, the $V{int_diameter} string itself will be displayed; in the same situation, if an "internal diameter" default description was defined, "internal diameter" would be displayed)</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

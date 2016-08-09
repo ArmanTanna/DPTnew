@@ -1,0 +1,51 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<TITLE>sec.</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/OPTIONS.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+blockquote{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#FFFFE1">
+
+
+
+<p>In the edit box specify the maximum time you want to wait before the movement of the view starts. This time is used to build the <!--<a href="../../graphics/jsoptions/OP_QO_HWDispList.htm">-->
+
+<a href="../../../options/graphics/jsoptions/OP_QO_HWDispList.htm">hardware display list</a> that provides a better speed in the movements. If the system can't build the display list within this time, it will try to build a less detailed display list in the following sequence.</p>
+
+
+<ol class="noleft">
+<li>Full display list with no simplification</li>
+<li>Full display list with some simplification</li>
+<li>Simplified display list with the same simplification as the previous step</li>
+<li>Simplified display list with a higher simplification.</li>
+</ol>
+
+<p>The program tries to process each step within the time (seconds) specified in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1669">Max. pre-processing latency:</span> edit box to build the display list. If it fails, it tries the next (more simplified) step.</p>
+
+
+<hr color="navy">
+<table align="center">
+<td><a href="../../IDPP_SET_DYNAMIC_VISUALIZATION.htm"><img border="0" src="../../../../images/general/FromPopupToMain.gif" alt="Up to Category Page"></a></td>
+</tr>
+</table>
+</body>
+</html>
+

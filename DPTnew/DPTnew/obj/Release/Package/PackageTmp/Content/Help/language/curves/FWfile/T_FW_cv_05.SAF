@@ -1,0 +1,235 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+
+
+<meta name="T_2010t1" content="translate">
+<TITLE>Helix Curve</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1374">Helix</span></p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+254">Helix Curve</span> command enables you to create a circular helix curve (see &quot;<a href="../../Mathconc/T_MC_cv_05.htm">Circular Helix</a>&quot; for details on the definition) providing you with a number of different construction modes.<br>
+
+You can specify the curve axis and a point <i>or</i> the axis and the value of the radius and choose the parameters to indicate, which can be the pitch and the height, the pitch and the number of revolutions or the height and the number of revolutions.<br>
+The radius and the pitch of the helix curve can be made variable according to a linear or quadratic law, while a start and an end angle with respect to the starting point of the curve can also be specified.</p>
+<p>The result of the command is a single curve, that can be a <i>high quality</i> one, that is it can have internal <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> (<i>Torsion</i>) or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4</a> (<i>Curvature plot curvature</i>) continuity and higher degree, rather than an ordinary spline curve (internal <a href="../../MathConc/T_MC_ContinuityClassification.htm#G2">G2</a>&nbsp;&#151;&nbsp;<i>curvature</i>&nbsp;&#151;&nbsp;continuity, degree = 3). The resulting curve can also be made associative (see &quot;<i><a href="../OVfile/T_OV_curves.htm#Assoc">Associativity</a></i>&quot; for details).</p>
+<p>After starting the command, you can proceed as follows.</p>
+<ul class="noleft">
+<li><a name="CTX_HelixCurve_Type"></a>In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span> drop-down list select the type of construction to be used to create the curve: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+396">Axis and point</span>
+
+<br>To create the helix by specifying its axis (<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+54">Axis</span>&nbsp;&#151;&nbsp;see &quot;<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>&quot; for details on how to define an axis) and its starting point (
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+271">Endpoint</span>).</td>
+
+<td><img border=1 src="../images/Helix000.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+397">Axis and radius</span>
+
+<br>To create the helix by specifying its axis (<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+54">Axis</span>) and its starting radius (
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+403">Radius</span>). In this case the radius will be computed along an axis obtained as the X axis after theoretically moving the Z axis of the Work Plane onto the selected axis of the helix.</td>
+
+<td><img src="../images/HC_Radius.gif" border="1">
+</td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_HelixCurve_DefinedBy"></a>In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+401">Mode</span> drop-down list you can select the definition mode for the helix settings: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+398">Pitch and height</span>
+
+<br>To define the helix through its pitch (the pitch of a circular helix is the distance, measured along the axis, between two successive turns of the curve) and its height.<br>
+Provide the values in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+413">Pitch</span> and 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+276">Height</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red handle displayed on top of the axis.</td>
+<td><img src="../images/HC_HeightPitch.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+399">Pitch and revolutions</span>
+
+<br>To define the helix through its pitch and its number of turns (a turn of a circular helix is the section of the helix between two successive intersections with the same generator of the cylindrical or conical surface on which the helix lies).<br>
+Provide the values in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+413">Pitch</span> and 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+402">Revolutions</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red arrow displayed when this mode is selected.</td>
+<td><img src="../images/HC_PitchRevolutions.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+400">Height and revolutions</span>
+
+<br>To define the helix through its height and its number of turns.<br>
+Provide the values in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+276">Height</span> and 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+402">Revolutions</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red handle displayed on top of the axis.</td>
+<td><img src="../images/HC_HeightRevolutions.gif" border="1"></td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_HelixCurve_Rotation"></a>In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+210">Rotation</span> drop-down list you can select the rotation direction: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+278">Clockwise</span>
+
+<br>The helix curve will be created by moving a point in a clockwise direction about the selected axis and starting from the initial end point (or initial point of the radius) you specified.</td>
+<td><img border="1" src="../../../images/rn_2007T1/HC_Clockwise.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+279">Counter-clockwise</span>
+
+<br>The helix curve will be created by moving a point in a counterclockwise direction about the selected axis and starting from the initial end point (or initial point of the radius) you specified.</td>
+<td><img border="1" src="../../../images/rn_2007T1/HC_CounterClockwise.gif"></td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_HelixCurve_AssociativeMode"></a>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box enables you to create associative curves. 
+
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curve will be <a href="../OVfile/T_OV_curves.htm#Assoc">associative</a>. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> (&nbsp;<img src="../images/HC_ASSO_ICON.gif" border="1" align="absmiddle">&nbsp;).</li>
+
+
+<li>When the check box is cleared, the resulting curve will not be associative.</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-top:6px;">Several options are available if you expand the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node.</p>
+
+
+<ul class="noleft">
+<li><a name="CTX_HelixCurve_TaperRatioAngle"></a>As soon as the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is expanded, the 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+280">Taper Ratio Angle</span> check box is displayed on the curve. 
+
+
+<table>
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif"></td>
+<td>When the box is cleared the helix will have no taper angle (it will be cylindrical)</td>
+<td><img src="../images/HC_Cylindrical.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif"></td>
+<td>When the box is checked, you can type the value of the taper angle inside the adjacent box, so as to obtain a conical helix.</td>
+<td><img src="../images/HC_Conical.gif" border="1"></td>
+</tr>
+</table>
+</li>
+</ul>
+
+<p>Note that all the mini-dialog boxes displayed on checking the following boxes can be displayed/hidden by expanding/collapsing the corresponding nodes.</p>
+
+<ul class="noleft">
+<li><a name="CTX_HelixCurve_PitchLaw"></a>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+404">Pitch law</span> check box enables you to choose whether to create a fixed pitch helix or a variable pitch one: 
+
+
+<ul class="noleft" >
+<li>When the box is cleared, the helix curve will be a fixed pitch one.</li>
+
+<li>When the box is checked, the helix curve will be a variable pitch one. The pitch value will vary from the initial value (<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+413">Pitch</span>) to the final one (
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+409">End Pitch</span>) according to a law you can choose in the adjacent drop-down list. The law can be 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+406">Linear</span> or 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+407">Quadratic</span>.</li>
+
+</ul>
+</li>
+
+<li><a name="CTX_HelixCurve_RadiusLaw"></a>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+405">Radius law</span> check box enables you to choose whether to create a fixed radius helix or a variable radius one: 
+
+
+<ul class="noleft">
+<li>When the box is cleared, the helix curve will be a fixed radius one.</li>
+
+<li>When the box is checked, the helix curve will be a variable radius one. The radius value will vary from the initial value (<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+403">Radius</span>) to the final one (
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+408">End Radius</span>) according to a law you can choose in the adjacent drop-down list. The law can be 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+406">Linear</span> or 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+407">Quadratic</span>.</li>
+
+</ul>
+</li>
+
+<li><a name="CTX_HelixCurve_EndAngles"></a>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+412">End angles</span> check box enables you to choose whether to specify a start and an end angle with respect to the starting point of the curve or not. 
+
+
+<ul class="noleft">
+<li>When the box is cleared no start and end angle values are to be specified.</li>
+
+<li>When the box is checked you can type the initial angle in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+410">Start Angle</span> box and the final one in the 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+411">End Angle</span>, both displayed on the curve.</li>
+
+</ul>
+</li>
+
+<li><a name="CTX_HelixCurve_HighQualityApproximation"></a>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+364">High Quality Approximation</span> check box enables you to specify the type of the resulting curve you will obtain. 
+
+
+<ul class="noleft">
+<li>When the box is checked, the resulting curve will be internally G3 or G4 continuous and will have higher degree.</li>
+<li>When the box is cleared, the resulting curve will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_Helix01.htm"><b>Create a cylindrical or conical circular helix</b></a>
+</ul>
+
+<hr color="silver">
+<h5>Mathematics concepts related to this topic</h5>
+<ul class="noleft">
+<li><a href="../../Mathconc/T_MC_cv_05.htm"><b>Circular Helix</b></a></ul>
+
+<hr color="silver">
+</body>
+</html>
+

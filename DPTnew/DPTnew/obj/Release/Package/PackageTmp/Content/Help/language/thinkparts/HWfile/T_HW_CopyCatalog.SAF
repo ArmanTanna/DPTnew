@@ -1,0 +1,123 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="New licensing" content="modified">
+<TITLE>Job: Copying a catalog</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body onload="viaMk();"  BGCOLOR="white">
+
+<h4>Copying a catalog</h4>
+
+<p>If you require a catalog of parts similar to an existing one, the <b>Copy Catalog</b> command enables you to create it in a quick and easy way. In this example we will see the step by step procedure to duplicate the sample UNI 6592 washers catalog to create the similar UNI 6593 washers. Described by three basic measures, the difference between the two washers are the values of the tree parameters, while the template could remain the same; we will, however, change its material to suggest different mass properties.</p>
+
+<!-- <p>Prerequisite to this procedure is the availability of a <b>think<font color="#FF0F00">3</font></b> application and a <b>thinkparts</b> <b>Catalog Manager</b> licenses.</p> -->
+
+<table>
+	<tr valign="top">
+		<td><b>1</b></td>
+		<td>Start the <b>thinkparts</b> <a href="../FWfile/T_FW_CatManager.htm"><b>Catalog Manager</b></a> and open the catalog tree to visualize the sample <b>Washers</b> catalog.</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>2</b></td>
+		<td>Right-click on the catalog and select the <a href="../FWfile/T_FW_CopyCatalog.htm"><b>Copy Catalog</b></a> command.</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>3</b></td>
+		<td>In the dialog that opens, type the name of the new catalog that will be created as copy of the existing one: <i>6593A</i>. Press <i>TAB</i> when you are done, and then click <b>OK</b> to start the copy process. Close the dialog with <b>Cancel</b>. Note that in this phase the codified parts are not copied, as this would cause duplicate values in the <b>thinkPLM</b> database.</td>
+	</tr>
+
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>4</b></td>
+		<td>The new catalog should appear as a first level catalog in the <a href="../FWfile/T_FW_CatManager.htm#step_01"><b>Catalog Manager</b></a> tree browser frame, and its label should be <i>Copy of: washers...</i>. Move it to the <b>Washers</b> index where the original catalog resides by using the drag &amp; drop feature of the <b>Catalog Manager</b>.</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>5</b></td>
+		<td>Right click the new catalog and select the <a href="../FWfile/T_FW_Edit.htm"><b>Edit</b></a> command to edit the new catalog. Use the wizard to change at least the description (<i>Other washers</i>), that will be displayed in the browser tree, and the part description (<i>Washer UNI 6593-<d1>x<d2></i>), that will become the component description when you will assign the part number to the parts. Since the preview and field attributes are the same as the old catalog, no other change is necessary; click <b>Next</b> in the remaining steps then <b>Finish</b> to close the wizard.</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>6</b></td>
+		<td>The main difference between the catalogs is the values of the parts; right-click on the catalog name and select <a href="../FWfile/T_FW_EditValues.htm"><b>Edit Values</b></a>; edit the existing values and insert some of the UNI 6593 washers as per the following sample table:
+			<a href="Table.htm"></a>
+			<table border=3 bordercolor="silver" bgcolor="white" width="50%" align="center"><caption><b>&nbsp;</b></caption>
+				<tr>
+					<td bordercolor="white"><iframe src="Table.htm" width="100%" height="100" scrolling="yes" frameborder="0"></iframe> </td>
+				</tr>
+			</table></td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>7</b></td>
+		<td>This type of washer is probably made of a different material than the standard steel one. Right-click on the catalog name again and select the <a href="../FWfile/T_FW_LoadTemplate.htm"><b>Load Template</b></a> command. Select the <i>Schnorr.e3</i> model template and <a href="mk:@MSITStore:forcus.chm::/language/attributes/HWfile/T_HW_SetColor.htm#Modify">assign a different color</a> to the washer model; in this way you are enabled to assign the proper mass properties to the model.</td>
+
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>8</b></td>
+		<td>Test your work by <a href="../FWfile/T_FW_ImportPart.htm">importing</a> in the <b>think<font color="#FF0F00">3</font></b> application two washers of the same size (M8, for example) taken one from the old and one from the new catalogs. They should differ in color and dimensions:<br>
+<p><img src="../../../images/thinkparts/CopyCatalog_Job.gif" border="1" alt=""></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td><b>&nbsp;</b></td>
+		<td>&nbsp;</td>
+	</tr>
+
+</table>
+
+<hr color="silver">
+</html>
+</body>

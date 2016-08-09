@@ -1,0 +1,80 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using the Section interpolation option of the Global Sweep command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Using the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+20">Section interpolation</span> option of the 
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command</h3>
+
+
+<p style="margin-bottom:0;">In order to improve the final shape and to gain better control on its degree and continuity values, you can choose the method to be used for the interpolation of the sections in the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+20">Section interpolation</span> drop-down list that has been added under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the selection list of the <a href="../FWfile/T_FW_GlobalSweep.htm#Match">
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a> command.</p>
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+22">Max. degree 3</span></td>
+
+<td>When this option is selected, the final degree along the U direction for the final shape will be 10. When the drive is closed, if the motion is continuous enough, the continuity value at the closure point will be C2 rather than C0 as it used to be.<br>
+Please note that if the number of sections is lower or equal to 4, then the final U degree of the shape will be <i>lower or equal</i> to 10.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+23">Max. degree 5</span></td>
+
+<td>When this option is selected, the final degree along the U direction for the final shape will be 12. When the drive is closed, if the motion is continuous enough, the continuity value at the closure point will be C4.<br>
+Please note that if the number of sections is lower or equal to 4, then the final U degree of the shape will be <i>lower or equal</i> to 12.</td>
+</tr>
+</table>
+
+<p class="rn_desc">Two examples:</p>
+
+<table cellpadding="5%">
+<tr valign="top">
+<td><img border="1" src="../../../images/surfaces/GS_INTERPOL01.gif"></td>
+<td>In this model, 8 sections have been selected and the interpolation degree was set to 5. The degree of the resulting surface is 12, while it would have been 14 in previous versions.</td>
+</tr>
+
+<tr valign="top">
+<td><img border="1" src="../../../images/surfaces/GS_INTERPOL02.gif"></td>
+<td>In this model, the drive is closed and 4 sections have been selected. The continuity value of the resulting shape at the intersections is C4.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

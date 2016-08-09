@@ -1,0 +1,150 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a catalog of tubes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+<h3>Creating a catalog of tubes</h3>
+
+<p>You can create a <b>thinkparts</b> catalog so that you can also use it with the Tubing commands. Follow these steps to build from scratch a model that you will be able to use both as a <b>thinkparts</b> and a <b>Tubing</b> catalog:</p>
+
+<div align="center">
+<p><img src="../../../images/tubing/cust_model.gif" alt="" border="1"></p>
+</div>
+
+<table border="0" bordercolor="#C0C0C0" cellspacing="3" cellpadding="3" summary="">
+<tr valign="top">
+<td align="left"><b>1</b></td>
+<td>Start the <b>think<font color="#FF0F00">3</font></b> application and start a <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_01_01.htm">new model</a>.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>2</b></td>
+<td>Insert a new <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_01.htm">profile</a> and draw a circle. The dimensions are not relevant. Add a <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_01.htm"><u>ground</u></a> constraint to the center of the circle.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>3</b></td>
+<td>Draw a second circle concentric to the first. A <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_08.htm">coincidence</a> constraint should appear near the circles' centers. If not, add it manually.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>4</b></td>
+<td>Add the diameter dimensions to both the internal and external circles as shown in the following image:<br>
+<br>
+<img src="../../../images/ThinkParts/BlueTubeProfile.gif" alt="" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>5</b></td>
+<td>Start the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01_solid.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6803">Linear Solid</span></a> command and accept the default length (not relevant at this time).</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>6</b></td>
+<td>In order to assign a variable name to the dimensions, all dimensions need to be displayed. If they are not, right-click on the solid in the model structure and select <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+609">Show Driving Dimensions</span>.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>7</b></td>
+<td>Start <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1671">Spreadsheet</span></a>, define and <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><u>assign</u></a> the following independent variables:<br>
+<br>
+ 
+
+<table border="1" bordercolor="#c0c0c0" cellpadding="3"  cellspacing="0" summary="" width="100%">
+<tr valign="top" style="font-variant: small-caps; font-weight: bold;" bgcolor="#FFFFE1">
+<td><span class="UI_COMMAND" id="idd_spreadsheet.msg+idd_spreadsheet+1827">Name</span></td>
+<td><span class="UI_COMMAND" id="idd_spreadsheet.msg+idd_spreadsheet+1828">Expression</span></td>
+<td>Assign to</td>
+<td>Notes</td>
+</tr>
+
+<tr valign="top">
+<td>TD_LENGTH</td>
+<td>50</td>
+<td>Tube length</td>
+<td>This name is required if you plan to use the cutting BOM tools.</td>
+</tr>
+
+<tr valign="top">
+<td>T_ID</td>
+<td>50</td>
+<td>Internal diameter of the part.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td>T_ED</td>
+<td>55</td>
+<td>External diameter of the part.</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>8</b></td>
+<td>The model is ready to be used as <b>thinkparts</b> component. However, if you plan to use it with the Tubing commands you need to specify the part origin, input and output. You do this with symbolic references to three datum points.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>9</b></td>
+<td>Start the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/fwfile/T_FW_Sl_01_09.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+25">Datum Point</span></a> command and set the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+192">Point On:</span> option to <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+2">Face</span> and the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+230">Type</span> option to <span class="UI_COMMAND" id="tdesign.msg+_SURFACE_UI_LABEL_+214">Parameters</span>.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>10</b></td>
+<td>Select the bottom face and set the <b>U</b> and <b>V</b> parameters to <tt>0.5</tt>, so that the point in the center of the face:<br>
+<br>
+<img src="../../../images/ThinkParts/BlueTubeDatumPoint.gif" alt="" border="1"><br>
+<br>
+Repeat inserting another point in the same position, then select the top face and insert the third datum point in the center of the top face.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>11</b></td>
+<td>Start the <a href="mk:@MSITStore:help.chm::/language/SymbRefs/FWfile/T_FW_SymbRefs.htm"><span class="UI_COMMAND" id="tdesign.msg+_SYMBREFSUI_LABEL_+1">New Symbolic Reference</span></a> command, select the point in the center of the top face and type <tt>OUTPUT</tt> as symbolic reference name.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>12</b></td>
+<td>Repeat the last step to assign the <tt>INPUT</tt> and <tt>ORIGIN</tt> to the points in the center of the lower face of the model. Since the two point coincide, you may find it easier to select them in the model structure. Also, you may view the symbolic references with <a href="mk:@MSITStore:help.chm::/language/SymbRefs/FWfile/T_FW_ViewSymbRefs.htm"><span class="UI_COMMAND" id="ButtonToolbar_SymbolicReference.msg+ButtonToolbar_SymbolicReference+6985">View Symbolic References</span></a>.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>13</b></td>
+<td>Finally, use <a href="../FWfile/T_FW_CreatePartFamily.htm"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span></a> to create the <b>thinkparts</b> catalog.</td>
+</tr>
+
+<tr valign="top">
+<td align="left"><b>14</b></td>
+<td>If you plan to use this catalog with the Tubing commands, refer to <a href="mk:@MSITStore:tubing.chm::/language/tubing/HWfile/T_HW_customize.htm">Creating a Customized Tubing Catalog</a> for details on how to add this to the Tubing catalogs.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

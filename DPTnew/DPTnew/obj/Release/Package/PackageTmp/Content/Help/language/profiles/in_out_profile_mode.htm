@@ -1,0 +1,81 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Decide if it is better to work with your 2D geometry entities in or out of Edit Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+
+
+<h3>Decide if it is better to work with your 2D geometry entities in or out of Edit Profile</h3>
+
+<p>Since profiles are made up of 2D geometry entities that are combined into a 2D shape, they can be created directly in the <span class="UI_COMMAND" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7742">2D Profile</span> environment or indirectly outside it, that is in the <span class="UI_COMMAND" id="eklib.msg+eklib+422">Model</span> environment. Either way, the goal will usually be to end with a valid profile, unless you wanted a sketch consisting of 2D entities for a purpose not resulting in a 3D shape. Each modality provides some unique benefits.</p>
+
+<p>Therefore, when you create profiles that will be the basis for your models, you do it in one of the following ways:</p>
+
+<ul class="noleft">
+<li><a href="#in"><b>Working within the <span class="UI_COMMAND" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7742">2D Profile</span> environment</b></a></li>
+
+<li><a href="#outside"><b>Working outside the <span class="UI_COMMAND" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7742">2D Profile</span> environment</b></a></li>
+</ul>
+
+<h4><a name="in"></a>Working within the <span class="UI_COMMAND" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment</h4>
+
+<p>When you create 2D geometry directly in the <span class="UI_COMMAND" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment, all the geometries created within it are automatically added to the profile.</p>
+
+<p>A huge benefit of working with this modality is that some implied geometrical constraints will be automatically applied and all the 2D geometry entities will be linked together.</p>
+
+<p><img border="1" src="images/profiles_02.gif"></p>
+
+<p>Once the 2D entities form a profile, it is a unique 2D entity in the Model Structure.</p>
+
+<h4><a name="outside"></a>Working outside the <span class="UI_COMMAND" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment</h4>
+
+<p>Even while working within the <span class="UI_COMMAND" id="eklib.msg+eklib+422">Model</span> environment, you can sketch 2D geometry using all drafting commands and all the curve commands.</p>
+
+<p>Here the benefit is that you can draw anything you want without worrying about any constraints. As an example, you can place your <span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span> where needed and then use the whole 2D capabilities (as you were working with a traditional 2D product). Then you can use that geometry for features (see also <a href="valid_profiles.htm">Create valid 2D profiles for creating 3D models</a>). That geometry won't have any constraints, so it won't be referenced to anything in the model. Changes won't propagate in the model. The good news is that you can add any constraints later in the design (that is, use <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7897">Insert 2D Profile</span> command on that profile and add constraints).</p>
+
+<p>Use construction lines as well as any 2D geometry command.</p>
+
+<p><img border="1" src="images/profiles_03.gif"></p>
+
+<p>By selecting the 2D geometry and creating a solid model or feature in this way, the 2D entities selected for the command will become a profile on the completion of the command and will then be entered into the <b>Model Structure</b>. You can turn 2D geometry into one profile just by selecting the curves and starting the <span class="UI_COMMAND" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7742">2D Profile</span> command. Remember, just 2D curves are suitable for profiles.</p>
+
+<h4>What is best?</h4>
+
+<p>Working within a profile environment is the way to go if you need to work on a dimension-driven design task. Many constraints are added automatically preserving the design intent.</p>
+
+<p>Work outside a profile environment when you are more interested in working in a <i>free minded</i> way, without the need of dimension-driven future modifications, without worrying about constraints.</p>
+
+<p>Moreover, in the program you can always mix these two approaches and you can always add any constraints you need later in the design.</p>
+
+<p>Click <a href="in_out_example.htm">here</a> to view an Example.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

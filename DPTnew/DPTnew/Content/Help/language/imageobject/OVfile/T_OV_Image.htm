@@ -1,0 +1,105 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Images</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+</HEAD>
+
+<BODY bgcolor="#ffffff" onload="viaMk();HideThreeD()">
+
+
+<h3>Images</h3>
+<ul class="noleft">
+<li><a href="#Import">Importing Images</a>
+<li><a href="#Edit">Editing the imported image</a>
+</ul>
+<h4><a name="Import"></a>Importing images</h4>
+<P>There are situations in which it can be useful to import a bitmap image into <span id="TWOD">a model or </SPAN>a drawing, so that it can be used as a reference.</p>
+
+<span id="TWOD">Suppose the designer has created the preliminary sketch on the paper and you have this sketch as the base on which to create the real model. This may happen, for example, if the designer is far away and can't send you but a fax with a first draft. 
+
+<p>You can turn the sketch into a bitmap image with a scanner and import it into the program using the <a  href="../FWfile/T_FW_InsertImageObject.htm"><b>Insert Image</b></a> command.
+<p><img src="../../../images/ImageObject/Image1.gif"></SPAN>
+<P>You can profitably import images into drawings<span id="TWOD">, for example to 
+<a href="mk:@MSITStore:DFTB.chm::/language/dftb/HWfile/T_HW_TBaddLogo.htm">customize title blocks</a></SPAN>.
+
+
+<p>Recognized image file formats are:</p>
+<table>
+<tr><td width="50"><b>.bmp</b></td><td>BMP format (Windows Bitmap)</td></tr>
+<tr><td><b>.tif</b></td><td>TIFF format (Tagged Image File)</td></tr>
+<tr><td><b>.gif</b></td><td>GIF format (CompuServe Graphics
+Interchange)</td></tr>
+<tr><td><b>.jpg</b></td><td>JPEG format (Joint Photographic Expert Group - SA/CCITT)</td></tr>
+<tr><td><b>.png</b></td><td>PNG format (Portable Network Graphics)</td></tr>
+</table>
+<p>Once the file is selected <span id="TWOD">:
+
+<ul class="noleft">
+<li><b>In the Model environment</b><br>the image is placed onto the current Work Plane, its lower-left corner coincident with the Work Plane origin.
+<li><b>In the Drawing environment</b><br></SPAN>the image is placed with its lower-left corner on the origin.
+<span id="TWOD"></ul></SPAN>
+
+<p>
+<p>A set of <b>Options</b> is available to enable you to control the image colors and the resize quality to be used when importing it into the <span id="TWOD">model</SPAN>
+<span id="HIDETD">drawing</SPAN>. These options can be very useful especially when the image to be imported is a big one and contains many colors.<br>&nbsp;
+
+<h4><a name="Edit"></a>Editing the imported image</h4>
+<span id="TWOD"><p>Some editing operations slightly differ depending on the environment you're working in:</p>
+
+<ul class="noleft">
+<li><a href="#Model"><b>Model environment</b></a>
+<li><a href="#Drawing"><b>Drawing environment</b></a>
+</ul>
+<p>Some other operations are the same in both environments:</SPAN>
+<ul class="noleft">
+<li>To change the scale of the image you can use the <a  href="../FWfile/T_FW_AdjustScale.htm"><b>Rescale</b></a> command. You can select the rescaling mode in a set of three (based on the pixel size in the real world, based on DPI and scale, based on a distance to be applied to two selected points).
+<li>The image can be removed using the <a  href="../FWfile/T_FW_Delete.htm"><b>Remove</b></a> command.
+<li>A proper set of parameters, in the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_IMGOBJ.htm"><b>Image</b></a> category of the <b>System Options</b>, enables you to control the quality of the image.</ul>
+
+<span id="TWOD"><h5><a name="Model"></a>Model environment<hr color="silver"></h5>
+
+<p>In the Model environment, if you move the Work Plane after loading an image, the image will remain in its original position. To move it onto the new Work Plane, use the <a href="../FWfile/T_FW_MoveToWorkPlane.htm"><b>Move to Work Plane</b></a> command.
+<p>You can translate, rotate and resize the image on the Work Plane using the <a  href="../FWfile/T_FW_Edit.htm"><b>Edit</b></a> command. An anchor handle consisting of an origin and two axes will be displayed in the lower-left corner of the image, and a circular marker in the higher-right corner.</p>
+<ul class="noleft">
+<li><i>To translate</i> the image on the Work Plane, drag the origin of the anchor handle to the new position you want the image to be placed in.
+<br><img alt="" src="../../../images/rn_901/GRA526_image002.gif"><br>
+<li><i>To rotate</i> the image on the Work Plane, drag the arrow corresponding to the X or Y axis.
+<br><img alt="" src="../../../images/rn_901/GRA526_image005.gif"> <img alt="" src="../../../images/rn_901/GRA526_image006.gif"><br>
+<li><i>To resize</i> the image on the Work Plane, drag the circular marker on the higher-right corner to a new position: the image will be enlarged/reduced accordingly.
+<br><img alt="" src="../../../images/imageobject/GRA526_image007.gif"><br>
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+If an image is inserted into a <a href="../../view/OVfile/T_OV_Constrained.htm">constrained view</a>, it will be oriented along the <i>view plane</i> rather than along the Work Plane, thus enabling you to easily load three different standard views of the object (top, front, right) into the model.</td></tr></table>
+
+<h5><a name="Drawing"></a>Drawing environment<hr color="silver"></h5></SPAN>
+<p>In the Drawing environment, you can translate and resize the image using the <a  href="../FWfile/T_FW_Edit.htm"><b>Edit</b></a> command. An anchor handle consisting of an origin and two axes will be displayed in the lower-left corner of the image, and a circular marker in the higher-right corner.</p>
+<ul class="noleft">
+<li><i>To translate</i> the image, drag the origin of the anchor handle to the new position you want the image to be placed in.
+<br><img alt="" src="../../../images/rn_901/GRA526_image002.gif"><br>
+<li><i>To resize</i> the image, drag the circular marker on the higher-right corner to a new position: the image will be enlarged/reduced accordingly.
+<br><img alt="" src="../../../images/imageobject/GRA526_image007.gif"><br>
+</ul>
+</p>
+
+<hr color="silver">
+</body>
+</html>
+

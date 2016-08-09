@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Adding a Draft Angle using GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Adding a Draft Angle using GSM</h3>
+<p class="notop">This article describes how to use the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command to add a draft angle to a part that has already been created (as an example, at the very end of the design process, or even to a model imported into the <b>think<font color="#FF0F00">3</font></b> application via IGES, STEP etc.). See also the <a  href="../globalshape/FWfile/T_FW_ZoneDraft.htm"><b>Zone Draft</b></a> command.
+
+<ol class="litleft">
+<li>Here you see how easily and quickly you can add a draft angle to model completely made of surfaces.<BR><BR><IMG border=1 SRC="images/dn01.gif"><BR>&nbsp;
+<li><i>Initial surfaces</i><br>
+Create the vertical <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_02.htm"><b>Linear Sweep</b></a> surfaces&nbsp;&#151;&nbsp;the blue ones&nbsp;&#151;&nbsp;with no draft angle, just a little higher than the model. They are coincident with the bounding box of the model. Do not create the surfaces from the fillets on the edges.
+
+<BR><BR><IMG border=1 SRC="images/dn02.gif"><BR>&nbsp;
+<li><i>Target surfaces</i><br>
+Create linear sweep surfaces&nbsp;&#151;&nbsp;the red ones&nbsp;&#151;&nbsp;with a draft angle, with the same length as the blue surfaces. Make sure the draft angle is not too big for the actual model, in order to avoid intersections on the top.
+<BR><BR><IMG border=1 SRC="images/dn03.gif"><BR><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b><i>Tip:</i></b><br>
+Create all surfaces on different layers. For example: Model layer 1, blue surfaces layer 2, red surfaces layer 3. Than you can make the needed layer visible at any moment while the command is active.</td></tr></table><br><br>
+Why do we need these two sets of surfaces? We are going to define a "transformation" using very simple "auxiliary" surfaces. Then we will apply this transformation to the actual surfaces (part).<br>&nbsp;
+<li>Start the 
+
+<a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command.<br>&nbsp;
+
+<li>Define the entities to be matched (<i>What to <b>Match</b></i>). You will use two groups:<br>&nbsp;
+<b>Group 1</b>
+<ul class="noleft">
+<li><b>Initial curves</b>: Select the boundaries of all blue surfaces on the bottom.
+<BR><BR><IMG border=1 SRC="images/dn04.gif"><BR><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b><i>Tip</i></b>:<br>
+Start from one surface and keep going in one direction (clockwise or counter-clockwise)</td></tr></table><br>&nbsp;
+<li><b>Target curves</b>: Select the boundaries of all red surfaces on the bottom. Set the constraint to <b>Target position + target tangent</b>.
+<BR><BR><IMG border=1 SRC="images/dn05.gif"><BR><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b><i>Tip</i></b>:<br>
+Start from one surface and keep going in one direction (clockwise or counter-clockwise)
+At the end of the selection the Constraint drop-down list will be displayed. If doesn't show up, this means you have selected something wrong or there might be a gap between the surfaces.
+
+</td></tr></table><br>&nbsp;</ul>
+<b>Group 2</b>
+<ul class="noleft">
+<li><b>Initial curves</b>: Select the boundaries of all blue surfaces on the top.
+<BR><BR><IMG border=1 SRC="images/dn06.gif"><BR><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b><i>Tip</i></b>:<br>
+Start from one surface and keep going in one direction (clockwise or counter-clockwise)</td></tr></table><br>&nbsp;
+<li><b>Target curves</b>: Select the boundaries of all red surfaces on the top. Set the constraint to <b>Target position + target tangent</b>.
+<BR><BR><IMG border=1 SRC="images/dn07.gif"><BR><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b><i>Tip</i></b>:<br>
+Start from one surface and keep going in one direction (clockwise or counter-clockwise)
+At the end of the selection the Constraint drop-down list will be displayed. If doesn't show up, this means you have selected something wrong or there might be a gap between the surfaces.
+
+</td></tr></table><br>&nbsp;
+</ul>
+<li>Now select the <b>Entities to be modified</b>: select all the surfaces and press <b>OK</b> ( <IMG src="../../images/general/OKbutton.gif"> ).
+<BR><BR><IMG border=1 SRC="images/dn08.gif"><BR>&nbsp;
+<li>Here you see the draft surfaces in yellow and the new model. Please have a look the the side. Absolutely perfect. Optionally, you can keep some curves on the top of the model, to be sure that you have the same height.
+<BR><BR><IMG border=1 SRC="images/dn09.gif">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="15%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+<ul class="noleft">
+<li>We don't need <b>Preserving</b> conditions because we have created the two sets of surfaces coincident with the actual boundaries of the bottom part
+<li>When using this methodology, it is recommended to use as set of "auxiliary" surfaces that is coincident with the "bounding box" of the part. Also, the height of these surfaces should be a bit greater than the maximum height of the part (Height is meant by the length along the draft direction). That will assure a better accuracy. 
+</ul>
+</td></tr></table>
+</ol>
+Here is a detailed view of the change:<BR><BR><IMG border=1 SRC="images/dn10.gif">
+
+<hr color="silver">
+</body>
+</html>

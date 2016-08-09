@@ -1,0 +1,104 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Managing Closed Curves with the Lofted Surface Command</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Managing Closed Curves with the Lofted Surface Command</h4>
+
+<p style="margin-bottom:0;">Specific options for managing closed curves are available under the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node of the <a href="../FWfile/T_FW_Lofted.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span></a> command, when the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+112">Type</span> is set to <a href="../FWfile/T_FW_LoftedGrid.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+115">Grid</span></a>. Some mini-dialog boxes will be available once these options are applicable (displayed when the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is expanded). They remain active but not visible when the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is collapsed.<br>
+ First of all, it is necessary to take into account what follows:</p>
+
+<ul class="noleft">
+<li>A set of boundaries can be composed either of closed or of open curves. When using sets of mixed closed and open curves, the command behaves as if all were open curves.</li>
+
+<li>The possibility to close the resulting surface is proposed in the applicable directions (no proposal if there is no possibility).</li>
+
+<li>The origins of the closure, where a <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+283">Close</span> mini-dialog box is displayed, are on the first selected curve of the opposite set (if any).<br>
+<br>
+<img border="1" src="../../rn_2007T1/images/LFT01.gif"><br>
+<br>
+<ul class="noleft">
+<li>When the box is checked, the resulting surface will be closed.</li>
+
+<li>When the box is cleared, the resulting surface will not be closed.<br>
+&nbsp;</li>
+</ul>
+</li>
+
+<li>You can redefine the origin of the closed curves, so as to avoid twisting and to define a large number of different resulting surfaces based on the same sets of curves.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>About redefining the origins</b><br>
+If there is no V parameter curve, origins are not automatically redefined. A curve is built so as to interpolate them for the closure. See the example below: the surface on the right is wavy since there is a lack of correspondence on cusp points and no interpolation is done in the middle.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/LSSTART.gif"><br>
+<br>
+If you have a V parameter curve, all origins will be redefined. Please observe that the generated surfaces are geometrically similar regardless of their start points.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/LSSTART2.gif"><br>
+<br>
+ </td>
+</tr>
+</table>
+
+<br>
+&nbsp;</li>
+
+<li><a name="CTX_StartBoundary"></a>By default, the first boundary (according to the parameterization) will be selected as the origin, but you can simply change it by selecting a different one in the model (both for <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+109">Boundary Set A</span> and for <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+110">Boundary Set B</span>, a <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+3">Start Boundary</span> selector is available in the selection list). The selected boundary is displayed with a dashed line so as to highlight it better.<br>
+<br>
+<img border="1" src="../images/StartBoundary.gif"><br>
+&nbsp;</li>
+
+<li>You can manage position, tangency and curvature continuity along the surface closures.<br>
+<br>
+ <img border="1" src="../../rn_2008T1/images/LoftedClosedG2.gif"><br>
+<br>
+<a name="Continuity"></a>When the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+283">Close</span> check box is selected, the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+136">Continuity</span> mini-dialog box is displayed nearby. Its drop-down list enables you to select one of the following constraints:
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+96">Position</span> </td>
+<td>To apply a positional continuity (G0) constraint along the closure.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+97">Tangent</span> </td>
+<td>To apply a tangency continuity (G1) constraint along the closure.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+56">Curvature</span> </td>
+<td>To apply a curvature continuity (G2) constraint along the closure.</td>
+</tr>
+</table>
+
+Specific warnings will be issued if the geometric conditions do not allow the specified constraint to be applied since an incompatibility situation would be generated.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

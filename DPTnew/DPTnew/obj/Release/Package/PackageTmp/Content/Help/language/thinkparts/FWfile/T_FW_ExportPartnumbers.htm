@@ -1,0 +1,56 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="internally">
+<title>Export Partnumbers (thinkparts)</title>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+<style type="text/css"> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<p>The <img src="../../../images/thinkparts/ExportPartnumbers.gif" align="absmiddle"> <span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+31">Export Partnumbers</span> command exports to a portable file the parts of the selected catalogs to which a part number has been assigned.</p>
+
+
+<p>You can find this command in the context menu that displays when right-clicking on a catalog or an index in the <a href="../../thinkparts/FWfile/T_FW_CatManager.htm">
+<span class="UI_COMMAND" id="tt.msg+tt+219">Catalog Manager</span></a> browser frame.</p>
+
+
+<p>When you start the command, the program opens a folder selection box that enables you to specify a folder where to save the output files. Depending on whether you selected a catalog or an index, the program will create one or more files using as file name the <span class="UI_COMMAND" id="CATALOGUE.msg+CATALOGUE+4">Catalog code</span>, displayed in the catalog properties, with extension <i>tppn</i>.<br>
+
+Each file contains the data of a single catalog; if you selected an index, the program navigates the index tree in order to find all catalogs and creates a <i>tppn</i> file for each catalog.
+<br>
+The file contains the data relevant to the codified parts in the catalog; since these are actual components in your <SPAN id="TWOD"><b>thinkPLM</b></SPAN> database, the file will contain all the data fields specified in your <SPAN id="TWOD"><b>thinkPLM</b></SPAN> configuration. If the catalog contains no codified parts, the <i>tppn</i> file will only contain the catalog code.
+<br>
+A progress bar provides you with an estimate of the time remaining to completion.</p>
+
+<p>You can then send the <i>tppn</i> files to a remote installation, where they can be imported with the <a href="T_FW_ImportPartnumbers.htm"><span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+30">Import Part Numbers</span></a> command.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">The <span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+30">Import Part Numbers</span> command is designed to work only if a catalog with the same name as the original one exists. If you plan to export to a different location your part numbers, use the <a href="T_FW_Export.htm">
+
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+16">Export</span></a> command to export the actual catalog and send it along with the part numbers data.</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="2009t1" content="translate">
+
+<title>Job: Creating the Face-to-Face Fillet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating the Face-to-Face Fillet</h3>
+
+<p>The <a href="../FWfile/T_FW_ft_face.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7734">Face to Face Fillet</span></a> command creates a constant 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+12">Radius</span> fillet between two selected faces. In this example, there is an intermediate face between the two selected faces. The fillet is created by engulfing the intermediate face between the selected faces. Open the <i>Face_to_face_fillet.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+
+<ol class="noleft">
+<li><a name="face"></a>Start the command and select the two faces for the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+43">First Face</span> and 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+44">Second Face</span> selectors between which the fillet is to be created. To reselect the faces, click on the corresponding selector in the selection list and select the face again.<br><br>
+<img src="../images/face-fillet.gif" border="1"><br><br></li>
+
+<li> Enter <b>10</b> in the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+12">Radius</span> mini dialog box.<br><br></li>
+
+<li>In the 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you can specify the smoothness of the fillet curve by selecting the 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+32">Continuous curvature</span> check box and entering a value in the 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+33">Weight</span> edit box. The 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+33">Weight</span> value must lie in the range of 0.01-0.99.<br><br></li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and apply the command. The fillet will be created by engulfing any intermediate face lying between the filleted faces.<br>
+<br>
+ <img border="1" src="../../../images/features/fillet-face.gif"></li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7734">Face to Face Fillet</span> command fails in the following situations: 
+
+<ul>
+<li>When the radius is not sufficient for a tangent curve to be formed.</li>
+
+<li>When the fillet extends beyond the existing boundary edges.</li>
+
+<li>When the selected faces are parallel to each other and an intermediate face lies between them.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to...</h5>
+<a href="../HWfile/T_HW_fillet_face_roll.htm"><b>Create the face-to-face fillet with roll over</b></a></li> 
+<hr color="silver">
+<h5>Related Topic </h5>
+<li><a href="../OVfile/An_overview_on_fillets.htm"><b>An Overview of Fillets</b></a></li>
+<hr color="silver">
+</body>
+</html>
+

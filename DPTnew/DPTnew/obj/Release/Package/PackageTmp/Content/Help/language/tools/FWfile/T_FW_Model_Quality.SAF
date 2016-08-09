@@ -1,0 +1,188 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Revisor" content="Vicky Raina">
+<meta name="2009t1" content="translate">
+<title>Model Quality</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Model Quality</b></i> </td>
+ --></tr>
+</table>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span> command enables you to check the quality of a model by searching for a number of issues that may be present in it which can be of topological nature, specific issues on curves, surfaces and points or also geometric problems.</p>
+
+<p>After starting the command:</p>
+
+<ul class="noleft">
+<li><a name="#CP"></a>Select the <span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+14">Check Parameters</span> node in the selection list. The <span class="UI_OPTION" id="idd_healing_settings.msg+idd_healing_settings+1">Check Parameters</span> dialog box is displayed. This action is necessary only when you want to change the parameters for which the warnings are to be displayed.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+2">Select one or more defects to check:</span> area, select the type of issues the command must detect by selecting the corresponding check box (<span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+21">Not Manifold</span>, <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+151">Topological</span>, <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+153">On Curves</span>, <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+152">On Surfaces</span>, and <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+155">Geometric</span>). For example, if you select the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+151">Topological</span> check box, topological issues will be searched for; if you select the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+155">Geometric</span> check box too, also geometric issues will be searched for.<br>
+<br>
+ In case you need to find all type of issues you can use the <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+12">All</span> button to select all the check boxes under <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+2">Select one or more defects to check:</span> area. Select the <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+14">Severe</span> button from the <span class="UI_OPTION" id="idd_healing_settings.msg+idd_healing_settings+1">Check Parameters</span> dialog box in order to find only important and severe issues.<br>
+<br>
+</li>
+
+<li><a name="#ENTITY"></a>Select the entities to be verified for the <span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+13">Entities</span> selector; right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end the selection. In order to select the whole model for verification, select the <b>Whole Model</b> option from the context menu which gets display by right-clicking on the <span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+13">Entities</span> selector.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_TOOLTIP_+138">Check Model Quality</span> (<img src="../../../images/general/ModelQuality.gif" align="absmiddle">) button on top of the selection list after the selection is completed. The program starts the verification process, which might take some time to complete depending upon the complexity of the model.<br>
+<a name="#Total"></a>After the verification over, the <span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+64">Total Warnings:</span> item gets displayed in the selection list, indicating the total number of issues found in the selected entities, based on the parameters you have selected in the <span class="UI_OPTION" id="idd_healing_settings.msg+idd_healing_settings+1">Check Parameters</span> dialog box.<br>
+<br>
+</li>
+
+<li><a name="#Category"></a>In the <span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+18">Warning Category</span> drop-down list, select the type of issues&nbsp;&#151;&nbsp;among the ones that you have restricted the detection to in the above steps&nbsp;&#151;&nbsp;to be displayed in the model.<br>
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+2">All warnings (&lt;&gt;)</span></td>
+<td></td>
+<td>To display all issues found.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+21">Not Manifold</span></td>
+<td></td>
+<td>To display only issues related to non-manifold solid.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+3">Topological (&lt;&gt;)</span></td>
+<td></td>
+<td>To display only topological issues.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+4">On surfaces (&lt;&gt;)</span></td>
+<td></td>
+<td>To display only issues related to surfaces.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+5">On curves (&lt;&gt;)</span></td>
+<td></td>
+<td>To display only issues related to curves.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+7">Geometric (&lt;&gt;)</span></td>
+<td></td>
+<td>To display only geometric issues.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+6">On points (&lt;&gt;)</span></td>
+<td></td>
+<td>To display only issues related to points.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="#WARN"></a>For each selected warning category there is a list of possible warning types which gets displayed in the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+19">Warning Type</span> drop-down list. You can select the type of issue to be highlighted from this drop-down list. For each category, the number of the warnings found for it is displayed in the parenthesis.<br>
+<br>
+</li>
+
+<li><a name="#LIST"></a>For each selected warning type, an issue list will be displayed and you will be enabled to navigate forward and backward among the listed issues using the following arrows:<br>
+ 
+
+<table>
+<tr valign="top">
+<td><img src="../../../images/rn_2007T1/TR_STAHEAD.gif"></td>
+<td>Set next issue as the current one.</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/rn_2007T1/TR_TOEND.gif"></td>
+<td>Set the last issue as the current one.</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/rn_2007T1/TR_STBACK.gif"></td>
+<td>Set previous issue as the current one.</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/rn_2007T1/TR_TOBEG.gif"></td>
+<td>Set the first issue as the current one.</td>
+</tr>
+</table><br>
+</li>
+
+
+<li>Once a warning is selected, the issue will be highlighted over the model. Also, a graphical marker (arrow mark) is displayed to highlight its location. You toggle the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_TOOLTIP_+139">Show All Defects</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button to show/hide the defects in the solid.<br><br>
+</li>
+
+<li><a name="#MO"></a>The two options under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> are applicable for the entities issue list discussed in above step. The two options are as following:<br>
+ 
+
+<ul class="noleft">
+<li><a name="#AZ"></a><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+16">Automatic Zoom</span>: Enables you to zoom the model to view the current issue in detail. 
+
+<ul class="noleft">
+<li>When the check box is selected, the zone of the model where the current issue has been detected is automatically zoomed so as to fit the current view.</li>
+
+<li>When the check box is cleared, no zoom is performed.</li>
+
+<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a name="#SEP"></a><span class="UI_OPTION" id="TDHealing.msg+_TDHealing_LABEL_+17">Set Target Position</span>: Enables you to move the target point to the center of the zone of the model where the current issue has been detected. 
+
+<ul class="noleft">
+<li>When the box is selected, the target point is moved to the center of the zone of the model where the current issue has been detected.</li>
+
+<li>When the box is cleared, the target point is not moved.<br>
+</li>
+
+<li style="list-style: none"><br>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>Please note that whenever a file of other format is loaded, it is possible to choose whether to <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_GENERAL.htm">automatically</a> run the <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+1">Model Quality</span> command on the geometry of the opened document.</p>
+
+<hr color="silver">
+</body>
+</html>
+

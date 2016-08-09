@@ -1,0 +1,346 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>New Rendering Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1><a name="#rendering"></a>New Rendering Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces new <i>Rendering</i> functionalities. There have been major enhancements in the usage of material and its properties. The material and color attributes are distinctly classified and they can be rendered separately on shaded entities. The process of applying the <i>Rendering</i> properties remain the same, but with enhanced and easy to use features. The following is a summary of all the enhancements.</p>
+
+<ul>
+<li>Three rendering commands are introduced to render the model in different visualizations.</li>
+
+<li>A default material will be associated with each model created.</li>
+
+<li>Material is treated as an attribute and all the functionalities and location of the material attribute are similar to that of color.</li>
+
+<li>Materials are now available in the status bar, selection filter, and edit properties dialog box.</li>
+
+<li>All the old files will be managed with the new material and color attribute.</li>
+
+<li>A new weight management function is available in the Part properties and Part Data. This weight value will be visible in the part list, balloons, and title block.</li>
+</ul>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements which improve the <b>Render</b> functionalities.</p>
+
+<ul class="noleft">
+
+<li><a href="#ren">New location of Render commands</a></li>
+
+<li><a href="#ren1">New <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_View.msg+MenuBar_Document_View+7887">Rendering Mode</span> commands</a></li>
+
+<li><a href="#color">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4524">Color Map</span> command</a></li>
+
+<li><a href="#open">Enhancement in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_File.msg+ButtonToolbar_File+167">Open File</span> Command</a></li>
+
+<li><a href="#OPS">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span>-<span class="UI_OPTION_NOBOLD" id="idd_preferences.msg+idd_preferences+2">System Options</span> dialog Box</a></li>
+
+<li><a href="#part">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span> dialog box</a></li>
+
+<li><a href="#stat">Enhancement in the Status Bar</a></li>
+
+<li><a href="#boolean">Enhancement in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+23">Make Solid</span> and <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+341">Break Solid</span> commands</a></li>
+
+<li><a href="#edit">Enhancement in the <span class="UI_OPTION_NOBOLD" id="eklib.msg+optsmsg+6">Edit Properties</span> dialog box</a></li>
+
+<li><a href="#tree">Enhancement in the Rendering Environment</a></li>
+</ul>
+
+<hr color="silver">
+<h5><a name="ren"></a>New location of Render commands</h5>
+
+<p>The following commands have been moved to new locations.<br>
+<br>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td align="center"><b>Previous Version</b></td>
+<td align="center"><b>Current Version</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="OLD">Rendering</span><img src="../../images/general/litarr.gif"><span class="OLD">Preview</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7666">Preview</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="OLD">Rendering</span><img src="../../images/general/litarr.gif"><span class="OLD">Ray Tracing</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7667">Ray Tracing</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="OLD">Rendering</span><img src="../../images/general/litarr.gif"><span class="OLD">Final Gathering</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7668">Final Gathering</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif"><span class="OLD">Rendering Library</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7883">Rendering Library</span></td>
+</tr>
+</table>
+</p>
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+
+<!-- PRJ: P0000753 - OWN: Jing-Cheng Mei -->
+<h2><a name="ren1"></a>New <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7887">Rendering Mode</span> commands</h2>
+
+<p>The following three commands have been introduced to render the models in the application. </p>
+
+<ul>
+<li>The <span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7891">Basic Rendering Mode</span> command enables you to render the model with the model color.</li>
+
+<li>The <span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7893">High Quality Rendering Mode</span> command enables you to render the model with the advanced rendering features like environment, lighting, and decal.</li>
+
+<li>The <span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7895">High Quality + Material Rendering Mode</span> command enables you to render the model with all the advanced rendering features with the applied material. The effect of material with the environment, lighting, and decal are visualized in this mode.</li>
+</ul>
+<p>These commands do not need separate license.</p>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:9;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The following commands are no longer available as the functionality of these commands are performed by the three new <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7887">Rendering Mode</span> commands.
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr2.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../images/general/litarr2.gif" border="0"><span class="OLD">High Quality Shaded</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr2.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../images/general/litarr2.gif" border="0"><span class="OLD">High Quality Shaded + Boundaries</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr2.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../images/general/litarr2.gif" border="0"><span class="OLD">High Quality Shaded + Boundaries + Hidden Lines</span></li>
+</ul>
+</td>
+</tr>
+</table>
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="color"></a>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4524">Color Map</span> command</h2>
+
+<p>The <span class="OLD">Density</span> text box has been removed from the <span class="UI_OPTION" id="idd_colorset.msg+idd_colorset+1">Color Map</span> dialog box. Also the <span class="OLD">Material</span> column has been renamed <span class="UI_OPTION" id="idd_colorset.msg+idd_colorset+12">Description</span>.</p> 
+
+
+<p>The density of the material can be viewed and its value can be specified in the <span class="UI_COMMAND" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list.<br>
+<br>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+The following commands have been renamed, though their functionalities remain the same. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td>Old Name</td>
+<td>New name</td>
+</tr>
+
+<tr>
+<td><span class="OLD">Layer</span></td>
+<td><a href="mk:@MSITStore:Layers.chm::/language/Layers/FWfile/T_FW_ed_17.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6441">Current Layer</span></a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Color</span></td>
+<td><a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_fo_01.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6442">Current Color</span></a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Line Type</span></td>
+<td><a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_fo_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6443">Current Line Type</span></a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Line Width</span></td>
+<td><a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_fo_03.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6444">Current Line Width</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</p>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="open"></a>Enhancement in the <span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+167">Open File</span> Command</h2>
+
+<p>The enhancement in the <span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+167">Open File</span> command is to manage the old files and to add material attribute to the entities that does not have a material assigned.</p>
+
+<p>
+Under the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> category, the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+686">Material</span> area has been introduced in the <img src="../../images/company/ThinkDesign.gif" alt="" border="0" align="middle"> <b>Model file options</b> dialog box to manage old files. Two new radio buttons <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+687">Material from color</span> and <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+688">Default material</span> are available in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+686">Material</span> area. These options enable you to choose the mode with which you want to load the model created in previous versions. The following are the functionality of the radio buttons:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+687">Material from color</span>: When selected each color on the model is converted to a material and applied to the entities. The following are the attributes of the material created. 
+
+<ul class="noleft">
+<li>The density of the color is taken as the density of the material created.</li>
+
+<li>Each color is converted as new material on the model. The newly created material has the old color properties.</li>
+
+<li>All the materials created will be listed under the Material tree in the Rendering Structure.</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+688">Default material</span>: When selected, the default material will be applied to all the entities of the model that do not have material. Also the materials applied in the previous versions are retained on the entities.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+When the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+688">Default material</span> is selected, the old model properties such as density are lost.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="OPS"></a>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span>-<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> dialog box</h2>
+
+<ul>
+<li>Enhancement in the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span></a> category<br>
+In this version the method of propagation of material on models is the same as that of colors while doing Boolean operations as it used to happen for colors. To achieve this goal, the <span class="OLD">Solid Color</span> area has been renamed <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1811">Solid color/material</span>.<br>
+<br>
+ Also, the three radio buttons under <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1811">Solid color/material</span> area have been renamed : 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1812">First entity color/material</span></li>
+
+<li><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1813">Current color/material</span></li>
+
+<li><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1814">Keep face color/material</span></li>
+</ul>
+</li>
+
+<li>Enhancement in the <span class="UI_OPTION" id="idd_InfoProp_dlg.msg+idd_InfoProp_dlg+4">General</span>-<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category<br>
+<br>
+The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1866">AutoRename</span> check box has been introduced in the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_GENERAL_ADVANCED.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1865">Materials</span></a> Area. This option is used to manage situations of duplication of material name or its properties in a same working session. 
+
+<ul class="noleft">
+<li>When the check box is selected, the material is automatically renamed.</li>
+<li>When the check box is cleared, you are asked to enter the name of the new material.</li>
+</ul>
+</li>
+</ul>
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+<h2><a name="part"></a>Enhancement in the <span class="UI_OPTION" id="idd_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span> dialog box</h2>
+
+<p>The new <span class="UI_OPTION" id="idd_edit_partdata.msg+idd_edit_partdata+17">Weight Calculation</span> button has been introduced in the <span class="UI_OPTION" id="idd_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span> dialog box. The weight management will enable you to specify a weight value or automate the process of calculating the weight. When the <span class="UI_OPTION" id="idd_edit_partdata.msg+idd_edit_partdata+17">Weight Calculation</span> button is selected, the following options are displayed in the dialog box.</p>
+
+<ul>
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+84">Weight::</span> text box: This text box enables you to enter the value of the weight. The <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+85">Automatic</span> check box is available adjacent to the edit box. When the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+85">Automatic</span> check box is selected, the weight of the model is calculated by the software and displayed in the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+84">Weight</span> edit box.</li>
+
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+94">Weight with assembly feature:</span>: It displays the weight of the model with the added assembly feature on the component.</li>
+</ul>
+
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="stat"></a>Enhancement in the Status Bar</h2>
+
+<p>Materials can be added to the models by using the new <span class="UI_OPTION" id="StatusBar.msg+StatusBar+7603">Material</span> button from the status bar. The selection of materials from the Rendering Library is similar to that of the colors from the status bar.</p>
+
+<p>In the status bar, when you right-click on the <span class="UI_OPTION" id="StatusBar.msg+StatusBar+7603">Material</span> button, the following are displayed in the pop up window.
+<ul>
+<li>Under the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+195">Document Materials</span>, the material that is currently set as default is displayed.</li>
+
+<li>Under the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+196">Current Library Materials</span>, the materials of the current library folder are displayed.</li>
+
+<li>On selecting the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+197">More Materials</span> option, the <b>More Options Materials</b> dialog box is displayed. You can select the required material from the dialog box.<br><br></li>
+
+Also the <a href="General.htm#mat"><span class="UI_OPTION" id="idd_filters.msg+idd_filters+52">Material</span></a> drop-down list has been introduced in the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+27">Attributes</span> area of the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box.
+</ul>
+</p>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="boolean"></a>Enhancement in the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+23">Make Solid</span> and <span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+341">Break Solid</span> commands</h2>
+
+<p>The <span class="OLD">Color</span> option has been renamed to <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+593">Color/Material</span> in the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+23">Make Solid</span> and <span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+341">Break Solid</span> selection lists. This option enables you to define the propagation of materials during the Boolean operations while using the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+23">Make Solid</span> and <span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+341">Break Solid</span> commands.</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+<h2><a name="edit"></a>Enhancement in the <span class="UI_OPTION" id="eklib.msg+optsmsg+6">Edit Properties</span> dialog box</h2>
+
+<p>The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1868">Material:</span> drop-down list has been introduced in the <span class="UI_OPTION" id="eklib.msg+optsmsg+6">Edit Properties</span>-<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+4">General</span> dialog box. It enables you to change the material of the selected entity by choosing the material from the drop-down list.</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+<h2><a name="tree"></a>Enhancement in the Rendering Environment</h2>
+
+<p>The following are the enhancements in the Rendering environment.</p>
+
+<ul>
+<li>The new <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+15">Delete Unused Materials</span> option is available in the context menu on right-clicking the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+1">Materials</span> node. When you select this option, all the materials listed in the rendering structure tree that are not attached to the model are removed from the list. A warning message will be displayed when you try to delete the materials that are attached to the model and listed in the Rendering Structure.<br>
+<br>
+</li>
+
+<li>The new <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+29">Set as Current Material</span> option is available in the context menu on right-clicking the specific material, listed in the Rendering tree. When this option is selected, the selected material is set as the current material. This option is also available when you right click on the material in the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span> palette.<br>
+<br>
+</li>
+
+<li>The new <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+28">Set as Current Library</span> option is available in the context menu on right-clicking a material folder in the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span> palette. When this option is selected then the materials in the selected folder will be listed under the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+196">Current Library Materials</span> in the status bar.<br>
+<br>
+</li>
+
+<li>The new <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+30">Refresh</span> option is available in the context menu on right-clicking the <b>UserDefined</b> folder. It enables you to update the folder list, after you have manually customized the library folders at the installation location.<br>
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:9;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The material that is set as the current material will be highlighted in bold in the Rendering Structure and in the Status bar.</td>
+</tr>
+</table>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+

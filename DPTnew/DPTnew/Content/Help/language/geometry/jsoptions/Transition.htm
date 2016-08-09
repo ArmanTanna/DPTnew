@@ -1,0 +1,62 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Transition</title>
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- Error handler removed 03 June 2014 -->
+
+
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF" onload="viaMk();HideThreeD();">
+
+<p style="margin-top:0;margin-bottom:0;"><a name="CTX_OffsetOnSurface_OffsetTransition"></a>In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+425">Transition</span> drop-down list you can select the method to be used upon selection of a chain of consecutive curves. <span id="TWOD">Some of these options are not displayed on starting the command in the <span class="UI_COMMAND" id="eklib.msg+eklib+558">2D Profile</span> environment, as they are not relevant there.</span></p>
+
+<br>
+ 
+
+<table style="margin-top:2px;margin-bottom:6px;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span><br>
+ when this option is selected, if the chain of curves has sharp corners and the offset requested is made in the area on the outside of them, the corners are not filleted, instead the adjacent curves are extended. When it is not possible to extend the curve, a warning will be displayed to highlight the failed transition.</td>
+<td><img border="1" src="../../curves/images/OC004.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+429">Extend curvature</span><br>
+this option can be selected when it is not possible to obtain a parametric curve extension through the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span> option, since the extended offset curves would not intersect. Two additional extension curves will be created, so as to obtain the intersection. The two curves will have curvature continuity (<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G2">G2</a>) with the offset curves.</td>
+<td><img border="1" src="../../curves/images/OC02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+430">Extend tangent</span><br>
+this option can be selected when it is not possible to obtain a parametric curve extension through the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span> option, since the extended offset curves would not intersect. Two additional extension curves will be created, so as to obtain the intersection. The two curves will have tangency continuity (<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G1">G1</a>) with the offset curves.</td>
+<td><img border="1" src="../../curves/images/OC03.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+427">Fillet</span><br>
+ when this option is selected, if the chain of curves has sharp corners and the offset requested is made in the area on the outside of them, they are filleted.</td>
+<td><img border="1" src="../../curves/images/OC05.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+120">None</span><br>
+when this option is selected no trimming or filleting action is performed on the offset curves. <span id="TWOD">Please note that, if the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+34">Automatic cut</span> check box is <i>not</i> selected in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the <span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span>, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+120">None</span> option is automatically selected by the application, and no other choice is possible.</span></td>
+<td><img border="1" src="../../curves/images/OC06.gif"></td>
+</tr>
+</table>
+</body>
+</html>
+

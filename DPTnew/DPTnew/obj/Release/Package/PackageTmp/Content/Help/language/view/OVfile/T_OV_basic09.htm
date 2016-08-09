@@ -1,0 +1,152 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Zooming, panning and rotating</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.moveright{margin-left:100;}
+</style>
+
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+
+<style type="text/css">
+.UIemulation  {
+font-size : 10;
+font-family : MS Sans Serif;
+}
+</style>
+
+<style type="text/css">
+.littop{margin-top:20;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+
+<a name="top"></a> 
+
+<h2>Zooming<SPAN id="TWOD">, panning and rotating</SPAN><SPAN id="HIDETD"> and panning</SPAN></h2>
+
+<table border="0">
+<tr valign="top">
+<td>
+<h4>Controlling and manipulating the display of objects through the mouse</h4>
+
+<p>The most common viewing actions:</p>
+
+<ul class="noleft">
+<li>zooming: increasing/decreasing the magnification of the displayed objects</li>
+
+<li>panning: moving the displayed view</li>
+<SPAN id="TWOD">
+<li>rotating: rotating the displayed view</li></SPAN>
+</ul>
+
+<p>can be performed dynamically using the mouse.</p>
+
+<b>Dynamic Zoom</b> 
+
+<div style="margin-left: 2em" class="noleft">To activate the dynamic zoom facility, hold down the <b>SHIFT</b> key and press the right mouse button.<br>
+The cursor will change to:<br>
+<img src="../../../images/basics/view01.gif"><br>
+The dynamic zoom facility enlarges or reduces the image according to the movements of the mouse.<br>
+Move the mouse: 
+
+<ul class="noleft">
+<li>up, to enlarge the image</li>
+
+<li>down, to reduce the image</li>
+</ul>
+
+Release the mouse button when the objects are displayed with the magnification you like.<br>
+You can also use the mouse wheel (if any): 
+
+<ul class="noleft">
+<li>Rotate towards yourself to enlarge the image (zoom in)</li>
+
+<li>Rotate away form yourself to reduce the image (zoom out).</li>
+</ul>
+</div>
+
+<b>Dynamic Panning</b> 
+
+<div style="margin-left: 2em" class="noleft">The dynamic panning facility scrolls the display window according to the movements of the cursor.<br>
+To activate the panning facility, hold down the <b>CTRL</b> key and press the right mouse button.<br>
+The cursor will change to:<br>
+<img src="../../../images/basics/view02.gif"><br>
+Move the mouse to the position where you want the window to be scrolled to and then release the mouse button.</div>
+
+<SPAN id="TWOD"><b>Dynamic rotation</b> 
+
+<div style="margin-left: 2em" class="noleft">You can rotate the model about the axes of the active view by holding down the right mouse button and moving the mouse in the desired direction.<br>
+The cursor will change to:<br>
+<img src="../../../images/basics/view03.gif"><br>
+<ul class="noleft">
+<li>Move the mouse horizontally to rotate the model about the y-axis of the view</li>
+
+<li>Move the mouse vertically to rotate the model about the x-axis of the view.</li>
+</ul>
+
+<img src="../../../images/basics/view04.gif"><br>
+<br>
+The options which control dynamic rotation using the mouse are located in the <b>Automatic actions</b> area in the <b>View-Advanced</b> category in the <b>System Options</b>.</div>
+</SPAN>
+<h4>View commands</h4>
+
+<p>You can also control and manipulate the display of objects using the various <b>View</b> commands.</p>
+
+<ul class="noleft">
+<li><b><a href="../FWfile/T_FW_vw_23.htm">Zoom in</a></b>&nbsp;&#151;&nbsp;increases the magnification of the displayed objects</li>
+
+<li><b><a href="../FWfile/T_FW_vw_24.htm">Zoom out</a></b>&nbsp;&#151;&nbsp;decreases the magnification of the displayed objects</li>
+
+<li><b><a href="../FWfile/T_FW_vw_25.htm">Pan right</a></b>&nbsp;&#151;&nbsp;moves the displayed view toward the right</li>
+
+<li><b><a href="../FWfile/T_FW_vw_26.htm">Pan left</a></b>&nbsp;&#151;&nbsp;moves the displayed view toward the left</li>
+
+<li><b><a href="../FWfile/T_FW_vw_28.htm">Pan up</a></b>&nbsp;&#151;&nbsp;moves the displayed view toward the top</li>
+
+<li><b><a href="../FWfile/T_FW_vw_27.htm">Pan down</a></b>&nbsp;&#151;&nbsp;moves the displayed view toward the bottom</li>
+<SPAN id="TWOD">
+<li><b><a href="../FWfile/T_FW_vw_31.htm">Rotate Clockwise about X</a></b> &mdash; rotates the object in the active view clockwise about the X-axis by one <b>View rotate step</b></li>
+
+<li><b><a href="../FWfile/T_FW_vw_32.htm">Rotate Counter-Clockwise about X</a></b> &mdash; rotates the displayed view counter-clockwise about the X-axis by one <b>View rotate step</b></li>
+
+<li><b><a href="../FWfile/T_FW_vw_30.htm">Rotate Clockwise about Y</a></b> &mdash; rotates the displayed view clockwise about the Y-axis by one <b>View rotate step</b></li>
+
+<li><b><a href="../FWfile/T_FW_vw_29.htm">Rotate Counter-Clockwise about Y</a></b> &mdash; rotates the displayed view counter-clockwise about the Y-axis by one <b>View rotate step</b></li>
+
+<li><b><a href="../FWfile/T_FW_vw_31Z.htm">Rotate Clockwise about Z</a></b> &mdash; rotates the displayed view clockwise about the Z-axis by one <b>View rotate step</b></li>
+
+<li><b><a href="../FWfile/T_FW_vw_32Z.htm">Rotate Counter-Clockwise about Z</a></b> &mdash; rotates the displayed view counter-clockwise about the Z-axis by one <b>View rotate step</b>.</li></SPAN>
+</ul>
+</tr>
+</table>
+
+<hr color="navy">
+</body>
+</html>
+

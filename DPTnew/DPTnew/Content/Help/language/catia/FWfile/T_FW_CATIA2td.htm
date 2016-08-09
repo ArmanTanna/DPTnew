@@ -1,0 +1,88 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Converting From CATIA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left:22;} 
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<p>The <img src="../../../images/catia/read_model.gif"> <b>From CATIA to</b> <img src="../../../images/company/ThinkDesign.gif" align="middle"> command loads a CATIA<sup><font size="-1">&reg;</font></sup> model file into a new document.</p>
+
+<p>You can find this command in the <span class="UI_OPTION" id="idr_thinkcatia.msg+idr_thinkcatia+5">TD Catia v4 interface</span> toolbar. The command is active both in the 3D and 2D environments of this software. To activate the toolbar, please refer to the <a href="../HWfile/T_HW_Installation.htm"><span class="UI_OPTION_NOBOLD" id="idr_thinkcatia.msg+idr_thinkcatia+5">TD Catia v4 interface</span> installation</a> procedure.</p>
+
+<p>When you run the command, the file selection dialog box is displayed, from which you can select an existing CATIA<sup><font size="-1">&reg;</font></sup> Model or Export file. <b>TD Catia v4 interface</b> narrows automatically the list of files displayed in the selected location to those having extension <i>.model, .dlv or .exp</i>.</p>
+
+<p>Note that a <i>.exp</i> file is actually a collection of models. If you open such a file, a dialog is displayed with the list of models present in the <i>.exp</i> file. This enables you to open the models one at a time.</p>
+
+<p>Once you open a valid CATIA<sup><font size="-1">&reg;</font></sup> file, a new model window is opened and the geometry loads into it.</p>
+
+<p>In order to define the parameters controlling the conversion of entities, set the <a href="Ce20_03.htm#Save"><span class="UI_OPTION_NOBOLD" id="idr_thinkcatia.msg+idr_thinkcatia+6">TD Catia v4 interface Options</span></a> relative to the command before applying it; double check these options if the result of the conversion is not what you expected.</p>
+
+<p>Depending upon your workstation performance and the model complexity, the conversion may require some time to complete. To have an idea of the ongoing of the operation, you may want to open the <a href="mk:@MSITStore:HELP.chm::/language/view/FWfile/T_FW_vw_12.htm">I/O Window</a>, if concealed, where the steps of the conversion process are displayed.</p>
+
+<p>When you load a CATIA<sup><font size="-1">&reg;</font></sup> file, a log file of the conversion is created in the same directory of the file you loaded with the same name of the file you saved and the ".log" extension. Similarly, a file with the same name but ".err" extension will list any error that may occur during the conversion.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Known limitations</b><br>
+<ul class="noleft">
+<li>If the Unit of Measure of the CATIA<sup><font size="-1">&reg;</font></sup> file is different from the one currently in use, then while opening that CATIA<sup><font size="-1">&reg;</font></sup> file, a warning dialog box is displayed informing you that the Unit of Measure will be changed to the one of the CATIA<sup><font size="-1">&reg;</font></sup> file. Subsequently, the current Unit of Measure of the application is changed (not converted) to the one of the CATIA<sup><font size="-1">&reg;</font></sup> file.</li>
+
+<li>The CATIA<sup><font size="-1">&reg;</font></sup> entities can be converted only if the file is created working with Draw Elements; if the CATIA<sup><font size="-1">&reg;</font></sup> file is created using transparency in AuxView and AuxView 2, the CATIA<sup><font size="-1">&reg;</font></sup> entities can't be converted.</li>
+
+<li>Special characters may lead to incorrect conversion.</li>
+
+<li>Geometry placement may lead to incorrect conversion.</li>
+
+<li>Text positioning may lead to incorrect conversion.</li>
+
+<li>Color mapping may lead to incorrect conversion.</li>
+
+<li>More warnings and limitations are listed in the <a href="../OVfile/ce20_01.htm">Conversion Table for importing from CATIA and limitations (3d entities)</a> and <a href="../OVfile/ce20_01_2D.htm">Conversion Table for importing from CATIA (2d entities)</a>.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/Ce20_02.htm"><b>Exporting a model from CATIA<sup><font size="-1">&reg;</font></sup></b></a></li>
+
+<li><a href="../HWfile/ce_20_2D.htm"><b>Exporting a drawing from CATIA<sup><font size="-1">&reg;</font></sup></b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="Ce20_03.htm"><b>TD Catia v4 interface Options</b></a></li>
+
+<li><a href="../OVfile/ce20_01.htm"><b>Conversion Table for importing from CATIA (3d entities)</b></a></li>
+
+<li><a href="../OVfile/ce20_01_2D.htm"><b>Conversion Table for importing from CATIA (2d entities)</b></a></li>
+
+<li><a href="../OVfile/T_OV_Log_Catia2td.htm"><b>Log file (importing from CATIA)</b></a></li>
+
+<li><a href="../OVfile/ce20.htm"><b>An Overview on TD Catia v4 interface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,109 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Tips on Work Plane settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Tips on Work Plane settings</h3>
+
+<p>Here is a list of tips about a few settings that are commonly used by expert users.</p>
+
+<ul class="noleft">
+<li>First of all, it is generally better to keep an eye on the <b>Linked symbol</b>. It will help you understand whether the Work Plane is linked to an object or not. If it is linked, a lock marker will show up.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-LK-ON.gif"><br>
+<br>
+Moving that object or changing a dimension that will change the position of the point where the Work Plane is snapped to, causes the Work Plane to be moved as well.<br>
+<br>
+</li>
+
+<li>Then, the Input/Output mode has to be controlled. You can define it in the <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7652">Input</span> menu of the menu bar, in the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+68">Mouse Input</span> area of the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_INPUT.htm">
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+57">Input</span></a> category of the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span>, or by selecting the corresponding button in the toolbar.<br>
+
+<br>
+<img border="1" src="../profiles/images/Projected.gif"><br>
+<br>
+ 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7114">Input on Work Plane</span><br>
+
+The <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7114">Input on Work Plane</span> flag is the most commonly used. It allows you to sketch on the current <i>XY-plane</i>. All the points you specify using the mouse will lie on that plane, but those you snap to 3D points will really be at the snapped location.<br>
+
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7115">Projected onto Work Plane</span><br>
+
+If you prefer, you might set the "<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7115">Projected onto Work Plane</span>" input method. This way, even when you snap 3D points they will be projected onto the <i>XY-plane</i>. The following illustration shows an example: we have used the 
+<a href="mk:@MSITStore:selsna.chm::/language/snap/FWfile/T_FW_to_06_15.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1637">Surface Vertex</span></a> snap command and the point that is going to be inserted is automatically projected onto the <i>XY-plane</i>.<br>
+
+<br>
+<img border="1" src="../workplane/images/POWP.gif"><br>
+<br>
+This last setting, as you can imagine, can be very useful, but it is suggested to be careful with it since it can become tedious, especially when creating 3D splines or other 3D curves.<br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7113">Input on View</span><br>
+
+This mode, mostly used in styling, can be very useful when, for your input operations with the mouse, you feel more comfortable using the view plane&#151;that is a plane parallel to the one of the screen&#151;than the usual Work Plane.<br>
+When this mode is selected, all of the input operations you perform using the mouse will apply to the view plane, according to the following rules:<br>
+<br>
+ 
+
+<ol class="noleft">
+<li>The view plane is parallel to the screen and is through the origin of the Work Plane.<br>
+<br>
+<img border="1" src="../../images/format/VP02.gif"><br>
+<br>
+</li>
+
+<li>A point freely specified using the mouse just by clicking somewhere (<i>free points</i> are points entered with no snap command or further constraint) is created on a plane that is parallel to the view plane at the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_VIEW_PROPERTIES.htm">
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+385">Depth:</span>:</a> distance.<br>
+
+<br>
+</li>
+
+<li>If a point is specified using a snap command, than the view plane is through the snapped point and parallel to the screen. All free points specified afterwards&#151;within the same command&#151;will lie on a plane that is parallel to the view plane at the depth distance.<br>
+<br>
+</li>
+
+<li>After a rotation, the orientation of the view plane changes accordingly.<br>
+<br>
+</li>
+
+<li>When a command is quitted, the view plane is reset as described at point 1.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

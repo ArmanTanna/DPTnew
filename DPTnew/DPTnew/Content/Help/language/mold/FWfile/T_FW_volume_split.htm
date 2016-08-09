@@ -1,0 +1,137 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(410,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2010t1" content="translate">
+<title>Volume Split</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+1">MoldDesign</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+4">Split Volume</span> </p>
+<hr color="#63a9d8">
+
+</table>
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+
+<p>The <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+30">Split Mold Volume</span> command enables you to extract certain volume of material either from the core or cavity. This is used in situations where the undercut faces cannot be created on the core and cavity. The extracted material creating a slide core is called an <i>Insert</i>.<br><br>
+
+<a name="#vol_1"></a>On starting the command, you can select the core or cavity for the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+21">Part</span> selector from which the material is to be extracted.<br>
+<br>
+ <a name="#vol_1"></a>The <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+25">Cut-off Insert</span> drop-down list is used to select the method of extracting the material. The two options are:
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td width="75" valign="top"><a name="#split2"></a><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+32">By profile</span></td>
+<td>The insert is created using a closed 2D profile.</td>
+</tr>
+
+<tr>
+<td valign="top"><a name="#split3"></a><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+31">By solid</span></td>
+<td>The insert is created using a predefined solid which can be created using the standard solid commands.</td>
+</tr>
+</table>
+ <br>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+It is mandatory that the profile completely encloses or the solid completely engulfs the undercut feature of the core/cavity that has to be extracted.</td>
+</tr>
+</table>
+</p>
+
+<p><a name="#vol_2"></a>The type of insert created on the core/cavity can be selected from the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+26">Type</span> drop-down list under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. On selecting the following options;<br>
+<br>
+</p>
+
+<table border="1" cellspacing="2" cellpadding="2">
+<tr>
+<td valign="top"><a name="#split5"></a><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+33">Cut only</span></td>
+<td valign="top">The insert is created as an <span class="UI_OPTION" id="MenuBar_Document_Insert_Group.msg+MenuBar_Document_Insert_Group+4619">X-Reference</span> component, without making any modification in the core and cavity.</td>
+<td><img src="../../../images/mold/slide_core.gif" border="0"></td>
+</tr>
+
+<tr>
+<td width="90" valign="top"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+34">Slot only</span></td>
+<td valign="top">Only a slot is created in the core/cavity to make space for the insert. No separate insert is created.</td>
+<td><img src="../../../images/mold/volume_slot.gif" border="0"></td>
+</tr>
+
+<tr>
+<td valign="top"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+35">Cut and slot</span></td>
+<td valign="top">Both the insert (<span class="UI_OPTION" id="MenuBar_Document_Insert_Group.msg+MenuBar_Document_Insert_Group+4619">X-Reference</span> component) and the slot for insert are created. The created insert is the part in red in the image.</td>
+<td><img src="../../../images/mold/volume_split_solid3.gif" border="0"></td>
+</tr>
+</table>
+
+<br>
+
+ 
+
+<p><a name="#vol_3"></a>The <span class="UI_COMMAND" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+27">Extension</span> option is available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> only when the insert is created using the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+32">By profile</span> method. The extrusion of the profile is created by selecting the options from the <span class="UI_COMMAND" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+27">Extension</span> drop-down list. On selecting the following options;<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td width="100" valign="top"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+36">Single depth</span></td>
+<td>The profile is extruded in a single direction and the value can be specified in the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+22">Depth</span> mini-dialog box (or by using the corresponding handle). If necessary, the profile can be extruded with an angle and offset using the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+28">Offset</span> and <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+29">Angle</span> check box available on the Graphics Area. 
+
+<ul class="noleft">
+<li><a name="#split7"></a><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+28">Offset</span>: When selected you can specify the offset distance from the profile surface by entering the value in the mini-dialog box or by using the corresponding handle.</li>
+
+<li><a name="#split8"></a><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+29">Angle</span>: When selected you can specify the angle by entering the value in the mini-dialog box or by using the corresponding handle.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+37">Double depth</span></td>
+<td>The selected profile can be extruded in both the direction of the profile plane. The values can be entered in the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+23">Depth 1</span> and <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+24">Depth2</span> mini-dialog boxes.</td>
+</tr>
+</table>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_volume_cut.htm"><b>Create an Insert and a slot using a Profile</b></a></li>
+
+<li><a href="../HWfile/T_HW_volume_solid.htm"><b>Create an Insert and a slot by selecting a predefined solid</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

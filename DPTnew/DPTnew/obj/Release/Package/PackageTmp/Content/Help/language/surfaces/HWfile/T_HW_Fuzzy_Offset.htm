@@ -1,0 +1,113 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(1144,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Job: Creating a Fuzzy Offset Surface</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<style type="text/css">
+.noleft{
+ margin-left:22;
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Creating a Fuzzy Offset Surface</h2>
+
+<p>In this tutorial you will create a fuzzy offset surface for a skin. Open the <i>Fuzzy_offset.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below:</p>
+
+ 
+
+<ol class="noleft">
+<li><a name="solid"></a>Start the <a href="../FWfile/T_FW_Fuzzy_Offset.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span></a> command and select the skin for the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+159">Solid</span> selector.<br>
+<br>
+<img src="../../../images/surfaces/fuzzy_offset_1.gif" border="1"><br>
+<br>
+</li>
+
+<li>A red arrow displays the direction of offset. You can double-click on it to reverse the direction.<br>
+<br>
+<img src="../../../images/surfaces/fuzzy_offset_2.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="offset"></a>Enter the offset value in the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+102">Offset</span> edit box. For this tutorial, enter <b>5</b> as the offset value.<br>
+<br>
+</li>
+
+<li>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> accept the default values of: 
+
+<ul>
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+121">U Degree</span> = 4</li>
+
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+122">V Degree</span> = 4</li>
+
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+123">Iterations</span> = 3</li>
+</ul>
+
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button to generate the preview of the offset surface.<br>
+<br>
+<img src="../../../images/surfaces/fuzzy_offset_3.gif" border="1"><br>
+<br>
+<a name="preview"></a>You can toggle the display of the preview by using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+115">Hide Preview</span> (<img src="../../../images/general/hide_prev.gif" align="absmiddle">) and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+189">Retrieve Preview</span> (<img src="../../../images/general/retrieve_preview.gif" align="absmiddle">) buttons.<br>
+<br>
+</li>
+
+<li>You can now select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+124">Distance analysis</span> node to display a graph of point distribution. The graph will show a extreme deviation in point distribution.<br>
+<br>
+</li>
+
+<li>To get a more precise point distribution and generate a fuzzy offset surface that is closer to the original skin, modify the following values: 
+
+<ul>
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+121">U Degree</span> = 8</li>
+
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+122">V Degree</span> = 6</li>
+
+<li><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+123">Iterations</span> = 7</li>
+</ul>
+
+<br>
+</li>
+
+<li><a name="warning"></a>Select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button and then do a distance analysis. This time you will note that the points with extreme deviations have significantly reduced. You can also select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../images/general/warnings_on.gif" align="absmiddle">) button to display the Maximum, Minimum and Mean deviation of the sampling points.<br>
+<br>
+<img src="../images/fuzzy_offset_4.gif" border="1"><br>
+<br>
+</li>
+
+<li>If are satisfied with the point distribution and the surface preview, apply (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command to create the fuzzy offset surface.<br>
+<br>
+<img src="../../../images/surfaces/fuzzy_offset_5.gif" border="1"></li>
+</ol>
+
+<hr color="silver">
+
+<h5>Use Case</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_Fuzzy_Offset-UseCase.htm"><b>Generating the Rear Face of a Punch Head using a Fuzzy Offset Surface</b></a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>
+

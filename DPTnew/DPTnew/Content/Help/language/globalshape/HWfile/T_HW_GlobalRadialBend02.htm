@@ -1,0 +1,129 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Getting acquainted with the GSM Radial Bend command</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h3>Getting acquainted with the GSM Radial Bend command</h3>
+<p>In the following step-by-step example you will use the <a  href="../FWfile/T_FW_GlobalRadialBend.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+193">GSM Radial Bend</span></a> command to modify the shape of the solid contained in file "GRB_Sample_TwoModes.e3" and shown in the illustration below:
+<BR><BR><img src="../../../images/globalshape/GRB-02-01.gif" border="1"><BR><BR>
+using the two modes available in the <b>Perpendicular</b> drop-down list under <b>More Options</b>: 
+<ul class="noleft">
+<li><b>Axis of revolution</b>
+<li><b>Bend line</b>.
+</ul>
+You will see how the shape is modified when you change the <b>Perpendicular</b> drop-down list from one mode to the other, and, in addition, what happens if you modify the constraints along the first cutting line from <b>Fixed</b> to <b>Rotation</b>. For a detailed description of the two methods, we strongly recommend that you read "<a  href="T_HW_GlobalRadialBend00.htm">Using the GSM Radial Bend command and its different methods</a>".
+<br>
+To begin with, open file "GRB_Sample_TwoModes.e3" and start the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+193">GSM Radial Bend</span> command.</p>
+<table>
+
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Make sure the <b>Perpendicular</b> drop-down list under <b>More Options</b> is set to <b>Axis of revolution</b>. If it is not, select <b>Axis of revolution</b>.<p></p></td>
+</tr>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <b>Axis of revolution</b> drop-down list, select <b>Line</b>. Then click on the axis shown in the following illustration:
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/GRB-02-02.gif">
+<p></p></td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>Bend line</b> drop-down list, choose <b>Line</b>. Select the line which defines the radial bending direction. 
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/GRB-02-03.gif">
+</ul>
+<p></p></td>
+</tr>
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Make sure the <b>Entities</b> drop-down list (under <b>Entities to Be Modified</b>) is set to <b>Solid</b> (and if it isn't, select the <b>Solid</b> item).<BR>
+To create a solid which will retain an associativity link to its base entities, so that if you modify such entities the solid will be updated accordingly, select the <b>Associative Mode</b> check box.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the solid. Three handles are displayed:
+<ul class="noleft">
+<li>The one corresponding to <b>2nd Length</b> enables you to modify the length of the bending line
+<li>The ones corresponding to <b>Angle</b> and <b>Length</b> enable you to perform the bending in a polar reference system with its origin in the endpoint of the bending line.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>Drag the <b>Length</b> handle to the new position you want, or set the <b>Length</b> value. Repeat the operation with different values to appreciate the change<BR><BR><IMG border=1 SRC="../images/GRB-02-04.gif"><br><br>
+<IMG border=1 SRC="../images/GRB-02-05.gif">
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>Now drag the <b>2nd Length</b> handle or set the <b>2nd Length</b> value.
+<BR><BR><IMG border=1 SRC="../images/GRB-02-06.gif"><br><br>
+Finally, change the <b>Length</b> value again to obtain the following shape.
+<BR><BR><IMG border=1 SRC="../images/GRB-02-07.gif"><p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>8</b></td>
+<td>Now, change the mode. In the <b>Perpendicular</b> drop-down list under <b>More Options</b> select <b>Bend line</b>. 
+<BR><BR><IMG border=1 SRC="../images/GRB-02-08.gif"><p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>9</b></td>
+<td>Try now to appreciate the change when you modify the <b>Angle</b>.
+<BR><BR><IMG border=1 SRC="../images/GRB-02-09.gif">
+<br><br><IMG border=1 SRC="../images/GRB-02-10.gif">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>10</b></td>
+<td>Under <b>More Options</b>, <b>First</b>, change the <b>Status</b> to <b>Rotation</b> and see what happens (the side profile is much more like a straight line than when the <b>Status</b> was set to <b>Fixed</b>. See "<a href="T_HW_FirstConstraints.htm">Constraints along the first cutting line</a>" for further details).
+<br><br><IMG border=1 SRC="../images/GRB-02-11.gif">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>11</b></td>
+<td>Now, suppose you set the <b>Perpendicular</b> drop-down list to <b>Axis of revolution again</b> and leave the <b>Status</b> under <b>More Options</b>, <b>First</b>, set to <b>Rotation</b>
+<br><br><IMG border=1 SRC="../images/GRB-02-12.gif">
+<p></p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a  href="T_HW_GlobalRadialBend00.htm"><b>Using the GSM Radial Bend command and its different methods</b></a></li>
+<li><a href="T_HW_GMbend02.htm"><b>Applying constraints along the cutting lines</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

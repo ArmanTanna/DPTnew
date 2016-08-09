@@ -1,0 +1,142 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a cutting BOM from a piping assembly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4>Creating a cutting BOM from a piping assembly</h4>
+
+<p>The goal of this exercise is to show the steps required to insert in the drawing of a piping assembly a cutting BOM.<br>
+The sample cutting BOM that comes with the <b>think<font color="#FF0F00">3</font></b> application requires two fields to be added to the engineering bill of materials: <i>RELVAL1</i> and <i>RELVAL2</i> both of type <i>Real</i>.
+</p>
+
+<p>Prerequisite to this exercise is a correctly configured <b>thinkPLM</font></b> installation. See <a href="mk:@MSITStore:tt.chm::/language/tools/HWfile/T_HW_AddFieldAttrib.htm">Adding fields attributes for the Cutting BOM</a> for more information.
+
+</p>
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1">A file named <i>CuttingBOM.e3</i> is provided for your convenience among the other 
+		<a href="mk:@MSITStore:chelp.chm::/language/help/FWfile/T_FW_SampleModels.htm">sample models</a>.
+
+		
+	</tr>
+</table>
+</p>
+
+<table>
+	<tr valign="top">
+		<td align="right"><b>1</b></td>
+		<td>Let's start with the creation of a simple assembly of pipes. Start the <b>think<font color="#FF0F00">3</font></b> application and open a <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_01_01.htm"><b>New Model</b></a></td>
+
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>2</b></td>
+		<td>Add as an <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><b>X-Reference</b></a> component an instance of the pipe that you find in the <i>CuttingBOM.e3</i> model file. The position of the pipe is not relevant.</td>
+
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>3</b></td>
+		<td>Because we want to use the same pipe with different lengths, <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_08.htm"><b>Unlink</b></a> the component.</td>
+
+	</tr>
+
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>4</b></td>
+		<td>Copy the component three times (you will have a total of four objects), and unlink the last copy you made.</td>
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>5</b></td>
+		<td><a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_04.htm"><b>Set Current</b></a> the component you just created, access the 
+<a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><b>Spreadsheet</b></a> and set the <i>RELVAL1</i> (Length) value to 45. 
+<a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_05.htm">Reset</a> the current component and rebuild.</td>
+
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>6</b></td>
+		<td>Make a copy of the smaller pipe. Your assembly should be composed of three 90mm long pipes and two 45mm long ones.</td>
+	</tr>
+
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>7</b></td>
+		<td>Let's now create the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_dw_06.htm"><b>Drawing from Current Model</b></a>, which we will complete with the cutting BOM. </td>
+
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>8</b></td>
+		<td>It is not relevant, for the sake of this task, whether you load the format and the drawing and block. Complete the creation of the drawing as you wish.</td>
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>9</b></td>
+		<td>Start the <a href="../../DFTB/FWfile/T_FW_PartList.htm"><b>Part List</b></a> command and set as template for your part list the one named <i>PartNum,Description - V1xV2,IT,Unit,Qty</i>. This is a sample template designed to show the cutting BOM behavior.</td>
+
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>10</b></td>
+		<td>Click <b>OK</b> and position the cutting BOM on the drawing.</td>
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td align="right"><b>11</b></td>
+		<td>Note that the BOM contains two lines, each with the count (<b>Qty</b>) of one of the two pipe dimensions used. Play with the model, creating other copies of the sample pipe with different lengths and eventually different diameters (<i>RELVAL2</i>), to see how the cutting BOM behaves when you <a href="mk:@MSITStore:dw.chm::/language/edit/FWfile/T_FW_ed_100Regenerate.htm"><b>Regenerate the Drawing</b></a> table.</td>
+
+	</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

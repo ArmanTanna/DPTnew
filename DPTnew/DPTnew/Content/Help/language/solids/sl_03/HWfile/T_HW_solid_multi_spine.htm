@@ -1,0 +1,115 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t3" content="translate">
+<title>Job: Creating a Solid by Connecting Multiple Boundary Profiles along a Spine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating a Solid by Connecting Multiple Boundary Profiles along a Spine</h3>
+
+<p>The <a href="../FWfile/T_FW_sl_01_03_solid.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span></a> command enables you to create a solid by sweeping more than two boundary profiles along a spine path by using the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+32">Constant axis</span> type <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span>, as shown in the image below.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../../images/solids/sl_03/sl100103.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif" alt="" width="29" height="24" border="0"></td>
+<td><img src="../../../../images/solids/sl_03/3_final_sweep.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Profile and drive curve</b></td>
+<td></td>
+<td align="center"><b>Generic sweep</b><br>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note:</b><br>
+ In order to create the solid, the two or more than two boundary profiles must not include islands</td>
+</tr>
+</table>
+
+<p>To obtain the above result, you need to open the <i>Three_profiles_sweep.e3</i> file available in the <i>samples</i> folder of your installation folder and follow the steps given below.<br>
+<br>
+</p>
+
+<ol indent="noleft">
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span> command to display the selection list.<br>
+<br>
+</li>
+
+<li>Next, you will be prompted to select the spine (drive curve) for path transition. Select the drive curve for the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+14">Spine</span> selector, as shown in the image below.<br>
+<br>
+<img border="1" src="../../../../images/solids/sl_03/sl_01_03_19.gif"><br>
+<br>
+</li>
+
+<li>Now, click on the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+12">Boundaries</span> selector in the selection list and select the profile you want to sweep from the Graphic Area, as shown in the image below.<br>
+<br><img border="1" src="../../../../images/solids/sl_03/sl_01_03_20.gif"><br>
+<br>
+</li>
+
+
+
+<li>Next, select the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+32">Constant axis</span> option from the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list and <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span> from the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+36">Direction</span> drop-down list. The preview of the sweep feature gets displayed with warnings, as shown in the image below.<br>
+<br><img src="../../images/3_sweep_inter.gif" border="1"><br>
+<br>
+</li>
+
+<li>To reset the starting and closing points for smooth path transition. Right-click on the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+13">Start Points</span> to select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option and reselect the points on the feature for smooth propagation. The preview is shown in the image below.<br>
+<br><img src="../../../../images/solids/sl_03/3_Set_points.gif" border="1"><br>
+<br>
+</li>
+<li>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the solid, as shown in the image below.<br>
+<br>
+</li>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/3_final_sweep.gif"></td>
+<td></td>
+</tr>
+</table>
+</ol>
+
+<p>Click <img align="absmiddle" src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.<br>
+<br>
+</p>
+
+<p>See "<a href="../../../glossary/T_Spine.htm">Using Spines</a>" for details on how to use spine profiles.</p>
+
+<hr color="silver">
+<h5>Also try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_solid_connecting_two.htm"><b>Create a solid by connecting two boundary profiles without the spine</b></a></li>
+
+<li><a href="../HWfile/T_HW_solid_multi_spine.htm"><b>Create a solid by connecting two or more boundary profiles along a spine</b></a></li>
+
+<li><a href="../HWfile/T_HW_solid_multi_nospine.htm"><b>Sweep a solid by selecting the edge of the surface as the drive curve</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

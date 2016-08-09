@@ -1,0 +1,55 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>Side Curves</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<table style="margin-bottom:0;">
+<tr valign="top">
+<td>
+<a name="CTX_BlendingShapes_Reference"></a>It happens very often that a blending shape must be created between two surfaces while some other surfaces already exist at the start or at the end of the contours to be blended, like in the following example. In it, you have to create the blending shape between the two gray surfaces and, at the same time, the new shape needs to be as close as possible to the boundary of the purple surface on the right.</td>
+<td>
+<img border="1" src="../../../images/rn_2007T1/BS00.gif"><br>
+</td>
+</tr>
+</table>
+<p style="margin-top:0;margin-bottom:0;">Therefore, the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+1">Blending Shapes</span> command can manage <i>side curves</i>, that is curves or surface boundaries already existing at the start or at the end of the contours to be used for the creation of the blending shape. There is no need to adjust the directions and the weights of the tangent vector handles so as to fit the side curves.<br>Thanks to this functionality, it is possible to select sets of side curves on each side of the blending shape. The command, then, will automatically compute the directions and the weights of the tangent vector handles in order to produce the best fitting for the selected side curves, so as to get as close as possible to the side curves, though fulfilling the constraints on the shapes to be blended.</p>
+
+
+<ul style="margin-left:22;margin-top:0;margin-bottom:0;">
+<li>The <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+75">Side Curves</span> node is grayed out and not selectable when the command starts, but it immediately becomes available as soon as the 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+2">First Curves</span> and the 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+3">Second Curves</span> have been selected and the preview has been activated.<br>
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/BS02.gif"><br>
+<br>
+When the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+75">Side Curves</span> node is available and open, two markers are displayed on each side of the blending shape ("<b>1</b>" and "<b>2</b>"), so as to clearly show which side is the first and which is the second.</li>
+
+
+<li>For each side (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+76">First Side</span>, 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+77">Second Side</span>), you can then select a contour (chain of consecutive curves and/or surface boundaries). A warning is displayed when the selected entities do not form a contour.<br>
+
+The preview is computed whenever a side curve selector has changed, while relevant weights and directions are automatically adjusted by the program. In fact, in case of side curve selection, the tangent vector handles are disabled, while you can still move the point position and set the global weights, though they will not affect the values of tangent weights where side curves have been selected.<br>
+A specific warning is issued to display the actually achieved distance between the blending shape boundary and the side curves.</li>
+</ul>
+
+<ps tyle="margin-top:0;margin-bottom:0;">Please take into account the best fitting results depend on the required continuity conditions, that is, if you change those conditions, also the fitting of the side curves will be different.</p>
+</body>
+</html>

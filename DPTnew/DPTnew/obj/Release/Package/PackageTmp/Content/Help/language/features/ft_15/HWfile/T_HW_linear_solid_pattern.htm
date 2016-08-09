@@ -1,0 +1,158 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Creating a linear pattern</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Creating a linear pattern</h3>
+
+<p>After starting the <a  href="../FWfile/T_FW_ft_15.htm"><b>Pattern</b></a> command, proceed as follows.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Click to select the feature that you want to copy. 
+<BR><BR><IMG border=1 SRC="../../../../images/features/PTL01.gif"><BR><BR>End selection by right-clicking and choosing <b>Continue</b> in the context menu. 
+To change the selected feature, right-click on <b>Base Entities</b> in the selection list, choose <b>Reset</b> in the context menu and select another feature.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>From the <B>Type</B> drop-down list, choose the type of pattern: 
+<table>
+<tr valign="top">
+<td width="130"><b>Linear</b></td>
+<td>Creates a linear pattern in one direction.</td>
+</tr>
+<tr valign="top">
+<td><b>Angular</b></td>
+<td>Creates an angular pattern about a single axis.</td>
+</tr>
+<tr valign="top">
+<td><b>Linear-linear</b></td>
+<td>Creates a linear pattern in two directions.</td>
+</tr>
+<tr valign="top">
+<td><b>Linear-angular</b></td>
+<td>Creates a linear pattern in one direction and then revolves those solids or features about an axis.</td>
+</tr>
+<tr valign="top">
+<td><b>Angular-linear</b></td>
+<td>Creates an angular pattern about an axis and then creates a linear pattern in one direction</td>
+</tr>
+<tr valign="top">
+<td><b>Angular-angular</b></td>
+<td>Creates an angular pattern about an axis and then revolves those solids or features about a second axis.</td>
+</tr>
+</table><br>Select <b>Linear</b>.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>From the <B>Placement</B> drop-down list, choose the placement method.
+<table>
+<tr valign="top">
+<td><b>Fit</b></td>
+<td>Enables you to specify the number of copies and the linear or angular extension in which to fit those copies.</td>
+</tr>
+<tr valign="top">
+<td><b>Fill</b></td>
+<td>Enables you to specify the linear or angular step between the original and the first copy, and the linear or angular extension in which to fill those copies (with the number of copies determined by the number required to fill the extension).</td>
+</tr>
+<tr valign="top">
+<td><b>Fixed</b></td>
+<td>Enables you to specify the number of copies and the linear or angular step between the original and the first copy.</td>
+</tr>
+<tr valign="top">
+<td><b>Inherit</b></td>
+<td>Enables you to copy data from an existing pattern to be selected, automatically applying them to the pattern you are creating.</td>
+</tr>
+</table>
+<br>Select <b>Fit</b>.
+
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <B>1st Direction</B> drop-down list, select the method used to define the first direction of the copies by choosing either <B>Line</B> or <B>2 Points</B>, and then specify the direction.<br>
+Choose <b>Line</b> and select the edge of the plate shown in the following illustration:
+<BR><BR><IMG border=1 SRC="../../../../images/features/PTL02.gif"><BR><BR>A preview is immediately displayed.
+<BR><BR><IMG border=1 SRC="../../images/PTL05.gif"><br><br>
+To change the selected line, right-click on <b>1st Direction</b>, select <b>Reset</b> in the context menu and select another line.
+<p></p></td>
+</tr>
+<TR VALIGN=top>
+<TD><B>5</B></TD>
+<TD>In the <b>1st No. copies</b> mini-dialog box, specify the number of copies (max. 400) including the original.<p></p>
+</TD>
+</TR>
+<TR VALIGN=top>
+<TD><B>6</B></TD>
+<TD>In the <b>1st Extension</b> mini-dialog box, specify the total length over which the copies are to extend<br>
+<i>or</i><br>
+click and drag the handle to interactively set the length.
+<BR><BR><IMG border=1 SRC="../../images/PTL03.gif">
+
+<p></p>
+</TD>
+</TR>
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>If necessary, click <b>More Options</b> to specify additional options.
+<br>&nbsp;
+<table>
+<tr valign="top">
+<td><li></td>
+<td>Only when patterning features&nbsp;&#151;&nbsp;<i>not a solid</i>&nbsp;&#151;&nbsp;, the <b>Mode</b> drop-down list is available, enabling you to select the method to create the pattern copies:
+<table>
+<tr valign="top">
+<td><b>Fast</b></td>
+<td>Copies only the geometry of the selected feature</td>
+</tr>
+<tr valign="top">
+<td><b>Smart</b></td>
+<td>Copies the logic of the selected features, not just the geometry. Copies are obtained by creating a new feature based on the original data in the new position.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign=top>
+<td><li></td>
+<td>Use the <B>Simplified preview</B> check box to control the way preview images of the copies are displayed: When selected, it shows preview images of patterns using simple X's. When not selected, it shows preview images of patterns using actual copied solids or features. Enabling the simplified preview can be very useful when the number of faces of the involved features/solid is high. When this number reaches 400, the program, after a confirmation request, switches to the simplified preview mode.</td></tr>
+<tr valign=top>
+<td><li></td>
+<td>Only when patterning a solid&nbsp;&#151;&nbsp;<i>not features</i>&nbsp;&#151;&nbsp;the <B>Joined copies</B> check box is available, to determine whether the copies are created as one solid or individual solids.<p></p></td></tr>
+</table>
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>8</b></td>
+<td>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the linear pattern.<BR><BR><IMG border=1 SRC="../../images/PTL04.gif"><br><br>Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

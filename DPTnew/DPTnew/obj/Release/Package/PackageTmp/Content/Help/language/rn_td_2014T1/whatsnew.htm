@@ -1,0 +1,291 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2014t1" content="New">
+<meta name="Author" content="Stefania Fortuzzi">
+<meta name="Revisor" content="Nicola Binaghi">
+
+<title>What's new in v. 2014.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="viaMk();"  bgcolor="White">
+
+<p align="center" style="margin-bottom:0;"><img src='../../company/Logo-black.png'></p>
+<hr size=3 color="silver">
+
+<h1 style="text-align: center"><a name="top"><a>ThinkDesign 2014.1 Release Notes</h1> 
+<hr color="silver">
+<p class="noindent" style="margin-top: 0; color: font-size: larger;">Many improvements have been made in version 2014.1. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+<br>
+<ul class="litleft">
+<li style="color: font-size: larger;"><a href="#Analysis"><b>Analysis</b></a></li> 
+<li style="color: font-size: larger;"><a href="#Ansys"><b>ANSYS plug-in</b></a></li> 
+<li style="color: font-size: larger;"><a href="#CM"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span></a></li>
+<li style="color: font-size: larger;"><a href="#Cnv"><b>Data Converter</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJMD"><b>MoldDesign</b></a></li> 
+<li style="color: font-size: larger;"><a href="#PRJ884"><b>PARTsolutions Plug-in</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJPL"><b>Part List</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJperf"><b>Performance Improvements</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ897"><b>Subdivision Solid</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJW81"><b>Windows 8.1 Support</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJT3W"><b>think3 Wizards (API-COM) Support</b></a></li>
+
+</ul>
+<hr color="silver">
+<!-- MKTG request -->
+
+<br>
+<table width="100%">
+<tr>
+<td align="left"></td>
+
+<td align="center"><!-- <b><font color="red" size=+1><b><i>WORK IN PROGRESS</i></b></font></b><br> --><b><i>Last update:</i>&nbsp;10 March 2014</b></td>
+<td align="right"></td>
+</tr>
+</table>
+<!--  -->
+
+<hr color="silver">
+<p align="center"><img src="../../images/company/thinkdesignsuite-black.png"></p>
+<hr  size=3 color="silver">
+<br>
+<br>
+<h2><a name="Analysis"><a>Analysis</h2>
+<p>The new <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+81">Along Work Plane</span> check-box has been added to the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span><img src="../../images/general/litarr.gif">
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7362">Entity Size</span> command.</p>
+<p>When selected, it allows to compute the bounding-box in the X, Y and Z directions relative to the current Work Plane. When not selected, the bounding-box is computed in the X, Y and Z directions relative to the World reference system.
+</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<!-- ANSYS -->
+<br>
+<h2><a name="Ansys"><a>ANSYS plug-in</h2>
+<p><b>Choosing the ANSYS plug-in version</b><br>
+Starting from this version, you can choose whether to install either <b>ANSYS V14.5</b> or <b>ANSYS V15.0</b> plug-in from the custom window of the installation wizard during the installation process.</p>
+<P><b>Improvements</b><br>In the previous versions of <b>ThinkDesign</b>, all the models imported in <b>ANSYS</b> had <b>Structural Steel</b> as <b>Material</b>. 
+<br>From the 2014.1 version, instead, the <b>Material</b> associated to a solid in <b>ThinkDesign</b> is taken into account in <b>ANSYS</b> if it exists in <b>ANSYS Material Libraries</b> (name matching).<br>
+The correspondence is enabled only if <b>ANSYS Material Properties</b> option is checked-on.</p>
+<br>
+<div align="center"><img border="1" src="images/Ansys.jpg"></div>
+<br>
+<br>
+<p>In order to activate the option follow these steps:</p>
+<ol>
+<li>In the <b>Static Structural</b> menu, R-click on <b>Geometry</b>.</li>
+<li>Choose <b>Properties</b>.</li>
+<li>Select the <b>Material</b> check box.</li>
+</ol>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Prerequisite of using the <b>ANSYS</b> plug-in is to have the <b>ANSYS</b> application installed in the workstation.
+</td>
+</tr>
+</table>
+<br>
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+<br>
+<!-- Configuration Manager -->
+<h2><a name="CM"><a><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span></h2>
+<p>After setting the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+181">Smart Objects</span> and/or <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+183">Group</span> library path in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+179">Library Path</span> of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> dialog box, the new <span class="UI_COMMAND" id="installation.msg+confmgr+45">Libraries</span> check box will be selectable in the <span class="UI_COMMAND" id="idd_cm_settings.msg+idd_cm_settings+1">Configuration Options</span> dialog box of the <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7279">Save</span> command. Selecting it you can share also these settings with the other users.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<br>
+<!-- Converter -->
+<h2><a name="Cnv"><a>Data Converter</h2>
+
+<p style="margin-bottom:0;">The <b>TD XchangeReader</b> module is now capable to read:</p>
+<ul style="margin-top:0;">
+<li>Any SolidWorks©version up to 2014; for Autodesk® Inventor® any version up to 2014</li>
+<li>Any JT version up to 9.5</li>
+<li>Any Siemens NXTM (Unigraphics) version from V11.0 up to NX 9</li>
+<li>Any CATIA® V5 version from R4 to V5-6R2013</li>
+<li>Any Parasolid®  version up to v26.0</li>
+<li>Any Pro/ENGINEER version up to Wildfire 5.</li></ul>
+<p>For the Autodesk® DXF/DWG format, the DWGDirect 3rd party library has been upgraded to Teigha® 3.09 (compatible to library (Autodesk® DWG™ 2013 file format).</p>
+
+<p><b>Improvements</b><br>
+A new category <b>Save</b>-<b>Visual Bookmark</b> has been added to the <b>Options</b> dialog box available in <b>Save as</b> <b>Adobe PDF file (*.pdf)</b>. The available options have the following meaning.</p>
+<table style="margin-left:30;">
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+698">View Data</span></td>
+	<td valign="top">When selected, <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+53">Visual Bookmarks</span> containing viewport and clipping plane information are exported. When not selected, they are ignored.</td>
+	</tr>
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+699">Hide/Unhide Entities</span></td>
+	<td valign="top">When selected, <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+53">Visual Bookmarks</span> containing information on hidden and visible objects are exported. When not selected, they are ignored.</td>
+	</tr>
+</table>
+<br>
+<p>The <b>User Defined Properties</b> (UDP) assigned to the entire model or to entities are now exported into 3D PDF.</p>
+<p>The new information in the PDF are visible in the <b>Model Tree</b> <b>Navigation Panes</b>. </p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+<h2><a name="PRJMD"><a>MoldDesign</h2>
+<!-- PRJ P0000894 -->
+<p>The <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+27">Mold Standard Parts</span> command has been improved in the selection of the  <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+28">Positioning Points</span>.</p>
+<p>After the selection of a positioning points, you can easily add to this selector other points by using the following context menu items:</p>
+<table style="margin-left:25;">
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+81">Transform</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+82">Mirror about X axis</span>
+ </td>
+	<td>It allows you to add the mirrored points about X of the Work Plane.</td>
+	</tr>
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+81">Transform</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+83">Mirror about Y axis</span>
+</td>
+	<td>It allows you to add the mirrored points about y of the Work Plane.</td>
+	</tr>
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+81">Transform</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+84">Copy along X direction</span>
+</td>
+	<td>Through the <b>Copy of points</b> dialog box, it allows you to add a specific number of points along the X axis at a defined <b>Step Distance</b></td>
+	</tr>
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+81">Transform</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+85">Copy along Y direction</span>
+</td>
+	<td>Through the <b>Copy of points</b> dialog box, it allows you to add a specific number of points along the Y axis at a defined <b>Step Distance</b>.</td>
+	</tr>
+	<tr>
+	<td valign="top"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+81">Transform</span><img  src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+90">Reset Marker Selection</span></td>
+	<td>It allows you to reset the marker selection. For deselecting only one point, you have to click on it by pressing <b>&lt;CTRL&gt;</b>.</td>
+	</tr>
+</table>
+<br>
+<p>This enhancement allows you to position the standard parts in symmetric points along X or Y or create a pattern of standard parts along X or Y.</p>
+<!-- RDB 6807 -->
+<p>In addition the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+48">Prevent Rotation by Cutting</span> drop-down list has the new <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+91">Both sides - oblong</span> option. When it is selected, the  profile you get is oblong instead of rectangular.</p>
+<!-- RDB 6808 -->
+<p>Multiple separate spacer components instead of one have been implemented in the 
+<span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+34">DME</span>, 
+<span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+62">HASCO</span> and 
+<span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+61">MEUSBURGER</span> catalogs.</p>
+<!-- RDB  6685 -->
+<p>In the previous version, when you inserted a Moldbase (DME, Hasco, Meusburger), the Guide pillar had all the same Diameter. In some case it is useful to have three guide pillar with same diameter and the 4th with another diameter. In order to allow this choice the new <b>3 + 1</b> option for <b>Leader Pin Top Shank</b> and <b>Leader pin busings</b> has been added to the <b>Guide Elements</b> tab of the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+34">DME</span> and <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+61">MEUSBURGER</span> catalogs.<br>
+If the <b>3+1</b> option is <b>No</b>, all the four leader pins have same diameter. If it is <b>Yes</b>, three leader pins have same diameter and the 4th has a lesser diameter. The 4th leader pin will be placed at lower right of top view.</p>
+<p>In order to access the new features in the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+34">DME</span>, <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+62">HASCO</span> and <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+61">MEUSBURGER</span> catalogs you have to import the ones available in the 2014.1 version.</p>
+<br>
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> has been improved for the MoldDesign user.<br>
+You can configure whether the column in the dialog box is editable or read only.<br>
+You can automatically calculate the size (bounding box) of a component and include it in the Part List.</p>
+<p>See <a href="#PRJPL"><b>below</b></a> for the details.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+<h2><a name="PRJ884"><a>PARTsolutions Plug-in</h2>
+<p>The <b>PARTSolutions Plug-in</b> has been updated to support the v. 9.04 of Cadenas PARTsolutions. </p> 
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+<br>
+<h2><a name="PRJPL"><a><span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span></h2>
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> contains two extra columns, which show the <b>COMPONENT NAME</b> and the <b>HIERARCHY LEVEL</b> of the component in the assembly. These columns are fixed and not editable, moreover they are not considered when you <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+101">Export to CSV</span>.</p>
+<p>Another important feature is the presence of the <b>Hide entities</b> and the <b>Unhide entities</b> commands in the context menu along with the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6958">Zoom Entities</span> command; after selecting a component, they can hide/unhide the selected entities to allow you a better visualization of your model.
+<!-- <p>If you are not a <b>MoldDesign</b> user, the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> dialog box is grayed out; it is a graphical feedback to indicate that the fields are not editable. -->
+<br>
+The new <span class="UI_COMMAND" id="idd_add_coloumn.msg+idd_add_coloumn+26">Editable Property</span> check box allows to configure whether the column in the  <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> dialog box is editable or read only.</p> 
+<br>
+<div align="center"><img border="1" src="images/EditableProperty.png"></div>
+<br>
+<p>The editable columns  have a white background, the others are grayed out.</p>
+<p>Two new properties have been added among the ones available in the list of columns in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+574">Columns</span> category of the <b>Part List Options</b> dialog box:</p>
+<table style="margin-left:25;">
+	<tr>
+	<td valign="top"><b>CompSizeAuto</b>
+</td>
+	<td>It is a checkbox in part list editor and determines whether the size has to be automatically calculated. When  selected, the program automatically calculates the size of the component; the content of the corresponding field of the <b>CompSize</b> column is not editable. When cleared, the string in the corresponding field of the <b>CompSize</b> column is editable. By default the check box is selected.</td>
+	</tr>
+	<tr>
+	<td valign="top"><b>CompSize</b>
+ </td>
+	<td>It is a string like <i>142L x 82W x 17H</i> (length x width x height). The automatic value is the bounding-box of the component with respect to the axis of the component itself.</td>
+	</tr>
+
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+<h2><a name="PRJperf"><a>Performance Improvements</h2>
+<!-- -->
+<p>In this version several improvements have been made to increase the performance of <b>ThinkDesign</b> graphical feedbacks.</p>
+<p>When switching between model and drawing environment the visualization of the graphical items, like toolbars, is faster. </p>
+<p>The time of displaying the command selection list has been significantly reduced.</p>
+<br>
+
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+<!-- PRJ  P0000897 -->
+<h2><a name="PRJ897"><a>Subdivision Solid</h2>
+<p>The <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+1">Subdivision Solid</span> command has been improved, in terms of usability and functionality. First of all it has been provided with a new user interface, that is more intuitive, ergonomic and efficient.
+<br><br><img border=1 src="images/SSO_01.png"><br><br>
+New and simpler selection methods have been developed by introducing the standard use off markers. When the mouse is placed over a face, edge or vertex, it is highlighted in the default thinkdesing mouse-over color (namely red). When the marker is clicked upon, it is highlighted (in orange by default) and selected. Holding the <b>&lt;CTRL&gt;</b> key and clicking on an item will deselect it if it was in the selection, otherwise it will add it to the current selection. <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1101">Window</span> and <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+6699">Lasso</span> selection are also enabled. Furthermore, whenever a <i>current selection</i> is available, an item is added to the context menu (accessed by right-clicking anywhere in the drawing area) called <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+164">Reset Current Selection</span>, so as to enable you to empty the current selection.
+<p><b>Edit Mode Changes</b></p>
+<p>Split face, Remove face and Subdivide face modes remain unchanged apart from the selection being made directly onto the face markers. Move and Extrude face modes have been modified and a new  <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+31">Add face</span> mode appears in the drop-down list.</p>
+</p>
+<p>Move<b></b></p>
+<p>For move operations, there remains only one mode (compared to the 3 in the previous version) in which any selected markers can:</p>
+<ol>
+<li>Be dragged freely with the mouse, following the dragging method specified in the software input mode (modified in <b><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span><img src="../../images/general/litarr.gif">Input or in System Options<img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7652">Input</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+68">Mouse Input</span></b>)</li>
+<li>Be dragged along certain axes after pressing the same keys as in Control Point Editing (in the work plane: 'x' for the X-axis, 'y' for the Y-axis, 'w' for the  Z-axis, and along the screen: 'v' for the vertical axis, 'h' for the horizontal and 'd' for the depth, this last one being mapped along the horizontal). Note that to leave this mode either <b>&lt;ESC&gt;</b> or the last key is pressed again.</li>	
+Use the <span class="UI_COMMAND" id="ctx_cm1.msg+_CTX_CM1_+173">Transform</span> tool to move the selection more precisely.</li>
+<li>Use the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+22">Scale</span> tool to stretch the selection along specified axes.</li>
+<li>Use the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDCMDCOMMON_SPEECH_+59">Symmetry</span> tool to specify a symmetry plane and move the selection along with its symmetrical equivalent, if any, in mirror motions with respect to the chosen plane.</li>
+</ol>
+
+
+<p><b>Extrude face - Depth Handle</b></p>
+ 
+<p><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+7">Extrude face</span> has been enhanced with a <i>depth handle</i> for the user to control the length at which the extrusion is made. Simply select the face to extrude and the handle will appear at the default length (that which was previously used). The handle can then be dragged or the depth can be entered manually to get the desired shape. Do note that as before, if during the extrude operation two faces coincide exactly, that is their vertices match, the faces will be destroyed and the shape fused on these vertices.
+<br><br><img border=1 src="images/SSO_EXTRUDE.png">
+</p>
+
+
+<p><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+31">Add face</span></p>
+<p><!-- <img border=1 src="images/SSO_ADDFACE.png"><br><br> -->
+A new edit mode is nowe available to add a face. It is a counterpart to the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+8">Remove face</span> mode. If the selection of edges is valid, the standard preview button appears at the top of the selection list. When this is clicked, the corresponding face will be built and the underlying solid updated. Do note that the added face will be the smallest possible given the selection as illustrated below.
+<br><br><img border=1 src="images/SSS_LAURENT.png">
+</p>
+
+<p><b>More Options</b></p>
+<p>This menu is shared by every mode. It contains utilities for the selection and display of markers and Quality Check for the subdivision solid surfaces. This last one remains unchanged from the previous version.</p>
+
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+
+
+<h2><a name="PRJW81"><a>Windows 8.1</h2>
+<p>The Windows 8.1 Operating System is now supported on the standard PC platforms.</p>
+<hr size=3 color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+
+<h2><a name="PRJT3W"><a>think3 Wizards (API-COM) Support</h2>
+<p>The think3 Wizards (used in the API-COM environment) is now available for Microsoft Visual Studio 2013.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<br>
+<hr size=3 color="silver">
+
+
+</body>
+</html>

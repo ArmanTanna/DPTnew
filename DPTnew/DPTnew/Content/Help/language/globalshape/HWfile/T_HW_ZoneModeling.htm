@@ -1,0 +1,152 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying a controlled modification to two faces of a solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying a controlled modification to two faces of a solid</h3>
+
+<p>In this job you will apply a controlled modification to two faces of a solid, by changing their common edge. Proceed as follows.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Open file "ZM.e3".<br>
+<br>
+<img border="1" src="../../../images/globalshape/AZM-00.gif"><br>
+<br>
+Start the <a href="../FWfile/T_FW_ZoneModeling.htm"><b>Zone Modeling</b></a> command. You will modify the common edge between the front surface and the top one, so as to make it match with the blue arc.
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the two faces the controlled modification must be applied to.<br>
+<br>
+<img border="1" src="../images/AZM-01.gif">
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>The <b>Show Warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ) is displayed on top of the selection list. When you click it, a message warns you you haven't set any preserving condition along the boundaries.<br>
+<br>
+<img border="1" src="../images/AZM-02.gif"><br>
+<br>
+Click <b>AutoPreserving</b>: preserving conditions will be automatically applied along all the boundaries of the selected faces and the previous message will disappear.<br>
+<br>
+<img border="1" src="../images/AZM-03.gif">
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>You will now have to select both the common edge of the selected faces and the blue arc you want it to coincide with. 
+
+<ul class="noleft">
+<li>Under <b>Matching</b>, in the <b>Matching</b> drop-down list, if not already selected, select <b>Curves</b><br>
+&nbsp;</li>
+<li>Select <b>Initial curves</b> under <b>Matching curves</b>, <b>Group1</b>. Then click on the common edge of the two faces.<br>
+<br>
+<img border="1" src="../images/AZM-04.gif"><br>
+&nbsp;</li>
+<li>Select <b>Target curves</b>. Then click on the blue arc.<br>
+<br>
+<img border="1" src="../images/AZM-05.gif"></li>
+</ul>
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>The <b>Constraint</b> drop-down list is displayed:<br>
+<br>
+<img border="1" src="../images/AZM-06.gif"><br>
+<br>
+Check the constraint is set to <b>Target position</b>. If the <b>More Options</b> node is expanded, the <b>Law</b> drop-down list is displayed, enabling you to choose the face behavior close to the common boundaries. Set <b>Law</b> to <b>Parametric</b>.
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click the <b>Preview</b> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) to display a preview of the result.<br>
+<br>
+<img border="1" src="../images/AZM-07.gif"><br>
+<br>
+To check the precision values you obtained, you can click the <b>Show Warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ).<br>
+<br>
+You can check the results you obtained as described in "<a href="T_HW_GMChecking.htm"><b>Checking your results</b></a>".
+<p></p>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and modify the shape of the object.<br>
+<br>
+<img border="1" src="../../../images/globalshape/AZM-09.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.<br>
+While you are using the command, you can select the <b>Hide</b> check box to temporarily hide the original entities, in order to better appreciate the changes you are making. The entities will be hidden only as long as the command is being executed.
+</td>
+</tr>
+</table>
+<br>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Gap between the modified surfaces and the other ones</b><br>
+If, after the modification, the gap between the modified surfaces and the other ones is not negligible, a message is displayed when you try to apply the command (using <b>Apply</b> (&nbsp;<img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> ) or <b>OK</b> ( <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> ) to let you know that, though the solid can be created as it is, keeping such a big gap value might cause troubles in future developments.<br>
+The set of options provided to manage the shape of the controlled modification (stiffness, roundness, bulging) and especially the ones affecting <a href="../HWfile/T_HW_GMChecking.htm#Precision">precision</a>) can be used to reduce the gap to an acceptable value.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMInteractive.htm"><b>Interactively moving points</b></a></li>
+<li><a href="T_HW_GMChecking.htm"><b>Checking your results</b></a></li>
+</ul>
+
+<hr color="silver"> 
+</body>
+</html>
+

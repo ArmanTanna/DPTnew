@@ -1,0 +1,60 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error Handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Start Local Edit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLEs/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style>.noleft{margin-left:22;margin-top:3;margin-bottom:0;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<p>The <b>Start Local Edit</b> command enables you to edit a shared group. 
+
+<p>To start the command right-click on a copy of the group in the drawing or on its icon in the <a href="../HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a> or in the <a href="../HWfile/T_HW_SharedGroupList.htm">Shared Group List Tab</a> and select <b>Start Local Edit</b> in the context menu.
+
+<p>An editing session is started for the selected shared group. The group is zoomed, the background color changes and you can edit/remove/add entities. When you're done with your changes, double-click in an empty zone of the drawing to quit the command, or right-click and select <b>End Local Edit</b> in the context menu.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Starting an editing session on another shared group</b><br>
+Using the functionalities of the <a href="../HWfile/T_HW_SharedGroupList.htm"><b>Shared Group</b></a> List Tab, after starting an editing session on a shared group using the <b>Start Local Edit</b> command, you can automatically end the editing session on the currently selected group and start a new editing session on <i>another</i> shared group in three alternative ways:
+<ul class="noleft">
+<li>By right-clicking in an empty zone of the graphics area and selecting <b>Modify Next</b> or <b>Modify Previous</b>, which will respectively move the editing session onto the next or the previous shared group according to the order of the archetype icons displayed in the <b>Shared Group</b> List Tab.</li>
+<li>By using the arrow keys of the keyboard ( <img src="../../../images/general/upblackarrow.gif"> , <img src="../../../images/general/downblackarrow.gif"> ) in the <b>Shared Group</b> List Tab to <i>scroll</i> the list and move the editing session to the next/previous shared group according to the order of the archetype icons displayed in the displayed list.</li>
+<li>By clicking on the archtype icon in the <b>Shared Group</b> List Tab, which will move the editing session onto the group whose icon you clicked on.</li>
+</ul>
+
+<p style="margin-top:3;marign-bottom:0;">In addition, if the shared group you are editing contains other shared groups, while editing the parent group you can right-click on one of the shared groups it contains and select <b>Start Local Edit</b>. This action will automatically end the local editing session on the parent group and start a new one on the child group.</p>
+</td></tr></table><br>
+
+
+<p>All the changes you made to the selected copy of the shared group will be automatically applied to all other copies. 
+
+<p>If the selected group is an X-Reference (groups), when you close the drawing you will be asked whether you want to save your changes to the shared group file. If your answer is affirmative, the shared group definition will be modified in its own file: next time you load the drawing you will see the group modified according to your changes. On the contrary, if the answer is not affirmative, next time you load the drawing the group will look as it was before you modified it.
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_RedefineSharedGroup.htm"><b>Locally edit a Shared Group</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_gp_00.htm"><b>Introduction to groups</b></a></li></ul>
+
+<hr color="silver">
+</body>
+</html>

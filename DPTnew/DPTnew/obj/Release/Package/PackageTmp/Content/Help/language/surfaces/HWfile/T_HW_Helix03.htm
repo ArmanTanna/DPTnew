@@ -1,0 +1,118 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+<!-- Error Handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="translate">
+<TITLE>Job: Creating a helix surface given the height and the number of revolutions</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+
+<style>
+.notop{margin-top:0;}
+</style>
+
+<style>
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style>
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style>blockquote{margin-left:22;margin-top:2;margin-bottom:0;}</style>
+
+<style>.litleft{margin-left:26; margin-top:0;margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h2>Creating a helix surface given the height and the number of revolutions</h2>
+<p class="notop">You can follow the easy steps of this example to see how to create a helical surface based on a given value for the height and on a given number of revolutions. Before starting, open sample file &quot;HelixSurf.e3&quot;.
+<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a  href="../FWfile/T_FW_HelixSurface.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+347">Helix Surface</span></a> command. 
+
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Check that the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+346">Rotation</span> drop-down list is set to 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+344">Clockwise</span>. If it isn't, set it to 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+344">Clockwise</span>.</td>
+
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+558">Mode</span> drop-down list, select 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+573">Height and revolutions</span>.</td>
+
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the curves to swept in order to create the helical surfaces and end selection by right-clicking and choosing <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.
+
+<br><br>
+<img border=1 src="../../../images/surfaces/HS01.gif"><br>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Set the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+157">Axis</span> drop-down list to 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>). Then select the line.
+
+<br><br>
+<img border=1 src="../../../images/surfaces/HS02.gif"><br>
+<br>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> boxes are displayed.
+
+<br><br>
+<img border=1 src="../images/HS3_01.gif"><br>&nbsp;
+</td>
+</tr><tr valign="top">
+<td><b>6</b></td>
+<td>Set the values of <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> to the desired ones.
+
+<br><br>
+<img border=1 src="../images/HS3_02.gif"><br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>In order to change the start and end angle of the helix, expand the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node and select the 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+570">End angles</span> check box. The 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+568">Start Angle</span> and the 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+569">End Angle</span> boxes are displayed.<br><br>
+
+<img border=1 src="../images/HS3_03.gif"><br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>8</b></td>
+<td>Type in the desired values (or drag the corresponding handles to the corresponding locations).<br><br>
+<img border=1 src="../images/HS3_04.gif"><br>&nbsp;</td>
+</tr>
+<tr valign="baseline">
+<td><b>9</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surfaces.
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/HS3_05.gif"></td>
+</tr>
+</table>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+Remember the command does not create a single surface: each complete turn of the helix is a separate surface, though there is curvature continuity along each common border.
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

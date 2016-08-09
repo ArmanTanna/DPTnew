@@ -1,0 +1,184 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+<meta name="Revisor" content="Chitti Sowjanya">
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Styles Basics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideTR();HideTDC();">
+
+<h1>An overview on Styles (basic concepts)</h1>
+
+<p><b>Style</b> is a collection of attributes that define dimension and text entities. The style is an associative attribute. If you build an entity using a specific style, and then you edit a style - all the entities that are using this style will change to reflect the modification of the associated style.</p>
+
+<p>In the <b>think<font color="#FF0F00">3</font></b> applications, there are two style classifications:</p>
+
+<ul>
+<li><a href="#dim"><b>Dimension</b></a></li>
+<li><a href="#text"><b>Text</b></a></li>
+</ul>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+<a href="#GN">General Notes</a> listed below in the remaining part of the document are common to both Dimension and Text  style specifications.</td></tr></table> 
+
+<h3><a name="dim"></a>Dimension Styles</h3>
+
+<p>Dimension style is associated to all dimensions &mdash; which include dimensions created through <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4607">Smart</span>, and specific dimension commands (labels, balloons, feature control frames and surface roughness symbols); so, when we speak of "dimensions" we mean all these entity types.<br>
+
+Dimension styles affect the appearance of dimensions and can be used to create a consistent standard for dimensioning techniques. They are the main method used to control the way dimensions look; and a great way to organize and manage your dimensions.<br>
+<br>
+Using these styles you can change the text font, the arrowhead style, the relative position of the text, the scale of dimensions and many other parameters. Styles are created using the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526"><a href="../FWfile/T_FW_ed_23.htm">Organize Styles</a></span> (
+<span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span>) command.<br>
+
+<br>
+(Dimension styling is a relatively complex area but the <b>think<font color="#FF0F00">3</font></b> applications have made it easy with many classifications depending on the specific needs - Organize Styles, Organize Formats, and Option/Properties).<br>
+<br>
+Two options available when creating a new dimension style are to use it for all dimension types or to limit it to a particular type of dimension.<br>
+<SPAN id="TWOD">The default style is the one set through the <a href="T_OV_customizetd.htm#top"><b>Settings Wizard</a> (All Programs<img src="../../../images/general/litarr.gif">think3<img src="../../../images/general/litarr.gif">the <b>think<font color="#FF0F00">3</font></b> application <i>ver</i><img src="../../../images/general/litarr.gif">Utilities)</b> at the first startup of the application. Using this Settings Wizard you can select the desired dimension and text standard.<br></SPAN>
+<br>
+The best method is to create a new style before you start creating dimensions so that you can leave the newly created style as your preferred one (when a style is created it is automatically set as current and the more recently used style is automatically loaded when opening a new document). In any case the program will load a default style (<span class="UI_COMMAND" id="eklib.msg+eklib+464">Loaded</span>: <b>Default</b>, <b>ISO</b>, <b>ANSI</b>, <b>JIS</b>, <b>GB</b>, <b>KS</b>). Having created a new style from the loaded style you can then apply any modifications you generally require to the parent style and then more specific modifications to the child (<a href="#spl"><span class="UI_COMMAND" id="ContextMenu_Style.msg+ContextMenu_Style+7533">Specialize</span></a>: Linear, Radial, Angular, Diameter, Ordinate and Leader) styles in order to create a style family. Therefore, when you create an entity all the defined style properties of the current style will be used to build it.<br>
+
+<br>
+For example, you may like to use a tick rather than an arrowhead for your dimensions but this isn't really appropriate for a leader, so the specialized Leader style can be changed so that leaders will always be drawn with an arrowhead whilst all other dimensions of the same style family are drawn using ticks.<br>
+</p>
+
+<p><h5><a name="spl"></a>Create a Dimension Style Specialization</h5>
+This is a more advanced and very powerful functionality. For every style you will be able to specialize attributes for specific dimension type. To create a specialization set the style you want to specialize as the current one and click the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1228">Specialize Style</span> button (<img border="0" src="../../../images/icons/ops/specialstyle.gif">).</p>
+
+
+<h3><a name="text"></a>Text Styles</h3>
+
+<p>Text style is directly associated to text entities and, indirectly, to dimensions (through the dimension style). To set a text style for a dimension you must first have created the style using the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span> command. To assign the text style to a dimension style, click on the drop-down list in the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+982">Text style:</span> area of the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category and select the required text style from the list.</p>
+
+
+<h3>Style parameters</h3>
+
+<p>The parameters defining a style can be modified; depending on the context in which this modification occurs and on the parameter type we use different terms to classify parameter's status.</p>
+
+<ul>
+<li>A parameter's current value can be aligned with the value established by the current style or not, in the second case we say the parameter is temporarily overridden.</li>
+
+<li>An entity's parameter value can be aligned with the value established by the style used by the entity or not, in the second case we say the parameter is localized inside the entity &mdash; that means it has been kept independently from the referred style</li>
+
+<li>If an entity has been created while some parameter values are currently overridden then they will become localized inside the entity.</li>
+
+<li>On opening the style organizer, the overridden values are reset and changing some value means to directly change style definition.</li>
+</ul>
+
+<p>A dimension style definition envisages, for the same parameter, a set of values depending on the entity type to which the style will be applied. In this case we speak of style specialization and of specialized parameter values.<br>
+<br>
+"<a name="std"></a><b>Standard behavior</b>: When changing a style definition, and the modified style has been already used by some entities, the expected behavior is as follows: only the parameters that were not localized into the entities will be coherently updated."<br>
+<br>
+But we have some exceptions regarding parameters localization into the entities &mdash; that is some parameters are immediately localized into the entity independently from their current status with respect to the style definition. Such parameters appear to be grayed on opening the style organizer in order to highlight this different behavior. </p>
+
+<h3><a name="GN"></a>General Notes</h3>
+
+<p>Inside the <span class="UI_COMMAND" id="eklib.msg+optsmsg+3">Organize Styles</span> dialog box, all the parameters, which will be automatically localized inside the entities, are <i>grayed</i> and are with black text. Therefore, all the parameters with blue text are style properties inheriting style values accordingly to the above said standard behavior. Changing these parameters inside the style organizer will directly change style definition.</p>
+
+
+<p>When these parameters are modified inside the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> (
+<span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span>) dialog box, they turn to <i>bold</i> (that means style value has been overridden). Whereas inside the 
+<span class="UI_COMMAND" id="eklib.msg+optsmsg+6">Edit Properties</span> dialog box (while editing a dimension) the parameters with bold effect will specify that the values are currently localized into the entity.<br>
+
+<br>
+</p>
+
+<ol>
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4607">Smart</span> <i>(Command Mode)</i>:<br>
+
+If the properties under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category are changed &mdash; 
+
+
+<ul>
+<li>The Dimension text style properties will be made as overridden (that is why an overridden warning is displayed when the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span> command is started), but it will not override the referenced Text style.</li>
+
+
+<li>The parameters turn bold and these changes will be propagated to the next entity created. In general, any kind of parameter modified inside any command will not be reset exiting the command.</li>
+</ul>
+</li>
+<br>
+
+<li><span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> <i>(Idle Mode)</i>:<br>
+
+<a name="EP"></a><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> is the collection of all the attributes related to different entity types that will be applied to the next entities you create. Several instances of the same entity type can exist in the current document.<br>
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> and 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> categories collect attributes for dimension and text entities. By selecting the Dimension or Text category you can not only view your current style, but also edit any attribute for your entity. The modifications will affect the next entities you will create but not the current style.<br>
+
+Only <a href="T_OV_Styles.htm#temp">temporary editing of style attributes</a> can be done from this page, whereas permanent editing of a style can only be done from the <span class="UI_COMMAND" id="eklib.msg+optsmsg+3">Organize Styles</span> dialog box. (see <a href="T_OV_Styles.htm#edit">Edit a Style</a>) 
+
+
+<ul>
+<li>When the user edits these parameters under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category the Dimension text style properties will be made as overridden (turn to bold) but not the current Text style.</li>
+
+
+<li>If the current Text style and Dimension text style are the same, the current Text style parameters are overridden, that is changing a parameter in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category will also change the same in the Text category.</li>
+</ul>
+</li>
+<br>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span> Mode:<br>
+
+In this mode, the Dimension text style properties are not editable under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category.<br>
+
+You are enabled to perform the following functions in this mode:
+
+<ul>
+<li><a href="T_OV_Styles.htm#edit">Edit a Style</a></li>
+<li><a href="T_OV_Styles.htm#save">Save Style to Library</a></li>
+<li><a href="T_OV_Styles.htm#load">Load a Style from Library</a></li>
+</ul>
+<br>
+
+<li><span class="UI_OPTION" id="eklib.msg+optsmsg+6">Edit Properties</span> <i>(Edit Mode)</i>:
+If a parameter is modified, it turns to bold because it has been localized. User can also remove all the localized values with the <A href="T_OV_Resetstyle.htm"><span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7567">Reset to Style</span></a> option. When reset, the entity gets completely aligned with the style value.
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+During an entity editing we are not dealing with the current parameter values, but with the entity's parameters.
+</td></tr></table>
+<br>
+
+When dimensions and text entities are pre-selected, both the categories are displayed in order to allow specific actions:
+
+<ol>
+<li>When user edits parameters under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category only dimensions get updated.</li>
+<li>When user edits parameters under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> category only text entities get updated.</li>
+<li>(To facilitate the understanding we have to think that now the words "Dimension" and "Text" do not represent the styles; they represent the entities, and so, if we want to change the height of the texts there is no reason to make this change effective on dimension too.)</li>
+</ol>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

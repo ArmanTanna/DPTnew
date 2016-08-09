@@ -1,0 +1,822 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head language="JavaScript">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="english_only">
+<title>NVIDIA Configuration</title>
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+  
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<div style="color: Red; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 50px; font-weight: bold; font-variant: small-caps;" align="center">To Be Updated</div>
+
+<h4>NVIDIA Configuration notes</h4>
+
+<blockquote>For NVIDIA&reg; graphics chipset family drivers, please refer to the relevant page: <a href="http://www.nvidia.com/content/drivers/drivers.asp">http://www.nvidia.com/content/drivers/drivers.asp</a> and apply the settings that follow.<br>
+Latest and Beta drivers: <a href="http://www.nvidia.com/Download/Find.aspx?lang=en-us">http://www.nvidia.com/Download/Find.aspx?lang=en-us</a><br>
+Certified drivers for NVIDIA Quadro family <a href="http://www.nvidia.com/page/partner_certified_drivers.html" target="_top">http://www.nvidia.com/page/partner_certified_drivers.html</a><font><font><font><b><font><font><font><b><br>
+</b></font></font></font></b></font></font></font> Windows XP/2000 driver archive: <a href="http://www.nvidia.com/object/winxp-2k_archive.html">http://www.nvidia.com/object/winxp-2k_archive.html</a><br>
+<br>
+ <span style="font-weight: bold;">Windows</span> <span style="font-weight: bold;">7 /</span> <span style="font-weight: bold;">Vista</span><span style="font-weight: bold;">&reg;</span><span style="font-weight: bold;">32/64</span> <span style="font-weight: bold;">Workstation solutions</span>:<br>
+</blockquote>
+
+<ul>
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro FX&trade; 5800, 4800, 3800, 1800, 580, 380<br>
+</a></li>
+
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro CX&trade;<br>
+</a></li>
+
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro FX&trade; 4700, 3700, 1700, 570, 470, 370<br>
+</a></li>
+
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro FX&trade; 5600, 5500, 4600, 4500, 4400, 3500, 3450, 3400<br>
+</a></li>
+</ul>
+
+<ul>
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro&trade; NVS 450, 440, 420, 295, 290, 285<br>
+</a></li>
+</ul>
+
+<ul>
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro FX&trade; 1500, 1400, 560, 550, 540, 350</a></li>
+
+<li><a href="#Quadro_FX_Vista">NVIDIA&reg; Quadro FX&trade; 4000, 3000<br>
+</a></li>
+</ul>
+
+<blockquote><span style="font-weight: bold;">Windows</span> <span style="font-weight: bold;">7 /</span> <span style="font-weight: bold;">Vista</span><span style="font-weight: bold;">&reg;</span><span style="font-weight: bold;">32/64</span> <span style="font-weight: bold;">Desktop</span> <span style="font-weight: bold;">solutions</span>:</blockquote>
+
+<ul>
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 200 Series: 295, 285, 280, 275, 260, 250</a></li>
+
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 100 Series: 140, 130, 120</a></li>
+
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 9 Series: 9800, 9600<br>
+</a></li>
+
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 8 Series: 8800, 8600, 8500, 8400, 8300<br>
+</a></li>
+
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 7 Series: 7950, 7900, 7800, 7600, 7400, 7300, 7200<br>
+</a></li>
+
+<li><a href="#GeForce_Vista">NVIDIA&reg; GeForce&trade; 6 Series: 6800, 6700, 6600, 6500, 6200, 6100</a></li>
+</ul>
+
+<blockquote><span style="font-weight: bold;">Windows Vista</span><span style="font-weight: bold;">&reg;</span><span style="font-weight: bold;">32/64</span> <span style="font-weight: bold;">Laptop</span> <span style="font-weight: bold;">solutions</span>:</blockquote>
+
+<ul>
+<li><a href="#Quadro_FX_Notebook">NVIDIA&reg; Quadro FX&trade; Mobile series<br>
+</a></li>
+
+<li><a href="#Quadro_FX_Notebook">NVIDIA&reg; GeForce&trade; Mobile series<br>
+</a></li>
+</ul>
+
+<blockquote><span style="font-weight: bold;">Windows XP 32/64,</span> <span style="font-weight: bold;">Windows</span> <span style="font-weight: bold;">2000</span> <span style="font-weight: bold;">Workstation solutions</span>:<br>
+</blockquote>
+
+<ul>
+<li><a href="#Quadro_FX_XP">NVIDIA&reg; Quadro FX&trade; 5800, 4800, 3800, 1800, 580, 380</a></li>
+
+<li><a href="#Quadro_FX_XP">NVIDIA&reg; Quadro CX&trade;</a></li>
+
+<li><a href="#Quadro_FX_XP">NVIDIA&reg; Quadro FX&trade; 4700, 3700, 1700, 570, 470, 370<br>
+</a></li>
+
+<li><a href="#Quadro_FX_XP">NVIDIA&reg; Quadro FX&trade; 5600, 5500, 4600, 4500, 4400, 3500, 3450, 3400<br>
+</a></li>
+</ul>
+
+<ul>
+<li><a href="#Quadro_FX_XP">NVIDIA&reg; Quadro&trade; NVS 450, 440, 420, 295, 290, 285<br>
+</a></li>
+</ul>
+
+<ul>
+<li><a href="#Quadro_FX_XP_AGP">NVIDIA&reg; Quadro FX&trade; 1500, 1400, 1300, 560, 550, 540, 360, 350</a></li>
+
+<li><a href="#Quadro_FX_XP_AGP">NVIDIA&reg; Quadro FX&trade; 4000, 3000, 2000<br>
+</a></li>
+
+<li><a href="#Quadro_FX_XP_AGP">NVIDIA&reg; Quadro FX&trade; 1100, 1000, 700, 500<br>
+</a></li>
+
+<li><a href="#Quadro4">NVIDIA&reg; Quadro4&trade; 980, 580, 380 XGL<br>
+</a></li>
+
+<li><a href="#Quadro4">NVIDIA&reg; Quadro4&trade; 900, 750, 700, 550 XGL<br>
+</a></li>
+
+<li><a href="#Quadro_2">NVIDIA&reg; Quadro2&trade;<br>
+</a></li>
+
+<li><a href="#Quadro_2">NVIDIA&reg; Quadro&trade;<br>
+</a></li>
+</ul>
+
+<blockquote><span style="font-weight: bold;">Windows XP 32/64,</span> <span style="font-weight: bold;">Windows</span> <span style="font-weight: bold;">2000 Desktop solutions</span>:<br>
+</blockquote>
+
+<ul>
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 200 Series: 295, 285, 280, 275, 260, 250</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 100 Series: 140, 130, 120</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 9 Series: 9800, 9600<br>
+</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 8 Series: 8800, 8600, 8500, 8400, 8300<br>
+</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 7 Series: 7950, 7900, 7800, 7600, 7400, 7300, 7200<br>
+</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce&trade; 6 Series: 6800, 6700, 6600, 6500, 6200, 6100<br>
+</a></li>
+
+<li><a href="#GeForce_XP">NVIDIA&reg; GeForce FX&trade; 5 Series: 5900, 5200<br>
+</a></li>
+
+<li><a href="#Quadro_2">NVIDIA&reg; GeForce4&trade;, GeForce3&trade;, GeForce2&trade; and GeForce256&trade; Series</a></li>
+
+<li><a href="#Quadro_2">NVIDIA&reg; RIVA TNT2&trade; and RIVA TNT&trade; Series</a></li>
+</ul>
+
+<blockquote><span style="font-weight: bold;">Windows XP 32/64 Laptop</span><span style="font-weight: bold;">solutions</span>:<br>
+</blockquote>
+
+<ul>
+<li><a href="#Quadro_FX_Notebook">NVIDIA&reg; Quadro FX&trade; Mobile series<br>
+</a></li>
+
+<li><a href="#Quadro_FX_Notebook">NVIDIA&reg; GeForce&trade; Mobile series</a></li>
+</ul>
+
+<hr width="100%">
+<h4 style="margin-left: 40px;"><a name="Quadro_FX_Notebook"></a>Graphics cards in notebooks</h4>
+
+<div style="margin-left: 40px; font-weight: bold;">NVIDIA&reg; Quadro FX&trade; Mobile 3700M, 2700M, 1700M, 770M, 570M, 370M<br>
+NVIDIA&reg; Quadro FX&trade; Mobile 3600M, 3500M, 2500M, 1600M, 1500M, 360M, 350M<br>
+NVIDIA&reg; <span style="font-weight: bold;">GeForce&trade; Mobile series</span><br>
+</div>
+
+<p style="margin-left: 40px;">Display drivers for notebooks with graphics solutions are available for download from your Notebook manufacturer becose the display driver supplied with a given notebook has been customized for:</p>
+
+<ul style="margin-left: 40px;">
+<li>the built-in flat panel display</li>
+
+<li>any other graphics or video options installed in that specific computer.</li>
+</ul>
+
+<p style="margin-left: 40px;">We recommend that you use the driver supplied with your notebook computer or obtain a driver update from the manufacturer of your notebook computer. If you have some graphics problems or updated driver is not available from your notebook manufacturer NVIDIA now released display drivers also for notebook that you can download from the following link: <a href="http://www.nvidia.com/Download/index.aspx?lang=en-us"><span style="text-decoration: underline;">http://www.nvidia.com/Download/index.aspx?lang=en-us</span></a><br>
+</p>
+
+<p style="margin-left: 40px;">Support for a specific driver feature (such as hardware acceleration of OpenGL) may be incorporated into a particular display driver (or not) at the discretion of the notebook manufacturer. If you have any questions regarding the features or functionality of a particular display driver, please consult with your notebook manufacturer.<br>
+</p>
+
+<br>
+<br>
+<hr width="100%">
+<div style="margin-left: 2em;" class="MajorList"><br>
+<a name="Quadro_FX_Vista"></a><span style="font-weight: bold;">Windows</span> <span style="font-weight: bold;">7&nbsp; /</span> <span style="font-weight: bold;">Vista</span><span style="font-weight: bold;">&reg;</span> <span style="font-weight: bold;">32/64</span> <span style="font-weight: bold;">Workstation solutions</span>:<br>
+<br>
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5800, 4800, 3800, 1800, 580, 380</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro CX&trade;</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 4700, 3700, 1700, 570, 470, 370</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5600, 4600</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5500, 4500, 4400, 3500, 3450, 3400</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 1500, 1400, 560, 550, 540, 350</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro&trade; NVS 450, 440, 420, 295, 290, 285</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 4000, 3000 Series</span><br>
+</div>
+
+<div class="MajorList">
+<div style="font-weight: normal; margin-left: 40px;"><br>
+</div>
+
+<div style="font-weight: normal; margin-left: 80px;">
+<table style="text-align: left; width: 606px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows <span style="font-weight: bold;">7</span> <span style="font-weight: bold;">/ Vista (32 bit)</span></td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows <span style="font-weight: bold;">7</span> <span style="font-weight: bold;">/ Vista (64 bit)</span></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/Quadro_win7_winvista_32bit_190.38_whql.html">ForceWare 190.38</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/Quadro_win7_winvista_64bit_190.38_whql.html">ForceWare 190.38</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_182.65.html">ForceWare 182.65</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_182.65.html">ForceWare 182.65</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_182.46.html">ForceWare 182.46</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_182.46.html">ForceWare 182.46</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_178.46.html">ForceWare 178.46</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_178.46.html">ForceWare 178.46</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_169.96.html">ForceWare 169.96</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_169.96.html">ForceWare 169.96</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_162.65.html">ForceWare 162.65</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_162.65.html">ForceWare 162.65</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="font-weight: normal;">
+<ul style="margin-left: 40px;">
+<li>Latest drivers introduce ACE feature, this means the settings is automatic and the application profile is no more available in the global settings tab, whereas you can find it&nbsp; in the programs settings tab. To avoid graphics artifacts choose the <img src="../../images/company/ThinkDesign.gif" align="middle"> applications profile settings where the use of the block transfer option for buffer flipping mode is recommended.</li>
+
+<li>Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li>Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li>With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li><a style="font-weight: normal;" href="T_OV_cooltips.htm">Advanced Graphics Tips</a>.</li>
+</ul>
+
+<div style="margin-left: 40px;">&nbsp;<img alt="" src="images/NVIDIA_QuadroFX_4800_Vista_1.jpg" style="width: 477px; height: 480px;"><img alt="" src="images/NVIDIA_QuadroFX_4800_Vista_2.jpg" style="width: 414px; height: 459px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_4800_Vista_3.jpg" style="width: 572px; height: 507px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_4800_Vista_4.jpg" style="width: 885px; height: 873px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_4800_Vista_5.jpg" style="width: 885px; height: 873px;"><br>
+</div>
+</div>
+</div>
+
+<hr width="100%">
+<span style="font-weight: bold;"><br>
+</span> 
+
+<div style="margin-left: 40px;"><a style="font-weight: bold;" name="Quadro_FX_XP"></a><span style="font-weight: bold;">Windows XP 32/64, Windows 2000</span> <span style="font-weight: bold;">Workstation solutions</span>:<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5800, 4800, 3800, 1800, 580, 380</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro CX&trade;</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 4700, 3700, 1700, 570, 470, 370</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5600, 4600</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 5500, 4500, 4400, 3500, 3450, 3400</span><br>
+<span style="font-weight: bold;">NVIDIA Quadro&trade; NVS 450, 440, 420, 295, 290, 285<br>
+</span></div>
+
+<div style="margin-left: 40px;"><br>
+</div>
+
+<table style="text-align: left; width: 608px; height: 284px; margin-left: 40px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP / 2000 (32 bit)<br>
+ </td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP (64 bit)</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/Quadro_winxp_x32_190.38_whql.html">ForceWare 190.38</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/Quadro_winxp_x64_190.38_whql.html">ForceWare 190.38</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_182.65.html">ForceWare 182.65</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_182.65.html">ForceWare 182.65</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_182.46.html">ForceWare 182.46</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_182.46.html">ForceWare 182.46</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_169.96.html">ForceWare 169.96</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_169.96.html">ForceWare 169.96</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_162.65.html">ForceWare 162.65</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_162.65.html">ForceWare 162.65</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_97.78.html">ForceWare 97.78 QuadroFX 5600/4600 only</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_97.78.html">ForceWare 97.78 QuadroFX 5600/4600 only</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_91.85.html">ForceWare 91.85</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_91.85.html">ForceWare 91.85</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_84.26.html">ForceWare 84.26</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_84.26.html">ForceWare 84.26</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp-2k_archive.html">Driver Archive</a><br>
+ </td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/win64_quadro_archive.html">Driver Archive</a><br>
+ </td>
+</tr>
+</tbody>
+</table>
+
+<ul class="noindent">
+<li style="margin-left: 40px;">Latest drivers introduce ACE feature, this means the settings is automatic and the application profile is no more available in the global settings tab, whereas you can find it&nbsp; in the programs settings tab. To avoid graphics artifacts choose the <img src="../../images/company/ThinkDesign.gif" align="middle"> applications profile settings where the use of the block transfer option for buffer flipping mode is recommended.</li>
+
+<li style="margin-left: 40px;">Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li style="margin-left: 40px;">Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li style="margin-left: 40px;">With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li style="margin-left: 40px;"><a href="T_OV_cooltips.htm">Advanced Graphics Tips</a></li>
+</ul>
+
+<div style="margin-left: 40px;"><img alt="" src="images/NVIDIA_QuadroFX_XP_1.jpg" style="width: 404px; height: 448px;"><img alt="" src="images/NVIDIA_QuadroFX_XP_2.jpg" style="width: 404px; height: 448px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_XP_3.jpg" style="width: 562px; height: 509px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_XP_4.jpg" style="width: 859px; height: 761px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_XP_5.jpg" style="width: 830px; height: 739px;"><br>
+</div>
+
+<br>
+<hr width="100%">
+<div style="margin-left: 2em;" class="MajorList"><span style="font-weight: bold;"><br>
+</span><a name="Quadro_FX_XP_AGP"></a><span style="font-weight: bold;">Windows XP 32/64, Windows 2000</span> <span style="font-weight: bold;">Workstation solutions</span>:<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro FX&trade; 1500, 1400, 1300, 560, 550, 540, 360, 350</span><br>
+</div>
+
+<div style="font-weight: bold;" class="MajorList">
+<div style="margin-left: 2em;" class="MajorList">NVIDIA Quadro FX&trade; 4000, 3000, 2000 series - AGP 8x<br>
+</div>
+</div>
+
+<div style="margin-left: 2em;" class="MajorList"><span style="font-weight: bold;">NVIDIA Quadro FX&trade; 1100, 1000, 700, 500 Series - AGP 8x</span><br>
+</div>
+
+<ul style="margin-left: 40px;">
+<li style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<table style="text-align: left; width: 608px; height: 172px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP / 2000 (32 bit)<br>
+ </td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP (64 bit)</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_169.96.html">ForceWare 169.96</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_169.96.html">ForceWare 169.96</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_162.65.html">ForceWare 162.65</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_162.65.html">ForceWare 162.65</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_91.85.html">ForceWare 91.85</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_91.85.html">ForceWare 91.85</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_84.26.html">ForceWare 84.26</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_84.26.html">ForceWare 84.26</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_71.84.html">ForceWare 71.84</a></td>
+<td style="vertical-align: top; text-align: center;">&nbsp;&nbsp;<br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp-2k_archive.html">Driver Archive</a><a href="http://www.nvidia.com/object/winxp-2k_archive.html"></a><br>
+ </td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/win64_quadro_archive.html">Driver Archive</a><br>
+ </td>
+</tr>
+</tbody>
+</table>
+
+<br>
+</li>
+
+<li>Latest driver introduces ACE feature, this means the settings is automatic and the application profile is no more available in the global settings tab, whereas you can find it&nbsp; in the programs settings tab. To avoid graphics artifacts choose the <img src="../../images/company/ThinkDesign.gif" align="middle"> applications profile settings where the use of the block transfer option for buffer flipping mode is recommended.<br>
+</li>
+
+<li>Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li>Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li>With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li><a href="T_OV_cooltips.htm">Advanced Graphics Tips</a>.<br>
+</li>
+</ul>
+
+<div style="margin-left: 40px;"><img alt="" src="images/NVIDIA_QuadroFX_3700_XP_1.jpg" style="width: 404px; height: 448px;"> <img alt="" src="images/NVIDIA_QuadroFX_3700_XP_4.jpg" style="width: 472px; height: 496px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_3700_XP_5.jpg" style="width: 868px; height: 798px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_3700_XP_6.jpg" style="width: 868px; height: 798px;"><br>
+<img alt="" src="images/NVIDIA_QuadroFX_3700_XP_7.jpg" style="width: 868px; height: 798px;"><br>
+</div>
+
+<div style="margin-left: 80px;"><br>
+</div>
+
+<div class="MajorList">
+<hr width="100%">
+</div>
+
+<div style="margin-left: 40px;"><a style="font-weight: bold;" name="Quadro4"></a><a name="Quadro_2"></a><span style="font-weight: bold;">Windows XP 32/64, Windows 2000 Workstation solutions (previous ForceWare version setup):</span><br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro4&trade; 980, 580, 380 XGL Series - AGP 8x</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA Quadro4&trade; 900, 750, 700, 550 XGL Series - AGP 4x<br>
+</span><span style="font-weight: bold;">NVIDIA Quadro2&trade;, Quadro&trade;&nbsp; Series</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA GeForce4&trade;, GeForce3&trade;, GeForce2&trade; , GeForce256&trade; series</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA RIVA&trade; TNT2 and RIVA&trade; TNT Series</span><br>
+</div>
+
+<ul style="margin-left: 40px;">
+<li style="list-style-type: none; list-style-image: none; list-style-position: outside;">
+<table style="text-align: left; width: 608px; height: 172px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP / 2000 (32 bit)<br>
+ </td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP (64 bit)</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_91.85.html">ForceWare 91.85</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_91.85.html">ForceWare 91.85</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_84.26.html">ForceWare 84.26</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_84.26.html">ForceWare 84.26</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_71.84.html">ForceWare 71.84</a></td>
+<td style="vertical-align: top; text-align: center;">&nbsp;&nbsp;<br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp-2k_archive.html">Driver Archive</a><br>
+ </td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/win64_quadro_archive.html">Driver Archive</a><br>
+ </td>
+</tr>
+</tbody>
+</table>
+
+<br>
+</li>
+
+<li>To avoid graphics artifacts choose the <img src="../../images/company/ThinkDesign.gif" align="middle"> applications profile settings where the use of the block transfer option for buffer flipping mode is recommended.</li>
+
+<li>Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li>Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li>With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li>If OpenGL settings are not present in NVIDIA display control panel, try coolbits register settings below or use RivaTuner utility. RivaTuner is distributed electronically through the official hosting partner <a href="http://downloads.guru3d.com/">http://downloads.guru3d.com</a>.</li>
+
+<li><a href="T_OV_cooltips.htm">Advanced Graphics Tips</a>.</li>
+</ul>
+
+<div style="margin-left: 40px;"><big>Previous ForceWare versions setup:</big><br>
+</div>
+
+<ul style="margin-left: 40px;">
+<li>Switch back to NVIDIA classic control panel from new Sedona control panel:</li>
+</ul>
+
+<div style="margin-left: 80px;"><small><span style="font-weight: normal;">REGEDIT4</span></small><br>
+</div>
+
+<br>
+<div style="margin-left: 80px;"><small><span style="font-weight: normal;">[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\NVTweak]</span></small><br>
+<small><span style="font-weight: normal;">"Coolbits"=dword:3</span></small><br>
+<small><span style="font-weight: normal;">"NvCplDisableRefreshRatePage"=dword:00000000</span></small><br>
+<br>
+<small><span style="font-weight: normal;">[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA</span></small><br>
+<small><span style="font-weight: normal;">Corporation\Global\NvCplApi\Policies]</span></small><br>
+<small><span style="font-weight: normal;">"ContextUIPolicy"=dword:00000003</span></small><br>
+<small><span style="font-weight: normal;">"TaskbarUIPolicy"=dword:00000003<br>
+</span></small><br>
+</div>
+
+<div style="margin-left: 40px;">
+<table style="text-align: left; width: 930px; height: 2472px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="vertical-align: top;">ForceWare version: 71.84<br>
+ </td>
+<td style="vertical-align: top;">ForceWare versions: 91.85, 84.26<br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx_PCIEx_1.gif" style="width: 404px; height: 448px;"> <br>
+ </td>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx3450_1.gif" style="width: 404px; height: 448px;"> <br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx_PCIEx_3.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx3450_2.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx_PCIEx_4.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx3450_3.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx_PCIEx_5.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx3450_5.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;"><br>
+ </td>
+<td style="vertical-align: top;"><img alt="" src="images/nvidia_quadrofx4500_6.gif" style="width: 404px; height: 485px;"> <br>
+ </td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<small><small><small>CoolBits.reg</small> for NVIDIA GeForce series<br>
+<br>
+REGEDIT4<br>
+; =======================<br>
+; Coolbits 2<br>
+; &gt;&gt; Installation File<br>
+; =======================<br>
+[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\NVTweak]<br>
+"NvCplExposeWin2kDualView"=dword:00000001<br>
+"NvCplTvLocaleAutoDetect"=dword:00000001<br>
+"NvCplAllowForceTVDetection"=dword:00000001<br>
+"NvCplEnableActiveApp"=dword:00000001<br>
+"DisableApplyColorsAtStartup"=dword:00000000<br>
+"NoMenus"=dword:00000000<br>
+"OverlayPageState"=dword:00000000<br>
+"CinematicPageState"=dword:000000ff<br>
+"NvCplThermalSettings"=dword:00000020<br>
+"NvCplEnableAppProfilePage"=dword:00000000<br>
+"NvCplEnableScreenMenuPage"=dword:00000001<br>
+"NvCplCustomResConfig"=dword:00000000<br>
+"NvCplEnableAdditionalInfoPage"=dword:00000001<br>
+"NvCplDisablePerfQualPage"=hex:00,00,00,00<br>
+"NvCplEnableAGPSettingsPage"=dword:00000001<br>
+"CoolBits"=dword:ffffffff<br>
+"NvCplEnableOverlaySpanControl"=dword:00000001<br>
+"TwinViewCapsOverride"=dword:00000001<br>
+"NvCplEnableDesktopOverlapPage"=dword:00000001<br>
+"NvCplEnableTroubleshootingPage"=dword:00000001<br>
+"NvCplDisableRefreshRatePage"=dword:00000000<br>
+"NvCplDisableRotateAngles"=dword:00000000<br>
+"NoPages"=dword:00000000<br>
+"NvCplEnableClearViewPage"=dword:00000001<br>
+"NvCplEnableFanControl"=dword:00000003<br>
+"NvCplEnableFrameSyncPage"=dword:00000001<br>
+"NvCplEnableHardwarePage"=dword:00000001<br>
+"NvCplEnablenForcePage"=dword:00000001<br>
+"NvCplEnablePwrMzrOnDesktopMenu"=dword:00000001<br>
+"NvCplEnableRotationColorSettings"=dword:00000001<br>
+"NvCplNvThermPage"=dword:00000001<br>
+"PowermizerPreferences"=dword:00000000<br>
+"QTwkEnableModeChangeWarning"=dword:00000001<br>
+[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\OpenGL]<br>
+[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\OpenGL\Debug]<br>
+"ShaderObjects"=dword:00000001<br>
+<br>
+</small></small></div>
+
+<div class="MajorList">
+<hr width="100%">
+</div>
+
+<div style="margin-left: 40px;"><br>
+<big><a name="GeForce_Vista"></a>Windows</big> <big>7</big> <big>/ Vista</big><span style="font-weight: bold;">&reg;</span> <big>32/64 Desktop solutions:<br>
+<br>
+NVIDIA GeForce&trade; 200 series: 295, 285, 280, 275, 260, 250 models<br>
+</big> <big>NVIDIA GeForce&trade; 100 series: 140, 130, 120 models</big><br>
+<big>NVIDIA GeForce&trade; 9 series: 9800, 9600 models</big><br>
+<big>NVIDIA GeForce&trade; 8 series: 8800, 8600, 8500, 8400, 8300 models<br>
+ NVIDIA GeForce&trade; 7 series: 7950, 7900, 7800, 7600, 7400, 7300, 7200 models<br>
+ NVIDIA GeForce&trade; 6 series: 6800, 6700, 6600, 6500, 6200, 6100 models</big><br>
+<div style="margin-left: 40px; font-weight: normal;"><br>
+</div>
+
+<div style="margin-left: 40px; font-weight: normal;">
+<table style="text-align: left; width: 606px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows <span style="font-weight: bold;">7</span> <span style="font-weight: bold;">/ Vista</span><span style="font-weight: bold;">&reg;</span><span style="font-weight: bold;">(32 bit)</span></td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows <span style="font-weight: bold;">7</span> <span style="font-weight: bold;">/</span> <span style="font-weight: bold;">Vista</span><span style="font-weight: bold;">&reg;</span><span style="font-weight: bold;">(64 bit)</span></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/win7_winvista_32bit_190.38_whql.html">ForceWare 190.38</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/win7_winvista_64bit_190.38_whql.html">ForceWare 190.38</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_175.19_whql.html">ForceWare 175.19</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_175.19_whql.html">ForceWare 175.19</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x86_169.25_whql.html">ForceWare 169.25</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winvista_x64_169.25_whql.html">ForceWare 169.25</a></td>
+</tr>
+</tbody>
+</table>
+
+<br>
+</div>
+</div>
+
+<ul style="margin-left: 40px; font-weight: normal;">
+<li>Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li>Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li>With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li>With NVIDIA control panel the use of the block transfer option for buffer flipping mode is recommended. If this setting is not present in NVIDIA display control panel use the RivaTuner utility. RivaTuner is distributed electronically through the official hosting partner <a href="http://downloads.guru3d.com/">http://downloads.guru3d.com</a>.</li>
+
+<li><a href="T_OV_cooltips.htm">Advanced Graphics Tips</a>.</li>
+</ul>
+
+<div style="margin-left: 40px;"><img alt="" src="images/NVIDIA_Geforce9800_Vista_1.jpg" style="width: 477px; height: 480px;"> <img alt="" src="images/NVIDIA_Geforce9800_Vista_4.jpg" style="width: 482px; height: 507px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_Vista_5.jpg" style="width: 904px; height: 766px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_Vista_6.jpg" style="width: 904px; height: 766px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_Vista_7.jpg" style="width: 904px; height: 766px;"><br>
+</div>
+
+<br>
+<div class="MajorList">
+<hr width="100%">
+</div>
+
+<div style="margin-left: 40px;"><a name="GeForce_XP">&nbsp;</a> <span style="font-weight: bold;">Windows XP 32/64, Windows 2000 Desktop solutions</span>:<br>
+<br>
+<span style="font-weight: bold;">NVIDIA GeForce&trade; 200 series: 295, 285, 280, 275, 260, 250 models<br>
+</span> <span style="font-weight: bold;">NVIDIA GeForce&trade; 100 series: 140, 130, 120 models</span><br>
+</div>
+
+<div style="margin-left: 40px;"><span style="font-weight: bold;">NVIDIA GeForce&trade; 9 series: 9800, 9600 models<br>
+</span></div>
+
+<div style="margin-left: 40px;"><span style="font-weight: bold;">NVIDIA GeForce&trade; 8 series: 8800, 8600, 8500, 8400, 8300 models</span><br>
+</div>
+
+<div style="margin-left: 40px;"><span style="font-weight: bold;">NVIDIA GeForce&trade; 7 series: 7950, 7900, 7800, 7600, 7400, 7300, 7200 models<br>
+</span></div>
+
+<div style="margin-left: 40px;"><span style="font-weight: bold;">NVIDIA GeForce&trade; 6 series: 6800, 6700, 6600, 6500, 6200, 6100 models</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">NVIDIA GeForce&trade; FX 5 series: 5900, 5200 models</span><br>
+</div>
+
+<div style="margin-left: 40px;"><br>
+</div>
+
+<table style="text-align: left; width: 608px; height: 160px; margin-left: 40px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr style="font-weight: bold;" align="center">
+<td colspan="2" rowspan="1" style="vertical-align: top;">Recommended versions</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP / 2000 (32 bit)</td>
+<td style="vertical-align: top; text-align: center; font-weight: bold;">Windows XP (64 bit)</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_190.38_whql.html">ForceWare 190.38</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_190.38_whql.html">ForceWare 190.38</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_175.19_whql.html">ForceWare 175.19</a><br>
+ </td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_175.16_whql.html">ForceWare 175.19</a><br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_169.21_whql.html">ForceWare 169.21</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_169.21_whql.html">ForceWare 169.21</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_84.26.html">ForceWare 84.26</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp64_84.26.html">ForceWare 84.26</a></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp_2k_71.84.html">ForceWare 71.84</a></td>
+<td style="vertical-align: top; text-align: center;">&nbsp;<br>
+ </td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp-2k_archive.html">Driver Archive</a></td>
+<td style="vertical-align: top; text-align: center;"><a href="http://www.nvidia.com/object/winxp-64bit_extended_archive.html">Driver Archive</a></td>
+</tr>
+</tbody>
+</table>
+
+<ul style="margin-left: 40px; font-weight: normal;">
+<li>With NVIDIA control panel the use of the block transfer option for buffer flipping mode is recommended.</li>
+
+<li>Enable hardware antialiasing only when you really use it, antialiasing feature may impacts on performance and display memory.</li>
+
+<li>Enable OpenGL 3D Stereo Display option only when you really use 3D Stereo Display capabilities. This option may impacts on performance and display memory.</li>
+
+<li>With NVIDIA SLI systems, Enable SLI multi-GPU from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU and Select SLI multi-GPU rendering to improve the <img src="../../images/company/think3.gif"> application performance balancing rendering along GPU's from Control Panel-&gt;Display Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance &amp; Quality Settings-&gt;SLI rendering mode.</li>
+
+<li>If OpenGL settings are not present in NVIDIA display control panel use the RivaTuner utility. RivaTuner is distributed electronically through the official hosting partner <a href="http://downloads.guru3d.com/">http://downloads.guru3d.com</a>.</li>
+
+<li><a href="T_OV_cooltips.htm">Advanced Graphics Tips</a>.</li>
+</ul>
+
+<div style="margin-left: 40px;"><img alt="" src="images/NVIDIA_Geforce9800_XP_1.jpg" style="width: 404px; height: 448px;"> <img alt="" src="images/NVIDIA_Geforce9800_XP_4.jpg" style="width: 472px; height: 496px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_XP_5.jpg" style="width: 895px; height: 745px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_XP_6.jpg" style="width: 895px; height: 745px;"><br>
+<img alt="" src="images/NVIDIA_Geforce9800_XP_7.jpg" style="width: 895px; height: 745px;"><br>
+</div>
+
+<hr>
+<table summary="" width="100%">
+<tbody>
+<tr>
+<td align="left"><i>Last update:</i> 10 September 2009</td>
+</tr>
+</tbody>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

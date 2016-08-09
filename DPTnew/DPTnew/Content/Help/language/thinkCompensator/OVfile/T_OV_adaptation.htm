@@ -1,0 +1,53 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9161,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>An Overview of Adaptation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>An Overview of Adaptation</h2>
+
+<p>During manufacturing processes, prototypes are created to validate the part before the production starts. Many a times these prototypes are modified (either by hand or by machining) to meet specific design requirements. Since the high quality digital data already exits (in form of the CAD model), it is sensible to match it with the measured data of the modified prototype (obtained by scanning process).</p>
+
+<p>Adaptation tool solves this problem of creating a digital model which is identical to the physical tool. The original surfaces of the 3D model are adapted on the basis of the physical model data (obtained by scanning).</p>
+
+<p>As shown in the following example:
+<br><br><img src="../../../images/thinkcompensator/adaptation1.gif" border="1"><br><br>
+<b>1</b> is the original CAD data<br>
+<b>2</b> is the measured data<br>
+<b>3</b> is the result of matching the original data on the measured data
+</p>
+
+<p>The <a href="../FWfile/T_FW_AMD.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span></a> command performs the adaptation computation. The result is a small GSM surface, which contains the computed transformation. This transformation surface can then be used by the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMR.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7012">GSM Replicate</span></a> command to apply the modification on the base entity to match it to the measured entity.</p>
+
+<hr color="silver">
+<h5>Related topics...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_comp_workflow_MD.htm">Compensator workflow for Measured Data</a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>
+

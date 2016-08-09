@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>Texture</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Texture Mapping</h2>
+
+<p>
+Texture mapping in CAD software systems can be considered like stickers. The process of texturing is like pasting stickers on a face of a box or any other object. Texture mapping is a way of imparting visual realism and interest to a computer generated graphic. An image —  the texture —  is added (mapped) to a simpler shape that is part of the scene, like a decal pasted to a flat surface. This does not affect the "smoothness" of a surface but only changes its color patterns. This will aid in rendering the model. 
+
+Again going by the sticker analogy, when you try to paste stickers on the surface of an object, you can wrap that object completely or partially depending on the size of the sticker. This is similar to the decal transferring. You may decide to paste the sticker's one after the other in succession to cover up the entire surface, if the sticker is smaller than the surface to be covered. If the sticker is of an elastic material like a printed rubber sheet, you may stretch it to cover up the surface. In CAD systems, texturing may be considered similar to the above two actions.
+</p>
+<h3>Defining the mapping method</h3>
+
+<p>Several different methods to apply the texture onto the surface are available.<br>
+In general, an auxiliary surface, called the <b>Mapping surface</b> is used for the mapping (it can be a plane, a sphere, a cylinder and so on: the image, originally flat, will be mapped onto the selected shape, thus adapting to the latter).<br>
+
+<img src="../../../images/thinkreal/NBTX02.gif"><br>
+
+<b>1</b>&nbsp;&#151;&nbsp;The selected surface<br>
+<b>2</b>&nbsp;&#151;&nbsp;The mapping surface<br>
+
+Once the method has been defined, the chosen image is tiled onto the mapping surface so as to cover it entirely, thus creating the texture. From the mapping surface, the texture is then applied to the selected surface, the projection of which is included within the mapping surface itself.
+<BR><BR><IMG border=1 SRC="../../../images/thinkreal/NBTX03.gif"><BR><BR>
+The number of repetitions of the image on the selected surface depends on the <b>scale</b> that you want to apply to the image itself. What the program does initially, if you do not specify any scale, is to try to fit just one instance of image to the entire surface (or set of surfaces) you have selected, as displayed in the image above.
+
+<h3>Scaling the texture</h3>
+
+<p>A <b>scale</b> (or even two different scales along the two parametric directions) can also be applied to the image when tiling it onto the selected surface. 
+<ul class="noleft">
+<li>In order to see how the scale works, first take a look at what you get if the scale value is set to 1.
+<BR><BR><IMG border=1 SRC="../../../images/thinkreal/NIBITX04.gif"><BR><BR>
+</li>
+<li>Supplying a different scale value causes the size of the image when its scale is 1 to be multiplied by the specified factor. The image rescaled this way will then be tiled onto the surface (just like the tiles on a floor), so as to cover it completely. The number of &quot;repetitions&quot; of the image is obviously different.
+<BR><BR><IMG border=1 SRC="../../../images/thinkreal/NIBITX05.gif"><BR><BR>
+If you supply two different scale values, the image will be scaled separately along the two directions:
+<BR><BR><IMG border=1 SRC="../../../images/thinkreal/NIBITX06.gif"><BR><BR>
+</li>
+</ul>
+</p>
+
+<h3>Moving the origin of the texture or Rotating the texture</h3>
+
+<p>An auxiliary bi-dimensional coordinate system (<b>S</b>,<b>T</b>) is associated with the original image. The origin is in its lower-left corner. By default, the origin of the image will coincide with the point of the mapping surface where the value of both the surface parameters is 0. If you move the origin of the image, the tiling&nbsp;&#151;&nbsp;and thus the resulting texture&nbsp;&#151;&nbsp;will be different.<BR><BR><IMG border=1 SRC="../../../images/textures/NIBITX07.gif"><BR><BR>
+You can also rotate the selected image about its origin.
+<BR><BR><IMG border=1 SRC="../../../images/thinkreal/NIBITX08.gif"><BR><BR>
+</li></p>
+
+
+
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_Decal_command.htm"><b>Decal command</b></a></li>
+<li><a href="../FWfile/T_FW_Material_tab.htm"><b>Edit Material</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+</body>
+</html>

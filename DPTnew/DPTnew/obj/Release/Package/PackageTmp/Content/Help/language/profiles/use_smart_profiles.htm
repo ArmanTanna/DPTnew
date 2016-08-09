@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Reuse Profiles throughout your design using Smart Profiles</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE>.noleft{margin-left:22; margin-top:0;}</STYLE>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Reuse Profiles throughout your design using Smart Profiles</h3>
+
+<p>A profile used in your design can be reused in various locations in the model file for other features or 3D shapes using a subset of Smart Objects called Smart Profiles.</p>
+
+<p>A Smart Profile can be created from an existing profile (from <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span> <img src="../../images/general/litarr.gif"> 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6172">Smart Object</span> <img src="../../images/general/litarr.gif"> 
+<a href="mk:@MSITStore:help.chm::/language/SmartObjects/FWfile/T_FW_sobj_Define.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6173">Define</span></a>) and inserted into your design at a defined location (from 
+
+<span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span> <img src="../../images/general/litarr.gif"> 
+
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6172">Smart Object</span> <img src="../../images/general/litarr.gif"> 
+<a href="mk:@MSITStore:help.chm::/language/SmartObjects/FWfile/T_FW_sobj_Insert.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6175">Insert</span></a> or by right-clicking on the Smart Profile entry created in the Model Structure and choosing Insert from the pull down menu).</p>
+
+
+<p>When the model file is saved, the Smart Profile is saved within the file as a Smart Object. Another option is to save out the Smart Profile as a Smart Object file (from <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span> <img src="../../images/general/litarr.gif"> 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6172">Smart Object</span> <img src="../../images/general/litarr.gif"> 
+<a href="mk:@MSITStore:help.chm::/language/SmartObjects/FWfile/T_FW_sobj_Save.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SmartObject.msg+MenuBar_Document_Insert_SmartObject+6174">Save</span></a>). It could then be added to the Smart Object library for use in other design tasks outside of the current model file.</p>
+
+
+<p>See the following illustration and the notes related to the different reference numbers:</p>
+
+<p align="center"><IMG border=1 src="images/profiles_34.gif"></p>
+<table>
+<tr>
+<td valign="top" width=20><b>1.</b></td>
+<td>A profile is defined as a Smart Object and can be reused throughout the model file with the <b>Insert Smart Object</b> command.</td></tr>
+<tr>
+<td valign="top" width=20><b>2.</b></td>
+<td>After being defined, the Smart Profile can be saved into a Smart Object Library folder and reused in other model files by dragging and dropping from the corresponding Library tab.</td></tr>
+<tr>
+<td valign="top" width=20><b>3.</b></td>
+<td>Either by inserting the Smart Profile or by dragging and dropping it from the Smart Object Library tab, you can reuse or retrieve the profile to use in another location.</td></tr>
+<tr>
+<td valign="top" width=20><b>4.</b></td>
+<td>The Smart Object <b>Anchor</b> options allow you to have very accurate control of the placement for the profile.</td></tr>
+</table>
+
+<h4>Let us explore some alternative ways to move or copy existing profiles without using Smart Profiles</h4>
+
+<p>Although the Smart Profile is a smart way to go, you can reuse an existing profile within your model file with the <a href="../sketcher/FWfile/T_FW_sk_12.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4497">Move/Copy to Current Work Plane</span></a> command. The challenge with this option is that it will copy the highlighted profile to the current location of the Work Plane based on the relative position of the source profile, as it was created, with respect to the Work Plane Origin. In contrast, the <b>Insert Smart Object</b> command enables you to have control over the profile location and orientation along with the option of storing and reusing it in other model files other than the current one. The key is to create the initial profile intelligently, grounding a key reference point on the profile to the Work Plane Origin.</p>
+
+
+<p align="center"><IMG src="images/profiles_35.gif"></p>
+
+<P>You can also move a profile by placing the Work Plane in the desired location, then selecting <a  href="../sketcher/FWfile/T_FW_sk_12.htm"><b>Move to Current Work Plane</b></a>. The profile is instantly moved onto the new Work Plane. <br><br>Note that the new profile retains the original profile Work Plane relative position.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<title>Constrained and Synchronized Views</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel=stylesheet type="text/css">
+
+<STYLE type="text/css">
+ .noleft{margin-left: 22;margin-top: 0;}
+</STYLE>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h1>Constrained and Synchronized Views</h1>
+
+<p>There are times when you might need more than just one sketch plane (as the Work Plane actually is) in order to quickly create entities and perform input operations. The mechanism of Constrained/Synchronized views enables you to easily perform the said input operations on three additional sketch planes beyond the Work Plane in the 3D environment.</p>
+<P>To enable the mechanism, which applies to multiple views (the ones you obtain using the <a  href="../FWfile/T_FW_vw_38.htm"><b>Set Views</b></a> command), open the <B>View</B> category of <b>Document Properties</b> and select the <b>Constrained</b> or the <b>Synchronized</b> option in the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_VIEW_PROPERTIES.htm"><b>Connection</b></a> drop-down list under <b>View mode</b>:
+
+<ul class="noleft">
+<li><b>Constrained</b>&nbsp;&#151;&nbsp;one view is free while the other three are constrained to be the top, front and side view (depending on whether the current mode is US or European)
+<li><b>Synchronized</b>&nbsp;&#151;&nbsp;connection is the same as in the Constrained mode; in addition, views are automatically synchronized as soon as you change one of them.</ul>
+
+<p>The above said "constrained" views have the following properties:</p>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_basic09.htm">Dynamic rotations</a> are <i>not</i> enabled inside constrained views
+<li>Two axes are drawn in the lower-left corner of each constrained view
+<li>Any mouse input inside a constrained view will be projected onto the view plane
+<li>You can set a constrained view as the current one just by clicking on a point inside it
+<li>You can freely drag the viewport borders in order to modify the split views layout. If a border is moved close to the graphics area boundaries, the relative viewport is closed and the border will be still visible in order to let the user to re-open that viewport
+<li>The Work Plane is never displayed inside constrained views (in the front and in the right view the Work Plane representation would "degenerate" to a line)
+<li>When you switch back from four views to one, the current view attributes are adopted (view type, zoom and pan factor, image (if any)). If the current view is constrained, it will be constrained also after switching from four to one. So, for example, if it was a top view, you won't be able to rotate it and the axes will be displayed in the lower-left corner.</ul>
+
+<p>Some commands enable you to fully support constrained views:</p>
+<ul class="noleft">
+<li>The <a  href="../FWfile/T_FW_AlignToTarget.htm"><B>Align To Target</B></a> command enables you to re-align constrained views after you have moved the target point in the free view using the <a href="../FWfile/T_FW_vw200.htm"><b>Set Target Position</b></a> command, which can be managed using the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_VISTE_ADVANCED.htm"><b>Target</b></a> area of the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+117">Advanced</span> category under 
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+107">Navigation</span> of the 
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> dialog box</span>. See a simple example in "<a  href="../HWfile/T_HW_AlignToTarget.htm"><b>Re-Aligning Constrained Views</b></a>".
+
+
+<li><p>The <a  href="../FWfile/T_FW_Synchronize.htm"><B>Synchronize</B></a> command enables you to re-align the other constrained views after you have changed one of them (by zooming or panning). This command is not necessary if the connection among views has been defined as <b>Synchronized</b>. See a simple example in "<a  href="../HWfile/T_HW_Synchronize.htm"><b>Synchronizing Constrained Views</b></a>".
+<li>Drafting commands have been enhanced in order to properly support the new constrained view mechanism.
+<li>Orientation commands (<b>On Work Plane</b>, <b>Top</b>, <b>Front</b>, <b>Left</b>, ...) have a slightly different behavior inside constrained views: orientation is derived from the Work Plane rather than from the World coordinate system, while the zooming factor and the viewing focus are kept as they are (no view fitting operation is performed). The constrained attribute is left untouched if the orientation is simple (top, left, right, front, back, bottom) otherwise for diagonal orientations (left-back, front-right…) the view is unconstrained.
+</ul>
+
+<hr color="navy">
+</body>
+</html>

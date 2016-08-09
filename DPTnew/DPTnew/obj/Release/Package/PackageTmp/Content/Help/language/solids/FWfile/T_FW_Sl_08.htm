@@ -1,0 +1,122 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(275,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Make Solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1519">Solid</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span> command creates solids from selected surfaces and/or solids.</p>
+
+
+<ul class="noleft">
+<li>The command is designed to create a solid by "sewing" together adjacent surfaces (and/or solid faces). Therefore, to effectively use it, it is recommendable to avoid situations such as overlapping surfaces and/or intersecting solids (in the latter case, use <a href="T_FW_Union.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+17">Solid Union</span></a> instead).</li>
+
+
+<li>The space bounded by the surfaces does not need to be closed. An open solid will be created in this case.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="color"></a>The <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+593">Color/Material</span> drop-down list enables you to define the color and material of the resulting solid:</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+591">Current</span> : All the faces of the solid will be of the <a href="mk:@MSITStore:forcus.chm::/language/attributes/HWfile/T_HW_SetColor.htm#Set">current color</a> and current material defined in the statusbar.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+592">Keep</span></li> : The faces of the solid will retain the individual colors and materials of the surface(s)/face(s).
+
+</ul>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+To retain links to the component surfaces, so that if you modify a component surface the solid will be modified accordingly, select the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+155">Associative Mode</span> check box in the command selection list.</td>
+
+</tr>
+</table>
+
+<p style="margin-bottom:0;"><a name="simp_face"></a>You also have the possibility to do face simplification by selecting the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+275">Simplify Faces</span> check box in the 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+196">Make Solid</span> selection list.</p>
+
+
+<ul class="noleft">
+<li>Select this check box to simplify planar faces (that is create one single planar surface from each group of different planar surfaces having coplanar and in positional continuity.</li>
+
+<li>If this check box is cleared, no face simplification will take place.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+During redefinition of the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span> feature, the 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+275">Simplify Faces</span> check box will be displayed but not editable. Also, it will be in the enabled state if and only if the 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span> feature was previously applied in the associative mode along with face simplification.</td>
+
+</tr>
+</table>
+
+<h4><a name="open_solid"></a>Managing Non-Manifold solids</h4>
+
+<p>If the resulting solid is non-manifold, you are required to confirm its creation. Non-manifold edges and faces are automatically highlighted. In order to try to obtain a closed solid, you can also choose to edit the tolerance value, supplying a higher value.</p>
+
+<p>On selecting <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) or 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> (<img src="../../../images/general/OKbutton.gif" align="absmiddle">) a dialog box is displayed informing you about the status of the solid. On selecting the 
+<span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+1">Edit Tolerance</span> button:</p>
+
+
+<ul class="noleft">
+<li>A specific <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+199">Check Degenerate Edges</span> check box enabling the degenerate edge detection is available in the selection list.</li>
+
+
+<li>A specific <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+198">Automatic Mode</span> check box enabling automatic computing iteration is also available. If you select this check box and then do 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) or 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> (<img src="../../../images/general/OKbutton.gif" align="absmiddle">), calculation is automatically repeated several times until the required tolerance value (to be specified in the 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+200">Tolerance</span> mini-dialog box) is achieved.</li>
+
+</ul>
+
+<p>To break a solid back to its component surfaces, you can use the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_06.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1430">Break Solid</span></a> command.</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_make_solid.htm"><b>Make a solid</b></a></li>
+
+<li><a href="../HWfile/T_HW_make_solid_conditions.htm"><b>Make a solid with different conditions</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

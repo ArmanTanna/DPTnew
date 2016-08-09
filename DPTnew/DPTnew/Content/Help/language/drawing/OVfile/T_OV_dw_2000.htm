@@ -1,0 +1,79 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Editing entities inside drawing views</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Editing entities inside drawing views
+</h4>
+Drawing views are 2D representations of a 3D model used to create production drawings. Therefore, they have the following characteristics.
+<ul class="noleft">
+<li>The following commands:
+<br>
+
+<a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_13.htm"><b>Hide Entities</b></a>, 
+
+<a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_24.htm"><b>Delete</b></a>, 
+
+<a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_25.htm"><b>Smart Delete</b></a>
+ and 
+<a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm"><b>Properties</b></a>, 
+<a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_TrimExtend.htm"><b>Trim</b></a>, 
+<a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_05.htm"><b>Insert Fillet</b></a>, 
+<a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_06.htm"><b>Insert Chamfer</b></a>
+</a>can be used, but all the user's changes will be lost as soon as the view or the drawing are rebuilt (
+<i>see
+</i> 
+<b>
+<a href="../FWfile/T_FW_dw_11.htm">Rebuild View</a></B> and <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_100.htm"><b>Rebuild Drawing</B>
+</a>). A specific message is displayed to inform the user about this behavior.
+<br>&nbsp;
+<li>The following commands:
+<ul class="noleft">
+<li><a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_MoveCopy.htm"><b>Move/Copy Entities</b></a>, 
+<li><a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Mirror.htm"><b>Mirror Entities</b></a>,
+<li><a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Scale.htm"><b>Scale Entities</b></a>
+</ul>
+can be used with the 
+<b>Copies</B> option. Transformed copies of entities will be automatically added to the <b>Unrelated</b> entity group, thus being not linked to the view. They will be retained when the view is rebuilt.
+<br>&nbsp;
+<li>None of the 
+<b>Modify
+<img src="../../images/general/litarr.gif">Curve</B> command can be applied to curves belonging to drawing views.
+<br>&nbsp;
+<li>Any other editing actions on lines, arcs and curves are not enabled.
+<br>&nbsp;
+<li>
+<a href="mk:@MSITStore:help.chm::/language/edit/HWfile/T_HW_ol_04.htm"><b>Dragging &amp; dropping</b></a> of entities is not enabled. Only whole views can be dragged and dropped.
+<br>&nbsp;
+<li>
+<b>Copying &amp; Pasting</B> is enabled, while 
+<b>Cutting &amp; Pasting</B> is not.
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on the Drawing Environment</b></a></p>
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Layout</b></a></p>
+<hr color="silver">
+</body>
+</html>

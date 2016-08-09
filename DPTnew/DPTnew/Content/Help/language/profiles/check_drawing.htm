@@ -1,0 +1,52 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>If you are referencing an existing 2D drawing, check the drawing you are going to use for your profiles</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+  
+<h3>If you are referencing an existing 2D drawing, check the drawing you are going to use for your profiles</h3>
+
+<P>You can reuse 2d drawings to create any profile or feature in your 3D model. They can be both created from the <b>think<font color="#FF0F00">3</font></b> application and imported via <a href="mk:@MSITStore:dxf.chm::/language/tocpages/T_TOC_DXF.htm"><b>DXF</b></a>, 
+<a href="mk:@MSITStore:dxf.chm::/language/tocpages/T_TOC_DXF.htm"><b>DWG</b></a> or 
+<a href="mk:@MSITStore:cnv.chm::/language/tocpages/T_TOC_IGES.htm"><b>IGES</b></a>. Before doing that, check the geometry you are going to use:</P>
+
+
+<ul>
+<li>Use the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm"><b>Chain</b></a> command and/or the 
+<a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_08.htm"><b>X-Hatch</b></a> command to check the 2d entities for gaps, overlapped curves and so on.<br>&nbsp;
+
+<li>Delete all unwanted and unnecessary entities (for instance, two aligned consecutive lines that should be represented by a single line).
+<p><IMG border=1 src="images/profiles_23.gif"></p>
+</ul>
+
+<p>Some DWG or DXF drawings may "propagate their tolerance problems". If you are inclined to retrieve just the information on the geometry, a way to 'heal' them, without dealing with tolerances, is to save the drawings in the program's internal format (the <b>think<font color="#FF0F00">3</font></b> application Neutral Format, .<i>gkd</i>) and then import the geometry into your model (using the <b>Insert From File</b> command, or just drag and drop).</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

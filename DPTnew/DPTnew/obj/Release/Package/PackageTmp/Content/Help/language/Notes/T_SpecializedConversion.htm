@@ -1,0 +1,102 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Specialized conversion (Surfaces)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4>Specialized conversion</h4>
+
+<table bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">When the <b>Fix</b> mode of the <a href="../Surfaces/FWfile/T_FW_sr_21.htm"><b>Convert to NURBS</b></a> command is set to <b>Tolerance</b>, surfaces are generally converted to bicubic surfaces (surfaces that are cubic both along the "u" and the "v" directions). Selecting the <b>Specialized conversion</b> check box under <b>More Options</b> you can obtain "specialized" NURBS surfaces instead. For example, these are the results you get when converting some surfaces after selecting the <b>Specialized conversion</b> check box: 
+
+<table>
+<tr valign="top">
+<td width="150"><b>Plane</b></td>
+<td>A NURBS surface with only four control points, instead of a bicubic plane surface.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Cylinder</b></td>
+<td>A rational surface, whose degree is two along the base circle and one along the generator lines, with only two control points in this direction. The generator lines might turn into edges&nbsp;&mdash;&nbsp;loci of the points where the surface has only positional continuity (continuity 0)&nbsp;&mdash;&nbsp;if you move some control point.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Tabulated cylinder</b></td>
+<td>A rational surface whose degree is one along the generator lines, with only two control points in this direction. The degree along the base curves depends on the base curves.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Revolution surface</b></td>
+<td>A rational surface whose degree is two along the circle of revolution.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Generic NURBS surface</b></td>
+<td>The NURBS is not modified by the special conversion and all the other parameters are ignored, while if the <b>Specialized conversion</b> check box is turned off, the surface is refitted based on the new parameters you supply.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="white" cellpadding="15%">
+<tr>
+<td class="noteme" bordercolor="white"><b>Specialized conversion should be performed only if really needed</b>
+<p>Take into account what follows:</p>
+
+<ul class="noleft">
+<li>Many packages do not support rational surfaces; if you need to exchange data with one of those packages, you will have to deselect the <b>Specialized conversion</b> check box, as the surfaces you obtain from a special conversion process are generally rational.</li>
+
+<li>On the other hand, rational surfaces obtained running a special conversion process are much more accurate and have a lower number of control points. The following illustration displays the control points of a revolved surface when converted into a NURBS with the <b>Specialized conversion</b> check box selected and deselected respectively: 
+<table>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img border="1" src="../../images/Surfaces/CNV-S.gif"></td>
+<td><img border="1" src="../../images/Surfaces/CNV-NS.gif"></td>
+</tr>
+<tr>
+<td>Specialized</td>
+<td>Not Specialized</td>
+</tr>
+</table>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

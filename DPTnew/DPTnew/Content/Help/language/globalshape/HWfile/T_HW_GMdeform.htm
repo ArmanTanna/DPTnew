@@ -1,0 +1,157 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Applying a controlled modification to a simple shape</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Applying a controlled modification to a simple shape</h3>
+<p>In this job you will apply a controlled modification to the shape of a surface so that it will be joined to another one, setting continuity conditions along the borders. At the same time, continuity between the original surface and a third surface will be preserved. Proceed as follows.
+<p></p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Open file "peanut.e3".
+<BR><BR><IMG border=1 SRC="../images/adv01.gif"><BR><BR>
+
+Start the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command. You will fill the gap between the violet and the blue surface, in order to apply continuity along the common borders. Continuity between the violet and the white surface will be preserved.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>To create a solid, which will retain an associativity link to its base curves, so that if you modify such curves the solid will be updated accordingly, select the <b>Associative Mode</b> check box.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the surface you want to modify.<br>
+In the <b>Entities</b> drop-down list (under <b>Entities to Be Modified</b>) select <b>Surfaces</b>.<br>
+<BR><IMG border=1 SRC="../images/v8gsm01.gif"> <br><br>
+Then click on the violet surface.
+<BR><BR><IMG border=1 SRC="../images/adv02.gif">
+
+
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Suggestion about selection</b>
+<br>In some situations, to make selection easier, it can be useful to select the entities to be modified <i>after</i> the entities to match and/or to preserve. This way, selection is much quicker, as nothing is highlighted in the model. On the contrary, especially in complex models, if you first select the entities to be modified, recognizing and selecting the entities to match and/or to preserve among a number of highlighted entities might not be as easy.
+</td></tr></table><br>
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Now, select the boundaries you want to keep unchanged. Under <b>Preserving</b>, in the <b>Preserving</b> drop-down list, select <b>Curves</b>.
+<BR><BR><IMG border=1 SRC="../images/preserving.gif"><br>
+<br>Click on <b>Curves (Group 1)</b> and select the border between the violet and the white surface.<BR><BR><IMG border=1 SRC="../../../images/globalshape/adv03.gif"><p></p></td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>In order to enable you to set the type of continuity you want to preserve along the selected boundaries, the <b>Constraint</b> drop-down list is displayed.<BR><BR><IMG border=1 SRC="../images/adv05.gif">
+<br><br>Select <b>Keep position+tangent+curvature</b>, so that all of the said continuity types will be preserved along the selected boundaries.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Keep projection constraint</b>
+<br>In a number of situations you may need to modify a solid while keeping the projection onto a certain plane unchanged. For example, you may need to change the shape of a car hood without modifying the car front. A specific option is now available among the <b>Constraints</b>: <b>Keep projection</b>, which enables you to avoid changes along a given direction, to be selected in the <b>Projection direction</b> drop-down list.
+</td></tr></table>
+
+
+<p></p></td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>You will now have to select both the curves of the violet surface you want to be modified and the ones of the blue surface you want them to coincide with. First, click on <b>More Options</b>: this will enable you to control the surface behavior close to the common boundaries, using the <b>Law</b> drop-down list which will show up as soon as the initial and the target curves are selected.<br>&nbsp;
+<ul class="noleft">
+<li>Under <b>Matching</b>, in the <b>Matching</b> drop-down list, select <b>Curves</b><BR><BR><IMG border=1 SRC="../images/matching.gif"><br>&nbsp;
+<li>Select <b>Initial curves</b> under <b>Matching curves</b>, <b>Group1</b>. Then click on the two boundary curves of the violet surface you want to join to the blue one. <BR><BR><IMG border=1 SRC="../images/adv06.gif"><br><br>
+<li>Select <b>Target curves</b>. Then click on the two boundary curves of the blue surface.<BR><BR><IMG border=1 SRC="../images/adv07-NEW.gif"><br><br>
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Scrolling the Selection List</b><br>
+Please note that you can scroll up and down the Selection List to reach the desired items using the specific arrows: <img src="../../../images/general/scroll_arrow_down.gif"> , <img src="../../../images/general/scroll_arrow_up.gif"> . <br>If you hold down the <b>SHIFT</b> key when clicking the arrows, you will scroll five items at a time instead of just one.
+</td></tr></table><br>
+
+<p></p></td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>The <b>Law</b> and <b>Constraint</b> drop-down lists are displayed, enabling you to choose the surface behavior close to the common boundaries and the continuity type along such boundaries:
+<ul class="noleft">
+<li>Set <b>Law</b> as <b>Parametric</b>
+<li>Set <b>Constraint</b> as <b>Target position</b>
+</ul>
+<p class="notop">
+You can also interactively modify surfaces in specified points, as described in "<a href="T_HW_GMInteractive.htm"><b>Interactively moving points</b></a>".<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Click the <b>Preview</b> button<br><br><img border=1 src="../images/preview_gm_NEW.gif" valign="middle"><br><br>to display a preview of the result.
+<BR><BR><IMG border=1 SRC="../images/adv09.gif"><p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b></b></td>
+<td>You can check the results you obtained as described in "<a href="T_HW_GMChecking.htm"><b>Checking your results</b></a>".<p></p></td>
+</tr>
+
+<tr valign="baseline">
+<td><b>9</b></td>
+<td>
+Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and modify the shape of the object. 
+<BR><BR><IMG border=1 SRC="../images/adv10.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.
+<ul class="noleft">
+<li>If you selected the <b>Copy</b> check box under <b>More Options</b>, your original entities will still be there
+<li>While you are using the command, you can select the <b>Hide</b> check box to temporarily hide the original entities, in order to better appreciate the changes you are making. The entities will be hidden only as long as the command is being executed.
+<li>The new surfaces which originated the new shape&nbsp;&#151;&nbsp;if you did not select the <b>Associative Mode</b> check box, in which case, you would get solids instead of surfaces, as shown below&nbsp;&#151;&nbsp;are surfaces of the type "GSM".<br>
+<li>If you deselected the <b>Copy</b> check box, the original entities will be modified.<br>
+<li>If you selected the <b>Associative Mode</b> check box, the result you obtained is a solid, and the <b>Model Structure</b> will look like the following:
+<BR><BR><IMG border=1 SRC="../images/GM_assoc.gif">
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMInteractive.htm"><b>Interactively moving points</b>
+<li><a href="T_HW_GMChecking.htm"><b>Checking your results</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

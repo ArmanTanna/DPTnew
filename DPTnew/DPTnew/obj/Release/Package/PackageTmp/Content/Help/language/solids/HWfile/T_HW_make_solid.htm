@@ -1,0 +1,82 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Make solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Making a solid</h3>
+
+<p>To accomplish this task, open the <i>makesolid.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_sl_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command; it enables you to create solids from selected surfaces, which become the faces of the resulting solid.<br>
+<br>
+</li>
+
+<li>On starting the command, you are prompted to select the surfaces or solids. You can perform a window selection as shown in the figure below.<br>
+<br>
+<img border="1" src="../../../images/solids/makesolid_1.gif"><br>
+<br>
+</li>
+
+<li>Optionally, to retain links to the component surfaces, so that if you modify a component surface the solid will be modified accordingly, select the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+155">Associative Mode</span> check box.<br>
+<br>
+</li>
+
+<li>Optionally, you can also select the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+275">Simplify Faces</span> check box, so that one single planar surface is created from each group of different planar surfaces having coplanar and in positional continuity.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the solid. If the resulting solid is closed, it is immediately created.<br>
+<br>
+However, for our model, the resulting solid is <i>not</i> closed, and hence, the following warning is displayed.<br>
+<br>
+<img src="../images/makesolid_2.gif"><br>
+<br>
+If you select <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+5">Continue</span>, an open solid will be created. On selecting the <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+6">Show pointers to open boundaries</span> check box, the open boundaries will be highlighted in the model as shown in the figure below.<br>
+<br>
+<img border="1" src="../../../images/solids/makesolid_3.gif"><br>
+<br>
+However, for the purpose of this tutorial, select <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+1">Edit Tolerance</span>, so that you can try to obtain a closed solid by supplying a higher tolerance value. The <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+199">Check Degenerate Edges</span> and <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+198">Automatic Mode</span> check boxes will be displayed in the selection list; click <a href="../FWfile/T_FW_Sl_08.htm#open_solid">here</a> to know more about them.<br>
+<br>
+</li>
+
+<li>Enter a tolerance value of <b>0.5</b> for the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+200">Tolerance</span> mini-dialog box. The following warning message appears.<br>
+<br>
+<img src="../images/makesolid_4.gif"><br>
+<br>
+Click <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1490">Yes</span> to continue with the high tolerance value.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the solid. An associative solid is created as shown in the figure below.<br>
+<br>
+<img border="1" src="../images/makesolid_5.gif"><br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

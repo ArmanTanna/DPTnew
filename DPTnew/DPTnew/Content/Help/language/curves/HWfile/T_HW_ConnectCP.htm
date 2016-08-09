@@ -1,0 +1,254 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Inserting connecting curves - Control points mode</title>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 5px;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h4><a name="cv_hw_07"></a>Inserting connecting curves - Control points mode</h4>
+
+<p>To accomplish this task, open file "connect<SPAN id="E2">.e3</SPAN>".</p>
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After starting the <a href="../FWfile/T_FW_cv_07.htm"><b>Connect Curve</b></a> command, click on the first and on the second curve close to the end points to connect.<br>
+<br>
+<img border="1" src="../../../images/curves502/cnct-01.gif"><br>
+<br>
+To change the selected curves right-click, select <b>Reset Current Selection</b> and perform selection again. <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Set the <b>Edit Mode</b> drop-down list to <b>Control points</b> (if not already set so). A preview of the blending curve along with its control points is displayed:<br>
+<br>
+<img border="1" src="../../../images/curves/CNCP01.gif"><br>
+<br>
+You can drag the control points corresponding to the endpoints of the connecting curve along the original curves.<br>
+<br>
+<img border="1" src="../../../images/curves/CNCP06.gif"><br>
+<br>
+You can also move the other control points of the blending curve as you like, as long as you haven't set any constraints upon them:<br>
+<br>
+<img border="1" src="../../../images/curves/CNCP07.gif"><br>
+<br>
+A set of constraints to be applied to control points is available by expanding the <b>Constraints</b> node (see <a href="T_HW_Constraints.htm"><b>Setting constraints on Control Points</b></a>). For example, you can control the distribution of the control point motion by properly setting the <b>Distribution law</b> options (see <a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a> for details).<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Snap to Markers</b> <br>
+When the <b>Snap to Markers</b> check box is selected under <b>More Options</b>, you will be enabled to move a control point snapping it exactly to another one, which is not possible when the check box is not selected.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>You can set the same continuity conditions at both endpoints of the blending curve, or different conditions at each endpoint. To set the same conditions, select the <b>Same continuity</b> check box. To set different conditions, uncheck the box: a separate <b>Continuity By</b> drop-down list will show up at each endpoint.<br>
+<br>
+<img border="1" src="../images/CNCP04.gif"><br>
+<br>
+Suppose you have checked the <b>Same continuity</b> box. Only one drop-down list will be available in the selection list. The default value is <b>Tangency</b>, but you can set continuity to each of the following <a href="../../Mathconc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a> (continuity conditions will be enforced by moving individual control points the minimum distance required): 
+
+<table>
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G0"><b>Position</b></a></td>
+<td>specifies that only geometric continuity is required at the endpoints.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G1"><b>Tangency</b></a></td>
+<td>specifies that the blending curve must share the same tangent line as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G2"><b>Curvature</b></a></td>
+<td>specifies that the blending curve must have the same value of curvature as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G3"><b>Torsion</b></a></td>
+<td>specifies that the blending curve must have the same value of torsion as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G3.5"><b>Smooth curvature</b></a></td>
+<td>specifies that the parent curve's curvature plot and the blending curve's curvature plot must be tangent continuous at the specified end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G4"><b>Curvature plot curvature</b></a></td>
+<td>specifies that the parent curve's curvature plot and the blending curve's curvature plot must be curvature continuous at the specified end.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<p id="HIDEP">By selecting the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><b>Curve Curvature</b></a> command you can also display a curvature plot which will help you check the shape and the smoothness of the resulting curve.<br>
+<br>
+<img border="1" src="../../curves502/images/cnct-03.gif"><br>
+<br></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>By selecting the options of the <b>Result</b> drop-down list you can specify what kind of result you want to obtain: 
+
+<table>
+<tr valign="top">
+<td width="150"><b>Connect curve only</b></td>
+<td>the only result of the command will be the connecting curve.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Split original curves</b></td>
+<td>the result of the command will be curves split from the original curves in addition to the connecting curve. These curves will join the connecting curve with the specified continuity at their ends. Thus, the maximum number of curves you will obtain with this option is three.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Join original curves</b></td>
+<td>the result will be a single curve made of the connecting curve and the two curves derived from the original ones according to the chosen endpoints and to the specified continuity conditions.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R03.gif"></td>
+</tr>
+</table>
+
+A <b>Hide</b> check box shows up when the <b>Split original curves</b> or <b>Join original curves</b> options are selected: when checked, the original curves will be hidden as soon as the connecting curve is created.<br>
+When <b>Join original curves</b> is selected, three further additional options are available: 
+
+<table>
+<tr valign="top">
+<td width="100"><b>Max. No. arcs</b></td>
+<td>specifies the maximum number of arcs (parametric spans) you want the resulting curve to be composed of.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Max. Degree</b></td>
+<td>specifies the maximum degree to use in the resulting joined curve.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Tolerance</b></td>
+<td>specifies the tolerance for the resulting joined curve, which is an Euclidean space tolerance for the parameter equal distance between the resulting joined curve and the original parent and blending curves.<br>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the <b>Default</b> drop-down list under <b>More Options</b> you can choose the type of construction for the connecting curve. Please note that changing the <b>Default</b> mode will cause prior manipulation of individual control points to be lost. 
+
+<table>
+<tr valign="top">
+<td><b>Single arc</b></td>
+<td>produces a single arc curve (a Bezier control point curve) with a degree determined by the specified geometric continuity conditions at the endpoints.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Minimum degree</b></td>
+<td>produces a NURBS curve with multiple arcs. The degree&nbsp;&#151;&nbsp;at least three&nbsp;&#151;&nbsp;will be the minimum necessary to maintain the specified geometric continuity conditions both internally and at the endpoints.<br>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>You can increase the degree of the blending curve by using the <b>Increase degree</b> button under <b>More Options</b>. The degree of the curve is raised by one for each button press. The shape of the curve will remain unchanged. 
+
+<ul class="noleft">
+<li>In <b>Single arc</b> mode, a single new control point will be added for each <b>Increase degree</b> button press.<br>
+<table>
+<tr valign="top">
+<td><img border="1" src="../../../images/curves/CNCP02.gif"></td>
+<td><img border="1" src="../../../images/curves/CNCP03.gif"></td>
+</tr>
+
+<tr valign="top">
+<td>first click</td>
+<td>second click</td>
+</tr>
+</table>
+</li>
+
+<li>In <b>Minimum degree</b> mode, a single new control point will be added for each arc (parametric span) of the curve.<br>
+&nbsp;</li>
+</ul>
+
+To decrease the curve degree, press <b>Decrease degree</b>. The degree of the curve is lowered by one for each button press. If the blending curve is already at a minimum degree for the specified constraints, the degree will not be lowered further.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Reset</b> <br>
+The <b>Reset</b> button will compute the blending curve resulting from the specified geometric continuity at each endpoint and the setting of the <b>Default</b> mode (<b>Single arc</b> or <b>Minimum degree</b>).<br>
+Hitting this button has no effect on prior control point manipulations.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curve (s). In the following illustration you can see the curve obtained setting the <b>Result</b> to <b>Connect curve only</b>, continuity conditions to <b>Tangency</b> and <b>Weight</b> to <b>1</b> at both endpoints.<br>
+<br>
+<img border="1" src="../../../images/curves/UCN-UF.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<div style="DISPLAY: none">Blend Curve</div>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a></li>
+<li><a href="T_HW_Constraints.htm"><b>Setting constraints on Control Points</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

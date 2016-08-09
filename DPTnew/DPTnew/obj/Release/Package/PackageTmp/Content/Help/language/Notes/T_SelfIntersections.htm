@@ -1,0 +1,48 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2007t1" content="internally">
+<title>Self intersections - Linear Sweep Surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style>	#docframe  
+{
+ 		width : 380;
+		height : 480;
+}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4><b>Self intersection management when the draft angle is not zero</b></h4>
+
+<p>When the draft angle and the height are such that the resulting sweep surface would have self intersections, like the one in the following illustration, if you for example define a 40° draft angle and set the height to 400:
+<br><br><IMG border=1 src="../../images/surfaces/sri09_24.gif"><br><br>
+the self intersections are automatically trimmed and no error occurs:<br><br>
+<IMG border=1 src="../../images/surfaces/sri10_24.gif">
+<p>A specific "Self intersection" warning is displayed on the model in the position where the problem occurs. You can hide the warning by clicking on the <IMG SRC="../../images/general/WARNINGS_OFF.gif"> icon, that will turn to <IMG SRC="../../images/general/WARNINGS_ON.gif" align="absmiddle">. 
+
+<br>See an example in <a href="../surfaces/HWfile/T_HW_LinearSweepWarnings.htm"><b>Managing Warnings</b></a>.</p>
+
+<hr color="silver">
+</body>
+</html> 

@@ -1,0 +1,62 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Log file (IGES to think3)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A NAME="top"></A>
+<h3>Log file of the IGES to think3 conversion</h3>
+
+<p>When you <A href="ig_01.htm">open an IGES file</A>, a log file of the conversion is created:</p>
+
+<ul class="noleft">
+<li>in the 
+same directory of the file you opened
+<li>with the same name of the file you opened and the 
+    &quot;.log&quot; extension.</li>            
+</ul>
+
+<H4>The log file structure</H4>
+
+<P>The IGES to <b>think<font color="#FF0F00">3</font></b> conversion log file has a structure made of four main sections:</P>
+
+<ul class="noleft">
+<li><b>Heading</b>&nbsp;&#151;&nbsp;a section containing statistic values of the IGES file, such as the environment in which it was produced, the file name and several internal precision and tolerance values.
+<li><b>Report IGES</b> &#151; a section reporting the results of the IGES code analysis, such as type and number of entities, warnings and errors (if any).
+<li><b>Report GDX</b> &#151; a section reporting the results of the first step of the conversion to the intermediate auxiliary &quot;GDX&quot; format, which is an internal format, not directly accessible by the user. Also this section shows warnings and errors (if any).
+<li><b>Report EKGK</b> &#151; a section reporting the results of the last step of the conversion process: the one to the <b>think<font color="#FF0F00">3</font></b> format. Types and 
+    numbers of converted errors are listed, while two proper sub-sections show 
+    warnings and errors (if any).</li> 
+</ul>
+
+<P>Sub-sections about warnings and errors help you identify any kind of problem 
+you might have had while converting an IGES file.</P>
+
+<H4>Example of IGES 3D to think3 conversion log file</H4>
+
+<P>Here is an example of a log file: </P>
+       
+<blockquote>
+<FONT FACE="Courier New" SIZE=3><PRE><FONT face="Courier New" size=2><P>Validating file ...</P><P></P><P>Header IGES file.</P><P></P><P>Product ID from sending system = THINK3 </P><P>File name = shft03.igs </P><P>System ID = THINKDESIGN 3.01 </P><P>Processor Version = PDE/Lib Version 3.0.1, created Thu Jul</P><P>30, 1998 at 18:34:07 </P><P>No. of bits for integer representation = 32 </P><P>Single precision magnitude = 38 </P><P>Single precision significance = 6 </P><P>Double precision magnitude = 308 </P><P>Double precision significance = 15 </P><P>Product ID for receiving system = </P><P>Unit flag = 2 </P><P>Units = MM </P><P>Maximum no. of line weight gradations = 1 </P><P>Width of maximum line weight in units = 1 </P><P>Date, time of exchange file generation = 990628.150118 </P><P>Min. user-intended resolution of model = 0.001 </P><P>Approx. max. coordinate value in model = 426.947 </P><P>Name of author = </P><P>Author's organization = </P><P>Integer value of specification version = 9 </P><P>Drafting standard code = 1 </P><P>Date/Time the model was created/modif. =      </P><P>    &nbsp;       </P><P>REPORT IGES</P><P>Information</P><P>-----------</P><P>iges_100_0 - Circular Arc - 1</P><P>iges_102_0 - Composite Curve - 5</P><P>iges_110_0 - Line - 26</P><P>iges_120_0 - Surface of Revolution - 2</P><P>iges_122_0 - Tabulated Cylinder - 1</P><P>iges_124_0 - Transformation Matrix - 1</P><P>iges_126_0 - Rational B-Spline Curve (General) - 16</P><P>iges_128_0 - Rational B-Spline Surface (General) - 2</P><P>iges_141_0 - Boundary Entity - 5</P><P>iges_143_0 - Bounded Surface - 5</P><P>iges_322_1 - Attribute Table Definition - 5</P><P>iges_start - Start Section - 1</P><P>iges_global - Global Section - 1</P><P>     &nbsp;</P><P>Warning</P><P>-----------</P><P>Error</P><P>-----------</P><P>&nbsp;</P><P>REPORT GDX</P><P>Information</P><P>-----------</P><P>gdx_curve_bounded_surf - Curve Bounded Surface - 5</P><P>      &nbsp;</P><P>Warning</P><P>-----------</P><P>Error</P><P>-----------</P><P>&nbsp;</P><P>REPORT EKGK</P><P>Information</P><P>-----------</P><P>ekgk_hdr - Header - 5</P><P>ekgk_error - Error Information Structure - 5</P><P>ekgk_line2d - Line 2d - 16</P><P>ekgk_nurb_curve2d - Nurbs Curve 2d - 4</P><P>ekgk_arc3d - Arc 3d - 1</P><P>ekgk_line3d - Line 3d - 8</P><P>ekgk_nurb_curve3d - Nurbs Curve 3d - 12</P><P>ekgk_comp_edge_curve - Composite Edge Curve - 5</P><P>ekgk_edge_curve - Edge Curve - 5</P><P>ekgk_rev_surf - Revolution Surface - 2</P><P>ekgk_nurb_surf - Nurbs Surface - 2</P><P>ekgk_tab_cyl - Tabulated Cylinder - 1</P><P>ekgk_trimmed_surf - Trimmed Surface - 5</P><P>ekgk_comp_curve - Composite Curve - 10</P><P>     &nbsp;</P><P>Warning</P><P>-----------</P><P>Error</P><P>-----------</P></FONT>
+</FONT></PRE></blockquote>                    
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,176 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Geometric Transformations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+
+<a name="top"></a> 
+
+<h4 class="nobottom"><a name="#001"></a>Geometric Transformations</h4>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application provides an enhanced set of commands enabling you to apply geometric transformations to entities in the <span id="TWOD">model/</span>drawing.<br>
+
+&nbsp;</p>
+
+<ul>
+<li><a href="../FWfile/T_FW_MoveCopy.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span></a><br>
+
+ to perform <i>translations</i>, <i>rotations</i> and <i>rototranslations</i><br>
+&nbsp;</li>
+
+<li><a href="../FWfile/T_FW_Mirror.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5713">Mirror Entities</span></a><br>
+
+ to perform <i>mirroring</i><br>
+&nbsp;</li>
+
+<li><a href="../FWfile/T_FW_Scale.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span></a><br>
+
+ to perform <i>scaling</i> and <i>stretching</i><br>
+&nbsp;</li>
+
+<li><a href="../FWfile/T_FW_Multistretch.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5719">Multistretch Entities</span></a><br>
+
+ to <i>stretch</i> entities across a selection window and translate the ones inside it.</li>
+</ul>
+
+<h5>Common behaviors of the transformation commands</h5>
+
+<hr color="silver">
+<p>Geometric transformation commands have some common behaviors:<br>
+&nbsp;</p>
+
+<ul>
+<li><b><i>Previewing</i></b><br>
+As soon as all entities to be transformed have been selected and the transformation parameters have been set, a <b>Preview</b> button ( <img src="../../../images/general/preview.gif" align="middle"> ) is displayed on top of the selection list, in order to enable you to alternatively display/hide a preview of the transformed entities. When the set of entities to be transformed is a big one, disabling the preview can help you speed up operations.<br>
+&nbsp;</li>
+
+<li><i><b>Resetting the transformation parameters</b></i><br>
+As soon as all entities to be transformed have been selected and the transformation parameters have been set, the following button shows up on top of the selection list: <img border="0" src="../../../images/rn_800/UndoLast.gif"> . You can click it to reset parameters to their original values thus cancelling the previously set transformation without applying it and without quitting the command (the same command is also available in the context menu which shows up when you right-click). The reference system (shown by the handles) will be reset to its initial position and orientation.<br>
+&nbsp;</li>
+
+<li><i><b>Automatically applying last transformation</b></i><br>
+When a transformation is applied to some entities, the parameter settings used in the operation are stored by the program. Next time you start the same transformation command, the <img border="0" src="../../../images/rn_800/LastTransform.gif"> button is displayed on top of the selection list. If you click it, the parameter settings will automatically be restored to the values used in last transformation and applied to the selected entities when you select <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0">.<br>
+&nbsp;</li>
+
+<li><i><b>Resetting the starting position of the handle</b> (<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span> <b>and</b> 
+<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5719">Multistretch Entities</span> <b>commands only)</b></i><br>
+
+ Once you have moved the handle, you can always reset it to its starting position by right-clicking and selecting <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+15">Reset Transformation</span> in the context menu.<br>
+
+ &nbsp;</li>
+
+<li><a name="Copy"></a><i><b>Making copies of the selected entities, linking them to the original, managing copy attributes</b> (<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span>, 
+<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span>, 
+<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5713">Mirror Entities</span> <b>commands only)</b></i><br>
+
+ To make copies of the selected entities according to the defined transformation (rather than moving them), select the <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box and type in the number of copies to be created.<br>
+
+ <a name="MO"></a>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you can find few additional options:</li>
+
+
+
+<table>
+<tr id="HIDETR" valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+6">Linked copies</span></td>
+
+<td>(<i>3D environment only</i>) If selected, copies of objects with a history (such as solids, parametric entities, and reference dimensions) remain related to their source entities and are therefore subject to any changes made to the dimensions or variables of the original entities. If not selected, the copies become constant. For example, the transformation of a sweep solid loses its sweep dimensions.</td>
+</tr>
+
+<tr id="HIDETR" valign="top">
+<td><a name="AT"></a><a href="T_OV_AssociativeTransform.htm"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+189">Associative Transformation</span></a></td>
+
+<td>(<i>3D environment only</i>) It enables you to make <i>associative</i> transformations which retain a link to the entities they derive from. Available in the selection list only: 
+
+<ul>
+<li>if both the <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> and the 
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+6">Linked copies</span> check boxes are selected in case of 
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+2">Move/Copy</span> command.</li>
+
+
+<li>if the <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> box is <i>not</i> selected or if <i>both</i> the 
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> and the 
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+6">Linked copies</span> check boxes are selected in case of 
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+9">Scale</span> command. 
+
+
+<p>If selected, the resulting transformation will be associative. It will retain a link to the referenced entities it derives from: any change applied to them, will then be accordingly applied also to the transformed entities. If not selected, changes in the entities used as references during the transformation definition will not imply any change in the transformed entities.</p>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+7">Keep attributes</span></td>
+
+<td>If selected, copies of objects retain the attributes (such as color, line type, and layer) of the original. If not selected, copies assume the corresponding current property values.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+28">Inside group</span></td>
+
+<td><span id="TWOD">(<i>2D environment only</i>) &mdash;</span> Available only if 
+<span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+4">Copy</span> check box is selected.<br>
+
+ If selected, the selected entities are copied inside the groups. If not selected, the selected entities are copied outside the groups.<br>
+ This option works only when group (open or closed) and the <span class="UI_MINIDIALOG" id="idd_filters.msg+idd_filters+32">Group</span> check box in the 
+<span class="UI_MINIDIALOG" id="idd_filters.msg+idd_filters+23">Inside</span> area is selected from Selection Filter dialog box (using 
+<span class="UI_CONTEXT" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../../images/general/litarr.gif"> 
+<span class="UI_CONTEXT" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1107">Filter </span> from the context menu).<br>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Only in the <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7184">Quick Move/Copy Entities</span> command it is possible to select entities inside <i>shared</i> groups. In this case they are always copied inside the group.</td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table id="F2DNOTVISIBLE" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="COSCOPY"></a><b>Copying curves of the Curve On Surface type</b> <br>
+Suppose you make a copy of a curve of the Curve On Surface type.<br>
+<br>
+<img border="1" src="../../../images/transform/COS01.gif"><br>
+<br>
+As the copied curve is still of the <a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curve On Surface</a> type, a copy of the original reference surface is automatically created. The surface copy is hidden by default, but if you move the cursor onto the copied curve, its dotted outline will be displayed:<br>
+
+<br>
+<img border="1" src="../../../images/transform/COS02.gif"><br>
+<br>
+To unhide the surface, right-click on the copied curve and select <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_showbasesurface.htm">
+<span class="UI_OPTION" id="TDView.msg+_TDVIEW_LABEL_+14">Show Base Surface</span></a>.<br>
+
+<br>
+<img border="1" src="../../../images/transform/COS04.gif"> </td>
+</tr>
+</table>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

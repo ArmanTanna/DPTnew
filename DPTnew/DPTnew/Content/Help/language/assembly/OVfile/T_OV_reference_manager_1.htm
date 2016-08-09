@@ -1,0 +1,108 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<title>An example of activation of the Reference Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+<style type="text/css">
+.menu{font-size: 10pt; font-family: Arial;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>An example of activation of the Reference Manager</h4>
+
+<p>This document describes an example of activation of the <b>Reference Manager</b>, occurring when you load an assembly and one of its components is not found because it has been renamed.</p>
+
+<table>
+<tr align="left" valign="top">
+<td><b>1</b>&nbsp;</td>
+<td>When you open the assembly file including one or more components that the program is unable to find in the folder specified in the X-Reference(s) originally saved with the assembly, the <b>Reference Manager</b> is automatically activated and the <span class="UI_OPTION" id="rmfolder.msg+rmfolder+1">Fix Missing References</span> dialog box is displayed.<br>
+
+<br>
+<img src="../images/ref_man_1.gif"> 
+
+<p>The controls in this dialog box enable you to select the new location of the referenced file. You can click either the &nbsp;<img src="../../../images/icons/general/browse.gif">&nbsp; (Browse) or <span class="UI_OPTION" id="rmfolder.msg+rmfolder+2">OK</span> buttons. The 
+<span class="UI_OPTION" id="rmfolder.msg+rmfolder+3">Cancel</span> button quits the dialog box. The 
+<span class="UI_OPTION" id="rmfolder.msg+rmfolder+6">Help</span> button displays the Online Help. The 
+<span class="UI_OPTION" id="rmfolder.msg+rmfolder+8">Recurse folders</span> option enables you to specify if the provided folder must be scan recursively or not.</p>
+
+
+<p>If you click the <b>Browse</b> button, the <b>Browse for Folder</b> dialog box is displayed, from which you can specify the new location of the component file. Note, however, that this step is optional and only enables you to specify the folder in which the program will look for the reference file. You will still be prompted to select the file name to substitute for the missing reference file.</p>
+
+<br>
+</td>
+</tr>
+
+<tr align="left" valign="top">
+<td><b>2</b></td>
+<td>After you specify the new folder, or if you simply click <span class="UI_OPTION" id="rmfolder.msg+rmfolder+2">OK</span> in the 
+<span class="UI_OPTION" id="rmfolder.msg+rmfolder+1">Fix Missing References</span> dialog box, the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+1">New Reference</span> dialog box is displayed, in which you specify the name of the component file.<br>
+
+<br>
+<img src="../images/ref_man_2.gif"> 
+
+<p>If you already specified the folder, the dialog box may contain the complete path and file name, in which case you can click <span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+2">OK</span>. Otherwise, click the Browse button to access the file system. The <b>Ignore</b> button enables you to skip the current reference, therefore it won't be loaded in the assembly. Note that if, for a lost reference, no new reference can be proposed, the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+2">OK</span> and the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+8">OK to All</span> buttons are not enabled, until you select the new reference either by means of the Browse button or typing the reference file path. Also note that the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+1">New Reference</span> dialog box will be displayed any time the program is unable to load a reference. If you click the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+8">OK to All</span> button, all the new references that can be retrieved by the program will be automatically accepted and the dialog box will appear only for the ones that cannot be retrieved in the specified folder.<br>
+
+<br>
+ When you click the <b>Browse</b> button, a standard Windows file dialog box is displayed from which you can select the reference file.</p>
+<br>
+</td>
+</tr>
+
+<tr align="left" valign="top">
+<td><b>3</b></td>
+<td>Once you have specified the file name and closed this file dialog box, click <span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+2">OK</span> or 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+8">OK to All</span> to close the 
+<span class="UI_OPTION" id="rmnewpath.msg+rmnewpath+1">New Reference</span> dialog box. Now, the 
+<span class="UI_OPTION" id="rmconfirm.msg+rmconfirm+1">Confirm Changes</span> dialog box is displayed, which lists the files that will be changed. In this example, both the assembly file and other component files will be changed.<br>
+<br>
+<img src="../images/ref_man_3.gif"> 
+
+<p>Click <span class="UI_OPTION" id="rmconfirm.msg+rmconfirm+2">OK</span> to proceed. The program immediately updates the references and loads the assembly file.</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,136 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="translate">
+<title>Job: Adding a flange to a solid with Relief</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Adding a flange to a solid with Relief</h3>
+
+<p>To accomplish this, task, load file "Flange_Relief.e3".</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_Flange.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span></a> command. Select the <b>Edge</b> as shown in the figure.<br>
+
+<br>
+<img border="1" src="../../../images/sheetmetal/flange_relief_1.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="relief"><b>2</b></a></td>
+<td>Click <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+13">Reliefs</span> under 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span>. Select 
+<span class="UI_DROPDOWNITEM" id="idd_smbend_relief.msg+idd_smbend_relief+6+2">Corner</span> from the list. For 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> select one of the following:<br>
+
+<br>
+<b>a.</b> Select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+120">Bend</span> from the list.<br>
+
+<br>
+<b>b.</b> Select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+121">Bend and flange</span> from the list.<br>
+
+<br>
+<b>c.</b> Select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+122">Bend and flange chain</span> from the list.<br>
+
+<br>
+<b>d.</b> Select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+30">Rectangular</span> from the list and specify a value in the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+26">Gap:</span> edit box.<br>
+
+<br>
+<b>e.</b> Select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+91">Circular</span> from the list and specify a value in the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+89">Diameter</span> edit box.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>3</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle" border="0"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle" border="0"> to confirm your selections and create the flange.<br>
+<br>
+See the circled area in the following images for the difference in flange.<br>
+<ul>
+<li>If you have selected <b>a</b>, you can see the following flange.<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/flange_relief_2.gif"><br>
+<br>
+</li>
+
+<li>If you have selected <b>b</b>, you can see the following flange.<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/flange_relief_3.gif"><br>
+<br>
+</li>
+
+<li>If you have selected <b>c</b>, you can see the following flange.<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/flange_relief_4.gif"><br>
+<br>
+<br>
+</li>
+
+<li>If you have selected <b>d</b>, the corner relief of the flange will be as formed shown below.<br>
+<br>
+<img src="../../../images/sheetmetal/rectangular.gif" border="1"><br>
+<br>
+</li>
+
+<li>If you have selected <b>e</b>, the corner relief of the flange with the specified diameter will be formed as shown below.<br>
+<br>
+<img src="../../../images/sheetmetal/circular.gif" border="1"><br>
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+These reliefs will not appear to be perfectly rectangular or circular when the model is in the bend state. However, exact results are obtained on unbending the model or generating its flat pattern view.</td>
+</tr>
+</table>
+
+<br>
+If the specified <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+89">Diameter</span> (for 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+91">Circular</span> relief) or 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+26">Gap:</span> (for 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+30">Rectangular</span> relief) is less than the minimum possible value, a suitable warning message will be displayed on applying the 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command.<br>
+
+ <br>
+<img src="../images/relief_warning.gif" border="0"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

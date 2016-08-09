@@ -1,0 +1,119 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Tips on how to get the most from your Work Plane's history</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Tips on how to get the most from your Work Plane's history</h3>
+
+<p>As a prerequisite to understand the content of this document, please read:</p>
+
+<ul class="noleft">
+<li><a href="5-wp-hidden-hist.htm">The Work Plane's "hidden" history</a></li>
+
+<li><a href="5-wp-snap.htm">Snapping the Work Plane to points "with history"</a></li>
+</ul>
+
+<p>This article describes the following:</p>
+
+<ul class="noleft">
+<li><a href="#Working_with_arbitrary_rotations">Working with arbitrary rotations</a></li>
+
+<li><a href="#Placing_the_Work Plane_On_Face">Placing the Work Plane <i>On Face</i></a></li>
+</ul>
+
+<h4><a name="Working_with_arbitrary_rotations"></a>Working with arbitrary rotations</h4>
+
+<p>As you know, not only the Work Plane can be placed on faces, aligned to an axis, but it can be also rotated by <i>n</i> degrees, or just moved as it is from one "linked" position to another "linked" position. In this case what really matters is the "previous" position of the Work Plane. See the following example:<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-01.gif"></p>
+
+<p>Referring to the left image, a simple solid where the "hidden" history of the Work Plane placements might be like this: we positioned the Work Plane on the face of a solid (the highlighted one), we made a slot and moved the Work Plane, as is, to the center of the Arc on the top face. We finally created a rotational slot.<br>
+Referring to the right image, notice that the main solid doesn't have a draft angle.</p>
+
+<p>Now, what happens when re-defining the Linear Solid, and inserting a draft angle to the initial linear sweep? Note that if you re-define a feature, this will be "inserted" into the history, and not "added" as the latest event.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-02.gif"><br>
+<br>
+ As you can see, the original Work Plane has been rotated by 10 degrees, because it was lying on the original vertical face of the solid. Then, the slot looks perpendicular to the drafted face and moreover, the rotational cutout looks strange. Why? &mdash; Because we had originally positioned the Work Plane on the highlighted face.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-03.gif"><br>
+<br>
+Then we have moved it to the center of the Arc of the top face and we sketched a profile to cut with a revolved cutout.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-04.gif"><br>
+<br>
+Now, thinking about the Work Plane that we have used to create the revolved cutout, what's the previous Work Plane? It's a "parallel" Work Plane.<br>
+The rule is: the previous Work Plane will drive the following one and so on, Therefore, changing the draft angle of the initial linear sweep we have changed the angle to the Work Plane that was laying on one of its faces (the one where we made the blind slot) and we have "modified" all the following Work Planes.</p>
+
+<p>Keeping this rule in mind, what happens with the slot on the side?<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-05.gif"><br>
+<br>
+The slot has been created using a cutting profile. The Work Plane that has been used has been moved from the previous position (center of the revolved cutout) and then it had been rotated by 45 degrees about the <i>X-axis</i>.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-05.gif"><br>
+<br>
+So, again, changing the angle of the original linear sweep, we'll keep 45 degrees between the two latest Work Planes, but the through slot won't have the requested 45 degrees with the bottom line of the solid.</p>
+
+<p>Notice that, if we had added the draft angle instead of re-defining the initial linear sweep, everything would have worked fine because we wouldn't have changed the history, but would have ADDED a feature at end of the history, without touching the previous events.<br>
+Anyway, even in a model like that, you could "repair" it. See <a href="5-edit-fix.htm">How to fix a parametric model by reassigning the Work Plane position to profiles</a>.<br>
+</p>
+
+<p>But, what had to be the Work Plane history? Theoretically the user could always change the Work Plane history, so even mistakes can be fixed, but, applying the rule from the beginning (the previous Work Plane will drive the following one and so on), will avoid unexpected modifications of your model.</p>
+
+<p>Tip: Always use the same references for the Work Plane (as an example, a template file with Datum Planes and profiles as selectable axes).</p>
+
+<br>
+<br>
+<h4><a name="Placing_the_Work Plane_On_Face"></a><b>Placing the Work Plane <i>On Face</i></b></h4>
+
+<p>This is a typical way to place the Work Plane. Working in this way without being aware of what The "Work Plane on face" does, you might have some problems after changing dimensions or the shape of your 3D model. See the following example:<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-91.gif"><br>
+<br>
+Once you have positioned the Work Plane on the highlighted face, the program has automatically chosen the U=V=0.5 point (sort of a "center") of the surface as point to snap to, and the U direction of the untrimmed surface as the <i>X-axis</i>.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-92.gif"><br>
+<br>
+But, editing the model, the original untrimmed surface might be rotated because of editing the initial shape of the solid (even if it's not the same situation of our example) and you might get a different surface, with a different U=V=0.5 point and a different U direction.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-93.gif"><br>
+<br>
+In this case, if you have placed your Work Plane on that face and you've sketched something on it, everything will be moved and/or rotated.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-BH-94.gif"><br>
+<br>
+So, coming back to <a href="5mech-vs-art.htm">mechanical v/s artistic</a> approaches, if you are a "mechanic" and you'd like to modify your model by changing either the dimensions and/or the original shape, we recommended the follow kinds of Work Plane placements:</p>
+
+<ol class="noleft">
+<li>Place the Work Plane on face</li>
+
+<li>Move the Work Plane snapping to an existing corner</li>
+
+<li>Align the X axis of the Work Plane to an existing linear edge.</li>
+</ol>
+
+<p><img border="1" src="../../images/workplane/WP-BH-95.gif"></p>
+
+<hr color="silver">
+</body>
+</html>
+

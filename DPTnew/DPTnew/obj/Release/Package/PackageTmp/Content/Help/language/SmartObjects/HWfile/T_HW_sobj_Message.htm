@@ -1,0 +1,77 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2008t1" content="internally"> 
+<title>Job: Library (Smart Object) - Message File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body onload="viaMk();"  lbgcolor="white">
+
+<a name="top"></a>
+
+<h4>Localizing Prompts</h4>
+
+<p>You may need to have your Smart Objects available to different language users. In this case, you may need to localize Smart Objects prompts to different languages. The <b>think<font color="#FF0F00">3</font></b> application enables you to associate localized prompts with 
+your Smart Object.
+<P></P>
+<p>To do this, proceed as follows:<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>When the <b>Message File</b> command is started, select <b>Extract</b>. A file selection box is displayed. In the <b>Save in</b> selection box, select the folder to which you want to save the message file containing the prompts.</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Click the <b>Save</b> button to save the message file.</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Using a text editor, edit the message file you saved in step 2.</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>English prompts are lines like the following:<br>
+<blockquote><tt>L.E "<i>English text of the prompt</i>"</tt></blockquote>
+To add localized prompts, so that the prompt will be displayed in the same language as the one the <b>think<font color="#FF0F00">3</font></b> application is being run in, just add one line per each language below the "L.E" one:
+<blockquote><tt>L.I "<i>Italian text of the prompt</i>"</tt><br>
+<tt>L.F "<i>French text of the prompt</i>"</tt>
+<br>
+<tt>L.G "<i>German text of the prompt</i>"</tt>
+<br>
+<tt>L.J "<i>Japanese text of the prompt</i>"</tt>
+<br>
+<tt>L.K "<i>Korean text of the prompt</i>"</tt>
+</blockquote>
+ You can obviously add only the languages you need, and the order is not meaningful.
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Save the message file.</td>
+</tr>
+<tr valign="top">
+<td valign="bottom"><b>6</b></td>
+<td>In the Library palette, select the <b>Message file<IMG src="../../../images/general/blackarrow.gif">Insert</b> command.</td>
+</tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>A file selection box is displayed. Select the previous message file and click <b>Save</b>.</td>
+</tr>
+</table>
+<p>The prompts for your Smart object are now localized. You can use it with <b>think<font color="#FF0F00">3</font></b> in each of the languages you added to the message file:  the prompts will be displayed in the corresponding language.</p>
+
+<hr color="silver">
+</body>
+</html>

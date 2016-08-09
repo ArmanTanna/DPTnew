@@ -1,0 +1,69 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Job: Excluding some parts from the drawing of a model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;margin-bottom:2;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Excluding some parts from the drawing of a model</h2>
+
+<p>In some situations you might need to create a drawing of a model excluding from it some standard parts (for example screws or washers). You can obtain the desired result by properly creating a <a href="../FWfile/T_FW_dw_01_02.htm"><b>Custom</b></a> view. You can proceed as follows.</p>
+
+<p>Suppose you need to create a drawing of <font color="black">your model</font> hiding the screws it contains.</p>
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Create a custom view of your model. In the <b>Model Structure</b> panel of the <b>Custom view definition</b> dialog box: 
+
+<ul class="noleft">
+<li>Right-click on the icon of the solid to be displayed<br>
+<br>
+<img border="1" src="../images/dw_exclude_01.gif"><br>
+<br>
+</li>
+
+<li>Select <a href="../FWfile/T_FW_MakeEntityOnlyVisible.htm"><b>Make Entity the Only One Visible</b></a> in the context menu.</li>
+</ul>
+
+The selected object will be highlighted, while the other objects will be grayed out.<br>
+<br>
+<img border="1" src="../images/dw_exclude_02.gif"><br>
+<br>
+
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select <b>OK</b> to define the view. The created view will display only the object you selected.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../../tocpages/T_TOC_CustomContextCMD.htm"><b>Context menu commands on the Model Structure of a Custom/Exploded view</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,199 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t3" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Job: Creating Customized Tubing Catalog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h3>Creating Customized Tubing Catalog</h3>
+
+<p>The following illustration explains how to create customized tubing catalog that can be later used for inserting tubing elements in the network.</p>
+
+<p>Before we proceed it is important for you to know the following:</p>
+
+<ul class="noleft">
+<li><b>Index</b> - It is the collector of catalogs in the tree structure of the <span class="UI_COMMAND" id="tt.msg+tt+335">Manager</span>. See the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatBrowser.htm">Catalog Browser</a> document for details.</li>
+
+<li><b>Catalog/Family</b> - It is a table of values used by thinkparts and tubing to create the elements. The catalogs in the <b>Lines</b> index are a special Tubing case.</li>
+
+<li><b>Master model</b> - It is a parametric 3D model to which the program applies the values chosen by the user from the catalog.</li>
+</ul>
+
+<p>It is also recomended for you to read the <a href="../OVfile/T_OV_TubingCustomization.htm"><b>An Overview of Tubing Customization</b></a> document.</p>
+
+<p>In this tutorial you will create a custom tubing catalog of welded tubes. Open the <i>Tube_Welded.e3</i> file from the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation. This model will be used as the <i>Master Model</i> and will appear as shown below.<br>
+<br>
+<img src="../../../images/tubing/cust_model.gif" border="1"><br>
+<br>
+The model is a simple pipe with three driving dimensions (use <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1671">Spreadsheet</span></a> to check the assignment of the variables): <tt>TD_LENGTH</tt> (pipe length), <tt>T_ED</tt> (external diameter) and <tt>T_ID</tt> (internal diameter):<br>
+<br>
+<img src="../images/spreadsheet.gif"></p>
+
+<p>The model also has the following <a href="mk:@MSITStore:help.chm::/language/SymbRefs/OVfile/T_OV_SymbRefs.htm">symbolic references</a> that have been connected to a <a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/fwfile/T_FW_Sl_01_09.htm"><u><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+25">Datum Point</span></u></a> in the center of the relevant face; use the <a href="mk:@MSITStore:help.chm::/language/SymbRefs/OVfile/T_OV_SymbRefs.htm"><u><span class="UI_COMMAND" id="ButtonToolbar_SymbolicReference.msg+ButtonToolbar_SymbolicReference+6985">View Symbolic References</span></u></a> command to view them:</p>
+
+<ul class="noleft">
+<li><tt>ORIGIN</tt> - identifies the pipe insertion point</li>
+
+<li><tt>INPUT</tt> - identifies the pipe starting point in order to give a direction to the pipe</li>
+
+<li><tt>OUTPUT</tt> - identifies the pipe ending point</li>
+</ul>
+
+<p><img src="../images/symb_ref.gif" border="1"><br>
+</p>
+
+<p>Now follow the steps given below to create a custom catalog.</p>
+
+<ol class="noleft">
+<li>Start <span class="UI_COMMAND" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CreatePartFamily.htm"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span></a> command to create the family of tubes based on the current model. Accept the default values.<br>
+<br>
+<img src="../images/part_family.gif"><br>
+<br>
+</li>
+
+<li>Start the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatManager.htm"><span class="UI_COMMAND" id="tt.msg+tt+219">Catalog Manager</span></a> command and locate the newly created catalog <tt>Tube_Welded</tt> in the <span class="UI_COMMAND" id="tn.msg+TN+23">Part Family</span> index.<br>
+<br>
+<img src="../images/cat_manager.gif"><br>
+<br>
+</li>
+
+<li>Right-click the <tt>Tube_Welded</tt> catalog and select <span class="UI_COMMAND" id="IDD_TT_TP_CBR_POPUP.msg+IDD_TT_TP_CBR_POPUP+13">Edit</span> to start the configuration wizard.<br>
+<br>
+</li>
+
+<li>Click the <span class="UI_OPTION" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+2">Next &gt;</span> button twice to reach the <span class="UI_OPTION" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+15">thinkparts Catalog Wizard (step 3 of 3): Field Attributes</span> page. Click <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+22">New</span> to create a new field.<br>
+<br>
+<img src="../images/field_attributes.gif"><br>
+<br>
+</li>
+
+<li>In the displayed dialog box enter the following attributes and then click <b>OK</b>: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+7">Name:</span>: <tt>StaNomEnglSize</tt></li>
+
+<li><span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+26">Type:</span>: <tt><span class="UI_DROPDOWNITEM_NOBOLD" id="IDD_TP_CATALOG_WIZARD_NEWINFO.msg+IDD_TP_CATALOG_WIZARD_NEWINFO+7+1">String</span></tt></li>
+</ul>
+
+<br>
+<img src="../images/new_attributes.gif"><br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+31">Display in view</span> check box for all the entries under the <span class="UI_OPTION" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+19">List of fields</span> area, so that the program displays them in the catalog table, then close the wizard by selecting <span class="UI_OPTION" id="IDD_TP_CATALOG_WIZARD.msg+IDD_TP_CATALOG_WIZARD+1">Finish</span>.<br>
+(Refer the image in Step 4)<br>
+<br>
+</li>
+
+<li>Right-click the <tt>Tube_Welded</tt> catalog again, and select <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_editValues.htm"><span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span></a>. Enter some records in the table. For example:<br>
+<br>
+<img src="../images/edit_table.gif"><br>
+<br>
+Note that the program overrides the value you enter for the length and uses instead the length necessary to cover the profile when you actually build your pipe. This information is used when calculating the cutting BOM.<br>
+<br>
+</li>
+
+<li>Right-click the <tt>Tube_Welded</tt> catalog again, and start the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Representations.htm"><span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+2">Representations</span></a> wizard. Click <span class="UI_OPTION" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+2">Next &gt;</span> to reach the <span class="UI_OPTION" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+10">thinkparts Representation Wizard (step 2 of 3): Representation Classes</span> page, note the catalog <span class="UI_COMMAND" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+7">Name:</span> attribute. It should be set to <b>PF</b>. If it is set to any other value, take a note of it.<br>
+<br>
+<img src="../images/representation_classes.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click <span class="UI_OPTION" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+2">Next &gt;</span> to reach the <span class="UI_OPTION" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+25">thinkparts Representation Wizard (step 3 of 3): Representation Attribs</span> page, ensure that <span class="UI_COMMAND" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+35">Type:</span> is set to <b>LOCAL_REFERENCE</b>. Click <span class="UI_OPTION" id="IDD_TP_REPRESENTATION_WIZARD.msg+IDD_TP_REPRESENTATION_WIZARD+1">Finish</span> to close the wizard when done.<br>
+<br>
+<img src="../images/rep_attrib.gif" border="1"><br>
+<br>
+</li>
+
+<li>Locate the <b>Steel - mean pressure - welded joints</b> catalog in the <b>Lines</b> sub-index of the <b>Tubing</b> index. You will add a record to this catalog that describes to the <b>ThinkDesign</b> tubing commands how to use your new pipe catalog.<br>
+<br>
+<img src="../images/line_index.gif" border="1"><br>
+<br>
+</li>
+
+<li>Right-click the <b>Steel - mean pressure - welded joints</b> catalog and select <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_EditValues.htm"><span class="UI_COMMAND" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span></a>.<br>
+<br>
+</li>
+
+<li>Now you have to fill up the empty record at the bottom of the grid with the following: 
+
+<ul class="noleft">
+<li>Enter a value for the <b>Part</b> and <b>Catalog</b> fields. These are descriptive fields; keep it short and clear.</li>
+
+<li>In the <b>Catalog ID</b> field, enter the name of the catalog you created with the <span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span> command. It should be <tt>Tube_Welded</tt>.</li>
+
+<li>Enter <tt>0</tt> in the <b>A.ID</b> field to tell the program that this is a tube element.</li>
+
+<li>Enter <tt>0</tt> in the <b>Insert</b> field to tell the program that this element can be inserted automatically.</li>
+
+<li>Enter <tt>PF</tt> in the <b>Representation</b> field. This is the class attribute you checked previously.</li>
+
+<li>Enter <tt>StaNomEnglSize</tt> in the <b>Size (")</b> field. This is the name of the attribute you previously created and it is used by the program to locate the dimensions of the element in the table of values that you previously edited.</li>
+
+<li>Enter <tt>None</tt> in the <b>Red. Size</b> field. Since this is a linear element in which the INPUT and OUTPUT sizes match, we have no reduced size to declare.</li>
+
+<li>Enter <tt>TD_LENGTH</tt> in the <b>Length (mm)</b> field. <tt>TD_LENGTH</tt> is one of the variables defined in the original model and it is used by <b>thinkteam</b> for the computation of the cutting BOM.</li>
+
+<li>Enter <tt>None</tt> in the <b>I.D</b>, <b>O.D</b> and <b>Curve</b> fields. You use these in case you are creating a catalog of elbows.</li>
+
+<li>Enter <tt>ORIGIN</tt>, <tt>INPUT</tt> and <tt>OUTPUT</tt> in the relevant fields. These are the names of the symbolic references that you found in the original model and are used by the program to orient the tube along the profile.</li>
+
+<li>Enter <tt>None</tt> in the <b>Secondary</b> field. This parameter is used in the case of a "T" joint.</li>
+</ul>
+
+<br>
+<img src="../images/line_value_edit.gif"><br>
+<br>
+</li>
+
+<li>Test your work by creating a profile in a model, and by using the <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span> command.<br>
+<br>
+</li>
+
+<li>Expand the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> branch and then select your <tt>Weld Joints</tt> catalog from the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+7">Tube</span> drop-down list.<br>
+<br>
+<img src="../images/custom_cat_SL.gif" border="1"><br>
+<br>
+You might get some warning, ignore it and proceed ahead.<br>
+<br>
+</li>
+
+<li>Expand the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+7">Tube</span> branch to display the <tt>Tube_Welded</tt> table of values. Double-click one of the records to choose the size, then <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command to insert the tubing element.<br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+<h5>Also try to...</h5>
+<ul class="noleft">
+<li><a href="T_HW_insert_part.htm"><b>Insert Tubing Parts</b></a></li>
+<li><a href="T_HW_insert_network.htm"><b>Insert a Tubing Network</b></a></li>
+<li><a href="T_HW_modify_part.htm"><b>Modify Tubing Parts</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

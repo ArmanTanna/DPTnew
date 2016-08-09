@@ -1,0 +1,51 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+<!-- Fix of error 118915 on 9/23/2014, NIBI -->
+
+<meta name="T_2015t1" content="translate">
+<title>Overview on the Die Design Module</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1>Overview on the Die Design Module</h1>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> module of the <b>think<font color="#FF0F00">3</font></b> application constitutes of the following four commands, which have been developed specifically to facilitate Die designing.</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:surfaces.chm::/language/curves/FWfile/T_FW_CuttingLine.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7908">Cutting Line</span></a></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"><a href="../surfaces/FWfile/T_FW_Fuzzy_Offset.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span></a></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_SpinedTwist.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7885">Spined Twist</span></a></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_fillet_reduction.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7886">Fillet Reduction</span></a></li>
+</ul>
+
+<p>All the above four commands are also present in the <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> toolbar.</p>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7908">Cutting Line</span> command enables you to generate the contour for <i>blank</i> from which the stamping component will be manufactured. It computes the cutting line corresponding to the contour of the unbent wings along which the metal would be cut.</p>
+
+<p>The rear surface of the die/punch head need not have the details as present on the front surface which makes actual contact with the metal. Still, the rear surface needs to have a similar profile as that of the front surface. The development of this rear surface is facilitated by the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> command that enables you to generate an offset surface which is not a precise offset but has a blurry resemblance to the original surface.</p>
+
+<p>In many stamping components the spring-back effect generates a twist in them. Hence, the compensation to be given to those parts is also a twist in the opposite direction. The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command enables you to provide this twisting compensation. Using this command you can provide twist to a part along a predefined spine.</p>
+
+<p>During stamping, and particularly when facing spring-back, it may be useful to modify some high curvature areas to let the material to 'fill' in a particular way the interstitial die volume during the sheet metal deformation. Typically, fillets often identify these high curvature areas. The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command enables you to modify a set of selected fillet surfaces by changing their curvature, while retaining the desired continuity along borders.</p>
+
+<hr color="silver">
+</body>
+</html>
+

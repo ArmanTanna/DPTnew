@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Anchor Handle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Anchor Handle</h4>
+
+<p>When positioning a Smart Object, an anchor point is usually to be selected: an "anchor handle" composed by an origin and three axis is displayed in this case.
+<p><img border=1 src="../images/Anchorhandle.gif">
+<p>Note that the selection list displays a group of items (under <b>Anchor</b>) enabling:<p>
+<ul class="noleft">
+<li>The selection of a point (<b>Point</b>)
+<li>The selection of a face (<b>Face</b>)
+<li>The definition of XY plane (<b>Orientation</b>)
+<li>The definition of the Z axis (<b>Direction</b>).
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+<ul class="noleft">
+<li>The selection of the face is <i>always</i> parametric: if you modify the orientation of the selected face, the orientation of the inserted Smart Object will change accordingly
+<li>The selection of the point is <i>never</i> parametric, even if the point you select is parametric (a datum point or a special point of a parametric entity)
+<li>If the origin of the base profile of the Smart Object is free (it has two freedom degrees on its plane) and the entity on which you snap while inserting the Smart Object is usable in a 
+<a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_08.htm"><b>Coincident</b></a> constraint (a datum line, a solid edge or a line belonging to a profile), a Coincident constraint is automatically created inside the profile.
+
+</ul>
+<p><b>Smart Shapes and face selection</b><br>
+<ul class="noleft"><li>When inserting a Smart Shape, if you move the cursor over a face, no matter whether you click on it or not, that face will be automatically selected even if you click in an empty zone of the graphics area. The orientation of the Smart Object will be changed accordingly to that face.</ul>
+
+</td></tr></table>
+<p>It is possible to translate the anchor by dragging the origin, to rotate each axis by dragging the related arrow, to invert one axis by double clicking on the corresponding arrow.
+Each movement can be done enabling the grid (stepped input both for translation and rotation) by choosing it in the context menu.
+<p>This document describes the following:<br>&nbsp;
+<ul class="noleft">
+<li><a href="#Types">Different types of anchors</a>
+<li><a href="#Actions">Possible actions</a>
+<li><a href="#Behaviors">Tips on how anchors work</a>
+</ul>
+<br>
+<h4><a name="TYpes"></a>Different types of anchors</h4>
+<p>A handle can be of one of the following two different types: </p>
+<ul class="noleft">
+<li><i>Absolute anchor handle</i>, if the profile or solid are not linked (for instance not positioned on a face) 
+<li><i>Anchor handle on face</i>: if the profile is linked to a face (for instance if used as the base of a feature)</ul> 
+<p>If the handle is absolute, also the Z-axis can be modified aligning it to some other entity. If the handle is not absolute, the Z-axis direction is automatically defined by the selected face. If the anchor handle is on face dragging is "on face" by default; in any case the <b>Anchor unconstrained</b> option is available in the context menu: in this case the translation will be done according to the current input mode (On view/on Work Plane/Projected on view).</p>
+<br>
+<h4><a name="Actions"></a>Possible actions</h4>
+<ul class="noleft">
+<li>The handle can be translated by selecting its origin or by typing the translation values in the <b>Move X</b> and <b>Move Y</b> and <b>Move Z</b> (only if the anchor handle is absolute) mini-dialog boxes; the new position will be dynamically previewed. If the anchor is "on face" the point is always projected onto the face itself 
+
+<p><img border=1 src="../images/TranslateAH.gif">
+
+<li>The X and Y axes can be rotated by selecting the corresponding arrow (a label is shown containing the name of the axis X/Y/Z) and dragging it or typing the angle of rotation in the <b>About X</b> (or <b>Y</b> or <b>Z</b>) mini-dialog box: a rotation is computed related to the cursor movement.
+
+<p><img border=1 src="../images/RotateAH.gif">
+
+<li>If the handle is not "on face", also the Z axis can be rotated
+<li>The <b>Align X</b> and <b>Align Y</b> options in the <b>Orientation</b> drop-down list enable you to align the X/Y axis by selecting an existing line or two points. When aligning this axis, the Y axis will be not movable until a new reset of the X-axis position. Only for absolute handles, <b>Align Z</b> is available in the <b>Direction</b> drop-down list.
+<li>After using <b>Align X</b> (or <b>Y</b>), you can invert the direction of the previous alignment just by double-clicking on the X (or Y) arrow (on the Z-arrow this is possible only if the handle is absolute)
+</ul>
+<br>
+<h4><a name="Behaviors"></a>Tips on how anchors work</h4>
+<p>Whichever the type of the anchor (no matter whether absolute or on face), the behavior is the following:<br>&nbsp;
+<ul class="noleft">
+<li>When selecting the <b>Face</b>, the <b>Point</b> is automatically defined only if it hadn't been selected before
+<li>When selecting the <b>Point</b>, the <b>Face</b> is automatically defined only if it hadn't been selected before
+<li>If the <b>Anchor on face</b> option is selected in the context menu you can display by right-clicking, the selected point, if it isn't a special snap point, is projected onto the face along the normal to the face (if any). If the face is not planar, the normal is the one through the point.
+<li>To insert a Smart Object selecting no face (when it is optional) you have to click in an empty zone of the graphics area or, if a face is already selected, to right-click on the <b>Face</b> item and select <b>Reset</b>.
+</ul>
+
+<hr color="silver">
+<h5>Tips and tricks</h5>
+<ul class="noleft">
+<li><a href="../../HWfile/T_HW_TypePoint.htm"><b>How to define a point position</b></a></li>
+<li><a href="../../HWfile/T_HW_AxisLine.htm"><b>How to define an axis or a line</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

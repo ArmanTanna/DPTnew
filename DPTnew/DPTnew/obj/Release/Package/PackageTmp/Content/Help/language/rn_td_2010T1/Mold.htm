@@ -1,0 +1,217 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>New MoldDesign Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1><a name="#rendering"></a>New MoldDesign Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+15">MoldDesign</span> functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#reg">The new <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+9">Region Analysis</span> command</a></li>
+
+<li><a href="#proj">Enhancements in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+1">Mold Project</span> command</a></li>
+
+<li><a href="#parting">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7763">Separation Surfaces</span> command</a></li>
+
+<li><a href="#electrode">Enhancements in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+13">Mold Electrode</span> command</a></li>
+
+<li><a href="#Standard">Enhancements in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span> command</a></li>
+
+<li><a href="#base">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+6">Mold Base</span> sub-commands</a></li>
+
+<li><a href="#cool">Enhancement in the <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+11">Mold Cooling</span> command</a></li>
+
+<li><a href="#P825">Enhancement in the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+3">Split Mold</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!-- PRJ: P0000753 - OWN: Jing-Cheng Mei -->
+<h2><a name="reg"></a>The new <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+9">Region Analysis</span> command</h2>
+
+<p>The new <a href="mk:@MSITStore:mold.chm::/language/mold/FWfile/T_FW_region_analysis.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+9">Region Analysis</span></a> command replaces the former <span class="OLD">Undercut Analysis</span> command with many more functionalities. This new command enables you to analyze the visible faces of the mold part from multiple directions. The faces are grouped as visible, under draft, undercut, and overlapping faces. On selecting the view direction, you can define with specific colors the faces as the core, cavity, and sliders. Also, you can create skins of the selected faces that can be used by the <a href="#P825"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+40">Region based</span></a> option in the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+3">Split Mold</span> command.<br>
+<br>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../images/rn_td_2010T1/region_analysis1.gif" border="1"></td>
+<td><img src="../../images/general/Arrow_To_Right.gif" border="0"></td>
+<td><img src="../../images/rn_td_2010T1/region_analysis2.gif" border="1"></td>
+</tr>
+</table>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:9;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+9">Region Analysis</span> command is available only with the <b>MoldDesign</b> license.
+</td>
+</tr>
+</table>
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="proj"></a>Enhancements in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+1">Mold Project</span> command</h2>
+
+<p>The <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+12">Shrink part</span> area has been introduced in the <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+1">Mold Project</span> dialog box. The following two radio buttons are available under the <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+12">Shrink part</span> area.</p>
+
+<ul>
+<li><span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+13">Isotropic scale</span>: When selected, you can enter the scale value in the corresponding text boxes. The mold part will be scaled in isotropic mode in <b>X</b>, <b>Y</b>, and <b>Z</b> directions.</li>
+
+<li><span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+14">Anisotropic scale</span>: When selected, the three directional axis text boxes are available. You can enter the specific scale factors in the respective <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+15">Scale X</span>, <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+16">Scale Y</span>, and <span class="UI_OPTION" id="IDD_TM_PROJ.msg+IDD_TM_PROJ+17">Scale Z</span> text boxes.</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000754 - OWN: Jacques Goussard -->
+<h2><a name="parting"></a>The new <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7763">Separation Surfaces</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7763">Separation Surfaces</span> command enables you to create the parting surface for mold parts. You need to select a set of curves, the direction of pull, and the width to create the parting surface. An example is shown below.<br>
+<br>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../images/rn_td_2010T1/seperate_surface.gif" border="1"></td>
+<td><img src="../../images/general/Arrow_To_Right.gif" border="0"></td>
+<td><img src="../../images/rn_td_2010T1/seperate_surface1.gif" border="1"></td>
+</tr>
+</table>
+</p>
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000651 - OWN: Greeshma George -->
+<h2><a name="electrode"></a>Enhancements in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+13">Mold Electrode</span> command</h2>
+
+<p>The following enhancements have been made in the <a href="mk:@MSITStore:mold.chm::/language/mold/FWfile/T_FW_electrode_command.htm"><span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+13">Mold Electrode</span></a> command.</p>
+
+<ul>
+<li>The new <span class="UI_COMMAND" id="Electrode.msg+_Electrode_LABEL_+17">None</span> option in the <span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+10">Head Shape</span> drop-down list enables you to create an electrode without head part.<br><br></li>
+
+<li><a name="Ref_point"></a>The <span class="UI_COMMAND" id="Electrode.msg+_Electrode_LABEL_+16">Show all reference points</span> check box has been introduced in the selection list. 
+
+<ul class="noleft">
+<li>When selected, the reference points of the electrode head are highlighted in the Graphics Area.</li>
+
+<li>When cleared, the reference points are not highlighted.</li>
+</ul>
+
+On double-clicking any of the reference points, a datum point is created at the same location. The datum point can then be used for dimensioning the electrode by using the <a href="Drafting.htm#P662"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1851">Enable for electrode origin</span></a> option.<br><br></li>
+
+<li>The new <span class="UI_COMMAND" id="Electrode.msg+_Electrode_LABEL_+18">Precision</span> check box enables you to select the precision value for the distance between the electrode head and the Work Plane origin. 
+
+<ul class="noleft">
+<li>When selected, its drop-down list is activated from which you can choose the precision value.</li>
+
+<li>When cleared, you cannot choose the precision value.</li>
+</ul>
+</li>
+
+<li>The new <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+115">End Axis Alignment</span> node enables you to position the cubed electrode head to the required direction. The alignment can be done by using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+123">X Axis</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+124">Y Axis</span> options under the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+115">End Axis Alignment</span> node.<br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+115">End Axis Alignment</span> node is available only when you select <span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+11">Cube</span> from the <span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+10">Head Shape</span> drop-down list.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000621 - OWN: Sedhu Madhavan-->
+<br>
+<h2><a name="Standard"></a>Enhancements in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span> command</h2>
+
+<p>The following enhancements have been made to the <a href="mk:@MSITStore:mold.chm::/language/mold/FWfile/T_FW_standard_parts.htm"><span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span></a> command.</p>
+
+<ul>
+<li>You can delete individual standard parts from the mold by right-clicking on the standard part component in the Model Structure and selecting <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+3974">Delete</span> from the context menu.</li>
+
+<li>You can insert a new mold catalog and custom part catalog by editing the index of suppliers in the <img src="../../images/company/thinkdesignPath.gif" alt="" border="0" align="middle">\files\MoldDesignData\StdPartCatalogIndexMap.xml file in your installation.</li>
+
+<li>Using the new <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+75">Customize</span> option in the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+33">Part</span> drop-down list, you can integrate the customized catalog into the command.</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="base"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+6">Mold Base</span> sub-commands</h2>
+
+<!-- PRJ: P0000794 to 798 - OWN: Siddharth-->
+<p>The <a href="mk:@MSITStore:mold.chm::/language/mold/FWfile/T_FW_mold_base.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+6">Mold Base</span></a> command has been completely overhauled into an advanced and easy to use feature. The following are the new enhancements.</p>
+
+<ul>
+<li>The <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7881">DME</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7883">HASCO</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7882">Futaba</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7891">Pedrotti</span>, and <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7892">Meusburger</span> commands have been introduced, which represent each mold base supplier.</li>
+
+<li>The Mold Base wizard has a highly interactive user interface and is customized to their respective catalog manuals.</li>
+
+<li>In the Mold Base wizard, when you select a specific mold series or assembly, then the wizard automatically lists the related values in the corresponding tabs for selection. The pictorial representation of the different parts of the assembly enables you to make the selection easier.</li>
+
+<li>The selected parts are listed in the left pane of the wizard, which enables you to view the complete mold base configuration.</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000620 - OWN: Rakhesh-->
+<h2><a name="cool"></a>Enhancement in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+11">Mold Cooling</span> command</h2>
+
+<p>The following are the enhancements in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+11">Mold Cooling</span> command.</p>
+
+<ul>
+<li>The preview of the standard parts is displayed on the selected cooling path.</li>
+
+<li>You can change the standard parts in the cooling path by using the <a href="mk:@MSITStore:mold.chm::/language/mold/OVfile/T_OV_cooling_hole_table.htm"><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+18">Information on Hole</span></a> dialog box.</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P825 - OWN: Sedhu -->
+<h2><a name="P825"></a>Enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+3">Split Mold</span> command</h2>
+
+<p>The new <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+38">Mode</span> drop-down list enables you to choose the method of creating the core and cavity by using the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+3">Split Mold</span> command. The following are the two options available:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+39">Automatic</span>: When selected, the core and cavity are created as it used to happen in previous versions.</li>
+
+<li><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+40">Region based</span>: When selected, the core and cavity are created using the region skins formed by the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+9">Region Analysis</span> command. The new <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+43">Group</span> node enables you to select multiple regions skins by using the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+46">Region</span> selector.</li>
+</ul>
+
+
+ <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

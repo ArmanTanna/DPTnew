@@ -1,0 +1,124 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Managing links between Work Plane and Profiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Managing links between Work Plane and Profiles</h3>
+
+<p>Profiles and Work Planes are like pairs; where one goes the other follows and vice versa. You should be aware of the current Work Plane position <i>before</i> sketching a profile</p>
+
+<p>In the following example you placed the Work Plane on a face of a solid and then you sketched a profile on that face:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-01.gif"><br>
+<br>
+Use the profile to create a through <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_Sl_03_01.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+421">Linear Slot</span></a>.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-ue-03.gif"><br>
+<br>
+Now, what happens if the Work Plane that has been used to sketch the profile is moved to a different position by means of the following steps:<br>
+</p>
+
+<ol class="noleft">
+<li>Translate the Work Plane using the <a href="../edit/wp/FWfile/T_FW_wp_13.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4470">Move</span></a> command by snapping to the corner.</li>
+
+
+<li>Reassign the new Work Plane position to the profile (<a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_12.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4497">Move/Copy to Current Work Plane</span></a>).</li>
+
+</ol>
+
+<p><img border="1" src="../../images/workplane/wp-ue-04.gif"><br>
+<br>
+The slot has moved according to the Work Plane translation. The <i>Profile</i> and its <i>Work Plane</i> keep the same <i>relative</i> position. Actually, this happened because the profile wasn't full constrained (we'll examine this later). Let's now focus on the relative position of the Work Plane and the profile.</p>
+
+<br>
+<h5>A profile always has its Work Plane in a fixed position.</h5>
+
+<p>If we move the Work Plane to a different position, on <a href="mk:@MSITStore:prf.chm::/language/sketcher/OVfile/T_OV_sk_00_08.htm">editing a profile</a>, the Work Plane will be moved to that profile. This is because, when you edit a profile, the program will show you the Work Plane where it was at the time the profile was created, that is the fixed relative position:<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-ue-05.gif"><br>
+<br>
+For instance, this profile was "born" with the Work Plane on its left side (fixed position).</p>
+
+<p>If you had created the profile with the Work Plane in the following position:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-06.gif"><br>
+<br>
+This would have led to the following situation (reassigning the current Work Plane to the Profile):<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-07.gif"></p>
+
+<p>Same thing if you move and rotate the Work Plane on another face (then reassign the current Work Plane to the Profile):<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-08.gif"><br>
+<br>
+Given this, it's recommended to choose a suitable Work Plane position to work with, or work in a full constrained way. In our example, we only have to refer the profile to one corner of the solid. Doing that, the profile will stay there even after reassigning a different Work Plane:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-09.gif"></p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Actually, the profile could be moved by reassigning a different Work Plane that lies on the same or another face of the solid, but you would receive a warning about external entities that have been used to fix the position of the Profile.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h5>Use Smart Profiles</h5>
+
+<p><a href="mk:@MSITStore:help.chm::/language/SmartObjects/OVfile/T_OV_sobj02.htm">Smart Profiles</a> allow you to place, move, and reuse any profile in a very flexible way. You can define an anchor point on your profile. This will be very useful when placing that profile wherever it is needed. You can rotate, move, snap that profile just by dragging its 3-axes handle:<br>
+
+<br>
+<img border="1" src="images/wp-sf1.gif"><br>
+<br>
+<br>
+Here we define the anchor point in the center of a circle:<br>
+<br>
+<img border="1" src="images/wp-sf2.gif"><br>
+<br>
+When placing the Smart Profile, this can be moved or rotated just by dragging <i>X-axis</i> or <i>Y-axis</i> handles. Please note that this won't insert any constraints.<br>
+ <i>See the Online Help on Smart Objects for details.</i></p>
+
+<br>
+<h5>Don't create profiles far from the Work Plane</h5>
+
+<p>Sketching a symmetrical profile like a rectangle or even any kind of profile, such as the following one (notice the position of the Work Plane).<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-10.gif"><br>
+<br>
+Never create it far from the Work Plane: that Work Plane will be linked to the profile and it won't be easy to modify their <i><b>relative</b></i> positions.</p>
+
+<p>The following is the right approach:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-ue-11.gif"><br>
+<br>
+The rectangle center coincides with the Work Plane. The profile is fully-constrained and it contains a reference entity (the dashed one), used to always keep the Work Plane in the center of the rectangle.</p>
+
+<p>Again, if you place the Work Plane this way, you'll probably want to manage its placement. This is a correct approach, however an even better technique is to use Smart Profiles.</p>
+
+<hr color="silver">
+</body>
+</html>
+

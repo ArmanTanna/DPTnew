@@ -1,0 +1,103 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Bending a surface changing the continuity conditions at the end points of the bending line</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Bending a surface changing the continuity conditions at the end points of the bending line</h3>
+<p>In this task you will bend a surface and change its continuity conditions at the end points of the bending line. You will appreciate how changes are propagated throughout the surface, beyond the area covered by the bending line. To accomplish this task, open file "bend_continuity.e3".<p><IMG border=1 SRC="../../../images/globalshape/BEX01.gif"></p>
+<p></p>
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Preselect the surface (<i>see also</i> <a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic01.htm"><b>Selection and Preselection</b></a>).
+
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/BEX02.gif"><BR><BR>
+Start the <a  href="../FWfile/T_FW_GMBend.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span></a> command.<br>
+
+To create a solid which will retain an associativity link to its base entities, so that if you modify such entities the solid will be updated accordingly, select the <b>Associative Mode</b> check box. In this task, the <b>Associative Mode</b> check box has not been selected.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>To define the bend line, select <b>2 Points</b> in the <b>Bend line</b> drop-down list.
+ Click on the two points as shown in the following illustration:
+<BR><BR><IMG border=1 SRC="../images/BEX04.gif"><br><br>
+Three handles are displayed.
+<ul class="noleft">
+<li>The one corresponding to <b>2nd Length</b> enables you to modify the bending line
+<li>The ones corresponding to <b>Angle</b> and <b>Length</b> enable you to perform the bending in a polar reference system with its origin in the endpoint of the bending line.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>
+Set constraints at the first end point of the bending line. First of all, click <b>More Options</b> to expand it. Under <b>First</b>:
+<ul class="noleft">
+<li>In the <b>Status</b> drop-down list, select <b>Fixed</b>, in order to prevent the surface from moving from the first end point of the bending line.
+<li>In the <b>Continuity</b> drop-down list, select <b>Curvature</b>, in order to apply curvature continuity about the first end point of the bending line.
+</ul>
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Drag the handle of the polar axis to the new position (or set the <b>Length</b> value).<BR><BR><IMG border=1 SRC="../images/BEX05.gif"><p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Set constraints at the second end point of the bending line. Under <b>Second</b>:
+<ul class="noleft">
+<li>In the <b>Status</b> drop-down list, select <b>Free</b>, in order to enable the surface to move from the second end point of the bending line.
+<li>In the <b>Continuity</b> drop-down list, select <b>Curvature</b>, in order to apply curvature continuity about the second end point of the bending line.
+</ul>
+<br><IMG border=1 SRC="../images/BEX06.gif"><p></p>
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections modify the shape of the object. 
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/BEXNOCOPY.gif"><BR><BR>
+If you set the <b>Copy</b> option, you will obtain the following:
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/BEXCOPY.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<p></p>
+<ul class="noleft">
+<li><a href="T_HW_GMbend02.htm"><b>Applying constraints along the cutting lines</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

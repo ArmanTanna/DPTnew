@@ -1,0 +1,235 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<TITLE>Job: Creating a Compass Assembly to understand mating constraints</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22; margin-top:3px;}</style>
+
+<style>.litleft{margin-left:26; margin-top:3px;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Creating a Compass assembly to understand mating constraints</H3>
+
+<p>In this task, you will create a Compass assembly and in the process understand different kinds of mating constraints.
+You will be using Bottom Up approach for assembly design and all the component model files are readily available in the sample folder of your program installation. 
+<BR><BR><img src="../images/Compass_Finalassy.gif" border="1"><BR><br>
+<TABLE>
+<TR VALIGN=top>
+<TD width="20"><B>1</B></TD>
+<TD>You will start with a New model file. The idea is to bring in each of the components as external references and assemble them with appropriate constraints.<br><br>
+<ol TYPE=A class="litleft">
+<li>Use the <a  href="../FWfile/T_FW_as_02.htm"><b>X-Reference (component)</b></a> command to bring in the first component <i>Radial Arm</i> into the new model file. 
+<ul class="noleft">
+<li>Browse to the sample folder and select the file <i>radial_arm.e3</i>.
+<li>Similarly bring in file <i>lead.e3</i></ul><br>
+<li>Start the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><b>Mating</b></a> command.
+
+<ul class="noleft">
+<li>In the selection list, make sure the <b>Mode</b> drop-down list (under <b>More Options</b>) reads <b>Simple</b> (and if it doesn't, select the <b>Simple</b> item).
+
+<li>Click on the surface of the lead as shown for <b>Object to be positioned</b>.
+<br><br><img src="../../../images/assembly/Comp_assy_1.gif" border="1">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br> the program proposes the constraint <b>Type</b> as <b>Coaxial</b> (See the selection list), based on the geometry of the object selected i.e a revolved cylinder in this case.</td></tr></table><br>
+<li>Next, move the cursor to select the blind hole on the <i>Radial arm</i> (radial_arm.e3) for <b>Reference object</b>.(See image below).
+<br>
+<br><img src="../images/Comp_assy_2.gif" border="1">
+<br>
+<br><li>Click on the blind hole to place the constraint.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>In this mating, the combination is of a revolved surface with <b>Coaxial</b> <b>Type</b>.</td></tr></table><br>
+The Coaxial constraint is created, and the command now lets you modify it or start creation of a new constraint.</ul>
+</ol>
+</TR>
+
+
+<TR VALIGN=top>
+
+<TD><B>2</B></TD>
+
+<TD>You will now bring in two more components, the <i>Pivot Arm</i>(Pivot_arm.e3) and the <i>Needle</i>(Needle.e3) into the assembly file.
+<br>For mating these two components, you will use the <b>Inferred Mode</b>. 
+<ol TYPE=A class="litleft">
+<li>Start the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><b>Mating</b></a> command.
+
+<ul class="noleft">
+<li>Click on the cylindrical surface of the <i>Needle</i>(Needle.e3) for <b>Object to be positioned</b>.
+Ensure the <b>Mode</b> drop-down list (under <b>More Options</b>) reads <b>Inferred</b>.
+<li>Move the cursor near the blind hole on the <i>Pivot arm</i>(Pivot_arm.e3)and the program automatically identifies the constraint.
+<li>Click on the blind hole to place the constraint.
+<br>
+<br><img src="../images/Comp_assy_4.gif" border="1">
+<br>
+</ul> </ol></TD>
+</TR>
+<!-- 
+
+<TR VALIGN=top>
+<TD><B>3</B></TD>
+<TD>You now need to get the <i>guide's</i> for the two <i>arms</i> to mate with the <i>thumbwheel</i>. In this situation, all the constraints involved between the components need to be solved at once and not sequentially. So you bring these components into the assembly and use <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_MultipleMating.htm"><b>Multiple mating</b></a> command and move all the objects such that the constraints are satisfied.
+
+<br>Bring in components; <i>Thumbwheel(thumbwheel.e3)</i>, <i>Pivot guide</i>(Pivot_guide.e3) and <i>Radial guide</i>(Radial_guide.e3) into the assembly file.
+<ol TYPE=A class="litleft">
+<li>Start the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_MultipleMating.htm"><b>Multiple Mating</b></a> command.
+
+<ul class="noleft">
+<li>Click on the 3 components to be included into the mating. Also add the <i>Pivot</i> and <i>Radial arms</i> into the mating.
+<li>Start the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><b>Solid Mating</b></a> command.
+
+<li>Click on the cylindrical surface on <i>Radial guide</i>(Radial_guide.e3) for <b>Object to be positioned</b>.
+<li>Ensure the <b>Mode</b> drop-down list (under <b>More Options</b>) reads <b>Inferred</b>.
+<li>Click on the circular slot surface of <i>Radial arm</i>(Radial_arm.e3) as shown to place the Coaxial constraint.
+<br>
+<br><img src="../images/Comp_assy_5.gif" border="1">
+<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>
+In this mating, the combination is of a cylindrical surface with <b>Coaxial</b> <b>Type</b></td></tr></table>
+<br><li>Click on the plane face on <i>Radial guide</i>(Radial_guide.e3) for <b>Object to be positioned</b>.
+<li>Set <b>Type</b> drop-down list to read <b>Coincident</b> and <b>Alignment</b> drop-down list to read <b>Aligned</b>.
+<li>Click on the plane face on <i>Radial arm</i>(Radial_arm.e3) as shown to place the coincident constraint.
+<br>
+<br><img src="../images/Comp_assy_6.gif" border="1">
+<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>
+In this mating, the combination is of a plane face with <b>Coincident</b> <b>Type</b></td></tr></table>
+<br><li>Click on the cylindrical surface of <i>thumbwheel</i>(thumbwheel.e3) for <b>Object to be positioned</b>.
+<li>Click on the circular hole of <i>Radial guide</i>(Radial_guide.e3) as shown to place the coaxial constraint.
+<br>
+<br><img src="../images/Comp_assy_7.gif" border="1"><br>
+<br><li>Click on the cylindrical surface of <i>Pivot guide</i>(Pivot_guide.e3) for <b>Object to be positioned</b>.
+<li>Click on the circular slot on <i>Pivot arm</i>(Pivot_arm.e3) as shown to place the coaxial constraint.
+<br>
+<br><img src="../images/Comp_assy_8.gif" border="1"><br>
+<br><li>Click on the plane face of <i>Pivot guide</i>(Pivot_guide.e3) for <b>Object to be positioned</b>.
+<li>Set <b>Type</b> drop-down list to read <b>Coincident</b> and <b>Alignment</b> drop-down list to read <b>Aligned</b>.
+<li>Click on the plane face of <i>Pivot arm</i>(Pivot_arm.e3) as shown for <b>Reference Object</b> to place the coincident constraint.
+<br>
+<br><img src="../images/Comp_assy_9.gif"border="1">
+<br><br>
+<li>Click on the top edge of the <i>Pivot Arm</i>(Pivot_arm.e3) for <b>Object to be positioned</b>.
+<li>Click on the corresponding top edge of <i>Radial Arm</i>(Radial_arm.e3) for <b>Reference Object</b> to place the coincident constraint.
+<br>
+<br><img src="../images/Comp_assy_11.gif" border="1">
+<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>
+The point to note here is, this constraint is a coincidence between two edges unlike the coincidence between two faces that we have seen so far.
+Check mating table for more Info.
+</td></tr></table>
+<br><li>Click <b>Cancel</b> to exit the command.
+<br>Check the Model Structure and you see that all these matings are part of the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_MultipleMating.htm"><b>Multiple Mating</b></a>.<br></ul></ol>
+
+</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>4</B></TD>
+<TD>The <i>Spring</i>(Spring1.e3) and <i>Handle</i>(handle.e3) will complete this assembly.You will assemble these components separately and bring it in as a subassembly.
+<ol TYPE=A class="litleft">
+<li>Open a new model file and bring in the components <i>Spring1</i> and <i>Handle</i> as External references.
+<ul class="noleft">
+<li>Start the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><b>Solid Mating</b></a> command.
+
+<li>Click on the cylidrical face of the <i>Handle</i>(handle.e3) as shown for <b>Object to be positioned</b>.
+<li>Ensure the <b>Mode</b> drop-down list reads <b>Inferred</b> and <b>Type</b> drop-down list reads <b>Concentric</b>.
+<li>Click on the inner surface of the circular slot on the <i>Spring</i>(Spring1.e3) for <b>Reference Object</b> to place the coaxial constraint.
+<li>Set the <b>More Conditions</b> drop-down list (under <b>More Options</b>) to read <b>Lock</b>.
+<br>The <b>Lock</b> setting, is used when you need make an assembly completely rigid. In this case, there is an axial degree of freedom for rotation and by using this setting you lock the axis for movement to have a rigid mating between the <i>Handle</i>(handle.e3) and the <i>Spring</i>(Spring1.e3).<br>
+<br><img src="../images/Comp_assy_12.gif" border="1">
+<br>
+<br><li>Click on the highlighted plane face of the <i>Handle</i>(handle.e3) for <b>Object to be positioned</b>.
+<li>Ensure the <b>Mode</b> drop-down list (under <b>More Options</b>) reads <b>Inferred</b>, <b>Type</b> drop-down list reads <b>Tangent</b> and <b>Alignment</b> drop-down list reads <b>Aligned</b>.
+<li>Click on the top spherical surface of the <i>Spring</i>(Spring1.e3) as shown for <b>Reference Object</b> to place the tangent constraint.
+<br>
+<br><img src="../images/Comp_assy_13.gif" border="1">
+<br><br></b></b><li>Save the subassembly with an appropriate name.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>
+In this mating, the combination is of a plane face and a spherical surface with tangency constraint.</td></tr></table><br>
+This subassembly of the <i>Handle</i>(handle.e3) and <i>Spring</i>(Spring1.e3) can be inserted and mated with the other components of the Compass as a single rigid body.</ul></ol></TD>
+</TR>
+<TR VALIGN=top>
+<TD><B>5</B></TD>
+<TD>You will now bring in the subassembly of the <i>Spring</i> and <i>Handle</i> and mate it to the main assembly. You need to note here that the mating commands 
+work similar as in the case of X-Reference components.
+<br>Back to the main assembly, bring in the Subassembly file just like an X-Reference component using <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><b>X-Reference (component)</b> </a> command. 
+
+Its representation in the Model Structure will be different to show that it is a subassembly and it in turn contains other components. Take note of this.
+<br>The <i>Spring</i> needs to sit in the slot provided at the top of the two arms of the compass. Also note that the <i>Spring</i> ends are rounded.
+the program allows mating of cylindrical and plane faces with a tangency constraint.
+<ol TYPE=A class="litleft">
+<li>Start <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><b>Solid Mating</b></a> command.
+
+<ul class="noleft">
+<li>Click on the first cylindrical face of the <i>Spring</i>(Spring1.e3) as shown for <b>Object to be positioned</b>.
+<br>
+<br><img src="../../../images/assembly/Comp_assy_14.gif" border="1">
+<br>
+<br><li>Ensure the <b>Mode</b> drop-down list (under <b>More Options</b>) reads <b>Inferred</b>, <b>Type</b> drop-down list reads <b>Tangent</b> and <b>Alignment</b> drop-down list reads <b>Aligned</b>.
+<li>Click on the plane face on the slot of <i>Pivot arm</i>(Pivot_arm.e3) as shown for <b>Reference Object</b> and place the tangent constraint.
+<br>
+<br><img src="../images/Comp_assy_15.gif" border="1">
+<br>
+<br>You will be prompted to Add this constraint to the <b>Multiple mating</b>, the message will be displayed.
+<br>
+<br><li>Say <b>Yes</b> to add the constraint to <b>multiple mating</b>.
+<li>Similarly click on the cylindrical surface on the other end of <i>Spring</i>(Spring1.e3) as shown for <b>Object to be positioned</b>.
+<li>Set <b>Type</b> drop-down list to read <b>Tangent</b> and <b>Alignment</b> drop-down list to read <b>Aligned</b>.
+<br>
+<br><img src="../images/Comp_assy_17.gif" border="1">
+<br>
+<br><li>Mate this to the slot face on <i>Radial arm</i>(Radial_arm.e3) as shown with a tangent constraint.
+<br>
+<br><img src="../images/Comp_assy_18.gif" border="1">
+<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Mating Combination</b>
+<br>
+In these two matings, the combination is of a cylidrical and plane face with tangent constraint.</td></tr></table>
+
+<br>The final mating is to align the <i>Spring-Handle</i> sub assenbly to the arms.
+<br><li>Click on the plane side face of <i>Spring</i>(Spring1.e3) for <b>Object to be positioned</b>.
+<li>Ensure the <b>Type</b> drop-down list reads <b>Coincident</b> and <b>Alignment</b> drop-down list reads <b>Aligned</b>.
+<li>Click on the plane face of <i>Pivot arm</i>(Pivot_arm.e3) as shown with a <b>coincident-coincident</b> constraint to get the alignment right.
+<br>
+<br><img src="../images/Comp_assy_19.gif" border="1">
+<br><br>In this job, you have seen a few combinations of mating constraints that the program offers and how they work in <b>Simple</b> and <b>Inferred</b> modes.
+</TR> -->
+</TABLE>
+<div align="center" style="font-size:24";><b><i><font color="red">Work in Progress</font></i></b></div>
+<hr color="silver">
+</body>
+</html>

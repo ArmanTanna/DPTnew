@@ -1,0 +1,138 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Assembly Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Assembly Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Assembly functionalities.<br>
+</p>
+
+<ul class="noleft"><!--<li><a href="#330">The new Next Generation Mating concept</a></li>
+<li><a href="#440">The new <span class="UI_COMMAND_NOBOLD" id="MatingUI.msg+_MatingUI_LABEL_+52">Gear</span> constraint</a></li>
+<li><a href="#15159">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7526">Fix</span> and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7527">Unfix</span> commands</a></li>-->
+<li><a href="#407">The new Assembly Feature concept</a></li>
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+ <!-- PRJ: P0000330 - OWN: Luca Cioni -->
+<h2><a name="407">The new Assembly Feature concept</a></h2>
+
+<p>Sometimes multiple instances of a single component are placed in an assembly and you need to create additional features only on some of the instances. However, if the original component is modified, the change will take place in all the instances.</p>
+
+<p>In other situations, the same component is placed in multiple assemblies and you need to create additional features on the component only in specific assemblies. To achieve both these goals, the new Assembly Feature concept has been introduced.<br>
+<br>
+With the new Assembly Feature concept you can add or modify placed features like holes and slots in any specific assembly. The assembly feature will be applied only in the particular assembly without affecting the original component. You will be able to create a feature simultaneously on multiple components of an assembly, as shown in the images below.</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td><img src="../../images/rn_td_2010T1/AFeatures.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td><img src="../../images/rn_td_2010T1/AFeatures2.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+163">Assembly Feature</span> option has been introduced in the <span class="UI_COMMAND" id="tdesign.msg+_MATING_LABEL_+22">Type:</span> drop-down list of the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+1">Hole</span>, <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+76">Linear Slot</span>, and <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+75">Rotational Slot</span> selection lists. This drop-down list is displayed only when you apply the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span>, <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6700">Linear Slot</span>, and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6701">Rotational Slot</span> commands on an assembly.</p>
+
+<!-- <hr color="silver">
+ PRJ: P0000330 - OWN: Luca Cioni 
+<h2><a name="330">The new <b>Next Generation Mating</b> concept</a></h2>
+
+<p>The new Next Generation Mating concept enables you to place mating constraints on the entities (solids, components, profiles, and datum points) with more flexibility and speed.<br>
+<br>
+The difference between the old and new mating behavior is explained in the table below:</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="1" style="margin-bottom:9;">
+<tr>
+<td align="center"><b>No.</b></td>
+<td align="center"><b>Old behavior</b></td>
+<td align="center"><b>New behavior</b></td>
+</tr>
+
+<tr>
+<td valign="top"><b>1.</b></td>
+<td valign="top">During the application of constraints, the entity which has been selected as reference object attains fix position with respect to the other object.</td>
+<td>You can fix any entity according to the requirements and restrict all of its degrees of freedom by using the new <a href="#15159"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7526">Fix</span></a> command. The <span class="OLD">Reference Object</span> and <span class="OLD">Object to Be Positioned</span> selectors of the <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+30">Solid Mating</span> selection list have been replaced with the <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+31">First Entity</span> and <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+6">Second Entity</span> selectors, respectively.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>2.</b></td>
+<td valign="top">The <span class="OLD">Multiple Mating</span> command enabled you to move more than one object at the same time within the mating. This concept was required for assembling the Kinematic chains.</td>
+<td valign="top">The new concept is powerful enough to manage both single and multiple mating. As a result, the old <span class="OLD">Multiple Mating</span> command has been removed.</td>
+</tr>
+</table>
+
+<p>Applied constraints get displayed in the new panel called the Mating Structure. It is displayed below the Model Structure with the respective mating icons, as shown in the image below. On selecting any entity of the assembly from the Model Structure, the constraints applied to it will get highlighted in the Mating Structure. Similarly, on selecting any constraint from the Mating Structure, the respective entities get highlighted in the Model Structure.<br>
+<br>
+ <img src="images/NG_Matting.gif" border="1"><br>
+<br></p>
+<p>
+You can easily understand which constraints are related to a particular entity and which entities are referred by a particular constraint by using the new Mating Structure and the Model Structure.<br>
+<br>
+ You can disable any constraint and then restore it when required by selecting the <b>Suppress</b> option from the context menu displayed by right-clicking on the constraint.</p>-->
+<!-- #################################################################################### -->
+
+
+<!--<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!==Project: P000440 own=Roberto Calabrese
+<h2><a name="440">The new <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+52">Gear</span> constraint</a></h2>
+
+<p>The new <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+52">Gear</span> constraint enables you to simulate mechanical components like gears and pulleys. The <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+52">Gear</span> option is available in the <b>Type</b> drop-down list of the <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+30">Solid Mating</span> selection list.<br>
+<br>
+Following are the three types of gear constraints available in the <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+53">Gear Subtype</span> drop-down list:</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="1" style="margin-bottom:9;">
+<tr>
+<td><span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+54">Rotation-rotation</span>:</td>
+<td valign="top">Provides relative rotational movement between the entities (solids/components).<br>
+ For example, motion between the <i>spur gears</i>.</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+55">Rotation-linear</span>:</td>
+<td valign="top">Allows the relative motion between two entities, in which one is having rotational motion and the other moves linearly. When the first entity is rotated, the other entity will move linearly and vice-versa.<br>
+ For example, the <i>rack and pinion</i> mechanism.</td>
+</tr>
+
+<tr>
+<td valign="top"><span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+56">Linear-linear</span>:</td>
+<td valign="top">Allows relative linear motion between two entities.</td>
+</tr>
+</table>
+
+<p>You can specify the speed of motion of the entities in the <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+57">First Gear Ratio</span> and <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+58">Second Gear Ratio</span> mini-dialog boxes. Also, you can change the direction of motion of the mated components by double-clicking on linear and rotation markers.<br>
+<br>
+Using this <span class="UI_COMMAND" id="MatingUI.msg+_MatingUI_LABEL_+52">Gear</span> constraint you will be able to simulate complex gear mechanisms like gear trains, planetary gears, differential gears etc.</p>-->
+
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!== PRJ: P0000 - OWN: Atul Rawat -->
+</p>
+<!--
+<h2><a name="15159">The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7526">Fix</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7527">Unfix</span> commands</a></h2>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7526">Fix</span> command enables you to fix the location of the selected entity (solids/components) in the 3D space. You can also access this command from the context menu by right-clicking the entity in the Graphics Area or in the Model Structure. The representation of the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7526">Fix</span> command is an anchor (<img align="absmiddle" src="../../images/assembly/Fix.gif" border="0">) and is displayed in the new Mating Structure. Other components can be constrained with respect to the fixed component.<br>
+<br>
+ The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7527">Unfix</span> command enables you to make the fixed component unfixed.</p>
+
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>-->
+</body>
+</html>
+

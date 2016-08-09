@@ -1,0 +1,58 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Offset Mesh</title>
+
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+19">Offset Mesh</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+18">Offset Mesh</span> command enables you to offset a selected mesh by a specified offset value.</p>
+
+<p><a name="mesh"></a>After starting the command select the mesh to offset for the <span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+311">Mesh</span> selector.</p>
+
+<p><a name="value"></a>The offset value has to be entered in the <span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+312">Offset size</span> text box.</p>
+
+<p style="margin-bottom:0;"><a name="normals"></a>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+313">Always recalculate normals</span> check box enables you to manage the normals of the mesh being offset.</p>
+<ul class="noleft">
+<li>When the check box is selected, the normals on mesh are always calculated and reoriented, even if they already exist on the mesh.</li>
+<li>When the check box is cleared, the normals on mesh are calculated and reoriented only if they do not exist on the mesh.</li>
+</ul>
+
+<p><a name="preview"></a>On selecting the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button the preview of the offset mesh is displayed. An example is shown below.<br><br>
+<img src="../../../images/thinkcompensator/OffsetMesh.gif" border="1"></p>
+
+<p><a name="warning"></a>In case, the offset mesh is self intersecting, a suitable warning is displayed on selecting the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../images/general/warnings_on.gif" align="absmiddle">) button. Also, the location of self-intersection is highlighted on the mesh.</p>
+
+<p>If satisfied with the preview, you can apply (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command.</p>
+
+<hr color="silver">
+</body>
+</html>
+

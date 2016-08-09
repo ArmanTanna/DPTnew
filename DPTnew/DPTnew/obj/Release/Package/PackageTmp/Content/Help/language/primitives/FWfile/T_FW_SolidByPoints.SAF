@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Solid by points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Primitive.msg+MenuBar_Document_Insert_Primitive+7808">Primitives</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Primitive.msg+MenuBar_Document_Insert_Primitive+7817">Solid by Points</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="Primitive.msg+_PRIMITIVE_LABEL_+30">Solid by Points</span> command enables you to create a solid defined through its own vertices. Depending on the item you select in the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+35">Type</span> drop-down list, the solid can be a:</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+31">Pyramid: 1 vertex and 3 points</span></li>
+
+<li><span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+32">Pyramid: 1 vertex and 4 points</span></li>
+
+<li><span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+33">Prism: 6 points</span></li>
+
+<li><span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+34">Prism: 8 points</span></li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Obtaining a parametric solid or a set of surfaces</b><br>
+The final result of the command can be either the set of surfaces composing the solid or a unique parametric solid. The <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+8">Associative Mode</span> check box enables you to control the result: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When the check box is selected, the resulting entity will be a parametric solid. If you move any of its vertices, the solid will be updated accordingly. The icon of a solid will be displayed in the Model Structure.</li>
+
+<li>When the check box is cleared, the final result will be a set of surfaces composing the shape. No change will be made if you move any of the vertices.</li>
+</ul>
+
+For further details, see "<a href="mk:@MSITStore:help.chm::/language/surfaces/OVfile/T_OV_sr_00.htm#Associative">Associative surfaces</a>".</td>
+</tr>
+</table>
+
+<p>To create the solid you need to specify its vertices, as mentioned below.</p>
+
+<p style="margin-bottom:0">For the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+31">Pyramid: 1 vertex and 3 points</span> and <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+32">Pyramid: 1 vertex and 4 points</span> you need to specify:</p>
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+38">Vertex</span></li>
+
+<li>The <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+39">Base Points</span>.</li>
+</ul>
+
+<p style="margin-bottom:0;margin-top:0;">For the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+33">Prism: 6 points</span> and the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+34">Prism: 8 points</span> you need to specify:</p>
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+37">Upper base points</span></li>
+
+<li>The <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+36">Lower base points</span>.</li>
+</ul>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td>Please note that in order to avoid twisting, both <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+37">Upper base points</span> and <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+36">Lower base points</span> must be specified row-by-row and not in clockwise or counter-clockwise order.</td>
+<td><img border="1" src="../../../images/primitives/correct.gif"></td>
+</tr>
+
+<tr valign="top">
+<td>If you use a different input order, some unexpected twisting may get generated in the result.</td>
+<td><img border="1" src="../../../images/primitives/wrong.gif"></td>
+</tr>
+</table>
+
+<p>The same input order must be used also for the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+39">Base Points</span> of the <span class="UI_OPTION" id="Primitive.msg+_PRIMITIVE_LABEL_+32">Pyramid: 1 vertex and 4 points</span>.</p>
+
+<p>A dynamic preview of the solid is displayed the very moment you specify the placement points, so as to enable you to immediately assess the result of your actions.</p>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,146 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+
+<title>Select Contour</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span></h3>
+
+<p>When the current selector of a command accepts the selection of curves inside solids (which you can check by opening the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box: if the 
+
+<span class="UI_OPTION" id="idd_filters.msg+idd_filters+19">Solids</span> check box in the 
+
+<span class="UI_OPTION" id="idd_filters.msg+idd_filters+23">Inside</span> area is selected, then the condition is verified), the 
+
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span> command ( <img src="../../../images/icons/icons_medium/id_sel_contour.bmp" align="absmiddle"> ) will be contained in the <a href="#patch_info">context menu</a> displayed by right-clicking.<br>
+
+When you select the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span> command, the selection of solid faces is enabled either by directly picking the entities or by using the 
+
+<span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+2">Window</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+3">Lasso</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+5">All</span> commands.<br>
+
+As soon as the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span> command is started, the cursor changes to  <img src="../../../images/icons/cursors/Contour.gif" align="absmiddle">.<br>
+
+When you move the cursor onto a face of a solid, the face will be highlighted (the following illustrations are relative to the selection of the curves to be swept in the <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+38">Linear Surface</span> command).<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont01.gif"><br>
+<br>
+On the contrary, if you try to select an entity that is not a face of a solid, the entity will not be highlighted, the selection will not be permitted and a proper warning (along with the signal <img src="../../../images/icons/cursors/ForbiddenOnly.gif" align="absmiddle"> ) will be issued. When a face is selected, the contour is highlighted:<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont02.gif"><br>
+<br>
+If you go on selecting faces, the contour will be updated so as to match the new face selection.<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont03.gif"><br>
+<br>
+The <i>type</i> of contour can also be changed by selecting the proper options in the context menu:</p>
+
+<ul style="margin-left:74;margin-top:0;margin-bottom:0;">
+<li><span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+8">All Contours</span><br>
+
+
+ Enables you to select all the contours of the selected set of faces, both internal and external<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont04.gif"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+10">Internal Contours</span><br>
+
+
+ Enables you to select only the internal contours of the selected faces.<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont05.gif"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+9">External Contour</span><br>
+
+
+ Enables you to select only the external contours of the selected faces.<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/cont03.gif"><br>
+<br>
+</li>
+</ul>
+
+<p>To confirm the selection you have performed, double-click in an empty zone of the graphics area or right-click and select <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+7">Exit Contour</span>.<br>
+
+
+As soon as the selection is completed, a preview of the result will be displayed. You can then start the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7866">Contour</span> command again in order to add new faces, remove one or more face or even single edges from the current selection (<b>CTRL</b>+click on the face/edge).
+
+<p><a name="patch_info"></a>In any case when more than one contour is available, the <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+6">Change External Contour</span> item appears in the context menu so as to enable you to "change" the external contour.<br>
+
+<br>
+<img border="1" src="../images/ExternalContour.gif"><br>
+<br>
+Once you have selected the <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+6">Change External Contour</span> in the context menu, you can select the border to be defined as the external one.</p>
+
+
+<p>As an example, suppose you want to create a sort of hem along the external border of the surface on the right in the solid of the following image, by using the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+2">Pipe Surface</span> command.<br>
+
+<br>
+<img border="1" src="../../../images/patch01/EC-01.gif"><br>
+<br>
+</p>
+
+<ul class="noleft">
+<li>First, set the <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+6">Change External Contour</span> mode and perform the selection. If you use a window selection, the contour automatically considered as the external one is the one of the surface on the left.<br>
+
+<br>
+<img border="1" src="../../../images/patch01/EC-01a.gif"><br>
+&nbsp;</li>
+
+<li>To specify you want to define the contour of the surface on the right as the external one, select <span class="UI_OPTION" id="tdesign.msg+_SELECTION_LABEL_+6">Change External Contour</span> in the context menu.<br>
+
+<br>
+<img border="1" src="../images/EC-02.gif"><br>
+&nbsp;</li>
+
+<li>Select the contour of the surface on the right:<br>
+<br>
+<img border="1" src="../../../images/patch01/EC-03.gif"><br>
+<br>
+The selected contour will be defined as the external one.<br>
+<br>
+<img border="1" src="../../../images/patch01/EC-04.gif"><br>
+&nbsp;</li>
+</ul>
+</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../ovfile/T_OV_basic03.htm"><b>Multiple selection operators</b></a></li>
+<li><a href="../ovfile/T_OV_smart_sel.htm"><b>Smart selection commands</b></a></li>
+<li><a href="../ovfile/T_OV_basic01.htm"><b>Selection and Preselection</b></a></li>
+<li><a href="../ovfile/T_OV_basic02.htm"><b>Clicking on entities</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

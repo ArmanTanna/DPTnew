@@ -1,0 +1,146 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="Revisor" content="Vicky Raina">
+<meta name="T_2010t1" content="translate">
+<title>Conversion Table for importing from CATIA (3d entities)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft { margin-left: 22; margin-top: 0; } 
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1><a name="table"></a>Conversion Table for importing from CATIA (3d entities)</h1>
+
+<p>The following general conversion table shows how CATIA<sup><font size="-1">&reg;</font></sup> 3D entities are mapped to <img src="../../../images/company/ThinkDesign.gif" align="middle"> entities.</p>
+
+<table border="1" bordercolor="navy">
+<tr valign="top">
+<td><b>CATIA</b></td>
+<td><b>CATIA<sup><font size="-1">&reg;</font></sup> type number</b></td>
+<td><img src="../../../images/company/ThinkDesign.gif" align="middle"></td>
+<td><b>Category</b></td>
+</tr>
+
+<tr valign="top">
+<td><b>Point</b></td>
+<td>1</td>
+<td><b>Point</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Line</b></td>
+<td>2</td>
+<td><b>Line</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Curve</b></td>
+<td>3</td>
+<td><b>Curve</b> (NURBS).</td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Plane</b></td>
+<td>4</td>
+<td><b>Trimmed surface</b> (only associated with boundaries).</td>
+<td>Surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Surface</b></td>
+<td>5</td>
+<td><b>Surface</b> (NURBS, except plane, conic and cylindrical surfaces that keep their type).</td>
+<td>Surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Face</b></td>
+<td>6</td>
+<td><b>Trimmed surface</b></td>
+<td>Surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Volume</b></td>
+<td>7</td>
+<td><b>Manifold solid</b> or <b>Set of trimmed surfaces</b> depending on the value of the <a href="../OptionList/IDP_TAB_LOAD.htm#CreateSolid"><b>Create Solid</b></a> option.</td>
+<td>Surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Skin</b></td>
+<td>13</td>
+<td><b>Non Manifold solid</b> or <b>Set of trimmed surfaces</b> depending on the value of the <a href="../OptionList/IDP_TAB_LOAD.htm#CreateSolid"><b>Create Solid</b></a> option.</td>
+<td>Surface</td>
+</tr>
+
+<tr valign="top">
+<td><b>Solid</b></td>
+<td>17</td>
+<td><b>Manifold solid</b> or <b>Set of trimmed surfaces</b> depending on the value of the <a href="../OptionList/IDP_TAB_LOAD.htm#CreateSolid"><b>Create Solid</b></a> option. 
+
+<p><b>Warning:</b><br>
+ Mock-up solids are converted into wireframe.</p>
+</td>
+<td>Solid</td>
+</tr>
+
+<tr valign="top">
+<td><b>Circle</b></td>
+<td>20</td>
+<td><b>Arc</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Ellipse</b></td>
+<td>21</td>
+<td><b>Ellipse</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Hyperbola</b></td>
+<td>22</td>
+<td><b>Curve</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Parabola</b></td>
+<td>23</td>
+<td><b>Curve</b></td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Composite curve</b></td>
+<td>24</td>
+<td><b>Set of curves</b> (NURBS)/Lines/Arcs.</td>
+<td>Wireframe</td>
+</tr>
+
+<tr valign="top">
+<td><b>Space ditto</b></td>
+<td>28</td>
+<td><b>Component</b></td>
+<td>Solid</td>
+</tr>
+</table>
+
+<hr color="navy">
+</body>
+</html>
+

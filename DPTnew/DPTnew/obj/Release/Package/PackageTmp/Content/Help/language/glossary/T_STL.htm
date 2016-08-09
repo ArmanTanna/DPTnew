@@ -1,0 +1,63 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>STL Format</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>STL Format</h4>
+<p style="margin-top:0;margin-bottom:0">The STL or stereo lithography format is an ASCII or binary format used in manufacturing as the main industry standard for the rapid prototyping system. A ".STL" file is a list of x,y,z coordinates representing 
+triangular facets and of the normal vectors to each of them. These triangular facets describe the shape of a closed solid.
+</P>
+<p>
+<B >ASCII STL format</B>
+
+<P style="margin-top:0;margin-bottom:2">The structure of the STL ASCII format is the following:
+<ul class="noleft">
+<li>The first line must contain the lowercase directive: <b><tt>solid</tt></b><br>
+This line may optionally contain auxiliary information such as author, date and so on
+<li>The last line must contain the lowercase directive: <b><tt>endsolid</tt></b>
+<li>Each block between the first and the last line describes a facet, like in the following example:
+<PRE>
+   facet normal -1 -1.01506e-016 0
+        outer loop
+            vertex -53.0978 72.4551 0
+            vertex -53.0978 2.45509 0
+            vertex -53.0978 2.45509 200
+        endloop
+    endfacet
+</PRE>
+<li>Each block begins with a <b><tt>facet</tt></b> directive, followed by the <b><tt>normal</tt></b> directive and three floating point numeric values representing the components of the outwards normal to the facet, and ends with an <b><tt>endfacet</tt></b> directive. 
+<li>Inside the block, the <b><tt>outer loop</tt> </b>and <b><tt>endloop</tt> </b>directives define a triangle, by listing its three vertices through the <b><tt>vertex</tt></b> directive followed by the three floating point values of the coordinates.
+</ul>
+</P>
+
+<P><B>Binary STL format</B>
+<P style="margin-top:0;margin-bottom:2">The structure of the STL ASCII format is the following:
+<ul class="noleft">
+<li>Header: a 80 byte line interpreted as a comment string
+<li>The total number of facets: 4 bytes (a long integer)
+<li>Components of the normal and coordinates of the facet vertices: 4 bytes each
+<li>A 2 byte spacer after each facet.
+</ul>
+
+<hr color="silver">
+</body>
+</html>

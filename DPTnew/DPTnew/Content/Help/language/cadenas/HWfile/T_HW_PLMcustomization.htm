@@ -1,0 +1,293 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9021,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<head>
+
+<title>thinkPLM integration customization</title>
+<meta name="T_2010t1" content="translate">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>thinkPLM integration customization</h3>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Prerequisites</b>:
+<br>
+<br>
+ 
+<ul class="noleft">
+<li><b>thinkPLM</b> configuration based on a Microsoft&reg; SQL Server&trade; or Oracle&reg; database</li>
+<li>CADENAS eCATALOGsolutions 8.0 installed in a client/server configuration</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>After installing the integration plug-in, you will have to carry out the following customization steps in order to achieve a fully functional integration between <b>thinkPLM</b> and CADENAS PARTdataManager:</p>
+
+<ul class="noleft">
+<li><a href="#Step_01">Server side customization</a></li>
+
+<li><a href="#Step_02">Client side customization</a></li>
+</ul>
+
+<p>This customization example refers to the configuration of an Oracle&reg; based <b>thinkPLM</b> configuration.</p>
+
+<p>&nbsp;</p>
+
+<a name="Step_01"></a> 
+
+<h4>Server side customization</h4>
+
+<p>Create on the server specific tables/views in the <b>thinkPLM</b> database named <i>LINKTABLE</i> and <i>ERPTABLE</i>.
+<br>
+Using the Oracle SQL user interface, enter the following commands:</p>
+
+<blockquote>
+<p style="font: 'Courier New', Courier, monospace;">create table LINKTABLE(<br>
+ PRJ_PATH 	 varchar(500) not null,<br>
+  LINE_ID 	 integer not null, <br>
+   LINE_SUBID      integer not null,<br>
+    VERSION 	 varchar(15) not null,<br>
+	 ACTIVE_STATE 	 smallint default 0 not null,<br>
+	  REQUESTED_STATE smallint default 0 not null,<br>
+	   VARSET 	 varchar(4000) ,<br>
+	    VARIANT         integer default 0,<br>
+		 ERP_PDM_NUMBER  varchar(50),<br>
+		  DATA_ID integer default 0 not null,<br>
+ primary key (PRJ_PATH,LINE_ID,LINE_SUBID,VERSION)) ;
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">CREATE VIEW ERPTABLE (ERP_PDM_NUMBER,REVSTATE,REVDES,REVPROG)<br>
+    AS <br>
+	 SELECT RevName AS erp_pdm_number,RevState,RevDes,RevProg <br>
+	 FROM vTMM_COMPONENT A<br>
+	  where A.REVPROG in (select max(AA.RevProg) from vTMM_component AA where (A.Revname=AA.RevName)) WITH READ ONLY;
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create table DATATABLE (<br>
+  DATA_ID integer not null,<br>
+    TOPIC varchar(50) not null,<br>
+	  XDATA varchar(500) not null,<br>
+	  constraint DATATABLE_PK primary key (DATA_ID,TOPIC));
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create table CLASSFOLDERTABLE (<br>
+  CLASS_NAME varchar (50) not null,<br>
+   CLASS_PATH varchar (500) not null,<br>
+     CLASS_PARENT varchar (500) not null,<br>
+	   DESCRIPTION varchar (500) not null,<br>
+	     PREVIEW_PATH varchar (500),<br>
+		  primary key (CLASS_NAME,CLASS_PATH ));
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create INDEX ECF_INDEX_CLASSNAMEPARENT ON CLASSFOLDERTABLE (CLASS_NAME,CLASS_PARENT);</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create table CLASSTABLE (<br>
+  ERP_PDM_NUMBER varchar (50),<br>
+    CLASS_NAME varchar (50) not null,<br>
+	  CLASS_PATH varchar (500) not null,<br>
+	    ACTIVE_STATE smallint default 0 not null,<br>
+		  REQUESTED_STATE smallint default 0 not null,<br>
+		    PREVIEW_PATH varchar (500),<br>
+			 primary key (ERP_PDM_NUMBER,CLASS_NAME,CLASS_PATH));
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create INDEX ECL_INDEX_CLASSNAMEPATHERP ON CLASSTABLE (CLASS_NAME,CLASS_PATH,ERP_PDM_NUMBER);</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create table PRJTABLE (<br>
+  PRJ_PATH varchar (500) not null,<br>
+    VKEY varchar (100) not null,<br>
+	  VVALUE varchar (500),<br>
+	    primary key (PRJ_PATH,VKEY));
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;">create table PLMTABLE(<br>
+ NB	 	 varchar(500) not null,<br>
+  CAD_SYSTEM 	 varchar(40) not null, <br>
+   ERPNR		 varchar(50),<br>
+    DIS1	 	 char(25),<br>
+	 DIS2	 	 char(3),<br>
+	  DIS3	 	 char(2),<br>
+	   DIS4	 	 char(3),<br>
+	    primary key(NB,CAD_SYSTEM));
+</p>
+
+<p style="font: 'Courier New', Courier, monospace;"></p>
+
+<p style="font: 'Courier New', Courier, monospace;"></p>
+
+</blockquote>
+
+<p>You can find another example of these SQL commands in the file <i>Erpstructure_81.sql </i> located in the <i>thinkteam\plugin\Cadenas</i> subfolder of our product installation path.</p>
+
+<p>&nbsp;</p>
+
+<a name="Step_02"></a> 
+
+<h4>Client side customization</h4>
+
+<p>On each client workstation perform the following activities:</p>
+
+<ol class="noleft">
+<li>Create an ODBC DSN for the database connection between the client machine and the database server:
+<br>
+<br>
+<img src="../Images/ClientODBC.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Start the Cadenas <b>PARTlinkManager Database Manager</b> and click the following command:
+<br>
+<br>
+ <img src="../Images/ClientPLMStart.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>In the <b>PARTlinkManager preferences</b> tab:
+<br>
+<ul class="noleft">
+<li>Modify the column display for the Link table. In this section you are enabled to add only two additional Columns for ERPtable from <b>thinkPLM</b>. For example: REVSTATE, REVDES according to the view ERPTABLE.</li>
+
+<li>Delete from the original list of fields the other Colums of ERPtable not present in our Oracle Table (Mat_Name and Description).</li>
+
+</ul>
+
+
+<br>
+<img src="../Images/ClientPLMPref.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>In the <b>PARTlinkManager preferences</b> tab modify the column for Classification table. In this section keep only the standard CLASSTABLE field (delete Mat_Name and Description) as shown in the image:
+<br>
+<br>
+<img src="../Images/ClientPDMPref.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Add the following two columns to the Classification table required by <b>thinkPLM</b>:
+<ul class="noleft" style="margin-bottom: 0px;">
+<li>REVSTATE (See ERPtable for details)</li>
+<li>REVDES (See ERPtable for details)</li>
+</ul>
+<br>
+<br>
+<img src="../Images/ClientPDMPref2.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>In the <b>PARTdataManager preferences</b> tab modify the view Columns Order and check the "Activate ERP" options and login as shown in the image:
+<br>
+<br>
+<img src="../Images/TabPartDataManPrefs.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>In the <b>Database</b> tab:
+<ul class="noleft">
+<li>Insert the ODBC name for database and check the flag "use Oracle8 compatible queries"</li>
+<li>In the Tables area, add:
+<blockquote>
+Schema DB name.LINKTABLE<br>
+
+Schema DB name.ERPTABLE</blockquote>
+</li>
+</ul>
+<img src="../Images/TabDatabase.gif" alt="" border="1"><br><br>
+<img src="../Images/OracleScreen0.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>From the Cadenas command folder, start the PartAdmin Installation management tool. In the Roles category, set "Columns to be displayed" for Admin to the value in the image, then save the new settings. 
+<br>
+<br>
+<img src="../Images/PARTadmin0.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Deactivate the variable VBSCUSTOM (right-click then select "Deactivate"). You find the variable in CONFIG FILES-&gt;$CADENAS_SETUP - plinkcommon.cfg 
+<br>
+<br>
+<img src="../Images/PARTadmin1.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Check the file Psol.ini (located in the "ext-plugins\partsolutions" subfolder of your <img src="../../../images/company/ThinkDesign.gif" align="middle"> installation folder) that the variable partnumber_fieldName is set as follows:
+<blockquote>
+partnumber_fieldName=ERP_PDM_NUMBER</blockquote>
+</li>
+
+<li>Try to connect with your PartDataManager. Enter your user and password data in the login dialog menu and click <b>OK</b>. If this is the first time you log into the system, you see all your catalogs displayed with an orange color and crossed out, otherwise you see in green the catalogs with part numbers linked to some of the objects in them.<br>
+<br>
+<img src="../Images/CrossedCatalogs.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Now you are able to assign a specific part number to a catalog row. Assume that you insert a new part number in <b>thinkteam</b>, or you already have imported into <b>thinkteam</b> some specific part number for Standard Parts:<br>
+<br>
+<img src="../Images/TTcomponent.gif" alt="" border="1"><br><br>
+<ol type="a" class="noleft">
+<li>Open the PartDataManager, then select the catalog that contains the element to which you want associate your specific part number.</li>
+<li>Select the row, then select the 'Add record into Database' command.</li>
+<br>
+<br>
+<img src="../Images/Add2TT1.gif" alt="" border="1"><br>
+<br>
+<img src="../Images/Add2TT2.gif" alt="" border="1"><br>
+<br>
+</ol>
+</li>
+
+<li>You are now enabled to export the component and, it in your CAD and check the relevant part data.<br>
+<br>
+<img src="../Images/TDCheck.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Check also from a <b>thinkteam</b> Query View that the Part Number is linked to the new document automatically created in the specific Vault repository and linked by a specific <b>thinkteam</b> link type.<br>
+<br>
+<img src="../Images/TTCheck.gif" alt="" border="1">
+<br>
+<br>
+</li>
+
+<li>Finally, chech that in  PARTdataManager, your codified catalogs display a green icon.<br>
+<br>
+<img src="../Images/CadenasCheck.gif" alt="" border="1">
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>

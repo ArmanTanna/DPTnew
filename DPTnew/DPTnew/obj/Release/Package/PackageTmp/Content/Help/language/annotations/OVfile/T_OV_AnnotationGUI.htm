@@ -1,0 +1,389 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Annotations: the User Interface</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+
+<style type="text/css">
+ .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<a name="top"></a> 
+
+<h4><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span>: the User Interface</h4>
+
+<br>
+<p>To provide basic information about the Annotation User interface, we will focus on:</p>
+
+<ul class="noleft">
+<li><a href="#TreePanel"><b>The Annotation Tree Panel</b></a></li>
+
+<li><a href="#SelectionList"><b>The Annotation Creation/Editing Selection List</b></a></li>
+
+<li><b><a href="#Interactive">Interactive <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span></a></b>.</li>
+
+
+</ul>
+
+<h5><a name="TreePanel"></a>The Annotation Tree Panel</h5><hr color="silver">
+
+<p>An overview of a model's annotation data may be viewed and controlled from its own tabbed, tree control page located in the same side panel as the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</p>
+
+
+
+
+<p align="center"><img border="1" src="../images/anno09.jpg"></p>
+
+<p>The tree panel is a tabbed page that can be accessed in the same side panel as the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. Select the tab with the note icon and the annotation tree will appear. The top node of the tree hierarchy is the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span> node. In brackets to the right of this node title informs the user of what level of the assembly the annotations are from. For instance, &ldquo;Annotations [<i>component_name</i>]&rdquo; indicates that the collection of annotations displayed in the tree is contained by the <i>component_name</i> component. Annotations are inserted and grouped at that component level. The component that is current at the time of creation is where the annotation will be inserted.<br>
+
+
+
+Under this node the annotations are organized by user assigned categories and then by the actual nodes themselves. The annotation nodes are identified or named by the user-defined text displayed in their label format.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Changing the category of an annotation</b><br>
+Please note that you can move an annotation to a different category just by dragging &amp; dropping the corresponding icon in the tree from the category where the annotation belongs to the new one you want it to belong to.</td>
+</tr>
+</table>
+
+<br>
+<p>The tree presents several options of control to the user:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>A context menu is provided allowing addition of new categories and annotations, along with editing or redefinition and deletion of the annotations.<br>
+<br>
+<i><b>Right-clicking on a category node</b></i><br>
+When right-clicking on a category node, the context menu provides the following commands:<br>
+&nbsp; 
+
+<table cellpadding="5%" border="1" bordercolor="black">
+<tr valign="top">
+<td bordercolor="white"><a href="../FWfile/T_FW_NewAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+2">New Annotation</span></a> 
+
+
+
+
+<blockquote>to create a new note</blockquote>
+
+<a href="../FWfile/T_FW_HideAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+4">Hide</span></a>/<a href="../FWfile/T_FW_UnhideAnnotation.htm">
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+5">Unhide</span></a> 
+
+
+
+
+<blockquote>to change the visibility of the selected item</blockquote>
+
+<a href="../FWfile/T_FW_DeleteAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+3">Delete</span></a> 
+
+
+
+
+<blockquote>to remove the selected note or category of notes</blockquote>
+
+<a href="../FWfile/T_FW_RenameAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+13">Rename</span></a> 
+
+
+
+
+<blockquote>to change the name of a category in the tree</blockquote>
+</td>
+<td bordercolor="white"><img border="1" src="../images/anno05.gif"></td>
+</tr>
+</table>
+
+<br>
+<i><b>Right-clicking on an annotation item</b></i><br>
+When right-clicking on an annotation item, the context menu provides the following commands:<br>
+&nbsp; 
+
+<table cellpadding="5%" border="1" bordercolor="black">
+<tr valign="top">
+<td bordercolor="white"><a href="../FWfile/T_FW_HideAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+4">Hide</span></a>/<a href="../FWfile/T_FW_UnhideAnnotation.htm">
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+5">Unhide</span></a> 
+
+
+
+
+<blockquote>to change the visibility of the selected item</blockquote>
+
+<a href="../FWfile/T_FW_DeleteAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+3">Delete</span></a> 
+
+
+
+
+<blockquote>to remove the selected note</blockquote>
+
+<a href="../FWfile/T_FW_ModifyAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+6">Modify Entity</span></a> 
+
+
+
+
+<blockquote>To modify the selected annotation</blockquote>
+
+
+
+
+</td>
+<td bordercolor="white"><img border="1" src="../images/anno06.gif"></td>
+</tr>
+</table>
+
+<br>
+<br>
+<i><b>Right-clicking on an empty area</b></i><br>
+If the mouse is not over an item, the provided commands are the following:<br>
+&nbsp; 
+
+<table cellpadding="5%" border="1" bordercolor="black">
+<tr valign="top">
+<td bordercolor="white"><a href="../FWfile/T_FW_NewAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+2">New Annotation</span></a> 
+
+
+
+
+<blockquote>to create a new note</blockquote>
+
+<a href="../FWfile/T_FW_ReloadAnnotationTree.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+15">Reload Tree</span></a> 
+
+
+
+
+<blockquote>to refresh the tree by regenerating its contents</blockquote>
+
+<a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+17">Filter Options</span></a> 
+
+
+
+
+<blockquote>to define the options for the tree search <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span>. A dialog box containing all of the filter options is displayed.</blockquote>
+
+
+
+
+<a href="mk:@MSITStore:forcus.chm::/language/options/FWfile/T_FW_options.htm"><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7385">Options/Properties</span></a> 
+
+
+
+
+<blockquote>to display standard <b>Options</b> dialog box.</blockquote>
+</td>
+<td bordercolor="white"><img border="1" src="../images/anno10.gif"> </td>
+</tr>
+</table>
+
+<br>
+&nbsp;</li>
+
+<li>Double-clicking on the corresponding tree item icon will toggle visibility of an annotation (exactly as right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+4">Hide</span> in the context menu). If the user double-clicks on the icon of a category or the main node then the visibility of all of its children will be modified to match the presently toggled visibility mode of the clicked item. The icon of a hidden item will appear grayed out.<br>
+
+
+
+&nbsp;</li>
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span> box above the tree can be used to input <i>Boolean search strings</i> to search for, hide, and show annotations. See <a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span>: 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span> and 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span> Options</b></a> for details.<br>
+
+
+
+&nbsp;</li>
+
+<li>Also displayed in the tree control is the visibility status. This information appears as a fraction located on the right side of the category labels. This fraction represents the number of annotations displayed over the total number of annotations in the category.<br>
+&nbsp;</li>
+</ul>
+
+<h5><a name="SelectionList"></a>The Annotation Creation/Editing Selection List</h5>
+
+<p class="notop">The selection list for the <a href="../FWfile/T_FW_NewAnnotation.htm"><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+2">New Annotation</span></a> command (and also for the <a href="../FWfile/T_FW_ModifyAnnotation.htm">
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span> 
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify_Annotation.msg+MenuBar_Document_Modify_Annotation+7030">Annotation</span></a> command) displays the following items (<i>see also</i> <a href="../HWfile/T_HW_NewAnnotation.htm"><b>Creating a 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+2">New Annotation</span></b></a>):</p>
+
+
+
+
+<p align="center"><img border="1" src="../images/anno03.gif"></p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+14">Point of Interest</span><br>
+
+
+
+The point on the model to which the annotation is attached. Depending on which item you select in the drop-down list, this point can be: 
+
+<ul class="noleft">
+<li>If you select <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+35">Point on face</span>: any point on a face of a solid,</li>
+
+
+
+
+<li>If you select <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+36">Snap point</span>: A special point meeting the following restrictions.</li>
+
+
+
+
+<li style="list-style: none">
+<ul class="noleft">
+<li>Point must refer to geometry that is owned by a history event</li>
+
+<li>Vertex on solid</li>
+
+<li>Point (center, end, or mid point) on edge</li>
+
+<li>Point on the corners of an associative surface</li>
+
+<li>Points on profile geometry.</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+9">Insert</span><br>
+
+
+
+The type of the annotation refers to the <a href="T_OV_Glossary.htm#ExpandedMode">expanded mode</a> of the note. The simplest type of the annotation is the <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+24">Text</span> type. In expanded mode this opens a notepad allowing the user to type in multilined notes, and paste text from other documents such as emails. Another option available from the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+9">Insert</span> combo box is 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+10">From file</span>. Selecting the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+10">From file</span> option will open a File Load dialog box. This will allow the user to select any type of file listed in the filter combo and attach it to the annotation. The annotation will display the selected external document in its expanded dialog form.<br>
+
+
+
+The last option (<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+30">From Internet</span>) enables you to specify a <a href="T_OV_glossary.htm#URL">URL</a> to be opened and viewed in the expanded annotation. Upon expanding the annotation, a web browser will appear in the expanded annotation&rsquo;s frame and will load the page or document identified by the URL address, thus actually enabling you to open a web page from an annotation (which can be <i>very</i> useful: suppose a company&rsquo;s ISO documents were contained in a Company intranet. This annotation would allow the engineer to quickly view the relevant ISO document with the annotation).<br>
+
+
+
+The URL browser <span class="UI_OPTION" id="idd_urlopen_dlg.msg+idd_urlopen_dlg+1">Insert from Internet</span> dialog box is provided to enter the desired URL string.<br>
+
+
+
+<br>
+<img src="../images/AnnoURL.gif"><br>
+<br>
+The <span class="UI_OPTION" id="idd_urlopen_dlg.msg+idd_urlopen_dlg+5">Address</span> box is also a drop-down list containing all of the URLs most recently typed into this dialog, so that reusing URLs is very simple.</li>
+
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+7">Category</span><br>
+
+
+
+The category is a string that is used to organize the annotations. The <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+7">Category</span> combo box allows the user to select an existing category to represent the annotation being defined. By selecting the 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+20">New category</span> item from the list, an additional text box will show up in the selection list in which the user may type the name of the category. A default value is provided. However, the user is free to change the category string in this field.</li>
+
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+8">Keywords</span><br>
+
+
+
+Within this edit field the user may type several keywords separated by commas. These keywords allow the annotations to be searched for via a Boolean search string.</li>
+</ul>
+
+<h5><a name="Interactive"></a>Interactive Annotation</h5>
+
+<p class="notop">During the creation and redefinition phase, the annotation takes on a more interactive format. In this format the user is able to add or edit the label text directly on the annotation.</p>
+
+<p align="center"><img border="1" src="../images/anno14.gif"></p>
+
+<p>Double-clicking on the annotation or right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+128">Expand</span> in the context menu allows the user to expand the annotation (<i>see</i> <a href="T_OV_Glossary.htm#ExpandedMode"><b>Expanded Mode</b></a> in the glossary; <i>see also</i> <a href="T_OV_AnnotationOperations.htm#Expanding"><b>Expanding an Annotation</b></a> in <a href="T_OV_AnnotationOperations.htm"><b>
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span>: User Operations</b></a>).</p>
+
+
+
+
+<p align="center"><img border="1" src="../images/anno13.gif"></p>
+
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_Annotations.htm"><b>An Introduction to <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span></b></a></li>
+
+
+
+<li><a href="T_OV_AnnotationEntity.htm"><b>The Annotation Entity</b></a></li>
+
+<li><a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span>: 
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span> and 
+
+<span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+19">Filter</span> Options</b></a></li>
+
+<li><a href="T_OV_AnnotationOperations.htm"><b><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span>: User Operations</b></a></li>
+
+<li><a href="T_OV_AnnotationBook.htm"><b><span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span> and 
+
+<span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+53">Visual Bookmarks</span></b></a></li>
+
+<li><a href="T_OV_AnnotationPrinting.htm"><b>Printing out <span class="UI_OPTION" id="tdesign.msg+_ANOTE_UI_LABEL_+23">Annotations</span></b></a></li>
+
+<li><a href="T_OV_Glossary.htm"><b>Glossary</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Annotations</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

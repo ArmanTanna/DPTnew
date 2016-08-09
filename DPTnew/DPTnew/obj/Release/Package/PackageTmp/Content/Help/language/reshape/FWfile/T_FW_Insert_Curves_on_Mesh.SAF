@@ -1,0 +1,136 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<title>Insert Curve on Mesh</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();ResizeIFrame1();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+18">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+17">Curve on Mesh</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+26">Curve on Mesh</span> command enables you to create curves connected with the triangle mesh. This tool automatically adds intermediate points in the gaps, thereby ensuring an overall control over the deviation of the curve from the mesh surface.</p>
+
+<ol class="noleft">
+<li>Select the mesh you would like to create a curve on.<br>
+<br>
+To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
+<br>
+</li>
+
+<li>Click a sequence of points to approximate.<br>
+<br>
+</li>
+
+<li>The approximated curve will be dynamically drawn according to the values set and the curve information will be displayed in the selection list.<br>
+<br>
+<img src="../images/insert-curve-on-mesh-poly.gif" border="1"><br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+72">No. of Points</span></td>
+<td>Represents the number of points the curve pass through</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+73">Max. Error</span> </td>
+<td>Represents the maximum deviation error between the approximated curve and the mesh surface</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+74">Mean Error</span> </td>
+<td>Represents the mean deviation error between the approximated curve and the mesh surface</td>
+</tr>
+</table>
+
+<br>
+ Please note that when creating a polyline curve, only the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+72">No. of Points</span> information is shown.<br>
+<br>
+</li>
+
+<li>If the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+65">NURBS</span> output has been chosen in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+67">Curve</span> drop-down list, the selection list will display a further sub-menu:<br>
+<br>
+<img src="../images/insert-curve-on-mesh-nurbs.gif" border="1"><br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+68">Degree</span> </td>
+<td>The NURBS curve's degree</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+69">No. of control points</span> </td>
+<td>Represents the number of control points of the curve, the value is automatically estimated when the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+71">Constrain max. error</span> value is used</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+118">Tune Knot Vector</span> &amp; <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+70">Tuning value</span> </td>
+<td>Knot vector tuning coefficient (0..10) controls the tunable knots placement - more knots in high curvature regions; if this option is set off, then the knots are distributed evenly</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+71">Constrain max. error</span> </td>
+<td>This option will automatically generate the number of control points used for the creation of the NURBS curve based on the tolerance value inserted</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;">Click the <b>OK</b> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation and exit the procedure, or the <b>Apply</b> button <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to apply the operation, or the <b>Cancel</b> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../images/curve-on-mesh.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Creation of a curve on a mesh</td>
+</tr>
+</table>
+
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>VDA-FS Format</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>VDA-FS Format</h4>
+<p style="margin-top:0;margin-bottom:0"><b>VDA-FS </b>(Co-operation of the German Automotive industry, Surfaces Interface) is a data format for the exchange of free formed curves and surfaces between automotive companies and their sub-contractors. VDA-FS is a German Industry Standard (DIN).</p>
+<p style="margin-bottom:0">After adopting IGES as a means of transferring drafting data, the German automotive industry found it couldn't provide the precise surface definitions automotive manufacturing required. So they created a new specifaction (German Standard DIN 66 301), which is now one of the most used in the automotive industry.</p>
+<p style="margin-bottom:0">The specification, in its structure, is very similar to IGES:
+<ul class="noleft">
+<li>A header section, containing a set of record very similar to the IGES start and global sections
+<li>A section containing geometric data, terminated by an end identification record. The format is much easier than the one used in IGES directory and parameter sections. Comments are allowed in any position inside the file.
+<li>Beyond strictly geometric data (such as, for example, CIRCLE, CONS, FACE, TOP and many others), the VDA-FS format also provides groups of entities (GROUP) and information about transformations such as Transformation Matrix (TMAT) and Transformation List (TLIST).
+</ul>
+
+<p style="margin-bottom:0">In a comparison between VDA-FS and IGES formats, important differences are about rectangular patch arrays, where parametric spline surfaces are available only for cubics instead of any arbitrary order and B-spline surfaces are expressed in rational form, rather than non-rational, using polynomial coefficients.</p>
+
+<p style="margin-bottom:0">As the IGES format is much more general than the VDA-FS format &nbsp;&#151;&nbsp;though making conversion rather difficult to handle&nbsp;&#151;&nbsp;it might actually be used to transfer VDA-FS patches, using weights = 1 (so that surfaces are described as non-rational) and splitting the patches in order to get rid of the spline continuity constraints.</p>
+
+<hr color="silver">
+</body>
+</html>

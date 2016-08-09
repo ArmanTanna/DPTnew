@@ -1,0 +1,110 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Silhouette:</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/OPTIONS.css" rel="stylesheet" type="text/css">
+
+
+<style>
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+blockquote{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFE1">
+
+
+
+<p>This option controls the <span class="ver9">visualization</span> of silhouettes within the program.</p>
+
+<br>
+<p>The silhouette visualization mode is based on tessellation. In Shaded modes,  the program has to perform  tessellation computation. In Wireframe mode the program generally skips tessellation computation. Once the program has determined the tessellation, the silhouette mode is readily available.See <a href="mk:@MSITStore:help.chm::/language/View/OVfile/T_OV_basic08.htm">Wireframe and Shading</a>.</p>
+
+<br>
+<table>
+<tr valign="top">
+<td class="ver9"><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+2">Default</span></td>
+
+
+<td class="ver9">The silhouettes are visualized only in <b>Shaded</b> modes, in which mode, the program has to perform  tessellation computation. So when this option is selected,  silhouettes will not be <b>not visualized</b> in the Wireframe mode.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+1">None</span></td>
+
+
+<td class="ver9">The silhouettes rendering is disabled altogether, in <b>any</b> mode.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+3">Always</span></td>
+
+
+<td class="ver9">Force the program to render silhouettes every time, even in <b>Wireframe</b> mode, in which mode  the program generally skips tessellation computation.</td>
+</tr>
+</table>
+Note, however, silhouettes are not rendered during dynamic transformations (i.e.; Pan, Zoom, Rotate operations).
+<br>
+<br>
+The following illustrations show the impact of the options in the Wireframe mode.
+<br>
+<table bordercolor="#FFFFE1" border=1>
+<tr valign="top">
+<td bordercolor="black"><IMG SRC="../../../../images/options/nwsh.gif"></td>
+<td></td>
+<td bordercolor="black"><IMG SRC="../../../../images/options/wsh.gif"></td>
+</tr>
+<tr valign="top">
+<td><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+2">Default</span> or 
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+1">None</span></td>
+
+<td></td>
+<td><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+3">Always</span></td>
+
+</tr>
+</table>
+<br>
+
+<table border=1 bordercolor="navy" bgcolor="white" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="white"><b>Note</b><br>
+If, after selecting <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1505+3">Always</span>, you cannot see any changes (i.e.; no silhouette displayed), change the visualization to a shaded mode and then go back to Wireframe. 
+
+</td>
+</tr>
+</table>
+<br>
+
+<table border=1 bordercolor="navy" bgcolor="white" cellpadding=3%">
+<tr>
+<td class=noteme bordercolor="white"><b>Silhouette</b>
+<p>The silhouette of a surface is normally composed of:
+<ul class="noleft">
+<li>The <B>apparent contours</B> of the surface &#151; the curves defined as the sets of the points at which the normal to the surface is parallel to the view plane.</li>
+<li>The <B>real boundaries</B> of the surface &#151; the isoparametric curves with the lowest and highest parametric values, or in the case of surfaces with parameter limitations, the limiting curves which do <I>not</I> coincide with other boundaries of the surface. </li>
+<li>The <B>edges</B> of the surface (if any) &#151; the isoparametric curves defined as the sets of the points where the surface has only positional continuity.</li>
+</ul>
+For further details, see <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_12.htm"><b>Silhouette</b></a>.
+
+</td></tr></table>
+
+<hr color="navy">
+<table align="center">
+<td ><a href="../../IDPP_SET_GRAPHICS.htm"><img border=0 src="../../../../images/general/FromPopupToMain.gif" alt="Up to Category Page"></a>
+</tr>
+</table>
+</body>
+</html>

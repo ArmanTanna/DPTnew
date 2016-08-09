@@ -1,0 +1,137 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10110,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<title>Fill Mesh Holes</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0()">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+28">Fix</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+11">Fill Mesh Holes</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+16">Fill Mesh Holes</span> command enables you to heal the holes that a model may have when derived from point clouds obtained by scanning. These empty areas are usually due to markers used for shell registration, high-error zones and other reasons.</p>
+
+<ol class="noleft">
+<li>Select the mesh whose holes you would like to heal.<br>
+<br>
+To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+35">Filling Mode</span> drop-down list, choose the filling method:<br>
+<br>
+<img src="../images/fill-mesh-holes.gif" border="1"><br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+33">Flat</span></td>
+<td>the boundary vertices are connected by triangles directly</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+34">In curvature</span></td>
+<td>tries to construct and fill a surface smoothly extending existing mesh triangles</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Though curvature-based method usually gives much better results, in cases of irregularly shaped hole boundary it may fail (and a warning message will be displayed). Then, a flat filling method may be tried, since it has less stringent requirements to the boundary configuration.</td>
+</tr>
+</table>
+</li>
+
+<li style="list-style: none"><br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+31">1st Boundary</span> of the hole you would like to close.<br>
+<br>
+</li>
+
+<li>If you want to perform a complete hole fill, confirm the operation by clicking the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+3">Apply</span> button <img src="../../../images/general/APPLYbutton.gif" align="absmiddle">, otherwise click another point of the hole boundary.<br>
+<br>
+</li>
+
+<li>The first selected point is now considered the 1st boundary <i>start point</i>, the second point is the 1st boundary <i>end point</i>. Select the boundary part by selecting a third - and last - point on it.<br>
+<br>
+</li>
+
+<!-- <li>Note that the 2nd boundary entry has appeared in the options area. Select the boundary part start point, end point and subsequently finish the operation by selecting the part by clicking a third - and last - point on it.<br>
+<br>
+</li> -->
+
+<li>Click the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+3">Apply</span> button <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm the operation. At any time you can click the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+2">Cancel</span> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort the procedure.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/hole-filling-before.gif" border="1"></td>
+<td><img src="../../../images/reshape/hole-filling-after.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>The original mesh</td>
+<td>The same mesh after hole filling</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="bottom">
+<td><img src="../images/healmeshoccurs.gif" border="0"></td>
+<td>If this warning message appears, you must fix the mesh before filling the holes by using the <a href="T_FW_Heal_Mesh_Faces.htm"><span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+12">Remove Wrong Faces</span></a> command.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+
+</body>
+</html>
+

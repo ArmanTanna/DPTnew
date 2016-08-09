@@ -1,0 +1,74 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Converting from STEP to think3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>Converting from STEP to think3</h2>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application can <a href="../STEP_01.htm">load</a> STEP models generated with other CAD programs.</p>
+
+<h4>General concepts</h4>
+
+<ul class="noleft">
+<li>Entities are converted according to the <a href="POPISTEP3d01.htm">STEP to think3 conversion table</a>.</li>
+
+<li>Conversion is performed according to the current values of the parameters of the <a href="../STEP_options.htm">STEP Conversion Options</a> dialog box opened by selecting <span class="UI_COMMAND" id="eklib.msg+eklib+349">Options</span>.</li>
+
+<li>Specific options are available to control the conversion of assemblies, sub-assemblies and components (see also the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+179">Assembly conversion modes</span> area in the <a href="../STEP_options.htm">STEP Conversion Options</a>.<br>
+When converting an assembly, information about hierarchy is normally ignored. You can read and convert also the hierarchy information&nbsp;&#151;&nbsp;thus converting each "leaf" component to a separate X-Reference component&nbsp;&#151;&nbsp;by selecting the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+180">Keep hierarchy</span> check box.<br>
+Once the said box is selected, several options are available. You can: 
+
+<ul class="noleft" style="margin-top:4px;">
+<li>Create a report file containing the information about the assembly hierarchy: 
+
+<ul class="noleft">
+<li>Parent-child relations</li>
+
+<li>Unit of measure</li>
+
+<li>Transformation matrix associated with each child</li>
+
+<li>Component name.</li>
+</ul>
+
+Select the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+181">Print report</span> option to obtain the report file.</li>
+
+<li>Assign components the same name they had in the system where the model was created (rather than the name of corresponding ".e3" file). To do so, select the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+182">Keep original names</span> option.</li>
+
+<li>Layers are converted as per map table defined in the <a href="../../file/IDPP_STEP_LAYERS.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the STEP Conversion Options. If no mapping is defined, the layer name is preserved as it is.</li>
+</ul>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><b>General warning on conversion of STEP models to</b> <b>think<font color="#FF0F00">3</font></b><br>
+<br>
+To know exactly which STEP entities are converted to <b>think<font color="#FF0F00">3</font></b> and, if they are, which the corresponding <b>think<font color="#FF0F00">3</font></b> entities are, see the conversion table.</p>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<hr color="silver">
+</body>
+</html>
+

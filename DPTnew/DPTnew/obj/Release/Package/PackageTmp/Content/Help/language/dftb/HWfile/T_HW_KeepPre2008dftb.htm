@@ -1,0 +1,69 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Using customized Drawing Frames and Title Blocks from versions prior to 2008.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Using customized Drawing Frames and Title Blocks from versions prior to 2008.1</h4>
+
+<p>Version 2008.1 of the <b>think<font color="#FF0F00">3</font></b> application has introduced a new management of the Drawing Frame and Title Block management. Since the inner format of the drawings used as Frames and Title Blocks did not change, you can keep using those your customized ones following a simple conversion procedure.</p>
+
+<p>Follow these steps to convert your customized Title Blocks to comply with the new requirements:</p>
+
+<ol>
+<li>Open a Title Block. Your custom Title Blocks are drawings stored in the <i>fmt\&lt;Your_Language&gt;</i> subfolder of the folder specified in either the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+93">User configuration root folder</span> or <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+92">Installation root folder</span> that you find in the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+91">System</span> category of the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+1">thinkPLM Options</span>.</li>
+
+<li>Move the geometry, if necessary, so that the lower left corner of the Title Block is in the Work Plane origin. If you fail to position the Title Block in the Work Plane origin, the program will not be able to dock it to the correct position in the Drawing Frame.</li>
+
+<li>Use the <a href="../FWfile/T_FW_SaveAsTitleBlock.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+926">Save as Title Block</span></a> command to store each Title Block for use by the application.</li>
+
+<li>You can copy and paste your old description for use with the new program version. You find the old description in the <i>fmt\&lt;Your_Language&gt;\desc.lis</i> file.</li>
+
+<li>Repeat for all your Title Blocks.</li>
+</ol>
+
+<br>
+ 
+
+<p>Follow these steps to convert your customized Drawing Frames to comply with the new requirements:</p>
+
+<ol>
+<li>Open a Drawing Frame. Your custom Drawing Frames are drawings stored in the <i>fmt</i> subfolder of the folder specified in either the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+93">User configuration root folder</span> or <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+92">Installation root folder</span> that you find in the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+91">System</span> category of the <span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+1">thinkPLM Options</span>.</li>
+
+<li>Move the geometry, if necessary, so that the lower left corner of the Drawing Frame is in the Work Plane origin. If you fail to position the Drawing Frame in the Work Plane origin, the program will insert the Drawing Frame in a position different from the preview.</li>
+
+<li>Use the <a href="../FWfile/T_FW_SaveAsDrawingFrame.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span></a> command to store each Drawing Frame for use by the application.</li>
+
+<li>You can copy and paste your old description for use with the new program version. You find the old description in the <i>fmt\&lt;Your_Language&gt;\desc.lis</i> file.</li>
+
+<li>Repeat for all your Drawing Frames.</li>
+</ol>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Although you are enabled to copy the Title Blocks and Drawing Frames to their new folders without going through the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span> and <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span> commands, by doing so you do not assign the descriptions. If no description is present, the program displays the file name in the drop-down lists of the <span class="UI_COMMAND" id="MenuBar_Document_Insert_thinkteam.msg+MenuBar_Document_Insert_thinkteam+6286">Drawing Frame and Title Block</span>, possibly making it harder for the user to select the correct item.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

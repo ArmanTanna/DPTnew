@@ -1,0 +1,68 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Curve Continuity Commands: a comparison</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel=stylesheet type="text/css">
+
+
+<style>.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+
+</head>
+
+<BODY bgcolor="white">
+
+
+<H3>Curve Continuity Commands: a comparison</H3>
+<P>Two different commands are available to set continuity between curves. See below the main differences, based on which you can select the one better matching your needs.</p>
+<p>As a general suggestion, the <b>Curve Continuity</b> command should match the needs of most users. The <b>Advanced Continuity</b> command should address the needs of those advanced users who require better control on the shape of the resulting curve(s).</p>
+<table border=1 bordercolor="white" style="margin-top:12px;" cellspacing="10%" width="460" align="center">
+
+<tr valign="top">
+<td width=230 bgcolor="#EFEFDE"><a  href="../FWfile/T_FW_AdvancedContinuity.htm"><b>Advanced Curve Continuity</b></a></td>
+<td width=230 bgcolor="#EFEFDE"><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_04.htm"><b>Curve Continuity</b></a></td>
+
+
+</tr>
+
+<tr valign="top">
+<td width=230>Sets continuity also between two <i>chains</i> of curves</td>
+<td width=230>Sets continuity between two <i>single</i> curves</td>
+
+</tr>
+
+<tr valign="top">
+<td width=230>Sets continuity between two points located anywhere on the two chains of curves</td>
+<td width=230>Sets continuity between two endpoints of the two single curves</td>
+
+</tr>
+
+<tr valign="top">
+<td width=230>The distribution of control points in the resulting curve(s) is <i>independent</i> of the one in the initial curve(s) and is generally different</td>
+<td width=230>The relevant control points are modified in order to reach the required continuity, the others are obtained as a result of the propagation factor or <i>remain unchanged</i></td>
+</tr>
+
+<tr valign="top">
+<td width=230>A lot of settings are available to enable you to adjust the shape of the resulting curve(s)</td>
+<td width=230>Continuity can be easily reached with very few parameters to control.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,107 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<title>Styles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h1>An overview on style customizations</h1>
+
+<ul>
+<li><a href="#temp"><b>Temporary editing of Style attributes</b></a></li>
+<li><a href="#edit"><b>Edit a Style</b></a></li>
+<li><a href="#save"><b>Save Style to a Library</b></a></li>
+<li><a href="#load"><b>Load a Style from Library</b></a></li>
+<li><a href="#cust1"><b>Customize the properties for an entity</b></a></li>
+<li><a href="#cust2"><b>Customize the attributes for dimension or text entities</b></a></li>
+</ul>
+
+<h3><a name="temp"></a>Temporary editing of Style attributes</h3>
+
+<p>From the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> page you will be able to edit any style attribute overwriting the current style setting. This modification will have effect on any entity you will build next, but not on the entities you already built. All the overridden attributes will be displayed in <i>bold</i>. This will help you understand if an attribute was overridden so that you can treat it properly.</p>
+
+
+ 
+
+<h3><a name="edit"></a>Edit a Style</h3>
+
+<p>To edit a style you need to set the style current (the style in <i>bold</i> in the style list is the one that is current. To set a style current you can select its name and select <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+764">Set Style as Current</span> (<img border="0" src="../../../images/icons/ops/scurrent.gif">) (also available from the context menu) or simply double-click on its name. Preview and 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+758">Description</span> always represent the current style) first.<br>
+
+<br>
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> and 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> attributes are organized in a tree structure for easier browsing. For each item selected in the tree the related parameters are displayed in the right panel. The user can edit any parameter and control their effect in the preview area.<br>
+
+<br>
+Once you have edited your style you can close the dialog by selecting the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1215">OK</span> button. All the dimensions that are using that style will be updated to reflect these modifications. If some dimension has localized parameters (see <a href="T_OV_StyleBasics.htm#EP">Entity Style</a>) they will remain unchanged.<br>
+
+<br>
+Any modification you have done to your style is only local to the current document. If you want these modifications to be permanent for this style also for future documents you need to perform an explicit copy to the library (see <a href="#save">Save Style to Library</a>).</p>
+
+ 
+
+<h3><a name="save"></a><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+767">Save Style to Library</span></h3>
+
+
+<p>Any style can be saved into Library to be used by other drawings. When you create a new style the system will automatically save a copy in the library, so what is the need of a specific command?<br>
+If you edit a style and you want to see your modifications in its library copy you need to perform an explicit <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+767">Save Style to Library</span> (<img border="0" src="../../../images/icons/ops/copy.gif">).<br>
+
+If you receive a file from someone where specific styles you want to use are defined you need to open this file and perform an explicit <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+767">Save Style to Library</span> (<img border="0" src="../../../images/icons/ops/copy.gif">) on the style you want. Once a style is saved to the library it can be loaded at any time for future use.</p>
+
+
+ 
+
+<h3><a name="load"></a>Load a Style from Library</h3>
+
+<p>To load a style from Library you can simply select the style and click the <span class="UI_CONTEXT" id="ContextMenu_Style.msg+ContextMenu_Style+7332">Set as Current</span> button (<img border="0" src="../../../images/icons/ops/scurrent.gif">) (also available from the context menu).<br>
+
+If you try to load a style from the library that's already existing in the current drawing, a message box will ask if you want to overwrite the existing document settings with the selected library style.<br>
+Once a style is loaded from Library it will be added to the loaded style list and it will become current style.</p>
+
+ 
+
+<h3><a name="cust1"></a>Customize the properties for an entity</h3>
+
+<p>To customize the properties of an existing entity select the entity and click the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+519">Edit Properties</span> item in the context menu. An 
+<span class="UI_COMMAND" id="eklib.msg+optsmsg+6">Edit Properties</span> dialog box will appear and will allow you to change Layer, Color, Line type or Width. From the same dialog, you can also copy these attributes from an existing entity. Select the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1229">Options</span> button on the left bottom size of the dialog box and select the 
+<span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7531">Select Properties from Entity</span> item. Then select the entity you want to copy the attributes from.<br>
+
+Once you have completed your editing click <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1215">OK</span> to confirm your modifications.</p>
+
+
+ 
+
+<h3><a name="cust2"></a>Customize the attributes for dimension or text entities</h3>
+
+<p>To customize the properties for dimensions and texts select the entity and click on the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+519">Edit Properties</span> item in the context menu.<br>
+
+From this dialog you will be able to customize the general (as explained above) or specific attributes for this entity type.<br>
+From <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> page you will be able to change the style applied to the selected entity or change and of the attributes.<br>
+
+Once you have done all your modifications you can complete the editing by selecting the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1215">OK</span> button.<br>
+
+<br>
+The editing of the style attribute is the same as the one described in section <a href="#temp">Temporary editing of Style attributes</a> (see this section for a detailed description). Also in this case the overridden attributes will become <i>bold</i> and the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+758">Description</span> will help you understand what the overridden parameters for the selected entity are.<br>
+
+The editing of any parameter will have effect only for the selected entity and will not change the current style or the current setting for such parameter.</p>
+
+<hr color="silver">
+</body>
+</html>
+

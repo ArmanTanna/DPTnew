@@ -1,0 +1,198 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying a draft angle to some faces of a static solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Applying a draft angle to some faces of a static solid</h3>
+
+<p>In this job you will apply a draft angle <i>a posteriori</i> to a static solid.</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Suppose you have a model like the one in the following illustration. For example, it might be a static solid imported into the <b>think<font color="#FF0F00">3</font></b> application from another environment.<br>
+<br>
+<img border="1" src="../../../images/globalshape/ZDR00.gif"><br>
+<br>
+ Start the <a href="../FWfile/T_FW_ZoneDraft.htm"><b>Zone Draft</b></a> command. You will add a draft angle about the Z axis to the side faces of the upper protrusion.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Direction</b> drop-down list, select <b>Z</b>.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the faces the draft angle must be applied to. First, click on one of them.<br>
+<br>
+<img border="1" src="../../../images/globalshape/NZD01.gif"><br>
+<br>
+The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+600">Chain</span> check box shows up, as the currently selected faces have tangency continuity with others faces in the same solid<br>
+
+<br>
+<img border="1" src="../images/NZD02.gif"><br>
+<br>
+<ul class="noleft">
+<li>When the check box is not selected selection includes only the actually selected faces.<br>
+<br>
+ <img width="428" height="229" src="../images/GSM3_image002.gif"><br>
+<br>
+</li>
+
+<li>When the check box is selected, selection includes all the faces having tangency continuity with the actually selected ones.<br>
+<br>
+ <img width="428" height="228" src="../images/GSM3_image001.gif"><br>
+<br>
+<br>
+</li>
+</ul>
+
+Now select the <b>Chain</b> check box: all the faces with tangency continuity are automatically selected.<br>
+<br>
+<img border="1" src="../images/NZD03.gif"><br>
+<br>
+The draft angle must not be applied to the top face, so: 
+
+<ul class="noleft">
+<li>Uncheck the <b>Chain</b> box</li>
+
+<li>Press the <b>CTRL</b> key and contemporarily click on the top face to deselect it.</li>
+</ul>
+
+<br>
+<img border="1" src="../images/NZD04.gif"><br>
+<br>
+The top face has been deselected. All the faces the draft angle must be applied to are now selected (and no others).<br>
+<br>
+<img border="1" src="../images/NZD05.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Angle</b> mini-dialog box, type the value of the draft angle to be applied.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Choosing the drafting method</b><br>
+The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+504">Draft constraint</span> drop-down list enables you to choose two different drafting methods: 
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+505">Strong</span>&nbsp;&#151;&nbsp;when this method is selected, the applied draft will be closer to the specified angle along the whole extension of the selected entities. This option is more suitable for mechanical parts.</li>
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+506">Weak</span>&nbsp;&#151;&nbsp;when this option is selected, the applied draft will be close to the specified angle near the fixed boundaries and looser as you move farther from them. This option is more suitable for industrial design.</li>
+
+</ul>
+
+In the following illustrations you can see the different results obtained by applying the command using the two options on a model for which the difference is particularly evident.<br>
+<br>
+<table>
+<tr valign="top">
+<td><img border="1" src="../../../images/globalshape/STRONG.gif"></td>
+<td><img border="1" src="../../../images/globalshape/Loose.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+505">Strong</span></td>
+
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+506">Weak</span></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click the <b>Preview</b> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) to display a preview of the result.<br>
+<br>
+<img border="1" src="../images/NDZ06.gif"><br>
+<br>
+To check the precision values you obtained, you can click the <b>Show Warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ). You can check the results you obtained as described in "<a href="T_HW_GMChecking.htm"><b>Checking your results</b></a>".<br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and modify the shape of the object.<br>
+<br>
+<img border="1" src="../../../images/globalshape/NZD_Last.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.<br>
+While you are using the command, you can select the <b>Hide</b> check box to temporarily hide the original entities, in order to better appreciate the changes you are making. The entities will be hidden only as long as the command is being executed.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Gap between the modified surfaces and the other ones</b><br>
+If, after the modification, the gap between the modified surfaces and the other ones is not negligible, a message is displayed when you try to apply the command (using <b>Apply</b> (&nbsp;<img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> ) or <b>OK</b> ( <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> ) to let you know that, though the solid can be created as it is, keeping such a big gap value might cause troubles in future developments.<br>
+The set of options provided to manage the shape of the controlled modification (stiffness, roundness, bulging) and especially the ones affecting <a href="../HWfile/T_HW_GMChecking.htm#Precision">precision</a>) can be used to reduce the gap to an acceptable value.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMChecking.htm"><b>Checking your results</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

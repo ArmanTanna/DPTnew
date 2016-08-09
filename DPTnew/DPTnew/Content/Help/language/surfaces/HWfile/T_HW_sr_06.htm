@@ -1,0 +1,154 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Breaking a Solid</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.notop{;margin-top:0;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Breaking a solid into surfaces</h2>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_sr_06.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+265">Break Solid</span></a> command, proceed as follows:<br>
+
+ &nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list, select the breaking method:<br>
+
+ 
+
+<table>
+<tr valign="top">
+<td width="70"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span></td>
+
+<td>to extract all the component surfaces of a solid</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span></td>
+
+<td>to extract only some of the component surfaces.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h5><a name="Global"></a><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span></h5>
+
+
+<hr color="silver">
+<table>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>The program prompts you to select a solid. Select the solid you want to break up. To change the selected solid, right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+159">Solid</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+363">Layer</span> drop-down list, select the layer onto which the resulting surfaces are to be placed: 
+
+
+<table>
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+366">Solid Layer</span></td>
+
+<td>all the surfaces will be placed onto the layer on which the solid is currently located.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+367">Original Layer</span></td>
+
+<td>all the surfaces will be placed onto the layer on which they were originally created.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+365">Specify Layer</span></td>
+
+<td>enables you to specify the layer onto which to place all the resulting surfaces. In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+364">Layer</span> drop-down list, either choose an existing layer or type in the name of a new one to create it.</td>
+
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selection and break the solid.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BreakSolidGlobal.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h5><a name="Local"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span></a></h5>
+
+
+<hr color="silver">
+<table>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>The program prompts you to select the faces to be extracted. Click to select the faces you want converted into surfaces, and then end selection.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>To obtain <i>associative</i> surfaces, that is open solids&nbsp;&#151;&nbsp; <i>Skins</i>&nbsp;&#151;&nbsp; retaining a link to the original solid, so that if you modify that solid the surfaces will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> box. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+ <br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selection and extract the surfaces.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BreakSolidLocal.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

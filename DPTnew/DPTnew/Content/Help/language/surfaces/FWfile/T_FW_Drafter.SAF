@@ -1,0 +1,157 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(356,356,356)
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Drafter</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0}
+</style>
+<!-- <script type="text/javascript" src="___dtree.js"></script> -->
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <body bgcolor="white" onload="viaMk();"> -->
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span><hr color="#63a9d8"> 
+<p style="margin-bottom:0;">The <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command enables you to create surfaces along a drive contour and tangent to some other surfaces used as drives. It can be used to add a draft angle to casting and forging parts.<br><br><img border="1" src="../../../images/surfaces/DRA02.gif"></p>
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>Drive Curves</td>
+</tr>
+<tr valign="top">
+<td><b>2, 3</b></td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>Drive Surfaces</td>
+</tr>
+</table>
+
+<p>Following is the workflow for the usage of this command.</p>
+
+<ul>
+<li><a name="FirstDriveCurves"></a>Select the drive contour for the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+271">First Drive Curves</span> selector. The draft surface will pass through this selected contour. Note that the contour has to contain only one chain of curves, which should be at least positionally continuous (G0).<br>
+
+<br>
+</li>
+
+<li><a name="SecondDriveSurfaces"></a>Then select the drive surfaces for the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+272">Second Drive Surfaces</span> selector. This is a set of surfaces with which the resulting drafting surfaces will be tangent.<br>
+
+<br>
+</li>
+
+<li><a name="DraftingDirection"></a>Finally, define the drafting direction using the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+274">Direction</span> option. For details on the definition of a direction, see the "
+<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" document.<br>
+
+Please note that when the command starts, the Z direction of the current Work Plane is pre-selected by default.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Suggestions and Warnings</b> <br>
+When the surfaces are G1 continuous, two G1 continuous curves can generally create two connected surfaces. Therefore, before using the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command, it is recommended to check the continuity of the contour, and to make the contour G1 continuous if necessary. However, after the computation, if two drafting surfaces generated from two connected curves are not connected due to the fact the two curve are not G1 continuous (as shown in the image on the right), then the 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_WARNTTIP_+200">Surfaces not connected due to curve position continuity</span> warning is displayed on selecting the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../images/general/warnings_on.gif" align="absmiddle">) button.</td>
+
+<td bordercolor="#ffffe1"><img src="../../../images/surfaces/drafter_discont.gif"></td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;"><a name="transition"></a>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+275">Transition</span> check box enables you to manage situations where disconnected drafting surfaces are generated when both the drive surfaces and drive curves are not G1 continuous internally.</p>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td>
+<ul class="noleft">
+<li>When the check box is selected, some transition surfaces are generated to ensure complete surface continuity, as shown in the image to the right.</li>
+
+<li>When the check box is cleared, no transition surfaces are generated, resulting in discontinuity in the drafting surfaces.</li>
+</ul>
+</td>
+<td><img src="../../../images/surfaces/drafter_transition.gif" border="1"></td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;"><a name="associate"></a>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> check box enables you to maintain a link between the drafted surfaces and the drive curves from which they were generated.</p>
+
+
+<ul class="noleft">
+<li>When the check box is selected, any change applied to the drive curves and/or drive surfaces will propagate on to the drafted surface.</li>
+
+<li>When the check box is cleared, there is no associativity of the drafted surface with the drive curves and drive surfaces.</li>
+</ul>
+
+<p>If you close the command abruptly, your selections and settings are not lost; they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all. Next time you start the command the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list, which when selected all the previous selections and settings will be restored.</p>
+
+
+<p>When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection. Further details in the "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>" document.</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Drafter.htm"><b>Create Surfaces along a Drive Contour and Tangent to Some Surface Drives</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+<a href="#" target="_parent"><img border="0" src="/images/Hide_Nav.png" title="Hide the Navigation Pane"  align="left"></a>
+<a href="#" onclick="goBack()"><img border="0" src="/images/Display_Nav.png" title="Display the Navigation Pane"  align="left"></a>
+<script>
+function goBack() {
+//alert(window.self.name);
+	if(window.self.name != "body"){
+    	window.history.back(1);
+	}
+	else{
+		alert("The Navigation Pane is already active!");
+		void(0);
+	}
+}
+</script>
+<!-- Ps. 50 -->
+<!-- Miserere mei Deus -->
+<!-- secundum magnam misericordiam tuam -->
+<!-- et secundum mutitudinem miserationum tuarum -->
+<!-- dele iniquitatem meam -->
+<script type="text/javascript" language="JavaScript">
+<!--
+var ErrMsg = "DPT SARL - All Rights reserved";
+function disableRightClick (btnClick)
+{
+if (navigator.appName == "Netscape" && btnClick.which == 3)
+	{
+	alert(ErrMsg);
+	return false;
+	}
+else if (navigator.appName == "Microsoft Internet Explorer" && event.button
+== 2)
+	{
+	alert(ErrMsg);
+	return false;
+	}
+}
+document.onmousedown = disableRightClick;
+-->
+</script>
+

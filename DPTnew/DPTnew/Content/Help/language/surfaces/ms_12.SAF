@@ -1,0 +1,165 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally"> 
+<TITLE>Draft</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">  
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<STYLE> .menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+<table style="border-bottom-width: thick;border-right-width: thick"  bgcolor="#ffffff" border=1 bordercolor="Black" width="100%" >
+<tr bordercolor="#ffffff">
+<td><b>Modify<img src="../../images/general/litarr.gif">Surface<img src="../../images/general/litarr.gif">Draft
+</b>
+</td>
+</tr>
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Draft Surface</b></i>
+</td>
+ --></tr></table>
+<br>&nbsp;<br>
+
+<H2><A NAME="ms_bt_12"></A><IMG SRC="../../images/modsur/ms_12.gif">Draft</H2>
+
+<p>Applies a draft angle to ruled surfaces.
+<BR>Select the ruled surfaces you want to apply a draft angle to (planes,
+cylinders, generic ruled surfaces, etc.) . For each one, the program displays
+the normal indicating the positive sense of the draft angle. If necessary,
+you can invert this by just clicking on it. You must then enter the value
+of the draft angle in the Draft angle box. Lastly, select the draft plane.
+<BR><br><br>
+<IMG SRC="../../images/general/handstop.gif"><B>
+Geometric conditions that must be satisfied to apply a draft angle</B>
+
+<UL>
+<LI>
+The draft plane must contain the initial or final edge of the surface (the
+base curve of the ruled surface must therefore be a plane surface). If
+there are two or more surfaces, the plane must contain an entire edge of
+the outer boundary of each surface. If it does not, the plane is considered
+incorrect.</LI>
+
+<LI>
+If the surface has parameter limitations, the outer boundary must consist
+of four curves. In particular, the curve opposite that which lies in the
+draft plane must be in a plane parallel with the latter.</LI>
+
+<LI>
+The draft direction depends on the type of surface you want to apply the
+draft to. For example:</LI>
+
+<UL>
+<LI>
+generic ruled surface: linear direction;</LI>
+
+<LI>
+cylinder: the direction of the axis;</LI>
+
+<LI>
+plane: any direction.</LI>
+</UL>
+
+<LI>
+Any islands present are not rescaled.</LI>
+
+<BR>
+<LI>
+With the exception of planes, all other surfaces become ruled surfaces,
+suitably extended so that the original height</LI>
+
+<BR>remains unchanged.</UL>
+
+
+<A NAME="ms_rl_12"></A>
+<H4>
+<A NAME="ms_hw_12"></A>Insert a draft angle</H4>
+
+<TABLE BORDER=0 >
+<TR ALIGN=LEFT VALIGN=TOP>
+<TD><B>1</B></TD>
+
+<TD>Select the surfaces concerned and end selection.<br><br><IMG SRC="../../images/modsur/msi01_12.gif"></TD>
+</TR>
+
+<TR ALIGN=LEFT VALIGN=TOP>
+<TD><B>2</B></TD>
+
+<TD>Select the surfaces whose draft direction you want to invert and end
+selection.<br><br><IMG SRC="../../images/modsur/msi02_12.gif"></TD>
+</TR>
+</TABLE>
+
+<BR>
+<TABLE BORDER=0 >
+<TR ALIGN=LEFT VALIGN=TOP>
+<TD><B>3</B></TD>
+
+<TD>Type the value of the draft angle in this dialog box:
+
+<P><IMG SRC="images/msd02_12.gif"></TD>
+</TR>
+</TABLE>
+
+<BR>
+<TABLE BORDER=0 >
+<TR ALIGN=LEFT VALIGN=TOP>
+<TD><B>4</B></TD>
+
+<TD>Select the reference plane for calculating the draft angle.<br><br><IMG SRC="../../images/modsur/msi03_12.gif"></TD>
+</TR>
+
+<TR ALIGN=LEFT VALIGN=TOP>
+<TD><B>5</B></TD>
+
+<TD>The end result is:<br><br><IMG SRC="../../images/modsur/msi04_12.gif"></TD>
+</TR>
+</TABLE>
+
+
+<H4><A NAME="ms_ex_01_12"></A><B>Applying draft to the lateral surface of a cube</B></H4>
+<B>1.</B> Open the file ms_01_12.e3. The following cubic surface is displayed:
+
+<P><IMG SRC="../../images/modsur/msi05_12.gif">
+<BR><B>2.</B> Click the<IMG SRC="../../images/modsur/ms_12.gif">
+tool or choose <B>Modify<IMG SRC="../../images/general/litarr.gif">Surface<IMG SRC="../../images/general/litarr.gif">Draft</B>.
+<BR><B>3. </B>Display the surface in wireframe mode by choosing <B>View<IMG SRC="../../images/general/litarr.gif">Display<IMG SRC="../../images/general/litarr.gif">Wireframe</B>.
+<BR><IMG SRC="../../images/modsur/msi06_12.gif">
+<BR><B>4. </B>Select the four faces of the cube making up its lateral surface.
+<BR><IMG SRC="../../images/modsur/msi07_12.gif">
+<BR><B>5. </B>End selection.
+
+<P><B>6. </B>The program displays the draft direction of each selected
+face. Click on each of them to invert the direction so that all the vectors
+point "outwards" and end selection as in step <B>5</B>.
+<BR><IMG SRC="../../images/modsur/msi08_12.gif">
+<BR><B>7. </B>Type 15 in the Draft angle box:
+
+<P><IMG SRC="images/msd03_12.gif">
+
+<P><B>8.</B> Select the reference plane to be used to calculate the draft
+angle.
+
+<P><IMG SRC="../../images/modsur/msi09_12.gif">
+<BR><B>9.</B> The result is:
+
+<P><IMG SRC="../../images/modsur/msi10_12.gif">
+
+<hr color="silver">
+</body>
+</html> 
+
+

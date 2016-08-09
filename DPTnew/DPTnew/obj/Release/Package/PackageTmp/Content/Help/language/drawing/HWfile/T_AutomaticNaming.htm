@@ -1,0 +1,64 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Automatic naming mechanism</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.ver9{font-size : 8pt;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#FFFFE1">
+
+
+<h4>Automatic naming mechanism</h4>
+
+<p>By default the automatic naming mechanism, of the <b>think<font color="#FF0F00">3</font></b> application, for sections names assignation starts from A to Z, then AA to ZZ, AAA to ZZZ and so on.<br>
+This can be set by selecting the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+568">Automatic names</span> check box in the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm#gen">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+545">Drawing</span> - 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+560">General</span></u></a> category of the 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span>.<br>
+
+You can also set a different initial value (default is "A"), so that the section names will start for example from E, F or whatever value you specify in the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DPS_GENERAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1649">Start from section:</span></a> box.</p>
+
+
+<p><b>Excluding some letters from the automatic naming mechanism</b><br>
+For readability reasons and compliance to the standards, you need to exclude some letters from the progressive auto-naming mechanism. To obtain this do the following:</p>
+
+<ul class="noleft">
+<li style="font-size: 11">Open the I/O window (<span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr2.gif"> 
+<span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4554">I/O Window</span>).</li>
+
+
+<li style="font-size: 11">In the <span class="UI_OPTION" id="idd_winio.msg+idd_winio+2">Command line:</span> of the I/O window, type:<br>
+
+ <tt style="font-size: 11"><b>ekpar EP_SECT_WRONG_NAMES</b><b>"</b><i>list</i><b>"</b></tt><br>
+where <i>list</i> is a list of characters to be skipped by the automatic numbering mechanism, like, for instance "IJOQSXZY" (default list of skipped letters).</li>
+
+<li style="font-size: 11">To restore the automatic naming mechanism so that it will skip no letters, type:<br>
+<tt style="font-size: 11"><b>ekpar EP_SECT_WRONG_NAMES</b><b>"</b><b>"</b></tt><br>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

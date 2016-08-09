@@ -1,0 +1,63 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Job: Info Single about a NURBS curve</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+<H4>Display information about a selected NURBS curve</h4>
+
+<p>If you select a NURBS curve, the program displays a dialog box showing:</p>
+<ul class="noleft">
+<li>Coordinates at <b>Endpoint 1</b>
+<li>Coordinates at <b>Endpoint 2</b>
+<li>Number of <b>Arcs</b>
+<li><b>Degree</b> of the curve
+<li><b>Continuity</b> of the curve
+<li><b>Length</b> of the curve
+<li>Flags indicating if the curve is <b>Closed</b>, <b>Rational</b>, <b>Planar</b>
+</ul>
+
+<p>Numbers within the <span id="TWOD">model or </SPAN>drawing are also displayed to identify the first and second endpoints of the curve.</p>
+
+<img border=1 src="../../../../images/tools/to_07/toi04_07.gif">
+
+<p>If the selected entity belongs to a shared group and the group has been rescaled <span id="TWOD">(for example, if it has been created using the 
+<a href="mk:@MSITStore:groups.chm::/language/group/FWfile/T_FW_DuplicateSharedGroup.htm"><b>Group Copy</b></a> command and a scale factor&nbsp;&#151;&nbsp;different from 1&nbsp;&#151;&nbsp;has been specified) </SPAN>the <b>Scale</b> factor will be displayed along with the other output data.</p>
+
+
+<p>The check boxes under <b>Show</b> enable you to display additional components of the NURBS curve:</p>
+<UL class="noleft"><LI><B>Control points</B> &#151; displays control points.
+<br><br><img border=1 src="../../../../images/tools/to_07/to_70_07.gif"><br><br>
+<LI><B>Arcs</B> &#151; displays arc joints.
+<br><br><img border=1 src="../../../../images/tools/to_07/to_71_07.gif"><br><br>
+<LI><B>Cusps</B> &#151; displays sharp corners.
+<br><br><img border=1 src="../../../../images/tools/to_07/to_73_07.gif"><br><br>
+<LI><B>Inflexion points</B> &#151; displays inflection points.
+<br><br><img border=1 src="../../../../images/tools/to_07/to_72_07.gif"><br><br>
+</UL>
+
+<P>If you click on the <b>Create points</b> button, a point entity is created at each of the points shown.</p>
+<img border=1 src="../../../../images/tools/to_07/to_74_07.gif">
+
+<hr color="silver">
+</body>
+</html>

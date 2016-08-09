@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML> 
+<HEAD>
+<meta name="T_2009t3" content="internally">
+<TITLE>View Properties (thinkparts)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+<p>The <img src="../../../images/icons/general/Properties.gif" align="absmiddle"> <B>View properties</B> command enables you to define the <b>thinkparts</b> query view layout of the currently open catalog.</p>
+
+<p>You can find this command as a button in the <b>thinkparts</b> query view dialog that opens when you run the <b>Open</b> command on a catalog of parts or in the <b>thinkparts view</b> section of the context menu of a part in the catalog.</p>
+
+<p>Upon execution, the command opens a dialog that enables you to choose the fields, pertaining to the selected family of parts, to be displayed in the view:</p>
+<img src="../Images/ViewProp1.gif" border="1" alt="">
+
+<p>Alternatively, by clicking on the pull-down menu, you are enabled to select the fields pertaining to the type of entity which will be associated with the parts when they are assigned a code (see <a href="T_FW_AssignPN.htm"><b>Assign Part Number</b></a>. These fields are displayed in the query view to the left of those relevant to the catalog. Their values are assigned through the <b>Part data</b> tools:</p>
+<img src="../Images/ViewProp2.gif" border="1" alt="">
+
+<p>The fields listed in the left <b>Available Fields</b> frame are not displayed, while those in the <b>Selected Fields</b> frame appear in the query. To move a field between frames, simply select it and use the <b>&gt;</b> and <b>&lt;</b> buttons.</p>
+
+<p>By right-clicking on one of the listed items in the right frame or on the corresponding column heading in the <b>Preview</b> frame, you are enabled to access the field's properties:</p>
+
+<table border="1" bordercolor="navy">
+	<tr valign="top">
+		<td class="hea" width="120"><b>Name</b></td>
+		<td>The name of the field, as it appears in the column header.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea" width="120"><b>Position</b></td>
+		<td>The position of the column, the first being all the way to the left. Note that you get a <b>Preview</b> of the column sequence in the relevant frame of the view properties dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea" width="120"><b>Tooltip</b></td>
+		<td>The description of the field.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea" width="120"><b>Width</b></td>
+		<td>The size of the field, specified in characters.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea" width="120"><b>Filter</b></td>
+		<td>The default filter applied to the field.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea" width="120"><b>Sort</b></td>
+		<td>The sorting criteria of the field: <b>NO</b>ne, <b>ASC</b>ending, <b>DES</b>cending.</td>
+	</tr>
+</table>
+
+<p>Click <b>OK</b> to exit the dialog saving the changes or <b>Cancel</b> to terminate the operation discarding them.
+</p>
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1">Any change you make with this command will be lost if you exit the query view of the catalog. If you wish to record them, use the <b>Save</b> command to store the new query view layout.</td>
+	</tr>
+</table>
+</p>
+
+<HR color="silver">
+<H5>Related Topics</H5>
+<UL class="noleft">
+<li><a href="T_FW_Save.htm"><b>Save</b></a></li>
+
+
+</UL>
+
+<hr color="silver">
+</body>
+</html>
+

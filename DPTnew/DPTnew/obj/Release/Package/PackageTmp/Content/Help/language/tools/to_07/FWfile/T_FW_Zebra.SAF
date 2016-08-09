@@ -1,0 +1,154 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<!-- Error handler removed 03 June 2014 -->
+
+<title>Zebra</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;"}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7361">Zebra</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Zebra</b></i> </td>
+ --></tr>
+</table>
+
+<br>
+<p>&nbsp;<br>
+</p>
+
+<p style="margin-bottom=0;">The <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+25">Zebra</span> command enables you to temporarily draw zebra lines on one or more surfaces in order to get a simplified representation of them and assess their shape. This type of surface analysis provides designers the ability to inspect a model surface for face to face continuity. If zebra lines "look good" the shape of the surfaces can be considered acceptable (that is "smooth enough"), otherwise you may want to change them.<br>
+
+ In fact, a simple way to visualize smoothness is to use standard lighting and shading. Zebra lines can be used to:</p>
+
+<ul class="noleft">
+<li>Detect small surface imperfections, as they reflect the variation of the surface normals</li>
+
+<li>Detect surface discontinuities, as their continuity is generally one degree lower than the one of the surface.</li>
+</ul>
+
+<p style="margin-top:0;margin-bottom:0">You can proceed as follows.</p>
+
+<ul class="noleft">
+<li><a name="Surfaces"></a>To display zebra lines on surfaces first select the surfaces to be assessed. After selecting the first surface the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span> item will turn to green, but you can add any other surface to your selection going on picking them in the model.</li>
+
+
+<li><a name="Type"></a>In the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+20">Type</span> drop-down list you can choose the type of zebra lines to be displayed on the model: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+49">Isophotes</span></td>
+
+<td>When this option is selected, Zebra lines will be displayed as <i>lines of constant illumination</i> on the selected surfaces. You can select the direction of the isophote lines in the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+24">Isophote Direction</span> drop-down list. See "
+<a href="../../../HWfile/T_HW_AxisLine.htm">How to Define an Axis or a Line</a>" for details on how to define the direction.<br>
+
+<br>
+<img border="1" src="../../../../images/tools/to_07/zebra_isophotes.gif"><br>
+<br>
+Alternatively, you can use the 3D-handle that shows up in the right-bottom corner to define the direction of isophotes/zebra lines interactively.<br>
+<br>
+<img border="1" src="../../../../images/globalshape/ZEB-ID-00.gif"><br>
+<br>
+<a name="Angle"></a>You can rotate the direction about each of its axes (one at a time) just by dragging the corresponding handle (the one marked with X, Y, or Z), or click on the handle and supply the rotation <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+100">Angle</span> value.<br>
+
+ <br>
+<img border="1" src="../../../globalshape/images/ZEB-ID-01.gif"><br>
+<br>
+</td>
+</tr>
+</table>
+</li>
+
+</ul>
+
+<table>
+<tr valign="top">
+<td><span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+52">Reflection</span></td>
+
+<td>Zebra lines are displayed as the reflection lines of a black and white striped spherical texture surrounding the model and projected onto the selected surfaces. The sphere is fixed in the space and does not move when you rotate your model, so as to help you easily assess your shapes. <a name="Orientation"></a>In the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+55">Orientation</span> drop-down list you can choose whether stripes (and thus zebra lines) must be 
+<span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+56">Horizontal</span> or 
+<span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+57">Vertical</span>.<br>
+
+<br>
+<img border="1" src="../../../../images/tools/to_07/zebra_reflection.gif"></td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;margin-top:0;">You can control the visualization of both types of zebra lines by setting the following parameters:</p>
+
+<ul class="noleft">
+<li><a name="Nooflines"></a>The default number of displayed lines is 41. To modify the number of lines, change the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+7">No. of lines:</span> value. The new lines will immediately be drawn.</li>
+
+
+<li><a name="Color"></a>The <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+43">Color</span>. When you click on 
+<span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+43">Color</span>, the system color palette dialog box will show up. Select a color in the palette: it will be immediately used.</li>
+
+
+<li><a name="Density"></a>You can also change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+8">Density:</span> of isophotes/zebra lines. Density is an angular value: 
+
+
+<ul class="noleft">
+<li>When you decrease the density value lines will be more "concentrated"</li>
+
+<li>When you increase the density value lines will be distributed on a wider area.</li>
+
+<li style="list-style: none">Density values vary in the range [0-90] (bigger values are converted modulo 90).</li>
+</ul>
+</li>
+
+<li><a name="Antialiasing"></a>The <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+110">Antialiasing</span> check box controls the aliasing of the stripes. 
+
+
+<ul class="noleft">
+<li>When the box is cleared, no anti-aliasing is activated. The transition between black and white zones in case of discontinuity will be much more evident.<br><br>
+<img border=1 src="../../../../images/tools/to_07/zebra_aa_0.gif"></li>
+
+<li>When the box is checked, a sort of anti-aliasing mechanism is activated, zebra lines will look smoother. On the other hand, transitions between black and white zones, in case of discontinuity, will be less evident.<br><br>
+<img border=1 src="../../../../images/tools/to_07/zebra_aa_1.gif"></li>
+</ul>
+</li>
+</ul>
+
+<p>Please take into account that the quality of previews is also affected by the <a href="mk:@MSITStore:forcus.chm::/language/options/graphics/jsoptions/TessellationParameters.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1702">Tessellation parameters:</span></a> option (in the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+130">Graphics</span>-
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+143">Advanced</span> category of the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>).</p>
+
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Zebra.htm"><b>Analyzing shapes through Zebra Lines</b></a></li>
+
+<li><a href="../../../HWfile/T_HW_AxisLine.htm"><b>How to define an axis or a line</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

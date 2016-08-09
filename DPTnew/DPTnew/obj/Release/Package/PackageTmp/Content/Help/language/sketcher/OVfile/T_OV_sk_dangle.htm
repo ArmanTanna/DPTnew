@@ -1,0 +1,118 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Dangling references</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft {margin-top:0; margin-left:22;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Dangling references</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application allows you to reference external entities inside the profile environment. For example, in a profile you can add a constraint between an entity inside that profile and another entity from, say, a loaded X-reference component. As long as the external entity is available, the constraint continues to apply. If the external entity is unloaded (as in the case of X-reference components), modified, or deleted, the constraint loses its reference. However, if the external entity is restored to its previous state, the constraint is active again. Such constraints, which get "orphaned" when a reference entity is missing, are called "Dangling references".</p>
+
+<p><b>Feedback on Dangling references</b><br>
+The Dangling constraints can be detected in the following ways inside the program:</p>
+
+<ul>
+<li><a name="single_ent"></a><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span> command (
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../images/general/litarr.gif" align="absbottom">
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span>):</li>
+
+<li style="list-style: none"><br>
+The <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span> command on a profile gives the feedback if the profile contains dangling constraints or not. The 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+1">Single Entity Info</span> dialog Box will also contain items such as 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+323">Internal entities:</span>, 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+324">External entities:</span> and 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+326">Dangling ext. reference(s):</span>.<br>
+
+
+To view the feedback on the dangling constraints, right-click a profile in the Model Structure and select <span class="UI_OPTION" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../images/general/litarr.gif" align="absbottom">
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span>.<br>
+
+
+<br>
+<img src="../../rn_2007T1/images/dang_1.gif"><br>
+<br>
+You can also right-click on a constraint inside the Profile environment and select <span class="UI_OPTION" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../images/general/litarr.gif" align="absbottom">
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span>. The 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+1">Single Entity Info</span> dialog box for the constraint will have a check box, 
+
+<span class="UI_OPTION" id="idd_info_single.msg+idd_info_single+327">Dangling external reference(s):</span>. The status of this check box (selected or cleared) will show if the selected constraint is a dangling one or not.<br>
+
+
+<br>
+<img src="../../rn_2007T1/images/dang_3.gif"><br>
+<br>
+</li>
+
+<li>From the context menu:</li>
+
+<li style="list-style: none"><br>
+A contextual menu item <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7884">Show Dangling Reference Constraints</span> is available inside the profile environment. This is a toggling menu item. 
+
+
+
+<ul>
+<li>When it is selected, all the dangling reference constraints will be highlighted.</li>
+
+<li>When it is cleared, the dangling reference constraints will not be highlighted.</li>
+</ul>
+
+Also the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1319">Show External Entities</span> is a toggling one. To highlight the external entities, select the menu item.<br>
+
+
+The new context menu is as shown:<br>
+<br>
+<img src="../../rn_2007T1/images/dang_2.gif"><br>
+<br>
+</li>
+
+<li>Using the <span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+12">Check Profile</span> command</li>
+
+<li style="list-style: none"><br>
+Yet another method used to give the feedback on Dangling references is the <span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+12">Check Profile</span> command.</li>
+
+</ul>
+
+<h5>Related Topics</h5>
+<hr color="silver">
+<ul class="noleft">
+<li><a href="T_OV_sk_00.htm"><b>Profiles</b></a></li>
+<li><a href="T_OV_sk_00_04.htm"><b>External entities</b></a></li>
+<li><a href="T_OV_sk_00_01.htm"><b>How to create a profile</b></a></li>
+<li><a href="mk:@MSITStore:help.chm::/language/SymbRefs/OVfile/T_OV_SymbRefs.htm"><b>An Overview on Symbolic References</b></a>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Profiles</b></a></p>
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Global Modeling Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Global Modeling Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements in the Global Modeling commands.</p>
+
+<ul class="noleft">
+<li><a href="#P479">Improvement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span> command</a></li>
+
+<li><a href="#P480">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command</a></li>
+
+<li><a href="#P482">Enhancement in <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a></li>
+
+<li><a href="#P558">Enhancement in GSM Transformation of Mesh</a></li>
+
+<li><a href="#P493">Enhancement in the <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span> and <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_GM_UI_LABEL_+22">GSM Twist</span> commands</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P479 - OWN: Jacques Goussard -->
+<h2><a name="P479">Improvement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span> command</a></h2>
+
+<p>With the improvements made in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span></a> command, the specified constraints for <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+123">Matching</span> and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> conditions are more closely achieved, resulting in better surface continuity.<br>
+<br>
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P480 - OWN: Patrick Bosinco -->
+<h2><a name="P480">The new <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command</a></h2>
+
+<p>This version introduces a new GSM command called <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> for <a href="DieDesign.htm#P480">Die Design</a>.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P482 - OWN: Patrick Bosinco -->
+<h2><a name="P482">Enhancement in <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a></h2>
+
+<p>The <a href="General.htm#P482"><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span></a> tab has been introduced in the <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span> dialog box.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P558 - OWN: Patrick Bosinco -->
+<h2><a name="P558">Enhancement in GSM Transformation of Mesh</a></h2>
+
+<p>Previously, while applying the GSM commands on a mesh, it was not possible to modify the original mesh and hence the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> option had to be selected to apply the command. With the improvements made in this version, it is now possible to modify the original mesh too.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+
+
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P493 - OWN: Jing Cheng -->
+<h2><a name="P493">Enhancement in the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span> and <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+22">GSM Twist</span> commands</a></h2>
+
+<p>This version has improved the management of the results when applying GSM <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6436">Bend</span> &amp; <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6437">Twist</span> commands (including <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7173">Radial Bend</span> and <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7015">Replicate</span> commands) to curves in associative mode. The result is no longer a joined NURBS curve, and instead, it is in form of individual deformed segments. This allows to replicate the deformation, as well as, to delete only parts of the result without deleting all. Also, the result is represented as MRE (Multiple Resulting Events) in the Model Structure.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+<!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+</body>
+</html>
+

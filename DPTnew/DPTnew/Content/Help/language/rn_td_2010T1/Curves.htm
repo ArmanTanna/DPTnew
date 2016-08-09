@@ -1,0 +1,514 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>New Curve &amp; Surface Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<a name="top"></a> 
+
+<h1>New Curve <span id="TWOD">&amp; Surface</span> Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Curve <span id="TWOD">&amp; Surface</span> commands.</p>
+
+<ul class="noleft">
+<li><a href="#P642">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7911">Approximation by Lines-Arcs</span> command</a></li>
+
+<li id="HIDELI"><a href="#P775">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+7739">Geodesic Curve</span> command</a></li>
+
+<li id="HIDELI"><a href="#P755">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+257">Invert Surface</span> command</a></li>
+
+<li id="HIDELI"><a href="#P759">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7611">Global Sweep</span> command</a></li>
+
+<li id="HIDELI"><a href="#P760">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span> command</a></li>
+
+<li><a href="#P761">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+49">Connect Curve</span> command</a></li>
+
+<li><a href="#P768_1">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+369">Modify Curve through Control Points</span> command</a></li>
+
+<li id="HIDELI"><a href="#P768">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+259">Modify Surface through Control Points</span> command</a></li>
+
+<li id="HIDELI"><a href="#P763">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7559">Advanced Surface Continuity</span> command</a></li>
+
+<li id="HIDELI"><a href="#CCB15580">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7318">Split Surface with Silhouette</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!-- PRJ: P642 - OWN: Mauro Mariotti -->
+<h2><a name="P642">The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7911">Approximation by Lines-Arcs</span> command</a></h2>
+
+<p>The new <a href="mk:@MSITStore:HELP.CHM::/language/curves/FWfile/T_FW_Approximation.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7911">Approximation by Lines-Arcs</span></a> command enables you to convert a generic planar curve into a sequence of <i>line segments</i> or a combination of <i>circle arcs</i> and <i>line segments</i>. This is useful as a tool path input for NC machines.</p>
+
+<p>You can specify the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+5">Linear Tolerance</span> value to limit the deviation from the original curve. For arcs, you can also define the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+6">Min. radius</span> and <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+8">Max. radius</span> values.</p>
+
+<p>As shown in the following example, the yellow curve has been approximated by <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+4">Lines and arcs</span> (shown in green) and <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+3">Lines only</span> (shown in red) as defined in the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+2">Type</span> drop-down list.<br>
+<br>
+<img src="../../images/curves/approximation_line_arc.gif" border="1"></p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- Start of f2d tagging; block 1 -->
+ <!-- PRJ: P775 - OWN: Patrick Bosinco -->
+<h2 id="HIDEH2"><a name="P775">The new <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+7739">Geodesic Curve</span> command</a></h2>
+
+<p id="HIDEP">The new <a href="mk:@MSITStore:HELP.CHM::/language/curves/FWfile/T_FW_Geodesic.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+7739">Geodesic Curve</span></a> command enables you to create geodesic curves on a surface. It represents the shortest path between points on the surface.</p>
+
+<p id="HIDEP">To create a geodesic curve, you need to define the point on the surface through which the geodesic curve must pass and the direction of the geodesic curve at its initial point.</p>
+
+<p id="HIDEP">This command can create multiple geodesic curves simultaneously, and also insert them on the surface to generate a COS (Curve On Surface). The following image shows single and multiple geodesic curves created over the surface in <i>X-direction</i>.<br>
+<br>
+<img src="../../images/curves/geodesic.gif" border="1"></p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P755 - OWN: Jacques Goussard -->
+<h2 id="HIDEH2"><a name="P755">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+257">Invert Surface</span> command</a></h2>
+
+<p id="HIDEP">The <a href="mk:@MSITStore:HELP.CHM::/language/surfaces/FWfile/T_FW_InvertSurface.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+257">Invert Surface</span></a> command now enables you to apply a global inversion to all normals to make them point towards the same direction. As a result, you do not have to select the normals individually to invert their direction. The inversion takes place based on one of the following options selected for the new <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+601">Invert Normals</span> drop-down list in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+350">Invert Surface</span> selection list:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+606">Manually</span></td>
+<td>You need to manually invert the normals; automatic inversion is not applied.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+607">By direction</span></td>
+<td>Normals are oriented towards the specified direction</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+608">By axis</span></td>
+<td>Normals are oriented towards the defined axis</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+609">By point</span></td>
+<td>Normals are oriented towards the defined point</td>
+</tr>
+
+<tr valign="top">
+<td width="130"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+600">By skin</span></td>
+<td>Individual normals of surfaces forming the skin are oriented in the same direction.</td>
+</tr>
+</table>
+
+<p id="HIDEP">Refer some examples below:</p>
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;" style="margin-bottom:10;" id="F2DNOTVISIBLE">
+<tr>
+<td><img src="../../images/surfaces/Invert_sample.gif"></td>
+<td><img src="../../images/surfaces/Invert_original.gif"></td>
+</tr>
+
+<tr align="center">
+<td>Set of surfaces</td>
+<td>Orientation of surface normals</td>
+</tr>
+
+<tr>
+<td colspan="2"></td>
+</tr>
+
+<tr>
+<td><img src="../../images/surfaces/Invert-direction.gif"></td>
+<td><img src="../../images/surfaces/Invert-axis.gif"></td>
+</tr>
+
+<tr>
+<td width="195">Normals oriented towards the <i>Y-direction</i></td>
+<td width="195">Normals oriented in reference to the axis</td>
+</tr>
+</table>
+
+<p id="HIDEP">The direction of all the normals can be simultaneously inverted by using the new <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+602">Exchange All Normals</span> option.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P759 - OWN: Jacques Goussard -->
+<h2 id="HIDEH2"><a name="P759">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7611">Global Sweep</span> command</a></h2>
+
+<p id="HIDEP">In this version, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+102">AutoPlace</span> option is available in the context menu of the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+30">Curves</span> selector instead of the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+29">Section Group(s)</span> node. The same is true for the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+101">AutoInvert and AutoPlace</span> option which is displayed when the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+100">Bi-driven</span>.</p>
+
+<p id="HIDEP">&nbsp;</p>
+
+<p style="margin-bottom:0;" id="HIDEP">Also, the context menu of the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+30">Curves</span> selector has the following new options:</p>
+
+<ul>
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+401">Show Invert and Place</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+405">Show All Invert and Place</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+403">Hide Invert and Place</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+407">Hide All Invert and Place</span></li>
+</ul>
+
+<p id="HIDEP">With the introduction of above mentioned options, the old behavior of displaying <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+32">Position of Section</span> and <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> on all sections by expanding the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node has been removed.</p>
+
+<p id="HIDEP">&nbsp;</p>
+
+<p style="margin-bottom:0;" id="HIDEP">In this version, the new <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+410">Transition</span> drop-down list replaces the <span class="OLD">With Transitions</span> check box. The following options are available in it.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:10;" style="margin-left:30;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+411">None</span></td>
+<td>No transition is applied.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+412">Global mode</span></td>
+<td>The effect of transition is computed by the global section interpolation process.</td>
+</tr>
+
+<tr valign="top">
+<td width="130"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+413">Local mode</span></td>
+<td>A local computation of transition is performed that is effective in a restricted area around the transition, as shown in the following images.</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-bottom:15;" style="margin-left:30;" id="F2DNOTVISIBLE">
+<tr>
+<td colspan="2"><img src="../../images/surfaces/transition.gif"></td>
+</tr>
+
+<tr align="center">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+413">Local mode</span></td>
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+412">Global mode</span></td>
+</tr>
+</table>
+
+<p id="HIDEP">&nbsp;</p>
+
+<a name="restrict"></a> 
+
+<p style="margin-bottom:0;" id="HIDEP">Using the following options in the new <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, you can restrict the development of the sweep surface within limits.</p>
+
+<ul>
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+135">None</span> - No restriction is applied and the sweep will be created over the complete drive curve.</li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+136">Between parameters</span> - The sweep is limited between two user defined points on the drive curve. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../images/surfaces/P759_4.gif" border="1"></td>
+<td><img src="../../images/surfaces/P759_5.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Regular</td>
+<td align="center">Complementary</td>
+</tr>
+</table>
+</li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+137">Between sections</span> - The sweep is limited between the first and the last section curves. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../images/surfaces/P759_2.gif" border="1"></td>
+<td><img src="../../images/surfaces/P759_3.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Regular</td>
+<td align="center">Complementary</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<p id="HIDEP">The complementary sweep is obtained by selecting the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+138">Complementary Shape</span> check box under the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> node.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P760 - OWN: Jacques Goussard -->
+<h2 id="HIDEH2"><a name="P760">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span> command</a></h2>
+
+<p id="HIDEP">The <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_RotationalSweep.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span></a> command now enables you to perform GSM based transformations while maintaining additional tangency constraints. For example, a section with a tangent perpendicular to the axis will be swept in such a way that it remains perpendicular throughout the sweep. Two <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down lists (mini-dialog box) have been introduced, which are displayed over the <i>section curve</i> and <i>drive curve</i>, respectively.</p>
+
+<p style="margin-bottom:0;" id="HIDEP">The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list for the <i>section curve</i> has the following options:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;" style="margin-top:0;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+2">Keep position</span></td>
+<td>Sweep surface boundary is unchanged.</td>
+</tr>
+
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+3">Keep position + tangent</span></td>
+<td>Sweep surface boundary is unchanged and also its tangency field is preserved.</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;" id="HIDEP">The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list for the <i>drive curve</i> has the following options:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;" style="margin-top:0;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+9">Target position</span></td>
+<td>Sweep surface is transformed to match the drive.</td>
+</tr>
+
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+10">Target position + keep tangent</span></td>
+<td>Sweep surface is transformed to match the drive and also its tangency field is preserved.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+12">Target position + target tangent</span></td>
+<td>This option is available only if the drive curve is a surface boundary. Sweep surface is transformed to match the drive and ensure tangent continuity with the boundary surface along the drive.</td>
+</tr>
+
+</table>
+
+<p style="margin-bottom:0;" id="HIDEP">Consider the following example in which:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;" id="F2DNOTVISIBLE">
+<tr>
+<td colspan="2">
+<ul class="noleft">
+<li>The green curves are the section curves</li>
+
+<li>The red curve is the drive curve, which can also be a surface boundary</li>
+
+<li>The purple line is the axis</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><img src="../../images/surfaces/P760_1.gif" border="1"></td>
+<td><img src="../../images/surfaces/P760_1a.gif" border="1"></td>
+</tr>
+</table>
+
+<p id="HIDEP">Some rotational sweep results obtained by using the various constraints are shown below. The red arrow highlights where the tangency constraint is applied.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:10;" style="margin-left:30;" id="F2DNOTVISIBLE">
+<tr>
+<td><img src="../../images/surfaces/P760_2.gif" border="1"></td>
+<td><img src="../../images/surfaces/P760_3.gif" border="1"></td>
+</tr>
+
+<tr>
+<td>
+<ul class="noleft">
+<li>Section constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+2">Keep position</span></li>
+<li>Drive constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+9">Target position</span></li>
+</ul>
+</td>
+<td>
+<ul class="noleft">
+<li>Section constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+3">Keep position + tangent</span></li>
+<li>Drive constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+9">Target position</span></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td colspan="2"></td>
+</tr>
+
+<tr>
+<td><img src="../../images/surfaces/P760_4.gif" border="1"></td>
+<td><img src="../../images/surfaces/P760_5.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="235">
+<ul class="noleft">
+<li>Section constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+2">Keep position</span></li>
+<li>Drive constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+10">Target position + keep tangent</span></li>
+</ul>
+
+</td>
+<td><ul class="noleft">
+<li>Section constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+3">Keep position + tangent</span></li>
+<li>Drive constraint is <br> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+10">Target position + keep tangent</span></li>
+</ul>
+
+</td>
+</tr>
+</table>
+
+<p id="HIDEP">&nbsp;</p>
+
+<p id="HIDEP">Using the new <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you can restrict the development of the sweep surface within limits. Refer to the "<a href="#restrict">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7611">Global Sweep</span> command</a>" topic for some visual illustrations on the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> option.</p>
+
+<p id="HIDEP">&nbsp;</p>
+
+<p style="margin-bottom:0;" id="HIDEP">The context menu of the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+30">Curves</span> selector has the following new options:</p>
+
+<ul>
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+400">Show Invert</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+404">Show All Invert</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+402">Hide Invert</span></li>
+
+<li id="HIDELI"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+406">Hide All Invert</span></li>
+</ul>
+
+<p id="HIDEP">With the introduction of above new options, the old behavior of displaying the <span class="UI_MINIDIALOG" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> check box on all the <i>section curves</i> by expanding the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node has been removed.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- End of f2d tagging; block 1 -->
+ <!-- PRJ: P761 - OWN: Jacques Goussard -->
+<h2><a name="P761">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+49">Connect Curve</span> command</a></h2>
+
+<p>The <a href="mk:@MSITStore:HELP.CHM::/language/curves/FWfile/T_FW_cv_07.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+49">Connect Curve</span></a> command now enables you to create the connecting curve such that it fits with an existing curve. The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+520">Fit Curves</span> option has been introduced in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+198">Edit Mode</span> drop-down list of the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+35">Connect Curve</span> selection list. On selecting the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+520">Fit Curves</span> option, the <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+521">Reference Curves</span> selector is available; through it you can select the curve to fit. The weights of the connecting curve are automatically calculated to generate the best possible fit.</p>
+
+<p>As shown in the following example, the red curve connects the endpoints of the blue curves by using the green curve as the reference, whereas, the black curve has been created without using any reference.<br>
+<br>
+<img src="../../images/rn_td_2010T1/P761.gif" border="1"></p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: P768 - OWN: Patrick Bosinco -->
+<h2><a name="P768_1">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+369">Modify Curve through Control Points</span> command</a></h2>
+
+<p>The <a href="mk:@MSITStore:help.chm::/language/curves/mc_01/HWfile/T_HW_mirror_mode.htm"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span></a> option in the <a href="mk:@MSITStore:HELP.CHM::/language/curves/mc_01/FWfile/T_FW_mc_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+369">Modify Curve through Control Points</span></a> command now supports NUBS (B-Spline without rational parts) curves.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- Start of f2d tagging; block 2 -->
+ <!-- PRJ: P768 - OWN: Patrick Bosinco -->
+<h2 id="HIDEH2"><a name="P768">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+259">Modify Surface through Control Points</span> command</a></h2>
+
+<p id="HIDEP">The following two options have been introduced in the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+159">Continuity</span> drop-down list under the <a href="mk:@MSITStore:help.chm::/language/surfaces/HWfile/T_HW_mirror_mode.htm"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span></a> node of the <a href="mk:@MSITStore:HELP.CHM::/language/surfaces/FWfile/T_FW_ms_08.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> selection list.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:9;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+157">Smooth curvature</span></td>
+<td>Enables you to maintain smooth curvature continuity between the original surface and its virtual mirror.</td>
+</tr>
+
+<tr valign="top">
+<td width="170"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+177">Perpendicular tangent</span></td>
+<td>Enables you to maintain tangent continuity between the original surface and its virtual mirror, such that the tangent is perpendicular to the virtual mirror.</td>
+</tr>
+</table>
+
+<p id="HIDEP">The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+160">Minimize</span> drop-down list is now available under the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+166">Advanced Options</span> node. The various options in it enable you to define additional criteria according to which the control points are moved to achieve the specified continuity constraint.</p>
+
+<p id="HIDEP">The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> option now supports NUBS (B-Spline without rational parts) surfaces.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P763 - OWN: Jacques Goussard -->
+<h2 id="HIDEH2"><a name="P763">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7559">Advanced Surface Continuity</span> command</a></h2>
+
+<p id="HIDEP">Previously, the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_AdvancedContinuity.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7559">Advanced Surface Continuity</span></a> command applied the <span class="UI_MINIDIALOG" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+10">Continuity</span> constraints to match a <i>curve</i>. Now, it is also possible to match a <i>target shape</i>. The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+220">Mode</span> drop-down list has been introduced in the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+90">Advanced Surface Continuity</span> selection list with the following two options.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:10;" style="margin-left:30;" id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+221">Curves</span></td>
+<td>-</td>
+<td>The continuity constraint is maintained between selected curves. (It corresponds to the previous behavior of the software.)</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+222">Shape</span></td>
+<td>-</td>
+<td>The continuity constraint is maintained between the selected curves and a shape. The shape can be a <i>user defined</i> or an <i>automatic</i> one depending on the constraint selected in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+10">Continuity</span> drop-down list. It is displayed in the Graphics Area as a mini-dialog box over the boundary curves to be modified. Some additional selectors can be displayed in the selection list depending on the type of selected constraint.<br>
+<br>
+ The various available constraints in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+10">Continuity</span> drop-down list are: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+813">Target Plane</span></td>
+<td>The selected boundaries are mapped to a user defined plane</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+814">Target Line</span></td>
+<td>The selected boundaries are mapped to a user defined line</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+819">Target plane + symmetry</span></td>
+<td>The selected boundaries are mapped to a user defined plane while maintaining G2 symmetry along the boundary. Hence, the resulting surface and its mirrored copy with respect to the plane will be G2 continuous.</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+815">Keep position + make symmetric</span></td>
+<td>Existing planar (boundary) curves keep their position while obtaining the G2 symmetry along the boundary</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+817">Keep plane + make symmetric</span></td>
+<td>Existing planar (boundary) curves are "allowed" to move in its plane while obtaining the G2 symmetry along the boundary</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+821">Match Plane</span></td>
+<td>The selected boundaries are mapped to a plane</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+822">Match Sphere</span></td>
+<td>The selected boundaries are mapped to a sphere</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+823">Match Cylinder</span></td>
+<td>The selected boundaries are mapped to a cylinder</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:10;" id="F2DNOTVISIBLE">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+For <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+821">Match Plane</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+822">Match Sphere</span>, and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+823">Match Cylinder</span> the characteristics of the surfaces are internally computed and not defined by the user.</td>
+</tr>
+</table>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: CCB15580 - OWN: Jacques Goussard -->
+<h2 id="HIDEH2"><a name="CCB15580"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7318">Split Surface with Silhouette</span> command</h2>
+
+<p style="margin-bottom:0;" id="HIDEP">The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+316">Hide</span> check box has been introduced under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_SplitWithSilhouette.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+19">Split with Silhouette</span></a> selection list.</p>
+
+<ul>
+<li id="HIDELI">When this check box is selected, the original surfaces are made hidden and only the preview is visible.</li>
+
+<li id="HIDELI">When this check box is cleared, the original surfaces are visible along with the preview.</li>
+</ul>
+
+<p id="HIDEP">You can hide and show the preview by using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+188">Hide Preview</span> (<img src="../../images/general/hide_prev.gif" align="absmiddle">) and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+189">Retrieve Preview</span> (<img src="../../images/general/retrieve_preview.gif" align="absmiddle">) buttons, respectively.</p>
+
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- End of f2d tagging; block 2 -->
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(62,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+<meta name="T_2010t1" content="translate">
+<title>Work Plane on Entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> </p>
+<hr color="#63a9d8">
+</table>
+ 
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_WorkPlane.msg+ButtonToolbar_WorkPlane+7639">Work Plane on Entity</span> command enables you to place the Work Plane over an entity. This command can also be started by double-clicking on the Work Plane or selecting the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4714">On Entity</span> option from the context menu displayed by right-clicking on the Work Plane.</p>
+
+<p><a name="entity"></a>After starting the command, for the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+3">Entity</span> selector, you need to select an entity that can be profile, line (edge), curve (edge), surface, face or datum plane. The Work Plane will be positioned over the selected entity, however, in some cases you need to define an additional point to define the Work Plane orientation and its origin. To do so, depending on the entity selected, additional options in the selection list will be displayed.</p>
+
+<p>Details of entity selected and their consequences are given below:</p>
+
+<h5>Profile</h5>
+
+<p>The Work Plane is position over the plane over which the profile exists.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="middle">
+<td><img src="../../../../images/workplane/on_entity-1.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/workplane/on_entity-2.gif" border="1"></td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Line (straight edge)</h5>
+
+<p><a name="line"></a>The Work Plane is positioned normal to the selected line (which becomes the Z-axis) and its orientation is defined by the point selected for the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+15">Point on XZ plane</span> plane selector.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="middle">
+<td><img src="../../../../images/workplane/on_entity-3.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/workplane/on_entity-4.gif" border="1"></td>
+</tr>
+</table>
+
+<hr color="silver">
+
+<h5>Curve (non-linear edge)</h5>
+
+<p><a name="curve"></a>The Work Plane is positioned normal to the curve. The location of the Work Plane over the curve and the origin of the coordinate system is defined by the selection made for the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+12">Origin</span> option for which you can select:</p>
+
+<ul>
+<li><span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+13">By parameter</span>: The <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+24">U</span> parameter of the curve defines the origin. You can either enter the value in the mini-dialog box or drag the handle at the origin to the required location.</li>
+
+<li><span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+14">Point</span>: Select a point on the curve.</li>
+</ul>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="middle">
+<td><img src="../../../../images/workplane/on_entity-5.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/workplane/on_entity-6.gif" border="1"></td>
+</tr>
+</table>
+<br><br>
+You can reset the selection of the curve by right-clicking on the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+3">Entity</span> selector from the selection list and select the <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+33">Reset</span>.
+<hr color="silver">
+<h5>Non-planar face</h5>
+
+<p><a name="face"></a>The Work Plane is positioned tangentially to the face. The point selected for the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+12">Origin</span> selector is the point of tangency and also the origin for the coordinate system.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="middle">
+<td><img src="../../../../images/workplane/on_entity-7.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/workplane/on_entity-8.gif" border="1"></td>
+</tr>
+</table>
+<hr color="silver">
+
+<h5>Surface</h5>
+<p><a name="surface"></a>The Work Plane is positioned on the surface. The location of the Work Plane over the surface and the origin of the coordinate system is defined by the selection made from the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+12">Origin</span> drop-down list for which you can select:</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+13">By parameter</span> You need to enter the value in the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+24">U</span> and <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+25">V</span> mini-dialog boxes in the Graphics Area, as shown in the image below. The orientation of the Work Plane is based on the specified U, V parameters of surface.<br><br> 
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1"src="../images/u_v_surface.gif"></td> 
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img border="1"src="../images/u_v_surface_1.gif"></td></tr></table>
+<br><br>
+<li><b>Points:</b> On selecting this option you are prompted to select the origin. Select any point on the preselected surface to place the origin of the Work Plane.<br><br>
+</ul>
+<hr color="silver">
+<h5>Planar face or Datum Plane</h5>
+
+<p>The Work Plane is positioned over the face/plane. The point selected for the <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+12">Origin</span> selector becomes the origin for the coordinate system.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="middle">
+<td><img src="../../../../images/workplane/on_entity-10.gif" border="1"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/workplane/on_entity-9.gif" border="1"></td>
+</tr>
+</table>
+
+<hr color="silver">
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<a name="associate"></a>The <span class="UI_COMMAND" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+23">Associative Mode</span> check box is available for all type of entity selection. Select it to make the Work Plane associative with the entity that was selected to position it. In such a situation, if the selected entity is transformed, the Work Plane also gets repositioned accordingly. If the check box is cleared, no association is made.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../../../workplane/5-wp-appear.htm"><b>Tips on Work Plane appearance</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

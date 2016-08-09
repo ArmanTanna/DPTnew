@@ -1,0 +1,139 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Using the Virtual vertices option of the Capping command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Job: Using the Virtual vertices option of the Capping command</h2>
+
+<p style="margin-bottom:2px;margin-top:0;">In order to improve the shape of the resulting surface of the <a href="../FWfile/T_FW_Capping.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span></a> command, in certain cases of incompatibility, it is possible to create a capping surface by using <i>virtual vertices</i>: a virtual vertex is defined when two curves are supposed to "cross" each other without necessarily having real intersections. The said situation refers to <i>positional</i> incompatibilities, but virtual vertices can be used to solve <i>tangency</i> or <i>curvature</i> incompatibilities as well.</p>
+
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Please note that virtual vertices are <i>by no means</i> a method to solve or even to bypass chaining issues along the boundaries: boundary curves always need to be correctly chained. The situations in which they can be profitably applied are described below.</td>
+</tr>
+</table>
+
+<br>
+<p>When the intersection among the selected curves (for example between a boundary curve and an internal curve) is not real, the surface you would get might not be as good as expected or required.</p>
+
+<p>For example, in the following model ("<i>capvv.e3</i>" in the <a href="mk:@MSITStore:chelp.chm::/language/help/FWfile/T_FW_SampleModels.htm">samples</a> folder):<br>
+
+<br>
+<img border="1" src="../../../images/rn_2006t2/SU12_01.gif"><br>
+<br>
+the two curves on top <i>seem</i> to intersect, though they don't actually do:<br>
+<br>
+<img border="1" src="../../../images/rn_2006t2/SU12_02.gif"><br>
+<br>
+and the surfaces you would get with the ordinary <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> methods would have a kind of "<i>bump</i>" in the area of the virtual intersection:<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2006t2/SU12_03.gif"><br>
+<br>
+</p>
+
+<p style="margin-bottom:0;">In such a case, in order to improve the surface quality, you can proceed as follows.</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>First select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+131">Boundary curves</span> (the green ones in the first image) and then the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+135">Internal curves</span> (the red ones with the virtual intersection).</li>
+
+
+
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span> drop-down list, select the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span> option.</li>
+
+
+
+<li>Click on the point identifying the virtual intersection, for example on the lower internal curve<br>
+<br>
+<img border="1" src="../../rn_2006t2/images/SU12_04.gif"><br>
+<br>
+<a name="Capping_CAPCROSSRAD"></a>A <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+126">Tolerance</span> box will be displayed. This is the tolerance used to search for the virtual intersection between the two curves. When you enter a higher value, the probability to find an intersection is also higher.<br>
+
+
+ <a name="Capping_CAPCROSSOPT"></a>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+121">Type</span> drop-down list you can select the type of constraint to be applied to virtual vertices: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+80">Free</span></td>
+
+
+<td>No constraint is applied. The resulting surface is not constrained to be really "through" the selected curves.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+124">Fuzzy</span></td>
+
+
+<td>If this option is selected, when the two curves do not really intersect, the constraint is not applied to a specific point, but just somewhere within the tolerance. So the resulting surface will be "through" some point on the curves, in a distance within the tolerance.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+125">Strong</span></td>
+
+
+<td>If this option is selected, when the two curves do not really intersect and the tolerance is big enough, in addition to the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+124">Fuzzy</span> behavior, there will neither be any gap between the resulting surface and the curves, nor any planar zone around the vertex.</td>
+
+
+</tr>
+</table>
+</li>
+</ul>
+
+<p>As you can see, the final result is much better:<br>
+<br>
+<img border="1" src="../../../images/rn_2006t2/SU12_05.gif"></p>
+
+<hr color="silver">
+</body>
+</html>
+

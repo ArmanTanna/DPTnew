@@ -1,0 +1,47 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<meta name="T_2009t1" content="translate">
+<title>Keep original domain</title>
+<!-- Error handler removed 03 June 2014 -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 4;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<p style="margin-bottom:0;">This option applies to surfaces only and essentially affects the program behavior about surfaces. 
+
+<ul class="noleft">
+<li>When this check box is selected, the domain of the resulting entity will have the same size as the one of the original entity.</li>
+
+<li>When not selected, the domain of the resulting entity may differ from the original (and be smaller: in fact it will be reduced to the trim boundary domain).</li>
+</ul>
+
+<p>In the following example you can see a trimmed surface:<br>
+<br>
+<img border="1" src="../../../images/globalshape/KOD01.gif"><br>
+<br>
+If you apply the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span> command and check the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+418">Keep original domain</span> box you will obtain the following result, in which the initial domain has been clearly retained on the result surface.<br>
+<br>
+<img border="1" src="../../../images/globalshape/KOD02.gif"><br>
+<br>
+The following image shows what you would have obtained when untrimming the surface if the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+418">Keep original domain</span> box had not been checked.<br>
+<br>
+<img border="1" src="../../../images/globalshape/KOD03.gif"><br>
+<br>
+</p>
+&nbsp;
+</body>
+</html>

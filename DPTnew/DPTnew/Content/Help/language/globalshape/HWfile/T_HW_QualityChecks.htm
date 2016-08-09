@@ -1,0 +1,552 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Quality Checks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Quality Checks</h3>
+
+<p style="margin-bottom:0;">Selecting <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span>, a set of quality check functions is available.<br>
+<br>
+<img src="../images/qualitychecks.gif"><br>
+<br>
+You can use the various tabs for:</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+6">Highlights</span> - <a href="#SL">Display Highlights or Shadow Lines</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+7">Plane Sections</span> - <a href="#PS">Display Plane sections</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+8">Plane Curvature</span> - <a href="#CV">Display a plot of the <i>Plane Curvature</i> or of the <i>Radius of curvature</i></a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+9">Curvature</span> - <a href="#Srf_CV">Shade the surface to display its curvature</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+10">Isophotes</span> - <a href="#ISOP">Display isophotes</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+11">Draft</span> - <a href="#DRAFT">Perform a Draft Analysis</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+12">GSM</span> - <a href="#GSM">Display controlled modification distances</a></li>
+
+<li><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span> - <a href="#CS">Display color graph for variation in curvature</a></li>
+</ul>
+
+<br>
+ 
+
+<h4><a name="SL"></a>Displaying Highlights or Shadow Lines</h4>
+
+<blockquote class="noleft">
+<p class="notop"><i>Highlights</i> and <i>Shadow lines</i> are <i>loci</i> of the points at which the light direction is perpendicular to the normal to the surface (see also "<a href="T_HW_ShadowLines.htm"><b>Shadow lines, Rotation and Density</b></a>". Highlights generally give smarter results since the way they are computed is different: the direction of a set of parallel planes is taken into account instead of the angle of rotation). They can be used to obtain a simplified representation of the surface enabling you to better appreciate its shape and perform a quality estimation of it. If shadow lines "look good" (they are not twisted, they have no cusps, etc.) the shape of the surface can be considered acceptable, otherwise you may need to change it.<br>
+</p>
+
+<p>The program enables you to temporarily draw highlights/shadow lines so that you can perform your quality check, as shown below.<br>
+<br>
+<img src="../../../images/globalshape/highlights.gif" border="1"></p>
+
+<ul class="noleft">
+<li><a name="SL-enable"></a>To display highlights, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_MINIDIALOG" id="idd_dialog_rtc.msg+idd_dialog_rtc+6">Highlights</span> tab. The default number of lines displayed is one.<br>
+ 
+
+<table>
+<tr valign="top">
+<td>Using the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+65">Parallel plane direction</span> drop-down list in the selection list you can define the direction of the set of parallel planes to be used to compute the highlights.(See "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).<br>
+<br>
+<a name="SL-shadow_lines"></a> To display shadow lines instead of highlights, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+66">As shadow lines</span> check box. In this case the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+65">Parallel plane direction</span> drop-down is not more displayed in the selection list.</td>
+<td><img border="1" src="../../../images/globalshape/sl01.gif"></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;">
+<table>
+<tr valign="top">
+<td><a name="SL-no_lines"></a>To increase the number of highlights/shadow lines, change the <span class="UI_MINIDIALOG" id="tdesign.msg+_RTC_UI_LABEL_+7">No. of lines:</span> value.</td>
+<td><img border="1" src="../../../images/globalshape/sl10.gif"></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;">
+<table>
+<tr valign="top">
+<td>Select <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+68">Highlights through point</span> / <span class="UI_MINIDIALOG" id="tdesign.msg+_RTC_UI_LABEL_+3">Shadow lines through point</span> selector in the selection list and click at the desired position. A highlight/shadow line through the selected point will be displayed. Ensure that the number of lines must be greater than one; if not, set it to at least two).</td>
+<td><img border="1" src="../../../images/globalshape/slthroughpoint.gif"></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="SL-rotation"></a>In the case of shadow lines, by changing the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+9">Rotation:</span> value you can also rotate the shadow lines about the selected point (see "<a href="T_HW_ShadowLines.htm"><b>Shadow lines, Rotation and Density</b></a>").<br>
+<br>
+</li>
+
+<li><a name="SL-density"></a>You can change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+8">Density:</span> angle of highlights/shadow lines (see "<a href="T_HW_ShadowLines.htm"><b>Shadow lines, Rotation and Density</b></a>").<br>
+ When you decrease the density value highlights/shadow lines will be more "concentrated" around the selected point. When you increase the density value highlights/shadow lines will be distributed on a wider area. Density values vary in the range [0-360]. 
+
+<table>
+<tr>
+<td><img border="1" src="../../../images/globalshape/densityLOW.gif"></td>
+<td><img border="1" src="../../../images/globalshape/densityHIGH.gif"></td>
+</tr>
+
+<tr>
+<td align="center">Low density</td>
+<td align="center">High density</td>
+</tr>
+</table>
+
+<br>
+ When you have more than one highlight/shadow line, the tangent planes to the surfaces are obviously different along the different lines. The density value is the angular difference between the light direction on the first and last highlight/shadow line.<br>
+<br>
+</li>
+
+<li>Highlights/shadow lines can be drawn also on surfaces that were not selected as to be modified. To do this: 
+
+<ul class="noleft">
+<li>Select the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+2">Additional Surfaces</span> selector in the selection list.</li>
+
+<li>Select the surface to display highlights/shadow lines on it.<br>
+<br>
+<img border="1" src="../../../images/globalshape/SLAdditionalSurfaces.gif"></li>
+</ul>
+
+<br>
+</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="PS"></a>Displaying Plane Sections</h4>
+
+<blockquote class="noleft">
+<p>You can easily draw section lines on your surfaces.</p>
+
+<ul class="noleft">
+<li style="vertical-align: top;">
+<table>
+<tr valign="top">
+<td><a name="PS-enable"></a>To display section lines, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+7">Plane Sections</span> tab.<br>
+ You can define the direction of the sections by using the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+6">Plane Section Direction</span> drop-down list in the selection list (see "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).</td>
+<td><img border="1" src="../../../images/globalshape/ps10.gif"></td>
+</tr>
+</table>
+</li>
+
+<li><a name="PS-no_lines"></a> To increase the number of section lines, change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+7">No. of lines:</span> value. The new lines will immediately be drawn.<br>
+<br>
+</li>
+
+<li><a name="PS-space"></a>Change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+10">Space:</span> value to change the distance between two section lines.<br>
+<br>
+</li>
+
+<li>You can define the origin of the section. Proceed as follows: 
+
+<ul class="noleft">
+<li>Click on the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+5">Plane section origin</span> selector in the selection list.</li>
+
+<li>Click on a point to define as the origin of the sections.</li>
+</ul>
+
+<a name="PS-offset"></a>Once you defined an origin, you can move it by changing the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+11">Offset:</span> value.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;">
+<table>
+<tr valign="top">
+<td>Section lines can be drawn also on surfaces that were not selected as to be modified. To do this: 
+
+<ul class="noleft">
+<li>Select the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+2">Additional Surfaces</span> selector in the selection list.</li>
+
+<li>Click on the surface you want to display section lines on.</li>
+</ul>
+</td>
+<td><img border="1" src="../../../images/globalshape/PsAdditionalSurfaces.gif"></td>
+</tr>
+</table>
+</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="CV"></a>Displaying a plot of the <i>Plane Curvature</i> or of the <i>Radius of curvature</i></h4>
+
+<blockquote class="noleft">
+<p>You can draw a dynamic plot of the <i>curvature</i> or of the <i>radius of curvature</i>, in which you can change both the scale and density.</p>
+
+<ul class="noleft">
+<li><a name="CV-enable"></a>Select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+8">Plane Curvature</span> tab to display the plot.<br>
+<br>
+</li>
+
+<li><a name="CV-scale"></a>You can change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+16">Scale</span> value to make the plot clearer to understand.<br>
+<br>
+</li>
+
+<li><a name="CV-threshold"></a>You can set the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+14">Min threshold</span> and <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+15">Max threshold</span> values to evaluate the curvature plot. All values below the minimum will be drawn in green; all the ones above the maximum will be drawn in red.<br>
+<br>
+</li>
+
+<li><a name="CV-reverse"></a>If the plot can't be properly displayed, you can try to invert the direction of the plot. To do so, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+13">Reverse</span> check box.<br>
+<br>
+</li>
+
+<li><a name="CV-radius"></a>Select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+12">Radius</span> check box to get the plot of the <i>radius of curvature</i> rather than the <i>curvature</i>.</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="Srf_CV"></a>Shading the surface to display its curvature</h4>
+
+<blockquote class="noleft">
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+9">Curvature</span> tab enables you to analyze the curvature of a surface in many ways. Proceed as follows:</p>
+
+<ol class="noleft">
+<li><a name="Srf_CV-type"></a>In the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+20">Type</span> drop-down list select the kind of <a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_to_18_07.htm"><i>curvature</i></a> analysis to be done: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+21">Gauss</span>&nbsp;&#151;&nbsp;to shade the surface according to the Gaussian curvature</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+22">Min. radius</span>&nbsp;&#151;&nbsp;to shade the surface uniformly to obtain the zones with the smallest radius</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+23">Abs min radius</span>&nbsp;&#151;&nbsp;to shade the surface uniformly to obtain the zones with the absolute smallest radius</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+28">Mean</span>&nbsp;&#151;&nbsp;to shade the surface so as to show the zones with the mean curvature value.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a name="Srf_CV-threshold"></a>You can define the minimum and the maximum <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+26">Thresholds</span> values: the smallest and the largest values to be used for the analysis. The first color of the color map will be assigned to the minimum threshold curvature value; the last color of the color map will be assigned to the maximum threshold curvature value; all intermediate values will vary linearly between the first and the last one.<br>
+<br>
+</li>
+
+<li><a name="Srf_CV-scale"></a>You can also define the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+19">Scale ticks:</span> to be used in the graph. It defines the number of intervals into which you want to divide the analysis scale.<br>
+<br>
+</li>
+
+<li><a name="Srf_CV-enable"></a>Select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+9">Curvature</span> tab to shade the surface according to the chosen parameters.<br>
+<br>
+</li>
+</ol>
+
+<p>The surface will be shaded according to your choices as soon as the analysis is completed.<br>
+<br>
+<img border="1" src="../../../images/globalshape/gauss01.gif"><br>
+<br>
+<a name="Srf_CV-value"></a>The <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+32">Min value</span> and <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+33">Max value</span> edit boxes will display the smallest and largest values found in the analysis, respectively.</p>
+
+<p style="margin-bottom:0;">Curvature shading can be displayed also on surfaces that were not selected as to be modified. To do this:</p>
+
+<ul class="noleft">
+<li>Select the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+2">Additional Surfaces</span> selector in the selection list.</li>
+
+<li>Click on the surface you want to display the curvature on.</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="ISOP"></a>Displaying isophotes</h4>
+
+<blockquote class="noleft">
+<p style="margin-bottom:0;">A simple way to visualize smoothness is to use standard lighting and shading. Lines of constant illumination&nbsp;&#151;&nbsp;so-called <i>isophotes</i>&nbsp;&#151;&nbsp; can be used to:</p>
+
+<ul class="noleft">
+<li><i>Detect small surface imperfections</i>, as they reflect the variation of the surface normals.</li>
+
+<li><i>Detect surface discontinuities</i>, as their continuity is generally one degree lower than the one of the surface.</li>
+</ul>
+
+<p>Isophotes or zebra lines can be temporarily drawn on a surface in order to get a simplified representation of it and estimate its shape. If isophotes "look good" the shape of the surface can be considered acceptable, otherwise you may want to change it.<br>
+</p>
+
+<ul class="noleft">
+<li><a name="ISOP-enable"></a>To display isophotes select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+10">Isophotes</span> tab.<br>
+<br>
+<img border="1" src="../../../images/globalshape/isophotes.gif"><br>
+<br>
+</li>
+
+<li><a name="ISOP-zebra"></a>To display zebra lines select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+25">Zebra</span> box.<br>
+<br>
+<img border="1" src="../../../images/globalshape/zebralines.gif"><br>
+<br>
+<a name="ISOP-color"></a>The Hidden and Visible color buttons can be used to set the Zebra shading colors.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Specific color set for Zebra lines</b><br>
+If you use the Default color set, zebra lines are displayed in red and green. If you set the <b>Black&amp;WhiteZebra</b> color set, zebra lines will be displayed in black and white. About setting a color set using the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_to_06_08.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4524">Colors and Materials</span></a> command, see "<a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_to_06_08.htm">Set and save a color set</a>".</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><a name="ISOP-no_lines"></a>The default number of displayed lines is one. To increase the number of isophotes/zebra lines, change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+7">No. of lines:</span> value. The new lines will immediately be drawn.<br>
+<br>
+</li>
+
+<li>Using the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+24">Isophote Direction</span> drop-down list in the selection list, you can define the direction of isophotes/zebra lines (see "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).<br>
+ Alternatively, you can use the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+41">Interactive direction</span> check box. As soon as the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+41">Interactive direction</span> box is selected, a 3D-handle is displayed in the right-bottom corner.<br>
+<br>
+<img border="1" src="../../../images/globalshape/ZEB-ID-00.gif"><br>
+<br>
+To interactively define the direction of isophotes/zebra lines, you can:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li>Rotate the direction about each of its axes (one at a time) by dragging the corresponding handle (the one marked with X, Y, or Z), or click on the handle and enter the rotation <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+100">Angle</span> value.<br>
+<br>
+<img border="1" src="../images/ZEB-ID-01.gif"><br>
+<br>
+</li>
+
+<li>Select one of the predefined directions in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list (see "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).</li>
+</ul>
+
+<br>
+<br>
+</li>
+
+<li><a name="ISOP-density"></a>You can change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+8">Density:</span> value to vary the concentration of isophotes/zebra lines.<br>
+<br>
+ As in the case of shadow lines, density is an angle. On decreasing the density value, the lines will be more "concentrated"; on increasing the density value, the lines will be distributed on a wider area. Density values vary in the range [0-90] (bigger values are converted modulo 90).<br>
+<br>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">Isophotes/zebra lines can be displayed also on surfaces that were not selected as to be modified. To do this:</p>
+
+<ul>
+<li>Select the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+2">Additional Surfaces</span> selector in the selection list.</li>
+
+<li>Click on the surface you want to draw isophotes/zebra lines on.</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="DRAFT"></a>Performing a Draft Analysis</h4>
+
+<blockquote class="noleft">
+<p style="margin-bottom:0;">A draft analysis can be performed using the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+11">Draft</span> tab. The surfaces will be shaded according to the values of the angle you want to analyze.</p>
+
+<p><a name="DRAFT-colormap"></a>When <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+39">Color map</span> check box is selected, the colors of the color map will be used to display the draft analysis shading. When cleared, the shading will be displayed in black and white.</p>
+
+<p style="margin-bottom:0;"><a name="DRAFT-color"></a>If the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+39">Color map</span> check box cleared:</p>
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>All zones in which the value of the draft angle is lower than the specified one will be colored in black</li>
+
+<li>All zones in which the value of the draft angle is equal to the specified one will be colored in white</li>
+
+<li>Another color will be assigned to all the zones where the draft angle is higher than the specified one.</li>
+</ul>
+
+<p style="margin-top:0;">The <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+127">Hidden</span>, <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+128">Visible</span> and <span class="UI_OPTION" id="idd_dialog_rtc.msg+idd_dialog_rtc+11">Draft</span> color buttons can be used to change the above mentioned color settings.</p>
+
+<p style="margin-bottom:0;">If the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+39">Color map</span> check box selected, the following options are available:</p>
+
+<table>
+<tr valign="top">
+<td><a name="DRAFT-minmax"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+40">Min Max</span></td>
+<td>edit boxes will display the smallest and largest values found in the analysis, respectively</td>
+</tr>
+
+<tr valign="top">
+<td width="100"><a name="DRAFT-threshold"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+26">Thresholds</span></td>
+<td>the two boxes enable you to define the minimum and the maximum threshold values for the draft angle to be displayed in the analysis (the actual minimum and maximum values of the draft angle are displayed in the two boxes above these ones). Values are in degrees and may vary in the interval [-90, +90]. The first color of the color map will be assigned to the minimum threshold angle value; the last color of the color map will be assigned to the maximum threshold angle value; all intermediate values will vary linearly between the first and the last one.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="DRAFT-scale"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+19">Scale ticks:</span></td>
+<td>enables you to define the number of intervals into which you want to divide the analysis scale.</td>
+</tr>
+</table>
+
+<p>The draft analysis is visible as shown below.<br>
+<br>
+<img border="1" src="../../../images/globalshape/draftanalysis.gif"></p>
+
+<p>To do the draft analysis, proceed as follows:</p>
+
+<ul class="noleft">
+<li><a name="DRAFT-enable"></a>To display the draft analysis, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+11">Draft</span> tab.<br>
+<br>
+</li>
+
+<li>Select or clear the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+39">Color map</span> check box as per need.<br>
+<br>
+</li>
+
+<li><a name="DRAFT-type"></a>Select the analysis <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+20">Type</span>: 
+
+<ul>
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+34">Parallel direction</span> - analysis is performed along a chosen direction.<br>
+In this case, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+34">Parallel direction</span> type in the selection list (see "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).<br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+35">Sight point</span> - analysis is performed about a chosen point.<br>
+In this case, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+35">Sight point</span> in the selection list and then click on the point you want to use as the sight point.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a name="DRAFT-draft"></a>You can specify the draft angle value to be used when performing the draft analysis in the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+27">Angle</span> edit box.</li>
+</ul>
+
+<p style="margin-bottom:0;">Draft analysis can also be performed on surfaces that were not selected as to be modified. To do this:</p>
+
+<ul>
+<li>Select the <span class="UI_SELECTOR" id="tdesign.msg+_RTC_UI_LABEL_+2">Additional Surfaces</span> selector in the selection list.</li>
+
+<li>Click on the surface to perform draft analysis on it.</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="GSM"></a>Displaying controlled modification distances</h4>
+
+<blockquote class="noleft">
+<p style="margin-bottom:0;">The controls in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+12">GSM</span> tab enable you to shade the objects so as to analyze the distances of homologous points in the controlled modification.</p>
+
+<ul class="noleft">
+<li>Zones where the distance is greater will be shaded in blue.</li>
+
+<li>Zones where the distance is smaller will be shaded in red.</li>
+
+<li>Zones where the distance is intermediate will be shaded using the colors of the scale displayed in the lower region of the graphics area.</li>
+</ul>
+
+<p>Proceed as follows:</p>
+
+<ul class="noleft">
+<li><a name="GSM-enable"></a>To display the distance analysis on the objects, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+12">GSM</span> tab.<br>
+<br>
+</li>
+
+<li><a name="GSM-base"></a> If the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+42">Base entity</span> check box is selected, the analysis will be displayed on the original base entities.<br>
+<br>
+<img border="1" src="../../../images/globalshape/QC-GSM-01.gif"><br>
+<br>
+ If the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+42">Base entity</span> check box is cleared, the analysis will be displayed only on the modified objects.<br>
+<br>
+<img border="1" src="../../../images/globalshape/QC-GSM-02.gif"><br>
+<br>
+</li>
+
+<li>The following options are available: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><a name="GSM-value"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+32">Min value</span></td>
+<td rowspan="2" valign="middle">These edit boxes will display the smallest and largest values found in the analysis, respectively.</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+33">Max value</span></td>
+</tr>
+
+<tr valign="top">
+<td width="100"><a name="GSM-threshold"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+26">Thresholds</span></td>
+<td>the two boxes enable you to define the minimum and the maximum threshold values for the distance to be displayed in the analysis (the actual minimum and maximum values of the distance are displayed in the two boxes above these ones). Values are in the current <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_UNITS.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+254">Unit:</span></a> of measure.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="GSM-scale"></a><span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+19">Scale ticks:</span></td>
+<td>enables you to define the number of intervals into which you want to divide the analysis scale.</td>
+</tr>
+</table>
+</li>
+</ul>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<!-- ************************Topic Separator****************************** -->
+<h4><a name="CS"></a>Displaying color graph for variation in curvature</h4>
+
+<blockquote class="noleft">
+<p>The controls in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span> tab enable you to shade the objects so as to analyze the locations where the curvature changes its sign; i.e. concave <img src="../../../images/general/vice-versa.gif" align="absmiddle"> convex.</p>
+
+<ul>
+<li><a name="CS-enable"></a>To display the color map over the subject, select the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span> check box in the <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span> tab.<br>
+<br>
+<img src="../../../images/globalshape/Curvature_map.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="CS-threshold"></a>In the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+120">Threshold</span> edit box, you can specify the threshold value above which the variation of curvature will be mapped.<br>
+<br>
+</li>
+
+<li><a name="CS-color"></a>Each color signifies a particular type of variation as mentioned in the parameter list.<br>
+<br>
+<img src="../images/color_curv_sign.gif" border="1"><br>
+<br>
+</li>
+
+<li>To change the display color for a parameter, click on the corresponding color button and select a new color from the color pallet.</li>
+</ul>
+</blockquote>
+
+<hr color="silver">
+<h5>Ticks and Tips</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_ShadowLines.htm"><b>Shadow lines, Rotation and Density</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Mathematics concepts related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_to_18_07.htm"><b>What is the curvature of a surface?</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

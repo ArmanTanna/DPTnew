@@ -1,0 +1,69 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup"> 
+<TITLE>Creating five-sided patch surfaces using GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Creating five-sided patch surfaces using GSM</h3>
+<p class="notop">Creating surfaces with 5 (or more) boundaries can be quite difficult through manual construction methods. Even automatic construction methods of multi-sided surfaces only give <i>mathematical results</i>. These results are not always the way we would like leading to more work to <i>tweak </i>the surfaces to the desired shape.</p> <p></p> <p>This example will show you how to use <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> on surfaces to obtain surfaces with 5 boundaries. This process can also be used to create surfaces with 6 or more sides. Sometimes, surfaces of this type are also referred to as N-sided surfaces meaning they have an unspecified number of sides (please refer to the <a href="ex00.htm"><b>Introductory Examples</b></a> for the basic information you need to better understand this document).
+
+<p>Using some basic input from you, GSM will do the difficult work for you and give you a very smooth and mathematically <i>clean</i> surface. We will create the initial surface for the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> tool to work with. Then GSM will rebuild the surface into its new position in the 3D space based on our specific needs.</p> 
+<br><img border=1 src="images/1709-001.gif" ALIGN=top><br></h1>
+
+<p>Here is an example of 5 surfaces that are touching at their corners. The surfaces create an opening that needs to be filled by a five-sided surface. </p> <p>Here is a typical approach for solving this situation with GSM:</p> <p></p> <p><img border=1 src="images/1709-002a.gif" ALIGN=top> </p> 
+<ol class="litleft">
+<li>Create a 4 sided surface <b>(1)</b> above the opening of the five surfaces. 
+<li>In a top view, trim the surface back <b>(2)</b> using the edges of the 5 surfaces as trim limits (setting the appropriate view or projecting curves)
+<li>Use <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> to rebuild this surface across the 5 sided opening.
+<li>The edges of our 5 sided patch would be our<b> Initial curves</b> and the the edges of the 5 surfaces would be our<b> Target curves</b></p> 
+</ol>
+
+<p>This is a very good approach for some situations, but can we create a better surface to start with. Instead of starting from a simple bounded plane, sometimes it is easier if we start with a surface that is <i>similar </i>to the surface we want to achieve, like the following green one:</p> <p><img border=1 src="images/1709-003.gif" > </p> <p>Here we are helping our situation by creating a surface (green) that already addresses the most difficult area of the five sided surface. The surface that we've created is a proportional surface that is tangent to the violet colored surface.</p> <p><img border=1 src="images/1709-004.gif" > </p> <p></p> <p>Here is the same surface. It has been trimmed from the top-view and the view rotated slightly to show that we still have two surface edges to match before our job is finished.</p> <p></p> <p></p> <p></p> <p><img border=1 src="images/1709-005.gif" > </p> <p>To avoid unexpected results, it is suggested that you assign all the constraints with<b> Target position</b> then click on the preview button ( <img src="../../images/general/preview.gif" align="middle"> ) to see if you get a clean shape. Complete the selection of the 3 <b>Preserving Curves</b> and 2 <b>Matching Curves</b> (as shown here) and click the preview icon.</p> <p></p> <p></p> <p><img border=1 src="images/1709-006.gif" > </p> <p></p> <p>If you want tangency, change the constraints one by one and preview with each change to monitor your progress. Working this way, you can forecast the final results. You could even use a <b>Matching Curves</b> constraint on the 3 <b>Preserving Curves</b>. Depending on your conditions, you may achieve better influence over the shape of the surface. </p> <p></p> <p><img border=1 src="images/1709-007.gif" ></p> <p></p> <p></p> <p>Here we have a good start but we see that when the surface doesn't match our precision tolerance we are warned that we aren't within our tolerance and the actual precision is displayed: <img src="../../images/general/WARNINGS_ON_new.gif" align="absmiddle"> </p> <p></p> <p>There are many options available within the GSM command to help us improve precision. The <b>Shape Control</b> and <b>Precision</b> option settings can help us achieve higher tolerances. See <a  href="../globalshape/HWfile/T_HW_GMChecking.htm"><b>Checking your results</b></a> for further details about these options.</p> </p>
+
+<hr color="silver">
+</body>
+</html>

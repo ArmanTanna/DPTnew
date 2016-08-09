@@ -1,0 +1,321 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Quick Move/Copy Entities</title>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.littop{margin-top:3;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideH4();HideH1();HideH2();HideH3();HideH5();HideP();HideHR();HideTR();">
+
+
+
+<p class="notop">The <b>Quick Move/Copy Entities</b> command ( <img src="../../images/icons/icons_big/ID_MOVECOPY.bmp" align="absmiddle"> )&nbsp;&#151;&nbsp;available under the <a href="mk:@MSITStore:forcus.chm::/language/tools/to_10/FWfile/T_FW_to_02_10.htm"><b>Commands</b></a> tab of the 
+<a href="mk:@MSITStore:forcus.chm::/language/tools/to_10/FWfile/T_FW_to_10.htm"><b>Customize</b></a> command&nbsp;&#151;&nbsp;enables you to perform translations and rotations. The selected entities can be moved or duplicated as many times as you like. As soon as the command is started you can choose whether to perform a translation or a rotation:</p>
+
+
+<br>
+<table>
+<tr valign="top">
+<td><img src="../../images/MoveCopy/Rotate.gif"></td>
+<td valign="bottom"><a href="#ruota"><b>Rotate</b></a></td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../images/MoveCopy/Translate.gif"></td>
+<td valign="bottom"><a href="#trasla"><b>Translate</b></a></td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">When you start the command for the first time the active option is <b>Translate</b>. Any time you start <b>Quick Move/Copy Entities</b> after the first one, the active option will be the one you set last time you used the command.<br>
+<br>
+<b>Enabling selection inside groups in copy mode</b><br>
+<span id="TWOD">In the drawing environment, w</SPAN>
+<span id="HIDETD">W</SPAN>hen the <b>Copies</b> check box is selected so as to duplicate the selected entities rather than to move them (see the sections below for further details), the <b>Inside group</b> box enables you to select entities inside groups rather then the groups themselves.<br>
+
+<br>
+<img src="images/InsideGroup.gif"><br>
+<br>
+To have the <b>Inside group</b> box work, first select the <b>Group</b> check box in the <b>Inside</b> area of the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_vw_95.htm"><b>Selection Filter</b></a> dialog box. Once you have done so: 
+
+
+<ul class="noleft">
+<li>When the box is checked, clicking on a group will result in selecting the entity you actually clicked on rather than the whole group it belongs to.</li>
+
+<li>When the box is cleared, clicking on an entity belonging to a group will result in selecting the whole group rather than the entity you actually clicked on.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h5><a name="ruota"></a>Rotate</h5>
+
+<hr color="silver">
+<p class="notop">As soon as the <b>Rotate</b> option is selected, the following options are displayed in the <span class="UI_COMMAND" id="idd_lv2_move.msg+idd_lv2_move+44">Quick Move/Copy</span> dialog box.<br>
+
+<br>
+<img src="images/ed_01_26.gif"></p>
+
+<br>
+<br>
+<table>
+<tr valign="top">
+<td width="80"><b>Copies</b></td>
+<td>When selected, this check box enables you to duplicate the selected entities as many times as the value you type in the adjacent box.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Center</b></td>
+<td>Enables you to select the center of the rotation. Click the button and select the point to be used as the center of the rotation.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Start</b></td>
+<td>Enables you to select a new initial point for the rotation to be performed. By default, the initial point of a new rotation is the final point of the previous one.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Angle</b></td>
+<td>Enables you to specify the angle of rotation (measured counter-clockwise)</td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><b>Axis</b></td>
+<td>Enables you to select the axis of rotation (<i>not available in the drawing environment</i>). By default, the program rotates entities about the Z-axis. To set a different axis of rotation, select an option in the <b>Axis</b> drop-down list: 
+
+<table>
+<tr valign="top">
+<td><b>X</b>/<b>Y</b>/<b>Z</b></td>
+<td>To define the axis of rotation as one of the coordinate axes of the Work Plane.</td>
+</tr>
+
+<tr valign="top">
+<td width="80"><b>Line</b></td>
+<td>To define the axis of rotation as an existing line to be selected. Click the adjacent <b>Select</b> button and select the line.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2 Points</b></td>
+<td>To define the axis of rotation as the one identified by two points to be selected. Click the adjacent <b>Select</b> button and select the two points.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>To perform a rotation, proceed as follows:<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>You are prompted to select an entity. Select the entities to be rotated and end selection by right-clicking and selecting <b>End of Selection</b> in the context menu. 
+
+<ul class="noleft">
+<li>To <i>move</i> the selected entities, leave the <b>Copies</b> box unchecked. To <i>duplicate</i> the selected entities, select the <b>Copies</b> box and type the number of copies to be performed into the adjacent box.</li>
+
+<li id="HIDELI">By default, the program will rotate the selected entities about the Z-axis. To set a different axis of rotation, use the <b>Axis</b> drop-down list as described above.<br>
+&nbsp;</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>You are prompted to enter the center of the rotation. Select a point (you can use the <a href="mk:@MSITStore:selsna.chm::/language/snap/OVfile/T_OV_basic06.htm"><b>Snap</b></a> commands).<br>
+
+<br>
+<img border="1" src="../../images/MoveCopy/Rotate02.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>The program prompts you to enter the base position. Click to specify a point forming a direction vector from the center point.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Rotate05.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>The program then prompts you to enter the new position. Click to specify a point defining a new direction vector from the center point. The angle between it and the direction vector defined in step 3 determines the angle by which the entities are rotated.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Rotate06.gif"><br>
+<br>
+Alternatively, in the <b>Angle</b> box, type the value of the angle of rotation. Hit <b>ENTER</b> on the keyboard to rotate the entities.<br>
+&nbsp; 
+
+<table>
+<tr valign="top">
+<td><img border="1" src="../../images/MoveCopy/Rotate03.gif"></td>
+<td><img border="1" src="../../images/MoveCopy/Rotate04.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Copies</b> not selected</td>
+<td><b>Copies</b> selected, 3 copies</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Starting a new rotation</b><br>
+As soon as the entities are rotated, a new rotation is ready to start from the final point of the previous one. To change the starting point of the new rotation, click <b>Start</b> and specify a new position.<br>
+<br>
+<b>Changing to a translation</b><br>
+If, after selecting the entities and specifying the center of the rotation, you select the <a href="#trasla"><b>Translate</b></a> option, the point previously selected as the center of the rotation will be considered as the base point of the translation.</td>
+</tr>
+</table>
+
+<br>
+<p>&nbsp;</p>
+
+<h5><a name="trasla"></a>Translate</h5>
+
+<hr color="silver">
+<p class="notop">As soon as the <b>Translate</b> option is selected, the following options are displayed in the <span class="UI_COMMAND" id="idd_lv2_move.msg+idd_lv2_move+44">Quick Move/Copy</span> dialog box.<br>
+
+<br>
+<img src="images/ed_02_26.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="80"><b>Copies</b></td>
+<td>When selected, this check box enables you to duplicate the selected entities as many times as the value you type in the adjacent box.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Start</b></td>
+<td>Enables you to select a new initial point for the translation to be performed. By default, the initial point of a new translation is the final point of the previous one.</td>
+</tr>
+
+<tr valign="top">
+<td><b>PX/PY<span id="TWOD">/PZ</SPAN></b></td>
+
+<td>Enable you to specify the components of the translation along the coordinate axes<span id="TWOD"> of the Work Plane (<i>PZ is obviously not available in the drawing environment</i></SPAN>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>Line</b></td>
+<td>Enables you to specify an existing line as the direction of translation. After clicking the <b>Line</b> button, select the line. In the adjacent <b>Delta</b> box, type the length of the translation along the chosen direction.<br>
+Please note that the point used to select the line determines the orientation of the translation: the selected entities will be moved towards the visible endpoint of the selected line which is closest to the selection point. In this case, the endpoints to be considered are not the actual endpoints of the line, which might lie outside the current view, thus resulting not visible, but the <i>visible</i> line endpoints relative to the current view.</td>
+</tr>
+</table>
+
+<br>
+<p>To perform a translation, proceed as follows:<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>You are prompted to select an entity. Select the entities to be translated and end selection by right-clicking and selecting <b>End of Selection</b> in the context menu.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Translate01.gif"><br>
+<br>
+<br>
+To <i>move</i> the selected entities, leave the <b>Copies</b> box unchecked. To <i>duplicate</i> the selected entities, select the <b>Copies</b> box and type the number of copies to be performed into the adjacent box.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>You are prompted to enter the base position. Click to specify the origin of the translation vector.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Translate00.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>The program then prompts you to enter the new position. Alternatively, you can: 
+
+<ul class="noleft">
+<li>Click to specify the target point.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Translate02.gif"><br>
+&nbsp;</li>
+
+<li>Type the X<span id="TWOD">, </SPAN>
+<span id="HIDETD">&nbsp;and&nbsp;</SPAN>Y
+<span id="TWOD">, and Z</SPAN> components of the translation vector in the corresponding boxes (<b>PX</b>/<b>PY</b>
+<span id="TWOD">/<b>PZ</b></SPAN>).</li>
+
+
+<li>Click <b>Line</b> and enter a <b>Delta</b> value.<br>
+<br>
+<img border="1" src="../../images/MoveCopy/Translate03.gif">&nbsp;</li>
+</ul>
+
+To translate the selected entities, hit <b>ENTER</b>.<br>
+&nbsp; 
+
+<table>
+<tr valign="top">
+<td><img border="1" src="../../images/MoveCopy/Translate05.gif"></td>
+<td><img border="1" src="../../images/MoveCopy/Translate04.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Copies</b> not selected</td>
+<td><b>Copies</b> selected, 1 copy</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Starting a new translation</b><br>
+As soon as the entities are translated, a new translation is ready to start from the final point of the previous one. To change the starting point of the new translation, click <b>Start</b> and specify a new position.<br>
+<br>
+<b>Changing to a rotation</b><br>
+If, after selecting the entities and specifying the base point of the translation, you select the <a href="#ruota"><b>Rotate</b></a> option, the point previously selected as the base point of the translation will be considered as the center of the rotation.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

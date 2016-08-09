@@ -1,0 +1,116 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2010t1" content="translate">
+<title>Job: Creating a Core and Cavity from Predefined Solid</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Creating a Core and Cavity from Predefined Solid</h2>
+
+<p>In this tutorial you will create the core and cavity by selecting a predefined solid using the <a href="../FWfile/T_FW_mold_split.htm"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+20">Split Mold</span></a> command. Open the <i>soap_dish_assembly.e3</i> file available in the <i>Samples/mold</i> folder present at the installation location and follow the steps given below.<br><br>
+
+<ol class="noleft">
+<li>Start the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01_solid.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6803">Linear Solid</span></a> command, and select the profile as shown in the image below.<br>
+
+<br>
+ <img src="../../../images/mold/mold_split_cylinder1.gif" border="1"><br>
+<br>
+</li>
+
+<li>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+247">Double depth</span> from the 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+248">Extension</span> drop-down list.<br>
+
+<br>
+</li>
+
+<li>Enter <b>50</b> in both the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+245">Depth 1</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+244">Depth 2</span> mini-dialog boxes respectively.<br>
+
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the predefined solid as shown in the image below:<br>
+<br>
+ <img src="../../../images/mold/mold_split_cylinder2.gif" border="1"><br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The predefined solid has to completely cover the mold part for which the core and cavity is to be created.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Change the display to <span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+205">Wireframe View</span>. If the display is in the 
+<span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+207">Shaded View</span> then the predefined solid does not allow you to select the mold part and parting skin.<br>
+
+<br>
+</li>
+
+<li>Start the <a href="../FWfile/T_FW_mold_split.htm"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+20">Split Mold</span></a> command and select the mold part. To reselect the mold part, right-click on 
+<span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+1">Parts</span>, choose 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and select the component again.<br>
+
+<br>
+</li>
+
+<li>Click on the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+2">Parting Skins</span> selector and select the parting plane as shown in the image below.<br>
+
+<br>
+<img src="../../../images/mold/mold_split_4.gif" border="1"><br>
+<br>
+</li>
+
+<li>From the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+6">Workpiece</span> drop-down list select 
+<span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+3">Customized</span>. Select the solid for the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+31">Solid</span> selector.<br>
+
+<br>
+ <img src="../../../images/mold/mold_split_predefined.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the core and cavity, as shown in the image below.<br>
+<br>
+<img src="../../../images/mold/mold_split_predefined1.gif" border="1"></li>
+</ol>
+</p>
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

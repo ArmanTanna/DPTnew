@@ -1,0 +1,279 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plot: Troubleshooting</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A name="top"></A> 
+<H1>
+<A NAME="5"></A>Typical cases - Troubleshooting<hr color=navy></H1>
+<ul>
+<li><A HREF="#5.1">Introduction</A>
+<li><A HREF="#5.2">Thickness management<span style="DISPLAY:none">line width</span><span style="DISPLAY:none">line weight</span></A>
+<li><A HREF="#5.3">Merging or nesting drawings</A>
+<ul>
+<li><A HREF="#5.3.1">Alternative merging modes</A></ul>
+<li><A HREF="#5.4">Additional considerations on PostScript format</A>
+<ul>
+<li><A HREF="#5.4.1">General</A>
+<li><A HREF="#5.4.2">The GBPLO PostScript driver</A></ul>
+<li><A HREF="#5.5">Printing and serial port problems</A></B></h3>
+</ul>
+
+<H3><A NAME="5.1">Introduction<hr color="silver"></h3>
+This chapter provides practical instructions on how to deal with typical
+cases, problems and solutions.
+<H3>
+<A NAME="5.2"></A>Thickness management<hr color="silver"></h3>
+To manage line thickness (<i>line weight</i> or <i>line width</i>), use a combination of the directives GRA PWIDTH
+and GRA MWIDTH (see also <A HREF="c02.htm#2.4">section 2.4</A>).
+
+<P>To do this, proceed as follows:
+<UL>
+<LI>
+Define a <I>pen thickness table </I>for GBPLO; i.e.: assign the desired
+thickness to some or all of the pens (colours) with the directive GRA PWIDTH.
+For example:</LI>
+
+<BR>GRA PWIDTH 1 1 MM 2 1.5 MM 3 1.8 MM 4 0.5 MM
+<BR>indicates that the entities with pen (colour) attribute 1 will be drawn
+with a thickness of 1 millimetre, those with pen attribute two 1.5 millimeters,
+etc. However, this also depends on the current thickness management mode,
+which in this case must be 3.
+<LI>
+Define the current thickness management mode with GRA MWIDTH.</LI>
+
+<BR>This allows you not only to define the thickness in a preset unit such
+as millimeters, centimeters and inches, but also to print in units of the
+device (pixels, dots, etc.) and in the unit relative to the current scale
+(the latter mode is, for example, very useful for managing thickness in
+hybrid raster files, to improve smoothness at the joints between raster
+lines and vector lines).</UL>
+
+<H3>
+<A NAME="5.3"></A>Merging or nesting drawings<hr color="silver"></h3>
+You can "merge" drawings in output, i.e.: generate a single output file
+containing two or more drawings or print two or more drawings on the same
+sheet: whether they overlap or not.
+
+<P>To do this, you must use the <B>-COM</B> key in the run string; to this
+key you must add an argument which is the pathname of a file which, in
+turn, contains the GBPLO run strings relative to each of the drawings to
+be merged.
+
+<P>This is the most practical and widely used method, since it allows you
+to obtain drawing composite drawings <I>even in output to file</I>: in
+contrast, all of the other methods allow you only to print two or more
+files on the same sheet, suitably managing the output device (repositioning
+the pen, moving the paper, etc.).
+
+<P>In contrast, with this method, once you have generated a "composite"
+output file, you can print it with a single action, avoiding any problems
+which may arise on the plotter or printer due to reuse of the same sheet,
+pen repositioning and paper movement: in other words, this method, is "neater"
+than the others.
+
+<P><B>Note</B>:
+<UL>
+<LI>
+In the run string file supplied with -COM as a parameter, you may specify
+only those options "necessary to running" (<i>see</i> <A HREF="c02.htm#2.2">Instructions necessary to run GBPLO</A>):</LI>
+
+
+<P><B>-F </B><I>pathname_of_file</I>
+
+<P><B>-S </B><I>print_scale </I>default is 1
+
+<P><B>-U </B><I>unit_of_measure </I>default is M: stored
+
+<P><B>-L </B><I>layers_to_be_printed </I>default is M: stored
+
+<P><B>-W </B><I>window_to_be_printed</I>
+
+<P>and two more options which allow you to position drawings on the sheet
+
+<P><B>-ALF?</B><I>rotation_of_drawing_on_sheet </I>default is 0
+
+<P><B>-DXY?</B><I>origin_of_drawing_on_sheet </I>default is 0
+
+<P>Any other options specified in the file are always ignored.
+<LI>
+All options specified in the main run string (at -COM level) also apply
+for all drawings specified in the run string</LI>
+
+<LI>
+If you specify the same option with different parameters in the main run
+string and in the -COM run string file, the latter applies.</LI>
+
+<LI>
+The maximum length of each run string in the file is 1024 characters.</LI>
+
+<LI>
+You need not specify a file name (-F) in the main run string: it would
+be ignored anyway.</LI>
+
+<LI>
+Framing (-FR, HP-GL and BGL formats) is always Off</LI>
+
+<LI>
+The mode is always batch.</LI>
+</UL>
+<B><I>Example</I></B>
+
+<P>An example of a run string file for merging 10 drawings on the same
+sheet
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a001.d -dim A4R -alf
+90 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a002.d -dim A4R -alf
+90 -DXY 0 29.7 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a003.d -dim A4R -alf
+90 -DXY 0 59.4 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a004.d -dim A4R -alf
+90 -DXY 21 0 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a005.d -dim A4R -alf
+90 -DXY 21 29.7 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a006.d -dim A4R -alf
+90 -DXY 21 59.4 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a007.d -dim A4R -alf
+90 -DXY 42 0 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a008.d -dim A4R -alf
+90 -DXY 42 29.7 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a009.d -dim A4R -alf
+90 -DXY 42 59.4 -s o</FONT></FONT>
+
+<P><FONT FACE="Courier"><FONT SIZE=+1>-f \drawings\a010.d -dim A4R -alf
+90 -DXY 63 0 -s o</FONT></FONT>
+<H4>
+<A NAME="5.3.1"></A>5.3.1 Alternative merging modes</H4>
+
+<H4>
+<A NAME="c"></A>With suitable device management</H4>
+An alternative mode to that offered by -COM and which relies on the performance
+of the output device involves a combination, depending on requirements,
+of the following directives:
+
+<P>GRA RORIG to redefine position of drawing origin on sheet at start of
+plotting: notice that the current position depends on the type of plotter;
+
+<P>PPE to redefine the position of the drawing origin on the sheet at the
+end of plotting
+
+<P>AVA to manage paper feed at the end of the drawing.
+
+<P>With this mode, you use the same sheet more than once for different
+drawings, positioning it accordingly.
+
+<P><B>Note:</B> this mode is less "convenient" than that offered by -COM
+and does not allow nesting in a file, but only printing on the actual device.
+
+<P><A NAME="d"></A><B><I>With GRA MERGE in HP-GL format</I></B>
+
+<P>In HP-GL format only, you can create composite drawings using the GRA
+MERGE directive, according to the steps described relative to the latter.
+<H3>
+<A NAME="5.4"></A>Additional considerations on PostScript format<hr color="silver"></h3>
+
+<H4>
+<A NAME="5.4.1"></A>General</H4>
+Created by Adobe System, PostScript is an interpreted language for page
+description used by the latest generation of laser printers, photocomposition
+devices and other graphics devices; consider by many as an authentic programming
+language, it has fast become a standard item on the market.
+
+<P>PostScript, like other programming languages, is able to interpret and
+carry out commands which are particularly graphics oriented.
+
+<P>The PostScript command sequence must be sent to the interpreter in the
+form of an ASCII file. This feature involves significant advantages, since
+you can modify a PostScript file to suit your own requirements, using the
+editor of the operating system used. Moreover, it is completely portable,
+that is to say, you can transfer it from computer to computer without corrupting
+it in any way. The disadvantage is that PostScript files are much larger
+than the corresponding binary files.
+
+<P>An interesting feature of PostScript is the <I>device-dependent</I>
+resolution (for laser printers, usually 300x300 DPI or even 600x600) which
+allows you to use the features of the graphics device to best advantage.
+The device-dependent resolution derives from vector management of the characters
+and graphic entities.
+
+<P>A useful possibility is offered by specific programs on the market,
+which allow you to obtain on-screen an image which exactly represents that
+defined in a PostScript file, or rather display what would be obtained
+if you printed the file on paper, using it according to specific requirements,
+e.g.: insertion in documents.
+<H4>
+<A NAME="5.4.2"></A>The GBPLO PostScript driver</H4>
+The PostScript driver created by CAD.LAB can manage only graphics data,
+more specifically: segments, arcs and points, while all other entities
+are represented using segments. The standard fonts offered by PostScript
+are not managed and all texts are represented with the GBG DraftMaker internal
+character fonts. As a result, only software fonts can be used (QTE 3 or
+QTE 4).
+<BR>Point entities can be represented in PostScript either in hardware
+mode (as points) or in software mode (as markers, i.e.: small crosses,
+small circles, etc.). In software mode, you can also modify the size of
+the points.
+<BR>For the specific directives and options of the PostScript format, refer
+to section<A HREF="c02.htm#2.5.3">PostScript format</A>.
+<H3>
+<A NAME="5.5"></A>Printing and serial port problems<hr color="silver"></h3>
+You may, at times, be unable to print, although there are no apparent errors.
+
+<P>In such cases, go through the normal checks (printer On and ready to
+print, paper and ink available), then try one of the following procedures.
+<UL>
+<LI>
+Ensure that the printer is connected to the computer correctly and that
+the name of the device defined with GRA ODVT corresponds to the device
+(or port) to which the printer is connected.</LI>
+
+<LI>
+Ensure that the printer-computer connecting cable satisfies requirements.</LI>
+
+<LI>
+Ensure than the transmission protocol for the printer is defined correctly
+in accordance with that defined by GRA ODVC, if the protocol is used.</LI>
+
+<BR><B>Note:</B> GRA ODVC is always On by default on the serial port (with
+values: 9600, 0, 8, 1), and modifies the current configuration.
+<BR>Finally, try switching Off automatic serial port configuration, by
+entering the following directive:
+
+<P>GRA ODVC 0
+
+<P>or
+
+<P>GRA ODVC OFF.</UL>
+
+<hr color="silver">
+</body>
+</html>

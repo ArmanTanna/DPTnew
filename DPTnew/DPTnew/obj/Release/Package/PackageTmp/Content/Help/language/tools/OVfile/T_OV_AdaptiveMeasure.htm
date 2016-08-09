@@ -1,0 +1,137 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Overview of Adaptive Measure Mechanism</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Overview of Adaptive Measure mechanism</h2>
+
+<p>The Adaptive Measure mechanism enables you to link the values of dimensional parameters of solids and features with the existing entities of the model. For example, if you need the <span class="UI_MINIDIALOG" id="tdesign.msg+_SOLID_UI_LABEL_+5">Depth</span> of a linear solid to be the same as the one of an existing entity of the model, you can activate the Adaptive Measure mode and link the depth of the solid you are creating with a parameter of an existing entity. The value specified through the Adaptive Measure mechanism establishes a link with the entity selected as a reference; if the reference value changes, the linked one will also change accordingly.</p>
+
+<p>To activate the <i>Adaptive Measure selector</i> options, right-click on any mini-dialog box and select <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+1">Enable Adaptive Measure</span> from the context menu, as shown in the image below.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_2.gif"></p>
+
+<p>Now the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+11">Select</span> drop-down list is displayed with several options to link various entity parameters, as shown in the image below.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_3.gif"><br>
+<br>
+Depending upon the option selected in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+11">Select</span> drop-down list, you need to make the selection of the corresponding entity. The parameter will be captured from the entity into the mini-dialog box on which the Adaptive Measure was activated.</p>
+
+<p>The various <i>Adaptive Measure selector</i> options are discussed below (along with image illustration).</p>
+
+<table>
+<tr valign="top">
+<td width="100" class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+166">Minimum Distance</span></td>
+<td>Enables you to assign the distance value between two selected entities, which can be points, curves or surfaces.<br>
+(For example, see the points in the following illustration)<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_5.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+109">Length</span></td>
+<td>Enables you to assign the length value of a selected curve.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_6.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+10">Radius</span></td>
+<td>Enables you to assign the radius value of a selected circle or a cylindrical face.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_9.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+34">Diameter</span></td>
+<td>Enables you to assign the diameter value of a selected circle or a cylindrical face.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_10.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span></td>
+<td>Enables you to assign the angle value between two selected entities, which can be points, curves or surfaces.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_7.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+136">Dimension</span></td>
+<td>Enables you to assign the value of a selected dimension.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_8.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+For the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+10">Radius</span> and <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+34">Diameter</span> adaptive measure you can graphically select <a href="#canal"><i>Canal</i></a> surfaces whose radius is varying in both U and V directions. The radius that remains constant along one of the directions will be linked to the Adaptive Measure. For example, the fillet applied on an edge of the cylinder is a canal surface, and hence, it can be graphically selected to link its radius/diameter value using Adaptive Measure.<br>
+<br>
+If you select a non canal surface (for example a variable radius fillet) to apply Adaptive Measure (for capturing Radius or Diameter), a suitable warning will be displayed to inform about the invalid selection.<br>
+<br>
+<a name="canal"></a><b>Canal Surface definition:</b> It is a surface formed as the envelope of a family of spheres whose centers lie on a space curve; for example, a Torus.</td>
+</tr>
+</table>
+
+<p>Adaptive Measure mechanism creates a link with the selected entities, which is denoted by a prefixing <img src="../../../images/rn_901/INF546_image001.gif"> to the mini-dialog box label. (For example, see <img src="../../../images/rn_901/INF546_image001.gif"> <span class="UI_MINIDIALOG" id="tdesign.msg+_SOLID_UI_LABEL_+5">Depth</span> in the following figure). To break the link, right-click on the mini-dialog box and select the <span class="UI_OPTION" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+3">Unlink</span> option from the context menu, as shown in the image below.<br>
+<br>
+<img border="1" src="../../solids/images/new_adapt_mech_1.gif"><br>
+<br>
+To disable Adaptive Measure mechanism, right click on the mini-dialog box and select <span class="UI_OPTION" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+2">Disable Adaptive Measure</span> from the context menu.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+When you move the cursor onto a dimension that is related to an entity through the Adaptive Measure mechanism, a tooltip <b>Implicit Measure</b> is displayed. This indicates that the dimension has been defined a value "implicitly" by the Adaptive Measure mechanism.</td>
+</tr>
+</table>
+
+<p>When the cursor moves onto a dimension that is related to an entity through the Adaptive Measure mechanism, the respective entity gets highlighted. But the entity might be out of the scene and so the highlighting would not be visible.</p>
+
+<p>A command, <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7823">Zoom Measure</span> enables you to see the entity. It zooms the image so as to fit the entity to the current window. Take the example of the model in the following illustration:<br>
+<br>
+<img src="../../rn_2005T2/images/AM01.gif" border="1"><br>
+<br>
+Here, the height of the parallelepiped depends on the radius of the disk. Now suppose you change the zooming so as to enlarge the parallelepiped. If you right-click on the drive dimension, the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7823">Zoom Measure</span> option is available.<br>
+<br>
+<img src="../../rn_2005T2/images/AM02.gif" border="1"><br>
+<br>
+Select <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7823">Zoom Measure</span> to fit the disc to the current window.<br>
+<br>
+<img src="../../rn_2005T2/images/AM03.gif" border="1"></p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_Adaptive_Measure.htm"><b>Integrating the Adaptive Measure mechanism in commands</b></a></li>
+
+<li><a href="T_OV_Expressions.htm"><b>Assigning expressions in the mini-dialog boxes</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

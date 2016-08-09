@@ -1,0 +1,201 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>An Overview of Tubing</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h1>An Overview of Tubing</h1>
+
+<p><b>ThinkDesign</b> provides you the tubing functionality that supports the creation of Pipe Works. The process of Tubing involves covering a predefined path (called the Network) with Tubing elements (like tubes, elbows, flanges, connectors, etc) stored in the <b>thinkparts</b> catalogs. The creation of tubing can be done automatically covering in one shot the whole path, or by filling the path by making insertions piece by piece. All tubing elements can be chosen from a specific library. The user is provided with a standard library containing the frequently used tubing elements. Also, specific and custom-made objects can be added to the library. The Tubing functionality demands the following workflow:</p>
+
+<ul class="noleft">
+<li><a href="#thinkparts">Availability of thinkparts Tubing catalogs</a></li>
+
+<li><a href="#path">Defining the tubing path</a></li>
+
+<li><a href="#insertion">Inserting tubing elements along the path</a></li>
+
+<li><a href="#custom">Updating Tubing database with customized elements</a></li>
+</ul>
+
+<h3><a name="thinkparts">Availability of thinkparts Tubing Catalogs</a></h3>
+
+<p>All the Tubing elements are saved in the thinkparts Tubing catalogs. To view the Tubing catalogs, choose <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../images/general/litarr.gif">
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatBrowser.htm">
+<span class="UI_COMMAND" id="tt.msg+tt+335">Manager</span></a> command from the menu bar; the <b>thinkparts - Catalog Browser</b> window is displayed, as shown in the image below.<br>
+
+<br>
+<img src="../images/catalog.gif" border="1"><br>
+<br>
+ In case the Tubing catalog is not present, you need to <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Import.htm">
+<span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+15">Import</span></a> it. Otherwise, on starting a 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Tubing.msg+MenuBar_Document_Insert_Tubing+1">Tubing</span> command, a warning will be displayed instructing you to import the catalog.</p>
+
+
+<p><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span> provides the user with a library of tubing elements. All tubing elements can be chosen from a specific catalog, which is a library that includes both <i>geometric values</i> and <i>specific attributes</i> for each tubing element. The user can update the tubing library with custom made tubing catalogs.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <i>Lines</i> index contains the Line Specification, and not tubing elements. The Line Specification acts as an interface between the library and the Tubing commands. Each Line Specification is related to a specific catalog containing predefined tubing element catalogs associated to it. When the user selects one of the Line Specifications (during the Tubing command's application), only the tubing elements associated to it are applied along the tubing path. For example, a Line Specification can be for <i>welded joints</i> or <i>threaded connectors</i>. Hence on selecting one of them will insert only the corresponding type of elements in the network.</td>
+</tr>
+</table>
+
+<h3><a name="path">Defining the Tubing Path</a></h3>
+
+<p>The tubing path is defined by a profile made only of straight line entities. You can make use of either a 2D or 3D profile to define the tubing path. In case you select a non-linear profile as the tubing path, the command is applied only along straight lines, and also a warning is displayed informing you that the selected path is not completely covered by tubing elements.</p>
+
+<p>The program analyzes the tubing path and applies the appropriate tubing elements along it to form the complete tubing network. You can also define independently each tubing element to be placed along the tubing path. The following image shows a typical example of tubing path and the resulting tubing network.<br>
+<br>
+<img src="../../../images/tubing/path.gif" border="1"></p>
+
+<h3><a name="insertion">Inserting Tubing Elements along the Path</a></h3>
+
+<p>You create the tubing network by inserting the tubing elements along the predefined path. You can carry out this process in the <i>automatic covering</i> or <i>single element insertion</i> mode.</p>
+
+<p>The <a href="../FWfile/T_FW_Tubing_Network.htm"><span class="UI_OPTION" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span></a> command enables you to perform automatic covering. Once you select the network path and define the Line Specification, the program adds all relevant elements to complete the tubing network. Using this command only the standard tubing elements are added to the network.</p>
+
+
+<p>The <a href="../FWfile/T_FW_Insert_Part.htm"><span class="UI_OPTION" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span></a> command enables you to insert one part at a time along the tubing path to complete the network. Using this command, you can also add non standard tubing elements like Valves, Pressure gauges, etc to the network. Each type of tubing element can be inserted only at a specific location on a network defined by the anchor; the following table provides the details:</p>
+
+
+<a name="anchor"></a> 
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><b>Element</b></td>
+<td align="center"><b>Anchor</b></td>
+<td align="center"><b>Inserted Component</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+7">Tube</span></td>
+
+<td align="center"><img src="../../../images/tubing/tube_anchor.gif"><br>
+Line element</td>
+<td><img src="../../../images/tubing/tube.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+8">Flange</span></td>
+
+<td align="center"><img src="../../../images/tubing/flange_anchor.gif"><br>
+Endpoint</td>
+<td><img src="../../../images/tubing/flange.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+9">Elbow</span></td>
+
+<td align="center"><img src="../../../images/tubing/elbow_anchor.gif"><br>
+Corner</td>
+<td><img src="../../../images/tubing/elbow.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+10">Tee</span></td>
+
+<td align="center"><img src="../../../images/tubing/tee_anchor.gif"><br>
+Perpendicular line</td>
+<td><img src="../../../images/tubing/tee.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+11">Cross</span></td>
+
+<td align="center"><img src="../../../images/tubing/cross_anchor.gif"><br>
+Crossover line intersection</td>
+<td><img src="../../../images/tubing/cross.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+20">Socket</span></td>
+
+<td align="center"><img src="../../../images/tubing/socket_anchor.gif"><br>
+Meeting point of two collinear lines</td>
+<td><img src="../../../images/tubing/socket.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+25">Nipple</span></td>
+
+<td align="center"><img src="../../../images/tubing/nipple_anchor.gif"><br>
+Untrimmed line segment of the nipple length</td>
+<td><img src="../../../images/tubing/nipple.gif"></td>
+</tr>
+
+<tr>
+<td align="center"><span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+24">Other Parts</span><br>(Valves)</td>
+
+<td align="center"><img src="../../../images/tubing/socket_anchor.gif"><br>
+Meeting point of two collinear lines</td>
+<td><img src="../../../images/tubing/valve.gif"></td>
+</tr>
+
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Each component inserted along the tubing path to form the network is displayed in the Model Structure. However, it is not possible to apply the standard <i>assembly component modification</i> commands on Tubing components. These include <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+4858">Make X-Reference</span>, 
+<span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4319">Break Component</span>, 
+<span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4325">Unlink Component</span> etc. If tried, a suitable warning is displayed informing you that these operations are not allowed on standard parts.</td>
+
+</tr>
+</table>
+
+<p><a name="line"></a>While executing the tubing commands, you need to specify the Line Specification. It defines the way to group all tubing elements requested for a specific covering type. This can be done by using the <span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> drop-down list. By default, two Line Specifications are present in the library: <b>Steel - mean pressure - welded joints</b> and <b>Steel - mean pressure - threaded connectors</b> and you can make a selection between them. As per the selection made, all the tubing elements applied along the tubing path will only be of the corresponding type.</p>
+
+
+<p><a name="catalog"></a>As per the selected Line specification, the different tube element options associated to it are displayed in the selection list. By clicking the node symbol (<img src="../../../images/general/node.gif" align="absmiddle">), the corresponding catalog with all its data is displayed in the form of a dialog box. From this catalog, you can make the selection (by double-clicking) of the tubing element with the required configuration. Now, the program automatically chooses all other necessary tubing elements for the network, such that consistency is maintained among all of them.</p>
+
+<p><a name="flange"></a>In case you are using the Line Specification for <i>Welded Joints</i>, it is possible to insert the <i>Flanged Elements</i>. To do so, select the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+4">Flanged</span> check-box. The selection list will display the <b>Flange</b> node; use it to select the flange configuration from the corresponding catalog.</p>
+
+
+<h3><a name="custom">Updating Tubing Database with Customized Elements</a></h3>
+
+<p>All the tubing elements are managed by <b>thinkparts</b>. Hence, the modification or creation of new tubing elements has to be done by updating the Tubing catalogs. To do so, use the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatManager.htm">
+<span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span></a>. Using the Catalog Manager commands you are enabled to customize your library by creating new indexes, new catalogs and modifying the dimensions of the existing tubing elements.</p>
+
+
+<p>You can also create and customize the Line specification. When you do so, you have to ensure that there are corresponding tubing elements available in the catalog for the new Line Specification.</p>
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_TubingCustomization.htm"><b>An Overview of Tubing Customization</b></a></li>
+<li><a href="../HWfile/T_HW_customize.htm"><b>Creating Customized Tubing Catalog</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

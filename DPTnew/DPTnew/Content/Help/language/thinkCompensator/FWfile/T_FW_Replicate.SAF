@@ -1,0 +1,92 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Replicate Alignment</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7888">Replicate</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7761">Replicate Alignment</span> command enables you to modify the position of entities by performing the same controlled transformation as captured by the mesh element (representing the transformation) created by the <a href="T_FW_Pre-Alignment.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7755">Pre-Alignment</span></a>, <a href="T_FW_Optimize.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7757">Optimize Alignment</span></a> and <a href="T_FW_Contour.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7759">Optimize Contour Alignment</span></a> commands.</p>
+
+<p><a name="Entities"></a>On starting the command, you have to select (for the <span class="UI_SELECTOR" id="tdesign.msg+_EDITCMD_LABEL_+5">Entities</span> selector) the entities on which the transformation is to be replicated.</p>
+
+<p><a name="Reference"></a>For the <span class="UI_SELECTOR" id="tdesign.msg+_EDITCMD_LABEL_+30">Transformation Reference</span> selector, select the transformation mesh element.</p>
+
+<p style="margin-bottom:0;"><a name="Copies"></a>The <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box enables you to make copies of the transformation.</p>
+
+<ul class="noleft">
+<li>When this check box is selected, you can make multiple copies of the transformation. Each copy is created by applying the same transformation to the previous instance. The required number of copies can be entered in the corresponding text box.</li>
+
+<li>When this check box is cleared, no copies are made.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="Invert"></a>The <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+32">Invert Transformation</span> check box enables you the invert the transformation logic.</p>
+
+<ul class="noleft">
+<li>When this check box is selected, the sense of transformation is inverted. Hence, you get a result as if the <i>reference entity</i> has been moved to match the <i>movable entity</i>.</li>
+
+<li>When this check box is cleared, no inversion takes place.</li>
+</ul>
+
+<p>Following options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="200"><a name="Linked"></a><span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+6">Linked copies</span> check box</td>
+<td>
+<ul>
+<li>If selected, the copies are linked to their original entities. Any time the original entities are modified, the copies will be modified accordingly.</li>
+
+<li>If cleared, the copies are not linked to the original. Whatever may happen to the original entities, the copies will not change.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Keep"></a><span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+7">Keep attributes</span> check box</td>
+<td>
+<ul>
+<li>If selected, copies of entities retain their attributes (such as color, line type, and layer) of the original.</li>
+
+<li>If cleared, copies assume the corresponding current property values.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_Alignment.htm">Overview on <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span></a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

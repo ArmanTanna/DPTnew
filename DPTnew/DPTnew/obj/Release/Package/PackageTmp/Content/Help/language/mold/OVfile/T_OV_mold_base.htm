@@ -1,0 +1,110 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="T_2010t1" content="translate">
+<title>Mold Base</title>
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+
+<h2>Overview on Mold Base</h2>
+
+<p>The <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+7">Mold Base</span> commands enables you to create the mold base for the creation of core and cavity. The mold base is an assembly of plates and is created completely by an automated process to facilitate mold designing.<br>
+<br>
+There are five commands which represent the different Mold Base supplier. After creating the core and cavity (along with the inserts if required), you can build the mold base assembly using the various available catalogs. The catalogs are provided by the mold base suppliers (vendors) are represented by five new commands <a href="../FWfile/T_FW_mold_base.htm"><span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7881">DME</span></a>, <a href="../FWfile/T_FW_mold_Hasco.htm"><span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7883">HASCO</span></a>, <a href="../FWfile/T_FW_mold_meusberger.htm"><span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7892">Meusburger</span></a>, <a href="../FWfile/T_FW_mold_pedrotti.htm"><span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7891">Pedrotti</span></a>, and <a href="../FWfile/T_FW_mold_Futuba.htm"><span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+7882">Futaba</span></a>.<br>
+<br>
+The mold base assembly mainly consists of the <b>Top Plate</b>, <b>Cavity Plate</b>, <b>Core Plate</b>, <b>Core Back Plate</b>, <b>Spacers</b> and <b>Bottom Plate</b> as shown in the image below.<br>
+<br>
+ <img src="../../../images/mold/mold_base.gif" border="1"><br>
+<br>
+ The following is a brief description of the functionality of different plates.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td width="125" valign="top"><b>Top Plate</b></td>
+<td>This plate is attached to the fixed part of the molding machine and supports the <b>Cavity Plate</b>.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>Cavity Plate</b></td>
+<td>This plate has the cavity form and slide cores of the mold. Also called as <b>A</b> plate and is aligned to the core plate.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>Core Plate</b></td>
+<td>This plate is attached to the movable part of the molding machine which has the core form of the mold and is also called as <b>B</b> plate.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>Core Back Plate</b></td>
+<td>It supports the core and cavity plates and acts as a back up plate.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>Spacers</b></td>
+<td>This plate is placed between the movable <b>Bottom Plate</b> and the <b>Core Plate</b>. This plate provides space and allows the plate to move while ejecting the mold part.</td>
+</tr>
+
+<tr>
+<td valign="top"><b>Bottom Plate</b></td>
+<td>This plate acts as a base plate and is attached to the movable part of the molding machine. It supports the <b>Core Plates</b>, <b>Spacers</b> and <b>Core Back Plates</b>.</td>
+</tr>
+</table><br>
+
+Additional plates like floating plate or stripper can also be inserted in the Mold base assembly.
+<br><br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<ul class="noleft">
+<li>The catalogs have to be installed to create the mold base.</li>
+
+<li>The origin of the <b>Work Plane</b> is taken as reference for creating the mold base. The origin is positioned exactly at the middle of the core and cavity.</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>In some case it is useful to have three guide pillar with the same diameter and the 4th with another diameter. In order to allow this choice the <b>3 + 1</b> option for <b>Leader Pin Top Shank</b> and <b>Leader pin busings</b> is available in the <b>Guide Elements</b> tab of the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+34">DME</span> and <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+61">MEUSBURGER</span> catalogs.<br>
+If the <b>3+1</b> option is <b>No</b>, all the four leader pins have same diameter. If it is <b>Yes</b>, three leader pins have same diameter and the 4th has a lesser diameter. The 4th leader pin will be placed at lower right of top view.<br>In order to access the said features in the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+34">DME</span>, <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+62">HASCO</span> and <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+61">MEUSBURGER</span> catalogs you have to import the ones available starting from version 2014.1.</p>
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+
+
+<li><a href="../HWfile/T_HW_create_mold_base.htm"><b>Create a Mold Base</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

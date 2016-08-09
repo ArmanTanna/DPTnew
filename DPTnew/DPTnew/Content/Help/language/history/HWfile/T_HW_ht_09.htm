@@ -1,0 +1,109 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Rebuilding Step by Step</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Rebuilding Step by Step</h2>
+
+<p>The following illustration explains the procedure of using the <a href="../FWfile/T_FW_ht_09.htm"><b><span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span></b></a> command to update the model one feature at a time. This method enables you to visualize and control each step of the model rebuilding process.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Open the <i>pillar_any_mating.e3</i> file from the <i>Samples</i> folder of your installation. Expand the <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> to see all the features in it.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>To enable the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span> button ( <img src="../../../images/general/Rebuild_Step.gif" align="absmiddle"> ) in the selection list, ensure that the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1477">Show Rebuild Step by Step in selection list</span> box is checked in the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span></a> category of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Right-click on the last feature (Linear Sweep) in the model structure and select the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span> option from the context menu.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>In the graphics area, change the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+245">Depth 1</span> value from <b>70</b> to <b>20</b>.<br>
+<br>
+<img src="../images/Rebuild_Step01.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>5</b></td>
+<td>Select the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span> button from the selection list; the <span class="UI_OPTION" id="idd_steppedrebuild.msg+idd_steppedrebuild+1">Rebuild Step by Step</span> dialog box will be displayed. Select the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_TOOLTIP_+212">Rebuild Next Event</span> button ( <img src="../../../images/history/Rebuild_Next.gif" align="absmiddle"> ) from the dialog box to start the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span> process.<br>
+<br>
+<img src="../images/Rebuild_Step02.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>6</b></td>
+<td>The feature that is at the next level gets rebuild. Select the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_TOOLTIP_+212">Rebuild Next Event</span> button again to rebuild the next feature. 
+<p>You can repeat this process till all the features have been rebuild. The feature that has been rebuild is displayed in the graphics area. A red arrow ( <img src="../../../images/history/arrow.gif" align="absmiddle"> ) is displayed in the model structure besides the name of the feature that will be rebuild next.</p>
+<img src="../images/Rebuild_Step03.gif" border="1"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>7</b></td>
+<td>To rebuild the model till a specific feature, for example the <b>Linear Protrusion</b> feature, select it in the <span class="UI_OPTION" id="idd_steppedrebuild.msg+idd_steppedrebuild+1">Rebuild Step by Step</span> dialog box and then choose the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_TOOLTIP_+216">Rebuild till Selection</span> button ( <img src="../../../images/history/Rebuild_To.gif" align="absmiddle"> ). The model gets rebuild till the selected feature in a single step.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>8</b></td>
+<td>You can choose the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_TOOLTIP_+215">Rebuild All</span> button ( <img src="../../../images/history/Rebuild_All.gif" align="absmiddle"> ) at any stage of the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span> process to rebuild all the features of the model in a single step. The fully rebuild model will be displayed as shown below.<br>
+<br>
+<img src="../../../images/history/Rebuild_Step05.gif" border="1"> <br>
+<br>
+Finally choose the <span class="UI_OPTION" id="idd_steppedrebuild.msg+idd_steppedrebuild+2">Close</span> button to close the <span class="UI_OPTION" id="idd_steppedrebuild.msg+idd_steppedrebuild+1">Rebuild Step by Step</span> dialog box.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>9</b></td>
+<td>If at any stage of the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span> process, an error occurs in rebuilding a specific feature, it can be redefined or removed from the model by choosing the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+265">Redefine</span> or <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+266">Remove</span> buttons respectively from the <span class="UI_OPTION" id="idd_steppedrebuild.msg+idd_steppedrebuild+1">Rebuild Step by Step</span> dialog box.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job:  Projecting a curve representing text laying it down on a cylindrical surface</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.litleft{margin-left:28;}</style>
+
+<style>.noleft{margin-left:22;margin-top:0;}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<H4>Laying down a curve representing text onto a cylindrical surface</h4>
+<p>Suppose you have a model like the following and you want to lay down the "LOGO" text onto the surface.
+<BR><BR><IMG border=1 SRC="../../../../images/curves/LT00.gif"><BR><BR>
+Before projecting the text onto the surface, break it into its component curves using the <a  href="../../../edit/FWfile/T_FW_ed_break.htm"><b>Break</b></a> command. After breaking the text and starting the <a  href="../FWfile/T_FW_cv_15.htm"><B>Project Curve</B></a> command, proceed as follows.
+<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the curves using an <a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic03.htm">automatic window selection</a>.
+
+<BR><BR><IMG border=1 SRC="../../../../images/curves/LT01.gif"><BR><BR>
+End selection by right-clicking and choosing <b>Continue</b> in the context menu. To change the selected curves, right-click on <b>Curves</b>, choose <b>Reset</b> in the context menu and perform selection again.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Method</b> drop-down list, select <b>Laying down</b>. The <b>Surface</b>, <b>Curve Reference Data</b> and <b>Surface Reference Data</b> items will show up in the selection list.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Click on the surface onto which you want to lay down the curve.<br>
+<BR><IMG border=1  src="../../../../images/curves/LT02.gif"><br><br>
+End selection by right-clicking and choosing <b>Continue</b> in the context menu. To change the selected surface, right-click on <b>Surfaces</b>, choose <b>Reset</b> in the context menu and perform selection again.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Specify the reference point on the curve.<br>
+<BR><IMG border=1  src="../../images/LT03.gif"><br><br>To change the selected point, right-click on <b>Reference point</b> under <b>Curve Reference Data</b>, choose <b>Reset</b> in the context menu and select another point.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Specify the reference point on the surface.<br>
+<BR><IMG border=1  src="../../images/LT04.gif"><br><br>
+A preview is displayed.<br> 
+<BR><IMG border=1  src="../../../../images/curves/LT05.gif" ><br><br>
+To change the selected point, right-click on <b>Reference point</b> under <b>Surface Reference Data</b>, choose <b>Reset</b> in the context menu and select another point.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the curves.<br><br><IMG border=1  src="../../../../images/curves/LT06.gif" ><br><br>            <P>The curves are fitted with a polyline. The plane containing each 
+            section of the polyline is rotated so that it coincides with the 
+            fitting plane of the surface using the smaller of the two possible 
+            rotation angles. Note that if the two planes are perpendicular, you can click on a 
+            point to the left or right of the selected starting pint to indicate the direction of rotation.<P>Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your selections.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_cv_03_15_01.htm"><b>Laying down curves onto a surface</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

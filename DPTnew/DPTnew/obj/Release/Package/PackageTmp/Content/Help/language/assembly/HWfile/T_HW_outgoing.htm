@@ -1,0 +1,84 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating/breaking a component including outgoing references</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Creating/breaking a component including outgoing references</h4>
+
+When creating a new component:
+
+<p>
+<TABLE>
+<TR VALIGN=top>
+<TD><P>If the entities selected have references with other entities not included in the selection, the program asks you how to deal with such outgoing references.</P> 
+
+You get information about the outgoing references that are involved:
+<ul>
+<li><b>Current</b> &nbsp;&#151;&nbsp; highlights the current entity 
+<li><b>Total</b> &nbsp;&#151;&nbsp; states how many entities are involved
+</ul>
+
+By selecting <b>Next</b>, the following entity is highlighted. 
+<p> 
+For each outgoing reference you have the following options: 
+
+<UL>
+<LI><B>Keep</B> &#151; enables you to preserve the link created in the modeling phase  
+<LI><B>Unlink</B> &#151; enables you to <I>break</I> the link, which will be lost.
+</ul>
+
+Select <b>Apply to All</b> to keep/unlink the relation to all the entities.
+
+</p>
+
+
+
+</TD>
+</TR>
+
+</table>
+
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+The same information is applied to an existing component, including outgoing references, that is broken: exactly as during the component creation, when breaking a component you can view the outgoing references that are involved and decide whether any of them/all of them must be kept or not.</td></tr></table>
+</p> 
+
+
+<p>
+Please note that when you select an entity with outgoing references which refer to <i>two</i> levels up in the assembly hierarchy, you get a message warning you that the reference cannot be kept because it depends on one or more entities outside the current component.</p>
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+In other terms, outgoing references are allowed only if they refer just to one level up in the hierarchy.
+</td></tr></table><p></p>
+
+<hr color="silver">
+</body>
+</html>
+
+
+

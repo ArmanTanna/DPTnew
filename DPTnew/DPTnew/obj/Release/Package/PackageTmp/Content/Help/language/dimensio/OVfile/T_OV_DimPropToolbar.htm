@@ -1,0 +1,91 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<title>Dimension Properties Toolbar</title>
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h1>Dimension Properties Toolbar</h1>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar enables you to quickly edit or define a limited set of properties of dimensions and texts. The tools are designed to offer you a quick access to the most used dimension and text properties.</p>
+
+<p>Use the <span class="UI_OPTION" id="idp_cust_vistb.msg+idp_cust_vistb+5418">Toolbars</span> tab of the <span class="UI_OPTION" id="Sheet.msg+Sheet+5542">Customize</span> dialog box to display the default <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar. Note that the program can manage the toolbar status automatically or manually, and you are enabled to switch between the two modes:</p>
+
+<ul class="noleft" style="margin-bottom: 0px;">
+<li>By default, when you select one or more dimensions, the program displays the toolbar automatically. When you cancel the selection, the program hides the toolbar automatically.</li>
+<li>If you turn the toolbar on or off when in idle mode (i.e. no dimension is selected), the status of the toolbar becomes the new default, and the toolbar status management will be the same as that of any other toolbar. In other words, the automatic mechanism is turned off and you have to display or hide the toolbar manually.</li>
+<li>In order to enable the automatic display mode, select at least one dimension, then turn on the toolbar. When you then cancel the selection, the program hides the toolbar.</li>
+</ul>
+
+<p>In the default configuration, the toolbar provides you with the tools to control properties such as:</p>
+
+<ul class="noleft" style="margin-bottom: 0px;">
+<li>The Linear Dimensions Arrow type and the visibility of witness lines</li>
+<li>The Dimension Text size</li>
+<li>Text effects such as underlining, parentheses and orientation</li>
+<li>The presence of the Radius symbol in radius dimensions, of the Diameter symbol in linear dimensions, and of the Symmetry symbol in linear and diameter dimensions</li>
+<li>The Measure prefix and suffix</li>
+<li>The Tolerance format and content</li>
+</ul>
+
+<p>When you rest the cursor on the toolbar commands, the program displays a tooltip with a short description of the command. At the bottom of customizable drop-down lists you find the <span class="UI_OPTION" id="eklib.msg+proenh+6">Edit</span> command that enables you to edit the list of values available.</p>
+<br>
+
+<h4><span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> commands behavior</h4>
+
+<p>The toolbar commands act differently whether there are preselected entities or not:</p>
+<br>
+
+<h5>With preselection</h5>
+
+<p>When you preselect a dimension or text, the toolbar reflects the properties of the entity; when you select multiple entities, only values that are constant through the selected entities are displayed, while the others are blanked. Non applicable properties are disabled. When you change a property, all preselected entities are assigned the value you have specified.</p>
+<br>
+
+<h5>Without preselection or while inserting entities</h5>
+
+<p>When no dimension or text is selected, if you use one of the commands in the <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar to set a property to a certain value, the entities you then insert acquire the value you have specified until you reset it.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">The properties you set with the <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar commands override the current style property values for the entities involved. The overridden properties are displayed in bold in the entity properties dialog box. Use the <a href="mk:@MSITStore:forcus.chm::/language/format/OVfile/T_OV_Resetstyle.htm"><span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7567">Reset to Style</span></a> command to restore the entity style if you need to.</td>
+</tr>
+</table>
+<br><br>
+
+<h4><span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar customization</h4>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar is fully customizable. You are also enabled to create new ones. Use the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1716">Customize</span> command to add and remove buttons to the existing <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbars. Note that although you are enabled to add any command to a <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar, only dimension or text properties will operate as described above.</p>
+
+<p>The <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_NewToolbarObject.htm"><span class="UI_COMMAND" id="ContextMenu_Customize.msg+ContextMenu_Customize+7756">New Toolbar Object</span></a> command enables you to have full control of the customization of existing <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbars and to enable you to create new ones. You can find the <span class="UI_COMMAND" id="ContextMenu_Customize.msg+ContextMenu_Customize+7756">New Toolbar Object</span> command in the context menu of the properties of the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> and <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> categories of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span>.</p>
+
+<p>When you execute the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1716">Customize</span> command and you right-click on the toolbar background, the program displays a context menu with the <span class="UI_COMMAND" id="ContextMenu_Customize.msg+ContextMenu_Customize+7757">Use Block to Align</span> command. This command enables you insert non-functional blocks of various sizes that are designed to serve as place holders or separators for the alignment of the objects in the toolbar.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:cu.chm::/language/tbcustom/NewTBDimProp.htm"><b>Creating a new Dimension Properties Toolbar</b></a></li>
+<li><a href="mk:@MSITStore:cu.chm::/language/tbcustom/CustTBDimProp.htm"><b>Customizing a Dimension Properties toolbar</b></a></li>
+</ul>
+
+<hr color="navy">
+</body>
+</html>

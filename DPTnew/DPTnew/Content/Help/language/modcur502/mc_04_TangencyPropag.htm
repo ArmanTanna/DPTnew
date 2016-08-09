@@ -1,0 +1,56 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<TITLE>Job: Setting tangency and modifying one curve only: the propagation factor</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style>.noleft{margin-left:22;margin-top:0;margin-bottom:0;}</style>
+
+<style>.litleft{margin-left:26;margin-top:0;margin-bottom:0;}</style>
+
+</head>
+
+
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+<H4><A NAME="mc_ex_03_04"></A>Setting tangency and modifying one curve only: the propagation factor</h4>
+
+<I>The example below shows the effect of changing the propagation factor:
+the higher the propagation factor, the longer the section of curve affected
+by the change.</I>
+<BR>&nbsp;
+<OL class="litleft">
+<LI>Open file "mc_02_04.<SPAN id="TWOD">e3</SPAN><SPAN id="HIDETD">e2</SPAN>".<br><br><IMG border=1 src="../../images/modcur502/mci12_04.gif"><br>&nbsp;
+<LI>
+Start the <a  href="../curves/FWfile/T_FW_mc_04.htm"><b>Curve Continuity</b></a> command.<br>&nbsp;
+<LI>In the <b>Degree</b> drop-down list select <B>Tangency</B>.<br>&nbsp;
+<li>In the <b>Method</b> drop-down list select <b>Fit reference curve</b>.<br>&nbsp;
+<LI>
+Click first on the arc and then on the straight line segment (which must remain unchanged), as shown below:
+<br><br><IMG border=1 src="../../images/modcur502/mci13_04.gif"><br>&nbsp;
+<LI>Enable conversion to NURBS by answering <b>Yes</b>.<br>&nbsp;
+<LI>Type the value 1 in the <B>Scale</B> box under <b>More Options</b> and the value 0.2 in the <B>Propagation</B> mini-dialog box which shows up<SPAN id="TWOD"> in the model</SPAN>, respectively.<br>&nbsp;
+<LI>
+Click <img src="../../images/general/OKbutton.gif" border="0"> to obtain the following result:<br><BR><IMG border=1 src="../../images/modcur502/mci17_04.gif"><br>&nbsp;
+<LI>Repeat the exercise using a scale value of 1 again, and a propagation factor of 0.8. Compare the results obtained: 
+<P><IMG border=1 src="images/mci16_04.gif"></P>
+</LI></OL>
+
+<hr color="silver">
+</body>
+</html>

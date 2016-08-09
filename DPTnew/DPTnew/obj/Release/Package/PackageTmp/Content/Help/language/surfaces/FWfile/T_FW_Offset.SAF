@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Offset Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1426">Offset</span> </p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Offset Surface</b></i> 
+</td>
+ --></tr>
+</table>
+<br>&nbsp;<br>
+
+<p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+122">Offset Surface</span> command enables you to create the offset surfaces of a set of selected surfaces. You just need to select the surfaces, to choose the creation method (see below) and to specify the offset distance.</p>
+
+
+<p>An offset surface is a surface with all points located at an equal distance from a selected reference surface. Thus, the offset surface passes through all the points that are at the same distance (the offset distance) from the reference surface along each principal normal drawn from each point on the reference surface. The resulting offset surface is of the same type as its reference surface.</p>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list enables you to choose the offset creation method:</p>
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+482">No trim/extension</span><br>
+
+the offset of each selected surface will be created separately, so that if you apply it to a set of surfaces the resulting offset may differ from the original shape.<br>
+If you select this option, in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+234">Reference</span> drop-down list you can choose the method to be used to create the offset surface: 
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+348">Normal</span><br>
+
+creates the offset surfaces along the normal of each of the selected surfaces (either on the positive or on the negative side: you can double-click the handle to invert the orientation).<br>
+</li>
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+235">View</span><br>
+
+creates the offset surfaces on the outside part of the surface relative to the current view, no matter how the normals are oriented. For further details, see "<a href="../HWfile/T_HW_OffsetView.htm">Using the Reference View option</a>".</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+481">Automatic trim/extension</span><br>
+
+the initial connection between surfaces will be preserved, so that if you apply it to a set of surfaces the resulting offset will resemble the original shape as much as possible.</li>
+</ul>
+
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+177">Distance</span> mini-dialog box enables you to specify the offset distance. When necessary, as soon as the reference surface is selected, the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+123">Max. distance</span> mini-dialog box shows up, displaying the maximum offset distance you can use to create a surface with no self-intersections.</p>
+
+
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b> <br>
+The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> check box enables you to control the link between the offset surfaces and the ones they derive from: 
+
+
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When the check box is selected, the offset surface will retain a link to the original surface, so that if the latter is modified, the former will change accordingly.</li>
+
+<li>When the check box is cleared, the offset surface will retain no link to the original one.</li>
+</ul>
+
+For further details, see "<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>".</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Offset.htm"><b>Create the offset of a set of surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_OffsetView.htm"><b>Using the Reference View option</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

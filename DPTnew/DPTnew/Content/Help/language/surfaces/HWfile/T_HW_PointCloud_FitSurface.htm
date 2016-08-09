@@ -1,0 +1,177 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a Point Cloud surface by fitting an existing surface</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a Point Cloud surface by fitting an existing surface</h3>
+
+<p>In the following step-by-step example you will create a surface by fitting an existing one.<br>
+<i>Please note that you can accomplish this task by loading sample file "sr0308.e3".</i><br>
+<br>
+<img border="1" src="../../../images/surfaces/srex04_08.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_PointCloud.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+343">Point Cloud</span></a> command.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>If not already selected, in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+504">Surface Type</span> drop-down list select 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+502">Fit cloud of points</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+509">Input Mode</span> drop-down list, choose 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+507">Fit surface</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Select surface to be fitted.<br>
+<br>
+<img border="1" src="../../../images/surfaces/sri80_08.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>5</b></td>
+<td>Under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+520">NURBS parameters</span>, set the values for the resulting surface. For example set the following: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+198">Deg. U</span></td>
+
+
+<td>4</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+196">Cont. U</span></td>
+
+
+<td>2</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+199">Deg. V</span></td>
+
+
+<td>4</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+197">Cont. V</span></td>
+
+
+<td>2</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+200">Arcs U</span></td>
+
+
+<td>2</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+201">Arcs V</span></td>
+
+
+<td>2</td>
+</tr>
+</table>
+
+Click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ). The preview of the resulting surface is displayed:<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/sri81_08.gif"><br>
+<br>
+The fitting parameters are also displayed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+123">Max. distance</span>
+
+
+<br>
+the distance of the point that is farthest away from the fitting surface, which you can display by selecting the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+519">Most distant point</span> check box.</li>
+
+
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+516">Mean square error</span>
+
+
+<br>
+Let <i>d<sub>i</sub></i> be the distance of the point <i>P<sub>i</sub></i> from the fitting surface and <i>n</i> the number of points to be fitted. The mean square error <i>E<sub>qm</sub></i>is the following:<BR><IMG src="../../../images/surfaces/eqm_white.gif"><BR>&nbsp;
+</li>
+</ul>
+
+You can iterate the fitting process by clicking <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+516">Mean square error</span>, thus reducing the above said values. The number of iterations can also be set (in the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+517">No. of iterations</span> box).<br>
+
+
+You can have a preview of the control points for the resulting surface by checking the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+153">Show Control Points</span> box.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surface.
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

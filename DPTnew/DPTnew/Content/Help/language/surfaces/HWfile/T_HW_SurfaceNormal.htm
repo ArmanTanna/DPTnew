@@ -1,0 +1,115 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Modifying a degenerate surface normal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Modifying a degenerate surface normal</h3>
+
+<p class="notop">By using the <a href="../FWfile/T_FW_SurfaceNormal.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+251">Normal to Degenerate Surface</span></a> command you can very easily define the normal of a degenerate surface. You can proceed as follows. You can follow this step-by-step example by loading file:"DegenerateSurface.e3"<br>
+
+
+
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SrfNormal01.gif"><br>
+<br>
+Using the <a href="../../tools/to_07/FWfile/T_FW_to_20_07.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7369">Normals</span></a> command under 
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span>, you can see the normal at the topmost vertex of the surface is not univocally defined:<br>
+
+
+
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SrfNormal01b.gif"><br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the degenerate surface to be modified (please note that non-degenerate surface selection is not enabled).<br>
+If the selected surface is not a NURBS, you will be asked for a confirmation to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>).<br>
+
+
+
+
+
+<br>
+Once the surface is selected, the normal at the topmost vertex is automatically defined and a preview is displayed.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SrfNormal02.gif"><br>
+<br>
+The command enables you to correctly define the normal but, as you can see, this inevitably has the effect of modifying the shape of the surface.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>2</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SrfNornal03.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<p>Now, if you check the surface normals using the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7369">Normals</span> command under 
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span> again, you will see the normal at the topmost vertex is correctly defined.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SrfNormal02b.gif"><br>
+<br>
+</p>
+
+<hr color="silver">
+</body>
+</html>
+

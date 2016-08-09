@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Job: Adding a Step Bend to a solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Adding a <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> to a solid</h3>
+
+<p>The following illustration explains the procedure of using the <a href="../FWfile/T_FW_Step_Bend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span></a> command to replace an existing bend.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Open the <i>step_bend.e3</i> file from the <i>Samples</i> folder of your installation. The sheet metal component contains an existing bend which is to be replaced by a step bend. The shading of the model is set to <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> for better clarity.<br>
+<br>
+<img src="../../../images/sheetmetal/step_bend01.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Start the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> command and select the bend surface from the graphics area. Expand the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> branch in the selection list and specify in the graphics area the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+20">Radius</span> value as <b>2</b>. This will define the radius value of each bend in the step bend.<br>
+<br>
+<img src="../images/step_bend_02.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+135">Number</span> edit box of the selection list, specify <b>4</b> as the number of bends.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+To compute the number of bends as per the specified value of chordal error, click on the down arrow besides <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+135">Number</span> and select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+136">Chordal Error</span>. You can now specify the value of <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+136">Chordal Error</span> in the corresponding edit box.</td>
+</tr>
+</table>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>In <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, check the 
+
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+137">Constant Angle</span> box to maintain a constant angle between all the bends of the step bend. Finally click the 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> button <img src="../../../images/general/OKbutton.gif"> to create the step bend.<br>
+<br>
+<img src="../../../images/sheetmetal/step_bend04.gif" border="1"> <br>
+<br>
+ If the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+137">Constant Angle</span> check box is not selected, the angle of the last bends is not consistent with the angles of the remaining bends.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Job: Managing transitions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>
+.notop{margin-top:0;}
+</style>
+
+<style>
+.noleft{margin-left:22;}
+.litleft{margin-left:26;}
+</style>
+
+<style>
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style>blockquote{margin-left:22;margin-top:2;margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h3><a name="transitions"></a>Managing transitions</h3>
+<p class="notop">Transitions are edges between adjacent curves in the base curve set. If you look at the base curves, they are points where continuity is only positional: there is no tangency continuity.
+<p align="center"><IMG src="../../../images/rn_500/sri13_24.gif"></p>
+Transitions can be "<i>closing</i>" or "<i>opening</i>" 
+      according to the side where the draft is generated.
+<ul class="noleft">
+<li><i>Opening transitions</i><br>are the transition points where the generation of the draft is not well defined: there are different ways to create the filling surfaces. This is the reason why they are subject to choice.
+<li><i>Closing transitions</i>are always obtained by the intersecting of the two adjacent surfaces.
+
+
+</ul>
+<p>As soon as the <b>More Options</b> button is selected, The <b>Transitions</b> item is displayed in the selection list and a cross marker is displayed on each transition point.<BR><BR><IMG border=1 SRC="../images/TP-01.gif"><BR><BR>
+Initially, all transition points belong to the same group (see the <b>Points (Group 1 Default)</b> selector in the selection list). 
+<ul class="noleft">
+<li>To define the type of transition for all the points of Group 1, click on <b>Points (Group 1 Default)</b>. The <b>Transition</b> drop-down list will be displayed in the model:
+<BR><BR><IMG border=1 SRC="../images/TP-02.gif"><BR><BR>
+You can choose the transition type among the following:
+<table>
+<tr valign="top">
+<td width="100"><b>Tangent</b></td>
+<td>To create a cylindrical filling surface:<BR><BR><IMG border=1 src="../../../images/surfaces/sri02_24.gif"><BR>&nbsp;<BR></td>
+</tr>
+<tr valign="top">
+<td><b>Sharp</b></td>
+<td>To create a sharp edge by simply extending the two concurrent surfaces:<BR><BR><IMG border=1 src="../../../images/surfaces/sri03_24.gif"><BR>&nbsp;<BR></td>
+</tr>
+<tr valign="top">
+<td><b>Curvature miter</b></td>
+<td>To create an edge keeping only curvature continuity with both concurrent surfaces:<BR><BR><IMG border=1 src="../../../images/surfaces/sri04_24.gif"><BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>Tangency miter</b></td>
+<td>To create an edge keeping only tangency continuity with both concurrent surfaces:<BR><BR><IMG border=1 src="../../../images/surfaces/sri05_24.gif"><BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>Flat</b></td>
+<td>To create a flat filling surface:<BR><BR><IMG border=1 src="../../../images/surfaces/sri06_24.gif"><BR>&nbsp;</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>The chosen transition type will be applied to all the transition points belonging to the group.<p></p>
+<li> To change the transition type for one or more points, you'll have to move it/them to another group:
+<ol class="litleft">
+<li>Click on the next yellow <b>Points (Group </b><i>n</i><b>)</b> item in the selection list
+<BR><BR><IMG border=1 SRC="../images/TP-03.gif"><BR><BR>
+<li>Click on the point(s) to be moved
+<BR><BR><IMG border=1 SRC="../images/TP-04.gif"><BR><BR>
+</ol>
+A new <b>Transition</b> drop-down list will be displayed, enabling you to choose the transition type you desire for the points of the new group.<BR><BR><IMG border=1 SRC="../images/TP-05.gif">
+</ul>
+
+<hr color="silver">
+</body>
+</html> 

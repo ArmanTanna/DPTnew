@@ -1,0 +1,174 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Job: Generating Camera Movements During Animation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Generating Camera Movements During Animation</h3>
+
+<p><i>It is strongly recommended to go through the <a href="T_HW_Animation.htm">Creating an Animation</a> document before attempting this tutorial.</i></p>
+
+<p>It is possible to modify the position from which the animation is being viewed as if being looked through a camera. Follow the steps given below to understand the details on how to control the camera orientation by specifying data for the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> evolution.</p>
+
+<p>In the first case, the animation is created in which the camera remains stationary at one location, however rotates itself to pan on the model.</p>
+
+<ol class="noleft">
+<li>Open the <i>Camera.e3</i> file from the <i>Samples</i> folder of your installation. In the assembly, you will find a red curve, blue curve and a red point (use the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_17.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+5681">Fit View</span></a> command if required). The curves and the point will be used to specify the camera's movement and its focus.<br>
+<br>
+</li>
+
+<li>Invoke the <a href="../FWfile/T_FW_Animation.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+1552">Animation</span></a> command; the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+1">Animation</span> dialog box is displayed. Note that the animation for running the assembly is already created.<br>
+<br>
+</li>
+
+<li>Activate the <b>Fixed Camera</b> animation in the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+10">List of Animations:</span> area. Please refer to the <a href="T_HW_Anm-List.htm">Managing the Animation List</a> document for details.<br>
+<br>
+</li>
+
+<li>Create a new <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> evolution by referring to the <a href="T_HW_Evolution.htm">Adding Evolution for Animation</a> document.<br>
+<br>
+</li>
+
+<li>Create the variation for the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> evolution by referring to the <a href="T_HW_Variaton.htm">Creating Variations</a> document and then set its parameters as:<br>
+ <span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 0, <span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 20<br>
+<br>
+</li>
+
+<li>Right-click on the variation for the camera and select the <span class="UI_OPTION" id="TDAnimationControls.msg+_TDANIMATIONCONTROLS_MENU_+35">Set Camera Data</span> option from the context menu; the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+15">Animation - Evolution</span> selection list is displayed in the Graphics Area. Now the following two items need to be necessarily selected: 
+
+<table>
+<tr valign="top">
+<td width="100"><a name="CP"></a><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+43">Camera Path</span></td>
+<td>It is the point or the curve that defines how the focal point of view changes in time. 
+
+<ul class="noleft">
+<li>Selecting a point means that the camera's focus is fixed on it.</li>
+
+<li>Selecting a curve means that the camera is panning and its focus is moved along the specified path</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="TP"></a><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+46">Target Path</span></td>
+<td>It is the point or the curve that defines how the target of the camera changes in time. 
+
+<ul class="noleft">
+<li>Selecting a point means that the target is fixed</li>
+
+<li>Selecting a curve means that the target is moved along the specified path</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<a name="#Invert"></a> 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+In case the selection is a curve, the context menu on the selector shows the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+45">Invert Movement Direction</span> option. Since a curve has its own orientation, the camera or the target will be moved accordingly. By using this option the user can invert the movement direction.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>For the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+43">Camera Path</span> selector, select the red point. For the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+46">Target Path</span> selector, select the blue curve. The selections will be highlighted on the Graphics Area as shown below.<br>
+<br>
+<img src="../../../images/Animation/fixed_camera.gif" border="1"><br>
+<br>
+ Such a selection will make the camera's position fixed at the specified point. However, the camera will pan (rotate) so that its focus moves along the specified curve.<br>
+<br>
+</li>
+
+<li>Additional control over the camera movement can be achieved by specifying the options available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. These are:<br>
+<br>
+<a name="NCP"></a> <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+44">No. of Control Points</span><br>
+<br>
+The default value is 0. In this case, the camera movement is calculated by interpolation considering the total time frame of the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> variation and the specified camera data. For a <b>0</b> value the camera moves at a constant velocity over the specified time frame.<br>
+<br>
+If one or more control points are specified, the time frame of the variation can be divided into as many parts. The velocity of the camera between two consecutive control points is decided by the location of the points over the curve. The following image shows the situation for two control points.<br>
+<br>
+<img src="../../../images/Animation/control_points.gif" border="1"><br>
+<br>
+The position of the control points can be modified by dragging them to the desired location. By inverting the position of the control points, it is possible to temporarily invert the camera movement direction.<br>
+<br>
+<a name="Dir"></a> <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span><br>
+<br>
+The data for the direction option specifies the orientation of the camera. By default the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+40">Z</span> direction is considered. However, it can be changed to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+38">X</span> or <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+39">Y</span>. The direction can also be specified by selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> or <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span> option.<br>
+<br>
+</li>
+
+<li>Once all the parameters have been specified, select the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+1">OK</span> (<img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle">) button to continue.<br>
+<br>
+</li>
+
+<li>Now playback the animation by referring to the <a href="../OVfile/T_OV_Playback.htm">Animation Playback</a> document. Ensure before playback that the current view has been set to <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_Perspective.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+7768">Perspective Projection</span></a>.</li>
+</ol>
+
+<p>In the second case, the animation is created in which the camera moves along a specified path; however it constantly maintains its focus at a point on the model.</p>
+
+<ol start="11" class="noleft">
+<li>Activate the <b>Fixed Focus</b> animation in the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+10">List of Animations:</span> area. Please refer to the <a href="T_HW_Anm-List.htm">Managing the Animation List</a> document for details.<br>
+<br>
+</li>
+
+<li>Repeat the steps <b>4</b> and <b>5</b>.<br>
+<br>
+</li>
+
+<li>For the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+43">Camera Path</span> selector, select the red curve. For the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+46">Target Path</span> selector, select a point at the center of the wheel. The selections will be highlighted on the Graphics Area as shown below.<br>
+<br>
+<img src="../../../images/Animation/fixed_focus.gif" border="1"><br>
+<br>
+ Such a selection will make the camera move along the specified curve. However, the camera will be constantly focused at the center of the wheel.<br>
+<br>
+</li>
+
+<li>Repeat the steps <b>9</b> and <b>10</b>.<br>
+<br>
+</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+You can hide the curves and point before animation playback to avoid their presence.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_Camera_Walk.htm"><b>Create a Walk-through Animation</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

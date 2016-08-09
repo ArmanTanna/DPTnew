@@ -1,0 +1,192 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t2" content="translate">
+<title>An Overview of Fillets</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h1>An Overview of Fillets</h1>
+
+<p>Fillets are provided on the points and lines experiencing high stress to increase the load bearing capacity and to reduce the stress concentration in mechanical parts. Fillets are also used in aerodynamics to reduce the interference drag. The <b>think</b><font color="#FF0F00"><b>3</b></font> application provides you with four types of fillet commands:</p>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_ft_09_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6307">Edge Fillet</span></a></li>
+
+<li><a href="../FWfile/T_FW_ft_09_02.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6309">Face Fillet</span></a></li>
+
+<li><a href="../FWfile/T_FW_ft_09_03.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6311">Solid Fillet</span></a></li>
+
+<li><a href="../FWfile/T_FW_ft_face.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7734">Face to Face Fillet</span></a></li>
+</ul>
+
+<h2>Types of Fillets</h2>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td><b>Structural fillets</b></td>
+<td>The fillets that are responsible for the shape of the model are called structural fillets.</td>
+<td><img src="../../../images/features/Structural_fillet_2.gif"></td>
+</tr>
+
+<tr>
+<td><b>Finish fillets</b></td>
+<td>The fillets that can be created in the later stages of the modeling without affecting the prime geometry of the model are called finish fillet.</td>
+<td><img src="../../../images/features/finish_fillet.gif"></td>
+</tr>
+
+<tr>
+<td><b>Convex fillets</b></td>
+<td>In this case, the material is removed from the edge to create the fillet.</td>
+<td><img src="../../../images/features/Convex_fillet_1.gif"></td>
+</tr>
+
+<tr>
+<td><b>Concave fillet</b></td>
+<td>In this case, material is added to the edge to create the fillet.</td>
+<td><img src="../../../images/features/concave_fillet_1.gif"></td>
+</tr>
+</table>
+
+<p>Fillets maintain continuity with its adjecent faces, depending upon the setting made during the application of the fillet commands. Click <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm">here</a> to know about various continuity types.</p>
+
+<h2>Rules for Creating Fillets</h2>
+
+<ul class="noleft">
+<li><a href="#struc">Create Structural fillets before Finish fillets</a></li>
+
+<li><a href="#Shell">Create Shell features after fillets</a></li>
+
+<li><a href="#Draft">Create Draft feature before fillets</a></li>
+
+<li><a href="#BigRadius">Create big radius fillets before small ones</a></li>
+</ul>
+
+<h3><a name="struc"></a>Create Structural fillets before Finish fillets</h3>
+
+<p>Structural fillets have been created in the first image shown below. Later on, you can be able to create the finish fillets by using the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+26">Tangency Chain</span> option of the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6307">Edge Fillet</span> command, as shown in images below. Also, a proper capping surface is created.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Bigger_radius_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Bigger_radius_1.gif"> </td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Bigger_radius_3.gif"> </td>
+</tr>
+</table>
+<br>
+
+<p>On the other hand, if you invert the order for creating the fillets, that is, if you create the finish fillets first and then the structural fillets, the right type of capping surface might not be created, as shown in the images.<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Smaller_radius_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Smaller_radius_1.gif"> </td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Smaller_radius_3.gif"> </td>
+</tr>
+</table>
+<br>
+<h3><a name="shell"></a>Create Shell features after fillets</h3>
+
+<p>In order to create a shell object with constant wall thickness, it is advisable to have the structural fillets created before the Shell feature. In that case, the fillet radius of inside edges is automatically adjusted in such a way that the resultant wall thickness will be constant throughout. An example is shown in the following image.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Fillet_shell_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Fillet_shell_1.gif"> </td>
+</tr>
+</table>
+
+<p>On the contrary, if you first create Shell feature and then Fillet feature, the result will be different. The model does not maintain a constant wall thickness, as shown in the images below.
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/shell_fillet_1.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/shell_fillet_2.gif"></td>
+</tr>
+</table>
+
+<h3><a name="Draft"></a>Create Draft feature before fillets</h3>
+
+<p>It is always advisable to create the Draft feature before the fillets in a model. In the following set of images, Draft feature has been created first and then Fillets have been made, that have constant radius.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Draft_fillet_error_1.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Draft_fillet_error_2.gif"></td>
+</tr>
+</table>
+
+<p>On the other hand if draft is provided on the filleted model, the resulting fillets will be tapered or have variable radius, as shown in the images below. This might not be the designer's intention.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Draft_fillet_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Draft_fillet_1.gif"></td>
+</tr>
+</table>
+
+<h3><a name="BigRadius"></a>Create big radius fillets before small ones</h3>
+
+<p>Always provide big radius fillets before smaller ones. As you can see in the images below, bigger radius fillet has been created first on the selected edge and the fillet of small radius has been created later.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/Structural_fillet_1.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/Structural_fillet_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/finish_fillet.gif"></td>
+</tr>
+</table>
+
+<p>On the contrary, if you invert the sequence of creating the fillets, as shown in the images below, the capping surfaces is not correctly generated causing a defect in the model.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../images/features/fillet_error_1.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/fillet_error_2.gif"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../images/features/fillet_error_3.gif"></td>
+</tr>
+</table>
+<hr color="silver">
+</body>
+</html>
+

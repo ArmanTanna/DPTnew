@@ -1,0 +1,87 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+<meta name="T_2009t1" content="internally">
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>Symbolic expressions in the standard title block</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE>.noleft{margin-left:22}</STYLE>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<h3><a name="titleblock"></a>Symbolic expressions in the standard title block</h3>
+<p>Let us have a look at the standard title block that comes with the application.
+<ol class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_01.htm">Create a new drawing</a>
+
+<li>Add a format and a title block to the drawing using <b>Insert<img src="../../images/general/litarr.gif">Drawing Details<img src="../../images/general/litarr.gif"><a href="../FWfile/T_FW_DFaTB.htm">Format and Title Block</a></b>. The title block will look like the following:<BR><BR><IMG SRC="../images/mil01_03.gif"><BR><BR>
+</ol>
+If you turn off the symbolic text expansion by deselecting the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_TEXT.htm"><b>Symbolic text expansion</b></a> check box in the <b>Options/Properties</b> dialog box, you will see all the source <a href="#intitleblocks">symbolic expressions that were used in the title block</a>. <br>
+
+Each of the symbolic expressions in the standard title block contains a <i>default description</i> (see previous examples). All properties used inside the symbolic expressions of the standard title block are <i>predefined properties</i>. <br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" width="90%" align="center">
+<tr>
+<td class=noteme  bordercolor="#ffffe1"><b>Set the default value</b>
+<p>If no value is specified in the string defining the model name ($MM{COMPNAME=""}), a default string will be displayed: &lt;part number&gt;.
+<br>As the size of such string may exceed the space assigned to the corresponding field, it is strongly recommended that you set a default value by assigning the property a blank character:<p><b>$MM{</b>COMPNAME<b>=" "}</b></p>
+<p>This way, no string will be displayed and the space occupied will be the same as the one of a blank character.
+</td></tr></table><p></p>
+
+<h5><a name="intitleblocks"></a>Symbolic expressions used in standard title blocks<hr color="silver"></h5>
+
+Here follows the description of all the symbolic expressions used in standard title blocks. See the previous examples for <i>default descriptions</i> and <i>date formats</i>. For detailed information about the predefined properties used in title blocks, see also the lists of <a href="T_OV_SY_DocProp.htm">Document properties</a>,  of <a href="T_OV_SY_CmpProp.htm">Part properties</a> and of <a href="T_OV_SY_RelProp.htm">Relation properties</a>.
+<br><br>
+<table border=1 bordercolor="navy">
+<tr><td>
+<p>$M{DOCNAME:f("#clear(&lt;undef&gt;@)")="&lt;document name&gt;"}</p>
+<blockquote><b>Document Name</b>: Displays the document name. If no document name is defined, it displays the string ""&lt;document name&gt;". If the document name has a "&lt;undef&gt;" prefix, the whole name will not be displayed.</blockquote>
+
+<p>$M{DOCPROG="&lt;version&gt;"}</p>
+<blockquote><b>Document Version</b>: Displays the document version (an integer number in a series: 1, 2, 3, ...); if no version has been defined by <b>thinkPLM</b>, it displays the string "&lt;version&gt;".</blockquote>
+
+<p>$M{DOCDES="&lt;document description&gt;"}</p>
+<blockquote><b>Document Description</b>: Displays the document description. If no description is defined, it displays the string "&lt;document description&gt;".</blockquote>
+
+<p>$M{DOCOPEC="&lt;cr. operator&gt;"}</p>
+<blockquote><b>Created by</b>: Displays the creation operator. If no creation operator is defined, it displays the string "&lt;cr. operator&gt;".</blockquote>
+
+<p>$M{DOCCDATE:f("#date(%m/%d/%Y)")="&lt;creation date&gt;")}</p>
+<blockquote><b>Creation Date</b>: Displays the date the document was created (in the format m/d/Y, for example: 11/30/1999). If no creation date is defined, it displays the string "&lt;creation date&gt;".</blockquote>
+
+<p>$MM{COMPDES="&lt;part description&gt;"}</p>
+<blockquote><b>Part Description</b>: Displays the description of the part. If no part description is defined, it displays the string "&lt;part description&gt;".</blockquote>
+
+<p>$MM{COMPTTERM="&lt;heat treatment&gt;"}</p>
+<blockquote><b>Heat Treatment</b>: Displays the heat treatment value. If no heat treatment is defined, it displays the string "&lt;heat treatment&gt;".</blockquote>
+
+<p>$MM{COMPTSUP="&lt;surface treatment&gt;"}</p>
+<blockquote><b>Surface Treatment</b>: Displays the surface treatment value. If no surface treatment is defined, it displays the string "&lt;surface treatment&gt;".</blockquote>
+
+<p>$MM{COMPNAME:f("#clear(&lt;undef&gt;@)")="&lt;part number&gt;"}</p>
+<blockquote><b>Part Number</b>: Displays the part number; if no part number is defined, it displays the string "&lt;part number&gt;". If the part number has a "&lt;undef&gt;" prefix, the whole part number will not be displayed.</blockquote>
+
+<p>$MM{COMPPROG="&lt;version&gt;"}</p>
+<blockquote><b>Part Version</b>: Displays the part version(an integer number in a series: 1, 2, 3, ...); if no version has been defined by <b>thinkPLM</b>, it displays the string "&lt;version&gt;".</blockquote>
+
+<p>$MM{COMPWT:f(%0.1f)="&lt;weight&gt;"}</p>
+<blockquote><b>Weight</b>: Displays the weight property, where ".1f" is the number of decimal digits you desire.</blockquote>
+</td></tr>
+</table></blockquote></DIV>
+
+<hr color="silver">
+</body>
+</html>

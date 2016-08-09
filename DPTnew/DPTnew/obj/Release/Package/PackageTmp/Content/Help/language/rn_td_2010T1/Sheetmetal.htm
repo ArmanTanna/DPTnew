@@ -1,0 +1,115 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Sheet Metal Functionalities and Improvements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Sheet Metal Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Sheet Metal functionality.</p>
+
+<ul class="noleft">
+<li><a href="#647">Improvement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7777">Step Bend</span> command</a></li>
+
+<li><a href="#685">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command</a></li>
+
+<li><a href="#648">Improvement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!--PRJ647==OWN== Atheeswaran Marriappan -->
+<h2><a name="647"></a>Improvement in the <span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7777">Step Bend</span> command</h2>
+
+<p>It is possible to create steps on a <i>twisted bend surface</i>, as shown in the images below.</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td align="center"><img src="../../images/rn_td_2010T1/Twist_surface_1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td align="center"><img src="../../images/rn_td_2010T1/Twist_surface_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Twisted bend surface</b></td>
+<td></td>
+<td align="center"><b>Step bends created</b></td>
+</tr>
+</table>
+
+<p>A message is displayed in case the specified relief diameter is greater or lesser than the required relief diameter.</p>
+
+<p>You need to set the <b>Circular</b> option in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+468">Type:</span> drop-down list of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span>-<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span>-<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL_RELIEF_CORNER.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+465">Corner Reliefs</span></a> category before applying the <a href="mk:@MSITStore:shm.chm::/language/sheetmetal/Fwfile/T_FW_Step_Bend.htm"><span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7777">Step Bend</span></a> command on the <i>twisted bend surface</i>.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ <!-- CCB==648== OWN: Alok Mishra -->
+<h2><a name="685">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+6912">Flange</span> command</a></h2>
+
+<p>It is possible to create a <a href="mk:@MSITStore:shm.chm::/language/sheetmetal/FWfile/T_FW_Flange.htm">flange</a> on the edge having adjacent non-perpendicular side faces. The <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+172">Adjacent Normal Side Face</span> check box has been introduced in the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+39">Flange</span> selection list.<br>
+<br>
+</p>
+
+<ul>
+<li>When this check box is cleared, the angle of the adjacent face is retained. Also, the side face of the flange is created with the same angle, as shown in the images below.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td align="center"><img src="../../images/rn_td_2010T1/Flange_1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td align="center"><img src="../../images/rn_td_2010T1/Flange_2.gif" border="1"></td>
+</tr>
+</table>
+</li>
+
+<li>When this check box is selected, the adjacent inclined side face to the selected edge becomes perpendicular to create the flange, as shown in the images below.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td align="center"><img src="../../images/rn_td_2010T1/Flange_1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td align="center"><img src="../../images/rn_td_2010T1/Flange_3.gif" border="1"></td>
+</tr>
+</table>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10% style=" style="margin-left:30" style="margin-bottom:10;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+172">Adjacent Normal Side Face</span> check box is displayed only when the sheet metal model contains inclined side faces.</td>
+</tr>
+</table>
+
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="648">Improvement in the <span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command</a></h2>
+
+<p>With the improvements made in the <a href="mk:@MSITStore:shm.chm::/language/sheetmetal/FWfile/T_FW_Wizard.htm"><span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></a> command, the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+56">Middle</span> and <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+54">Full</span> type of rips are now supported for more cases.</p>
+
+<hr color="silver">
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+</body>
+</html>
+

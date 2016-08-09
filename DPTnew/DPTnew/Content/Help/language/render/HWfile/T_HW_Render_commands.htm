@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Render Commands</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Render Commands</h3>
+
+<p>There are three render commands available for rendering a model. Each type of rendering is different in its affect on the image obtained after rendering.</p>
+
+<a name="preview"></a><table style="border-bottom-width: thick;border-right-width: thick" bgcolor="#ffffff" border="1" bordercolor="Black" width="100%">
+<tr bordercolor="#ffffff">
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span> </td>
+</tr>
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span> command enables you to quickly render the model. The quality of the rendering is not high, but it enables the user to have the first look of the rendered image.</p>
+
+<hr color="silver">
+<a name="ray"></a><table style="border-bottom-width: thick;border-right-width: thick" bgcolor="#ffffff" border="1" bordercolor="Black" width="100%">
+<tr bordercolor="#ffffff">
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7667">Ray Tracing</span> </td>
+</tr>
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7667">Ray Tracing</span> command enables you to render the model as a fully shaded and textured, antialiased image using the full ray tracer render. The geometry is sampled at a sufficient rate to eliminate aliasing artifacts in regions of high intensity gradient.<br>
+<br>
+<img src="../../../images/thinkreal/Ray_trace.jpg" border="1"><br>
+<br>
+ The image above illustrates the important feature about ray tracing:
+
+<ul class="noleft">
+<li>It supports multithreaded ray tracing of the model.</li>
+
+<li>Infinite no of rays are reflected (bounced) of the model when rendered.</li>
+
+<li>It accurately models the glass and reflective surfaces.</li>
+</ul>
+</p>
+<hr color="silver">
+
+<a name="final"></a><table style="border-bottom-width: thick;border-right-width: thick" bgcolor="#ffffff" border="1" bordercolor="Black" width="100%">
+<tr bordercolor="#ffffff">
+<td><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7665">Static Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7668">Final Gathering</span> </td>
+</tr>
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7668">Final Gathering</span> command enables you to view the model from a point of view. After primary ray hits the point on objects, the final gather is activated. It reflects additional rays to the environment of the object and collects color information around the point for which the color is then computed. This yields an extremely realistic shading effect when rendered.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_Render_commands.htm">Rendering</a></li>
+
+<li><a href="T_HW_render.htm">Dynamic and Static Rendering</a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

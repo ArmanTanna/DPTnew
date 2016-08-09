@@ -1,0 +1,155 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<TITLE>Entity Relations (Model Structure)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+
+<style>.noleft{margin-left:22;}</style>
+
+</head>
+
+<body onload="viaMk();"   bgcolor="white">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Tools<img src="../../images/general/litarr.gif">Info<img src="../../images/general/litarr.gif">Entity Relations</p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Entity Relations</b></i>
+</td>
+ --></tr></table>
+<br>&nbsp;<br>
+
+<p>The <B>Entity Relations</B> command enables you to retrieve information about the history of the selected entity, belonging to the <b>Model Structure</b> or to the <b>Mating Structure</b> in case of constraints. In addition to the information on the main entity/event, you can view the events that are possibly related to the selected entity. Among the related events, you can view the ones ensuring the existence of the selected entity (parents) and the ones of which the selected entity ensures the existence (children).</p>
+<p>The command can be performed from the <b>Info</b> sub-menu in the context menus on the entity and on the event in the <b>Model Structure</b> or in the <b>Mating Structure</b> in case of constraints, including its root, and from <B>Tools<IMG src="../../images/general/litarr.gif"
+>Info<IMG src="../../images/general/litarr.gif">Entity Relations</B>. In this case, if no entity is selected, the program prompts to select it.</p>
+
+<p>A dialog box is displayed, including the following information:</p>
+
+<p>
+<table>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>Type of entity, such as solid, mating constraint, feature, profile, corresponding to the selected event in the <b>Model Structure</b> or in the <b>Mating Structure</b></td>
+</tr>
+<tr valign="top">
+<td><b>Name</b></td>
+<td>Entity user name, if available</td>
+</tr>
+<tr valign="top">
+<td><b>Show relations</b></td>
+<td>
+<table>
+<tr valign="top">
+<td><b>Quick history</b></td>
+<td>This option allows you to make a faster search of all relationships of the selected entity, considering components as black box. This mode will be the default, to make the dialog be accessible as fast as is possible. The relations are presented using two list types <b>Parents</b> and <b>Children</b>.</td>
+</tr>
+<tr valign="top">
+<td><b>Full history</b></td>
+<td>This option allows for a deeper (and thus slower) search of all relationships of the selected entity, where relationships are searched for also inside all the components in the assembly. Here also the relations are presented using two list types <b>Parents</b> and <b>Children</b>.</td>
+</tr>
+<tr valign="top">
+<td><b>Mating</b></td>
+<td>The <b>Mating</b> mode is customized to better reflect its new purpose. It details the different parameters used in placing the constraint that have been selected.<!--  The relations are presented using two list types <b>Positioning Constraints</b> and <b>Referring Constraints</b>. --></td>
+</tr>
+</table>
+</td>
+
+<tr valign="top">
+<td><b>Parents</b></td>
+<td>Events, related to the selected entity, that ensure its existence</td>
+</tr>
+<tr valign="top">
+<td><b>Number of parent events</b></td>
+<td>Number of 'parents' events related to the selected entity</td>
+</tr>
+<tr valign="top">
+<td><b>Children</b></td>
+<td>Events, related to the selected entity, that exist only if the selected entity exists</td>
+</tr>
+<tr valign="top">
+<td><b>Number of child events</b></td>
+<td>Number of 'children' events related to the selected entity</td>
+</tr>
+</table>
+</p>
+<p>
+In addition, you find the following buttons:
+</p>
+<p>
+<table>
+<tr valign="top">
+<td><b>Zoom Entity</b></td>
+<td>Enables you to zoom in the main entity</td>
+</tr>
+<tr valign="top">
+<td><b>Close</b></td>
+<td>Closes the dialog box</td>
+</tr>
+<tr valign="top">
+<td><b>Analyze Selection</b></td>
+<td>Enables you to analyze the entity relations of a different entity, selected in one of the list views</td>
+<tr valign="top">
+<td><b>Redefine Selection</b></td>
+<td>Enables you to redefine the entity, selected in one of the list views if applicable</td>
+</tr>
+</table>
+</p>
+
+<p>
+The list views show the &quot;parents&quot; and &quot;children&quot; history events related to the one selected. They also show the different items, not strictly belonging to the <b>Model Structure</b>, such as annotations, with their ordinary icons.
+</p>
+
+
+
+
+
+
+<p>
+When you select an event in the list views, the corresponding entity is highlighted on screen and marked by an asterisk in the <b>Model Structure</b> for visual feedback.</p>
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">Note that, when the command is applied to a solid, you can view exclusively what &nbsp;&#151;&nbsp; outside the solid itself &nbsp;&#151;&nbsp; depends on entities inside the solid. For instance, you can't view features inside the solid, while, by applying the command to a feature, you can view the features coming before and after.
+This implies that, when performing the command on a solid, you may view the <i>same</i> feature both as a parent and as a child. </p>
+
+<p>Also note that, when you open an X-Reference component as a model and invoke the <b>Entity Relations</b> command from the root of the <b>Model Structure</b>, you can view the assembly/component the X-Reference component comes from as parent and, in the children list view, all the features within the X-Reference component which depend on the parent elements. This capability enables you to get some useful information when you manage X-Reference components on which some problems may arise because of missing parametric relationships with the entities they come from/are linked to.
+</td></tr></table></p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_Ent_relation.htm"><b>Understand Entity Relations</b></a>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><b>X-Reference Component</b></a>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

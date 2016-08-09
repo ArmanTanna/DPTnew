@@ -1,0 +1,154 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Replacing a Component</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+blockquote
+ {margin-top:0; margin-left:22;
+ margin-bottom:0; margin-right:0;}
+</style>
+
+<style type="text/css">
+ .jjj
+ {
+  text-align : justify;
+ }
+</style>
+
+<style type="text/css">
+.subtitle
+ {font-family: Verdana; 
+ font-size: 10.5pt; 
+ font-weight: bold;
+ margin-bottom:0; }
+</style>
+
+<style type="text/css">
+.littop
+{margin-top:5;
+margin-bottom:5}
+</style>
+
+<style type="text/css">
+.smallerfont
+ {font-family: Verdana; 
+ font-size: 8.5pt; }
+</style>
+
+<style type="text/css">
+.h1like
+ {font-family: Verdana; 
+ font-size: 16pt;
+ font-weight: bold; }
+</style>
+
+<style type="text/css">
+ .nobot
+{
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .smaller
+{
+font-family:Verdana;
+font-size:9pt;
+}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4 class="nobot">Replacing a component</h4>
+
+
+<p>On starting the <a href="../FWfile/T_FW_as_10.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_Group.msg+MenuBar_Document_Modify_Group+4512">Replace</span></a> command, you are prompted to select a component.
+
+
+&nbsp;</p>
+
+<table border="0">
+<tr valign="top">
+<td><b>1</b>&nbsp;</td>
+<td>Click on the component you want to replace.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>If the component you select has only one occurrence in the model, a standard <b>Open File</b> dialog box is displayed. Select the file representing the component you want to use to replace the selected component, and then click <b>Open</b>. The new component immediately replaces the original one and it is introduced as X-Reference. You can then select another component to replace, or end the command.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="5%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Replacing a component with multiple instances</b><br>
+When you try to replace a component with multiple instances, you are asked if you want to replace only the selected instance or all of them. When in a model you have some patterns of a component and some instances of the same component not belonging to any of the patterns, what happens is the following. 
+
+<ul class="noleft">
+<li>If there is just one pattern, then you will also be asked if you want to replace only the selected instance or all the ones belonging to the pattern</li>
+<li>If there are more than one pattern, you will be asked to confirm changing all the instances, including the ones not belonging to any pattern.</li></ul>
+
+<p><b>Replacing a component involved in a mating event</b><br>
+When you replace a component involved in one or more mating constraints (no matter whether it is the moving or the reference object), the program asks you if the mating event(s) must be kept or removed. If the event(s) is/are kept, depending on the replacing component, the mating constraints may have to be redefined, unless you used components including the same <a href="mk:@MSITStore:help.chm::/language/glossary/T_symbolic_references.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Modify_SymbolicReference.msg+MenuBar_Document_Modify_SymbolicReference+7070">Symbolic Reference</span></a>. In this case, the program tries and look for equivalent Symbolic References in the new component, updating the constraints whenever equivalent references are found. When more than one Symbolic Reference exists, the program chooses one, then you can solve ambiguities possibly arising by the 
+<a href="mk:@MSITStore:help.chm::/language/SymbRefs/FWfile/T_FW_SymbRefsSolveAmbiguity.htm">
+
+<span class="UI_OPTION" id="MenuBar_Document_Modify_SymbolicReference.msg+MenuBar_Document_Modify_SymbolicReference+7071">Solve Ambiguities</span></a> command.</p>
+
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_HW_ReplaceCompSymbRefs.htm"><b>Replace a component with Symbolic References</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+
+

@@ -1,0 +1,113 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Splitting a surface along a silhouette</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Splitting a surface along a silhouette</h3>
+
+<p class="notop">To split a surface along a silhouette using the <a href="../FWfile/T_FW_SplitWithSilhouette.htm"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+19">Split with Silhouette</span></a> command, you can proceed as described below (<i>please note that you can accomplish this task by loading file "SplitWithSilhouette.e3"</i>).</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After starting the command, select the surface and end selection.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPLSH01.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+5">Sight Mode</span> drop-down list, select 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+3">Parallel direction</span>.<br>
+
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+3">Parallel direction</span> drop-down list, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> and then click on the X axis of the Work Plane to choose the corresponding direction.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/SPLS_SX.gif"> <br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+367">High quality splitting curves</span> check box enables you to choose the type of curves to be used to split the selected surfaces: 
+
+
+<ul class="noleft" style="margin-bottom:12;">
+<li>When the check box is selected, the curves used to split the selected surfaces will be the curves that would be generated in the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_12.htm#Sil">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span></a> option of the 
+<a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_12.htm">
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span></a> command with the 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box selected (the accuracy of which is higher). For details, see "<a href="../../curves/OVfile/T_OV_COS.htm">Curves On Surfaces</a>&quot.</li>
+
+
+<li>When the check box is cleared, the curves used to split the selected surfaces are ordinary silhouettes.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" border="0" align="absmiddle"> ) to get a preview of the result.<br>
+
+ <br>
+<img border="1" src="../../../images/surfaces/SPLSH02.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and split the surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPLSH03.gif"><br>
+<br>
+As you can see, the color differentiation has been applied according to the color settings available under <b>More Options</b>. By checking the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+22">Output on different layers</span> box, you also might have differentiated the output layer for each of the parts the original surface has been split into (
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+20">Cavity surface color</span>, 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+21">Core surface color</span>, 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+26">Parallel surface color</span>: in each drop-down list you can either choose an existing layer or type in the name of a new one to create it).</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

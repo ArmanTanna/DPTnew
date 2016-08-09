@@ -1,0 +1,78 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="2015t1" content="translate">
+<meta name="Revisor" content="NIBI">
+<TITLE>Job:Isolating a mating constraint</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Isolating a mating constraint</i></H3>
+
+<p>When working with complex assemblies, there can be situations when you need to check mating constraints for <b>interferences</b>, <b>form and fit</b> etc. The <a  href="../FWfile/T_FW_Isolate.htm"><b>Isolate</b></a> command enables you to view the selected mating constraint discreetly. You can apply this command on mating events at any level of the assembly hierarchy.
+
+<p>Apply the command, on the top level mating constraint of a Kinematic chain assembly.</p>
+<img src="../../../images/assembly/Isolate1.gif" border="1"><br><br>
+
+<TABLE>
+
+<TR VALIGN=top>
+<TD width="20"><B>1</B>&nbsp;</TD>
+<TD>Check the history and apply the command on the <b>Coincidence</b> constraint in the Mating Structure as shown in the image below.<br><br>
+<img src="../images/Isolate2.gif" border="1"><br><br>
+<p>The entities that are involved in the constraint are isolated from the assembly.</p>
+<img src="../images/Isolate3.gif" border="1">
+<p>
+<ul class="noleft30">
+<li>The Selection list clearly indicates that it is an <b>Isolate</b> command applied on a <b>Coincidence</b> constraint.
+<li> All entities are hidden showing only those which involve the constraints. 
+<li> The constraints are shown with highlighted faces and arrows.
+<li> A zoom is applied on the involved components.
+<li> When you <img  align="absmiddle" src="../../../images/general/CANCELbutton.gif" border="0"> <b>Cancel</b> the command, the previous view is restored.
+</ul></p>
+</TD>
+</TR>
+
+
+<TR VALIGN=top>
+<TD><B>2</B></TD>
+<TD>Now apply the command on a mating constraint at a lower level in the assembly, as shown in th eimage below</b>.<br><br>
+<img src="../images/Isolate4.gif" border="1">
+<p>The entities that are involved in the constraint are isolated from the assembly.</p>
+<img src="../images/Isolate5.gif" border="1">
+<p>
+<ul class="noleft30">
+<!-- <li>The Selection list clearly indicates that it is an <b>Isolate</b> command applied on a <b>Concentric</b> constraint. -->
+<li><!--  The entity group that is part of the constraint is <b>Set Current</b>.  -->All other entities in the same level of the group are hidden showing only those which involve the constraints (In this case, there are only two components that form the constraint and therefore there are no hidden entities.<!--  Check the Model Structure -->). 
+<!-- <li> All entities higher up in the assembly hierarchy are visible but <b>grayed</b>. -->
+<li> The constraints are shown with highlighted faces and arrows.
+<li> A zoom is applied on the involved components.
+<li> When you <img align="absmiddle" src="../../../images/general/CANCELbutton.gif" border="0"> <b>Cancel</b> the command, the previous view is restored.
+</ul></p>
+</TABLE>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a  href="../OVfile/T_OV_Create_VB.htm"><b>Create Visual Bookmark</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

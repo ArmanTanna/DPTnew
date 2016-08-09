@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2010t1" content="translate">
+<title>Overview on Checks</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Overview on Checks</h2>
+
+<p>The validation of the cooling system is an important aspect of Mold designing. Validation helps in checking the correctness of the cooling system. You are enabled to optionally do an <i>Interference check</i> and <i>Drill Length check</i> to determine the correctness of the cooling network design and highlight the possible errors. However this validation will never block the application from performing the command. These are just indications based on which you can alter or correct the design of the cooling network. The following are the two checks that can be performed on the cooling network:</p>
+
+<h4><a name="#cool_1"></a><span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+5">Interference</span> Check</h4>
+
+<p>The Interference check verifies any interference between the designed cooling path and the wall surface. When <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+5">Interference</span> check box is selected in the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+1">Mold Cooling</span> selection list, you can define the interference gap (in mm) based on which the check is performed on selecting the <b>Perform Checks</b> <img src="../../../images/general/perform_button.gif" alt="" border="0" align="middle"> button. Then those points are highlighted on the model where the gap at the interference is more than the defined value.<br>
+<br>
+<img src="../images/cooling_interference.gif" border="1"><br>
+<br>
+ The interferences found can be resolved by either redesigning the cooling network or by redefining the <i>Interference gap</i> distance.</p>
+
+<h4><a name="#cool_2"></a><span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+7">Drill Length</span> Check</h4>
+
+<p>The <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+7">Drill Length</span> check performs a check for the length of the drill hole. When <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+7">Drill Length</span> check box is selected, you can define the maximum drill length based on which the check is performed on selecting the <b>Perform Checks</b> <img src="../../../images/general/perform_button.gif" alt="" border="0" align="middle"> button in the selection list. Then those points are highlighted on the model where the length of the drill is more than the defined value.<br>
+<br>
+ <img src="../images/cooling_drill.gif" border="1"><br>
+<br>
+ The <b>Exceeds Drill Length</b> found can be resolved by redesigning the cooling network or by redefining the <i>Maximum Drill</i> length.</p>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_cooling_catalog.htm"><b>Catalogs</b></a></li>
+
+<li><a href="T_OV_cooling_hole_table.htm"><b>Information on Hole</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

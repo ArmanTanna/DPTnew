@@ -1,0 +1,69 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Use curves carefully</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Use curves carefully</h3>
+<p class="notop">Here are some tips on how to use curves whithin the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command.<p></p>
+
+<ul class="noleft">
+<li>Do not use curves with discontinuities or holes
+<li>Use the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm"><b>Chain</b></a> selection command.
+
+</ul><br>
+For example, while working with the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command you might happen not to be able to select curves as initial and/or target curves. Nothing seems to happen and no mini-dialog appears.<br>&nbsp;
+
+<ul class="noleft">
+<li>GSM does not work with curves that have different "singularities", that's to say when one curve has a sharp corner (even if obtained as the result of applying the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_05.htm"><b>Join Curve</b></a> to different curves) and another is a single continuos curve (no sharp corners). <BR><BR><IMG border=1 SRC="images/cv01.gif"><BR><br>The two curves are an arc (green) and a curve (red) made of two joined curves at a sharp angle. Please note that joining curves (using <b>Union</b>) at a sharp angle (or non-tangent) is not a correct procedure.
+
+<li>One possible solution is splitting (<b><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_07.htm">Split</a></b>) the arc into two parts:
+
+<BR><BR><IMG border=1 SRC="images/cv02.gif"><BR><br>so that you can select two groups of curves (line-arc, line-arc) 
+<BR><BR><IMG border=1 SRC="images/cv03.gif"><BR>&nbsp;
+<li>Another solution is to introduce a sharp point into the arc (modifying the arc using the <a href="mk:@MSITStore:help.chm::/language/curves/mc_01/FWfile/T_FW_mc_01.htm"><b>Control Points</b></a> command or in other ways)
+
+<BR><BR><IMG border=1 SRC="images/cv04.gif"><BR><br>
+In this case it will work because the Initial curves and the Target curves have the same number of "singularities" or "sharp points".
+<BR><BR><IMG border=1 SRC="images/Icv05.gif">
+</ul>
+
+<hr color="silver">
+</body>
+</html>

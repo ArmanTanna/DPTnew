@@ -1,0 +1,315 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t2" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<title>New Drafting and Dimension Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- txt4chinese.css -->
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<link href="../JSandSTYLES/txt4chinese.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Drafting and Dimension Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.2 introduces the following enhancements and improvements to the Drafting and Dimension functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P608">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span> command</a></li>
+
+<li><a href="#P608_Label">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1467">Label</span> command</a></li>
+
+<li><a href="#P613">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span> command</a></li>
+
+<li><a href="#P652">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1443">Text</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000608 - OWN: DIPA -->
+<h2><a name="P608"></a>Enhancements in the <span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span> command</h2>
+
+<p>Many important enhancements have been made in the <span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span> command, with the goal of having balloons as a <i>family</i>. The enhancements include:</p>
+
+<ul>
+<li><a href="#Twoline">Balloons with double line</a></li>
+
+<li><a href="#stack">Stacking of the balloons</a></li>
+
+<li><a href="#Edit">Modifying a balloon stack</a></li>
+
+<li class="HideThis"><a href="#Edit_part">Editing the part properties and updating the part list</a></li>
+</ul>
+
+<h3><a name="Twoline"></a>Balloons with double line</h3>
+
+<p>In the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+35">Manual Balloon</span> selection list, the old <span class="OLD">Text</span> option has been replaced with two new options &mdash; <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+164">Text above</span> and <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+165">Text below</span> &mdash; to permit creation of double line balloons.</p>
+
+<h3><a name="stack"></a>Stacking of the balloons</h3>
+
+<p>A new and very useful possibility is now available in the <span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span> command. When the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+151">Stack balloons</span> check box is selected, it is possible to stack the balloons in the order of their component selection. On selecting the check box, the drop-down list with following stacking alignment possibilities is activated.<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+154">Horizontally</span></td>
+<td>Enables you to stack the balloons horizontally. Depending on the slope of the leader line, the direction (left or right) will be determined.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+155">Vertically up</span></td>
+<td>Enables you to stack the balloons in the vertically upward direction.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+156">Vertically down</span></td>
+<td>Enables you to stack the balloons in the vertically downward direction.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>The following are the various stacking functionalities.</p>
+
+<br>
+<ul>
+<li>When only one component is selected, it is mandatory to select an existing balloon for alignment reference. Once the reference balloon for the alignment is selected, the stacked balloon preview will be displayed as per the selected stacking direction. If the selected reference balloon belongs to already stacked balloons, then the balloon:<br>
+<ul class="noleft">
+<li>direction will be same as the reference stack direction, and</li>
+
+<li>will be placed at the end of the stacked balloons.</li>
+</ul>
+
+<br>
+<br>
+</li>
+
+<li>When more than one component is selected, the stacking starts automatically and a preview will be displayed with the leader line starting from the origin of the first selected component in the array of components.<br>
+<br>
+</li>
+
+<li>When the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+152">AutoOrder</span> check box is selected, the leader line will start from the component having least <tt>RELPOS</tt> number (item position) and the balloons will be stacked in ascending order of the <tt>RELPOS</tt>.<br>
+Note that this check box is available only when the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+151">Stack balloons</span> check box is selected.<br>
+<br>
+</li>
+
+<li>When the frame type is <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+93">Underlining</span>, the serially stacked balloons will be separated by the "<b>V</b>" symbol and the vertically stacked balloons by the "<b>|</b>" (vertical line) symbol. The symbol size attributes can be defined by using the Text and Frame Offset parameters from the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DIMENSION_TEXT_FONTSFRAMES.htm"><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1069">Font &amp; Frame</span></a> category.<br>
+<br>
+</li>
+</ul>
+
+<h3><a name="Edit"></a>Modifying a balloon stack</h3>
+
+<p>The modifications that can be done on a balloon stack include appending and deletion of a balloon.<br>
+<br>
+ The new <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7920">Insert New Balloon</span> command has been added to the context menu, enabling you to append a balloon to the existing balloon stack. If the reference balloon is from a balloon stack, the new balloon will be appended at the end of the same balloon stack. If not it will be added after the reference balloon itself.</p>
+
+<br>
+ 
+
+<p>You have the possibility of deleting a balloon from a stack by using the generic <span class="UI_OPTION" id="ContextMenu_Customize.msg+ContextMenu_Customize+3974">Delete</span> command. When you try to delete a balloon with leader line from a balloon family, an appropriate warning will be displayed.</p>
+
+<br>
+<p><a name="OPS_rem"></a><span class="HideThis">A new <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1846">Remove related part properties</span> check box has been introduced in the <span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+297">Dimension</span> category to delete the related part properties on every balloon deletion.</span></p>
+
+<h3 class="HideThis"><a name="Edit_part"></a>Editing the part properties and updating the part list</h3>
+
+<p><span class="HideThis">The new <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+153">Edit related part properties</span> check box has been introduced in the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+35">Manual Balloon</span> selection list. When selected, it displays the <span class="UI_OPTION" id="TdUILibCMD.msg+_TdUILib_LABEL_+3">Edit Part Properties</span> dialog box after the balloon is placed on the drawing. The properties that are modified in the dialog box get automatically updated in the part list, if present in the drawing.</span></p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000608 - OWN: DIPA -->
+ 
+
+<h2><a name="P608_Label"></a>Enhancements in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1467">Label</span> command</h2>
+
+<p>In this version, it is possible to create:</p>
+
+<br>
+<ul>
+<li>double line label entities. To facilitate this, the old <span class="OLD">Text</span> option is replaced with two new options &mdash; <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+157">Text above</span> and <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+158">Text below</span> &mdash; in the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+27">Label</span> selection list.<br>
+<br>
+</li>
+
+<li>labels with out reference. To do so, you need to clear the <a href="OPS.htm#P608"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+306">Remove unrelated dimensions</span></a> check box in the <span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+297">Dimension</span> category.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000613 - OWN: AKMI -->
+ 
+
+<h2><a name="P613"></a>Enhancements in the <span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span> command</h2>
+
+<p>The ballooning system has been provided with four new alignments - <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+142">Left</span>, <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+144">Top</span>, <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+143">Right</span>, and <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+145">Bottom</span>, in addition to the available <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+141">Automatic</span> ballooning behavior. To accomplish this, the user interface has been significantly improved with the following new options under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+164">Automatic Balloon</span>  selection list:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+140">Alignment</span></td>
+<td>Enables you to determine the balloon alignment method.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+148">Distance between Balloons</span></td>
+<td>Enables you to define the distance to be maintained between two balloons.<br>
+For the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+142">Left</span>/ <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+143">Right</span> alignments, the gap is the distance between bounding boxes of two balloons.<br>
+For the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+144">Top</span>/ <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+145">Bottom</span> alignments, the gap is the horizontal distance between two balloons in a row. This is the minimum distance possible between two columns of balloons.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+149">Distance from View Boundary</span></td>
+<td>Enables you to set the distance that the balloons maintain from the nearest component.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+165">Arrange on multiple rows</span></td>
+<td>Allows you to make matrix like balloons or a balloon in a single line when selected. This option is visible only for <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+144">Top</span> or <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+145">Bottom</span> alignments.</td>
+</tr>
+</table>
+
+<br>
+<p><a name="dline"></a>In the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+164">Automatic Balloon</span>  selection list, the old <span class="OLD">Text</span> option has been replaced with two new options &mdash; <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+164">Text above</span> and <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+165">Text below</span> &mdash; to permit creation of double line balloons.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000652 - OWN: MARI -->
+ 
+
+<h2><a name="P652"></a>Enhancements in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1443">Text</span> command</h2>
+
+<p>The following significant enhancements have been made in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1443">Text</span> command.</p>
+
+<ul>
+<li><a href="#pt1">Multiline text justification in a bounding box</a></li>
+
+<li><a href="#pt2">New single line text justifications</a></li>
+
+<li><a href="#pt3">New <span class="UI_COMMAND_NOBOLD" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7921">Redefine Text</span> command</a></li>
+</ul>
+
+<h3><a name="pt1"></a>Multiline text justification in a bounding box</h3>
+
+<p>Till previous version, the multiline text positioning is possible only with respect to a point. However, in this version it is also possible to align text with respect to a cell (bounding box with four corners). To facilitate both the existing and the new behavior, a new <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+159">Multiline text position</span> drop-down list has been introduced under More in the <span class="UI_COMMAND" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+1">Text</span> selection list.</p>
+
+<br>
+ 
+
+<p>The text movements in a bounding box with respect to various origin justifications are shown in the image below.</p>
+
+<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_td_2009T2/Topleft.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Topcenter.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Topright.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+17">Top left</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+18">Top center</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+19">Top right</span></td>
+</tr>
+
+<tr>
+<td><img src="../../images/rn_td_2009T2/Middleleft.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Middlecenter.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Middleright.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+20">Middle left</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+21">Middle center</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+22">Middle right</span></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><img src="../../images/rn_td_2009T2/Bottomleft.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Bottomcenter.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T2/Bottomright.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+23">Bottom left</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+24">Bottom center</span></td>
+<td align="middle"><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+25">Bottom right</span></td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<p>Following are the characteristics of the new modality:</p>
+
+<br>
+ 
+
+<ul>
+<li>After the placement of the multiline text, one origin handle and the 4 bounding box corner handles will be displayed. Depending on the origin justification, the origin handle might override any of the box corners.<br>
+<br>
+</li>
+
+<li>While dragging the origin handle, the entire text is moved coherently. However, while dragging any of the box corner handles, the box is stretched and text gets wrapped coherently.<br>
+</li>
+</ul>
+
+<h3><a name="pt2"></a>New single line text justifications</h3>
+
+<p>The following new single line text justifications in between 2 points have been appended to the existing <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+8">Origin</span> drop-down list.<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="middle">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+150">Fit to left</span> </td>
+<td><img src="../../images/rn_td_2009T2/Smartleft.gif" border="1"> </td>
+</tr>
+
+<tr valign="middle">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+162">Fit in the middle</span> </td>
+<td><img src="../../images/rn_td_2009T2/SmartMiddle.gif" border="1"> </td>
+</tr>
+
+<tr valign="middle">
+<td><span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+163">Fit to right</span> </td>
+<td><img src="../../images/rn_td_2009T2/SmartRight.gif" border="1"> </td>
+</tr>
+</table>
+
+<h3><a name="pt3"></a>New <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7921">Redefine Text</span> command</h3>
+
+<p>The new <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7921">Redefine Text</span> enables you to redefine an existing text in a document. To redefine the selected text, right click on it and select the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7921">Redefine Text</span> from the context menu.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+</body>
+</html>
+

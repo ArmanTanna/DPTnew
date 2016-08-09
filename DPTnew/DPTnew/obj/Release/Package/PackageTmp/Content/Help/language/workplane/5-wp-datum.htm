@@ -1,0 +1,52 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Work Plane, Sketching Plane and Datum Plane</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Work Plane, Sketching Plane and Datum Plane</h3>
+<p>In most CAD systems, expecially with pure solid modelers, the user sketches on the active Sketching Plane. <b>think<font color="#FF0F00">3</font></b> application has an extended concept of Sketching Plane called Work Plane, but Datum Planes are also used extensively.
+<P>The analogy between Sketching Plane and Work Plane is that the XY plane of 
+the program's Work Plane coincides with the well known Sketching Plane. 
+<P align="center"><IMG border=1 src="images/dwp-01a.gif"> </p><BR>Starting a new model, the 
+Work Plane coincides with the absolute reference system which is a sort of center 
+point of your infinite, 3D space. We call that position the <i>World Reference 
+System</i>. Once you move the Work Plane, your input will be referred to the new 
+position of the Work Plane. If you want to work on the World reference system, 
+you need to set the Work Plane back to that position. 
+<P>A common mistake is to confuse Work Plane and Datum Plane; the Datum 
+Plane (see the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/fwfile/T_FW_Sl_03_09.htm"><b>Datum Plane</b></a> command)&nbsp; is an "auxiliary plane" that appears in 
+
+the model history.&nbsp; Usually you define a Datum Plane just to define a Plane 
+that has to be parametrically controlled by, for instance, the distance from a 
+planar face of a solid. 
+<P align="center"><IMG border=1 src="images/dwp-01.gif"></p>
+<P>Then, if you need to sketch on the Datum Plane, the Work Plane has to be 
+placed on the Datum Plane. Since the Datum Plane is controlled by its distance 
+from the face of the solid, changing that dimension, the Datum Plane and the 
+related Work Plane will be moved as well. <p align="center"><IMG src="images/dwp-02.gif" border=1><br><br><IMG border=1  src="images/dwp-03.gif"></P>
+
+<hr color="silver">
+</body>
+</html>
+

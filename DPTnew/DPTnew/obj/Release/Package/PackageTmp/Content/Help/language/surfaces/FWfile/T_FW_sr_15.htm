@@ -1,0 +1,59 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(342,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Connect Surface</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22; margin-top:2; margin-bottom:0}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Insert<img src="../../../images/general/litarr.gif">Surface<img src="../../../images/general/litarr.gif">Connect</p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Connect Surface</b></i> 
+</td>
+ --></tr></table>
+<br>&nbsp;<br>
+
+<p>The <B>Connect Surface</B> command enables you to create a surface which connects two or more specified surfaces. The command differs slightly depending on whether you connect two surfaces or more surfaces.</p>
+
+<ul class="noleft">
+<LI><B>Surfaces connecting two surfaces</B></LI>
+<BR>To create a surface which connects two existing surfaces, you will simply have to select the two boundaries to be connected. You can also define the surface weights and invert the direction of the second boundary, if you do not want the resulting connecting surface to twist, which can happen if the two selected boundaries have opposite directions. The connecting surfaces are created as cubic NURBS surfaces. 
+
+<LI><B>Surfaces connecting more than two surfaces</B></LI>
+<BR>To create surfaces which connect more than two existing surfaces, you'll simply have to select the boundaries to be connected, in the order in which they are to be connected, and then end selection. The surfaces will be considered in pairs and must share only a vertex, and not, for example, parts of overlapping boundaries or multiple intersections. The program creates a variable number of Coons (<I>A special type of surfaces which maintain tangency continuity at selected borders</I>) surfaces with which it covers the empty area (the <I>hole</I>) made by the selected surfaces, guaranteeing tangency continuity at the boundaries. Once you have selected the surfaces so that they form a closed loop, without any gaps, you can model the shape of the connecting surfaces by setting the bulge factor and moving their shared center.
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_Connect2.htm"><b>Connect two surfaces</b></a></li>
+<li><a  href="../HWfile/T_HW_ConnectN.htm"><b>Connect more than two surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

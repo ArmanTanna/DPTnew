@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Unbending a solid with Normal side face option</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Unbending a solid with Normal side face option</h3>
+<p>To accomplish the following task, open file "ToBeUnbent1.e3".<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a  href="../FWfile/T_FW_Unbend.htm"><B>Unbend</B></a> command and select the face with the slot as the one to keep fixed.<BR><BR><IMG border=1 SRC="../../sheetmetal/images/SheetMetal_Unbend1.gif"><BR><BR></td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <b>Type</b> drop-down list, select the <b>Global</b> option (if not already selected) to unbend all the bends existing in the solid.</td>
+</tr>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>3</b></td>
+<td>Click <b>Local Properties</b> and check the <b>Normal Side Face</b> option. Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and unbend the solid. Select <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_33.htm"><B>Wireframe View</B></a>.
+
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/SheetMetal_Unbend2.gif"><BR><BR>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>4</b></td>
+<td>Right-Click <B>Unbend</B> from the <b>Model Structure</b> and select <b>Redefine Feature</b>. Uncheck <b>Normal Side Face</b>.
+<BR><BR><IMG border=1 SRC="../../sheetmetal/images/SheetMetal_Unbend3.gif"><BR><BR>
+
+Click <img border=0 src="../../../images/general/rebuild_icon.gif"> to rebuild the solid.
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/SheetMetal_Unbend4.gif"><BR><BR>
+There is a difference between the solid unbent using the <b>Normal Side Face</b> option. When the <b>Normal Side Face</b> option is checked, the solid is unbent without any edge and when the <b>Normal Side Face</b> option is unchecked, the solid is unbent with the edges.
+<table border=1 bordercolor="white">
+<tr valign="top">
+<td bordercolor="black" width="50"><img src="../../../images/sheetmetal/SheetMetal_Unbend5.gif"></td>
+<td bordercolor="black" width="50"><img src="../../../images/sheetmetal/SheetMetal_Unbend6.gif"></td>
+</tr>
+<tr valign="top">
+<td width="100"><font size="-2"><b>Normal Side Face Checked</b></font></td>
+<td width="100"><font size="-2"><b>Normal Side Face Unchecked</font></td>
+</tr>
+</table>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

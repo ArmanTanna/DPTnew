@@ -1,0 +1,305 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>New Sheet Metal Functionalities and Improvements</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>New Sheet Metal Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following enhancements and improvements to the Sheet Metal functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P372">Improved Step Bend management</a></li>
+
+<li><a href="#P309-1">Enhanced Rip management with <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></a></li>
+
+<li><a href="#P309-2">Component management with <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></a></li>
+
+<li><a href="#CCB-7442">Enhancement in the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command</a></li>
+
+<li><a href="#P309-3">Sheet Metal Wizard component's visualization in <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_EK_DRF_+292">Custom View Definition</span> dialog box</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P0000372 - OWN: MOMU -->
+<h2><a name="P372">Improved Step Bend Management</a></h2>
+
+<p>The improvements made to the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> command now enables it to support the following situations encountered (that were not previously supported) while creating step bends on <a href="#cylindrical">cylindrical</a> and <a href="#conical">conical</a> faces.</p>
+
+<br>
+<h3><a name="cylindrical">Step Bend on Cylindrical face</a></h3>
+
+<table cellspacing="5" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_5.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_6.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_4.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="165" valign="top">Cylindrical face tangent to other cylindrical faces</td>
+<td width="165" valign="top">Cylindrical face not tangent to other cylindrical faces</td>
+<td width="165" valign="top">Cylindrical face having a slot</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table cellspacing="5" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_1.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_2.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_3.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="165" valign="top">Cylindrical face tangent to flat faces with a slot on the cylindrical face exactly at the tangent edge</td>
+<td width="165" valign="top">Cylindrical face tangent to flat faces having a slot across the tangent edge</td>
+<td width="165" valign="top">Cylindrical face tangent to flat faces with a slot on the flat faces exactly at the tangent edge</td>
+</tr>
+</table>
+
+<h3><a name="conical">Step Bend on Conical face</a></h3>
+
+<table cellspacing="5" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_7.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_8.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_9.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="165" valign="top">Normal conical face with constant angle</td>
+<td width="165" valign="top">Conical face tangential to flat faces</td>
+<td width="165" valign="top">Conical face having a fully enclosed slot</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table cellspacing="5" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_10.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_11.gif" border="1"></td>
+<td width="165"><img src="../../images/rn_2008T1/step_bend_12.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="165" valign="top">Conical face having a slot across an edge</td>
+<td width="165" valign="top">Conical face having a slot across two edges</td>
+<td width="165" valign="top">Conical face having an elliptical slot</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ <!-- PRJ: P0000309 - OWN: MOMU -->
+<h2><a name="#P309-1">Enhanced Rip Management with <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></a></h2>
+
+<p>Handling of rips by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> has been made stabler. As a result, the following situations are now successfully managed:</p>
+
+<ul>
+<li><a href="#Type">Specify the <span class="UI_OPTION_NOBOLD" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> of rip to be created</a></li>
+
+<li><a href="#tangent_edge">Rip at the vertex of a tangent edge</a></li>
+
+<li><a href="#non-linear">Rip at the vertex of a non-linear and linear edge</a></li>
+
+<li><a href="#2rips">Rip at the vertex where more than 2 rips merge</a></li>
+
+<li><a href="#sketch_rip">Rip at the vertex having sketch rip</a></li>
+</ul>
+
+<h3><a name="Type">Specify the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> of rip to be created.</a></h3>
+
+<p>It is now possible to specify the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> of rip that is created by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> (as it happens in the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6995">Edge Rip</span> command). The <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> mini-dialog box is displayed on opening the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> node of the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+154">Rip Group</span> in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+148">Sheet Metal Wizard</span> selection list.<br>
+<br>
+<img src="images/SMW_type.gif" border="1"><br>
+<br>
+Using the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list you can specify whether to create a <img src="../../images/rn_2008T1/rip_symmetric.gif"> <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+55">Symmetric</span>, <img src="../../images/rn_2008T1/rip_full.gif"> <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+54">Full</span> or <img src="../../images/rn_2008T1/rip_middle.gif"> <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+56">Middle</span> rip. In case of <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+54">Full</span>/<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+56">Middle</span> rip, red arrows will be displayed on the rip edges to specify the direction of material removal.</p>
+
+<br>
+<br>
+<h3><a name="tangent_edge">Rip at the vertex of a tangent edge</a></h3>
+
+<p>The situation where the rip is to be created at the vertex of two tangent edges is now successfully managed by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span>.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/tangent_rip.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/tangent_rip_result.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Situation</td>
+<td align="center">Result</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h3><a name="non-linear">Rip at the vertex of a non-linear and linear edge</a></h3>
+
+<p>The situation where the rip is to be created at the vertex of a linear and a non-linear edge is now successfully managed by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span>.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/nonlinear_rip.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/nonlinear_rip_result.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Situation</td>
+<td align="center">Result</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h3><a name="2rips">Rip at the vertex where more than 2 rips merge</a></h3>
+
+<p>The situation where the rip is to be created at the vertex of two or more linear edges is now successfully managed by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span>.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/multi_rip.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/multi_rip_result.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Situation</td>
+<td align="center">Result</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h3><a name="sketch_rip">Rip at the vertex having sketch rip</a></h3>
+
+<p>The situation where a sketch rip is to be created at a vertex is now successfully managed by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span>.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/sketch_rip.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/sketch_rip_result.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Situation</td>
+<td align="center">Result</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="P309-2">Component management with <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></a></h2>
+
+<p>In this release there have been improvements in the way the <b>think<font color="#FF0F00">3</font></b> application manages Sheet Metal Wizard components.</p>
+
+<br>
+<p>During the process of applying the command, the preview of the current component is now highlighted by a grid over it. This makes it easy to notice the current component in the graphics area.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/SMW_grid_1.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/SMW_grid_2.gif" border="1"></td>
+<td><img src="../../images/rn_2008T1/SMW_grid_3.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Resulting component 1</td>
+<td>Resulting component 2</td>
+<td>Resulting component 3</td>
+</tr>
+</table>
+
+<br>
+<p>Using the navigation buttons <img src="../../images/rn_2008T1/nav_buttons.gif" align="absmiddle"> of the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+155">Resulting Components</span> option in the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> selection list, the highlighting of the current component will cycle.</p>
+
+<br>
+<p>On applying the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command, the parent solid is automatically hidden and only the resulting sheet metal components are visible.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <b>think<font color="#FF0F00">3</font></b> application treats the Sheet Metal Wizard components differently as compared to the assembly components and hence, some assembly command functionalities cannot be applied on them. As a result, the following warning is displayed for commands like <span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4317">Replace Component</span>, <span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4319">Break Component</span>, <span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4323">Unload Component</span> etc, when applied to the Sheet Metal Wizard components.<br>
+<br>
+<img src="images/SMW_comp_warning.gif"> </td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ 
+
+<h2><a name="CCB-7442">Enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command</a></h2>
+
+<p>With the enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command, the thickness dimension will be visible on the created flange. This is a driving dimension and hence can be modified to change the flange thickness parametrically.<br>
+<br>
+<img src="../../images/rn_2008T1/flange.gif" border="1"><br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+In case the thickness dimension is not visible make use of the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+609">Show Driving Dimensions</span> command.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+<h2><a name="P309-3">Sheet Metal Wizard component's visualization in <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+292">Custom View Definition</span> dialog box</a></h2>
+
+<p>This version onwards, on opening a file containing Sheet Metal Wizard components in the <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+292">Custom View Definition</span> dialog box, the parent solid remains hidden in it.</p>
+<br>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

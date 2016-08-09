@@ -1,0 +1,43 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Spreadsheet - How to reference assembly variables from within a component</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h4>Spreadsheet - How to reference assembly variables from within a component</h4>
+
+<p>If you are working in a component and wish to reference a variable that is contained in the assembly that contains the component, you can do so using the following syntax:<br><br>
+<font face="Courier"><b>::</b>variable_name</font><br><br>
+For example:<br><br>
+<font face="Courier">::distance_parts1and2</font><br><br>
+references the assembly variable
+<font face="Courier">distance_parts1and2</font>
+<br><br><img src="../images/tol96_02.gif">
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+<ul class="noleft"><li>To display the variables contained in a component in the <b>Spreadsheet</b> dialog box, you must make the component the current component by using the<b>Set current</b> command. 
+ 
+<li>Problems may arise if the referenced variable is deleted from the assembly or if the component is used in an assembly which does not contain a variable with that name.</li>          
+</ul>
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</HTML>

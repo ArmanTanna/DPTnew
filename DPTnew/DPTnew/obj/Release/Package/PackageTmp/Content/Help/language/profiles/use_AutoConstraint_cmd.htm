@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Use the AutoConstraint command to quickly apply control to existing 2D entities based on your thinkdesign settings</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+  
+<h3>Use the AutoConstraint command to quickly apply control to existing 2D entities based on your program settings</h3>
+
+<p>The <a  href="../sketcher/FWfile/T_FW_sk_10.htm"><b>AutoConstraint</b></a> command is useful in re-using existing entities or when turning existing 2D entities into a profile. When you use this command, the program automatically applies certain constraints. The constraints applied are determined by the selections under <b>Automatic constraints</b> on the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_PROFILE.htm"><b>Profile</b></a> category of the <b>Document Properties</b>. Also, when you sketch lines, the program determines whether those lines are vertical, horizontal, or tangent when you apply constraints based on the <b>Angular</b> value set in <b>Tolerance</b>, in the <b>Profile</b> category quoted above.
+
+</p>
+
+<p>See the following illustrations and the notes related to the different reference numbers:</p>
+
+<p align="center"><IMG border=1 src="images/profiles_24.gif"></p>
+
+<table>
+<tr>
+<td valign="top" width=20><b>1.</b></td>
+<td>Existing 2D entities are used to create a profile.</td></tr>
+<tr>
+<td valign="top" width=20><b>2.</b></td>
+<td>The degree of freedom of the 2D line entity allows a loss of the basic profile shape when it is repositioned. The resultant modification shows a loss of tangency and other deformations that would be undesirable.</td></tr>
+<tr>
+<td valign="top" width=20><b>3.</b></td>
+<td>By applying the <b>AutoConstraint</b> command, the basic shape is maintained when editing the profile.</td></tr>
+<tr>
+<td valign="top" width=20><b>4.</b></td>
+<td>The degree of freedom of the 2D line entity, when repositioned, does not change the basic shape of the profile due to the locking constraints.</td></tr>
+</table>
+
+<p>Does <b>AutoConstraint</b> work well? Yes, it will add the needed constraints for the specific situation as set up under <b>Document Properties</b> (i.e. tangency conditions, horizontal, vertical, radii). However, it is not supposed to fully constrain the profile, but to only add the essential ones. This leaves you the freedom to add the ones that you need to pursue your design intent.  Remember that you are not forced to fully constrain your profile.</p>
+
+<p>Sometimes you can obtain an over constrained profile where you will need to delete some unwanted constraints (for instance, <b>Radius</b>). Also, pay attention to the fact that <b>AutoConstraint</b> may change quasi-vertical lines (i.e. 1 deg) in vertical (0 deg). This depends on the tolerance setting as described above.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

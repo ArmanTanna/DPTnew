@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sowjanya">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>Layout Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Layout Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements to the Layout commands.</p>
+
+<ul class="noleft">
+<li><a href="#P0000430">Inheriting breaks from multi-broken views</a></li>
+
+<li><a href="#P0000431"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+6351">Bisector</span> command associativity</a></li>
+
+<li><a href="#P0000432">New Radial Axes and Circular lines for angular pattern</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P0000430 - OWN: JOPA -->
+<h2><a name="P0000430"></a>Inheriting breaks from multi-broken views</h2>
+
+<p>A new <a href="OPS.htm#P0000430"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1833">Inherit breaks from main to derived view</span></a> option has been introduced in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+694">Break Lines</span> category of the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> dialog box to inherit breaks from multi-broken views.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000431 - OWN: APKO -->
+<h2><a name="P0000431"></a><span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+6351">Bisector</span> command associativity</h2>
+
+<p>Starting from this version, the entities inserted in the drawing view using the <a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_06_01.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+6351">Bisector</span></a> command have been made associative to the reference model geometry by integrating them with the associativity mechanisms. As a result, any modification done on the model geometry will be propagated to the bisector lines in the drawing view during regeneration.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000432 - OWN: MAMA -->
+<h2><a name="P0000432"></a>New Radial Axes and Circular lines for angular pattern</h2>
+
+<p>Enhancements have been made in the <span class="UI_COMMAND" id="ButtonToolbar_Drafting.msg+ButtonToolbar_Drafting+6370">Centerlines</span> command to create the circular lines and radial axes for patterned holes. To facilitate this, the new <a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_04_01.htm#Mode"><span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+106">Mode</span></a> drop-down list has been introduced in the <span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+22">Centerlines</span> selection list. The two options present in it are:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+105">Axes on circular pattern</span> - It displays two check boxes: 
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_04_01.htm#circular"><span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+108">Show circular centerline</span></a></li>
+
+<li><a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_04_01.htm#radial"><span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+107">Show radial axes</span></a></li>
+</ul>
+
+Also, the <a href="mk:@MSITStore:draft.chm::/language/geometry/HWfile/T_HW_gm_RadialAxes.htm#Center"><span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+102">Pattern Center</span></a> selector is available.</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+104">Axes on hole</span> - Centerlines are created only on the holes</li>
+</ul>
+
+<br>
+<p>The application remembers the last mode of axis creation, and hence, the next time you start the command, the same mode is used, unless changed. For an example of use, see "<a href="mk:@MSITStore:draft.chm::/language/geometry/HWfile/T_HW_gm_RadialAxes.htm">Creating Radial Axes and Circular Lines for Angular Patterns</a>".</p>
+
+<br>
+<!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+

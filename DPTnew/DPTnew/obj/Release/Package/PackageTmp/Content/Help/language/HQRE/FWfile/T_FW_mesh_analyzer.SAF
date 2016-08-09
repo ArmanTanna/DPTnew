@@ -1,0 +1,173 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(616,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2009t1" content="translate">
+<title>Mesh Analyzer</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td width="40"><img src="../../../images/HQRE/mesh_analyzer.gif" align="absmiddle"><td align="left">&nbsp;&nbsp;<span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7753">Mesh Analyzer</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7753">Mesh Analyzer</span> command enables you to scrutinize a mesh entity based on the analysis of the noise of the mesh. During the command's processing phase an osculating surface is estimated for each point by taking the surrounding points into account. This osculating surface is then used for making all types of analysis.</p>
+
+
+<p><a name="mode"></a>The type of analysis to be performed is to be selected from the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list:</p>
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+152">Compute noise</span>: used to calculate noise on the mesh. The distance of the points with respect to the osculating surface is measured as <i>noise</i>.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+153">Show min. curvature radius</span>: used to estimate the <i>minimum curvature radius</i> of the mesh by using the osculating surface. This could be useful to visualize small fillets of the model.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+155">Show Gauss curvature</span>: used to estimate the <i>Gauss curvature</i> of the mesh by using the osculating surface.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+163">Show curvature variation</span>: used to visualize the presence of variation in the curvature of the mesh. The variation is computed by analyzing the curvature at one point with respect to the curvature computed on its neighboring points.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+156">Add normal to mesh</span>: used to create a new mesh by using the normal at each point of the osculating surface. In general, the new mesh looks smoother than the initial one under shaded mode.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+157">Show osculating surface</span>: used to create the osculating surface. You should select a node of the mesh for which the osculating surface will be computed.</li>
+
+</ul>
+
+<p><a name="select"></a>After starting the command, select the mesh to be analyzed for the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+118">Mesh</span> selector under 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+172">Points</span> node. Now the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> <img src="../../../images/general/preview.gif" align="absmiddle"> button is displayed which when selected will make the computational analysis as per the parameters set for the other selection list options.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Depending upon the selection made in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list the options displayed in the selection list will vary.</td>
+
+</tr>
+</table>
+
+<p><a name="limits"></a>You can optionally define the zone of analysis by selecting a set of closed boundary curves for the <span class="UI_SELECTOR" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+351">Limits</span> selector. So, instead of the whole mesh, the analysis is performed on a subset, whose limits are defined by the selected boundary curves. On expanding the 
+<span class="UI_SELECTOR" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+351">Limits</span> node, additional options are displayed for defining the analysis zone in reference to selected boundary.</p>
+
+
+<ul class="noleft">
+<li><a name="max_dist"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> - It is the criteria for nodes not too far from the boundary curves to define whether they are to be considered within the boundary or not. The 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> value can be presumed as the radius of a pipe along the contour. The value should be large enough to contain several triangles (within the pipe) on each side of the contour, but not too large to avoid ambiguities.<br>
+
+<br>
+</li>
+
+<li><a name="min_dist"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+4">Min. Distance</span> - The distance of the nodes from the boundary curve should be more than the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+4">Min. Distance</span> value to be considered for analysis. Hence, it enables you to exclude those nodes that are very close to the boundary limits.<br>
+
+<br>
+</li>
+
+<li><a name="invert"></a><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> - It enables you to define which portion of the mesh with respect to the boundary curve is to be used for the analysis. 
+
+
+<ul>
+<li>When the check box is selected, the portion of the mesh lying outside the boundary curve is analyzed.</li>
+
+<li>When the check box is cleared, the portion of the mesh lying within the confines of the boundary curve is analyzed.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a name="free_boundary"></a><span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+183">Free Boundary</span> - It enables you to define whether the portion of the mesh defined by the boundary curve is to be considered isolated from the remaining mesh or not. This has an influence in considering the <i>neighborhood</i> nodes when computing the analysis criteria on each node of the subset. 
+
+
+<ul>
+<li>When the check box is selected, the subset is considered to be disconnected from the remaining of the mesh, as if it is an independent mesh itself.</li>
+
+<li>When the check box is cleared, the subset is considered to be connected with the remaining mesh.</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="graph"></a>The analysis result is represented as a color map. The distribution of the result can be viewed graphically by selecting the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+101">Graph</span> node. You can choose between a 
+<a href="mk:@MSITStore:thinkcmp.chm::/language/thinkCompensator/HWfile/T_HW_graphs.htm">
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+102">Distribution</span> or 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+103">Repartition</span></a> graphs from the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+104">Type</span> drop-down list.</p>
+
+
+<p><a name="value"></a>The computed minimum and maximum result values are displayed in the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+161">Min. value</span> and 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+162">Max. value</span> edit boxes, respectively. By changing any of these values, the color map will get updated to show the result between the new range.</p>
+
+
+<p><a name="node"></a>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+158">Node Number</span> option can be used to scan the surrounding points of the specified node that were used to compute the noise. In case you want to scan only for nodes having noise above a particular value, select the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+159">With Threshold</span> check box. The value specified in the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+100">Threshold</span> edit box will set the minimum value of the noise above which the points will be scanned.</p>
+
+
+<p><a name="saddle"></a>When the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+160">With Saddle</span> option under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is selected, the osculating surface can include <i>saddle points</i> resulting in the reduction of the measured noise.</p>
+
+
+<p style="margin-bottom:0;"><a name="copy"></a>The <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+220">Copy</span> check box under 
+<span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is available when the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> is set to 
+<span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+156">Add normal to mesh</span>.</p>
+
+
+<ul class="noleft">
+<li>When selected, the modifications are applied on the copy of the original mesh. Hence, the original mesh remains unaffected.</li>
+
+<li>When cleared, the modifications are applied on the original mesh itself and no new mesh is created.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_HQRE.htm">Overview on <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span></a></b></li>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

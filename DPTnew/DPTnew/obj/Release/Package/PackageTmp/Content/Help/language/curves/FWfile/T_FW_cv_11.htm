@@ -1,0 +1,163 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(321,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally">
+<title>Boundary Curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1386">Boundaries</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+32">Boundary Curve</span> command enables you to creates the <i>boundary curves</i> of a surface (or face of a solid). You will first have to select the surface. <a name="CTX_Boundaries"></a>Then, in the 
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+42">Boundaries</span> drop-down list, you can select the method to be used to create the boundary curves:</p>
+
+
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+43">All</span></td>
+
+
+
+
+<td>to create all the boundary curves of the surfaces you will select</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+44">Select</span></td>
+
+
+
+
+<td>To create only the curves corresponding to the boundaries you will select.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+183">Free Boundary</span></td>
+
+
+
+
+<td>(<i>Applies to solids only</i>) To create the curves corresponding to the <i>free</i> boundaries of the selected faces belonging to the same solid: free boundaries are the ones that are not common to more than one of the selected faces. The resulting curves will be the free boundaries of the selected set of faces.</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;">If the surface is not trimmed, the boundary curves are the isoparametric curves of the surface corresponding to the minimum and maximum values of both sets of surface parameters (u=0, v=0, u=1,and v=1). In other words, the command produces four boundary curves corresponding to the following values for u and v:</p>
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li>u=0 and v variable from 0 to 1</li>
+
+<li>v=0 and u variable from 0 to 1</li>
+
+<li>u=1 and v variable from 0 to 1</li>
+
+<li>v=1 and u variable from 0 to 1</li>
+</ul>
+
+<p style="margin-top:0;margin-bottom:0;">Some boundaries may be <i>degenerate</i>, that is, reduced to a point. For example, the vertex of a cone is the degenerate isoparametric curve you obtain when v=1.</p>
+
+<p style="margin-top:0;">Other boundaries may be superimposed. For example, in the case of a cone or cylinder, the two generators u=0 and u=1 are superimposed. Boundaries that are not superimposed are called <i>real boundaries</i>.</p>
+
+<p style="margin-bottom:0">An <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is available in the selection list, enabling you to create curves of the "Curve on Surface" type (See "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>" for details).</p>
+
+
+<ul class="noleft">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curves will be of the Curve on Surface type.</li>
+
+
+
+
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, an additional option is available under 
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: 
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+
+
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+
+<p>The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box is also available, enabling you to create curves which retain a link to the surface they derive from. See further details on associativity for curves of the Curve on Surface type in "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm#RN2005T2">Curves on Surface</a>".</p>
+
+
+
+
+
+<p>If you interrupt the command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all.<br>
+Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/LastTransformation.gif" align="absmiddle" border="0" alt=""> ) will be displayed on top of the selection list. If you select the 
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/general/LastTransformation.gif" align="absmiddle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+
+
+
+
+When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.</p>
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../../curves502/cv_11.htm"><b>Insert curves on surface boundaries</b></a></li>
+<li><a href="../HWfile/T_HW_FreeBoundaries.htm"><b>Create curves on the free boundaries of a solid</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

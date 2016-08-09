@@ -1,0 +1,63 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>An example on Parting Plane creation with GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>An example on Parting Plane creation with GSM</h3>
+<p class="notop">Creating parting planes on complex models can be time consuming and difficult to achieve through traditional modeling methods. This article will show the advantages of using GSM to create a complex parting plane in a specific situation.</p>
+<p>Using some basic input from you, GSM will do the difficult work for you and give you a perfect parting plane.</p> 
+<p>Here is a part with a complex parting line highlighted in orange. </p> <p><img src="images/001.gif" ALIGN=top ></p> 
+<p>This part comes from an IGES file with a 0.0005 Tolerance </p> <p><img src="images/002.gif" ALIGN=top ></p> <p>Make sure that you are working with a clean file without duplicate or degenerate surfaces. Once the parting curves have been created <b>(<b>Insert<img src="../../images/general/litarr.gif">Curves<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_11.htm">Boundaries</a></b>),</b> check to see if the curves are selectable by chain. This is also a great way to check the quality of your surface-to-surface continuity. </p> <p></p> <p><img src="images/003.gif" ALIGN=top ></p> <p>We are not going to use GSM to "globally modify a shape" but rather, we will apply GSM power on a single surface. We'll use the following method:</p> <p>1) Create a simple trimmed surface "near" and "more or less" the one we want to create.</p> <p></p> <p>2) Apply <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> to it to achieve the desired final shape.</p> <p>This method is widely used when "modeling" with GSM on a subset of surfaces (we might call it "local shape modeling") </p> <p><img src="images/004.gif" ALIGN=top ></p> <p></p> <p>Draw an arc from the side view. Put the arc more or less in the middle of the 3D profile, it doesn't have to be exact. </p> <p>Create a linear sweep from this view (perpendicular to this view) and trim it from the top view using the 3D profile as your trim limits.</p> <p><img src="images/005.gif" ALIGN=top ></p> <p>In the <b>Precision</b> options (<i>see also</i> "<b><a  href="../globalshape/HWfile/T_HW_GMChecking.htm#Precision">Setting the Precision values to be achieved</a></b>"), you can raise the number of loops (<b>No. loops</b>) and the number of points (<b>No. points</b>) to improve the tolerance or "fit" of your GSM surface. Notice that we are using the tolerance (<b>Position</b>) that we got from the IGES file tolerance.</p> <p></p> <p></p> <p></p> <p><img src="images/006.gif"> </p> <p>GSM has found the solution, in this case GSM has re-built the four-sided surface passing through our conditions (our 3D profile). The GSM surface is much better than an oval & ruled surface because it's a true 4 sided surface and mathematically clean. The image below is the corresponding 4-sided untrimmed surface</p> <p><img src="images/007.gif" ALIGN=top ></p> <p><img src="images/008.gif" ALIGN=top ></p> <p>This is great...here's our new parting plane surface in our part! This same method can be used to produce the parting planes that extend from the outside edge of the part to the edge of the mold. </p> 
+
+<p><b>The wrong method </b></p> 
+<p><img src="images/009.gif" ALIGN=top ></p> <p></p> <p>Initially you may be tempted to solve the problem using a ruled surface to span the 3D profile. This causes a surface that is pinched on each end. This type of surface is harder for CNC Machining programs to understand and is not as clean as our GSM surface. </p> 
+
+<hr color="silver">
+</body>
+</html>

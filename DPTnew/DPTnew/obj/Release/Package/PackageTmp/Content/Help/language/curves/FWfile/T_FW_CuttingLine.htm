@@ -1,0 +1,249 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(323,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Cutting Line</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7908">Cutting Line</span></p>
+<hr color="#63a9d8">
+</table>
+
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+1">Cutting Line</span> command enables you to perform the cutting step of the metal stamping process. It computes the cutting line corresponding to the contour of the unbent wings along which the metal would be cut.</p>
+
+
+<table style="margin-top:10;">
+<tr valign="top">
+<td><img border="1" src="../../../images/rn_2008T1/TL001.jpg"> </td>
+<td valign="bottom"><b>1</b>&nbsp;&#151;&nbsp;Pivot curves<br>
+ <b>2</b>&nbsp;&#151;&nbsp;Contour<br>
+ <b>3</b>&nbsp;&#151;&nbsp;Base surfaces<br>
+ <b>4</b>&nbsp;&#151;&nbsp;Target surfaces</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p style="margin-bottom:0;">You can proceed as follows.</p>
+
+<ul class="noleft">
+<li><a name="PivotCurves"></a>First of all select the chain of curves that will be used as a pivot for the development of the curves of the wing contour (<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+2">Pivot Curves</span>).</li>
+
+
+<li><a name="DriveCurves"></a>In the <span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+6">Drive Curve</span> drop-down list, choose the drive curves to be used for the section planes. 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+3">Pivot</span> </td>
+
+<td>to use the pivot curves as drive curves. This choice can be useful when pivot curves do not have big curvature variations. It does not apply to cases such as the ones in the picture above.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+4">Fitted pivot</span> </td>
+
+<td>to use the result of the pivot fitting as drive curve. It can be useful in cases like the one in the picture above, when the fitting process creates a <i>less bent</i> curve that is therefore more regular for radial section planes.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+5">Spine</span> </td>
+
+<td>to select a spine curve (<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+5">Spine</span>) to be used as the drive curve when also the results of 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+4">Fitted pivot</span> option are not satisfactory.</td>
+
+</tr>
+</table>
+</li>
+
+<li><a name="Contour"></a>Then select the wing contour, that is the curves that will be developed (<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+7">Contour</span>).</li>
+
+
+<li><a name="StartEntities"></a>Now select the surfaces and/or faces of solids included between the pivot and the contour, that is the wings to be unbent. In the <span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+10">Start Entities</span> drop-down list choose 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+8">Surfaces</span> or 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+9">Solids</span> and then select the corresponding entities in the model. Note that the surfaces that are the bases for the boundary curves already selected as 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+7">Contour</span> are automatically included in the 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+10">Start Entities</span> 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+8">Surfaces</span> selector.</li>
+
+
+<li><a name="EndEntities"></a>Finally, select the target surfaces/faces of solids. In the <span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+11">End Entities</span> drop-down list choose 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+8">Surfaces</span> or 
+<span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+9">Solids</span> and then select the corresponding entities in the model.</li>
+
+
+<li><a name="JoinEntities"></a>The <span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+21">Join Curves</span> check box enables you to determine whether the resulting cutting line will be a set of individual curves or a curve for each loop: 
+
+
+<ul class="noleft">
+<li>When the box is checked, the cutting line is made up by joining all of the resulting curves for each resulting "loop". If only one loop is present in the resulting cutting line, then the latter will be just one curve. On the contrary, if there are more than one loop in the resulting cutting line (for instance, as in the case of "islands"), each loop will be made up of a unique curve by joining all the component curves.</li>
+
+<li>When the box is cleared, the cutting line will be made up of a set of individual curves.</li>
+</ul>
+</li>
+
+<li>The following options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. 
+
+
+<table>
+<tr valign="top">
+<td><a name="ShowSectionPlanes"></a><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+20">Show Section Planes</span> </td>
+
+<td>Enables you to display or hide the section planes actually used for the computation: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When the box is checked, section planes are displayed during the preview.</li>
+
+<li>When the box is cleared, section planes are hidden during the preview.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="SectionPlanePercentage"></a><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+19">Section Plane Percentage</span> </td>
+
+<td>The percentage of the section planes (that are visible during the preview and are used internally to compute the trimming lines) in a comparison with the length of the pivot curves. The preview displays the trimming lines and the trimmed sectioned planes.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Thickness"></a><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+17">Thickness</span> </td>
+
+<td>Enables you to define the thickness to be used when computing the allowance value.<br>
+ Taking into account the values of thickness and of k-factor, metal faces undergo stretching deformations on the external metal side and contractions on the internal one, while on the neutral line the surface is supposed to remain unchanged. These deformations are empirically applied to the start surfaces, offsetting them of a value depending on the curvature of the involved surfaces so as to obtain an approximation of the same surfaces on the neutral line.<br>
+The direction where the metal thickness must be considered in order to compute the surface deformations can be controlled directly on the model through the specific arrow: you can double-click on it to invert the direction:<br>
+ <br>
+ <img src="../images/ThicknessDirection.gif" border="1"><br>
+ <br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><a name="InnerOuterDirections"></a><b>Inner/Outer directions</b><br>
+ 
+
+<table>
+<tr valign="top">
+<td>Inner direction<br>
+ &nbsp;</td>
+<td>Suppose the base surface is an external metal face. Imagine to add all the thickness inside the development direction.<br>
+ In this case the distance used on the end surfaces in order to compute the cutting line is equivalent to the one computed on the start surfaces after applying an offset in the internal direction which can be "<i>t</i>" or "<i>T-t</i>" depending on the curvature of the surfaces.<br>
+ <br>
+ <img border="1" src="../../../images/rn_2008T1/Outer.gif"><br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td>Outer direction</td>
+<td>Suppose the start surface is an external metal face. Imagine to add all the thickness outside the development direction.<br>
+ In this case the distance used on the end surfaces in order to compute the cutting line is equivalent to the one computed on the start surfaces after applying an offset in the external direction which can be "<i>t</i>" or "<i>T-t</i>" depending on the curvature of the surfaces.<br>
+ <br>
+ <img border="1" src="../../../images/rn_2008T1/Inner.gif"><br>
+ &nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Kfactor"></a><span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+18">K Factor</span> </td>
+
+<td>Enables you to define the K factor to be used when computing the allowance value.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restoring selections after an interruption</b><br>
+ If you interrupt the command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all, which might take a long time, at least in complex situations.<br>
+ Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list. If you select 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+
+ When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.<br>
+
+ Further details in "<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>".</td>
+
+</tr>
+</table>
+
+<p>When all the selectors are green, the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img border="0" align="absmiddle" src="../../../images/general/preview.gif"> ) shows up on top of the selection list and is available to assess the result before applying the command.</p>
+
+
+<p style="margin-bottom:0;">Finally, note that after selecting the base surfaces, there are two possible sides where the wings could be unbent. The choice of the target surfaces and, where required, your direct interaction, will determine which side the wings will be unbent on.</p>
+
+<ul class="noleft">
+<li>If all the target surfaces lie on <i>just one side</i> (A or B), then there is no ambiguity and the side is implicitly chosen.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/TL_A00.gif"><br>
+ &nbsp;</li>
+
+<li>If some surfaces lie on one side and some on the other, a warning message is displayed to inform you the selection is indeterminate.<br>
+<br>
+ 
+
+<table border="1" bordercolor="black" cellpadding="0%" cellspacing="0%" style="margin-top:6px;border: thin">
+<tr valign="top">
+<td><img border="0" src="../../../images/rn_2008T1/TL_A01.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td style="background: Yellow; border: thin solid Silver; font-family: 'MS Sans Serif'; font-size: 8; margin-top: 0;"><span class="UI_SELECTOR_NOBOLD" id="SMCuttingCv.msg+_SMCuttingCv_WARNTTIP_+1">Select all the end entities on the same developing direction</span> </td>
+
+</tr>
+</table>
+
+<br>
+ &nbsp;</li>
+
+<li>If all the target surfaces lie on <i>both sides</i>, one side is implicitly chosen, but a <span class="UI_OPTION" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+12">Reverse developing direction</span> check box shows up so as to enable you to invert the direction.<br>
+
+<br>
+ <img src="../images/TL_A02.gif" border="1"><br>
+<br>
+ <img src="../images/TL_A03.gif" border="1"></li>
+</ul>
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_CuttingLine.htm"><b>Create a Cutting Line</b></a></li>
+</ul>
+<hr color="silver">
+</body>
+</html>
+

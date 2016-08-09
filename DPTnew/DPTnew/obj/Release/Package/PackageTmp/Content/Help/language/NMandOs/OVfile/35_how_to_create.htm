@@ -1,0 +1,110 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t2" content="internally">
+<TITLE>How to create Open Solids</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>How to create Open Solids</h3>
+
+<p>Open solids give us a new hybrid arena to work in. The <b>think<font color="#FF0F00">3</font></b> application gives us powerful tools to manipulate solids, surfaces, and everything in between. Let's see how to create open solids.</p>
+
+<P>What you need to know:</p>
+<UL class="noleft">
+<LI><A href="35_what_is.htm"><b>What is a solid, what is an open solid</b></A> 
+</LI></UL>
+
+<P>You can create an open solid in one of the following ways:</p>
+<ul class="noleft">
+<li><a href="#OpenProfile"><B>Creating a shape using an open profile</B></a>
+<li><a href="#ConvertSurface"><b>Converting a surface(s) into a solid using the Make Solid command</b> </a>
+<li><a href="#DetachingFaces"><b>Detaching face(s) from a  solid with the Break Solid command</b></a>
+<li><a href="#Combining"><b>Combining open solids together</b></a> 
+</li></ul>
+
+<h4><a name="OpenProfile"></a>Creating a shape using an open profile</h4>
+<p>Create profile, than add a protrusion (linear, rotational, etc.).</p>
+<BR><IMG height=305 src="../../../images/solids/NMandOS/create_profile.gif" width=290>
+
+<h4><a name="ConvertSurface"></a>Converting a surface(s) into a solid using the Make Solid command</h4> 
+<p>You can use the <a href="../../solids/FWfile/T_FW_sl_08.htm"><b>Make Solid</b></a> command.</p> 
+
+<br><IMG height=260 src="../../../images/solids/NMandOS/open-half.gif" width=360>
+
+<h4><a name="DetachingFaces"></a>Detaching face(s) from a solid with the Break Solid command.</h4>
+<p>This first illustration shows a manifold solid.</p>
+<BR><IMG height=238 src="../../../images/solids/NMandOS/dm-detach1.gif" width=299>
+
+<p>In the second illustration, the surface highlighted in red has been extracted from the solid by using the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_06.htm"><b>Break Solid</b></a>&nbsp; command ("Local" option).</p>
+
+
+<p>We have one open solid and one surface.</p>
+<BR><IMG height=208 src="../../../images/solids/NMandOS/dm-detach2.gif" width=289>
+
+<p>To better show the result, this final image shows the model with the detached surface moved from its position.&nbsp; The remaining faces of the original manifold solid now compose the open solid shown below.</p> <BR><IMG height=296 src="../../../images/solids/NMandOS/dm-detach3.gif" width=331>
+
+<p>If you use the <B>Associative</B> option of the <b>Break Solid</b>command, the surfaces you obtain are linked to the original solid (if you modify the solid, the surface will follow, and vice versa).</p>
+
+<h4><a name="Combining"></a>Combining open solids together</h4>
+<p>This can be done with either the Booleans (<b>Union</b>, <b>Difference</b>, <b>Intersection</b>) or the <b>Make Solid</b> command (with the Associative option or not)</p>
+<br><IMG height=213 src="../../../images/solids/NMandOS/dm-normal.gif" width=280>
+
+<p>This open solid is made of one surface, the material is below it <BR><IMG height=244 src="../../../images/solids/NMandOS/dm-twosol.gif" width=287> <BR>Here is a closed solid (red). No matter if it is closed or open, you can always combine solids together. What really matters and drives the result is where the material is.<BR>Let us see what we obtain combining these two solids together by means ofBooleans:</p>
+
+<TABLE cols=2 width="100%" border=0>
+<TR>
+<TD><IMG height=226 src="../../../images/solids/NMandOS/dm-add.gif" width=284 border=0> <BR>Boolean Union 
+(Open Solid)</TD>
+<TD><IMG height=201 src="../../../images/solids/NMandOS/dm-intersection.gif" width=209 border=0> 
+<P>Boolean Intersection (Closed solid)</P></TD></TR>
+<TR>
+<TD><IMG height=197 src="../../../images/solids/NMandOS/dm-diff2.gif" width=246 border=0> <BR>Boolean 
+Difference A-B (Closed Solid)</TD>
+<TD><IMG height=207 src="../../../images/solids/NMandOS/dm-diff1.gif" width=286 border=0> <BR>Boolean 
+Difference B-A (Open Solid)</TD></TR></TABLE>
+	  
+<P>Another way to create Open Solids is using the <a href="../../solids/FWfile/T_FW_sl_08.htm"><b>Make Solid</b></a>&nbsp;command (associative or not), that lets you add surfaces to open solids (or open solids 
+
+to open solids).</p>
+
+<TABLE cols=2 width="100%" border=0>
+<TR>
+<TD><IMG height=227 src="../../../images/solids/NMandOS/dm-sol+twosurf.gif" width=312 border=0> <BR>Open 
+Solid (Gray) and two separate Surfaces (Yellow)</TD>
+<TD><IMG height=214 src="../../../images/solids/NMandOS/dm-three.gif" width=282> <BR>Result: One Open 
+Solid</TD></TR></TABLE>
+
+<UL class="noleft">
+<LI>You may ask yourself what's the difference between Make Solid and Boolean Union when joining together open solids. See: <A href="Make_Solid-vs-Boolean_Union.htm">Boolean Union vs Make solid</A> 
+<LI>For more information on Booleans see <A href="26_booleans_opensolids.htm">Combining surfaces and solids with Booleans</A>.
+</LI></UL>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open Solids</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

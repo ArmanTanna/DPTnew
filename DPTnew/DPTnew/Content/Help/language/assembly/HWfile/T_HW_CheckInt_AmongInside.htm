@@ -1,0 +1,60 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Checking interferences among or inside groups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Checking interferences among or inside groups</h3>
+
+<p>Please refer to <a href="T_HW_CheckInt_Assembly.htm"><b>Checking interferences in an assembly</b></a> for the general information on how to check interferences by performing the <a href="../FWfile/T_FW_CheckInterferences.htm"><b>Check Interferences</b></a> command.</p>
+
+<p>Suppose you wish to check interferences <em>among groups</em> of the parts collected in Group 1, marked in a reddish color, and the one making up Group 2, highlighted in orange, as shown in the following illustration.</p>
+
+<p><IMG border=1 SRC="../../../images/assembly/CheckInt_AmongInside1.gif"></p> </p>
+
+<p>In this specific case, when you click <img src="../../../images/general/Computebutton.gif" border="0"></a> (<b>Compute</b>), no interference is found, because there is no interference between the two sets of objects, even if the objects of the first group are certainly intersected.</p>
+
+<p>On the other hand, if you select the <strong>Inside groups</strong> option from the drop-down list of the <strong>Check mode</strong> option, and calculate interferences, the interferences between the two objects of the first group are detected, because this time you asked for interferences <em>inside groups</em>.</p>
+<p><IMG border=1 SRC="../images/CheckInt_AmongInside2.gif"></p>
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">In order to calculate the interferences of the two objects marked in a reddish color in the first illustration, placing the two objects in two separated groups (Group 1 and Group 2) and checking interferences with the <strong>Among groups</strong> option is equivalent to placing both objects in a unique group, checking interferences with the <strong>Inside groups</strong> option.</p>
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,52 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2007t1" content="internally">
+<title>Control Points - General definition - Surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style>	#docframe  
+{
+ 		width : 380;
+		height : 480;
+}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<p><a name="top"></a></p>
+
+<table bgcolor="#ffffe1">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+<h4>Control Points</h4>
+
+<p>Every NURBS surface, like a NURBS curve, has a set of <b>control points</b> which control its shape but which do not necessarily lie on the surface. 
+The concepts describing NURBS curves can be extended to a NURBS surface if applied to the isoparametric curves of the surface. 
+<BR><BR><IMG SRC="images/msi01_13.gif"><BR><BR>
+The broken line joining the control points of a curve is called the control point polyline or polygon or defining polyline.  
+A numeric value, called the weight, is associated with each control point (<i>see also</i> <a href="../Mathconc/T_MC_mc_01.htm">the article on control points of curves</a>). Initially, the value of the weight is 1, but you may change it at any time. If you increase the weight of a control point, the surface moves closer to the control point; if you reduce it, the surface moves away from it. If you move the control points, the shape of the surface changes accordingly.</p>
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

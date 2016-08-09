@@ -1,0 +1,102 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+
+<title>Job: Creating fillet with capping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating fillet with capping</h3>
+
+<p>While creating fillets, there are cases when the fillet on a vertex is created under the following circumstances:</p>
+
+<ul>
+<li>2 adjacent fillets (one concave and the other convex) meet at the vertex</li>
+<li>2 adjacent fillets (both concave or convex) meet at the vertex, together with other 3 or 4 edges not to be filleted and not all of them flat</li>
+<li>3 convex fillets meet at the vertex</li>
+<li>More than 3 fillets meet at the vertex</li>
+</ul>
+
+<p>Various capping options are used to control the flow of the fillet over the vertex. Open the <i>fillet-capping.e3</i> file from the <i>Samples</i> folder of your installation and follow the steps given below to understand the capping possibilities. Note that the fillet capping functionality is available for all the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4594">Fillet</span> features (<a href="../FWfile/T_FW_ft_09_01.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+429">Edge Fillet</span></a>, <a href="../FWfile/T_FW_ft_09_02.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6309">Face Fillet</span></a> and <a href="../FWfile/T_FW_ft_09_03.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6311">Solid Fillet</span></a>) to manage the vertexes of the filleted edges.</p>
+
+<ol class="noleft">
+<li>Select the edges as shown in the following figure and invoke the <a href="../FWfile/T_FW_ft_09_01.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+429">Edge Fillet</span></a> command. In this case, six merging edges are to be filleted.<br>
+<br>
+<img src="../../../images/features/capping1.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="#USECAPPING"></a>Expand <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+34">More Options</span> to view the 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+35">Use Capping</span> drop-down list. This list has three options; depending upon the option selected in the list, different type of capping results will be obtained on executing the 
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4594">Fillet</span> command. 
+
+<a name="#capping"></a>
+<ul>
+<li><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+36">None</span> - A set of Coons surfaces will be obtained.<br>
+
+<br>
+<img src="../../../images/features/capping2.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="#CT"></a><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+37">Continuous tangency</span> - A <b>G1</b> capping surface will be obtained such that a continuous tangency between the GSM surface and all the adjacent faces will be maintained.<br>
+
+<br>
+<img src="../../../images/features/capping3.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+38">Continuous curvature</span> - A <b>G2</b> capping surface will be obtained such that a continuous curvature between the GSM surface and all the adjacent faces will be maintained.<br>
+
+<br>
+<img src="../../../images/features/capping4.gif" border="1"></li>
+</ul>
+</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+When capping mode is enabled, it may happen that it is not possible to reach a good quality result with the GSM surface. In this case the Coons patch solution is produced.<br>
+<br>
+The capping option selected will be saved in the fillet feature. However, by redefining the fillet feature it can be modified.</td>
+</tr>
+</table>
+<hr color="silver">
+<h5>Related Topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/An_overview_on_fillets.htm"><b>An Overview of Fillets</b></a></li>
+</ul>
+<hr color="silver">
+</body>
+</html>
+

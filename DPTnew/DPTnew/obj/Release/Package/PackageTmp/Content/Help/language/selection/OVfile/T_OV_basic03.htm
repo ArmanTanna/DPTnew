@@ -1,0 +1,111 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Multiple selection operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+<style type="text/css">
+.noleft {margin-top:0; margin-left:22;}</style>
+<style>.OLD{font-weight: bold;}</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+<a name="top"></a> 
+
+<h2>Multiple selection operators</h2>
+
+<p>The program features several tools to make the selection operations quicker and easier. To select these tools, right-click to display the context-sensitive menu, and then choose 
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span> to display a list of commands:</p>
+
+<table cellpadding="12" border="0">
+<tr>
+<td valign="top"><a href="../FWfile/T_FW_ed_27.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1101">Window</span></a></td>
+
+<td>If you click within the drawing other than on an entity and drag the cursor, the program goes into automatic selection mode. Dragging the cursor to the right causes the program to use a window selection. Only those entities that are completely enclosed within the window will be selected. The program displays the selection window using a solid line, and also displays an arrow along each side of the selection window to indicate that objects within the window will be selected.<br>
+<img src="../../../images/basics/winselin.gif"> 
+
+<p>Dragging the cursor to the left causes the program to use a crossing window selection. All those entities completely enclosed within the window or crossing its boundaries will be selected. The program displays the crossing selection window using a dashed line, and also displays an arrow along each side of the selection window to indicate that objects within or crossing the window will be selected.<br>
+<img src="../../../images/basics/croselin.gif"></p>
+
+<p><a name="F3"></a>You can also switch this performance at any time during selection so that instead of selecting the objects inside the window, the program selects all of the entities except those within the selection window. For example, you can select all the entities outside the selection window, or all the entities outside and crossing the selection window. Press the F3 key to toggle between the inside and outside modes. You will notice that when you toggle from inside to outside, the arrows around the perimeter of the selection window point away from (outside) rather than toward (inside) the selection window.<br>
+ <img src="../../../images/basics/selout.gif"></p>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="../FWfile/T_FW_ed_28.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1103">Chain</span></a></td>
+
+<td>The Chain selection method enables you to select all the curves with a common endpoint (in other word, a chain of curves)<br>
+<img src="../../../images/basics/seltool4.gif"></td>
+</tr>
+
+<tr>
+<td valign="top"><a href="../FWfile/T_FW_ed_29.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1105">All</span></a></td>
+
+<td>The All selection method enables you to select all the entities that: 
+
+<ul class="noleft">
+<li>belong to the active output layers</li>
+
+<li>are not hidden by a <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_13.htm"><strong>Hide Entities</strong></a> command</li>
+
+<li>match to the current <a href="../FWfile/T_FW_vw_95.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1107">Filter</span></a> (if one has been established)</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="../FWfile/T_FW_vw_95.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1107">Filter</span></a></td>
+
+<td>The Filter option enables you to establish a Selection Filter. Once you have established a selection filter, you can apply that filter by using one of the multiple selection operators described in this section.</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<br>
+In order to add successive entities to the selection set, proceed as follows:
+
+<p></p>
+
+<ul class="noleft">
+<li><b>In pre-selection</b>: hold down the <b>SHIFT</b> or the <b>CTRL</b> keys while selecting the entities to be added to the selection set.</li>
+
+<li><b>In post-selection</b>: just select the new entities to be added to the selection set (no matter whether holding down the <b>SHIFT</b> or <b>CTRL</b> keys or not); any entity you select will be automatically added to it.</li>
+</ul>
+
+Both in the pre-selection and in the post-selection mode, if you use the <b>CTRL</b> key, you can also deselect an entity you previously selected, removing it from the current selection set. 
+
+<p>The <b>ESC</b> (Escape) key during pre-selection enables you to clear all entities from the selection set.</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_basic01.htm"><b>Selection and Preselection</b></a></li>
+<span id="TWOD"><li><a href="T_OV_smart_sel.htm"><b>Smart selection commands</b></a></li></SPAN>
+
+<li><a href="T_OV_basic02.htm"><b>Clicking on entities</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

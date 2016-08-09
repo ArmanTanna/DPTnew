@@ -1,0 +1,60 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>More Options</title>
+<!-- Error handler removed 03 June 2014 -->
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<p style="margin-bottom:0;"><a name="#MM"></a>
+In the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list  you can choose the method to be used to perform the sweep along the drive:
+<table style="margin-Top:0;">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="TDSweep.msg+_TDSWEEP_LABEL_+32">Constant axis</span>:</td>
+<td>The contours will be swept along the drive while keeping the axis constant through out the motion. From the <a href="../../../features/HWfile/T_HW_PointDefinition.htm"><span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+36">Direction</span></a> drop-down list you can select the axis direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+33">Surface based</span>:</td>
+<td>The solid will be swept along the drive curve keeping an orientation based on a selected surface. In this case you need to select the edge of the surface as the driving curve for the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+14">Spine</span> selector. 
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+34">Along one plane</span>:</td>
+<td>The solid will be swept along the drive curve as per the orientation of a plane.</td>
+</tr>
+
+<tr valign="top">
+<td> <a name="#RUL"></a><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+96">Ruled</span>:</td>
+<td><a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_RuledSurface.htm">Ruled surfaces</a> are obtained by joining the <b>U</b> points of equal value on two base curves with a suitable set of straight lines. In simple terms it is also defined as the set of points swept by a moving straight line. In this case the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+14">Spine</span> selector does not get display in the selection list. </td>
+</tr>
+</table>
+
+<br>
+<a name="#MORE"></a>
+<p>Additionally, a shelled solid can be created by specifying the thickness in the respective <b>Thickness</b> edit boxes of the profiles in the Graphics Area displayed on clicking the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node. The solid can be made of variable thickness when there are two boundaries. When there are more than two boundaries, we can make solid of non-variable (uniform) thickness only.</p>
+
+<p>The resulting solid is associative to the drive curve and the cross-section profile. If you change any of them, the solid changes accordingly.</p>
+
+<p>See "<a href="../../../glossary/T_Spine.htm">Using Spines</a>" for details on how to use spine profiles.</p>
+
+</body>
+</html>

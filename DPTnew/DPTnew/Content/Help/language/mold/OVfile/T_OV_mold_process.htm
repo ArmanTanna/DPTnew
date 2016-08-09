@@ -1,0 +1,116 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9012,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Overview on Mold</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h1>Overview on Mold</h1>
+
+<p><b>MoldDesign</b> is a fully integrated module of <img src="../../../images/company/ThinkDesign.gif" align="absmiddle">. The process of designing a mold involves doing project planning and product analysis and finally developing creation of core and cavity, electrodes and cooling system. The functionalities are very easy to use and support very powerful functions to reduce the designing time. These functionalities enable you to concentrate more on the product engineering than take time to create the mold. It also allows you to make changes in the original part (change in shape or in solid feature) and substitution of parts. The designing of mold is done using a sequence of integrated functionalities that assist in the mold creation in adhering to the following work flow:
+
+<ul class="noleft">
+<li><a href="#project">Creating the Project Files</a></li>
+
+<li><a href="#analysis">Analysis of the mold part</a></li>
+
+<li><a href="#core">Creation of Core and Cavity</a></li>
+
+<li><a href="#base">Installing Catalog and Mold Base creation</a></li>
+
+<li><a href="#ejection">Ejection System</a></li>
+
+<li><a href="#cooling">Cooling System</a></li>
+</ul>
+
+</p>
+
+<h2><a name="project">Creating the Project Files</a></h2>
+
+<p>It is essential to have a file management system organized which maintains the files related to the mold process. The first step of mold design is to create the project files required for the design process. Using the <a href="../FWfile/T_FW_mold_projects.htm"><span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+1">Mold Project</span></a> command, two new files are created (derived and assembly). The actual mold designing is done on the assembly model and changes to the part model are done to the derived model.</p>
+
+
+<h2><a name="analysis">Analysis of the mold part</a></h2>
+
+<p>It is important to know the possible areas in the part model which may cause difficulty in the mold design process. The analysis of mold part is performed by using <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_DraftAnalysis.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7380">Draft Analysis</span></a> and 
+<a href="../FWfile/T_FW_region_analysis.htm"><span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span></a> commands. This analysis highlights the possible errors such as insufficient draft angles, faces which may obstruct while ejecting the mold, topological errors etc in the mold part which may cause problem in the designing the mold. The <span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span> command enables you to identify and classify the faces as regions of the mold part as core, cavity or slider.<br><br>
+
+For example using the <span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span> command, the faces are classified as shown in the image below:<br><br>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/mold/region_detail.gif" border="1"></td>
+<td>
+<ol>
+<li><span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span></li>
+
+<li><span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+34">Under draft</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+17">Covered</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+19">Partially covered</span></li>
+</ol>
+</td>
+</tr>
+</table>
+</p>
+
+<h2><a name="core">Creation of Core and Cavity</a></h2>
+
+<p>The core and cavity gives the external shape for the mold part and is the most important aspect of Mold Design. The number of cavities has to be decided based on the complexity of the mold part. The core and cavity is created using the <a href="../FWfile/T_FW_mold_split.htm"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+20">Split Mold</span></a> command and is visualized as shown in the image below.<br>
+
+<br>
+<img src="../../../images/mold/mold_split_cylinder.gif" border="1"><br>
+<br>
+ If required the slide cores and electrodes can be created using the <a href="../FWfile/T_FW_volume_split.htm"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+30">Split Mold Volume</span></a> and <a href="../FWfile/T_FW_electrode_command.htm">
+<span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+1">Mold Electrode</span></a> commands.</p>
+
+
+<h2><a name="base">Installing Catalog and Mold Base creation</a></h2>
+
+<p>Mold base assemblies are provided by different vendors such as <b>DME</b>, <b>HASCO</b> and <b>Muesberger</b>. The installation of vendor catalog is necessary to create the mold base assembly.<br>
+ The next important thing is to design the mold base for the core and cavity. The <a href="T_OV_mold_base.htm"><span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+7">Mold Base</span></a> commands are used to create the assembly. The design specification of the mold base is validated by referring to the reference manuals provided by the vendors. The reference manuals can be downloaded from the vendor website.</p>
+
+
+<h2><a name="ejection">Ejection System</a></h2>
+
+<p>Ejecting the mold base is the critical part of the Mold Process. The mold part has to have minimum or no damage when ejected from the core and cavity. The ejection of mold part is done by using standard parts such as ejector pins. The insertion of these parts at the correct position in the mold assembly is the critical part of the design. To facilitate this, <a href="../FWfile/T_FW_standard_parts.htm"><span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+27">Mold Standard Parts</span></a> command is used to insert the standard parts. The Ejector pins, Core pins, screws and Sprue bush are the standard parts available for selection. Also these parts can be sourced and inserted from the <b>thinkparts</b> catalog.</p>
+
+
+<h2><a name="cooling">Cooling System</a></h2>
+
+<p>The designing of an optimum cooling system is very important for a quality mold. The cooling path has to be 2D or 3D lines. Once the path is defined the cooling network can be created using the <a href="../FWfile/T_FW_cooling_command.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+7">Cooling</span></a> command.</p>
+
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="T_2008t1" content="translate">
+<title>Backward Compatibilty from Version 2008.1 to Version 2007.1</title>
+
+<style type="text/css">
+ .noleftlit {
+  margin-left: 22;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 8pt;
+ }
+ h5
+ {
+ border-bottom : thin solid Silver;
+ }
+</style>
+<script type="text/javascript" src="../../JSandSTYLES/Frames.js"> </script>
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff"  onResize="self.location.reload();" onload="viaMk();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame810();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);"> 
+<p style="margin-bottom:0;margin-top:0; border-bottom : thin solid Silver;"><br><b>Warnings and Limitations about some features of v. 2008.1</b></p>
+<!-- <ul class="noleftlit">
+<li><b>Light Representations</b>: if a model contains automatic Light Representations, they will not be visible when the document is loaded, but they will be regenerated automatically when the document is saved, and will then be available afterwards. </li></ul>
+<ul class="noleftlit">
+<li><b>Layers</b>: layers will <i>keep</i> their visibility value (on/off), their status of current/non current and their description, while they will loose their original names and will automatically be assigned a progressive number (apart from layer 0, which will keep its 0 name=number). So, in general, the properties of name, lock, color, line type and width will be lost.<br>
+Furthermore, as to names, a particular case is when a document created in versions older than 2008.1 containing layers <i>n<sub>1</sub></i>,...., <i>n<sub>m</sub></i> is first loaded into version 2008.1, in which case the layer names are automatically generated as "Layer<i>n<sub>1</sub></i>",...., "Layer<i>n<sub>m</sub></i>" and then saved. If such a document is reloaded with a previous version, the layer names are lost but their numbers will be the same as in the original document (<i>n<sub>1</sub></i>,...., <i>n<sub>m</sub></i>). 
+</li>
+</ul> -->
+<iframe id="MyIframe810" name="MyIframe810" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="Layers.htm" onload="viaMk();ResizeIFrame810()" scrolling="no"></iframe>
+<!-- <iframe id="MyIframe809" name="MyIframe809" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="LightReps.htm" onload="viaMk();ResizeIFrame809()" scrolling="no"></iframe> -->
+<ul class="noleftlit">
+<li>Models created in 2008.1 using decal or materials can be opened, but the materials and decals will be lost.</li>
+<li>Models created in 2008.1 with new lights / lights studios set up, can be opened, but only some lights (previously supported) will be available, the rest will be lost.
+</li>
+<li>Models created/saved in 2008.1 with environments setup can be opened, but with the complete loss of environment.
+</li>
+</ul>
+<hr color="silver">
+<p>For further details on the single commands mentioned in this document, consult the online documentation.</p>
+<hr color="silver">
+</body>
+</html>

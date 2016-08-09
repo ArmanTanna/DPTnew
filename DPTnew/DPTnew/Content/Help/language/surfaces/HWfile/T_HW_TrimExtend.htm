@@ -1,0 +1,178 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Trimming or extending a surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Trimming or extending a surface</h3>
+
+<p>After starting the <a href="../FWfile/T_FW_TrimExtend.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7020">Trim/Extend Surface</span></a> command, proceed as follows.</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list, select the method to be used: 
+
+
+
+
+<ul class="noleft">
+<li><a href="#Parameter"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span></a><br>
+
+
+
+to change the range of the surface parameters so that the limits of the range differ from the original limits limits (this mode does not apply to surface boundaries deriving from a trimming operation: in such cases selection is not enabled)</li>
+
+<li><a href="#Tangency"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+57">Tangency</span></a><br>
+
+
+
+to indicate a numeric value corresponding to the length of the arc to be added to the specified boundary of the surface while maintaining tangency continuity.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h4><a name="Parameter"></a>Extending a surface by changing the range of its parameters</h4>
+
+<table>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the surface.<br>
+<br>
+<img border="1" src="../images/STE-01.gif"><br>
+<br>
+To change the selected surface, right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+21">Surface</span>, choose 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and select another surface. 
+
+
+
+
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+315">U1</span>, 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+317">U2</span>, 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+316">V1</span> and 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+318">V2</span> mini-dialog boxes&nbsp;&#151;&nbsp;respectively corresponding to the starting and ending values of the U and V parameters&nbsp;&#151;&nbsp; are displayed.<br>
+
+
+
+<br>
+<img border="1" src="../images/STE-02.gif"><br>
+<br>
+As you can see a handle is displayed together with each mini-dialog, so that you can change the value of the corresponding parameter either by explicitly specifying its value or by dragging the corresponding handle, thus interactively controlling the new shape of the modified surface.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Drag the handle or type in the value(s) you want to change.<br>
+<br>
+<img border="1" src="../images/STE-03.gif"><br>
+<br>
+A preview is immediately displayed (interactively, if you drag the handle; as soon as you enter the value by hitting the <b>TAB</b> key in the other case)<br>
+<br>
+<img border="1" src="../images/STE-04.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and modify the shape of the object.<br>
+<br>
+<img border="1" src="../../../images/surfaces/STE-05.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+
+<h4><a name="Tangency"></a>Extending a surface maintaining its tangency along a boundary</h4>
+
+<table>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the boundary along which you want to extend the surface.<br>
+<br>
+<img border="1" src="../images/STE-06.gif"><br>
+<br>
+To change the selected boundary, right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_SPEECH_+18">Boundary</span>, choose 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and select another boundary.<br>
+
+
+
+<br>
+The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+44">Length</span> mini-dialog box and the corresponding handle are displayed, so that you can change the length either by explicitly specifying its value or by dragging the corresponding handle, thus interactively controlling the new shape of the modified surface.<br>
+
+<img border="1" src="../images/STE-07.gif"> <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Drag the handle or type in the desired value: a preview of the modified surface is immediately displayed (interactively, if you drag the handle; as soon as you enter the value by hitting the <b>TAB</b> key in the other case):<br>
+<br>
+<img border="1" src="../images/STE-08.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and modify the shape of the object.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/STE-10.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

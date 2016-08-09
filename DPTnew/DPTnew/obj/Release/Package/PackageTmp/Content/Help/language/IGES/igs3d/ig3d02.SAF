@@ -1,0 +1,186 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>think3 to IGES 3D conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h2>think3 to IGES 3D conversion table</h2>
+
+<p>Here is a general conversion table showing how <b>think<font color="#FF0F00">3</font></b> entities are mapped to the IGES ones when converting a <b>think<font color="#FF0F00">3</font></b> 3D model to the IGES format.</p>
+
+<table border="1" bordercolor="white" summary="">
+<thead>
+<tr>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>think3 entity</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>IGES Entity to which it is converted</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>IGES<br>
+ entity number</b></td>
+</tr>
+</thead>
+
+<tr>
+<td bordercolor="navy"><b>Point</b></td>
+<td bordercolor="navy"><b>Point</b></td>
+<td bordercolor="navy"><b>116</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Line</b></td>
+<td bordercolor="navy"><b>Line</b></td>
+<td bordercolor="navy"><b>110</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Circular Arc</b></td>
+<td bordercolor="navy"><b>Circular Arc</b></td>
+<td bordercolor="navy"><b>100</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Ellipse</b></td>
+<td bordercolor="navy"><b>Conic</b></td>
+<td bordercolor="navy"><b>104</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Profile</b></td>
+<td bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td bordercolor="navy">-</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>NURBS curve</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Curve</b></td>
+<td bordercolor="navy"><b>126</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Offset curve</b></td>
+<td bordercolor="navy"><b>Offset curve</b></td>
+<td bordercolor="navy"><b>130</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Plane</b></td>
+<td bordercolor="navy"><b>Plane</b></td>
+<td bordercolor="navy"><b>108</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Circular Cylinder</b></td>
+<td bordercolor="navy"><b>Tabulated Cylinder</b></td>
+<td bordercolor="navy"><b>122</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Tabulated Cylinder</b></td>
+<td bordercolor="navy"><b>Tabulated Cylinder</b></td>
+<td bordercolor="navy"><b>122</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Ruled Surface</b></td>
+<td bordercolor="navy"><b>Ruled Surface</b></td>
+<td bordercolor="navy"><b>118</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Surface of revolution</b></td>
+<td bordercolor="navy"><b>Surface of revolution</b></td>
+<td bordercolor="navy"><b>120</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Coons Surface</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Surface</b></td>
+<td bordercolor="navy"><b>128</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Proportional Surface</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Surface</b></td>
+<td bordercolor="navy"><b>128</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Fillet Surface</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Surface</b></td>
+<td bordercolor="navy"><b>128</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Offset Surface</b></td>
+<td bordercolor="navy"><b>Offset Surface</b></td>
+<td bordercolor="navy"><b>140</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>NURBS surface</b></td>
+<td bordercolor="navy"><b>Rational B-Spline Surface</b></td>
+<td bordercolor="navy"><b>128</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Solid</b></td>
+<td bordercolor="navy"><b>Manifold Solid B-Rep Object</b></td>
+<td bordercolor="navy"><b>186</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Dimensions</b></td>
+<td bordercolor="navy"><b><i>NOT converted</i></b></td>
+<td bordercolor="navy">-</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Texts</b></td>
+<td bordercolor="navy"><b><i>NOT converted</i></b></td>
+<td bordercolor="navy">-</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Line Type</b></td>
+<td bordercolor="navy"><b>Line Font Pattern</b></td>
+<td bordercolor="navy">-</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Layers</b></td>
+<td bordercolor="navy"><b>Definition levels Property</b></td>
+<td bordercolor="navy"><b>406 Form 1</b></td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Line Width</b> </td>
+<td bordercolor="navy"><b>Line Weight</b> </td>
+<td bordercolor="navy">-</td>
+</tr>
+
+<tr>
+<td bordercolor="navy"><b>Color</b></td>
+<td bordercolor="navy"><b>Color</b></td>
+<td bordercolor="navy">-</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

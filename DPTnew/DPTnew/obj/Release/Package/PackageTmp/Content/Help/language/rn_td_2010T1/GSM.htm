@@ -1,0 +1,195 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>New Global Modeling Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Global Modeling Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Global Modeling commands.</p>
+
+<ul class="noleft">
+<li><a href="#P756">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7883">Planar Bounding-Box</span> and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7884">3D Bounding-Box</span> commands</a></li>
+
+<li><a href="#P763">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span> and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7360">Zone Modeling</span> commands</a></li>
+
+<li><a href="#P764">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command</a></li>
+
+<li><a href="#P766">Enhancement in <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span></a></li>
+</ul>
+
+<hr color="silver">
+<!-- PRJ: P756 - OWN: Jacques Goussard -->
+<a name="P756"></a> 
+
+<h2>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7883">Planar Bounding-Box</span> and <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7884">3D Bounding-Box</span> commands</h2>
+
+<p>The options in the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+700">Planar Bounding-Box</span> and <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+800">3D Bounding-Box</span> selection lists have been enhanced so as to have similar capabilities in each command. The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+801">Increase Control Points</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+802">Decrease Control Points</span>, <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span>, and <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span> options are now available in both the commands.</p>
+
+<h3>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7883">Planar Bounding-Box</span> command</h3>
+
+<p>The following two options have been introduced in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GlobalPlanar.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+700">Planar Bounding-Box</span></a> selection list.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:9;">
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+801">Increase Control Points</span></td>
+<td>Selecting it increases one control point each in both the directions of the grid.</td>
+</tr>
+
+<tr valign="top">
+<td width="180"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+802">Decrease Control Points</span></td>
+<td>Selecting it decreases one control point each in both the directions of the grid.</td>
+</tr>
+</table>
+
+<h3><a name="P756-2"></a>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7884">3D Bounding-Box</span> command</h3>
+
+<p>The new <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list is available in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_3DBB.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+800">3D Bounding-Box</span></a> selection list with the following two options.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:9;">
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span></td>
+<td>Set this option in order to continue with the modification.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span></td>
+<td>By clicking on a line between two control points a new grid of control points gets added in the plane perpendicular to the selected line at the pick location.</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:9;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<ul class="noleft">
+<li>The <span class="UI_COMMAND" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+58">Update Projection</span> (<img src="../../images/general/Computebutton.gif" align="absmiddle">) button is available (in both the command selection lists) after rotating the current view, enabling you to refresh the control point grid for the new view.</li>
+
+<li>User modifications are preserved when new control points are added.</li>
+
+<li>When control points are decreased, the grid is re-initialized. If you already have made any deformation then a warning is displayed informing that all changes will be lost.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P763 - OWN: Jacques Goussard -->
+<h2><a name="P763"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7360">Zone Modeling</span> commands</h2>
+
+<p>The <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+6653">Advanced GSM</span></a> and <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_ZoneModeling.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7360">Zone Modeling</span></a> commands enable you to specify shape constraints on <i>curves</i> and <i>points</i>. To apply these constraints, you can select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span> or <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span> in the new <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+812">Target Shape</span> drop-down list under the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+812">Target Shape</span> node.</p>
+
+<p>Once the curve/point selection has been done, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> mini-dialog box is displayed on the curve/point in the Graphics Area and you can select one of the following constraints to be applied from the corresponding drop-down list.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:10;" style="margin-left:30;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+813">Target Plane</span></td>
+<td>The selected boundaries are mapped to a user defined plane<br>
+<br>
+<img src="../../images/globalshape/Shape_const_plane.gif" border="1"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+814">Target Line</span></td>
+<td>The selected boundaries are mapped to a user defined line<br>
+<br>
+<img src="../../images/globalshape/Shape_const_line.gif" border="1"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="110"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+819">Target plane + symmetry</span></td>
+<td>The selected boundaries are mapped to a user defined plane while maintaining G2 continuity along the boundary. Hence, the resulting surface and its mirrored copy with respect to the plane will be G2 continuous.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+821">Match Plane</span></td>
+<td align="left">The selected boundaries are mapped to a plane<br>
+<br>
+<img src="../../images/globalshape/Shape_const_matchplane.gif" border="1"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+822">Match Sphere</span></td>
+<td>The selected boundaries are mapped to a sphere</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+823">Match Cylinder</span></td>
+<td>The selected boundaries are mapped to a cylinder</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" style="margin-bottom:10;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+For <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+821">Match Plane</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+822">Match Sphere</span>, and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+823">Match Cylinder</span> the characteristics of the surfaces are internally computed and not defined by the user.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P764 - OWN: Patrick Bosinco -->
+<h2><a name="P764"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command</h2>
+
+<p>The following options have been introduced under the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+12">Advanced Options</span> node of the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_fillet_reduction.htm"><span class="UI_COMMAND" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+1">Fillet Reduction</span></a> selection list. They enable you to display (preview) the computed preserving, matching &amp; virtual vertices to have a feedback on the effect of various related parameters.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:9;">
+<tr valign="top">
+<td width="30"><b>1</b></td>
+<td width="200"><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+8">Show Matching Curves</span></td>
+<td>Enables you to see the preview of curves where matching is applied.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td width="220"><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+16">Show Virtual Vertex Location</span></td>
+<td>Enables you to see the locations where virtual vertices are present.</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+7">Show Preserving Boundaries</span></td>
+<td>Enables you to see the preview of boundaries that are being preserved.</td>
+</tr>
+</table>
+
+<p><img src="../../images/globalshape/preview.gif" border="1"></p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P766 - OWN: Patrick Bosinco -->
+<h2><a name="P766"></a>Enhancement in <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span></h2>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+132">Density</span> option has been introduced in the <span class="UI_OPTION" id="idd_dialog_rtc.msg+idd_dialog_rtc+8">Plane Curvature</span> tab of <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm"><span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span></a> enabling you to define the curvature plot density. You can define a number in the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+132">Density</span> text box to display the same number of plots for each surface section arc. The following image shows the difference with the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+132">Density</span> set to <b>15</b> and <b>10</b>, respectively.<br>
+<br>
+<img src="../../images/globalshape/curvature_density.gif" border="1"></p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+</body>
+</html>
+

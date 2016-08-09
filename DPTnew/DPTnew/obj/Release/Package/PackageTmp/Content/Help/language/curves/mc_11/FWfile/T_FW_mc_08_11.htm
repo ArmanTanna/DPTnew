@@ -1,0 +1,101 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(304,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t2" content="translate">
+<title>Insert Curve through Interpolation Points</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script src="../../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<script src="../../../../JSandSTYLES/Frames.js" type="text/javascript"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+6832">Interpolation Points</span> </p>
+<hr color="#63a9d8">
+
+<br>
+
+
+<p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+89">New curve</span> <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> of the <a href="T_FW_mc_11.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+80">Curve through Interpolation Points</span></a> command enables you to create a new spline curve by specifying its interpolation points.</p>
+
+<p style="margin-bottom:0;"><a name="InputPoints"></a>The points to be interpolated can be specified either by entering them directly in the document, or by reading them in an ASCII file (extension ".pt"; each line in the file must contain the coordinates of a point <span id="TWOD">in the world coordinate system</span>; each coordinate is separated by the following through a blank character). The input mode can be chosen in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+47">From</span> drop-down list:</p>
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+82">Points</span></td>
+<td>To enter points by specifying them directly in the document, by clicking or using the snap commands.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+471">ASCII file</span></td>
+<td>To read the points in an ASCII file that can be selected in an ordinary file selection box by clicking <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+110">Browse</span>.</td>
+</tr>
+</table>
+
+<p>By default, the curves created using this command are NURBS curves with degree = 3 and continuity = 2 (ordinary cubic splines). In order to provide smoother continuity at each interpolation point, it is possible to create also quintic and septic curves (degree=5 or 7). This is a great benefit when modifying the curve by editing its control points, as the curvature plots will remain smooth.<br>
+The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+137">Degree</span> drop-down list under <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to choose <b>3</b> to create an ordinary cubic spline, <b>5</b> to create a quintic curve or <b>7</b> to create a septic curve when you need smoother continuity at the interpolation points.
+</p>
+
+<p>The curve shape can be controlled using the options of the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+101">Rule</span> drop-down list.<br><br>
+
+<!-- <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../jsoptions/Curvatrue.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe> -->
+</p>
+<p style="margin-bottom:0;">While this command is active, you can start the <a href="../../../tools/to_07/FWfile/T_FW_CurveCurvature.htm" target="_parent"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7586">Curvature</span></a> command (either from the menu bar or from the context menu). This will start the curvature analysis on the curve and the result will be displayed as a curvature plot on the curve being created/modified. You will also get the <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span> related options in the selection list.</p>
+<br><br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" id="F2DNOTVISIBLE">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+If you select the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span>&nbsp;&#151;&nbsp;see the "<a href="../../OVfile/T_OV_curves.htm#Assoc">Associativity</a>" section of "<a href="../../OVfile/T_OV_curves.htm">An Overview on Curves</a>"&nbsp;&#151;&nbsp;check box in the selection list and enter points by snapping to special points of existing entities in the model, an associativity link will be retained between the created point and the special point you snapped to. If the position of the special point changes, the position of the point you created will change as well and the curve shape will be modified accordingly.<br>
+ The <a href="../../mc_01/FWfile/T_FW_mc_01.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span></a> does <i>not</i> apply to associative curves created using this method.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_mc_08_11.htm"><b>Create a new spline curve</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_mc_08_11_OpenClose.htm"><b>Creating an open or a closed curve</b></a></li>
+
+<li><a href="../HWfile/T_HW_mc_02_11_02.htm"><b>Modifying the tangency conditions at the endpoints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

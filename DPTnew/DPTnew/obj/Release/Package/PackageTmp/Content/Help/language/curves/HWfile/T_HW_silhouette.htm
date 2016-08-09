@@ -1,0 +1,350 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating the silhouette curves of a surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating the silhouette curves of a surface</h3>
+
+<p>The <a href="../FWfile/T_FW_cv_12.htm#Sil"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span></a> option of the <a href="../FWfile/T_FW_cv_12.htm">
+
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span></a> command enables you to create curves reproducing the silhouette of a surface relative to a chosen sight direction. To create the silhouette of a surface, proceed as follows (to accomplish the following task on your own, load file "silhouette.e3").<br>
+
+
+ &nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Start the command and select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span> in the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span> drop-down list.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>2</b></td>
+<td>Select the surfaces you want to create the silhouette of.<br>
+<br>
+<img border="1" src="../../../images/curves/sil01.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><a name="PartingLine_VIEWTYPE"></a>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+5">Sight Mode</span> drop-down list you can select the method to be used to define the sight mode: 
+
+
+
+<table>
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+3">Parallel direction</span></td>
+
+
+<td>to define the sight direction as parallel to a direction you can set in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list (see "
+<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+4">Sight point</span></td>
+
+
+<td>to define the silhouette curves as the ones you obtain by intersecting lines starting from a <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+4">Sight point</span> with the selected surface contours.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+314">View direction</span></td>
+
+
+<td>To create the silhouette curves along the view direction, which can be either orthogonal or perspective.</td>
+</tr>
+</table>
+
+<p>The sight direction can also be defined interactively by selecting the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> check box.<br>
+
+
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Interactive direction definition</b> <br>
+The <a href="../FWfile/T_FW_cv_12.htm#Sil"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span></a> option of the <a href="../FWfile/T_FW_cv_12.htm">
+
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span></a> command can be particularly useful in molding, in order to define and create parting lines, which you can easily do using the <a href="#Quick">
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+18">Quick preview</span></a> option. If you already know the direction enabling you to obtain the best parting line, then you don't need to use the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> definition.<br>
+
+
+ On the contrary, if your model is a complex one and you need to determine the best parting line you can get, then you can take advantage of using the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> definition along with the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+18">Quick preview</span> option. In fact, with this method you can interactively try as many different directions as you like and each time get a quick preview of the resulting parting line. In addition, the interactive direction definition method also creates a line in the chosen direction.</td>
+
+
+</tr>
+</table>
+
+<br>
+As soon as the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> box is selected, a 3D-handle is displayed in the right-bottom corner:<br>
+
+
+ <br>
+<img border="1" src="../../../images/curves/silHANDLE.gif"><br>
+<br>
+To interactively define the sight direction, you can:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li>Rotate the sight direction about each of its axes (one at a time) just by dragging the corresponding handle (the one marked with X, Y, or Z), or click on the handle and supply the rotation <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+100">Angle</span> value.<br>
+
+
+<br>
+<img border="1" src="../images/silHANDLE02.gif"><br>
+<br>
+</li>
+
+<li>Select one of the predefined directions in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list (see "
+<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).</li>
+
+
+</ul>
+
+To go on with the task, select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+3">Parallel direction</span> in the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+5">Sight Mode</span> drop-down list and leave 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> unchecked.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+40">Z</span>, to create the silhouette curves you obtain by intersecting the selected surface contours with lines parallel to the Z axis of the Work Plane<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>To display a preview of the silhouette curves you can obtain with the current settings, select the preview button ( <img src="../../../images/sl_new/b_sl_preview.bmp" align="absmiddle"> ). The silhouette curves will be drawn (this might take some time if the model is a complex one).<br>
+<br>
+<img border="1" src="../../../images/curves/sil02.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>You can choose the type of resulting curve you want to obtain. 
+
+<ul class="noleft">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curves will be of the Curve on Surface type (<i>see</i> "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>" for details).</li>
+
+
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, an additional option is available under 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is also available, enabling you to create curves which retain a link to the surface they derive from.</p>
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Let's now add the surface boundaries to the silhouette curves. Click <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> and select 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+11">Surfaces</span> in the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+14">Boundaries</span> drop-down list.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Silhouette curves corresponding to apparent contours are drawn in the current color. You can use a different color for the drawing of real boundaries by choosing the desired one in the color palette which shows up when you click on <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+16">Boundary Color</span>. Ask for a new preview to check the result with the new settings:<br>
+
+
+ <br>
+<img border="1" src="../../../images/curves/sil04bis.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>Have a look at what happens to the silhouette curves if you project them onto a plane. To do this, select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+15">Project on Plane</span> check box. If you ask for a new preview, this is what you will get:<br>
+
+
+ <br>
+<img border="1" src="../../../images/curves/sil07.gif"><br>
+<br>
+To go on with the task, deselect the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+15">Project on Plane</span> check box and set the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+16">Boundary Color</span> to red.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>10</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and create the silhouette curves.<br>
+<br>
+<img border="1" src="../../../images/curves/sil09.gif"><br>
+<br>
+Please note that if you chose the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+360">Interactive direction</span> definition method, a line is also created to display the sight direction used to create the silhouette curves (in the picture below, the one pointed out by the red arrow):<br>
+
+
+ <br>
+<img border="1" src="../../../images/curves/sil-Handle-result.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes. 
+
+<p>Hide the surface to fully appreciate the result:<br>
+<br>
+<img border="1" src="../../../images/curves/sil10.gif"><br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="Quick"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+18">Quick preview</span> <br>
+
+
+ 
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+18">Quick preview</span> option enables you to display a fast preview of the <i>parting line</i>, which can be displayed as a line or by shading surfaces using two different colors (or three, where the third is used for vertical areas). This will enable you to quickly recognize the parting line on the surface, so that you can select only those surfaces to which computation must be applied. If the result is different from the preview, it generally depend on tessellation. You can improve the display by supplying lower values in the 
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_TESSELLATION.htm">
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+380">Boundary tolerance:</span></a> and 
+<a href="mk:@MSITStore:forcus.chm::/language/options/graphics/jsoptions/gra_OP_8.htm">
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+379">Surface tolerance:</span></a> boxes or by properly moving the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/graphics/jsoptions/TessellationSlider.htm">tessellation slider</a>.</p>
+
+
+
+<ul class="noleft">
+<li>To select surfaces to which the preview must be applied, select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span> and then select the surfaces in the model.</li>
+
+
+
+<li>To enable the display of the preview, select <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+37">Enable</span></li>
+
+
+
+<li>To enable the use of shading in the preview, select <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+29">Shading</span>. Visible areas are displayed in green, hidden areas in red (you can change these two default values respectively in the 29th and 28th positions of the 
+<a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_to_06_08_01.htm">
+
+<span class="UI_OPTION" id="idd_colorset.msg+idd_colorset+1">Colors and Materials</span></a> table)</li>
+
+
+
+<li>To detect vertical areas, type a small value into the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+30">Angular tolerance</span> box. As soon as the value is entered, vertical areas are displayed in blue (this is the default color: you can change it in the 30th position of the 
+
+<span class="UI_OPTION" id="idd_colorset.msg+idd_colorset+1">Colors and Materials</span> table). A small region around the parting line is also displayed in blue: the size of this region depends on the 
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+30">Angular tolerance</span> value.</li>
+
+
+
+<li>You can display the three zones (visible, hidden, vertical) by controlling the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+38">Separation</span> value: 
+
+
+
+<ul class="noleft">
+<li>Visible areas are moved upwards (of a distance = <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+38">Separation</span>)</li>
+
+
+
+<li>Hidden areas are moved downwards (of a distance = <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+38">Separation</span>)</li>
+
+
+
+<li>Vertical areas remain fixed.</li>
+</ul>
+
+<p><img border="1" src="../images/silsep-01.gif"><br>
+(no vertical areas, <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+6">Draft Angle</span>=0)</p>
+
+
+
+<p><img border="1" src="../images/silsep-02.gif"><br>
+(vertical areas, <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+6">Draft Angle</span>=10)</p>
+
+
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

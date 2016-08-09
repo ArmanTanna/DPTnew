@@ -1,0 +1,124 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Layers: Filter and Selection Methods</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideTR();HideTDC();">
+
+
+<h3>Layers: Filter and Selection Methods</h3>
+
+<p>The layers display and selection can be managed using the following commands:</p>
+
+<ul>
+<li><a href="#FL"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter Layers</span></a></li>
+
+<li><a href="#SL"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+25">Select Layers</span></a></li>
+</ul>
+
+<h4><a name="FL"></a>Filter Layers</h4>
+
+<p>If the drawing has a limited number of layers it is easy to scan through them. However, if the drawing has a large number of layers, it is sometimes difficult to search through the layers. In such cases, you can use the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter: Layers</span> button and <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+12">Filter</span> field. By defining the filters, you can specify the properties and only the layers that match those properties will be displayed in the layer list. The below described predefined filtering options can be activated in two ways:</p>
+
+<ul>
+<li>Left-clicking on the <a href="../FWfile/T_FW_FilterLayers.htm"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter Layers</span></a> button</li>
+
+<li>Right-clicking on the layer properties and selecting the <a href="../FWfile/T_FW_Context_Commands.htm#cm_fl"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter Layers</span></a> command from the context menu.<br>
+<br>
+</li>
+</ul>
+
+<p>Using the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter Layers</span> button, you can define the following type of filters:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+1">All Layers</span></td>
+<td>Displays all layers defined in the <span id="TWOD">model/</span>drawing document. The <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+1">All Layers</span> filter is selected by default, which ensures that all the layers are displayed.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+2">Layers On</span> </td>
+<td>Displays only the visible layers.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+3">Locked Layers</span> </td>
+<td>Displays only the locked (that is: locked and locked with snap) layers.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+4">Layers with Entities</span></td>
+<td>Displays layers that contain entities.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+5">Selected Layers</span></td>
+<td>Displays layers that are currently selected by the user in the layer list.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="filter_combo"></a><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+12">Filter:</span></td>
+<td>Enables to define a filter on name in the following cases: <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../FWfile/T_FW_Filteroptions.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe> <br>
+<br>
+The <b>Filter result</b> field displays results of the matched filter criteria (that is: filter on name or that of the defined filtering option &mdash; <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+1">All Layers</span>, <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+2">Layers On</span>, <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+3">Locked Layers</span>, <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+4">Layers with Entities</span>, <span class="UI_COMMAND" id="idr_layer_filter.msg+idr_layer_filter+5">Selected Layers</span>).<br>
+ Also, you are enabled to: 
+
+<ul>
+<li>choose the previously entered search string by selecting it from the drop-down list.</li>
+
+<li>invert the defined filter (filter on name or the filtering option) by selecting the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+13">Invert filter</span> check box. For example, if you have selected the filter to show all layers, none of the layers will be displayed.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h4><a name="SL"></a>Select Layers</h4>
+
+<p>Layer selection has been made much easier by providing the new <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+25">Select Layers</span> command. The below described predefined selection options can be activated in two ways:</p>
+
+<ul>
+<li>Left-clicking on the <a href="../FWfile/T_FW_SelectLayers.htm"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+25">Select Layers</span></a> button</li>
+
+<li>Right-clicking on the layer properties and selecting the <a href="../FWfile/T_FW_Context_Commands.htm#cm_sl"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+25">Select Layers</span></a> command from the context menu<br>
+<br>
+</li>
+</ul>
+
+<iframe id="MyIframe1" name="MyIframe1" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../FWfile/T_FW_Selectiontypes.htm" onload="viaMk();ResizeIFrame1()" scrolling="no"></iframe> 
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_Layer_UI.htm"><b>Layers: Interface Overview</b></a></li>
+
+<li><a href="T_OV_LayerOperations.htm"><b>Layers: Working with layers</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

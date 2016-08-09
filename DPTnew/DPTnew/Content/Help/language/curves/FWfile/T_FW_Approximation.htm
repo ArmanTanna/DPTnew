@@ -1,0 +1,102 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(319,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2012t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="Revisor" content="Donella Geminiani">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Approximation by Lines-Arcs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7911">Approximation by Lines-Arcs</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7911">Approximation by Lines-Arcs</span> command enables you to convert a generic planar curve into a sequence of <i>line segments</i> or a combination of <i>circle arcs</i> and <i>line segments</i>. This is useful as a tool path input for NC machines.</p>
+
+<p><a name="curves"></a>On starting the command, select the curve to be approximated for the <span class="UI_SELECTOR" id="TDCvApprox.msg+_TDCvApprox_LABEL_+1">Curves</span> selector. You can select multiple curves simultaneously.</p>
+
+<p style="margin-bottom:0;"><a name="type"></a>The <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+2">Type</span> drop-down list enables you to define how the curve is to be approximated.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+3">Lines only</span> - The selected curve is converted only into line segments.</li>
+
+<li><span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+4">Lines and arcs</span> - The selected curve is converted into a combination of lines and arcs.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="original"></a>The <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+17">Original Curve</span> drop-down list enables you to decide what is to be done with the original selected curve.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+18">Keep</span> - The original curve is retained along with the new lines and arcs.</li>
+
+<li><span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+19">Hide</span> - The original curve is retained, however, is made hidden.</li>
+
+<li><span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+20">Delete</span> - The original curve is deleted.</li>
+</ul>
+
+<p><a name="tolerance"></a>For lines, you can define the tolerance value in the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+5">Linear Tolerance</span> text box. This tolerance value defines the maximum deviation the line can have from the original curve. Lesser the tolerance value, more are the number of line segments generated.</p>
+
+<p><a name="radius"></a>For arcs, you can define the maximum and minimum radius values in the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+8">Max. radius</span> and <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+6">Min. radius</span> text boxes, respectively. These values define the limits with which the arc radius can vary.</p>
+
+<p>In addition, the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+24">Update deviation</span> option, under <b>More options</b>, is available. When selected, it enables the new curves being created - that is, lines and arcs - to have the deviation equal to the  <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+5">Linear Tolerance</span> value provided. When not selected, the new curves keep the deviation of the original curves.</p>
+
+<p>Once all the parameters have been defined, select the <span class="UI_COMMAND" id="TDCvApprox.msg+_TDCvApprox_TOOLTIP_+1">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button. The preview the generated arcs and lines is displayed. Red markers demarcate the end point of a segment, as shown in the image below.<br>
+<br>
+<img src="../../../images/curves/approximation_preview.gif" border="1"></p>
+
+<p style="margin-bottom:0;"><a name="result"></a>Along with the preview, the summary of the result is displayed in the selection list:</p>
+
+<ul class="noleft">
+<li><b>No. of Lines</b> - Number of line segments generated</li>
+
+<li><b>No. of Arcs</b> - Number of arc segments generated</li>
+
+<li><b>Max. Line Length</b> - Length of the longest line segment</li>
+
+<li><b>Min. Line Length</b> - Length of the shortest line segment</li>
+
+<li><b>Max. Arc Length</b> - Arc length of the longest arc segment</li>
+
+<li><b>Min. Arc Length</b> - Arc length of the shortest arc segment</li>
+
+<li><b>Max. Radius</b> - Radius value of the biggest arc</li>
+
+<li><b>Min. Radius</b> - Radius value of the smallest arc</li>
+</ul>
+
+<p>If satisfied with the preview, you can <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command.</p>
+
+<p>As shown in the following example, the yellow curve has been approximated by <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+4">Lines and arcs</span> (shown in green) and <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+3">Lines only</span> (shown in red) as defined in the <span class="UI_OPTION" id="TDCvApprox.msg+_TDCvApprox_LABEL_+2">Type</span> drop-down list.<br>
+<br>
+<img src="../../../images/curves/approximation_line_arc.gif" border="1"></p>
+
+<hr color="silver">
+</body>
+</html>
+

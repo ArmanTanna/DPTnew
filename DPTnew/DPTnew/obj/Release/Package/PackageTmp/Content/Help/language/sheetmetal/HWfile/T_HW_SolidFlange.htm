@@ -1,0 +1,133 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<title>Job: Creating a solid flange</title>
+<meta name="T_2009t1" content="translate">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating a solid flange</h3>
+
+<p>Open the solid_flange.e3 file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below to create a solid flange.</p>
+
+<ol class="noleft">
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command and select the profile to be extruded.<br>
+
+<br>
+<img border="1" src="../../../images/sheetmetal/SolidFlange01.gif"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="5%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>About the profile</b> <br>
+The profile to be selected must: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>be open</li>
+
+<li>contain only lines and arcs</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+To change the selected profile, right-click on <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+125">Profile</span>, choose 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and select another profile.<br>
+
+<br>
+</li>
+
+<li>Now the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+88">Thickness</span> and 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+44">Length</span> mini-dialog boxes are displayed. On expanding the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+131">Properties</span> branch in the selection list, additional bend parameters are displayed along with the 
+<span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+20">Radius</span> mini-dialog box.<br>
+
+<br>
+<img border="1" src="../images/SolidFlange02.gif"><br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+88">Thickness</span> mini-dialog box, type the thickness value of the solid flange. For this tutorial, enter <b>2</b>.<br>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Initially the default thickness value is inherited from the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+448">Thickness:</span> parameter in the 
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL_BEND.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+437">Bend</span></a> page inside 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span> category of the 
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span>. You need to modify it as per requirement.</td>
+
+</tr>
+</table>
+
+<br>
+To invert the direction of the applied thickness, double-click the red handle. To apply thickness symmetrically about the profile, double-click the green handle. (<i>see also <a href="mk:@MSITStore:solids.chm::/language/HWfile/T_HW_SymmetryInvert.htm"><b>Symmetry and Invert Direction handles</b></a>)</i><br>
+
+<br>
+<img border="1" src="../images/SolidFlange04.gif"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+You can also create a solid flange by directly using data from the <a href="T_HW_Data_BTM.htm"><b>Bend Table</b></a>.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+44">Length</span> mini-dialog box, type the value of the length to be assigned to the solid flange. For this tutorial, enter <b>50</b>.<br>
+
+<br>
+To invert the direction of the applied length, double-click the red handle. To apply length symmetrically about the profile, double-click the green handle. (<i>see also <a href="mk:@MSITStore:solids.chm::/language/HWfile/T_HW_SymmetryInvert.htm"><b>Symmetry and Invert Direction handles</b></a>)</i><br>
+
+<br>
+<img border="1" src="../images/SolidFlange03.gif"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the flange.<br>
+<br>
+<img border="1" src="../../../images/sheetmetal/SolidFlange03.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.<br>
+<br>
+</li>
+
+<li>The driving dimensions are also created for the solid flange. In case they are not visible make use of the <a href="mk:@MSITStore:help.chm::/language/history/FWFile/T_FW_Show_Driving_Dimensions.htm">
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+609">Show Driving Dimensions</span></a> command.<br>
+
+<br>
+<img src="../../../images/sheetmetal/SolidFlange04.gif" border="1"><br>
+<br>
+You can directly change these driving dimensions to parametrically modify the form of the solid flange.</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

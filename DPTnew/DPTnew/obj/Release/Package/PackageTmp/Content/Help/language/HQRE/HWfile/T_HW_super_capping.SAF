@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a Super Capping Surface</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+
+<h3>Creating a Super Capping Surface</h3>
+
+<p>In this tutorial you will be creating a <i>super capping surface</i> over mesh nodes governed by specified boundary curves. Open the <i>Super_capping.e3</i> file from the <i>samples</i> folder of your installation and follow the steps given below. The model contains a mesh <i>(orange)</i> and its boundary curves <i>(red)</i>, as shown in the image below.
+<br><br>
+<img src="../../../images/HQRE/supper_capping_model.gif" border="1">
+</p>
+
+<ol class="noleft">
+<li>Before applying a surface over a mesh, it is advisable to analyze the mesh using the <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_SmallRadius.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7749">Extract Zones</span></a> command. On analyzing the noise (select <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+184">Noise</span> in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list and ask for <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span>), you will know the maximum noise value as displayed for the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+205">Max. Noise</span> option. In this case, it is <b>0.1178 mm</b>. Keep a note of this value.<br><br>
+<img src="../images/supper_capping_noise.gif" border="1">
+<br><br></li>
+
+<li>Start the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span> command and ensure that in the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span> drop-down list, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+131">Boundary curves</span> is selected.<br><br></li>
+
+<li>For the <b>Group 1</b> selector, select all the red the boundary curves of the mesh. You can use the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm"><span class="UI_SELECTOR" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1103">Chain</span></a> command to expedite the selection process.<br><br></li>
+
+<li>Set <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+1">Free</span> in the <span class="UI_MINIDIALOG" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list at the boundary curve, so as to manage the situation when the curve is not present precisely at the boundary of the mesh.<br><br>
+<img src="../images/supper_capping_curve.gif" border="1"><br><br></li>
+
+<li>In the next <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span> drop-down list in the selection list, select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+220">Smooth points</span>. In the <b>Group 1</b> drop-down list, select <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+9">Mesh nodes</span> and select the mesh for the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+118">Mesh</span> selector. Ensure that the <span class="UI_MINIDIALOG" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list at the mesh is set to <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+402">Position</span>, so as to ensure that the surface is generated at the mesh.<br><br><img src="../images/supper_capping_mesh.gif" border="1"><br><br></li>
+
+<li>Enter <b>10</b> in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+10">No. of Steps</span> edit box under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. Now the capping surface will be progressively developed in 10 steps to reach the specified tolerance values.<br><br></li>
+
+<li>Select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span> node under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> and in the <span class="UI_COMMAND" id="idd_dialog_gm_tol2.msg+idd_dialog_gm_tol2+1">Precision</span> dialog box clear the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+106">Global</span> check box. The <span class="UI_MINIDIALOG" id="tdesign.msg+_GM_UI_LABEL_+198">Position tolerance</span> and <span class="UI_MINIDIALOG" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+13">Start tolerance</span> mini-dialog boxes will be displayed in the Graphics Area, using which you can specify local tolerance values at the mesh.<br><br> </li>
+
+<li>In the <span class="UI_MINIDIALOG" id="tdesign.msg+_GM_UI_LABEL_+198">Position tolerance</span> mini-dialog box enter <b>.25 mm</b> <i>(which has to be more than the noise value as detected in step 1)</i>. In the <span class="UI_MINIDIALOG" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+13">Start tolerance</span> mini-dialog box you have to enter a value that is 10 times of that specified for <span class="UI_MINIDIALOG" id="tdesign.msg+_GM_UI_LABEL_+198">Position tolerance</span> <i>(because <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+10">No. of Steps</span> has been set to 10)</i>, hence, enter <b>2.5 mm</b>.<br><br><img src="../images/supper_capping_steps.gif" border="1"> <br><br></li>
+
+<li>Now <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command to generate the surface. You can use the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_13.htm"><span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+197">Hide Entities</span></a> command to hide the curves and mesh to see the surface properly.<br><br><img src="../../../images/HQRE/supper_capping_surface.gif" border="1"> <br><br></li>
+
+<li>Finally you can apply the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_Zebra.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7361">Zebra</span></a> command to see the quality of the surface that has been generated.<br><br><img src="../../../images/HQRE/supper_capping_zebra.gif" border="1"></li>
+
+</ol>
+<hr color="silver">
+</body>
+</html>
+

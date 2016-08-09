@@ -1,0 +1,152 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a spined fillet with variable radius</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Creating a spined fillet with variable radius</h3>
+
+<p class="notop">In this task you will use the <a href="../FWfile/T_FW_SpinedFillet.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+485">Spined Fillet</span></a> command to create a fillet between two surfaces along a spine curve. The radius of the fillet will vary between an in initial and a final value, and you will also specify some points where it must assume values of your own choice.<br>
+
+
+<i>Please note that you can accomplish this task by loading file "spf_constant.e3"</i>.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPF00.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_SpinedFillet.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+485">Spined Fillet</span></a> command.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_SPEECH_+490">Type</span> drop-down list select 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+492">Variable radius</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Select the first surface (<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+483">Group A</span>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SPF01.gif"><br>
+<br>
+Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end selection for the first group of surfaces.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the second surface (<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+484">Group B</span>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SPF02.gif"><br>
+<br>
+Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end selection for the second group of surfaces.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>As you can see, the normal of the second surface is outward bound. If you keep it like that, you won't be able to create the fillet, as the normal of the first surface is inward bound instead. To invert the direction of the normal, thus enabling the creation of the fillet, double-click on the arrow representing the normal of the second surface.<br>
+<br>
+<img border="1" src="../images/SPF03b.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Select the spine curve.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPF04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+309">Start Radius</span>and 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+310">End Radius</span> mini-dialog box respectively, type the initial and final value of the radius of the fillet you want to create.<br>
+
+
+<br>
+<img border="1" src="../images/SPF05VA.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>To specify additional intermediate values fro the radius of the fillet, first click <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+486">Internal Points</span> in the selection list and then click at as many locations along the spine curve as you like. In the corresponding 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+61">Radius</span> mini-dialog box, type the value of the radius for that location. The internal points can also be specified using the snap commands. Furthermore, it is not necessary to indicate them exactly on the spine chain: wherever you specify them, they will be projected onto it.<br>
+
+
+<br>
+<img border="1" src="../images/SPF06VA.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>Set <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+497">Extension</span> drop-down list to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+494">Disabled</span> and then click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and create the fillet:<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SPFVALAST.gif"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

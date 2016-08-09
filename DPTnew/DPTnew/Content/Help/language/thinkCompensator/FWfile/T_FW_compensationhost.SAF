@@ -1,0 +1,163 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Process Compensator</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td align="left"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+6">Process Compensator</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span> command enables you to create the compensated shape of any process (for example, like the one required in shape distortions due to spring back effects, such as, for instance, the ones occurring in sheet metal stamping).</p>
+
+<p style="margin-bottom:0;">You can save the command session and reopen it between each F.E.M. computation. In fact, the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+135">Session</span> drop-down list is available on top of the selection list:</p>
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+134">New</span></td>
+<td>Enables you to start a new session. When the command ends, a session file ("target shape.xml") is created under the working folder of the command ("compensator_<i>nn</i>, where <i>nn</i> is a number automatically incremented at each session), which is located under the folder containing the "target shape.e3" file.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+132">Browse</span></td>
+<td>Displays a file selection box in which you can choose a previously stored ".xml" session file, which enables you to restart the command at the same saved "iteration" level.</td>
+</tr>
+</table>
+
+<p>Once you have selected the target shape, you need to indicate a <i>target FEM</i>, that is a ".pt" file containing points on the target shape for iteration 0 (at the beginning of the command). It is possible to manage <i>dense</i> meshes in addition to <i>light</i> meshes computed by F.E.M. (that is, typically, the <i>Matrix</i> meshes in addition to <i>Part</i> meshes with springback).</p>
+
+<p>In fact, if you click the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+131">Browse for FEM target tool</span> item in the selection list, a file selection box will be displayed, enabling you to specify a file. The command will work on this file and will compensate it rather than the one indicated through <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+84">Browse for FEM target shape</span>.</p>
+
+<p>A <i>processed FEM</i> ".pt" file (same name as the target, with an additional "_P" suffix), should contain the same points as the file said above, after processing. Any user supplied process procedure is accepted and enabled.</p>
+
+<p>When the command is applied, an <i>identification</i> process is started, according to the options set under the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+92">Identification</span> node.</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+27">Max. Distance</span></td>
+<td>The maximum distance value between two corresponding points.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+66">Tolerance</span></td>
+<td>The tolerance value to be reached in the identification process.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+67">Max. No. of Loops</span></td>
+<td>When the box is checked, you can type the maximum number of iterations to be reached in the adjacent box. When the box is cleared, the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+66">Tolerance</span> will be taken into account instead.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+68">Roundness</span></td>
+<td>A roundness value. For details, see "<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_RoundnessSamples.htm"><i>An example of Roundness</i></a>".</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+63">Bulge</span></td>
+<td>A bulge value. For details, see "<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_BulgeSamples.htm"><i>An example of the Bulge factor</i></a>".</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+73">Optimization</span></td>
+<td>By checking this box, you can activate a smoothing process for noisy data. It is also an iterative process for which you can set a maximum number of loops (<span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+67">Max. No. of Loops</span>). It applies as a refinement process after the standard initial process. The result of this smoothing is that it minimizes the average distance error instead of the maximum distance error.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+133">Preserving Curves</span></td>
+<td>In order to manage G0 (<i>positional</i>) and G1 (<i>tangency</i>) continuity along groups of curves to be preserved, the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+133">Preserving Curves</span> check box is also available. When the box is checked, several options are available:<br>
+ <br>
+ <img src="../images/TEMP_THINKCMP.gif" border="1"><br>
+&nbsp;<br>
+ 
+
+<ul class="noleft">
+<li>You can select several groups of curves.</li>
+
+<li>You can browse the selected groups forward and backward through the <img src="../../../images/rn_2007T1/TR_STBACK.gif" align="absmiddle"> and <img src="../../../images/rn_2007T1/TR_STAHEAD.gif" align="absmiddle"> arrows respectively.</li>
+
+<li>You can apply continuity constraints to the selected groups, to be chosen in the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+139">Constraint</span> drop-down list: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+2">Keep position</span> (G0)</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+3">Keep position + tangent</span> (G1)</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+4">Keep position + tangent + curvature</span> (G2).</li>
+</ul>
+
+For each of the two continuity types you can set a tolerance value (<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+198">Position tolerance</span>, <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+199">Tangency tolerance</span> and <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+200">Curvature tolerance</span> respectively).</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span></td>
+<td>Enables you to work based on the displacement field symmetry. For details see "<a href="MirrorMode.htm">Computation in mirror mode</a>".</td>
+</tr>
+</table>
+
+<p>The compensation is computed through an iteration process enabling you to reach either the specified <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+87">Same Shape Tolerance</span>, or, if you check the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+67">Max. No. of Loops</span>, the specified number of loops.</p>
+
+<p><a name="max"></a>The <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+130">Max. No. of Iterations</span> box enables you to specify a number of iterations for the process after which the command stops, rather than reaching the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+87">Same Shape Tolerance</span>.</p>
+
+<p>The <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+137">Iteration</span> box displays the global number of iterations actually reached (therefore it is read-only and cannot be modified).</p>
+
+<p>The iterations stop when the distance of the processed FEM is lower than the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+87">Same Shape Tolerance</span>. If this value is not reached, then the command will provide the compensated ".pt" file for next iteration and run automatically the process procedure, waiting for the generation by the external process of the next "_P.pt" file.</p>
+
+<p>An example is provided in the following diagram. Each time <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> is clicked, a working folder "\compensation_xx" is created, containing all intermediate ".pt" files. Nevertheless the initial ".pt" and "_P.pt" are overwritten during the iterations so we strongly recommend to make a backup of them. Finally, the compensated shape ("xx_compensated.e3") is saved in the same working folder.<br>
+<br>
+<img border="1" src="../images/FC.gif"></p>
+
+<p><a name="More_Options"></a>Further options are available also under the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node.</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+140">Skip message boxes</span></td>
+<td>This check box controls the display of not blocking information dialog boxes allowing further processing: 
+
+<ul class="noleft">
+<li>When the box is cleared, additional information dialog boxes are displayed.</li>
+
+<li>When the box is checked, no additional dialog boxes are displayed.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span></td>
+<td>Enables you to transform the final entities into NURBS.<br>
+See "<i><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMbend03.htm">Getting NURBS surfaces instead of specialized ones</a></i>" for details.<br>
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="ratio"></a><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+223">Iterations with ratio</span></td>
+<td>Enables you to specify a scale factor for each stage of the deformation process.<br>
+For every iteration level, the ratio can be specified in the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+224">Ratio at iteration</span> text box. If the <a href="#max"><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+130">Max. No. of Iterations</span></a> is more than 5, the inputs are split into several ranges. The required range can be selected from the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+225">Iterations</span> drop-down list.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

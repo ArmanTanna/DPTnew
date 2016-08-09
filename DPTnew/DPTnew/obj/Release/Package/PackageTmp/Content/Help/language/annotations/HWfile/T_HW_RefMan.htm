@@ -1,0 +1,90 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Job: Opening files with annotations containing missing references to external files</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style>.noleft{font-family:Verdana;margin-left: 22;margin-top: 0;
+}</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a>
+
+<h4 class="nobot">Opening files with annotations containing missing references to external files</h4>
+
+<p class="notop">After starting the <a href="../FWfile/T_FW_RefMan.htm"><b>Repair References</b></a> command proceed as follows.
+<br>&nbsp;
+<table>
+<tr>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>As soon as the command is started, a dialog box informs you that the program is preparing to scan the model document (and referenced X-Reference components, if any) for invalid annotation references. This may take some time and you are asked to confirm. Select <b>Yes</b> to go on, <b>No</b> to quit the command.
+<BR><BR><IMG SRC="../images/RM01.gif"><BR><BR>
+If all the annotation references are valid, a specific dialog box will inform you about the situation:<BR><BR><IMG SRC="../images/RM-OK.gif"><p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>If some lost references are detected, you are asked to confirm you want to go on:
+<BR><BR><IMG SRC="../images/RM02.gif"><BR><BR>
+Select <b>Yes</b> to go on, <b>No</b> to quit the command.<p></p></td>
+</tr>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>If you select <b>Yes</b>, the following dialog box is displayed:
+<BR><BR><IMG SRC="../images/RM03.gif"><BR><BR>
+The first line in the dialog reports the total number of lost references detected.  The next line indicates the active file, which the search originated.  This would be the top level file of the assembly even if the lost reference existed in one of the X-Reference component files.
+
+<p>The command will first search for all of the missing referenced files given a specified directory.  This directory may be typed into the text box shown above or the user may browse for it by selecting the <b>Browse</b> button.
+<p>
+If you click the <b>Browse</b> button, the program displays another dialog box, from which you can specify the new location to search for the missing referenced files. Note, however, that this step is optional and only enables you to specify the folder in which the program will look for the reference file. You will still be prompted to select the file name to substitute for the missing reference file.
+<p>
+The Cancel button quits the dialog box and exits the command. The check box in the lower left-hand corner enables you to specify if the provided folder must be scanned recursively or not. 
+</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>After specifying the new folder, or simply clicking <b>Continue</b>, the command will search for the missing referenced files in the specified directory. The following dialog box is displayed:
+<BR><BR><IMG SRC="../images/RM04.gif"><BR><BR>
+If the search for the missing files found any of them in the specified directory, the found file and its path will appear in the enabled .  However, if the file was not found then the  will appear blank.  You can type the path of a valid reference in the  or browse for it using the <b>Browse</b> button. When you click the <b>Browse</b> button, the program displays a standard Windows file dialog box from which you can select the reference file.
+
+<p>The <b>OK</b> button may be pressed to confirm the new path and name of the file referenced. The <b>Ignore</b> button enables you to skip the current reference; therefore it won't be modified. Note that if, for a lost reference, no new reference can be proposed, the <b>OK</b> and the <b>All</b> buttons are grayed out, until you select the new reference either by means of the <b>Browse</b> button or typing the reference file path. Also note that the dialog box will be displayed any time the application is unable to load a reference. If you click the <b>All</b> button, all the new references that can be retrieved by the program will be automatically accepted and the dialog box will appear only for the ones that cannot be retrieved in the specified folder.
+<p>This step will be repeated for each of the missing references<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Once you have completed specifying the file names for the missing, the application displays a dialog box which lists the files that will be changed. In this example, a single file will be changed.
+<BR><BR><IMG SRC="../images/RM05.gif">
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Annotations.htm"><b>An Introduction to Annotations</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationEntity.htm"><b>The Annotation Entity</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationGUI.htm"><b>Annotations: the User Interface</b></a></li>
+<li><a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Annotations: Filter and Filter Options</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationOperations.htm"><b>Annotations: User Operations</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationBook.htm"><b>Annotations and Visual Bookmarks</b></a></li>
+<li><a href="../OVfile/T_OV_AnnotationPrinting.htm"><b>Printing out Annotations</b></a></li>
+<li><a href="../OVfile/T_OV_Glossary.htm"><b>Glossary</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,145 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup"> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<TITLE>Job: Creating a blending curve perpendicular to an existing curve at its end points</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+<style> .movie{
+ 	font-;
+ 	font-size : 9pt;
+ }
+ </style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Creating a blending curve perpendicular to an existing curve at its end points</h3>
+<p>Given a certain set of curves, like the ones in the following illustration:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCP-FIG01.gif"><BR><BR>
+You may need to create a connection curve perpendicular to two points of the given curves:
+<BR><BR><IMG  border=1 SRC="../../../images/aixprod/UCP-FIG16.gif"><BR><BR>
+so that you can use the new set of curves as the wireframe structure of a surface to be created. You can proceed as described below.
+</p>
+<p></p>
+<table>
+<tr valign="top">
+<td width="20" valign="baseline"><b>1</b></td>
+<td>Load file "DesignAids_UC_perp.e3" and start the <a  href="../FWfile/T_FW_Perpendicular.htm"><b>Perpendicular</b></a> command.
+<BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>First Point</b> as shown in the illustration below:
+<BR><BR><IMG border=1 border=1 SRC="../images/UCP-FIG02.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the <b>Second Point</b> on the curve at an intermediate position, for example as shown in the illustration below:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG03.gif"><BR><BR>
+A preview of the of the perpendicular line and of the tangent lines is displayed:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG04.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td valign="baseline"><b>4</b></td>
+<td>Select <img src="../../../images/general/APPLYbutton.gif" border="0"> to create the lines.
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG05.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Now use the <b>Perpendicular</b> command again to create the perpendicular line at the opposite end point of the curve. <br>
+As the <b>First Point</b>, select the point shown in the following illustration:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG06.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>Select the <b>Second Point</b> on the curve at an intermediate position, for example as shown in the illustration below:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG07.gif"><BR><BR>
+A preview of the of the perpendicular line and of the tangent lines is displayed:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG08.gif"><BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>As you can see, the direction of the perpendicular line at this point is opposite to the one you obtained in step 4.<br>
+Double-click on it to invert its direction:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG09.gif"><BR><br>
+and you will obtain the desired result:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG10.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>8</b></td>
+<td>Select 
+<img src="../../../images/general/OKbutton.gif" border="0"> to create the lines and quit the command:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCP-FIG11.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>9</b></td>
+<td>Now you can create the blending curve. Start the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_07.htm"><b>Connect Curve</b></a> command.<br>&nbsp;</td>
+
+</tr>
+<tr valign="top">
+<td><b>10</b></td>
+<td>Set the <b>Continuity</b> drop-down list to <b>Tangent</b> and the <b>Default</b>  (under <b>More Options</b>) to <b>Single arc</b>.
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG12.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>11</b></td>
+<td>Select the first of the two perpendicular lines created in the previous steps by clicking close to its first end point:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCP-FIG13.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>12</b></td>
+<td>Select the second of the two perpendicular lines created in the previous steps by clicking close to its first end point:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCP-FIG14.gif"><BR><br>
+A preview of the blending curve is displayed:
+<BR><BR><IMG border=1 SRC="../images/UCP-FIG15.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>13</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> to create the connecting curve.
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCP-FIG16.gif"><BR>&nbsp;
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Color-Texture:Brich Wood</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Brich Wood Options</h2>
+
+<!-- <a name="settings"></a> -->
+
+<p>
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+145">Trunk Direction</span></td>
+<td>It determines the direction of the trunk axis.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+104">Scale</span></td>
+<td>This parameter determines the radius difference of two adjacent rings. 0.01 means that there is 100 rings per unit along the trunk radius.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+148">Ring Color</span></td>
+<td>It's the color of the ring area.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+147">Wood Color</span></td>
+<td>It's the color of the wood outside of rings.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+151">Ring Width</span></td>
+<td>It determines the relative ring width. 0.0 means no ring at all, 1.0 means that all the trunk area is covered by the ring color.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+149">Ring Fuzz In</span></td>
+<td>It determines the sharpness of the ring edges that are closer to the trunk center. The value of this parameter determines what fraction of the single wood/ring section along the trunk radius is occupied by the inner fuzz area.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+150">Ring Fuzz Out</span></td>
+<td>It determines the sharpness of the outer ring edge. The value of this parameter determines what fraction of the single wood/ring section along the trunk radius is occupied by the outer fuzz area.</P>
+<P>
+Observe that <span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+151">Ring Width</span> determines the distance between centers of fuzz areas. In result changing fuzz parameters while <span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+151">Ring Width</span> remains constant causes that average pattern color (e.g. when looking at the pattern from the long distance) is also constant. Use this script to render the images describing <span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+151">Ring Width</span> and <b>Fuzz</b> control.</P>
+      <P></P></td></tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+152">Gnarl</span></td>
+<td>This parameter determines the random perturbation of the regular rings inside the trunk. The higher value of the parameter is, the more gnarly the rings pattern.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+116">Grain</span></td>
+<td>This parameter determines the intensity of random grain effect. 0.0 means no grain at all. The higher the value of the parameter is, the more distinct grains are.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+154">Grain Color</span></td>
+<td>It defines the color of random <strong>Grain</strong></td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+153">Ring Fuzz Grain</span></td>
+<td>It determines the intensity of high frequency random perturbation of the ring edges.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+117">Grain Scale</span></td>
+<td>It determines the size of the grain in relation to rings size. 1.0 determines the grain size comparable to the distance between two adjacent rings. This parameter controls both random <span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+116">Grain</span> and <span class="UI_OPTION" id="tdesign.msg+_RENDERCOL_UI_LABEL_+153">Ring Fuzz Grain</span>.</td>
+</tr>
+</table>
+
+</p>
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_HW_color_texture.htm">Visual Properties: Color-Texture</a></li>
+</ul>
+<hr color="silver">
+
+
+
+</body>
+</html>

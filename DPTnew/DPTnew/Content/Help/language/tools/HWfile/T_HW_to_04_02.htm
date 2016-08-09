@@ -1,0 +1,131 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Spreadsheet - Assign a variable to a feature or a datum entity</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h4>Spreadsheet - Assign/deassign a variable to/from a feature or a datum entity</h4>
+
+<p>It is possible to associate a variable with a feature or a datum entity. This association controls the enable/unable operation for these items:<br>
+<ul class="noleft">
+<li>When the variable value is 0, the item is not enabled
+<li>When the value is not 0 the item is enabled.
+</ul>
+<p>
+To assign a variable to any of these items there are two possible ways. Here's the first:
+
+<P>
+
+<TABLE border=0>
+<TR valign=top>
+<TD width="20"><B>1</B></TD>
+<TD>
+Click the line number corresponding to the variable you wish to assign.<p></p>
+
+</TD>
+</TR>
+
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Assign</b> drop-down list, select the assignment mode:<br>&nbsp;
+<table>
+<tr valign="top">
+<td><b>Dimension/Feature/Component</b></td>
+<td>Enables you to assign the variable to a drive dimension or to a feature/datum entity. In the case of threaded holes/shafts, choosing this option will cause the variable to be assigned to the hole/shaft diameter rather than to the thread diameter or pitch.</td>
+</tr>
+<tr valign="top">
+<td><b>Thread diameter</b></td>
+<td>When a threaded hole/shaft is involved, this option enables you to assign the variable to the thread diameter, rather than to the hole/shaft diameter or to the thread pitch.</td>
+</tr>
+<tr valign="top">
+<td><b>Thread pitch</b></td>
+<td>When a threaded hole/shaft is involved, this option enables you to assign the variable to the thread pitch, rather than to the hole/shaft diameter or to the thread diameter.</td>
+</tr>
+</table>
+<p></p>
+
+</td>
+</tr>
+<TR valign=top>
+<TD><B>3</B></TD>
+<TD>
+The program prompts you to select an entity. Click on the item to which you wish to assign the variable.<br><br>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+Do not try to assign variables to ...
+<ul>
+<li><b>Linear</b> or <b>Rotational</b> sweep solids
+<li><b>Spined sweep</b> solids
+<li>Sweep solids <b>connecting two boundaries</b>
+</ul>
+If you try to do it, you'll get an "<i>Invalid selection</i>" message.</td></tr></table><br>
+
+</TD>
+</TR>
+
+<TR valign=top>
+<TD><B>4</B></TD>
+<TD>
+Click <B>Rebuild</B>.
+</TD>
+</TR>
+</table><p>
+The other way is the following:<p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <b>Model Structure</b>, right-click on the icon of the item you want to assign the variable to and select <b>Assign Variable/Feature</b> in the shortcut menu.<p></p></td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>The spreadsheet is automatically displayed. Click the line number corresponding to the variable you wish to assign.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>Assign</b> drop-down list, select the assignation mode as described above. The <b>Model Structure</b> displays a specific icon (looking like a small "spreadsheet"), 
+adjacent to the corresponding item. <p>
+If you change the value of the variable to 0, the item is deactivated and the <b>Model Structure</b> changes accordingly.
+</td>
+</tr>
+</table>
+<p>
+To deassign a variable from any of these items:
+<P>
+
+<TABLE border=0>
+<TR valign=top>
+<TD width="20"><B>1</B></TD>
+<TD>Click <B>Deassign</B>.<br><br></TD>
+</TR>
+
+<TR valign=top>
+<TD><B>2</B></TD>
+<TD>
+The program prompts you to select an entity. Click to select the item from which you wish to deassign the variable.
+</TD>
+<TD></TD></TR>
+</table>
+
+<hr color="silver">
+</body>
+</HTML>
+

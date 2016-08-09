@@ -1,0 +1,75 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Precision management in Associative GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<LINK href="../../../JSandSTYLES/xpopup.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h3>Precision management in Associative GSM</h3>
+<P>When the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command is applied to a model and selects the <b>Associative Mode</b> check boxes, there are two cases concerning the precisions:</P>
+
+
+<UL class="noleft">
+<LI>The resulting precisions satisfy the requested ones (i.e. often the default values).
+<LI>The resulting precisions do not satisfy the requested ones, but the user accepts the result or does not take care about the warning.</LI></UL>
+
+<P>This document describes how precisions are controlled when the associative <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> function is replayed when using the 
+<a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_08.htm"><b>Rebuild Model</b></a> command.</P>
+
+
+<P>If during a <b>Rebuild Model</b> the resulting precisions are worse than the requested ones <B>AND</B> worse than the previously accepted ones then a warning is issued and the user must decide how to go further. </P>
+<P>To go into details, let us call:</P>
+
+<UL class="noleft">
+<B><P><LI>E<SUB>req</B></SUB>; the initial requested precisions (i.e. often the default values).</LI></P>
+<B><P><LI>E<SUB>old</B></SUB>; the last accepted precisions.</LI></P>
+<B><P><LI>E<SUB>new</B></SUB>; the new obtained precisions.</LI></P></UL>
+
+<P>Then: </P>
+
+<UL class="noleft">
+<P><LI>If <B>E<SUB>new</B></SUB> </FONT><FONT FACE="Symbol">&lt;</FONT> <B>E<SUB>old</B></SUB> </FONT><img src="../../../images/general/blackarrow.gif" align="middle"> No action is performed.</LI></P>
+<P><LI>If <B>E<SUB>new</B></SUB> </FONT><FONT FACE="Symbol">&gt;</FONT> <B>E<SUB>old</LI></P>
+
+<UL class="noleft">
+</B></SUB><P><LI>If <B>E<SUB>new</B></SUB> </FONT><FONT FACE="Symbol">&lt;</FONT> <B>E<SUB>req</B></SUB> <img src="../../../images/general/blackarrow.gif" align="middle"> <B>E<SUB>old</B></SUB> is replaced by <B>E<SUB>new</B></SUB>.</LI></P>
+<P><LI>If <B>E<SUB>new</B></SUB> </FONT><FONT FACE="Symbol">&gt;</FONT> <B>E<SUB>req</B></SUB> </FONT><img src="../../../images/general/blackarrow.gif" align="middle"> A warning message is displayed.<br>The actions that can be performed are the same as when a feature is failing during a <b>Rebuild Model</b> command (see <a href="mk:@MSITStore:help.chm::/language/history/HWfile/T_HW_ht_08.htm"><b>Recovering errors when rebuilding</b></a>). </LI></P></UL>
+
+</UL>
+
+<P><B>E<SUB>old</B></SUB> is replaced by <B>E<SUB>new</B></SUB> at the end.</P>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Using the Rebuild button when redefining</b><br>
+If you use the <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_06.htm"><b>Redefine Feature</b></a> command and select the <b>Rebuild</b> button ( <img src="../../../images/icons/general/rebuild_icon.gif" align="middle"> ) then the reference precisions (i.e.: the previous precisions) are updated to the current ones of the redefined model.
+
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

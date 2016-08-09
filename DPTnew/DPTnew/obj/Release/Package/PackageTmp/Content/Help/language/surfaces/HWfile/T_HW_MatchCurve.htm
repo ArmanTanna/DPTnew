@@ -1,0 +1,90 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using the Match Curve-to-Curve Sections option of the Global Sweep command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Using the Match Curve-to-Curve Sections option of the Global Sweep command</h3>
+
+
+<p>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> check box under 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> in the selection list of the <a href="../FWfile/T_FW_GlobalSweep.htm#Match">
+
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a> command enables you to perform a sweep between the curves selected in the section groups. When the option is checked, the intrinsic parameterization for sections is enabled whatever the number of filled groups.</p>
+
+
+
+
+<p>Given a section group, one or several chain(s) with the selected curves are performed. Thus, the curves are oriented.</p>
+
+<p>NG is the number of filled section groups and N<sub>p</sub> is the number of selected curves for each group.<br>
+M = max (N<sub>p</sub>), p = 0&hellip;NG-1.<br>
+Let us note <b>C</b><sub>k,p</sub> the k<sup>th</sup> (k=0&hellip;N<sub>p</sub>-1) curve of section group p.<br>
+ Using the new <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> option, the result is M sweep operations, each operation j (j=0&hellip;M-1) being a standard sweep with single curve sections <b>C</b><sub>j,0</sub> &hellip; <b>C</b><sub>j,NG-1</sub>, obviously if the curve <b>C</b><sub>j,p</sub> exists. Both parameterization modes 
+
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span> and 
+
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+71">Intrinsic</span> are available.</p>
+
+
+
+
+<p class="rn_desc">In the following model, we have the same number of curves (6) for both sections. They are internally highly continuous but only <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm">C0</a> connected. The colors show the correspondences. In the first section, the first dark blue curve is much longer and C0 internally.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/image001.jpg"><br>
+<br>
+</p>
+
+<p class="rn_desc">Using <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span> and <i>without</i> the new mode, we perform a matching of discontinuities using arc length. We get 12 surfaces.<br>
+
+
+
+<br>
+<img border="1" src="../../../images/surfaces/image003.jpg"><br>
+</p>
+
+<p class="rn_desc">Using <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span> and the new mode, there is first a matching curve to curve and then a matching of discontinuities inside the curves using arc length. We see that the surfaces boundaries correspond to curve endpoints but for the dark blue one. We get 7 surfaces.<br>
+
+
+
+<br>
+<img border="1" src="../../../images/surfaces/image005.jpg"><br>
+</p>
+
+<hr color="silver"> 
+</body>
+</html>
+

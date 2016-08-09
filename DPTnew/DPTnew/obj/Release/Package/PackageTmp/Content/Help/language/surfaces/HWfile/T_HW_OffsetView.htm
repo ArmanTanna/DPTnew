@@ -1,0 +1,67 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using the Reference View option</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Using the Reference View option</h3>
+
+<p>The <a href="../FWfile/T_FW_Offset.htm"><b>Offset Surface</b></a> command enables you to create the offset surfaces of a set of selected surfaces. Using the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+234">Reference</span> 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+348">Normal</span> option, you can create the offset surfaces respectively on the positive or on the negative side relative to the orientation of the normal to each of the surfaces (you can double-click the handle to invert the orientation). The 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+234">Reference</span> 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+235">View</span> option, instead, works irrespectively of the surface normal and is provided with the goal of giving the user more control on the surface creation.<br>
+
+
+As the option says, <i>view</i> of the model&nbsp;&#151;&nbsp;i.e.: its orientation&nbsp;&#151;&nbsp;plays an important role when creating an offset surface.</p>
+
+<p>The <b>Reference</b> <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+235">View</span> option creates the offset surfaces on the outside part of the surface relative to the current view, no matter how the normals are oriented. This means:</p>
+
+<ul class="noleft">
+<li>For each single surface you select, the offset surface will be located between the surface and you, irrespectively of the orientation of the surface normal (in the following image the red arrows are the surface normals, the blue arrow is the view direction).<br>
+<br>
+<img border="1" src="../../../images/surfaces/RefView00.gif"><br>
+<br>
+</li>
+
+<li>For surfaces with a silhouette in the view direction, the system chooses the side of the offset based on the largest visible part of the surface, after computing it through a sampling (this means the offset surface will be located between the largest visible part of the selected surface and you):<br>
+<br>
+<img border="1" src="../../../images/surfaces/ReferenceView.gif"><br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

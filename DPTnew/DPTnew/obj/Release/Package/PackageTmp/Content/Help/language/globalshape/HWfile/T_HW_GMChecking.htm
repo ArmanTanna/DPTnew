@@ -1,0 +1,147 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Checking your results</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style>.litleft{margin-left:22; margin-top:0;}
+</style>
+
+<style>.notop{margin-top:0}</style>
+
+<style>.nobottom{margin-bottom:0}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h3>Checking your results</h3>
+<p>As soon as a preview is displayed, you can check the results you obtained. You can:<br>&nbsp;
+<ul class="noleft">
+<li><a href="#Display"><b>Display warnings on the model</b></a>
+<li><a href="#Precision"><b>Set the precision values to be achieved</b></a>
+<li><a href="#Shape"><b>Set the parameters controlling the shape of the resulting surface</b></a>
+<li><a href="T_HW_QualityChecks.htm"><b>Perform a set of Quality Checks</b></a>
+</ul>
+
+
+
+<br>&nbsp;
+
+<h5 class="nobottom"><a name="Display"></a>Displaying warnings on the model<hr color="silver"></h5>
+<blockquote class="litleft">
+<p class="notop">First of all, if the <b>Show warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ) is visible, click on it to have warnings displayed on the model</font></a> (the button will change to <img src="../../../images/general/warnings_on.gif" align="absmiddle"> ).<BR><BR><IMG border=1 SRC="../images/Check01.gif"><BR><BR>
+<p>As you could see in the picture above, warnings show you exactly the parameter you can work on in order to achieve the desired result.
+<p>In the case of our example you got a warning about the precision of the positional continuity. To modify this value you will have to select <b>Precision</b> under <b>More Options</b> and change the <b>Position</b> value.</blockquote><p>&nbsp;</p>
+<h5 class="nobottom"><a name="Precision"></a>Setting the precision values to be achieved<hr color="silver"></h5>
+<blockquote class="litleft">
+<p class="notop">To define the precision values to be achieved during the computation, you can click the <b>Precision</b> under <b>More Options</b> to open the <b>Precision</b> dialog box:
+<BR><BR><IMG SRC="../images/precision.gif"><BR><BR>
+inside which you can modify the following parameters:<br>&nbsp;
+<table>
+
+<tr valign="top">
+<td><b>No. loops</b></td>
+<td>The number of iterations the programs must perform in order to achieve the desired precision. Increase this number to get a higher precision.</td>
+</tr>
+
+<tr valign="top">
+<td><b>No. points</b></td>
+<td>The number of points to be used by the program in order to achieve the desired precision. Increase this number to get a higher precision.</td>
+</tr>
+<tr valign="top">
+<td><b>Position</b></td>
+<td>The precision value to be achieved for positional continuity, in millimeters or inches, depending on the current unit of measure. It is the gap between the resulting surfaces and the constraints.</td>
+</tr>
+<tr valign="top">
+<td><b>Tangency</b></td>
+<td>The precision value to be achieved for tangency continuity, in degrees. It is the difference between the real tangency and the one you obtained.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Curvature</b></td>
+<td>The precision value to be achieved for curvature continuity, as a percentage of the maximum curvature.</td>
+</tr>
+
+
+<tr valign="top">
+<td><b>Global</b></td>
+<td>When the check box is not selected, a set of local tolerance values is attached to each group, as in the following illustration.
+<BR><BR><IMG border=1 SRC="../images/LocalTolerance.gif"><BR><BR>
+
+To hide the local precision values, select the check box.</td>
+</tr>
+</table>
+
+<p>If a warning is displayed about some precision value, proceed as follows:<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Increase the value of the <b>No. loops</b> and/or <b>No. points</b> parameters (or decrease the precision to be achieved, if this makes sense).</td>
+</tr>
+<tr valign="bottom">
+<td><b>2</b></td>
+<td>Once you modified the values, click the <b>Preview</b> button ( <img border="0" src="../../../images/general/preview.gif" align="absmiddle"> ).</td>
+</tr>
+</table>
+<p>The model will be rebuilt using the new values and a progress bar will show the completion percentage of the process. When the desired result is achieved, the <img src="../../../images/general/warnings_on_new.gif"> button (<b>Show warnings</b>) disappears.<p>
+As to how to manage precisions when <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_08.htm">rebuilding</a> the model, see <a href="../OVfile/T_OV_Precision.htm"><b>Precision management in Associative GSM</b></a>.
+
+
+</blockquote>
+<p>&nbsp;</p>
+<h5 class="nobottom"><a name="Shape"></a>Controlling the shape of the resulting surface<hr color="silver"></h5>
+<blockquote class="litleft">
+<p class="notop">You can set the values of the parameters controlling the shape of the resulting surface: stiffness, roundness and bulge. Click <b>Shape Control</b> under <b>More Options</b> to display the <b>Shape Control</b> dialog box:
+<BR><BR><IMG SRC="../images/ShapeControl.gif"><BR><BR>
+<ul class="noleft">
+<li><b>X stiffness</b>&nbsp;&#151;&nbsp;enables you to set the stiffness value (strictly positive) along the X axis
+<li><b>Y stiffness</b>&nbsp;&#151;&nbsp;enables you to set the stiffness value (strictly positive) along the Y axis
+<li><b>Z stiffness</b>&nbsp;&#151;&nbsp;enables you to set the stiffness value (strictly positive) along the Z axis
+<br>Stiffness affects results only when constrained entities are very distant from the ones to be modified. <a  href="T_HW_StiffnessSamples.htm">Click here to see an example</a>.<br>&nbsp;
+<li><b>Roundness</b><br>
+Roundness (strictly positive) mostly affects changes regarding points: when a surface is modified so that it will pass through a point, around that point the surface itself can be more or less "round". <a href="T_HW_RoundnessSamples.htm">Click here to see an example</a>.
+<ul class="noleft">
+<li>By selecting the <b>Global</b> check box, you can apply the same roundness to all groups. When it is not selected, a different roundness value can be defined for each group, using the corresponding mini-dialog box
+<li>By selecting the <b>Optimization</b> check box you can obtain much more accurate results, though execution can take more time.
+</ul>
+
+<br>&nbsp;
+<li><b>Bulge</b>&nbsp;&#151;&nbsp;Enbales you to choose one of three possible values: <b>Small</b>, <b>Medium</b>, <b>Big</b> and <b>Very big</b>.
+<br><a href="T_HW_BulgeSamples.htm">Click here to see an example</a> of how the bulge factor can affect objects.
+</ul>
+</blockquote>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li> <a  href="T_HW_StiffnessSamples.htm"><b>An example of Stiffness</b></a>
+<li><a href="T_HW_RoundnessSamples.htm"><b>An example of Roundness</b></a>
+<li><a href="T_HW_BulgeSamples.htm"><b>An example of the Bulge factor</b></a>
+<li><a href="../OVfile/T_OV_Precision.htm"><b>Precision management in Associative GSM</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,296 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>thinkreal vs Rendering in ThinkDesign</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<h1>thinkreal vs Rendering in ThinkDesign</h1>
+
+<p class="noindent"><span class="OLD">thinkreal</span> was the rendering support of <b>ThinkDesign</b>. It had a separate dialog-based user interface and an independent work flow by which only static rendering was possible. Now, most of the <span class="OLD">thinkreal</span> functions are now feasible in <b>ThinkDesign</b>. The dialog based UI and work flow have been completely overhauled with a fresh look and feel. It is very important to underline that both the User Interface and the approach to static and dynamic image rendering have been unified in <b>ThinkDesign</b>. Significant enhancements have been made to make the operations much easier than they used to be. The new functionalities of <b>ThinkDesign</b> in comparison to <span class="OLD">thinkreal</span> are displayed in the tables below. The areas of application are:</p>
+
+<ul class="noleft">
+<li><a href="#comp0">Toolbar</a></li>
+
+<li><a href="#comp1">Material</a></li>
+
+<li><a href="#comp2">Decal</a></li>
+
+<li><a href="#comp3">Texture Space</a></li>
+
+<li><a href="#comp4">Lighting</a></li>
+
+<li><a href="#comp5">Environment</a></li>
+</ul>
+
+<hr color="silver">
+<h2><a name="comp0"></a>Toolbar</h2>
+
+<p>The name of the toolbar has been changed from <span class="OLD">thinkreal</span> to <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+10">Rendering</span>. The toolbar consists of new command names and symbols. The table below shows the commands in the <span class="OLD">thinkreal</span> and <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+10">Rendering</span> toolbars.</p>
+
+<br>
+ 
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><span class="OLD">thinkreal</span></td>
+<td align="center"><b>ThinkDesign</b></td>
+</tr>
+
+<tr>
+<td align="300"><img src="images/Old_thinkreal_toolbar.gif" border="0"></td>
+<td align="320"><img src="images/Rendering_toolbar.gif" border="0"></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/mm_01.gif" alt="Material Manager"> <span class="OLD">Material Manager</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_Render_library.gif" alt="Rendering Library"> <a href="thinkrender.htm#tr1"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span></a></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/dm_01.gif" alt="Decal Manager"> <span class="OLD">Decal Manager</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_Decal.gif" alt="Decal"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7683">Decal</span></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/tm_01.gif" alt="Space texture"> <span class="OLD">Space Texture</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_Texture_space.gif" alt="Texture Space"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/lm_01.gif" alt="Light Manager"> <span class="OLD">Light Manager</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_light.gif" alt="Lighting"> <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/sm_01.gif" alt="Scenery Manager"> <span class="OLD">Scenery Manager</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_environment.gif" alt="Environment"> <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span></td>
+</tr>
+
+<tr>
+<td align="300"><img src="../../images/icons/thinkreal/render.gif" alt="Render"> <span class="OLD">Render</span></td>
+<td align="320"><img src="../../images/icons/thinkreal/New_Render_options.gif" alt="Rendering" width="30" height="30" border="0"> <a href="thinkrender.htm#render">Rendering</a></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="comp1"></a>Material</h2>
+
+<p>In <span class="OLD">thinkreal</span> the material was applied using the <span class="OLD">Material Manager</span> dialog box, whereas in <b>ThinkDesign</b> material is applied from the <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.<br>
+<br>
+</p>
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><span class="OLD">thinkreal</span></td>
+<td align="center"><b>ThinkDesign</b></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Material Manager</span> dialog box</td>
+<td width="320"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab in <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.</td>
+<td><a href="Images_thinkreal_Render.htm#mat1">Details</a></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Color</span> tab in <span class="OLD">Material Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+10">Texture Color</span> node in <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list</td>
+<td><a href="Images_thinkreal_Render.htm#mat2">Details</a></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Reflectance</span> tab in <span class="OLD">Material Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span> node in <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list</td>
+<td><a href="Images_thinkreal_Render.htm#mat2">Details</a></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Transparency</span> tab in <span class="OLD">Material Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span> node in <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list</td>
+<td><a href="Images_thinkreal_Render.htm#mat2">Details</a></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Displacement</span> tab in <span class="OLD">Material Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span> node in <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list</td>
+<td><a href="Images_thinkreal_Render.htm#mat2">Details</a></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="comp2"></a>Decal</h2>
+
+<p>In <span class="OLD">thinkreal</span> the decal was applied using the <span class="OLD">Decal Manager</span> dialog box whereas in <b>ThinkDesign</b> selection is to be made in the selection list of the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> command.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td align="center"><span class="OLD">thinkreal</span></td>
+<td align="center"><b>ThinkDesign</b></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Load Decal Image</span> command in <span class="OLD">Decal Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+28">Image</span> browse in <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list</td>
+<td><a href="Images_thinkreal_Render.htm#dec1">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Edit Decal Mask</span> command in the <span class="OLD">Decal Manager</span>.</td>
+<td><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+32">Mask</span> option in the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node of the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#dec2">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Reflectance</span> tab in <span class="OLD">Decal manager</span>.</td>
+<td><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span> in <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#dec3">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Transparency</span> tab in <span class="OLD">Decal manager</span>.</td>
+<td><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span> in <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#dec3">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Displacement</span> tab in <span class="OLD">Decal manager</span>.</td>
+<td><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span> in <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#dec3">Details</a></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="comp3"></a><span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span></h2>
+
+<p>The <span class="OLD">space texture</span> of <span class="OLD">thinkreal</span> has been included as <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+14">Texture Mapping</span> in the selection lists of the material and decal of <b>ThinkDesign</b>. <a href="Images_thinkreal_Render.htm#text1">Click here for details</a>. Also a separate <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span> command is available for mapping the textures.<br>
+<br>
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="comp4"></a>Lighting</h2>
+
+<p>In <span class="OLD">thinkreal</span> the lighting was applied using the <span class="OLD">Light Manager</span> and in <b>ThinkDesign</b> it is applied from the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span> of the <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.<br>
+<br>
+</p>
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><span class="OLD">thinkreal</span></td>
+<td align="center"><b>ThinkDesign</b></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td width="300"><span class="OLD">Lights</span> pane in <span class="OLD">Light Manager</span></td>
+<td width="320"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span> tab in the <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.</td>
+<td><a href="Images_thinkreal_Render.htm#light1">Details</a></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="comp5"></a>Environment</h2>
+
+<p>In <span class="OLD">thinkreal</span> the environment was applied using the <span class="OLD">Scenery Manager</span> and in <b>ThinkDesign</b> it is applied from the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span> of the <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.<br>
+<br>
+</p>
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><span class="OLD">thinkreal</span></td>
+<td align="center"><b>ThinkDesign</b></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td width="300">The <span class="OLD">sceneries</span> pane</td>
+<td width="320"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span> tab in the <span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span>.</td>
+<td><a href="Images_thinkreal_Render.htm#env1">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Foreground</span> tab in <span class="OLD">Scenery manager</span></td>
+<td><span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+44">Foreground</span> node in the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+1">Environment</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#env2">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Background</span> tab in <span class="OLD">Scenery manager</span></td>
+<td><span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> node in the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+1">Environment</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#env2">Details</a></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Scenery</span> tab in <span class="OLD">Scenery manager</span></td>
+<td><span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+22">Scenery</span> node in the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+1">Environment</span> selection list.</td>
+<td><a href="Images_thinkreal_Render.htm#env2">Details</a></td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+Only few options in the drop-down list of the <span class="OLD">Foreground</span> and <span class="OLD">Background</span> tab in <span class="OLD">thinkreal</span> are present in the <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+1">Environment</span> selection list of <b>ThinkDesign</b>.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

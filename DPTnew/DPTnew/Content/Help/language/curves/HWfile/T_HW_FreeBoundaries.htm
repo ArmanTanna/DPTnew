@@ -1,0 +1,76 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating curves on the free boundaries of a solid</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+ 
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style>.OLD{font-weight: bold;}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Creating curves on the free boundaries of a solid</h3>
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+183">Free Boundary</span> item&nbsp;&#151;&nbsp;which applies only to solids&nbsp;&#151;&nbsp; in the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+42">Boundaries</span> drop-down list of the <a  href="../FWfile/T_FW_cv_11.htm"><b>Boundary Curve</b></a> command enables you to select all the <i>free</i> boundaries of the selected faces belonging to the same solid: free boundaries are the ones that are not common to more than one of the selected faces. The resulting curves will be the free boundaries of the selected set of faces.</p>
+
+
+<p><i>Please note that you can follow this step-by-step example by loading file: &quot;FreeBoundaries.e3&quot;</i>. 
+<BR><BR><IMG border=1 SRC="../../../images/curves/BC-FC-00.gif"><BR><BR>
+The static solid in the model above has three planar faces. If you select all the faces, the <i>free</i> boundaries are the external ones. The two internal boundaries (between the central plane and the one on its right and on its left respectively) are not free and will not be created if you select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+183">Free Boundary</span> option, while they will if you select the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+43">All</span> option.<br>
+
+
+Proceed as follows:</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+42">Boundaries</span> drop-down list, select 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+183">Free Boundary</span>:
+
+
+<br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the faces of the solid:
+<BR><BR><IMG border=1 SRC="../../../images/curves/BC-FC-01.gif"><BR><BR>
+<br>&nbsp;</td>
+</tr>
+<tr valign="baseline">
+<td><b>3</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curves. 
+<BR><BR><IMG border=1 SRC="../../../images/curves/BC-FC-02.gif"><BR><BR>
+Please note that if you had selected the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+43">All</span> option, you would have obtained the result in the following illustration.
+<BR><BR><IMG border=1 SRC="../../../images/curves/BC-FC-03.gif">
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

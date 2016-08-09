@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Applying a controlled modification to a simple solid</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Applying a controlled modification to a simple solid</h3>
+<p>In this job you will apply a controlled modification to the shape of a solid so that it will be joined to a surface, setting continuity conditions along the borders.
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Applying the Advanced GSM command to solids</b>
+<ul class="noleft">
+<li>When the <b>Associative Mode</b> check box is <i>not</i> selected, you can modify only static solids. If you select the <b>Copy</b> check box under <b>More Options</b>, a static copy of the original solid will be created and the changes will be applied to the copy.
+<li>When the <b>Associative Mode</b> box is selected, any type of solid can be modified.
+</ul>
+</td></tr></table><br>
+To accomplish the task in this exercise, open file "GSM-SOLID.e3". 
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/s-00.gif"><BR><BR>
+You will join the top-left edge of the green solid to the right-bottom border of the surface.
+After starting the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command, proceed as follows.
+<p></p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Deselect the <b>Associative Mode</b> and <b>Copy</b> (under <b>More Options</b>) check boxes. Then select the solid as in the following illustration:
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/S-01.gif"><BR><BR>
+The <b>Show warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="middle"> ) shows up on top of the selection list.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Click the <b>Show warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="middle"> ). The following is displayed:
+<BR><BR><IMG border=1 SRC="../images/S-02.gif">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the <b>Associative Mode</b> check box, and the warning will disappear.
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/S-03.gif"><BR><BR>To make a copy of the solid and apply the changes to the copy rather than to the original, select <b>Copy</b> under <b>More Options</b>.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Under <b>Matching</b>, select <b>Curves</b> in the <b>Matching</b> drop-down list<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Under <b>Group 1</b>, click on <b>Initial Curves</b> and then select the edge of the solid as in the following illustration: <BR><BR><IMG border=1 SRC="../../../images/globalshape/S-04.gif"><BR><BR>
+Then click on <b>Target Curves</b> and select the border of the surface:
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/S-05.gif"><br>
+<br>The following is displayed:
+<BR><BR><IMG border=1 SRC="../images/S-06.gif">
+<p></p></td>
+</tr>
+
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>
+Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and modify the solid. 
+<BR><BR><IMG border=1 SRC="../../../images/globalshape/S-07.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.
+</td>
+</tr>
+</table>
+<p>If you now modify the original solid (change the fillet radius), you will see the copy will automatically change accordingly:<BR><BR><IMG border=1 SRC="../../../images/globalshape/S-08.gif">
+
+<hr color="silver">
+</body>
+</html>
+

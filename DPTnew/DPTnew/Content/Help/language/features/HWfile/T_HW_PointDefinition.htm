@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Defining a Point on a Face</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Defining a Point on a Face</h3>
+
+<p>Here are the methods you can use to define a point on a face (see also "<b><a href="../../Solids/sl_09/HWfile/T_HW_datumPoint_onface.htm">Inserting a Datum Point onto a face of a solid</a></b>").<br>&nbsp;
+<UL class="noleft">
+<li><B>Point</B><br>the feature is initially centered at the point you chose when you selected the face in which to create the feature.
+<OL type="a">
+<li>To move the feature, click on <B>Point</B> in the selection list and then click to select a new center point. You can also move the feature by dragging its center-point handle.
+</OL><p></p>
+<li><B>From 2 lines</B><br>the center of the feature is based on the distances from two (history based) lines which can be:
+<ul class="noleft">
+<li>Edges, even not belonging to the same faces
+ <li>Datum lines
+ <li>Lines belonging to profiles.
+ </ul>
+<OL type="a">
+<li>In the <B>1st Distance</B> mini-dialog, specify the distance from the first line, or drag the feature center-point handle. To specify a different line as the first one, click on <b>First Line</B> in the selection list and then select the line.
+<li>In the <B>2nd Distance</B> mini-dialog, specify the distance from the second line, or drag the feature center-point handle. To specify a different line as the second one, click on <B>Second Line</B> in the selection list and then select the line.
+</OL>
+In the selection list the <b>Reference Planar Face</b> is displayed: the selection of a planar face is optional if the face is planar, mandatory if the face is not planar.<p></p>
+
+<li><B>From-along edge</B><br>the center of the feature is based on the distance from one boundary edge of the face in which datum point is to be created or on the <b>Reference Planar Face</b> (see below) and the distance along that edge.
+<OL type="a">
+<li>In the first <B>Distance</B> mini-dialog, specify the distance along the selected edge to the center of the feature, or drag the feature center-point handle. To specify a different reference edge, click on <B>Reference Edge</B> in the selection list and then select a new edge.
+<li>In the second <B>Distance</B> mini-dialog, specify the distance perpendicular from the selected edge to the center of the feature, or drag the feature center-point handle.
+</OL><p></p>
+<li><B>Polar</B> &#151; the position of the center of the feature is based on its radius distance from a polar origin and the angle from a reference line.
+<OL type="a">
+<li><b>Origin</b>&nbsp;&#151;&nbsp;the origin is a mandatory selection element, whenever possible, the default origin will be automatically selected based on the face selection. You can change the origin by clicking on <b>Origin</b> and specifying another point.
+<li><b>Reference Direction</b>&nbsp;&#151;&nbsp;you will have to specify the reference direction (as an existing line or the one identified by two points to be selected); whenever possible, the default reference direction will be automatically selected based on the face selection. You can change it by clicking on <b>Reference Direction</b> and specifying another direction.
+<li>In the <B>Radius</B> mini-dialog, specify the radius from the origin to the position of the center of the feature, or drag the point handle.
+<li>In the <B>Angle</B> mini-dialog, specify the angle from the reference line to position of the datum point, or drag the datum point handle.<p>
+
+In the selection list the <b>Reference Planar Face</b> is displayed: the selection of a planar face is optional if the face is planar, mandatory if the face is not planar.
+</OL><p></p>
+<li><b>Cartesian</b><br>
+the center of the feature is defined through its X, Y coordinates measured starting from an origin and using a reference X-axis.
+<ul class="noleft">
+<li><b>Origin</b>&nbsp;&#151;&nbsp;the origin is a mandatory selection element, whenever possible, the default origin will be automatically selected based on the face selection. You can change the origin by clicking on <b>Origin</b> and specifying another point.
+<li><b>Reference Direction</b>&nbsp;&#151;&nbsp;you will have to specify the reference direction (as an existing line or the one identified by two points to be selected); whenever possible, the default reference direction will be automatically selected based on the face selection. You can change it by clicking on <b>Reference Direction</b> and specifying another direction.
+<li><b>Reference Planar Face</b>&nbsp;&#151;&nbsp;the selection of a planar face is optional if the face is planar, mandatory if the face is not planar. You can change it by clicking on <b>Reference Planar Face</b> and specifying another face.
+<li><b>Delta X</b> and <b>Delta Y</b>&nbsp;&#151;&nbsp;are the distances (to be specified) of the point from the origin along the selected Reference Direction and in the direction orthogonal to it.
+</ul>
+
+<p></p>
+<li><B>Parameters</B><br>the center of the feature is based on the u and v parameters of the face in which the feature is to be created.
+<OL type="a">
+<li>In the <B>U</B> mini-dialog, specify the U parameter, or drag the feature center-point handle.
+<li>In the <B>V</B> mini-dialog, specify the V parameter, or drag the feature center-point handle.
+</OL>
+</UL>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,171 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<meta name="Author" content="Marco Springhetti">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Part Properties Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+
+<h1>New Part Properties Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements and improvements to the Part Properties functionalities for ThinkDesign users only.</p>
+
+<ul class="noleft">
+<li><a href="#433-Intro">Abstract</a></li>
+
+<li><a href="#433-FileProperties">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command (<span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span>)</a></li>
+
+<li><a href="#433-PartProperties">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit_PartProperties.msg+MenuBar_Document_Edit_PartProperties+1">Part Properties</span> commands section</a></li>
+
+<li><a href="#433-ItemPos">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span> command</a></li>
+
+<li><a href="#433-ShowAllParts">The new name for <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_View_PartProperties.msg+MenuBar_Document_View_PartProperties+2">Highlight All Parts</span> commands</a></li>
+
+<li><a href="#433-Quantity">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+1">Quantity Property</span> command</a></li>
+
+<li><a href="#433-OrganizePartList">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span> command</a></li>
+
+<li><a href="#433-PartList">Improvements to the <span class="UI_COMMAND_NOBOLD" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span> command</a></li>
+
+<li><a href="#433-UpdRed">The new Part List management commands</a></li>
+
+<li><a href="#556">The new XML Editor</a></li>
+</ul>
+<br>
+<hr color="silver">
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-Intro">Abstract</a></h2>
+<p>The set of commands formerly known as <span class="OLD">Part Data</span>, is now named <span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span>.</p>
+<br>
+<p>Most functionalities have remained the same, but the new commands no longer require other software to be installed besides the standard installation.</p><br>
+<p>To complete the reorganization, some options have been moved to new locations, new commands have been added and some commands have been improved. See "<a href="mk:@MSITStore:DFTB.chm::/language/dftb/OVfile/T_OV_PartProperties.htm">An Overview on Part Properties and Document Data</a>" for details.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-FileProperties">Enhancement in the <span class="UI_COMMAND_BOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command (<span class="UI_COMMAND_BOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span>)</a></h2>
+<p>The <a href="mk:@MSITStore:DFTB.chm::/language/DFTB/FWfile/T_FW_PartPropertiesTab.htm"><span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span></a> tab has been added to the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img border="0" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command. Its behavior is similar to the Document Properties <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span> command.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-PartProperties">The new <span class="UI_COMMAND_BOLD" id="MenuBar_Document_Edit_PartProperties.msg+MenuBar_Document_Edit_PartProperties+1">Part Properties</span> commands section</a></h2>
+<p>The main commands used to manage the Part Properties (<a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartPropEdit.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span></a>, <a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartPropCopy.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7882">Copy</span></a> and <a href="DFTB.chm::/language/dftb/FWfile/T_FW_PartPropPaste.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7883">Paste</span></a>), are now consistently collected in the <span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span> section of the <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span> menu and of the entity context menu.</p>
+<br>
+<p>These commands enable you to edit the Part Properties of the current component. If no component is selected, a selector in the selection list enables you to select it. To quickly access the top level component Part Properties in a layout or in a 3D assembly model, you can also use the new <a href="mk:@MSITStore:DFTB.chm::/language/DFTB/FWfile/T_FW_PartPropertiesTab.htm"><span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span></a> tab of the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img border="0" src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-ItemPos">The new <span class="UI_COMMAND_BOLD" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span> command</a></h2>
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_ItemPositionProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span></a> command replaces the former <span class="OLD">Define sequence</span> command and enables you to define the component sequence. This information is used by the ballooning and part list commands.</p>
+<p>The selection list enables you to quickly set the numbering criteria.</p><br>
+<p>This command also provides the same feature formerly available in the <span class="OLD">Edit Relation</span> command.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-ShowAllParts">The new name for <span class="UI_COMMAND_BOLD" id="MenuBar_Document_View_PartProperties.msg+MenuBar_Document_View_PartProperties+2">Highlight All Parts</span> commands</a></h2>
+<p>The former <span class="OLD">Show All Parts</span> and <span class="OLD">Show All Parts without Balloon</span> commands have been renamed respectively <a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_HighlightAllParts.htm"><span class="UI_COMMAND" id="MenuBar_Document_View_PartProperties.msg+MenuBar_Document_View_PartProperties+2">Highlight All Parts</span></a> and <a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_HighlightAllPartsWOBal.htm"><span class="UI_COMMAND" id="MenuBar_Document_View_PartProperties.msg+MenuBar_Document_View_PartProperties+3">Highlight All Parts without Balloon</span></a>.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-Quantity">The new <span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+1">Quantity Property</span> command</a></h2>
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_QuantityProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+1">Quantity Property</span></a> command enables you to set the quantity of a component within an assembly.</p><br>
+
+<p>This command provides the same feature formerly available in the <span class="OLD">Edit Relation</span> command.</p><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-OrganizePartList">The new <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span> <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span> command</a></h2>
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_OrgPartList.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span></a><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_OrgPartList.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span></a> command enables you to define the default properties of the Part List.</p><br>
+<p>This new command replaces the former way of configuring the Part List based on the "desc.lis" and other files. This integrated tool enables you to easily define the Part List content (Columns, header and footer), graphical aspect (Colors, text fonts, size), behavior (Sorting, origin, hierarchy).</p><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;" width="90%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b>
+<br>Old configurations need to be recreated using the new command.
+</td>
+</tr>
+</table>
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-PartList">Improvements to the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span> command</a></h2>
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartList.htm"><span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span></a> command has been improved with a new selection list and the integration with the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span> <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span> command.</p><br>
+
+<p>Relocated from the former position under <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif" alt="" align="absmiddle"><span class="OLD">Drawing Details</span>, the command now features a new selection list that provides you with full access to the Part List options and a <span class="UI_COMMAND" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+161">Mode</span> option that enables you to insert the Part List in the drawing or save it to a ".csv" file for later perusal.<br>
+The usual controls of origin, sorting and hierarchy are still available and quickly accessible.</p>
+<SPAN id="TWOD"><br>
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span></a> command is also present in the Model environment, with the only option of saving the Part List to a ".csv" file.</p></SPAN><br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#433-UpdRed">The new Part List management commands</a></h2>
+<p>The following new commands have been added to manage the Part List after it has been inserted in the drawing with the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span> command:</p>
+<ul>
+<li><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartListUpdate.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+3">Update</span></a></li>
+<li><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartListRedefine.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+4">Redefine</span></a></li>
+</ul>
+<br>
+<p>The commands are present in the menu bar and in the Part List context menu.</p><br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+
+<!--PRJ: P0000433 -  OWN: Sergio Missori-->
+<h2><a name="#556">The new XML Editor</a></h2>
+<p><a href="mk:@MSITStore:XMLEditor.chm::/language/XMLEditor/XMLEditor.htm"><b>XML Editor</b></a> is a new program that enables you to customize the dictionaries that you use to fill the Part Properties and Document Data fields.</p><br>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+</body>
+</html>
+

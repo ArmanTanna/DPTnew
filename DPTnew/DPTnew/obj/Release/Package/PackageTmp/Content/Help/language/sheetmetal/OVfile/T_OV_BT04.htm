@@ -1,0 +1,253 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="internally">
+<title>Bend Table Format</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<link href="../../JSandSTYLES/txteffects.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:22;margin-top:4;}
+</style>
+
+<style type="text/css">
+.littop{margin-top:1;}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+h3{margin-bottom:0;}
+</style>
+
+<style type="text/css">
+blockquote{margin-top:0;margin-bottom:0;margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Bend Table Format</h3>
+
+<br>
+<p>The bend table data is saved in the XML format in the <i>SMBendTable.xml</i> file.<span class="HideThis"> The contents of this file are only in English.</span> This file consists of multiple pairs of Header and Table sections. Each material will have its own:
+</p>
+
+<table>
+<tr valign="top">
+<td><b>1 - <a href="#HEADER">HEADER section</a></b></td>
+</tr>
+
+<tr valign="top">
+<td><b>2 - <a href="#TABLE">TABLE section</a></b> <br>
+<br>
+</td>
+</tr>
+</table>
+
+<img src="../../../images/sheetmetal/bt-cust_2.gif" border="1"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">For the clarity in visualization the figures in this illustration shows the Bend Table file content if viewed in Internet Explorer. However, a text editor software is required to edit the file.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h4><a name="HEADER"></a>Header section</h4>
+
+<p class="notop">The following data is specified in the Header section: &nbsp;<br>
+</p>
+
+<table border="1" bordercolor="white" bgcolor="white" cellpadding="5%">
+<tr valign="top">
+<td bordercolor="black"><i><b>Bend Table type</b></i> <br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>BendTableType</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>BendAllowance</tt></b>, <b><tt>Kfactor</tt></b>, <b><tt>BendDeduction</tt></b>, <b><tt>KCoeff</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">The Bend Table can be one of the seven supported types; see <a href="T_OV_BT02.htm"><b>Bend Table types</b></a>. The value of this directive depends on the type of *.bt file being imported. However, <b><tt>BendAllowance</tt></b> is the default value.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_3.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td width="170" bordercolor="black"><i><b>Table units</b></i> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>Unit</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>inches</tt></b>, <b><tt>mm</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">Table units can be specified in mm or inches. The default unit is 'mm'.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_4.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black"><i><b>Bend Angle type</b></i> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>AngleType</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>Inside</tt></b>, <b><tt>Outside</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">Two different angle types can be specified (see <b>Bend Angle</b> in <a href="T_OV_BT03.htm"><b>Bend Table Parameters</b></a>). The default is 'Outside'.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_5.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black"><b><i>Interpolation</i></b> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>Interpolation</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>ON</tt></b>, <b><tt>OFF</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">If the specified Bend Angle/Radius/Thickness values are not listed in the Bend Table, when 'Interpolation' is set to 'ON' (default) an interpolation is performed.<br>
+<br>
+In such a situation if 'Interpolation' is set to 'OFF', an error message is displayed.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_6.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black"><b><i>Material</i></b> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>Material Name</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>Any user-defined value</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">It is the name of the material for which the bend table data is compiled. It can be any user-defined name.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_7.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black"><b><i>Interpolation reference</i></b> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>FixedValue</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>Angle</tt></b>, <b><tt>Thickness</tt></b> or <b><tt>Radius</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">The interpolation is done by taking the reference of the 'FixedValue'. The default is 'Thickness'.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_8.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black"><b><i>Import file path</i></b> <br>
+<br>
+<ul class="noleft">
+<li><i>Directive:</i><br>
+<b><tt>MapPath</tt></b></li>
+
+<li><i>Supported values</i>:<br>
+<b><tt>The relative path of the imported *.bt file</tt></b></li>
+</ul>
+</td>
+<td bordercolor="black">The file path of the imported *.bt is dispayed.<br>
+<br>
+Syntax examples:<br>
+<img src="../../../images/sheetmetal/bt-cust_9.gif"> </td>
+</tr>
+</table>
+
+<br>
+<br>
+<h4><a name="TABLE"></a>Table section</h4>
+
+<p class="notop">The Table section constitutes of the lines containing the <i>BendData</i> values. The bend data are <tt>Thickness</tt>, <tt>Angle</tt>, and <tt>Radius</tt>.<br>
+<br>
+<img src="../../../images/sheetmetal/bt-cust_10.gif" border="1"><br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Notes on table values</b><br>
+<ul class="noleft">
+<li>The "-" character is the same as 0.</li>
+
+<li>K factor can be 0</li>
+
+<li>K Coefficient can be 0</li>
+
+<li>Bend Allowance cannot be 0. A warning is displayed if a 0 bend allowance value is detected.</li>
+
+<li>Bend Deduction can be 0.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_BTM.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7821">Bend Table Manager</span><b> - Overview</b></a></li>
+
+<li><a href="T_OV_BT00.htm"><b>Bend Table</b></a></li>
+
+<li><a href="T_OV_BT02.htm"><b>Bend Table types and flat length calculation</b></a></li>
+
+<li><a href="T_OV_BT03.htm"><b>Bend Table Parameters</b></a></li>
+
+<li><a href="../HWfile/T_HW_BTM_cust.htm"><b>Customizing a Bend Table File</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>

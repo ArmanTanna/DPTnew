@@ -1,0 +1,59 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Entity Relations of Solids and features</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Entity Relations of Solids and features</i></H3>
+
+<p>The <a  href="../FWfile/T_FW_entity_relations.htm"><b>Entity Relations</b></a> command, can not only be applied to components, but also to the <b>Solid</b> that makes up the <b>Component</b> and also each individual <b>feature</b> that the <b>Solid</b> is made of. You will check the relations of the <b>Solid</b> and one of the <b>feature</b> that belongs to the component <b>Housing</b> in the <b>Pump</b> assembly. The assembly file <i>Assy_pump.e3</i> is available in the <b>../samples/Pump</b> folder of your <b>think<font color="#FF0F00">3</font></b> installation.</p>
+<img src="../../../images/history/Ent_rel1.gif" border="1"><br><br>
+<ol TYPE=A class="litleft">
+<li><b>Solid</b>
+<ul class="noleft"><br>
+Start the <a  href="../FWfile/T_FW_entity_relations.htm"><b>Entity Relations</b></a> command, on <b>Solid2</b> that belongs to the component <b>Housing</b>.
+The results as per parameters <b>Quick history</b> and <b>Full history</b> set in the <b>Show relations</b> drop down menu is as seen below.
+<br><br>
+<li><b>Quick history</b>
+<ul class="noleft"><br>
+<img src="../images/Ent_rel_sol1.gif" border="1"></ul><br>
+<li><b>Full history</b>
+<ul class="noleft"><br>
+<img src="../images/Ent_rel_sol2.gif" border="1"><br><br>
+Checking the above results, you see that none of the <b>features</b> that make up the solid are shown in the relations. Also the entity <b>Profile 112(Housing)</b> appears both in the <b>Parents</b> and <b>Children</b> type lists.<br>
+When you apply the command on a <b>Solid</b>, you will get information on the entities exclusively outside the solid that are related to features inside it.</ul><br>
+</ul>
+<li><b>Feature</b><br>
+<ul class="noleft"><br>
+When you apply the command on a <b>feature</b> on the <b>Solid</b>, <b>Through Slot 71</b> (Support) as example in this case, you get information also on other features that it is dependent upon it.<br><br>
+<li><b>Quick history</b><br><br>
+<img src="../images/Ent_rel_sol3.gif" border="1"><br>&nbsp;
+<li><b>Full history</b><br><br>
+<img src="../images/Ent_rel_sol4.gif" border="1"><br><br>
+This implies that the same entity can appear as a <b>Parent</b> and a <b>Child</b> when you use the command on a <b>Solid.</b> Thus <b>Profile 112(Housing)</b> appears in both the type lists.
+</ul>
+</ol>
+
+<hr color="silver">
+</body>
+</html>

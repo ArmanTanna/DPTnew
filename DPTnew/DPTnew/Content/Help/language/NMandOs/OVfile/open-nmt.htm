@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Open vs non-manifold</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Open vs non-manifold</h3>
+
+<p>This article will explain the difference between "non-manifold solids"&nbsp; and "open solids." <BR>We recommend that you first read <A href="Open-Solids.htm">Open Solids</A> and <A 
+href="non-manifold.htm">non-manifold solids</A>.</p>
+
+<H4>The difference</H4>
+<P><I>Non-Manifold</I> Technology is one of the best characteristic of the 
+<b>think<font color="#FF0F00">3</font></b> application. This allows you to apply solid features to objects that are not defined in the real world. Open solids are an example.</p>
+ 
+<P>By reading the Open solids article, it is clear that an open solid is a skin made of adjacent surfaces that behaves like a solid, except for the disconnected edges.</p>
+
+<P>A non-manifold solid occurs when there's at least one edge that does not have 
+two (and only two) faces merging with it. This is a&nbsp; more general situation 
+than open solids:</p>
+<UL class="noleft">
+<LI>Open solids are always non-manifold. 
+<LI>Non-manifold solids are not always just open solids. In general, they&nbsp; might include a larger number of possible situations.
+</LI></UL>
+
+<TABLE cols=2 width="100%" border=1>
+  
+  <TR>
+    <TD><IMG height=221 src="../../../images/solids/NMandOS/cube4.gif" width=264 border=0></TD>
+    <TD>Open solid. There are 6 disconnected edges</TD></TR>
+  <TR>
+    <TD><IMG height=175 src="../../../images/solids/NMandOS/nmtclassic.gif" width=232></TD>
+    <TD>Non-manifold. There's one edge that has four faces merging with 
+  it</TD></TR>
+  <TR>
+    <TD><IMG height=301 src="../../../images/solids/NMandOS/nmt11.gif" width=423></TD>
+    <TD>Non-manifold: there are "rips", and overlapped surfaces</TD></TR>
+  <TR>
+    <TD><IMG src="../images/NCL02.gif"></TD>
+    <TD>Non-manifold: there are two overlapped surfaces. By the way the
+      <b>think<font color="#FF0F00">3</font></b> application is able to detect and suppress these doubled overlapped 
+      surfaces ).</TD></TR></TABLE>
+	  
+<P>The warning "Non-manifold" that might appear when creating a solid starting from surfaces or that might appear when applying a feature to a manifold object, generally means that topology is not being respected. The most common cases are vertexes with a non-real number of edges on them, or simply cases where a surface is completely or partially overlapped with another. <BR>When making a solid from surfaces, there's a warning that allows you to realize if the solid is just open (and where it is open), or if the solid contains non-manifold 
+faces.</p>
+
+<H4>An example</H4>
+<P>Let's use the following example:&nbsp; This is a set of legacy surfaces.</p>
+
+<P><IMG height=243 src="../../../images/solids/NMandOS/disconn-nonmainfold-1.gif" width=280 border=0></p> 
+<BR>Making a solid with the <a href="../../solids/FWfile/T_FW_Sl_08.htm"><b>Make Solid</b></a> command, you obtain a solid that is "not 
+
+closed", that means non-manifold. You can highlight the disconnected edges. 
+<BR><br><IMG border=1 src="../images/NCL03.gif"></p> 
+What does this mean? For some reason there must be degenerate edges, that is, edges that 
+share more than two solid faces leading to a non-manifold situation. You can 
+easily locate these edges (see <A href="locating-open-edges.htm">Locating open 
+(disconnected) edges</A>).</p>
+
+<P>For serious cases,&nbsp; all the appropriate surfacing tools are available in 
+order to fix the situation by editing the incorrect surfaces (as an example 
+trim, untrim, positional continuity and so on). Most of the time, these problems 
+come from a low quality translation from other CAD applications, or from 
+mistakes in surface modeling (as an example, when you create lots of duplicated, 
+inappropriate surfaces then you forget to delete the useless ones). <BR>You can 
+search our knowledgebase for real world cases. <BR></P>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<UL class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open solids</b></A></li> 
+<LI><A href="nmt-main.htm"><b>Non-manifold solids</b></A></li>
+</UL>
+
+<hr color="silver">
+</body>
+</html>
+

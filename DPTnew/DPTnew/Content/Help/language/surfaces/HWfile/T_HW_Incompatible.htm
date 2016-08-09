@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Managing incompatible shapes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Managing incompatible shapes</h3>
+
+<p class="notop">The <a href="../FWfile/T_FW_BlendingShape.htm"><b>Blending Shapes</b></a> command enables you to manage incompatible shapes.</p>
+<p>It is possible to exclude some zones on the contours so as to avoid arc joints on the resulting surfaces relative to such zones.
+<br><br>
+<img border="1" src="../../rn_2006t2/images/BS01.gif">
+<br><br>The new <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+200">Add Exclusion To First Curves</span> and 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+201">Add Exclusion to Second Curves</span> options have been added to the context menu displayed by right-clicking after selecting the first and second contours.<br>
+
+
+
+<a name="BlendShape_POCFromExclusion"></a><a name="BlendShape_POCToExclusion"></a>You can have as many exclusion zones as you like on both contours: the ones one the first contour will be marked as <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+207">First Exclusion</span> followed by their progressive number (1, 2, 3, ... ), while the ones on the second contour will be marked as 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+208">Second Exclusion</span>, also in this case followed by the corresponding progressive number.
+
+
+<br><br>
+<img border="1" src="../../rn_2006t2/images/BS02.gif"><br><br>
+<a name="BlendShape_WidthFromExclusion"></a><a name="BlendShape_WidthToExclusion"></a>For each of them you can define the width which is highlighted on the selected contour around the exclusion marker (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+209">First Exclusion Width</span> or 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+210">Second Exclusion Width</span> respectively). It has a square shape to differentiate it from the other handles.
+
+
+<br><br>
+<img border="1" src="../../rn_2006t2/images/BS03.gif"><br><br>
+By moving the exclusion zones over the arc joints of the preview, the same arc joints can be removed (you can either move the exclusion handle or increase its width, or do both).
+</p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+Please note that the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/curvessurfaces/jsoptions/dm_18_OP_Cusps.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1408">Show discontinuities</span></a> box must be checked in the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+426">Curve/Surface</span> category of the 
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> and the adjacent drop-down list must be set to 
+
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1409+2">Arc joints</span> to have the preview display the arc joints.
+
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>
+

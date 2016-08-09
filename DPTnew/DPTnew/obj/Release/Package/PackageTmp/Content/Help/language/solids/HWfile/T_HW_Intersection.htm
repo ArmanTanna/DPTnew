@@ -1,0 +1,107 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<title>Job: Creating a Local Boolean Intersection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating a Local Boolean Intersection</h3>
+
+<p>The <a href="../FWfile/T_FW_Intersection.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+21">Intersect Solid</span></a> command enables you to create the intersection of two solids. For example, you can create the intersection between the two solids in the following illustration.</p>
+<img border="1" src="../../../images/solids/diff00.gif"><br>
+
+<p>You can accomplish this task by loading the "LocalDiffint.e3" file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation.</p>
+
+<p>Using the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+1">Global</span> option, you'd get the following result:<br>
+
+<br>
+<img border="1" src="../../../images/solids/InterGlobal.gif"><br>
+<br>
+In order to obtain the piece that fills in the whole hole created by the cylinder in the sphere, you will have to use the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+2">Local</span> option and indicate the outer face of the cylinder as the bounding surface:<br>
+
+<br>
+<img border="1" src="../../../images/solids/InterLocal.gif"><br>
+<br>
+Proceed as follows.</p>
+
+<ol class="noleft">
+<li>Invoke the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+21">Intersect Solid</span> command and select 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+2">Local</span> in the 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+3">Boolean</span> drop-down list.<br>
+
+<br>
+</li>
+
+<li>Select the first solid.<br>
+<br>
+<img border="1" src="../../../images/solids/Diff02.gif"><br>
+<br>
+</li>
+
+<li>Select the second solid.<br>
+<br>
+<img border="1" src="../../../images/solids/Inter03.gif"><br>
+<br>
+To change the selected solids, right-click on <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+4">Solids</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+
+<br>
+</li>
+
+<li>Select the bounding face as in the following image.<br>
+<br>
+<img border="1" src="../../../images/solids/Diff04.gif"><br>
+<br>
+To change the selected faces, right-click on <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+5">Faces</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="PERSON.msg+PERSON+29">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button to see the preview of the result. In big models this may take some time.<br>
+
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the intersection.<br>
+<br>
+<img border="1" src="../../../images/solids/Inter05.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+If you need to retain the original solids after performing the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1530">Boolean</span>, select the 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+20">Keep Original Solids</span> check box before applying the command.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

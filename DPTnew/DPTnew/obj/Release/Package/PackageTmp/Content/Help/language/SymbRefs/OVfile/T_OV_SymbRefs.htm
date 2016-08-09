@@ -1,0 +1,102 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Symbolic References - Overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22;margin-top:4;}</style>
+<style>.litleft{margin-left:26;margin-top:4;}</style>
+<style>.littop{margin-top:1;}</style>
+<style>h3{margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<h1>An Overview on Symbolic References</h1>
+<P>This document outlines the Symbolic References functionalities in <b>think<font color="#FF0F00">3</font></b>.</P>
+<ul class="noleft">
+<li><a href="#SR_1"><b>Basic concepts</b></a>
+<li><a href="#SR_3"><b>Key points</b></a>
+
+</ul>
+
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br><br>
+A friendly set of <i>e-Tutorial videos</i> on Symbolic References has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8" ><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational videos on Symbolic References  here: <a href="../../tocpages/EL_SymbolicReferences.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Symbolic References</b></a>.<br> Enjoy your lessons!</td></tr></table><br>
+
+<p>&nbsp;</p>
+<h3><a name="#SR_1"></a>Basic concepts</h3>
+<br>
+<P class="littop">
+In CAD systems, parametric references are absolute, that is they identify the entities which provide the reference in the context where it was created. In addition, these absolute references are based upon the geometric nature of the referenced entity. As an example, if a solid is built upon a <b>Work Plane</b> defined on a component face, the solid uses an absolute reference towards <i>that</i> face of <i>that</i> component. If the component is replaced or modified, the parametric reference most likely breaks. This doesn't occur if the replacing component is topologically very similar to the replaced one, so that the new referenced face is found by chance. Anyway, the component cannot be replaced by another one where the reference plane is defined by a datum plane instead of a solid face.
+</p>
+<p>
+In order to prevent this parametric reference breaking, the <b>think<font color="#FF0F00">3</font></b> application provides end-users with Symbolic References, which identify parametric references by means of names.</p>
+<p>
+Any geometric entity created by a parametric operation can be declared to be a Symbolic Reference any time. When <b>think<font color="#FF0F00">3</font></b> commands such as <b>Mating</b> use such entity as a parametric reference, the Symbolic Reference is stored in addition to the absolute reference. As a consequence, the referenced entity can be successfully replaced by any other entity that you consider to be functionally equivalent and that you tagged with the same Symbolic Reference name.</p>
+<p> 
+You can attach a Symbolic Reference to any of the following parametric entities:
+<ul>
+<li>solid/component faces, datum planes
+<li>solid/component edges, datum axes
+<li>solid/component vertices, datum points
+<li>profile curves and vertices
+</ul>
+</p>
+<p>
+Note that you can attach more than one Symbolic Reference to the same entity, but you cannot attribute two Symbolic References with identical names to the same entity.</p>
+<p>
+If the cursor is positioned in idle state over an entity associated with a Symbolic Reference, a tooltip describing the associated Symbolic Reference(s) is displayed.
+</p>
+
+<p>
+Both mating constraints and profile external references can use existing Symbolic References. In particular, the <b>Mating</b> command includes an advanced option, <b>Symbolic References Only</b>, that restricts picking exclusively to entities associated to Symbolic References.
+</p>
+<p>
+The tooltip within the <b>Mating</b> command provides information about the existing Symbolic References.
+</p>
+<p>
+When you replace a component involved in one or more mating constraints, the program asks you if the mating event(s) must be kept or removed. If the event(s) is/are kept, the <b>think<font color="#FF0F00">3</font></b> application tries and look for equivalent Symbolic References in the new component, updating the constraints whenever equivalent references are found. When more than one Symbolic Reference exists, the program chooses one, then you can solve ambiguities possibly arising by the <b>Solve Ambiguities</b> command.
+</p>
+<p>&nbsp;</p>
+<h3><a name="#SR_3"></a>Key points</h3>
+<br>
+<P class="littop">
+<ol>
+<li>Symbolic References can be attached to any face, edge, profile curve, vertex, datum entity.
+<li>You don't need to specify <i>how</i> the reference will be used.
+<li>The same name can be shared by different Symbolic References.
+<li>Unique Symbolic References can be automatically solved after a component replacement; ambiguities must be resolved by the user.
+</ol>
+</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:as.chm::/language/assembly/OVfile/T_OV_mating.htm"><b>Mating</b></a>
+
+<li><a href="mk:@MSITStore:prf.chm::/language/sketcher/OVfile/T_OV_sk_00.htm"><b>Profiles</b></a>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SymbolicReferences.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SymbolicReferences.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Symbolic References</b></a></p>
+<hr color="silver">
+</body>
+</html>

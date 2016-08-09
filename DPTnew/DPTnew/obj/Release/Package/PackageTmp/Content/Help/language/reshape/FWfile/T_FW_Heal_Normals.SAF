@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<title>Heal Mesh Normals</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0()">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+28">Fix</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+10">Heal Mesh Normals</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+14">Heal Mesh Normals</span> command enables you to correct the direction and the orientation of the normals to the mesh vertices on the basis of the mesh topology. A correct operation of this procedure implies that the mesh should not have non-manifold and singular faces, so a previous <a href="T_FW_Heal_Mesh_Faces.htm"><b>Mesh Healing</b></a> operation is highly recommended.</p>
+
+<ol class="noleft">
+<li>Select the mesh whose normals you would like to heal.<br>
+<br>
+To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
+<br>
+</li>
+
+<li>Select the origin point that will be used to calculate the correct normals.<br>
+<br>
+</li>
+
+<li>In the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+36">Heal Mesh Normals</span> selection list, use the check-boxes to:<br>
+<br>
+<img src="../images/heal-normals.gif" border="1"><br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+37">Fix Normals</span></td>
+<td>Fix the normals using the seed vertex chosen before as a basis for the calculation.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+38">Show Normals</span></td>
+<td>Shows the normals of the mesh.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Click the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+1">OK</span> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation, or the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+2">Cancel</span> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/reshape/heal-normals-before.gif" border="1"></td>
+<td><img src="../../../images/reshape/heal-normals-after.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>The original mesh: normals are inverted</td>
+<td>The mesh with healed normals</td>
+</tr>
+</table>
+
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

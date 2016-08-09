@@ -1,0 +1,70 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2008t1" content="translate">
+<title>Job: Checking continuity between two surfaces</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h4>Checking the continuity between two surfaces</h4>
+
+<p style="margin-bottom:0;">After starting the <a href="../FWfile/T_FW_to_19_07.htm"><span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+26">Check Continuity</span></a> command proceed as follows:</p>
+
+<ul class="noleft">
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_ANALYSIS_UI_LABEL_+13">Type</span> drop-down list select <span class="UI_OPTION" id="tdesign.msg+_ANALYSIS_UI_LABEL_+37">Surface - surface</span>.</li>
+
+<li>Click on the two surfaces. Select the surfaces near the <i>border</i> where you want to check continuity, as indicated by points <b>P1</b> and <b>P2</b> in the following illustration. The closest borders, which will be taken into account in the computation, will be highlighted.<br>
+<br>
+<img border="1" src="../../../../images/tools/to_07/ss3.gif"><br>
+<br>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">The program immediately displays the following data concerning the two surfaces along the selected borders:</p>
+
+<ul class="noleft">
+<li>The maximum distance between the two surfaces</li>
+
+<li>The mean distance</li>
+
+<li>The maximum angle formed by tangents with the common direction</li>
+
+<li>The maximum angle between the normals</li>
+
+<li>The minimum angle between the normals</li>
+
+<li>The mean angle between the normals</li>
+
+<li>The percentage value of the maximum curvature difference</li>
+
+<li>The percentage value of the minimum curvature difference at the point of maximum curvature difference</li>
+
+<li>The average percentage value of the maximum curvature difference values, which can be very useful in a number of situations, for example when, though the maximum difference might be very small, the average value might be considerable.</li>
+</ul>
+
+<p>In addition, the program displays some arrows on the surfaces. The arrows with the continuous line indicate the two points with the maximum distance along the selected edges, if a significant distance value (that is: &gt;1.e<sup>-3</sup>mm) is there. The arrows with the dotted line indicate the maximum angle between the normals (if &gt;0.05&deg;). Finally, the arrows displaying values are positioned at the point of maximum curvature difference and are oriented in the directions of the maximum and minimum curvature difference (if the maximum curvature difference is &gt; 0.001%). The displayed values are the measured percentages.</p>
+
+<img border="1" src="../../../../images/tools/to_07/ss1.gif"> 
+
+<hr color="silver">
+<h5>Mathematics concepts related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../../../Mathconc/T_MC_to_18_07.htm"><b>Curvature of a surface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

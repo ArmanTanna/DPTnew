@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Assembly Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a>  
+
+<h1>New Assembly Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 has introduced the following enhancements to the Assembly functionalities.<br>
+<br>
+</p>
+
+<ul class="noleft">
+<li><a href="#423">Improved <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Assembly.msg+MenuBar_Document_Insert_Assembly+4619">X-Reference</span> command</a></li>
+
+<li><a href="#441">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+67">View Exploded Assembly</span> command</a></li>
+
+<li><a href="#610">Enhancement in Model Structure Representation of Components</a></li>
+
+<li><a href="#460">Enhancement in Drag and Drop behavior</a></li>
+</ul>
+<br>
+<hr color="silver">
+
+<!-- PRJ: P0000423 - OWN: Luca Cioni -->
+<h2><a name="#423">Improved <span class="UI_COMMAND" id="MenuBar_Document_Insert_Assembly.msg+MenuBar_Document_Insert_Assembly+4619">X-Reference</span> command</a></h2>
+
+<p>Starting from this version, you are enabled to simultaneously place multiple instances of a component in an assembly. To facilitate this enhancement, the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><span class="UI_COMMAND" id="TDAssembly.msg+_TDASSEMBLY_LABEL_+11">Insert X-Reference</span></a> selection list has been introduced.<br>
+<br>
+</p>
+
+<p>You can additionally define the point of insertion as the centre of the bounding box by selecting the <span class="UI_COMMAND" id="TDAssembly.msg+_TDASSEMBLY_LABEL_+14">Move bounding box center under cursor</span> check box.<br>
+<br>
+</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<!-- PRJ: P0000441 - OWN: Luca Cioni -->
+<h2><a name="#441">Enhancement in the <span class="UI_COMMAND" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+67">View Exploded Assembly</span> command</a></h2>
+
+<p>With the enhancements made in the <a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/FWfile/T_FW_viewexpassy.htm"><span class="UI_COMMAND" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+67">View Exploded Assembly</span></a> command, it is possible to achieve smooth transition of parts from their initial to their final position during the explode sequence. The frame rate for the transition is to be specified in the new <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+93">Frames per step</span> drop-down list introduced in the <span class="UI_COMMAND" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+67">View Exploded Assembly</span> selection list.<br>
+<br>
+The other significant enhancements are in capturing images of the explode process. The <span class="OLD">Capture images</span> check box has been replaced with the new <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+63">Create image(s)</span> node. Using the options under it you can:<br>
+<br>
+</p>
+
+<ol>
+<li>Create images in different formats like BMP, JPG, TIF, GIF etc.</li>
+
+<li>Use the <span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+94">Mode</span> drop-down list to create:
+
+<ul class="noleft">
+<li>a single image at the current step</li>
+
+<li>images for a set of steps</li>
+
+<li>images for the whole sequence</li>
+</ul>
+</li>
+
+<li>Define the image resolution in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+70">Image resolution</span> drop-down list.<br>
+<br>
+</li>
+</ol>
+
+<p>Select the new <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_TOOLTIP_+8">Create Images</span></a> button (<img src="../../images/sheetmetal/Create_image.gif" align="absmiddle">) to create the bitmaps while the explode sequence is being played.</p>
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<!--Project: P000610 own=SWATI LADDA/NAINAR-->
+ 
+
+<h2><a name="610"></a>Enhancement in Model Structure Representation of Components</h2>
+
+<p>From this release, a new option <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7837">Mark as Work in Progress</span> is available on the context menu of the component in the history tree. It highlights the component in <font color="#C00000">Red</font> color in the history tree so that those components can be identified easily in the current session. This color representation is especially helpful in large assemblies having multiple components. To disable the color of the component you can select <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7838">Unmark as Work in Progress</span> from the context menu.</p>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+
+ <!-- PRJ: P0000460 - OWN: Luca Cioni -->
+<h2><a name="#460">Enhancement in Drag and Drop behavior</a></h2>
+
+<p>Henceforth, the positioned or constrained parts when moved or dragged are visualized in <span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+207">Shaded View</span> instead of the <span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+205">Wireframe View</span>.</p>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

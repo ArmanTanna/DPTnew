@@ -1,0 +1,46 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<meta name="Author" content="Marco Springhetti">
+<title>Edit Values (thinkparts)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<p>The <img src="../../../images/ThinkParts/EditValues.gif" alt="" border="0" align="absmiddle"> <span class="UI_COMMAND" id="IDD_TT_TP_CBR_POPUP.msg+IDD_TT_TP_CBR_POPUP+20">Edit Values</span> command enables you to modify the values of the catalog. More specifically, this command enables you to add, modify and remove parts from your Part Family catalogs.</p>
+
+<p>This command is located in the context menu available when right-clicking on a catalog of components listed in the browser frame of the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatManager.htm"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span></a> and in the toolbar of the command main dialog; it is also present in the context menu of the <span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span> if you select a part family that you <a href="T_FW_CreatePartFamily.htm">created</a> on your own.</p>
+
+<p>Upon execution, the command opens a spreadsheet-like dialog similar to the following:</p>
+
+<img src="../Images/EditValuesDlg.gif" border="0" alt=""> 
+
+<p>Each column header (catalog attribute) has a corresponding dimension label in the preview frame of the catalog browser. Please refer to the image displayed in this frame if you wish to know the meaning of the column.</p>
+
+<p>The rows represent the actual parts whose dimensions are indicated in the cells. You are enabled to add, delete, copy and paste rows; simply select one by clicking on the row header and then right-click to display the context menu with the commands you need.<br>
+Note that when you paste a row, it will be added after the one you select as reference.<br>
+To add a new row, just move to the end of the list and you will find an empty one. Fill in the fields and the system automatically will add a new empty row when you are done.</p>
+
+<p>Each cell is editable; simply click with the mouse and edit the value in the cell.</p>
+
+<p>The dialog box hosts the following commands:</p>
+<ul class="noleft" style="margin-bottom: 0px;">
+<li><img src="../../../images/icons/general/EntityReport.gif" border="0" alt="" align="absmiddle"> <a href="T_FW_ReportCSV.htm"><span class="UI_COMMAND" id="IDD_TP_EDITVALUES.msg+IDD_TP_EDITVALUES+4">CSV Report</span></a>, that enables you to export the values of the current catalog to a ".csv" file.</li>
+<li><img src="../../../images/icons/icons_medium/id_report.bmp" alt="" border="0" align="absmiddle"> <a href="T_FW_ImportFromCSV.htm"><span class="UI_COMMAND" id="IDD_TP_EDITVALUES.msg+IDD_TP_EDITVALUES+5">Import from report CSV</span></a>, that enables you to import the values from a ".csv" file into the current catalog.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,109 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="internally">
+<meta name="BelongsTo" content="TDD">
+<title>Organize Style</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" type="text/css" href="../../../JSandSTYLES/t32000vNOHR.css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.noleft {
+ MARGIN-TOP: 0px; MARGIN-LEFT: 22px
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+<h1>An overview on Organize Styles (basic concepts)</h1>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application comes with several predefined style sets designed to meet ISO, JIS, GB, KS, and ANSI standards for dimension and text styles. A style configured during the program installation is the default loaded style. You can create and save format and style sets for different types of <SPAN id="TWOD">models/</SPAN>drawings or to adhere to user's choice of internal drafting standards and conventions, and reactivate any of them later as the current style.</p>
+
+<p>An <a href="../FWfile/T_FW_ed_23.htm">Organize Styles</a> tree frame enables you:</p>
+
+<ul class="noleft">
+<li>to access the <a href="../FWfile/T_FW_dm_29.htm#dimension"><b>Dimension</b></a> and <a href="../FWfile/T_FW_dm_29.htm#text"><b>Text</b></a> categories (These categories can also be accessed from <b>Options/Properties</b> command and/or <b>Properties</b> command on dimension/text entity).</li>
+<li><a href="../HWfile/T_HW_Createstyle.htm">to create styles</a></li>
+<li><a href="../HWfile/T_HW_Editstyle.htm">to modify styles</a></li>
+<li><a href="../HWfile/T_HW_Specializestyle.htm">to specialize the existing styles</a></li>
+<li><a href="T_OV_Organizestyle.htm#Lib">to manage the libraries</a></li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">You can change any style property locally using the <b>Properties</b> command available on the context menu. By clicking on this command, the <a href="../OVfile/T_OV_PropertiesBasics.htm#modpro"><b>Entity Properties</b></a> window pops up, that enables you to control appearance, assign a particular style, modify parameters of both <b>Dimension</b> and <b>Text</b> entities locally.<br>
+All properties which are inherited from a style are displayed in blue in the <b>Entity Properties</b> dialog box. Whenever you select an entity and modify the properties inherited from a style, the property name will be displayed in bold.<br>
+Unlike <a href="../../format/FWfile/T_FW_OPS.htm"><b>Options/Properties</b></a>, modified properties does not apply to subsequent created entities.<br>
+<b>Options</b> drop-down list of the Entity Properties dialog box has three different functionalities with respect to locally changed parameters: 
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_PropertiesBasics.htm#prop"><b>Select Properties from Entity</b></a></li>
+<li><a href="../OVfile/T_OV_PropertiesBasics.htm#current"><b>Set Changed Properties as Current</b></a></li>
+<li><a href="../OVfile/T_OV_PropertiesBasics.htm#reset"><b>Reset to Style</b></a></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h3><a name="Lib"></a>Library Management</h3>
+
+<p>In <b>Organize Styles</b> user can manage style through content buttons and context menu opened with a right-click on an item. The edit style frame displays all the styles in <b>Loaded</b> and <b>Library</b> (subdivided into <b>User</b> and the <b>System (read-only)</b>) style lists.</p>
+
+<table bordercolor="navy" border="0">
+<tbody>
+<tr valign="top">
+<td class="hea"><img src="../../../images/icons/ops/Style_Normal.gif"></td>
+<td class="hea"><a name="Loaded"><b>Loaded</b></a></td>
+<td>Only the styles that are already loaded can be used in a drawing<SPAN id="TWOD">/model</SPAN>. Initially the current style is the one configured during the program installation. You have a provision to create new style from the loaded style. Once new style is created it is set as current and automatically stored in the <b>User</b> library. If you try to employ a library style, it'll be at first loaded and then set as current.<br>
+If you load a <strong>Library</strong> style which is already loaded in <b>Loaded</b> list, a dialog box will be displayed to enable you to confirm or discard the overwriting of the current settings:<br>
+<br>
+<img src="../images/Orgsty.gif"><br>
+ <br>
+<i>Current style cannot be removed from the loaded list. A style loaded and applied to some entities of the current document must not be removed.</i></td>
+</tr>
+
+<tr valign="top">
+<td class="hea"><img src="../../../images/icons/ops/Style_Escla.gif"></td>
+<td class=" hea "><b>Style not aligned</b></td>
+<td>User interface displays this icon when a style is not aligned to the <b>User</b> library copy i.e., 
+
+<ul class="noindent">
+<li>style is in not saved in library after making modifications</li>
+
+<li>library copy is removed while existing in <b>Loaded</b> style list</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<tr valign="baseline">
+<td class="hea"><img src="../../../images/icons/ops/Style_Star.gif"></td>
+<td class="hea"><a name="User"><a name="Library"><b>User</b></a></a> </td>
+<td>If you want to use the same style for other drawings, you have to save it in the <b>User</b> library, using the <b>Save in library</b> <img src="../../../images/icons/ops/copy.gif" width="28" height="26" border="0">.</td>
+</tr>
+
+<tr valign="top">
+<td class="hea"><img src="../../../images/icons/ops/STL_ReadOnly.gif"></td>
+<td class="hea"><a name="System"><b>System (read-only)</b></a></td>
+<td>Pre-defined standard styles available at the installation time, such as <b>ISO</b>, <b>ANSI</b>, <b>GB</b>, <b>JIS</b>, and <b>KS</b> styles are grouped under <b>System (read-only)</b> library. These system styles cannot be removed and over-written. If a system style is loaded and modified, it can save the changes also in the User library copy.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

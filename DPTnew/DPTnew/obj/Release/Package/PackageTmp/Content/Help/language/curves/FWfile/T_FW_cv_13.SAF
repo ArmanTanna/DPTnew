@@ -1,0 +1,165 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Intersect Curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="../../../JSandSTYLES/Frames.js"></script>
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1390">Intersect</span> </p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+34">Intersect Curve</span> command enables you to create the intersection curves of two selected sets of surfaces. First, you will have to select the surfaces belonging to the first set (
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+184">Surfaces A</span>), then the surfaces belonging to the second ( 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+185">Surfaces B</span>).</p>
+
+
+<p style="margin-bottom:0">An <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is available in the selection list, enabling you to create curves of the "Curve on Surface" type (See "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>" for details).</p>
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curves will be of the Curve on Surface type.</li>
+
+
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve type depends on the command and on the situation (generally a NURBS). In this case, an additional option is available under 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2 (or will be lines, where possible). Notice that if one or both surfaces have edges, the resulting curves are split into two or more parts at those edges.</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;margin-top:0;">In the case the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is selected, the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+186">Insert On</span> drop-down list enables you to select on which surfaces the curves must be created:</p>
+
+
+
+<table>
+<tr valign="top">
+<td class="ver9" width="135"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+184">Surfaces A</span></td>
+
+
+<td class="ver9">The curves of the Curve on Surface type will be created on surfaces A.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+185">Surfaces B</span></td>
+
+
+<td class="ver9">The curves of the Curve on Surface type will be created on surfaces B.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+187">Surfaces A and B</span></td>
+
+
+<td class="ver9">Two separate set of curves of the Curve on Surface type will be created: one on surfaces A and the other on surfaces B.</td>
+</tr>
+</table>
+<a name="CTX_Intersect_KAA"></a>
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/KeepAllArcs.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe> 
+
+<p>The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box is also available, enabling you to create curves which retain a link to the surface they derive from. See further details on associativity for curves of the Curve on Surface type in "
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm#RN2005T2">Curves on Surface</a>".</p>
+
+
+
+<p>If the intersection curves are not created and the program displays a message to warn you that there are no intersections, you can try again after increasing the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_GENERAL_ADVANCED.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+54">Tolerance:</span></a> value and lowering the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/construction/jsoptions/to_02_11_OP_15.htm">
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+56">Intersection precision:</span></a> value.<br>
+
+
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Controlling the intersection precision</b> <br>
+The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+54">Tolerance:</span> and 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+56">Intersection precision:</span> values determine the quality of the curves created.<br>
+
+
+ <br>
+ 
+
+<ul class="noleft">
+<li>You may need to increase the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+56">Intersection precision:</span> if the area of intersection is very small compared to the length of the two surfaces, or if the intersection curve is very complicated.</li>
+
+
+
+<li>As to <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+54">Tolerance:</span>, you should set this value as a small fraction of the current unit of measure. Reducing the tolerance value increases the precision of calculations, but those calculations require more time to complete, and the resulting curves may have a very high number of control points.</li>
+
+
+</ul>
+</td>
+</tr>
+</table>
+
+<p>If you interrupt the command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all.<br>
+Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list. If you select the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+
+
+When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.<br>
+
+
+Further details in "<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>".</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../../curves502/cv_13.htm"><b>Insert curves on surface intersections</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

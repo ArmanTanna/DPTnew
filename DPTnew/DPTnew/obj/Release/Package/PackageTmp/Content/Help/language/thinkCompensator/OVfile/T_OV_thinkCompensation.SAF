@@ -1,0 +1,57 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>An Overview of Compensator</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>An Overview of Compensator</h2>
+
+<p>During sheet metal manufacturing, maintaining design quality throughout the production process is a big challenge. Die stamping sheet metal components and other parts with complex shapes give rise to a problems like spring-back, warping, shrinkage (due the tendency for a metal part to partially return to its original shape after deformation because of the elastic recovery of the material). This results in considerable differences between the digital model and the real (manufactured) part.</p>
+
+<h4><a name="FE"></a><span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+1">Compensator FE</span></h4>
+<p>Designers try to correct or prevent material problems of this type with various 'compensation' methods. The FEA (Finite Element Analysis) tools are used to simulate and predict what the shape the part will take after spring-back. However, the FEA process is separate from the design process and requires significant time and effort in integrating the results into the modification of the tool design.</p>
+
+<p>The Compensator tools provides solution of these problems through digital compensation. It automates the compensation process, saving time and reducing tedious manual labour. The compensation process maintains the same surface structure (topology) and the quality as of the original surface model. As a result, user interaction is highly reduced and the need to spend time in rebuilding and redrawing compensated surfaces is eliminated.</p>
+
+<h4><a name="ME"></a><span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+1">Compensator MD</span></h4>
+<p>It is also possible to compensate the part based on the measured data (scanned data of the physical part) rather than on the simulation data that come from the FEA. The deformation data is applied to the digital model employing an inverse law, that is, the functionality applies reverse deformation by reading the deformation from the physical model and applying it to the digital model. The process is fast and enables the quality of CAD data to be maintained. A big additional advantage is that the design changes can be handled in a very effective way. Minor design changes can be applied to the compensation even without making an additional FEM calculation.</p>
+
+<p>As shown in the follwoing example:
+<br><br><img src="../../../images/thinkcompensator/compensation.gif" border="1"><br><br>
+<b>1</b> is the original CAD data<br>
+<b>2</b> is the measured data<br>
+<b>3</b> is the result of applying compensation on the original data based on the measured data
+</p>
+
+<hr color="silver">
+<h5>Related topics...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_comp_workflow_FEA.htm">Compensator workflow for FEA Data</a></li>
+<li><a href="../tocpages/T_toc_thinkcompensation_CMD.htm">Compensator tools for FEA Data</a><br><br></li>
+<li><a href="T_OV_comp_workflow_MD.htm">Compensator workflow for Measured Data</a></li>
+<li><a href="../tocpages/T_toc_thinkcompensation_MD_CMD.htm">Compensator tools for Measured Data</a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>
+

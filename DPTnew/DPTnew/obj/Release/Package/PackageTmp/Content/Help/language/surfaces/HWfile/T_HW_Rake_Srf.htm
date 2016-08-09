@@ -1,0 +1,103 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Using the Rake Sweep Command along a Surface</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Using the Rake Sweep Command along a Surface</h2>
+
+<p class="notop">In this task you will use the <a href="../FWfile/T_FW_RakeSweep.htm"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span></a> command to create a surface by sweeping one contour along a drive contour and a drive surface.<br>
+In the following example, in fact, the curve on the left is the first drive curve, the second drive is the surface on the right and the section curves are the ones in the middle.<br>
+<br>
+<img border="1" src="../../../images/surfaces/RSW_RS00.gif"><br>
+<br>
+There is tangency continuity in each internal end point of the section curves and in the contact point between the section curves and the surface. Continuity is only positional in the common end point between the first drive curve and the section curves.<br>
+<i>You can accomplish this task by loading file "RakeSweep_ReferenceSurface.e3"</i></p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span> command.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the first drive curve.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/RSW_RS01.gif"><br>
+<br>
+ The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+150">First Drive Curves</span> selector turns to green. Right-click and select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end the selection of the first drive curves.<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+158">Second Drives</span> drop-down list, select <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+157">Surfaces</span>.<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the blue surface.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/RWS_RS02.gif"><br>
+<br>
+ The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+155">Surfaces</span> selector turns to green. Right-click and select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end the selection of the second drives.<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the three section curves.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/RWS_RS02BIS.gif"><br>
+<br>
+ The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+154">Curves</span> selector under <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+153">Section</span> turns to green.<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> drop-down list select <b>G0-G1</b>, to apply positional continuity with the first drive (curve) and tangency continuity with the second (surface).<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Select <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> ( <img border="0" align="absmiddle" src="../../../images/general/preview.gif"> ) to display the preview of the surface.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/RSW_RS03.gif"><br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Apply the command to get the final surface.<br>
+<br>
+ <img border="1" src="../../../images/rn_2008T1/RSW_RS04.gif"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

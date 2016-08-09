@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+  
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Solving a fillet collision problem using Booleans</TITLE>  
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Solving a fillet collision problem using Booleans</h3>
+
+<p>How can you solve a fillet collision using Booleans? Let's see an example.</p>
+
+<p>The following example is the typical model where it is hard to create fillets. If you proceed by generating the finished object and then create fillets, considering the shape of the object and the number of fillets required, you are not very likely to obtain a good result.</p>
+
+<p>Here you will find a method to create fillets using Booleans.</p>
+
+<p>Green edges are constant radiuses, while red edges are variable radiuses.</p>
+<br><img SRC="../../../images/solids/NMandOS/fillet_collision1.gif"><br>
+
+<p>In this case, the best approach is to create the model in two steps:</p>
+<ol class="litleft">
+<li>You define two basic shapes where fillets can be easily managed.
+<li>You put the two together using a Boolean operation to obtain the desired object.
+</ol>
+<br><img SRC="../../../images/solids/NMandOS/fillet_collision2.gif"><br>
+
+<p>Following this method you can control <b>fillet collision</b> with the faces. When you unite the red model and the gray model, you then obtain a reference edge to solve the final variable fillet.</p>
+<br><img SRC="../../../images/solids/NMandOS/fillet_collision3.gif"><br>
+
+<p>You can now easily create the fillet.</p>
+<br><img SRC="../../../images/solids/NMandOS/fillet_collision4.gif"><br>
+
+<hr color="silver">
+<h5>Related Materials</h5>
+<ul class="noleft">
+<li><a href="26.htm"><b>How to use Booleans</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</HTML>

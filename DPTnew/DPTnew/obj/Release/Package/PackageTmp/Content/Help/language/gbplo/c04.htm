@@ -1,0 +1,513 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2007t1" content="internally">
+<title>Plot: Run options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<A name="top"></A> 
+
+<H1>
+<A NAME="4"></A>Run options<hr color="navy"></H1>
+
+<H2>
+<A NAME="4.1"></A>Introduction</H2>
+
+<p>This chapter contains descriptions only of those run options
+which have no corresponding directive and so cannot be entered in
+the initialization file. The options are listed in alphabetical
+order. For options with a corresponding directive, which can be
+entered in the initialization file (<i>see</i> <A
+ href="c03.htm#2.9" >Summary table</A>), refer to the description in <A
+ href="c05.htm#4" >Initialization file directives</A>. <br>
+<br>
+</p>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="ALF"></a>-ALF</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the rotation of a drawing within a
+        composite drawing</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-ALF</b> <i>angle</i> </p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>angle <EM></EM>  </EM> </td>
+        <td valign="top">Angle of rotation of an individual
+        drawing within a composite drawing.<br>Only values 
+      which are multiples of 90<font size="4"
+        face="Times">° </font>are allowed. </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+You can use this option in the run string file specified with the
+-COM option to indicate a rotation of the drawing to which it
+refers.Only rotations through multiples of 90<font size="4"
+ face="Times">°</font> are allowed. <br>
+<br>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top">See also: </td>
+        <td valign="top"><b>-COM</b> <br>
+        <b>-DXY</b> </td>
+    </tr>
+</table>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="COM"></a>-COM</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Merges drawings (nesting)</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-COM </b><i>pathname </i></p>
+
+<p><STRONG><font color="navy">ARGUMENTS</font></STRONG></p><STRONG><hr color="navy" width="150" align="left">
+</STRONG>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>pathname</EM> </td>
+        <td valign="top">pathname of the run string file of the 
+      drawings to be merged<EM>. </EM></td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+Allows you <i>merge</i> or <i>nest </i>drawings at output, i.e.:
+to generate a single output file containing more than one drawing
+or to print more than one drawing on the same sheet. The file
+entered contains the run strings of each of the individual files
+to be merged in a single drawing. <br>
+<br>
+<b>Note the following:</b> <br>
+<br>
+In the run string file supplied with -COM as a parameter 
+you can specify only those options "necessary to running" (<EM>see </EM>
+            
+        <A
+ href="c02.htm#2.2" >Instructions 
+necessary to run GBPLO</A>):<br>
+<ul>
+
+<li><b>-F </b><i>pathname_of_file</i>
+
+<li><b>-S </b><i>print_scale </i>default is 1
+
+<li><b>-U </b><i>unit_of_measure </i>default is M: stored
+
+<li><b>-L </b><i>layers_to_be_printed </i>default is M: stored
+
+<li><b>-W </b><i>window_to_be_printed</i></li>
+</ul>
+
+<p>and two other options which allow you to position the drawings
+on the sheet</p>
+<ul>
+<li><b>-ALF </b><i>rotation_of_drawing_on_sheet </i>default is 0
+
+<li><b>-DXY </b><i>origin_of_drawing_on_sheet </i>default is 0 0</li>   
+</ul>
+<p>Any other options which may be specified in the file are
+always ignored. All options specified in the main run string (at -COM level)
+also apply for all drawings specified in the run string file. 
+
+If you specify the same option with different parameters in
+the main run string and the -COM run string file, the latter
+applies. The maximum length of each run string in the file is 1024
+characters. You do not need to indicate a file name (-F) in the main run
+string: it would be ignored anyway.
+
+<p>Framing (-FR, HP-GL and BGL formats) is always Off</p>
+
+<p>The run mode is always batch.</p>
+
+<table border="0">
+    <tr>
+        <td valign="top">See also: </td>
+        <td valign="top"><b>-ALF</b> <br>
+        <b>-DXY</b> </td>
+    </tr>
+</table>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="DP"></a>-DP</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Allows printing of entities with specified pen</i>
+        </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-DP </b><i>pen<sub>1</sub> </i>[<i>pen<sub>2</sub> </i>[ ... ]] </p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>pen </EM> </td>
+        <td valign="top">numeric codes identifying the pens 
+      (color) for printing<EM>. </EM></td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+Allows you to define the 
+"printing pens", i.e.: to limit printing to those entities in the drawing whose 
+pen attribute is equal to one of those specified with this option (when using a 
+plotter, the numbers correspond to the device&#8217;s pens; while in other cases they 
+indicate the corresponding colors). 
+<P></P>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="DXY"></a>-DXY</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the position of a drawing within a
+        composite drawing</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-DXY </b><i>xorigin yorigin </i></p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>xorigin yorigin </EM> </td>
+        <td valign="top">coordinates in cm of the origin of the 
+      individual drawing, in the bottom left-hand corner, relative to the origin 
+      of the sheet.</td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+You can use this option in the run string file specified with the
+-COM option to specify the origin of each individual drawing,
+normally located in the bottom left-hand corner, relative to the
+origin of the sheet. <br>
+<br>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top">See also: </td>
+        <td valign="top"><b>-COM</b> <br>
+        <b>-ALF</b> </td>
+    </tr>
+</table>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="E"></a>-E</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Manages the display of program messages</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-E</b> <i>echo_flag </i></p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>echo_flag </EM></td>
+        <td valign="top">flag for switching On/Off the on-screen 
+      display of program messages<EM>:</EM> <p><b>0</b>
+        on-screen display of program messages Off</p>
+        <p><b>1</b> on-screen display of program messages On</p>
+        <p><b>OFF</b> as 0</p>
+        <p><b>ON</b> as 1</p>
+        <p>Default is <b>1</b></p>
+        </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p>Allows you to switch the program alphanumeric echo (on-screen
+display of messages) On or Off </p>
+
+<p><br>
+</p>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="F"></a>-F</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the input file</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-F</b> <i>pathname </i></p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>pathname </EM></td>
+        <td valign="top">pathname of the file containing the 
+      drawing to be printed<EM>. </EM></td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+Allows you to specify the file containing the drawing to be
+printed. If you do not specify the pathname, the file is searched
+for in the current drawing directory indicated with -DRC (or with
+DRC in the initialization file). <br>
+<br>
+<P></P>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="IN"></a>-IN</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the initialization file</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-IN </b><i>pathname </i></p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>pathname </EM></td>
+        <td valign="top">pathname of the initialization 
+      file<EM>.</EM>
+        </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+Allows you to specify an initialization file other than the
+default. <br>
+<br>
+<P></P>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="L"></a>-L</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the layers to be printed</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-L</b> <i>lay<sub>1</sub> [lay<sub>2</sub> [ ... ]]</i></p>
+
+<p><STRONG><font color="navy">ARGUMENTS</font></STRONG></p><STRONG><hr color="navy" width="150" align="left">
+</STRONG>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>lay<sub>1</sub></EM><STRONG>...</STRONG> </td>
+        <td valign="top">codes identifying the layers of the
+        drawing to be printed. Each code may be either the layer<i>
+        numeric indicator </i>or <i>the alphanumeric description
+        string.</i> <p>When you use numeric codes, you can use
+        the operator "<b> : </b>" (index generator),<br>
+        i.e.: the notation:</p>
+        <p><i>n<sub>1</sub> : n<sub>2</sub></i></p>
+        <p>meaning: "all layers from <i>n<sub>1</sub></i> to <i>n<sub>2</sub> </i>(inclusive)".</p>
+        <p>Other values allowed:</p>
+        <p>M initial layers (default drawing property)</p>
+        <p>T all layers.</p>
+        </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+Allows you to define the layers of the drawing to be printed.<br>
+<P></P>
+
+<p><b>Note:</b> instructions relative to the layers to be plotted
+(-L), the unit of measure (-U), scale (-S), window dimensions
+(-W) and dimensioning pens (-QPE), have the following
+characteristic: if you enter even one of them in the
+initialization file or the run string, the program does not
+request the others interactively, since suitable defaults are
+used: values contained in the predefined properties associated to
+the drawing.</p>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="S"></a>-S</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the print scale</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-S</b> <i>scale</i> </p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>scale </EM> </td>
+        <td valign="top">numeric value of the scale to be used 
+      in the drawing (a division factor: <EM>1:scale</EM>). 
+        <p>The following value is also allowed:</p>
+        <p><b>O</b> optimized scale, to 
+      use the sheet dimensions to best advantage</p>
+        </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+<P></P>
+
+<p>Allows you to define the scale with which to print the
+drawing.</p>
+
+<p><b>Note:</b> instructions relative to the layers to be plotted
+(-L), the unit of measure (-U), scale (-S), window dimensions
+(-W) and dimensioning pens (-QPE), have the following
+characteristic: if you enter even one of them in the
+initialization file or the run string, the program does not
+request the others interactively, since suitable defaults are
+used: values contained in the predefined properties associated to
+the drawing.</p>
+
+<hr color="#0092ff" size="4"><table border="0">
+    <tr>
+        <td><font size="+1" color="navy"><a name="W"></a>-W</font><br>
+        </td>
+        <td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+        <td valign="bottom"><i>Defines the window to be printed</i> </td>
+    </tr>
+</table>
+
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<p><b>-W</b> <i>x<sub>1</sub> y<sub>1</sub> x<sub>2</sub> y<sub>2</sub></i> </p>
+
+<p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<table border="0">
+    <tr>
+        <td valign="top"><EM>x<sub>1</sub> y<sub>1</sub> x<sub>2</sub> y<sub>2</sub> </EM> </td>
+        <td valign="top">coordinates of the opposite corners of 
+      the window to be printed. 
+      <p>The following values
+        are also allowed:</p>
+        <p><b>O </b>the entire drawing</p>
+        <p><b>M </b>the part of the drawing defined as the
+        initial view (default property of the drawing)</p>
+        </td>
+    </tr>
+</table>
+
+<p><br>
+<b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b> <br>
+<br>
+<P></P>
+
+<p>Allows you to limit printing to a rectangular portion of the
+drawing.</p>
+
+<p><b>Note: </b>instructions relative to the layers to be plotted
+(-L), the unit of measure (-U), scale (-S), window dimensions
+(-W) and dimensioning pens (-QPE), have the following
+characteristic: if you enter even one of them in the
+initialization file or the run string, the program does not
+request the others interactively, since suitable defaults are
+used: values contained in the predefined properties associated to
+the drawing.</p>
+
+<hr color="silver">
+</body>
+</html>

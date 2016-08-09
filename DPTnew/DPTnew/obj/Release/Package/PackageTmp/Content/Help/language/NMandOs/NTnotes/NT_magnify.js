@@ -1,0 +1,1 @@
+magnify="Click to magnify"

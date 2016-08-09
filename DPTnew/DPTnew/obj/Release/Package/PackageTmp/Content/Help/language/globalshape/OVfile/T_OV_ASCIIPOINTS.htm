@@ -1,0 +1,67 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Reading point constraints from an ASCII file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Reading point constraints from an ASCII file</h3>
+
+<p>When using the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command, you can use points as constraints in all the available condition types: <a href="../../gsm/ex01.htm#Preserve"><b>Preserving</b></a>, <a href="../../gsm/ex01.htm#Match"><b>Matching</b></a> and <a href="../../gsm/ex01.htm#Through"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span></a>.</p>
+
+<p>Point constraints can be applied by reading the point coordinates from an ASCII File. 
+The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+423">ASCII File</span> item is available in the drop-down list enabling you to choose the point type (along with 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+53">Standalone</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+54">Points on surface</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+300">Points on curve</span>).</p>
+
+<p style="margin-bottom:0;">When you select it, a <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+110">Browse</span> button is displayed, so as to enable you to choose the file containing the point coordinates (referred to the World reference system). An ordinary file selection box will be displayed, on which you can browse the file system and select the ASCII file containing the point coordinates to be used.<br>The default file extension is &quot;<i>.pt</i>&quot;, but you can specify any extension, provided the file format is compliant with the following rules:</p>
+
+<ul class="noleft">
+<li>Each line contains the coordinates of only one point</li>
+<li>Coordinates are separated by a blank or a tab.<br>&nbsp;</li>
+</ul>
+For example:<br><br>
+<blockquote>
+<tt>125.000 100.340 110.000</tt><br>
+<tt>132.000 100.340 115.000</tt><br>
+<tt>138.000 110.250 118.000</tt><br>
+<tt>...</tt><br><br>
+</blockquote>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+424">Units of measurement</span> to be applied to the point coordinates in the file can also be selected.<br>
+In case of associativity, the points read in an ASCII file are considered as standalone points. No associativity is provided for the file name itself.</p>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Setting the Orientation of a Proportional Surface</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Setting the Orientation of a Proportional Surface</h3>
+
+<p class="notop">You can control the way boundary curves move along drive curves. To do this, a <i>local reference system</i> is attributed to the drive. The local system is initially calculated at the first endpoint of the drive curve and then moved along it. The way the local system is moved along the drive curve depends on the option selected in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+16">Orientation</span> drop-down list (under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: see <a href="T_HW_Lofted_Proportional.htm"><b>Creating a lofted surface starting from four curves (Proportional)</b></a>).<br>
+
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+26">Constant</span></td>
+
+<td>The local reference system and the boundary curve are simply translated along the drive curve: the boundary curve remains parallel to its initial position, although positioned along the drive curve. In this case, therefore, the boundary curve does not follow local variations in the drive curve, such as bends or twists.<br>
+<br>
+<img border="1" src="../../../images/surfaces/propo_orientation_constant.gif"><br>
+1=Drive Curve<br>
+2=Boundary Curve<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+27">Curve based</span></td>
+
+<td>The local reference system coincides with the intrinsic system of the drive curve (defined by the tangent and the normal to the curve lying in the osculating plane&nbsp;&#151;&nbsp;X and Y axes&nbsp;&#151;&nbsp;and the binormal&nbsp;&#151;&nbsp;that is, the normal to the osculating plane whose direction is such as to form a Cartesian triple following the right-hand rule &#151; Z axis&nbsp;&#151;&nbsp;and follows the shape of the drive curve point by point, describing its bends (points where the local reference system rotates relative to the World reference system) and twists (points where the intrinsic system rotates about one or more of its axes). The more twisted and bent the drive curve is, the more twisted and bent the resulting surface will be.<br>
+<br>
+<img border="1" src="../../../images/surfaces/propo_orientation_curve_based.gif">&nbsp;<img border="1" src="../../../images/surfaces/propo_orientation_curve_based-2.gif"><br>
+1=Drive Curve<br>
+2=Boundary Curve<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+28">Along Work Plane</span></td>
+
+<td>The local reference system is oriented according to the Work Plane. In this case, it follows only the bends but not the twists of the drive curve because the unit vector of the X axis remains tangent to the drive curve, while the unit vector of the Y axis stays parallel to the Work Plane (for best results the latter should be well oriented; <i>see</i> <a href="T_HW_sr_10_WorkPlane.htm"><b>Creating a Proportional Surface with Orientation along the Work Plane</b></a>):<br>
+<br>
+<img border="1" src="../../../images/surfaces/propo_workplane.gif"><br>
+1=Drive Curve<br>
+2=Boundary Curve<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Which option to choose</b><br>
+In most cases, when the drive curve is plane, the best results are obtained when the local reference system is oriented according to the drive curve (<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+27">Curve based</span> option). This orientation can also be used if the drive curve is not plane but, if the latter has marked twists in it, it is much better to set the orientation according to the Work Plane. In these cases, the best way to proceed is to set the Work Plane in such a way that it is as "parallel" as possible to the drive curve. To accomplish this, set the "midplane" through the curve as the Work Plane. In other words: select the 
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr2.gif">
+<span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr2.gif">
+<a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_08.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1607">Through 3 Points</span></a> command, then select the two endpoints and the midpoint of the curve.<br>
+
+<br>
+<img border="1" src="../../../Images/surfaces/propo_orientation_WorkPlane.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+29">Surface based</span></td>
+
+<td>When the drive curve lies on a surface, the local reference system may be oriented according to the surface in such a way that the unit vector of its Y axis is parallel to the normal to the surface at every point on the drive curve. If you choose the surface-based option but the drive curve does not actually lie on the surface, the program projects it onto the surface. If, for any reason, the drive curve cannot be projected completely onto the surface, a message is displayed.<br>
+<br>
+<img border="1" src="../../../images/surfaces/propo_surf_based.gif"><br>
+1=Drive Curve<br>
+2=Boundary Curve<br>
+3=Reference Surface<br>
+<br>
+Unlike all the other cases, if the drive curve is a surface boundary or of the <i>Curve On Surface</i> (COS) type, no surface selection is required (the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+21">Surface</span> selector will turn to green with the automatic selection of the surface boundary or COS support).</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

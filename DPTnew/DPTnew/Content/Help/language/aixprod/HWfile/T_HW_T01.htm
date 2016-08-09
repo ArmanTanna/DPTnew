@@ -1,0 +1,136 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup"> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<TITLE>Job: Creating a Lofted surface through a curve and tangent to a surface</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+<style> .movie{
+ 	font-;
+ 	font-size : 9pt;
+ }
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a Lofted surface through a curve and tangent to a surface</h3>
+<p>Given a a curve a and a surface, like the ones in the following illustration:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCt-FIG01.gif"><BR><BR>
+You may need to create a surface tangent to the existing surface and through the curve:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCT-FIG16.gif"><BR><BR>
+You can proceed as described below.
+</p>
+<p></p>
+<table>
+<tr valign="top">
+<td width="20" valign="baseline"><b>1</b></td>
+<td>Load file "DesignAids_UC_tang.e3" and start the <a  href="../FWfile/T_FW_TangentPlane.htm"><b>Tangent Plane</b></a> command.<BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>First Point</b> on the curve as shown in the illustration below:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG02.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>First U</b> mini-dialog box, set the value to 0 (i.e: the first end point of the curve).
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG03.gif"><BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the <b>Second Point</b> on the surface as shown in the illustration below:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG04.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td valign="baseline"><b>5</b></td>
+<td>When the preview is displayed, under <b>More Options</b> set <b>Second surface vector</b> to <b>Tangent V</b>
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG05.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>The preview changes as follows:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG06.gif"><BR><br>
+Double-click on the handle shown in the following illustration to invert the orientation of the line:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG07.gif"><BR><br>
+and you will get the following:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG08.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>Uncheck the <b>With plane</b> box to get a clearer view of the tangent line to the curve and to the surface:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG09.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>8</b></td>
+<td>Select 
+<img src="../../../images/general/APPLYbutton.gif" border="0"> to create the line
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG10.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>9</b></td>
+<td>Now you can go on creating new lines just by modifying the value in the <b>First U</b> mini-dialog box:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG11.gif"><BR><br>
+and selecting <img src="../../../images/general/APPLYbutton.gif" border="0">:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG12.gif"><BR><br>
+Go on supplying new values. The higher the number of lines you create, the more accurate the resulting surface you will obtain as a result.
+</td>
+</tr>
+<tr valign="top">
+<td><b>10</b></td>
+<td>Once you have created a certain number of lines:
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCT-FIG13.gif"><BR><br>
+start the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_Lofted.htm"><b>Lofted Surface</b></a> command:
+
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG14.gif"><BR><br>
+and select the lines (clicking close to their upper end point) as <b>Boundary Set A</b>:
+<BR><BR><IMG border=1 SRC="../images/UCT-FIG15.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>11</b></td>
+<td>Select <img src="../../../images/general/OKbutton.gif" border="0"> to create the surface and quit the command.
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/UCT-FIG16.gif"><BR>&nbsp;
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

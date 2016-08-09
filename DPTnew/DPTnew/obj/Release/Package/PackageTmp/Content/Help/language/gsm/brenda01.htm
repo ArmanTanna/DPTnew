@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t3" content="internally">
+<TITLE>Creating surfaces starting from a wireframe model using GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Creating surfaces starting from a wireframe model using GSM</h3>
+<p class="notop">This article shows how to use the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command to create very clean surfaces (with no degenerative points) on a wireframe model.
+
+<ol class="litleft">
+<li>The wireframe model is a good framework for building surfaces.  However, in order to use the curves, we will have to join some (<b>Modify<img src="../../images/general/litarr.gif">Curve<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_05.htm">Union</a></b>) and split others (<b>Modify<img src="../../images/general/litarr.gif">Curve<img src="../../images/general/litarr.gif">
+<a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_07.htm">Split</a></b>) in order to get the boundary curves for the desired surfaces.
+
+The purple curves are three curves obtained using the union and split curve command on the original wireframe.
+<BR><BR><IMG SRC="images/br01.gif"><BR><BR>
+<li>Now that we have clean curves, we need to project these onto a plane.  
+First, move the work plane so that it lies under the wireframe.
+<BR><BR><IMG SRC="images/br02.gif"><BR><BR>
+<li>Now, we are ready to project the curves (<b>Insert<img src="../../images/general/litarr.gif">Curve<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/curves/cv_15/FWfile/T_FW_cv_15.htm">Project</a></b>)
+
+Start the command, making the following selections:
+<ul class=noleft>
+<li><b>Method - Normal</b>
+<li><b>On - Plane</b>
+<li><b>3 Points</b> and specify three points on the Work Plane (not lying on the same line)
+</ul>
+Select the purple curves.  Right-click, and select <b>Continue</b> in the context menu. Select  <b>OK</b> (<img src="../../images/general/OKbutton.gif" align="absmiddle">).
+<BR><BR><IMG SRC="images/br03.gif"><BR><BR>
+<li>We are now going to create a planar surface on the work plane. Select 
+
+<b>Insert<img src="../../images/general/litarr.gif">Surface<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_02.htm">Linear</a></b>. Then
+
+Select the long straight blue line, Direction X, and use the drag handle to create a surface that covers the other curves lying on the work plane.
+<BR><BR><IMG SRC="images/br04.gif"><BR><BR>
+<li>In order to use <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> for this application, we need to create a surface that approximates the shape of the desired surface.  Therefore, we are now going to trim the planar surface using the blue curves to create a half-moon shape.
+
+
+<b>Modify<img src="../../images/general/litarr.gif">Surface<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_TrimWithLimits.htm">Trim with Limits</a></b>. Then:<ul class="noleft">
+
+
+<li>Select the two blue lines that create a half-moon shape and end selection.  
+<li>Select the planar surface to trim and end selection</b>.  
+<li>Select the half-moon shape to keep.</ul>
+
+Note:  to explicitly select a boundary curve of a surface (versus the edge of a surface) hit the "C" key before selecting.  This sets the filter to curves.
+<BR><BR><IMG SRC="images/br05.gif"><BR><BR>
+<li>Now we are ready to use <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span>.
+
+
+<b>Modify<img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span></b><img src="../../images/general/litarr.gif"><a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a>. 
+
+
+We are only going to use the <b>Entities to be Modified</b> and <b>Matching Curves</b> sections of the selection list.<br>&nbsp;
+<li>The initial curves are the planar blue curves, and the target curves are the purple curves.  We will match each of the blue curves with a target purple curve, resulting in 3 Groups of initial/target curves.
+
+<br><br><i>Note</i>:  Make sure that you highlight in the selection list (by clicking on the text) the selection you are making.  For instance, <b>Target curves</b> is highlighted indicating that any curves selected will be target curves for <b>Group 2</b>.  <br>
+
+<br>You can always reset a selection by right-clicking in the selection list and choosing <b>Reset</b> in the context menu.
+<ul class="noleft">
+<li><b>Law - Parametric</b> (to set the <b>Law</b>, click on <b>More Options</b>: the <b>Law</b> drop-down list will be displayed)
+<li><b>Constraint - Target position</b></ul>
+<BR><BR><IMG border=1 SRC="images/br07.gif"><BR><BR>
+<li>In the the <b>Entities</b> drop-down list under <b>Entities to be Modified</b>, select <b>Surfaces</b> and then select the half-moon planar surface.
+
+Right-click, select <b>Continue</b> from context menu.  At this point, the <b>Preview</b> (<img src="../../images/general/preview.gif" align="absmiddle">)  button will be displayed at top.  Hit the button, a preview will appear (rotate the model and the preview will be shaded).
+<BR><BR><IMG border=1 SRC="images/br08.gif"><BR><BR>
+<li>Select <b>More Options</b>.
+
+Click on the <b><a  href="../globalshape/HWfile/T_HW_GMChecking.htm#Shape">Shape Control</a></b> button, a dialog box will be displayed.  To change the shape of the surface that is created, change the <b>Roundness</b> factor, or the <b>Bulge</b> factor.  In this case, <b>Roundness</b>=0.1 and <b>Bulge</b>=<b>Medium</b> creates a very nice surface.
+
+After changes are made to values, a preview of the new resulting surface can be seen be hitting the <b>Preview</b>  (<img src="../../images/general/preview.gif" align="absmiddle">) button again.
+<BR><BR><IMG SRC="images/br09.gif"><BR><BR>
+<li>Once you are content with the resulting surface, click <b>OK</b> (<img src="../../images/general/OKbutton.gif" align="absmiddle">).  
+
+A dialog box will ask you if you would like to <b>Freeze</b> the command.  Freezing the command will save the selections that have been made, and allow you to restore these selections the next time the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command is initiated.<br>&nbsp;
+
+
+<li>The resulting surface is a very clean surface with no degenerative points.
+
+Additional surfaces can be added to the wireframe using the global modeling command.  This time, when selecting initial and target curves, select the boundaries of the surfaces where the surfaces are going to meet (rather than the boundary curves).  This will give you the option to target tangency and curvature continuity between the two surfaces.
+<BR><BR><IMG SRC="images/br10.gif"><BR><BR>
+</ol>
+
+<hr color="silver">
+</body>
+</html>

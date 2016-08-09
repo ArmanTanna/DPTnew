@@ -1,0 +1,87 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="2015t1" content="internally">
+<meta name="Revisor" content="NIBI">
+<title>Job: Applying Mating in a Flexible Subassembly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Applying Mating in a Flexible Subassembly</h3>
+
+<p>The <a href="../OVfile/T_OV_flexible.htm"><b><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span></b></a> option is used to exploit the degrees of freedom available in the subassemblies. Open the <i>Flexible.e3</i> file available in the <i>Samples</i> folder of your installation location and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>The assembly contains two subassemblies.<br>
+ 
+
+<ul class="noleft">
+<li><b>Wheel-asy</b>: The <b><i>Wheel</i></b> (pink in color) is mounted on its <b><i>Stand</i></b> (brown in color). The <i>Wheel</i> is free to rotate on the mounting.</li>
+
+<li><b>Slider-asy</b>: The <b><i>Slider</i></b> (blue in color) is mounted on its <b><i>Stand</i></b> (brown in color). The <i>Slider</i> is free to slide along the guide way.</li>
+</ul>
+
+<br>
+<img src="../images/flex1.gif" border="1"><br>
+<br>
+A <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint is already applied between the hole in the <b><i>Link Rod</i></b> (gray in color) and the pin on the <i>Wheel</i>.<br>
+<br>
+</li>
+
+<li>The <i>Link Rod</i> should also be mated with the <i>Slider</i> to complete the assembly. Since the subassemblies behave as a rigid component in a assembly, applying a <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint between the hole in the <i>Link rod</i> and the pin on the <i>Slider</i> is not possible.<br>
+<br>
+ <img src="../images/flex2.gif" border="1"><br>
+<br>
+</li>
+
+<li>Make the subassemblies flexible by right-clicking on them in the Model Structure or in the Graphics Area and selecting the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span> option.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../images/flex3.gif" border="1"><br><br><img src="../images/flex4.gif" border="1"></td>
+<td></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Apply the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint between the hole in the <i>Link Rod</i> and the pin on the <i>Slider</i>. The software automatically finds the exact position of the movable parts to successfully apply the constraint.<br>
+<br>
+</li>
+
+<li>The assembly becomes complete with the <i>Slider</i> and the <i>Link Rod</i> mated with each other.</li>
+</ol>
+
+<table border="1" cellpadding="10%" bordercolor="#000080" bgcolor="#FFFFE1" style="margin-bottom:10;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>The flexibility of the subassembly can be disabled by selecting the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7829">Make Rigid</span> option displayed by right-clicking on it in the Model Structure or in the Graphics Area.<br>
+<br>
+</li>
+
+<li>Making rigid a subassembly to which some constraints are already applied while in a flexible state may cause the mating not to solve anymore. In such situations a warning is displayed informing you about the issue.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

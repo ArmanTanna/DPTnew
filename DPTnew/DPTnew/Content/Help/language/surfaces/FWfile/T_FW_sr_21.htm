@@ -1,0 +1,158 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(504,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t3" content="translate">
+<title>Convert to NURBS (Surfaces)</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script> -->
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1183">Convert to NURBS</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Convert to NURBS</b></i> </td>
+ --></tr>
+</table>
+
+<br>
+
+
+<p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span> command enables you to convert one or more surfaces into NURBS entities.</p>
+
+<p>After selecting the surfaces to be modified (the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+132">Surfaces</span> item in the selection list will turn to green), three different conversion methods can be selected in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+206">Fix</span> drop-down list: <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+130">Tolerance</span>, <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+214">Parameters</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+375">Advanced</span>.</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+130">Tolerance</span><br>
+ Performs conversion after enabling you to set the tolerance value&nbsp;you want to reach and after specifying, in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+194">Max. Control Pts U</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+195">Max. Control Pts V</span> boxes, the maximum number of control points for the resulting surface along the two parametric directions.<br>
+ Unless you require a <a href="../../Notes/T_SpecializedConversion.htm">Specialized</a> conversion by selecting the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+131">Specialized conversion</span> check box under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, the program will create a NURBS surface which is cubic in both the "U" and the "V" parametric directions.<br>
+ &nbsp;</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+214">Parameters</span><br>
+ Performs conversion after enabling you to set the parameter values of the NURBS you want to obtain: 
+
+<table>
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+196">Cont. U</span></td>
+<td>Enables you to define the degree of continuity of the resulting surface along its U parametric direction.</td>
+</tr>
+
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+197">Cont. V</span></td>
+<td>Enables you to define the degree of continuity of the resulting surface along its V parametric direction.</td>
+</tr>
+</table>
+
+<table>
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+200">Arcs U</span></td>
+<td>Enables you to define the number of arcs of the resulting surface along its U parametric direction.</td>
+</tr>
+
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+201">Arcs V</span></td>
+<td>Enables you to define the number of arcs of the resulting surface along its V parametric direction.</td>
+</tr>
+</table>
+
+<table>
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+198">Deg. U</span></td>
+<td>Enables you to define the degree of the resulting surface along its U parametric direction.</td>
+</tr>
+
+<tr valign="top">
+<td width="80"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+199">Deg. V</span></td>
+<td>Enables you to define the degree of the resulting surface along its V parametric direction.</td>
+</tr>
+</table>
+
+Using this method you can create NURBS of higher degree, but you will have to try by setting different values until you obtain the desired <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+202">Achieved tolerance</span>. The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+154">Farthest Point</span> check box enables you to display the point that is farthest away from the surface.<br>
+ &nbsp;</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+375">Advanced</span><br>
+ Performs conversion after enabling you to set the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+369">Boundary continuity order</span> and the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+368">Continuity order</span> for the internal areas of the resulting surface. This method will even enable you to force the creation of high knot continuity NURBS (internal knots with multiplicity 1. As multiplicity for a NURBS is the difference between its degree and the value of its continuity, the continuity value for NURBS with multiplicity 1 is maximum). See "<a href="../HWfile/T_HW_C2NADVANCED.htm">Using the Advanced conversion options</a>" for further details.</li>
+</ul>
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+153">Show Control Points</span> check box enables you to display a preview of the resulting surface control points at any time when the command is active.</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the box is checked, the control points are displayed.</li>
+
+<li>When the box is cleared, the control points are not displayed.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="ArcJoints"></a>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+575">Show Arc Joints</span> check box enables you to display a preview of the arc joints that you will obtain on the resulting NURBS entity. The option is active only after you have selected the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (&nbsp;<img border="0" align="absmiddle" src="../../../images/general/preview.gif">&nbsp;) button.</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the box is checked, the arc joints are displayed.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/SR_AY_AJ.gif"><br>
+ &nbsp;</li>
+
+<li>When the box is cleared, the arc joints are not displayed.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/SR_NO_AJ.gif"></li>
+</ul>
+
+<p>The type of the resulting surfaces can be chosen through the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+462">Output type</span> drop-down list under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: you can obtain a single NURBS surface or a set of single-patch surfaces (which can also be of the Bezier type). For details, see the description of the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+462">Output type</span> drop-down list in "<a href="../HWfile/T_HW_C2NMO.htm">Using additional conversion options (More Options)</a>".</p>
+
+<p>Appropriate yellow warnings are displayed on the model <i>before</i> applying the command, just by using the appropriate warning button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle">&nbsp;), so as to enable you to do the necessary adjustments.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
+
+
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../../Notes/T_SpecializedConversion.htm"><b>Converting to Specialized NURBS</b></a></li>
+
+<li><a href="../HWfile/T_HW_C2NMO.htm"><b>Using additional conversion options (More Options)</b></a></li>
+
+<li><a href="../HWfile/T_HW_C2NADVANCED.htm"><b>Using the Advanced conversion options</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_sr_00.htm#Characteristics">Characteristics of NURBS surfaces</a></b></li>
+
+<li><b><a href="../OVfile/T_OV_sr_00.htm#Specialized">Specialized surfaces and NURBS</a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

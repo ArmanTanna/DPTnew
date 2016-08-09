@@ -1,0 +1,141 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>The Work Plane's hidden history</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>The Work Plane's hidden history</h3>
+
+<p>Even though the Work Plane is not enlisted in the Model Structure, it is part of the history. This article describes how to position the Work Plane in the model and in what way it is linked to objects. This is critical in order to obtain the best results when designing.</p>
+
+<p>Mechanical engineers and all who use the mechanical engineering approach need to be especially aware of how the Work Plane is being positioned. Usually, they need to follow a sort of Work Plane history. Actually, the program manages this automatically, but there are some aspects that you have to be aware of in order to really have your model work in accordance with your design intent. Let's go through an example.</p>
+
+<p>When you start creating a new model, the Work Plane coincides with the <a href="Ref_syst.htm">Absolute Reference System</a> (World reference system).</p>
+
+<ul class="noleft">
+<li>Sketch a profile and then apply the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01_solid.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6803">Linear Solid</span></a> command to create a solid.<br>
+
+<br>
+<img border="1" src="images/wp-hh-00.gif"><br>
+<br>
+</li>
+
+<li>Place the Work Plane on the face using the <a href="../edit/wp/FWfile/T_FW_wp_04.htm"><span class="UI_COMMAND" id="ButtonToolbar_WorkPlane.msg+ButtonToolbar_WorkPlane+7647">Work Plane on Face or Datum Plane</span></a> command; notice the "lock" icon. This means that the Work Plane has been linked to the face of the solid.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-01.gif"><br>
+<br>
+</li>
+
+<li>Sketch a profile, and then add a <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_Sl_03_01.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+421">Linear Slot</span></a>.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-02.gif"><br>
+<br>
+</li>
+
+<li>Move the Work Plane to the center point of the arc. The Work Plane will be linked to that position. Sketch a profile, and then add a <a href="mk:@MSITStore:solids.chm::/language/solids/sl_02/FWfile/T_FW_sl_02_02.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+415">Rotational Slot</span></a>.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-03.gif"><br>
+<br>
+</li>
+
+<li>Place the Work Plane on the corner, and then add a rotation of -45&ordm; about the <i>X-axis</i>, using the <a href="../edit/wp/FWfile/T_FW_quick_edit.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span></a> Work Plane command.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-04.gif"><br>
+<br>
+</li>
+
+<li>Sketch a profile, and then add a <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_Sl_03_01.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+421">Linear Slot</span></a>.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-06.gif"><br>
+<br>
+</li>
+
+<li><a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_14.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+5892">Mirror</span></a> it.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-hh-07.gif"><br>
+</li>
+</ul>
+
+<p>Let's now analyze the history of our Work Plane. We placed the Work Plane on:</p>
+
+<ul class="noleft">
+<li>The World position, and then</li>
+
+<li>The 'Face' of the solid (link)</li>
+
+<li>The 'Center' of the arc (link)</li>
+
+<li>The 'Corner' of the solid (link).</li>
+
+<li>Finally, we applied a -45&ordm; rotation about the <i>X-axis</i></li>
+</ul>
+
+<p><i>What if you did not exactly follow this sequence?</i><br>
+ It often happens that you don't exactly follow the intended final sequence of Work Plane placements, because you changed your mind several times (typical design process).</p>
+
+<p>As an example, say you placed the Work Plane on a side face instead of the front face, and then you realized that the right one was the front face, and you eventually placed the Work Plane there. There's an extra step.</p>
+
+<p>No problem. The program does not take into account the unused Work Plane placement events. They will be automatically removed from the hidden history once you <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_05.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1041">Save</span></a> the file.</p>
+
+
+<p>Now, we have to underline that every time we positioned the Work Plane it was linked to "entities with history" (represented by the Lock (<img src="../../images/workplane/padlock.gif" align="absmiddle">) marker). It means that, re-evaluating the model or changing/dragging its dimensions will result in the right behavior. See below:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-hh-08.gif"></p>
+
+<p><b>What if you did not snap the work plane properly?</b></p>
+
+<p>Suppose that during the placements you made some <i>mistakes</i>, such as:<br>
+</p>
+
+<ul class="noleft">
+<li>You didn't snap to points with history (face, center, corner...)</li>
+
+<li>or unintentionally "unlinked" the Work Plane.</li>
+</ul>
+
+<p>This might be the result:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-hh-09.gif"><br>
+<br>
+The slots are not positioned properly; in other words, they are not following your design intent.</p>
+
+<p>Therefore, be aware of your Work Plane's "hidden" history, if you plan to modify your objects.</p>
+
+<p>Even in unexpected models like the one above, you can "repair" them. See <a href="5-edit-fix.htm">How to fix a parametric model by reassigning the Work Plane position to profiles</a>.</p>
+
+ 
+
+<hr color="silver">
+</body>
+</html>
+

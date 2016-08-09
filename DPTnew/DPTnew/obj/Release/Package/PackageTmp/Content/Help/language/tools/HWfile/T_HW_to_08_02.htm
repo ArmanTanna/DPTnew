@@ -1,0 +1,74 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Spreadsheet - How to reference a variable in a component from within an assembly</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h4>Spreadsheet - How to reference a variable in a component from within an assembly</h4>
+
+<p>If you are working in an assembly and wish to use a variable that is
+defined in a component, you can reference it using the following
+syntax:
+<br><br>
+<font face="Courier">component_name<b>::</b>variable_name<br></font>
+<br>For example:<br><br><font face="Courier">component1::hole_diameter</font><br><br>
+references the variable <font face="Courier">hole_diameter</font> in component &quot;component1&quot;.
+
+
+
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>If you use variables that depend on other variables in components, you may have problems in the following situations.
+</td></tr></table><br>
+<p>
+<ul class="noleft">
+<li>When you use the component in an assembly that is 
+    not the original assembly created with the component, if a variable in the 
+    component references another component that does not form part of the new 
+    assembly 
+    
+<li>When a component in an assembly is substituted with 
+    another component with a different name</li>         
+</ul>
+
+<p>For example, consider an assembly made up of two parts.
+<br><br><img border=1 src="../images/toi80_02.gif"><br><br>
+Notice that the diameter of the part on the left depends on the
+diameter of the part on the right (to see it, make the
+left-hand part the current component by double clicking it or
+by using the command and then display the <b>Spreadsheet</b>
+dialog box).<br><br>
+<img src="../images/tol94_02.gif"><br><br>
+Although this method of defining variables is possible, it is not
+recommended because it creates interrelations which prevent you from
+using the component in other assemblies if the other assemblies do
+not contain a component TUBE001 which in turn contain a variable &quot;diam&quot;.
+<p>The best way of solving this problem is to define variables at
+assembly level: i.e., define a variable &quot;d&quot; corresponding to a
+project specification (in this case, the diameter) and then define
+the variable as &quot;::d&quot; in both components.<br><br>
+<img src="../images/tol95_02.gif"><br><br>
+<p>In this case, the components cannot be used in an assembly which
+does not contain the variable.
+This situation is very unlikely, however, since the variable
+defined in the above assembly is a project specification.
+
+<hr color="silver">
+</body>
+</HTML>

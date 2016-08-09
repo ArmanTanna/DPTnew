@@ -1,0 +1,128 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error Handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Creating a Detail of a Drawing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLEs/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+<style>
+.noleft{margin-left:22;}
+.liteft{margin-left:26;}
+.litleft{margin-left:26;}
+.notop{margin-top:0;margin-bottom:0;}
+.littop{margin-top:3;margin-bottom:0;}
+</style>
+ 
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+<h4><a name="gp_hw_03"></a>Creating a Detail of a Drawing</h4>
+
+First of all, please note that the <a  href="../FWfile/T_FW_gp_11.htm"><b>Detail</b></a> command is to be used in drawings <SPAN id="TWOD">not deriving from 3D models. To create detailed views in drawing related to 3D models, use the <a href="mk:@MSITStore:dw.chm::/language/drawing/FWfile/T_FW_dw_02_03.htm"><b>Detail View</b></a> command</SPAN>. After starting the command, proceed as follows:</p>
+
+<TABLE>
+<tr valign="top">
+<td><b>1</b></td>
+<td>In the <b>Name</b> box, type the name to be assigned to the detail. The name will be drawn in a caption just beneath the detail frame. If you don't explicitly type a string into
+  the corresponding text box, a sequence letter &#8212; a, b, c,
+  ... &#8212; will be used as the detail name.<br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <b>Boundary</b> drop-down list, select the type of frame to be used:
+<table>
+<tr valign="top">
+<td><b>Rectangle</b></td>
+<td>to frame the detail with a rectangle</td>
+</tr>
+<tr valign="top">
+<td><b>Circle</b></td>
+<td>to frame the detail with a circle.<br>&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Define the detail.
+<ul class="noleft">
+<li>If you selected the <b>Rectangle</b> frame, specify two opposite corners of the rectangle:<br><br><IMG border=1 SRC="../../../images/group/gpl90_11.gif"><br>&nbsp;
+<li>If you selected the <b>Circle</b> frame specify the center and a point the circle must be through:<br><br><IMG border=1 SRC="../../../images/group/gpl92_11.gif"><br>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Scale</b> mini-dialog box, type the scale factor to be used for the detail (&gt;1 enlarges, &lt;1 reduces) and press the <b>TAB</b> or the <b>ENTER</b> key.<br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Optionally set additional options under <b>More Options</b>:
+
+<ul class="noleft">
+<li>To create the detail as a shared group, select the <b>Shared</b> check box. If you don't select the <b>Shared</b> check box, the detail will be created as a non-shared group.</ul>
+<table style="margin-left:23" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#FFFFE1">
+<b>Creating a detail as a shared group</b><br>
+If you create the detail as a shared group, when you 
+<a href="../FWfile/T_FW_gp_05.htm">set it as the current group</a> in order to work inside it, you will see the entities belonging to the group <i>in their original unitary scale</i>. All the operations regarding dimensioning, adding or modifying geometrical entities and retrieving geometric information will be independent of the scale factor.
+
+<p class="littop">On the contrary, if the detail is a non-shared group, you will see the entities <i>in the scale used to create the detail</i>.<br>Please note that though you may have created the detail as a shared group, it will be a <i>non-persistent</i> shared group: if you delete all of its copies in the drawing, its archetype will be automatically removed from the <a href="T_HW_SharedGroupList.htm"><b>Shared Group</b></a> tab.</p>
+</td>
+</tr>
+</table>
+
+<ul class="noleft">
+<li>To rescale the font size of texts and dimensions according to the detail <b>Scale</b>, select the <b>Update font size</b> check box. If you don't select the <b>Update font size</b> check box, the font size of texts and dimensions will be left as it is.</li>
+</ul>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Place the detail. Move the detail to the position of the drawing you to place it in and click the mouse.
+<br><br><IMG border=1 SRC="../../../images/group/gpl91_11.gif"><br><br><IMG border=1 SRC="../../../images/group/gpl93_11.gif"><br>&nbsp;
+</td>
+</tr>
+</TABLE>
+
+In both cases, the detail is created as a group (shared or non-shared, depending on what you chose):
+<ul class="noleft">
+<li>With the name you typed in the <b>Name</b> box or with a sequence character (a, b, c, ...) if you didn't fill it in</li>
+<li>Containing all the entities which were inside the rectangular/circular portion you selected. Any entities across the selection boundary are trimmed, except texts and dimensions, which are excluded</li>
+<li>Containing a rectangular or circular frame depending on the selection type and two texts:</li>
+<ul class="noleft">
+<li>The detail name</li>
+<li>The scale factor (with two decimals).</li>
+</ul>
+</ul>
+
+In addition to this, another group is created as the detail reference frame. The group name is the same as the detail group name, with the "_0" suffix (<i>name</i>_0). It contains:
+
+<ul class="noleft">
+<li>A rectangular/circular frame around the selected portion of the original drawing where the detail is taken from</li>
+<li>The "<i>name</i>_0" name, written under this frame, so that the detail is completely identified.</li>
+</ul>
+<A NAME="03"></A>
+
+<hr color="silver">
+</body>
+</html>

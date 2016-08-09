@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Log file (think3 to IGES)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A NAME="top"></A>
+<h3>Log file of the think3 to IGES conversion</h3>
+
+<p>When you <A href="ig_03.htm">save an IGES file</A>, a log file of the conversion is created:</p>
+
+<ul class="noleft">
+<li>in the 
+same directory of the file you saved
+<li>with the same name of the file you saved and the 
+    &quot;.log&quot; extension</li>            
+</ul>
+
+<H4>The log file structure</H4>   
+                
+       The <b>think<font color="#FF0F00">3</font></b>     to 
+IGES conversion log file has a structure made of three main sections: 
+<ul class="noleft">
+    <li><b>Report EKGK</b>  &#151; 
+    a section reporting the results of the first step of the conversion 
+    process: the one from <b>think<font color="#FF0F00">3</font></b> format. Types and numbers of converted errors are 
+    listed, while two proper sub-sections show warnings and errors (if any). 
+    <li><b>Report GDX</b> &#151; a 
+    section reporting the results of the conversion to the intermediate 
+    auxiliary &quot;GDX&quot; format, which is an internal format, not directly accessible by 
+    the user. Also this section shows warnings and errors (if any). 
+    <li><b>Report IGES
+</b>   
+           &#151; a section 
+    reporting the final results of the conversion to the IGES 
+    format, such as type and number of entities, warnings and errors (if 
+    any). </li></UL>
+<P>Sub-sections about  warnings 
+    and errors help you identify any kind of problem you might have 
+    had while converting a <b>think<font color="#FF0F00">3</font></b>       file.</P>
+	
+<H4>Example of think3 to IGES 3D conversion log file</H4>
+<P>
+Here is an example of a log file:
+<FONT FACE="Courier New" SIZE=3></P><PRE>
+Validating file ...
+ 
+REPORT EKGK
+Information
+-----------
+                 ekgk_hdr -                                   Header -     5
+               ekgk_error -              Error Information Structure -    31
+              ekgk_line2d -                                  Line 2d -    16
+        ekgk_nurb_curve2d -                           Nurbs Curve 2d -     4
+               ekgk_arc3d -                                   Arc 3d -     1
+              ekgk_line3d -                                  Line 3d -     8
+        ekgk_nurb_curve3d -                           Nurbs Curve 3d -    14
+     ekgk_comp_edge_curve -                     Composite Edge Curve -     5
+          ekgk_edge_curve -                               Edge Curve -     5
+            ekgk_rev_surf -                       Revolution Surface -     2
+           ekgk_nurb_surf -                            Nurbs Surface -     2
+             ekgk_tab_cyl -                       Tabulated Cylinder -     1
+        ekgk_trimmed_surf -                          Trimmed Surface -     5
+          ekgk_comp_curve -                          Composite Curve -    10
+Warning
+-----------
+Error
+-----------
+
+REPORT GDX
+Information
+-----------
+   gdx_curve_bounded_surf -                    Curve Bounded Surface -     5
+Warning
+-----------
+Error
+-----------
+
+REPORT IGES
+Information
+-----------
+               iges_100_0 -                             Circular Arc -     1
+               iges_102_0 -                          Composite Curve -     5
+               iges_110_0 -                                     Line -    26
+               iges_120_0 -                    Surface of Revolution -     2
+               iges_122_0 -                       Tabulated Cylinder -     1
+               iges_124_0 -                    Transformation Matrix -     1
+               iges_126_0 -        Rational B-Spline Curve (General) -    18
+               iges_128_0 -      Rational B-Spline Surface (General) -     2
+               iges_141_0 -                          Boundary Entity -     5
+               iges_143_0 -                          Bounded Surface -     5
+               iges_322_1 -               Attribute Table Definition -     5
+               iges_start -                            Start Section -     1
+              iges_global -                           Global Section -     1
+Warning
+-----------
+Error
+-----------
+</FONT></PRE>                    
+
+<hr color="silver">
+</body>
+</html>

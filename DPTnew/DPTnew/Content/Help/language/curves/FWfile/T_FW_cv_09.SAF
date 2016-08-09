@@ -1,0 +1,68 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<TITLE>Spined Curve</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style>.noleft{margin-left:22;}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 4px;
+margin-bottom:0px;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Insert<img src="../../../images/general/litarr.gif">Curve<img src="../../../images/general/litarr.gif">Spined</p>
+<hr color="#63a9d8">
+</table>
+
+
+<p style="margin-top:4px;margin-bottom:0px;">The <B>Spined Curve</B> command enables you to position plane curves along another curve which will be used as a <I>spine</I>.
+<P style="margin-top:4px;margin-bottom:0px;">A spine can be used as a <I>curve controlling the shape of a surface</I> and/or as a <I>drive curve</I> used to obtain <I>spined surfaces</I>. Spined surfaces are created by &quot;moving&quot; one or more <I>boundary curves</I> along a given path. To obtain this type of surface, the following conditions must be satisfied:
+<UL class="noleft">
+<LI>The placement plane of the boundary curve must be orthogonal to the spine. 
+<LI>The spine must intersect the placement plane of the boundary curve.</LI>
+</UL>
+<P style="margin-top:4px;margin-bottom:0px;">Both of these conditions can be obtained automatically <I>starting with any curve</I> by using the <B>Spined Curve</B> command.
+
+<P style="margin-top:4px;margin-bottom:0px;">After selecting the boundary curve to be moved and the spine curve, in order to carry out the operation, use a <b>Reference plane</b> onto which the boundary curve is translated so that it is orthogonal to the spine curve.
+<P style="margin-top:4px;margin-bottom:0px;">You should therefore define the active reference system in such a way that:
+<ul class="noleft">
+<LI>The origin coincides with the point on the boundary curve that must be positioned on the spine. 
+<LI>The xy plane coincides with the &quot;reference plane&quot; which you intend to define for the spine: the directions will be defined by the intersection of the axes of the spine curve reference system (Z axis in the direction of the tangent; X axis in the direction of the normal; Y axis in the direction of the binormal) with the selected plane.
+</LI>
+</ul>
+A new curve, identical to the original, will be created and positioned in a plane perpendicular to the spine, with the origin of the active reference system at the preselected point on the spine curve. You can move the curve along the spine by dragging a handle or by specifying the <b>Parameter</b> value.
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_cv_09_01.htm"><b>Insert a spined curve</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

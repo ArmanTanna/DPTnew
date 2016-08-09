@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Job: Modifying Tubing Parts</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+
+<h3>Modifying Tubing Parts</h3>
+
+<p>Tubing elements are the basic building blocks to form a complete tubing network. A tubing network can be created using the <a href="../FWfile/T_FW_Tubing_Network.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span></a> or <a href="../FWfile/T_FW_Insert_Part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span></a> commands. The following illustration explains how to use the <a href="../FWfile/T_FW_Modify_Part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+3">Modify Tubing Part</span></a> command to modify the tubing elements of a tubing network. Open the <i>Modify_tubing_parts.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>On opening the file you will see the tubing network that was created using the <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span> command.<br>
+<br>
+<img src="../../../images/tubing/edit_part.gif" border="1"><br>
+<br>
+</li>
+
+<li>Start the <a href="../FWfile/T_FW_Modify_Part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+3">Modify Tubing Part</span></a> command.<br>
+<br>
+</li>
+
+<li><a name="part"></a>For the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+16">Part</span> selector, select the tubing element you want to modify. You can either make selection from the Graphics Area or from the Model Structure. For this tutorial select the Elbow.<br>
+<br>
+</li>
+
+<li>The selection list now displays the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> option; it is the same as that used at the time of element creation and is NOT editable.<br>
+<br>
+</li>
+
+<li>On expanding the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> node (<img src="../../../images/general/node.gif" align="absmiddle">), the tubing element option is displayed, in this case the <b>Elbow - Curve</b>.<br>
+<br>
+</li>
+
+<li>From the drop-down list choose <b>90" long radius female-female</b>.<br>
+<br>
+</li>
+
+<li>Expand the <b>Elbow - Curve</b> node (<img src="../../../images/general/node.gif" align="absmiddle">) to display the catalog. Choose the size <b>1"1/4</b>.<br>
+<br>
+</li>
+
+<li>The preview of the modified Elbow is displayed over the element itself.<br>
+<br>
+<img src="../../../images/tubing/edit_part_preview.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command to make the changes take effect.<br>
+<br>
+<img src="../../../images/tubing/edited_part.gif" border="1"></li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+You would have noticed that the diameter of all the tubing elements is automatically modified to keep them consistent with the increased size of the Elbow. This behavior was executed only if the tuning network is originally created using the <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span> command. If the tubing network is created using the <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span> command, you need modify each element individually to keep their diameters consistent.</td>
+</tr>
+</table>
+<br>
+<hr color="silver">
+<h5>Also try to...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_insert_part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span></a></li>
+
+<li><a href="T_HW_insert_network.htm"><b>Insert a Tubing Network</b></a></li>
+
+<li><a href="T_HW_customize.htm"><b>Create Customized Tubing Catalog</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

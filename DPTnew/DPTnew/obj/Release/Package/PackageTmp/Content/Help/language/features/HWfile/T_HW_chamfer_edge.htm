@@ -1,0 +1,153 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Revisor" content="Vicky Raina">
+<meta name="2009t1" content="translate">
+<title>Job: Chamfer selected edges of a solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Chamfering selected edges of a solid</h3>
+
+<p>The <a href="../FWfile/T_FW_ft_10_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6360">Edge Chamfer</span></a> command enables you to chamfer one or more edges of a solid.</p>
+
+<ol class="noleft">
+<li>Under <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+8">Group</span> <b>1</b> in the selection list, choose one of the following methods: 
+
+
+<ul type="noleft">
+<li><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+16">Distance+45^</span></li>
+
+
+<li><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+17">Distance+Angle</span></li>
+
+
+<li><span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+18">Distance+Distance</span></li>
+
+</ul>
+
+<br>
+</li>
+
+<li>You are prompted to select edges to chamfer. Click on the edges you want to chamfer. To reselect the edges, right-click on <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+13">Edges</span> in the selection list, choose 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span>, and select the edges again.<br>
+
+<br>
+Note that you can apply the chamfer to all edges with tangency continuity to the selected edges by selecting the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+26">Tangency Chain</span> check box under 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+27">Group Options</span>.<br>
+
+<br>
+</li>
+
+<li>Specify the chamfer dimensions. The values you must specify vary as follows depending on the method you chose to define the chamfer.<br>
+ 
+
+<ul type="noleft">
+<li>If you chose <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+16">Distance+45^</span> (to create a 45&ordm; chamfer): 
+
+
+<ol type="a">
+<li>In the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+25">Distance</span> mini-dialog, specify the distance from the edge.</li>
+
+</ol>
+</li>
+
+<li>If you chose <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+17">Distance+Angle</span>: 
+
+
+<ol type="a">
+<li>In the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+25">Distance</span> mini-dialog, specify the distance from the edge.</li>
+
+
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+12">Angle</span> mini-dialog, specify the chamfer angle.</li>
+
+</ol>
+</li>
+
+<li>If you chose <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+18">Distance+Distance</span>: 
+
+
+<ol type="a">
+<li>In the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+6">1st Distance</span> mini-dialog, specify the first chamfer distance.</li>
+
+
+<li>In the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+7">2nd  Distance</span> mini-dialog, specify the second chamfer distance.</li>
+
+</ol>
+</li>
+</ul>
+
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+17">Distance+Angle</span> and 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+18">Distance+Distance</span> modes, select 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+27">Group Options</span>:<br>
+
+<br>
+<img border="1" src="../images/cham01.gif"><br>
+<br>
+an arrow will be displayed. If you double-click on the arrow<br>
+<br>
+<img border="1" src="../images/cham02.gif"><br>
+<br>
+the chamfer direction will be inverted:<br>
+<br>
+<img border="1" src="../images/cham03.gif"><br>
+<br>
+</li>
+
+<li>Under <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+27">Group Options</span> select the 
+<span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+14">Keep Edges</span> check box to retain the edges of features intersected by the chamfer<br>
+
+<br>
+<img border="1" src="../../../images/features/chm_keepedges.gif"><br>
+<br>
+ or clear the check box to extend the chamfer through any intersected edges.<br>
+<br>
+<img border="1" src="../../../images/features/chm.gif"><br>
+<br>
+</li>
+
+<li>To chamfer another set of edges using a different chamfer value, select <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+5">New Group</span> in the selection list, and then repeat steps 1 to 3.<br>
+
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" alt="" border="0" align="absmiddle"> to confirm your selections and chamfer the selected edges. Click <img src="../../../images/general/CANCELbutton.gif" alt="" border="0" align="absmiddle"> to discard your changes.</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+In cases where the chamfer does not fit into solid due to large input value, the <i>chamfer unfits</i> warning message gets displayed.
+<br>
+</td>
+</tr>
+</table><br><br>
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Matching an initial curve and a target surface boundary</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Matching an initial curve and a target surface boundary3</h3>
+<p>This is the final result you will get when accomplishing this task:<BR><BR><IMG border=1 SRC="images/generic03.gif"><BR><BR>
+
+<p>Load file "GM_EX_03.e3" and start the <a  href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command. Now proceed as in previous examples "<b><a href="ex011.htm">Matching an initial and a target curve, preserving another one</a></b>" and "<b><a href="ex012.htm">Matching two initial and two target curves, preserving another one</a></b>".</p>
+<p>The main difference is the target curve is a surface boundary, so that we can apply also tangency and curvature continuity constraints. So, while you still preserve the green boundary curve.</p>
+<ol class="litleft">
+<li>So you have:
+<ul class="noleft">
+<li>What to <b>Modify</b>: the black surface
+<li>What to <b>Preserve</b>: the position of the common boundary with the green surface
+<li>What to <b>Match</b>: the boundary curve on the right (initial) with the left boundary curve of the red surface above (target).
+</ul>
+<BR><IMG border=1 SRC="images/EX_03_01.gif"><BR><br>
+The result you get is the following:
+<br><BR><IMG border=1 SRC="images/EX_03_02.gif"><BR>&nbsp;
+<li>Now, set the preserving conditions so that Position and Tangency will be preserved:
+<br><BR><IMG border=1 SRC="images/EX_03_03.gif"><BR><br>
+<li>If you now compare the results, you will see the difference is outstanding:
+<table>
+<tr valign="top">
+<td><b>Position</b></td><td><b>Position + tangent</b></td>
+</tr>
+<tr><td><IMG border=1 SRC="images/c4nt.gif"></td><td><IMG border=1 SRC="images/c4t.gif"></td></tr>
+</table><br>&nbsp;
+<li>Now, try to apply the <b>Target position + target tangent</b> conastraints to the matching boundaries:
+<br><BR><IMG border=1 SRC="images/EX_03_04.gif"><BR><br>
+and compare the results:<br>&nbsp;
+<table>
+<tr valign="top">
+<td><b>Target position</b></td><td><b>Target position + target tangent</b></td>
+</tr>
+<tr><td><IMG border=1 SRC="images/c5nt.gif"></td><td><IMG border=1 SRC="images/c5t.gif"></td></tr>
+</table><br>&nbsp;
+Also in this case, the difference is outstanding.
+</ol>
+
+<hr color="silver">
+</body>
+</html>

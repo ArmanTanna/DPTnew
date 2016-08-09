@@ -1,0 +1,147 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a datum plane with its axis tangent to a curve</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+{
+margin-left: 26;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a datum plane with its axis tangent to a curve</h3>
+
+<p>The <a href="../FWfile/T_FW_sl_03_09.htm"><b>Datum Plane</b></a> command enables you to create a datum plane. This illustration explains the steps to create a datum plane on a point of a curve, perpendicular to the curve tangent at that point.</p>
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Start the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+29">Datum Plane</span> command. Set the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span>. You can use the file <i>plane_tangent.e3</i> available in the <i>Samples</i> folder of your installation for reference.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> drop-down list, select the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+168">Tangent to curve</span> option, which will enable you to specify &mdash; as the axis the plane must be perpendicular to &mdash; the tangent to a selected curve at the point used to select it. <br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the curve by clicking on the point which you want the datum plane to be perpendicular to the curve tangent at. Please note you can also use the <a href="mk:@MSITStore:selsna.chm::/language/snap/OVfile/T_OV_to_15.htm">Snap</a> commands to select the appropriate point.<br>
+
+<br>
+<img src="../../../../images/solids/sl_09/datum_plane01.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>The preview of the datum plane is displayed. If the point used to calculate the tangent is not correct, right click on <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span> in the selection list and reselect the origin point. The tangent will be recalculated at the new point. If required, you can double click on the red arrow to invert the orientation of the plane.<br>
+
+<br>
+<img src="../images/datum_plane02.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>The <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+132">Width</span> of the datum plane can be specified in the corresponding boxes or by dragging the corresponding handles.<br>
+
+<br>
+<img src="../images/datum_plane03.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>By default, the plane position is locked. Though you can move it to another point on the same curve or to an external point, keeping it parallel to the one relative to the origin point (that is: the one you originally clicked to select the curve). To do this, click on the lock symbol adjacent to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> so as to unlock it.<br>
+
+<br>
+<img src="../images/datum_plane04.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>By default, this point is coincident with the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>. To specify a different point, after unlocking the lock symbol, click on 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> and then click at the new location you want to move the plane to (please note that snap commands are also enabled).<br>
+
+<br>
+<img src="../images/datum_plane05.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>The plane will be moved to the new location, but it will still be perpendicular to the curve tangent at the origin.<br>
+<br>
+<img src="../images/datum_plane06.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>To reset the position of the plane to the one of the origin, click again on the lock symbol adjacent to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> so as to lock it again. Once all the settings are made and the selections are complete, click on 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> <img src="../../../../images/general/OKbutton.gif"> button to create the datum plane.<br>
+
+<br>
+<img src="../../../../images/solids/sl_09/datum_plane07.gif" border="1"> </td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_DatumPlane_MoreConditions.htm"><b>Applying additional conditions when creating a datum plane</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

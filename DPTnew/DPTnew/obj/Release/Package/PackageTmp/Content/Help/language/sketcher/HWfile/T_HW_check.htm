@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Checking the Profile consistency</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Checking the Profile consistency</h2>
+
+<p>In the <b>think<font color="#FF0F00">3</font></b> application, you can check the consistency of a profile using the <a href="../FWfile/T_FW_sk_27.htm"><span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+12">Check Profile</span></a> command.</p>
+
+<p>Consistency data about the profile are displayed in the selection list of the command. The current constraint conditions of the profile are also indicated using different colors to highlight entities that are Well defined, Under defined, Over defined, or Inconsistent. Note that these colors can be changed by clicking on the color spots for the respective entity states, and picking another color.</p>
+
+<p>You can try a constraining operation on a profile that looks like the one in the following image:<br>
+<br>
+<img alt="error-file:tidyout.log" src="../../../images/sketcher/check_hw_1.gif" border="1"><br>
+<br>
+</p>
+
+<p>On such a basic profile, you can proceed by adding certain constraints, and by exploring the different profile consistency conditions as they change.</p>
+
+<h4>Profile consistency</h4>
+
+<p style="margin-bottom:0;">The aim is to get a well defined profile with the least number of logically correct geometric and dimensional constraints.</p>
+
+<table style="margin-top:8;">
+<tr valign="top">
+<td><b>1</b></td>
+<td>Add the constraints displayed in the following illustration. This is how the profile should appear now:<br>
+<br>
+<img alt="error-file:tidyout.log" src="../../../images/sketcher/check_hw_2.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Run the <a href="../FWfile/T_FW_sk_27.htm"><span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+12">Check Profile</span></a> command. You will get to know that the profile has by now only 2 well defined entities.<br>
+<br>
+<img alt="error-file:tidyout.log" src="../images/check_hw_3.gif" border="1"><br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>You can add one more dimension constraint. Now only one entity, the arc, is under defined.<br>
+<br>
+<img alt="error-file:tidyout.log" src="../../../images/sketcher/check_hw_4.gif" border="1"> <br>
+<br>
+At this point of time, you may add a tangency constraint to the curve and one of its attached lines, or you may give a radius to the curve to keep it well defined. Try with the radius constraint.<br>
+<br>
+<img alt="error-file:tidyout.log" src="../../../images/sketcher/check_hw_5.gif" border="1"> <br>
+<br>
+The profile is now well defined.<br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Now, try to "over define" the profile. You may add some "extra" constraints as shown in the image:<br>
+ <br>
+ <img alt="error-file:tidyout.log" src="../../../images/sketcher/check_hw_6.gif" border="1"> <br>
+ <br>
+ Obviously, this extra dimension is not benefiting the design, though it is not harmful. Note that the design intent must be to produce "Well defined" profiles. So a profile like the one above is not recommended.<br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Now, let us try and add some other constraints so that the profile becomes inconsistent. The situation is such that due to the explicitly given constraints the program is not able to satisfy all of them and the profile will fail. This is shown in the following image:<br>
+ <br>
+ <img alt="error-file:tidyout.log" src="../images/check_hw_7.gif" border="1"> <br>
+ <br>
+ </td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_sk_00.htm"><b>Profiles</b></a></li>
+<li><a href="../OVfile/T_OV_sk_00_02.htm"><b>Rules for building a profile</b></a></li>
+<li><a href="../OVfile/T_OV_sk_00_01.htm"><b>How to create a profile</b></a></li>
+<li><a href="../OVfile/T_OV_sk_00_03.htm"><b>What are reference curves</b></a></li>
+<li><a href="../OVfile/T_OV_sk_00_04.htm"><b>What are external entities</b></a></li>
+<li><a href="../OVfile/T_OV_sk_00_05.htm"><b>Dimensional and geometrical constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_ov_prof_tipntricks.htm"><b>Profile environment: Tips and Tricks</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

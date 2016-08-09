@@ -1,0 +1,132 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Inserting point coordinates label</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;margin-top:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4><a name="cv_hw_02"></a>Inserting point coordinates label</h4>
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After starting the <a href="../FWfile/T_FW_pcl.htm"><span class="UI_COMMAND" id="idr_PtCoordLabel.msg+idr_PtCoordLabel+1">Point Coordinates Label</span></a> command, the program prompts you to select an entity.<br> Specify each point by clicking on the position where you want to place it or by using 
+<a href="mk:@MSITStore:selsna.chm::/language/snap/OVfile/T_OV_to_15.htm">Snap</a> (admitted type of curve/arc snaps are:
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1625">End Point</span>,
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1629">Mid Point</span>,
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1626">Arc Center</span>,
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1633">Point on Curve</span>,
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1631">Intersection Point</span>,
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+4629">Joint</span> and 
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+1637">Surface Vertex</span>).
+<br><br>
+<img border="1" src="../../../images/PointCoordinateLabel/pcl_01.gif">
+<br><br>
+Remember you can always change the selected points, by right-clicking on <span class="UI_SELECTOR" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+2">Points</span>, selecting 
+<span class="UI_CONTEXT" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and performing the selection again.
+<br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">
+In case the referenced entity is itself a point entity, the selection can be multiple (using window selection). This way the command can act on point clouds. Moreover, already placed point coordinates labels can also be selected; this capability enables you to edit labels and, in case a points cloud is selected by window, it prevents from creating another label on already flagged points.</td>
+</tr></table>
+<br>
+</td></tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>(<i>Only in 3D environment)</i> Depending on the option currently selected in the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+3">Place Text On</span> drop-down list, different planes will be used to display the labels. 
+<ul class="noleft">
+<li>If the selected option is <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+4">Current work plane</span>, a text placement plane parallel to the current work plane will be displayed. The values are always calculated with respect to the global work plane and are irrespective of the current work plane position.<br><br>
+<img border="1" src="../../../images/PointCoordinateLabel/pcl_02.gif"><br><br>
+</li>
+<li>If the selected option is <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+5">Current view plane</span>, a text placement plane parallel to the current view plane will be displayed.<br><br>
+<img border="1" src="../../../images/PointCoordinateLabel/pcl_03.gif"><br><br>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+6">Text Frame</span> drop-down list, select:<br>
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+7">Inherit current property</span></td>
+<td>The text is fitted inside the frame as defined by the <a href="mk:@MSITStore:forcus.chm::/language/format/Fwfile/T_FW_dm_29.htm#ff"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+979">Text</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1365">Font &amp; Frame</span></a> settings inside the <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> dialog box.</td>
+</tr>
+
+<tr valign="top">
+<td width="90"><span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+8">Rectangle</span></td>
+<td>The text is fitted in a rectangular frame.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Begin_here"></a><b>4</b></td>
+<td>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+9">Decimal Digits</span> box, type the number of decimal digits you want the displayed label to be composed of.<br>
+</td>
+</tr> 
+
+<tr valign="top">
+<td><a name="Begin_here"></a><b>5</b></td>
+<TD>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+15">Total Digits</span> drop-down list, type the total number of digits you want the displayed label to be composed of.<br>For example, if you set <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+9">Decimal Digits</span> = 4; <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+15">Total Digits</span> = 10. The label is displayed as shown in the below illustration:<br><br>
+<img border="1" src="../../../images/PointCoordinateLabel/pcl_04.gif"><br><br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you can find the settings to define the display used to place the coordinate label:
+<ul class="noleft">
+<li>In order to choose the display of coordinate label, you can: 
+<ul class="noleft">
+<li>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+10">X coordinate prefix</span> box, type the <i>a</i>. </li>
+<li>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+11">Y coordinate prefix</span> box, type the <i>b</i>. </li>
+<li>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+12">Z coordinate prefix</span> box, type the <i>c</i>. </li>
+</ul>
+</li>
+<br>
+
+<li>In order to choose the movement of the label text along the <i>defined</i> direction of a distance calculated by multiplying the provided value by the text size, you can: 
+<ul class="noleft">
+<li>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+13">Move text along X</span> box, type the <i>2.5</i>.<br>
+In this case the text is moved by a distance of [<i>text size * (2.5)</i>] along X direction.</li>
+<li>In the <span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+14">Move text along Y</span> box, type the <i>5</i>.<br>
+In this case the text is moved by a distance of [<i>text size * (5)</i>] along y direction.</li>
+</ul>
+</li>
+<br>
+<li>Select the <a href="../FWfile/T_FW_pcl.htm#Auto"><span class="UI_OPTION" id="PtCoordLabel.msg+_PTCOORDLABEL_LABEL_+16">AutoArrange</span></a> check box to arrange the labels without any overlap.</li>
+</li>
+</ul>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and actually create the coordinate labels.<br><br>
+<img border="1" src="../../../images/PointCoordinateLabel/pcl_05.gif"><br><br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

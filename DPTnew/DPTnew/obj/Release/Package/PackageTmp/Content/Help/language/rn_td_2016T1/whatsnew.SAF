@@ -1,0 +1,255 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(683,"","")
+</script>
+<!-- <script language="JavaScript">
+Esempio di come dovrebbe essere scritta la function per funzionare sia nel chm che sul Web
+ -->
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	my2RegExp = /ms-its:[^.]+.chm::\//gim;
+	myRepStr = "http://help.dptcorporate.com/";
+	if(location.pathname.match(".chm")){
+		//alert(location.pathname);
+		void(0);
+	}
+	else {
+		//alert(location.pathname);
+		document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+		document.body.innerHTML = document.body.innerHTML.replace(my2RegExp,myRepStr);	
+	}		
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2016t1" content="New">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="Revisor" content="Nicola Binaghi">
+<title>What's new in v. 2016.1</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes_DPT.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="White" onload="viaMk()">
+
+<p align="center" style="margin-bottom:0;"><img src='../../images/company/Logoblacksfondobianco.png'></p>
+<hr size=3 color="silver">
+
+<h1 style="text-align: center"><a name="top"></a>ThinkDesign 2016.1 Release Notes</h1> 
+<!-- <h1 style="align: center; text-align: center;"><i><font color="gray">Preliminary Version, Work in Progress</font></i></h1> -->
+<hr color="silver">
+<p class="noindent" style="margin-top: 0; color: font-size: larger;">Many improvements have been made in version 2016.1. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+
+<ul class="litleft">
+<!-- <li style="color: font-size: larger;"><a href="#P000XXXX"><b>Converters: ConvPack</b></li> -->
+<li><a href="#CNV"><b>Converters upgrades</b></a>
+<li><a href="#ANSYS"><b>ANSYS plug-in: new versions available</b></a>
+<li><a href="#W10"><b>Windows &reg; 10 Support<!-- Compliance --></b></a>
+<li><a href="#P0000915"><b>General Software Improvement and Better Reliablity</b></li>
+<li><a href="#P0000917"><b>New tools for targeting Full Hybrid Modeling with meshes</b></li>
+<li><a href="#P0000918"><b>New Multi Flange command</b></li>
+<li><a href="#P0000926"><b>New Convert Solid to Sheet Metal command</b></li>
+<!-- <li><a href="#P0000927"><b>New Fit Mesh command</b></li> -->
+<li><a href="#MOLD"><b>Mold enhancements</b></li>
+<li><a href="#MISC"><b>Miscellaneous</b></li>
+<li><a href="#HELP000"><b>Help Updated to 2016.1</b></li></li>
+<li><a href="#DOC000"><b>Integration of e-Learning videos and documents</b></li>
+</ul>
+<hr color="silver">
+
+<br>
+<br>
+<h2><a name="#CNV"></a>Converters upgrades</h2>
+<p>Converters have been updated with the following improvements:</p>
+<ul>
+<li>Support of Any Autodesk&reg; Inventor&reg; version up to 2016</li>
+<li>Support of Any CATIA&reg; V5 Version from R4 to V5-6R2015</li>
+<li>Support of Teigha® 4.1.1 for theAutodesk® DXF/DWG format (through upgraded DWGDirect 3rd party library).</li>
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<h2><a name="#ANSYS"></a>ANSYS plug-in: new versions available</h2>
+<p>Starting from this version, beyond versions 14.5 and 15.0, you can also choose whether to install either ANSYS V16.2 or ANSYS V17.0 plug-in from the custom window of the installation wizard during the installation process.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<h2><a name="#W10"></a>Windows &reg; 10 Support</h2>
+<p>ThinkDesign can now be used also under Windows &reg; 10 ( <img border=0 src="images\Windows10.jpg" align="absmiddle">).</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+<h2><a name="P0000915"></a>General Software Improvement and Better Reliablity</h2><!-- Microsoft&reg; Visual Studio 13 Enhancements --><!-- In charge: Laurent Sutra -->
+<p>The source code has been accurately revised so that the program has highly improved its robustmness and its reliabilty has been made much higher.</p> 
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<h2><a name="P0000917"></a>New tools for targeting Full Hybrid Modeling with meshes</h2><!-- In charge: Laurent Sutra -->
+<p>The new <a href="../surfaces/FWfile/T_FW_PrimitiveOnMesh.htm"><b>Primitive on Mesh</b></a> command enables designers and engineers to solve spatial, interactive and creative design tasks in immersive, collaborative environments while maintaining CAD modelling as a familiar design method.<br>
+<br><img src="images/PrimitiveOnMesh.jpg" border=1><br><br>
+The command enables you to create at the same time several shapes such as planes and cylinders that best fit mesh facets, and to add constraints between the created shapes. In the list of constraints it is possible to specify, for example, a cylinder must be orthogonal to a plane and the command will provide you with the best solutions based on their tolerance values. For example, you might also have several cylinders and specify they must all be parallel.</p>
+
+<p>Other new tools:</p>
+<ul>
+<li>Smart selection of mesh facets in two different modes:
+<ul>
+<li><a href="../selection/FWfile/T_FW_CreaseAngle.htm"><b>Crease Angle</b></a><br>
+The <b>Crease Angle</b> command enables you to make mesh facet selection using as criteria the angle between the normal of the picked facet and the normal of the other facets of the mesh.
+</li>
+<li><a href="../selection/FWfile/T_FW_GeodesicDistance.htm"><b>Geodesic Distance</b></a><br>
+The <b>Geodesic Distance</b> command enables you to make mesh facet selection using as criteria the distance between the picked point on the facet and the other facets of the mesh.
+</li>
+</ul>
+<li>The <a href="../selection/FWfile/T_FW_SelectFacetsInFrontOnly.htm"><b>Select Facets in Front Only</b></a> command is used during the selection of facets by Window or Lasso. By default it is OFF: all the facets in the window or lasso area are taken in the selection. When the option is ON, only the front facets are taken in the selection.
+</li>
+</li>
+<li>New <b>Snap</b> functionality for the mesh nodes (see <a href="../snap/FWfile/T_FW_MeshVertex.htm"><b>Mesh Node</b></a>).</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+<h2><a name="P0000918"></a>New Multi Flange command</h2><!-- In charge: Santhosh Rachamalla -->
+<table cellpadding="2%">
+<tr valign="center">
+<td><img src="MWW.jpg">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>The new <a href="../sheetmetal/FWfile/T_FW_MultiFlange.htm"><b>Multi Flange</b></a> command enables you to create multiple flanges within the same command session.</td>
+</tr>
+</table>
+<!-- <p>The new <a href="../sheetmetal/FWfile/T_FW_MultiFlange.htm"><b>Multi Flange</b></a> command: -->
+<p style="margin-top:0;"><img border=1 src="images/MultiFlange.jpg">
+<br><br>
+<!-- <img border=1 src="../sheetmetal/images/MF01.jpg">
+<br><br> -->
+At the same time, you can select separate chains with discontinuity points, and they will be correctly managed by the command with the proper miter gaps.
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+<h2><a name="P0000926"></a>New Convert Solid to Sheet Metal command</h2>
+<p>The new <a href="../sheetmetal/FWfile/T_FW_ConvertSolidToSheetMetal.htm"><b>Convert Solid to Sheet Metal</b></a> command has been developed. Using this command, it will be very simple to transform an existing solid into a Sheet Metal entity, thus being enabled to rapidily and easily obtain the Flat Pattern View of the selected solid.<br><br>
+<img border="1" src="images/Solid2SM.jpg">
+</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+<h2><a name="MOLD"></a>Mold enhancements</h2>
+<p>Several enhancements have been done for the Mold environment:</p>
+
+<ul style="margin-left:60;">
+<li>Redefinition of the <b>Trim</b> option in <b>Insert Standard parts</b> redefinition </li>
+<li>The rectangular balance placement mode has been added to the command</li>
+<li>The <a href="../mold/layout.htm"><b>Multi-cavity Layout</b></a> command creates a pattern and at the end you have several instances, but in a sense everything can be made "associative" from the very beginning, starting from the shape you want to mold, and all this procedure is based on derived models. Yet, you may want to proceed with design also beyond the command result. In previous version, you might encounter an issue when the first copy of the pattern was taken into account, but it did not impact the other copies in the pattern.<br>
+So, the <b>First copy derived</b> option has been added: 
+<ul>
+<li>If the option is not selected, new copies will be derived directly from input selection.</li>
+<li>If the option is selected, input selection should be a derived component (other selections are not allowed) and new copies will be derived from the X-Reference of selected component.<br>
+This will help you to create multi cavity layout where input selection should be modified but changes should not need to be propagated to multi cavity layout copies. 
+</li>
+</ul>
+This option cannot be changed using <b>Redefine</b>.
+</li>
+<li>Mold base template files upgraded to the new Mating except Pedrotti Euro models</li>
+<li>Mold base works without MS - Office installation also.</li>
+
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+<h2><a name="MISC"></a>Miscellaneous</h2>
+<p>Other improvements:</p>
+<ul style="margin-left:60;">
+<li>Performance of New Mating has been strongly improved. The command is much more stable and reliable.</li>
+<li>2D Thread representation of NPT holes have been greatly improved.</li>
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+<h2><a name="HELP000"></a>Help Updated to 2016.1</h2>
+<p>ThinkDesign online help is now up-to-date with version 2016.1.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+<h2><a name="DOC000"></a>Integration of e-Learning videos and documents</h2>
+<p>The <a href="http://dpt3.dptcorporate.com/elearning" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</b></font></a> videos and documents available on <b>think<font color="#FF0F00">3</font></b> Customer Care site have been <font color="gray"></font> integrated in the online help with proper links and topic lists.<br>
+<br>
+From the e-learning node (<a href="ms-its:help.chm::/language/eLearning.htm"><img src="images/elnode.gif" border=0 align="absmiddle"></a>) of the Table of Contents (<a href="ms-its:help.chm::/language/eLearning.htm"><b>e-Learning</b></a>), you can access all the listed corporate web e-Learning stuff:
+<br><br>
+<img src="images/elearning.gif" border="1">
+<br><br>
+While, using the <b>e-Learning</b> button in the chm toolbar, you can directly access the e-Learning site of the Customer Care:
+<br><br>
+<img src="images/elearning2.gif" border="1">
+<br><br>
+Where useful, you will find the appropriate links at the bottom of the page<br><br>
+<img src="images/weblink01.jpg" border="1"><br><br>
+You will also be able to access the web training videos and documents through specific list pages reachable from the summary pages, and when useful, also from command description pages and overview documents:<br><br>
+<img src="images/weblink02.jpg" border="1">
+</p>
+
+<hr color="silver">
+
+
+
+<script>
+function goBack() {
+//alert(window.self.name);
+	if(window.self.name != "body"){
+    	window.history.back(1);
+	}
+	else{
+		alert("The Navigation Pane is already active!");
+		void(0);
+	}
+}
+</script>
+
+<!-- <br> -->
+<table width="100%" align="center">
+<tr>
+<td align="left"><a href="#" target="_parent"><img border="0" src="/images/Hide_Nav.png" title="Hide the Navigation Pane" align="left"></a>
+<a href="#" onclick="goBack()"><img border="0" src="/images/Display_Nav.png" title="Display the Navigation Pane" align="left"></a></td>
+<td align="center"><b><i>Last update:</i>&nbsp;22 June 2016</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- Laudetur Jesus Christus, Laudetur cum Maria. Semper Laudentur! -->
+<!-- Exsurgat Dominus et dissipentur inimici Ejus ... -->
+<!-- B.J.H.e.G. --></td>
+<td align="right"><a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></td>
+</tr>
+</table>
+<hr size=3 color="silver">
+<!-- Ps. 50 -->
+<!-- Miserere mei Deus -->
+<!-- secundum magnam misericordiam tuam -->
+<!-- et secundum mutitudinem miserationum tuarum -->
+<!-- dele iniquitatem meam -->
+<script type="text/javascript" language="JavaScript">
+<!--
+var ErrMsg = "DPT SARL - All Rights reserved";
+function disableRightClick (btnClick)
+{
+if (navigator.appName == "Netscape" && btnClick.which == 3)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (navigator.appName == "Microsoft Internet Explorer" && event.button
+== 2)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (event.button== 2){
+	alert(ErrMsg);
+	return false;
+}
+//------------------------
+}
+document.onmousedown = disableRightClick;
+-->
+</script>
+</body>
+</html>

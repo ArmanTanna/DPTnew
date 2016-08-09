@@ -1,0 +1,114 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<head>
+
+<title>Job: Import a component from a CADENAS catalog</title>
+<meta name="T_2010t1" content="translate">
+<meta name="New licensing" content="modified">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<link href="../../JSandSTYLES/txteffects.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h3>Import a component from a CADENAS catalog</h3>
+
+<p>The purpose of this task is to show how you can exploit the <b>PARTsolutions plug-in</b> to import a component from a CADENAS catalog into our product.<br>
+In order to complete the job, you must first create the part in <b>thinkPLM</b>, then import the component from the CADENAS catalog assigning it the part data just created.</p>
+
+<!-- <p>Prerequisite to this job is a <b>thinkPLM</b> license in addition to our product license.</p> -->
+
+<table summary="">
+<tr valign="top">
+<td align="right"><b>1</b></td>
+<td>Start the our product and open a new document.</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>2</b></td>
+<td>Start the <a href="mk:@MSITStore:tt.chm::/language/Insert/FWfile/T_FW_NewEntity.htm"><span class="UI_COMMAND" id="tt.msg+tt+17">New Entity</span></a> command and select a part entity type among those listed.</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>3</b></td>
+<td>In the part properties dialog box that opens, enter the <span class="UI_COMMAND" id="component.msg+component+5">Part number:</span> <i>MASP-00055</i>. Fill the other fields to your liking, then click <span class="UI_COMMAND" id="IDD_TT_EE_SHEET.msg+IDD_TT_EE_SHEET+2">OK</span> in order to create the <b>thinkPLM</b> part.</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>4</b></td>
+<td>Start CADENAS <b>PARTdataManager</b> by clicking the <a href="mk:@MSITStore:cadenas.chm::/language/cadenas/FWfile/T_FW_Add3DPart.htm"><span class="UI_COMMAND" id="cadenasUI.msg+cadenas_ui+3">Import from PARTdataManager Catalog</span></a> command. You are asked to log in; enter your User and Password to access the CADENAS server:<br>
+<br>
+ <img src="../Images/CadenasLogin.gif"> <br>
+<br>
+Note in the lower left corner that some catalogs have a green icon: these contain at least one object linked to a part number. Other catalogs have an orange crossed out icon: no object in these has ever been linked to a <b>thinkPLM</b> part number.</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>5</b></td>
+<td>Open a catalog and select a row which has no part number assigned. Click the <img src="../../../images/icons/cadenas/AddRecord2DB.gif" align="absmiddle"> <b>Add record to database</b> command and enter in the <b>Erp-Number</b> field the part name you created in <b>thinkPLM</b>: <i>MASP-00055</i>. Click <b>OK</b> to close the dialog box:<br>
+<br>
+<img src="../Images/CadenasAddRecord.gif"> <br>
+<br>
+Note that in order for <b>thinkPLM</b> to automatically assign the part data to a component imported from the CADENAS catalogs, the <b>Erp-Number</b> must match a <span class="UI_COMMAND" id="component.msg+component+5">Part number:</span>. If it does, the row in the catalog is updated with the data from the <b>thinkPLM</b> database:<br>
+<br>
+<img src="../Images/CadenasRecordUpdated.gif"> </td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>6</b></td>
+<td>You are now ready to import the component in your editor by clicking <img src="../../../images/icons/cadenas/Export.gif" align="absmiddle"> <b>Export</b>.</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td align="right"><b>7</b></td>
+<td>Test the results by editing the part data of the component you imported from the catalog. If successful, the <span class="UI_COMMAND" id="component.msg+component+5">Part number:</span> is <i>MASP-00055</i>, and if you run a <span class="UI_COMMAND" id="UIGeneric.msg+_LABEL_+15">Query View on Parts</span> to inspect <i>MASP-00055</i>, you should see that it has been linked to the relevant cadenas component.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

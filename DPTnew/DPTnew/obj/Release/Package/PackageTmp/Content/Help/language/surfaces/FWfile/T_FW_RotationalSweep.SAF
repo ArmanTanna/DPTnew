@@ -1,0 +1,192 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Rotational Sweep</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/Frames.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+.noleft{
+ margin-left:22;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0()">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:6px;">The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> command enables you to create rotational sweep surfaces by revolving a set of sections about an axis, which you can specify directly or let the program use a default one. Optionally, you can specify a set of drive curves which the rotational surface will have to follow. Self-intersections are detected and pointed out through a specific warning message.</p>
+
+<p>To use the command, proceed as follows.</p>
+
+<ul class="noleft">
+<li><a name="GenericSweep_BoundSelectorNode"></a>Select one or more different sections (groups of contours) to be swept (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+30">Curves</span> under <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+29">Section Group(s)</span>).<br>
+<br>
+In the context menu displayed by right-clicking on <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+30">Curves</span> (n), the following options will be displayed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+400">Show Invert</span> - Displays the <a href="#Invert"><span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span></a> mini-dialog box for the corresponding section.</li>
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+404">Show All Invert</span> - Displays the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> mini-dialog boxes for all the sections.</li>
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+402">Hide Invert</span> - Hides the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> mini-dialog box for the corresponding section.</li>
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+406">Hide All Invert</span> - Hides the <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> mini-dialog boxes for all the sections.<br>
+<br>
+</li>
+</ul>
+
+<a name="Invert"></a> <span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+33">Invert</span> check box:<br>
+ It enables you to invert the orientation of the section contour. 
+
+<ul class="noleft">
+<li>When selected, the orientation is inverted. This might be required if the sweep result is self-intersecting.</li>
+
+<li>When cleared, the orientation is not inverted.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li>You can select an axis of rotation (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>). See "<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details. If you do not select any, the program will automatically use a default one.<br>
+<br>
+</li>
+
+<li><a name="GenericSweep_DriveCurves"></a>Optionally, select the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+5">Drive Curves</span> you want the resulting surface to match.<br>
+<br>
+The points where the selected sections do not intersect the drive curves are highlighted with a "bold" circle in the model, and a specific message is displayed to make the user aware of the situation.<br>
+<br>
+Once the drive curve(s) have been selected, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+5">Drive Curves</span> node expands to show additional options: 
+
+<ul>
+<li><a name="motion"></a>By default, <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span> is selected in the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> option. It is the method that will be adopted to perform the sweep along the drive. It cannot be changed.<br>
+<br>
+</li>
+
+<li><a name="scaling"></a>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+123">Scaling</span> drop-down list enables you to select the extent of optimization that would be used while generating the sweep feature: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="80"><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+124">None</span></td>
+<td>The drive curve controls only the rotational motion without having any effect on the deformation.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+127">Standard</span></td>
+<td>Only the standard optimizations will be applied.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="flex"></a><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+128">GSM</span></td>
+<td>GSM optimization will be applied. For GSM scaling transformation, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+129">Flexibility</span> drop-down list is available enabling you to manage the shape of the modification by selecting the required bulge factor. Also, you can define additional tangency constraints for the GSM transformation; click <a href="../OVfile/T_OV_Constraint.htm">here</a> for details.</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>The command is associative; the associativity can be activated by selecting the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> check box.</p>
+
+<p>Additional options are available under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>.</p>
+
+<ul class="noleft">
+<li><a name="restrict"></a>Using the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> drop-down list you can restrict the development of the sweep surface within limits. 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+135">None</span> - No restriction is applied and the sweep will be created over the complete drive curve.</li>
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+136">Between parameters</span> - The sweep is limited between two user defined points on the drive curve. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/surfaces/rot_sweep_restrict_1.gif" border="1"></td>
+<td><img src="../../../images/surfaces/rot_sweep_restrict_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Regular</td>
+<td align="center">Complementary</td>
+</tr>
+</table>
+</li>
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+137">Between sections</span> - The sweep is limited between the first and the last section curves. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/surfaces/rot_sweep_restrict_3.gif" border="1"></td>
+<td><img src="../../../images/surfaces/rot_sweep_restrict_4.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center">Regular</td>
+<td align="center">Complementary</td>
+</tr>
+</table>
+</li>
+</ul>
+
+The complementary sweep is obtained by selecting the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+138">Complementary Shape</span> check box under the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+134">Restrict</span> node.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/Parameterization.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe><br>
+<br>
+</li>
+
+<li><a name="GenericSweep_InterpType"></a>Finally, in order to improve the final shape and to gain better control on its degree and continuity values, you can choose the method to be used for the interpolation of the sections in the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+20">Section interpolation</span> drop-down list. Click <a href="../HWfile/T_HW_GS_SectionInterpolation.htm">here</a> for further details.<br>
+<br>
+</li>
+
+<li>When the sweep operation is to be done with multiple sections, there are different ways to match their discontinuities (if any) through the options under the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+80">Section Matching</span> node.<br>
+<br>
+ 
+
+<ul>
+<li>In the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+81">Matching type</span> drop-down list, you can select the actual matching mode to be used by the application for the section mapping. Click <a href="T_FW_GlobalSweep.htm#SEMAT">here</a> for details.<br>
+<br>
+</li>
+
+<li><a name="GenericSweep_CurveToCurve"></a>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> check box enables you to choose the method for joining different contours made of more than one curve each. 
+
+<ul class="noleft">
+<li>When the check box is selected, the sweep will be performed between <i>the curves</i> belonging to the selected groups, rather than between the groups themselves. The number of curves belonging to each different group may be different, so the number of sweep surfaces actually created will be the same as the maximum of the numbers of curves among all the groups.</li>
+
+<li>When the box is cleared, the groups themselves are taken into account and the number of sweep surfaces may vary depending on the specific situations.<br>
+<br>
+</li>
+</ul>
+
+For further details on the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> option, see "<a href="../HWfile/T_HW_MatchCurve.htm">Using the <span class="UI_OPTION_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> of the <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command</a>".</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_RotationalSweep.htm"><b>Create a Rotational Sweep Surface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,324 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2013t1" content="New">
+<meta name="Author" content="Stefania Fortuzzi">
+<meta name="Revisor" content="Stefania Fortuzzi">
+
+<title>What's new in v. 2013.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="viaMk();"  bgcolor="White">
+
+<p align="center" style="margin-bottom:0;"><img src='../../company/Logo-black.png'></p>
+<hr size=3 color="silver">
+
+<h1 style="text-align: center"><a name="top"><a>ThinkDesign 2013.1 Release Notes</h1> 
+<hr color="silver">
+<p class="noindent" style="margin-top: 0; color: font-size: larger;">Many improvements have been made in version 2013.1. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+<br>
+<ul class="litleft">
+<li style="color: font-size: larger;"><a href="#EDB113333"><b>Assembly</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ890"><b>ANSYS plug-in</b></a></li> 
+<li style="color: font-size: larger;"><a href="#PRJ876"><b>Data Converter</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ892"><span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span></a></li>
+<li style="color: font-size: larger;"><a href="#PRJMD"><b>MoldDesign</b></a></li> 
+<li style="color: font-size: larger;"><a href="#PRJ879"><b>Part List and Ballooning</b></a></li>
+<!-- Entry for SP1?
+<li style="color: font-size: larger;"><a href="#PRJ884"><b>PARTsolutions Plug-in</b></a></li> -->
+<li style="color: font-size: larger;"><a href="#PRJperf"><b>Performance Improvements</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ872"><b>Sheet Metal</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJsolid"><b>Solid Features</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJsurf"><b>Surfaces</b></a></li>
+<li style="color: font-size: larger;"><a href="#t3Wzd"><b>think3 Wizards (API-COM)</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ875"><b>Windows 8 Support</b></a></li>
+
+</ul>
+<hr color="silver">
+<!-- MKTG request -->
+
+<br>
+<table width="100%">
+<tr>
+<td align="left"></td>
+<td align="center"><b><i>Last update: </i>28 May 2013</b></td>
+<td align="right"></td>
+</tr>
+</table>
+<!--  -->
+
+<hr color="silver">
+<p align="center"><img src="../../images/company/thinkdesignsuite-black.png"></p>
+<hr  size=3 color="silver">
+<br><br>
+<h2><a name="EDB113333"><a>Assembly</h2>
+<p>In the previous version, if you unlinked a simple component, it was renamed using the <i>generic</i> name: <i>comp&lt;progressive_number&gt;</i>.<br>
+In the 2013.1 version the <span class="UI_COMMAND" id="MenuBar_Document_Modify_Assembly.msg+MenuBar_Document_Modify_Assembly+4514">Unlink</span> command renames the component, when the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+221">Enable</span> check box is checked, following the settings available in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+220">AutoRename settings</span> area of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+217">Assembly/Shared Group</span> category of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>, otherwise the new name is <i>&lt;component_name&gt;&lt;progressive_number&gt;</i>.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br>
+<h2><a name="PRJ890"><a>ANSYS plug-in</h2>
+<p>In this version, you can install the <b>ANSYS V14.5</b> plug-in from the custom window of the <i>installation wizard</i> during the installation process. It is now available on both the 32-bit and 64-bit environments.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Prerequisite of using the <b>ANSYS</b> plug-in is to have the <b>ANSYS</b> application installed in the workstation.
+</td>
+</tr>
+</table>
+
+<br>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<br>
+<h2><a name="PRJ876"><a>Data Converter</h2>
+<p>In the previous version the <b>TD XchangeReader</b> module allowed to read only  <b>Catia</b>&reg; V5 (*.CATP*), <b>Pro/ENGINEER</b>  (*.prt*; *.asm*; *.neu*) and <b>Parasolid&reg;</b> (*.x_*; *.X_*) files.</p>
+<p>Now it enables also to read <b>SolidWorks&copy;</b>  (*.sld;*.SLD*), <b>Autodesk&reg; Inventor&reg;</b> (*.ipt*; *.iam*), <b>JT</b> (*.jt) and <b>Siemens NX</b><SUP><FONT SIZE="-2">TM</FONT></SUP> (Unigraphics) (*.prt)   files, by simply using <span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1037">Open</span> command and its <span class="UI_OPTION" id="eklib.msg+eklib+349">Options</span>.
+<br>
+For <b>SolidWorks&copy;</b>, it enables to read any version up to 2012; for <b>Autodesk&reg; Inventor&reg;</b> any version up to 2013;  for <b>JT</b> any version up to 9.5; for <b>Siemens NX</b><SUP><FONT SIZE="-2">TM</FONT></SUP> (Unigraphics), any version from V11.0 up to NX 8.
+</p>
+<p>In addition to the versions supported in <b>ThinkDesign</b> 2012.1, it allows to read <b>Catia</b>&reg; V5 (*.CATP*) files of Rel 22.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<br><br>
+<h2><a name="PRJ892"><a><span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span></h2>
+<p>Four new items have been added to the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+83">Type:</span> drop down list of the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+979">Text</span>-<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1365">Font &amp; Frame</span> category in the <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> tab of the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span> dialog box.</p>
+<p>When you choose one of them and run the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1467">Label</span> with the <span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+29">Multiline Mode</span> option checked, you get the following results:</p>
+<!-- The  UI items of the following table are draop-down in label 1086 file idd_preferences.msg  -->
+<table style="margin-left:50;">
+<tr>
+<td valign="top"><img src="../../images/format/I_dim_frame_17.png"></td>
+<td valign="top" ><b>JIS Underlining</b>
+</td>
+<td valign="top">The underlinings are as long as  the longest text and they are joined by a vertical line</td>
+</tr>
+<tr>
+<td valign="top"><img src="../../images/format/I_dim_frame_18.png"></td>
+<td valign="top" ><b>JIS Underlining (not longest)</b></td>
+<td valign="top">The underlinings are exactly as long as the text above and they are joined by a vertical line</td>
+</tr>
+<tr>
+<td valign="top"><img src="../../images/format/I_dim_frame_19.png"></td>
+<td valign="top" ><b>JIS Underlining (not vert.)</b></td>
+<td valign="top">The underlinings are as long as  the longest text and there is no vertical line</td>
+</tr>
+<tr>
+<td valign="top"><img src="../../images/format/I_dim_frame_20.png"></td>
+<td valign="top" ><b>JIS Underlining (not vert.+ not longest)</b></td>
+<td valign="top">The underlinings are exactly as long as the text above and there is no vertical line</td>
+</tr>
+</table>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<!--  -->
+
+<br>
+<h2><a name="PRJMD"><a>MoldDesign</h2>
+<p>The <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+27">Mold Standard Parts</span> command now allows selecting as <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+28">Positioning Points</span> not only snapped points but also <i>free</i> points on the Work Plane. The graphical feedbacks are different: each snap point is displayed using a red ball, each free point is displayed using a grey cross marker.</p>
+<p>This enhancement allows you to position the standard part in any point (<i>free</i> positioning) and then, by clicking on its anchor point, to move it specifying the X and Y values or by dragging it. The coordinate mini-dialog boxes are available only if you select one standard part. In the other case (snap) you can change the positioning point to <i>free</i> by double clicking the anchor point or selecting it and use the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+79">Unlink</span> command in the context menu.</p>
+<br><div align="center"><img border="1" src="images/MDStandardParts.gif"></div>
+<br>
+<p>The new <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+80">Delete</span> command  is now available in the context menu to remove one or more standard parts. Using SHIFT click you can select more than one standard part; if the multiple selection does not contain any <i>free</i> positioning  both the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+79">Unlink</span> and the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+80">Delete</span> commands are available in the context menu, otherwise only the <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+80">Delete</span> command is available.</p>
+<br>
+<!-- STFO 28 May -->
+<p>The new <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+43">Clearance</span> drop-down list has been added to the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+7">Cooling</span> command under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. You can define how to choose the components in which cooling holes should be created. The options available are: </p>
+<ul>
+<li><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+65">Automatic</span><br>
+When selected, cooling holes are created in all the parts that the cooling profile passes through. </li>
+<li><span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+66">Manual</span><br>
+When selected, the cooling holes are created in only the selected parts. The <span class="UI_SELECTOR" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+71">Parts</span> selector is used to select the parts.</li></ul>
+<br>
+<p>Another important improvement is the new <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> dialog box which allows you to edit the part list simply.
+<br>In the 3D environment, it displays a preview of the part list (without grouping). <br>You can sort the table as you prefer. <br>It also enables you to drive the part sequence numbering of the components. </p>
+<p>See <a href="#PRJ887">below</a> for the details.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+<!-- Entry for SP1<br>
+<h2><a name="PRJ884"><a>PARTsolutions Plug-in</h2>
+<p>The <b>PARTSolutions Plug-in</b> has been updated to support the v. 9.04 of Cadenas PARTsolutions. </p> 
+
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> -->
+
+<h2><a name="PRJ879"><a>Part List and Ballooning</h2>
+<!-- Phase 1 -->
+<p>In the previous version if you had an assembly with a hierarchy structure, you could use the commands for numbering, associating balloons and creating part list only for the top level. Now several improvements in these commands allow working on the leaf level too.</p>
+
+<p>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+48">Hierarchy level</span> drop-down list has been added to the 
+<span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img  src="../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span> command; you can choose between 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+96">Top</span> and 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+97">Leaf</span> and the following selection will take into account your choice. 
+When the 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+96">Top</span> level is selected, the renumbering is done only for the components selected. Similarly, when the 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+97">Leaf</span> level is selected, the renumbering is done only for the leaf level components of the selected components.
+<br>
+In the model environment, the command now allows also multiple selections when 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+29">Sorting</span> is set to
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+30">By part number</span> or <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+31">By insertion order</span>: the new <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+95">Selected Components:</span> selector is available.</p>
+<p>The <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+48">Hierarchy level</span> drop-down list has been added also to the 
+<span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+16">Automatic Balloon</span> and 
+<span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span> commands.</p>
+<p>The <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+97">Leaf</span> value has been added also in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+610">Hierarchy level:</span> drop-down list of the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+606">Part List</span> category in the <b>Part List Options</b> dialog box. In the same category you can choose the character you want to use as <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+697">Separator:</span> when you export the part list to a file.</p>
+<p>Also the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/grayarrow.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> command contains the same enhancement in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+610">Hierarchy level:</span> drop-down list.</p>
+<br>
+<!-- P000887 Part List Editor -->
+<p><a name="PRJ887"><a>In the model environment the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/grayarrow.gif"><span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> command now displays the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+98">Part List Editor</span> dialog box instead of the Selection List.
+</p> 
+<br>
+<div align="center"><img src="images/PartList1.gif"></div>
+<br>
+<p>It contains the list of each component and its properties without grouping, differently from the usual part list. 
+
+<br>The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+101">Export to CSV</span> button allows to save the part list to a CVS file, you can choose the path through the system standard file selection box. The <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+5">Options</span> button displays the <b>Part List Options</b> dialog box that enables you to review and change the properties of the Part List.</p>
+<p>If you are a <b>MoldDesign</b> user, you can also edit the part list. </p>
+<p>The table can be sorted based on ascending or descending order of a column data just by clicking on the relevant column header.</p>
+<p>By clicking on the part number of one component you can edit it.</p>
+<p>After selecting a row by clicking on it, the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+57">Item Position Property</span> area is enabled. You can enter the number you wish to assign to the first component of the selection (<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+99">Start</span>) and the numeric difference between two successive components (<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+35">Step</span>) and you can define the behavior in case of multiple occurrences of the same part number (<span class="UI_OPTION" id="TDDrwNotes.msg+_TDDrwNotes_LABEL_+147">Same item position for same part number</span>).</p>
+<br>
+<div align="center"><img src="images/PartList2.gif"></div>
+<br>
+<p>You can perform multiple selections. If the rows are contiguous, by holding the <b>Shift</b> button and selecting the start and end row. Otherwise you have to hold the <b>Ctrl</b> button and you have to select the rows. To select all the components, you just click on the top left corner of the table.
+<br>The part list is updated after pressing the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+100">Assign</span> button.</p>
+<br>
+<div align="center"><img src="images/PartListSame.gif"></div>
+<br>
+<p>Another important feature is the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6958">Zoom Entities</span> command in the context menu; after selecting a component, it increases or decreases the zoom magnification so that selected entities fit exactly within the current display.</p>
+<p>By pressing the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+102">Apply</span> button you can save the changes without closing the dialog box; with the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+103">OK</span> button you save the operations and close the dialog box; by pressing the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+104">Cancel</span> button you discard all the operations and close the dialog box.</p>
+<!--  --> 
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<h2><a name="PRJperf"><a>Performance Improvements</h2>
+<!-- Projects:  877, 878, 883, 884-->
+<p>In this version several improvements have been made to increase the performance of <b>ThinkDesign</b> in different and complex situations.</p>
+
+<!--  P0000883 -->
+<p>Move with <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> selected on surfaces and faces is faster. For every entity, the higher the number of copies and the complexity of the entity, the higher the gain is. Creating 20 copies of a solid with more than one thousand of faces is around twice as fast.</p>
+<!-- P0000878 -->
+<p>When rebuilding very complex solids (thousands of faces, hundreds of features) with <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1380">Propagate properties</span> option checked, computation time is reduced (less 70% on average).</p>
+<!-- EDB -->
+<p>When you create many section curves on a complex solid using the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+269">Color increment</span> and <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+268">Layer increment</span> options, you get the result faster.</p>
+<!-- P0000884 -->
+<p>When modifying a subdivision solid through moving faces, edges or vertices, reduced the redraw time (by up to 97%), this is especially visible whilst handling big models with thousands of points on the grid. Also extruding a face takes much less time (by up to 93%), this improvement is noticeable on smaller models with hundreds of points but is more flagrant on big models.</p>
+<!-- P0000887 -->
+<p>When you create a drawing from a model which contains many components (approximately more than 100) and/or solids with many features (approximately more than 100), you get it faster the first time and every time you rebuild it.</p>
+
+<p>These improvements are visible in both the 32-bit and 64-bit environments.</p>
+
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<h2><a name="PRJ872"><a>Sheet Metal</h2>
+<!-- Da controllare: cosa serve? -->
+<p>In the <span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command is now possible to hold in check the thickness direction of each edge. Because of this you can create your profile and make it parametric without considering the thickness on the single edge.</p>
+<!--  -->
+<p>The new <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+173">Local Thickness Direction</span> check box has been added to the <span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6999">Solid Flange</span> command. When checked, the thickness direction of each edge is displayed as a red arrow. You can change the thickness direction of an edge by double clicking on its arrow.</p>
+<div align="center"><img border="1" src="images/standard_thickness.gif"></div>
+<br>
+<div align="center"><img border="1" src="images/local_thickness.gif"></div>
+<br><br>
+<p>The <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+173">Local Thickness Direction</span> option is  allow only for straight line profiles; in the other cases you get a warning message.</p>
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<h2><a name="PRJsolid"><a>Solid Features</h2>
+<p>In the previous version of <b>ThinkDesign</b>, when after selecting a <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+15">Simple</span> hole created with the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box cleared you run the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command, after the completion of the command you add the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> feature to the hole. The <b>Model Structure</b> changes as you can see in the following image.</p>
+<br>
+<div align="center"><img border="0" src="images/Hole2012.gif"></div>
+<br><br>
+<p>In the v. 2013.1 instead, in the same situation, the program  executes the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span> command on the hole and automatically  checks the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> option e selects <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+49">Threaded</span> in the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+44">Hole type:</span> drop-down list. This behavior allows to assure the creation of standard threaded holes. <br>
+<br>
+<div align="center"><img border="0" src="images/Hole2013.gif"></div>
+<br><br>
+<p>In case of <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+15">Simple</span> hole created with the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box cleared and <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+14">Blind</span> as <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+7">Extension</span> and the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+13">End angle</span> option checked, the behavior of the program is the same of the previous version.</p>
+<!-- STFO 28 May  -->
+<p></p>
+<!--  -->
+<p>In order to allow the same kind of threads available in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command, the  <b>Mode</b> drop-down list has been added to the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span> command. 
+You can choose among <b>Full</b>, <b>Depth</b> and <b>Double</b>. The <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+14">Blind</span> value as <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+7">Extension</span> is available only when <b>Mode</b> is set to <b>Full</b> or <b>Double</b>.</p>
+<br>
+<p>If you intentionally want to create a non standard threaded hole (the hole diameter and thread values are not a standard combination), you have to create the hole by using the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6700">Linear Slot</span> command and then apply the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command.</p>
+<!-- PRJ P0000884 -->
+<br>
+<p>The internal <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span>( <img src="../../images/general/InternalUndo.gif" border="0" align="absmiddle"> ) /  <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> ( <img src="../../images/general/InternalRedo.gif" border="0" align="absmiddle"> ) buttons have been added to the <span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+4506">Solid</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7908">Subdivision Solid</span> command to improve its usability.
+<br>
+When you change some setting within the command, the internal 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button  is available on top of the selection list to undo the changes. As soon as you click it, your changes will be undone and the 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> button will show up on top of the selection list. If you click it, your former changes will be applied again.
+</p>
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+<h2><a name="PRJsurf"><a>Surfaces</h2>
+<!-- P0000885 Trim/Extend of trimmed surfaces  -->
+<p>In the previous versions it was not possible to trim or extend a surface on its trimmed boundaries when the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list was set to <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span>.</p>
+<p>Now the <span class="UI_OPTION" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1386">Boundaries</span> drop-down list has been added to the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span> mode: the value <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+620">Not trimmed</span> gives the same behavior as the previous versions; the value <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+505">Select</span> allows selecting any surface boundaries. In this second case, the parametric modification of the surface is performed  modifying its trimming loops.</p>
+<div align="center"><img border="1" src="images/Surface.gif"></div>
+<br>
+<!-- P0000888 Curve-Surface fillet projects  -->
+<p>Another enhancement is related to the  <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+312">Double Fillet</span> command. In the previous versions it was possible only to draw a fillet between two surfaces. Now with the new <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+558">Mode</span> drop down list, you are able to create the blend surface between a curve and a surface. You can select between:</p>
+<table style="margin-left:30;">
+<tr>
+<td  valign="top" nowrap><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+622">Surface - surface</span></td>
+<td>It enables you to create a fillet or a chamfer between two selected surfaces. <br>When this mode is selected, the command works exactly like in previous version.</td></tr>
+<tr><td valign="top" nowrap><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+623">Curve - surface</span></td>
+<td>It enables you to create the blend surface between the selected curve and surface. The blend can be either rounded (fillet) or straight (chamfer). When the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+301">Fillet</span> type is selected in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+17">Type</span> drop-down list, the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+61">Radius</span> drop-down list is available and you can choose among <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+26">Constant</span>,  <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+304">Variable</span>, and <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+67">Parabolic</span>.  <br>When this mode is selected, all the options under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> are disabled and the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+330">Quadrant</span> selector is not available, because it is useless.</td></tr>
+</table>
+
+<br>
+<div align="center"><img border="1" src="images/DoubleFillet_1.gif">&nbsp;<img   border="0" align="middle" src="../../images/general/Arrow_To_Right.gif">&nbsp;<img border="1" src="images/DoubleFillet_2.gif"></div>
+<br>
+<p>In this command the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> modality is available for selections and settings.</p>
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<h2><a name="t3Wzd"></a>think3 Wizards (API-COM)</h2>
+<p>The think3 Wizards (used in the API-COM environment) are completely redesigned.
+<br>Now packages are available for the different Microsoft<sup>&copy;</sup> Visual Studio&reg; versions:</p>
+<ul>
+<li>Microsoft Visual Studio 2005</li>
+<li>Microsoft Visual Studio 2008</li> 
+<li>Microsoft Visual Studio 2010</li> 
+<li>Microsoft Visual Studio 2012</li>
+</ul>
+<p>They are running in both the 32 bit and 64 bit environments.</p>
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+<h2><a name="PRJ875"><a>Windows 8</h2>
+<p> The Windows 8 Operating System is now supported<!--  on the standard PC platforms -->. 
+<!-- in the following editions:</p>
+<ul>
+<li>Windows 8</li>
+<li>Windows 8 Pro</li>
+<li>Windows 8 Enterprise</li>
+</ul> -->
+<!--  -->
+<hr size=3 color="silver">
+
+</body>
+</html>

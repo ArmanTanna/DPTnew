@@ -1,0 +1,56 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Booleans in Core and Cavity creation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Booleans in Core and Cavity creation</h3>
+
+<p>Let's see how to generate cores and cavities starting from the 3D model. To this purpose you will use Booleans and Open Solids.</p>
+
+<p>Starting from a 3D model we want to create core and cavity as quickly as possible. For the time being, we will not consider any shrinkage effect.</p>
+<br><img SRC="../../../images/solids/NMandOS/mold.gif"><br>
+
+<p>You cannot obtain core and cavity just subtracting the model from the base solid, since this would generate a cavity without the needed openings. You need first of all to define the parting plane, then you have to create an Open
+Solid with this parting plane, together with some surfaces that close the cavities (see the rounded shape surfaces below, all green surfaces are joined as one Open Solid).</p>
+<br><img SRC="../../../images/solids/NMandOS/mold2.gif"><br>
+
+<p>Create now a simple base solid which contains completely the model and which at the same time does not exceed the size of the parting plane as show below.</p>
+<br><img SRC="../../../images/solids/NMandOS/mold3.gif"><br>
+
+<p>Check normals to see where the material is in the open solid. At this point you can easily obtain core and cavity.</p>
+<br><img SRC="../../../images/solids/NMandOS/mold4.gif"><br>
+
+<p>Subtracting the red and green solid from the gray base solid will generate the matrix.</p>
+<br><img SRC="../../../images/solids/NMandOS/mold5.gif"><br>
+
+<p>Once the matrix has been generated, it can be saved into a separate file. In this case the <b>Model Structure</b> proves to be very useful since, with a simple Rollback operation, you can revert to the original models. After that, just invert the normals of the green solid, repeat the Boolean subtract operation of the red and green solid from the gray base solid, and you obtain the punch impression.</p>
+<br><img SRC="../../../images/solids/NMandOS/mold6.gif"><br>
+
+<hr color="silver">
+</body>
+</HTML>

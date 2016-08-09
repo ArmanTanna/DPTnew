@@ -1,0 +1,251 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>think3 to DXF/DWG conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>think3 to DXF/DWG conversion table</h2>
+
+<p>Here is a general conversion table showing how <b>think<font color="#FF0F00">3</font></b> entities are mapped to DXF&trade;/DWG&trade; ones.</p>
+
+<table border="1" bordercolor="navy" width="100%" cellpadding="10">
+<tbody>
+<tr valign="top">
+<td><b>think<font color="#FF0F00">3</font> entity</b><br>
+</td>
+<td><b>DXF entity</b></td>
+<td><b>Notes&nbsp;&mdash; Options controlling conversion</b></td>
+</tr>
+
+<tr>
+<td><b>Point</b></td>
+<td><b>Point</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Line</b></td>
+<td><b>Line</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Circular Arc</b></td>
+<td><b>Arc</b> </td>
+<td><b>think<font color="#FF0F00">3</font></b> circles (360&deg; arcs) are mapped to <b>Circles</b></td>
+</tr>
+
+<tr>
+<td><b>Ellipse</b></td>
+<td><b>Polyline</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>NURBS curve</b></td>
+<td><b>Spline</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="left"><b>Dimensions</b></p>
+</td>
+<td><i>see below</i></td>
+<td>The dimension will get exploded into its component entities as per the settings of the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+530">Dimensions:</span> drop-down list under 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+23">Disassemble on saving</span> in the 
+<a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_SAVE.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td>
+<p align="right"><b><i>&nbsp; Linear</i></b></p>
+</td>
+<td><b>Dimension</b> </td>
+<td>As stated above for <b>Dimensions</b></td>
+</tr>
+
+<tr>
+<td>
+<p align="right">&nbsp; <b><i>Angular</i></b></p>
+</td>
+<td><b>Dimension</b> </td>
+<td>As stated above for <b>Dimensions</b></td>
+</tr>
+
+<tr>
+<td>
+<p align="right">&nbsp; <b><i>Ordinate</i></b></p>
+</td>
+<td><b>Block</b> </td>
+<td>As stated above for <b>Dimensions</b></td>
+</tr>
+
+<tr>
+<td>
+<p align="right">&nbsp; <b><i>Diameter</i></b></p>
+</td>
+<td><b>Dimension</b> </td>
+<td>As stated above for <b>Dimensions</b></td>
+</tr>
+
+<tr>
+<td>
+<p align="right">&nbsp; <b><em style="LEFT: 327px; TOP: 583px">Radius</i></b></p>
+</td>
+<td><b>Dimension</b> </td>
+<td>As stated above for <b>Dimensions</b></td>
+</tr>
+
+<tr>
+<td><b>Label</b></td>
+<td><b>Block</b> </td>
+<td>The dimension will get exploded into its component entities as per the settings of the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+530">Dimensions:</span> drop-down list under 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+23">Disassemble on saving</span> in the 
+<a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_SAVE.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td><b>Text</b></td>
+<td><b>Text</b> </td>
+<td>True type fonts are correctly converted. By default, vectorial fonts are mapped to standard font "TXT".</td>
+</tr>
+
+<tr>
+<td><b>X-hatchings</b></td>
+<td><b>Hatch</b> </td>
+<td>If the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+25">X-Hatches</span> check box under 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+23">Disassemble on saving</span> is selected in the 
+<a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_SAVE.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span></a> category of the DXF/DWG Conversion Options, the hatch is exploded into its component entities.</td>
+
+</tr>
+
+<tr>
+<td><b>Group</b></td>
+<td><b>Block</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>View</b></td>
+<td><b>Block</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>UDC/UDP</b></td>
+<td><b>Attrib/Attdef</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Line Type</b></td>
+<td><b>Line Type</b></td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LINETYPES.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+287">Line Type</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td><b>Layers</b></td>
+<td><b>Layers</b></td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LAYERS.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the DXF/DWG Conversion Options.<br>
+
+If no mapping is defined, the layer name is preserved as it is.</td>
+</tr>
+
+<tr>
+<td><b>Line Width</b></td>
+<td><b>Line Weight</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Color</b></td>
+<td><b>Color</b></td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_COLORS.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+279">Colors</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td><b>X-ref</b></td>
+<td><b>External Reference</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Image</b></td>
+<td><b>Raster Image reference</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Component</b></td>
+<td><b>Block</b></td>
+<td>
+<p>The <i>Component</i> hierarchical structure will be maintained while forming <i>Blocks</i>.</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<ul class="noleft">
+<li>To convert to a specific AutoCAD version, see the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_SAVE_ADVANCED.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+295">Advanced</span></a> category of the DXF/DWG Conversion Options.</li>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(522,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Advanced GSM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 5;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6438">Advanced</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command&nbsp;&#151;&nbsp;also known as Global Shape Modeling (GSM)&nbsp;&#151;&nbsp;enables you to modify the shape of entire objects composed of solids, surfaces, curves, points and meshes (see also "<i><a href="mk:@MSITStore:help.chm::/language/tools/to_07/HWfile/T_HW_to_01_07_16.htm">Display information about a selected Mesh</a></i>" for further details on mesh entities).</p>
+
+<p>In case a situation of incompatibility is detected while selecting a curve chain (both in the case of initial and of target curves), an appropriate warning is displayed.</p>
+
+<p>To the selected set of entities to be modified you <i>can</i> apply (see details on the user interface in "<a href="../../gsm/ex01.htm">The Advanced GSM Command User Interface</a>"):</p>
+
+<ul class="noleft">
+<li>A set of <i>preserving</i> conditions: points, curves, surface contours or even highlight lines to be preserved from the controlled modification in terms of position, tangency, curvature and so on.</li>
+
+<li>A set of <i>matching</i> conditions. In fact, you may want to modify the initial shape so that some entities belonging to it&nbsp;&#151;&nbsp;points, curves or surface boundaries&nbsp;&#151;&nbsp;after the modification, <i>match</i> some target entities of the same type by fulfilling conditions like position, tangency, curvature and so on.</li>
+
+<li>A set of <i>through</i> conditions which can change the shape so that after the modification it is <i>through</i> some entities which can be curves, points or even highlight lines, sections obtained through the <a href="mk:@MSITStore:interact.chm::/language/interact/FWfile/T_FW_NFHC.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7889">Free Hand</span></a> command or silhouettes (for details, <i>see</i> "<a href="../OVfile/T_OV_THROUGH.htm">Modifying a shape so as to constrain it to be through some other entities</a>").</li>
+
+<li>A set of <i>target shape</i> conditions which can match selected curves/points with line, plane, sphere or cylinder. Click <a href="../OVfile/T_OV_Shape_Constraint.htm">here</a> for details.</li>
+</ul>
+
+<p>Conditions cover position, tangency and curvature continuity, and also linear and planar properties. They can be defined along curves (contours), or on points (which can also be read on ASCII files: for details <i>see</i> "<a href="../OVfile/T_OV_ASCIIPOINTS.htm">Reading point constraints from an ASCII file</a>"). A specific option is provided for the situations in which you may need to modify a solid while keeping the projection onto a certain plane unchanged.</p>
+
+<p>While a preview on demand is provided for general matchings, position matching on points can also be defined in an interactive way.</p>
+
+<p>A set of options is provided to manage the shape of the controlled modification, defining parameters like stiffness, roundness and bulging. Another set of options is provided to manage the precision of the resulting entities.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Mirroring constraints</b> <br>
+You can use the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> option (under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>) to mirror constraints about up to three reference planes ( <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span>) to be selected. This is a very useful opportunity, as if the model you are using is symmetric, you are enabled to apply constraints only to one half of the model and then, taking advantage of the existing symmetry, automatically apply them to the mirrored half.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+To retain links to the component surfaces, so that if you modify a component surface the solid will be modified accordingly, select the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+155">Associative Mode</span> check box in the command selection list.</td>
+
+</tr>
+</table> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restoring selections after an interruption</b><br>
+If you interrupt the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all, which might take a long time, at least in complex situations.<br>
+ Next time you start the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list. If you select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+ When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.<br>
+ For further details see "<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>".</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>A set of <a href="../HWfile/T_HW_QualityChecks.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a> commands is also available.</p>
+
+<p>See <a href="../../gsm/ex01.htm"><b>The Advanced GSM Command User Interface</b></a> for an overview on the command interface. See also <a href="../../tocpages/T_TOC_GSM_Understanding.htm"><b>Understanding GSM</b></a> and <a href="../../tocpages/T_TOC_GSM_Rules.htm"><b>GSM Tips</b></a> for further details.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_GMdeform.htm"><b>Apply a controlled modification to a simple shape</b></a></li>
+
+<li><a href="../HWfile/T_HW_VirtualVertices.htm"><b>Apply a controlled modification to a shape using Virtual Vertices</b></a></li>
+
+<li><a href="../HWfile/T_HW_GMSolid.htm"><b>Apply a controlled modification to a simple solid</b></a></li>
+
+<li><a href="../HWfile/T_HW_Symmetry.htm"><b>Apply a controlled modification to a symmetric model</b></a></li>
+
+<li><a href="../HWfile/T_HW_GMH.htm"><b>Apply a through highlights modification</b></a></li>
+
+<li><a href="../HWfile/T_HW_GSMTC.htm"><b>Constrain a surface through a curve</b></a></li>
+
+<li><a href="../HWfile/T_HW_GSMTP.htm"><b>Constrain a surface through a set of points</b></a></li>
+
+<li><b><a href="../HWfile/T_HW_GMChecking.htm">Check your results</a></b></li>
+
+<li><a href="../HWfile/T_HW_GMbend03.htm"><b>Get NURBS surfaces instead of specialized ones</b></a></li>
+
+<li><b><a href="../HWfile/T_HW_QualityChecks.htm">Perform Quality Checks</a></b></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Global Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

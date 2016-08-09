@@ -1,0 +1,73 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="2009t2" content="translate">
+<title>Job: Modifying the Tubing Network</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Modifying the Tubing Network</h2>
+
+<p>The following illustration explains how to modify an existing tubing network by modifying the tubing path. Open the <i>Tubing_network_path.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below. </p>
+<ol class="noleft">
+<li>On opening the model you will see a 3D profile. It will act as the path over which the original tubing network is to be created.<br>
+<br>
+</li>
+
+<li>Using the <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span> command, <a href="T_HW_insert_network.htm">create the tubing network</a> as shown in the image below.
+<br><br>
+<img src="../../../images/tubing/tubing_network1.gif" border="1"><br>
+<br>
+</li>
+
+<li>Using the <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_3D_sk.htm"><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7835">Edit 3D Profile</span></a> command modify the profile. The command can be started by right-clicking on the 3D profile in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> and selecting the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7835">Edit 3D Profile</span> option from the context menu.<br><br></li>
+
+<li>now edit the profile as per your requirement. For the purpose of this tutorial, delete the two line entities, as shown in the images below.<br><br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+	<td><img src="../../../images/tubing/tubing_edit_1.gif" border="1"></td>
+	<td></td>
+	<td><img src="../../../images/tubing/tubing_edit_2.gif" border="1"></td>
+</tr>
+</table><br>
+</li>
+
+<li>Start the <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4458">Rebuild Model</span></a> command. The Tubing Network is rebuilt as per the modified profile, as shown in the image below.<br><br>
+<img src="../../../images/tubing/tubing_edit_final.gif" border="1"><br><br>
+</li>
+</ol>
+<hr color="silver">
+
+<h5>Also try to...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_insert_part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span></a></li>
+
+<li><a href="T_HW_modify_part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+3">Modify Tubing Part</span></a></li>
+
+<li><a href="T_HW_customize.htm"><b>Create Customized Tubing Catalog</b></a></li>
+</ul>
+<hr color="silver">
+</body>
+</html>
+

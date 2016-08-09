@@ -1,0 +1,126 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Mapping a curve representing text onto a surface</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22; }</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<A NAME="cv_hw_04_15"></A><H4>Mapping a curve representing text onto a surface</h4>
+<p>Suppose you have a model like the following and you want to map the "LOGO" text onto the surface of the bottle.
+<BR><BR><IMG border=1 SRC="../../../../images/curves/MAP01.gif"><BR><BR>
+Before mapping the text onto the surface, break it into its component curves using the <a  href="../../../edit/FWfile/T_FW_ed_break.htm"><b>Break</b></a> command. After breaking the text and starting the <a  href="../FWfile/T_FW_cv_15.htm"><B>Project Curve</B></a> command, proceed as follows.
+<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the curves using an 
+<a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic03.htm">automatic window selection</a>.
+
+<BR><BR><IMG border=1 SRC="../../../../images/curves/MAP00.gif"><BR><BR>
+End selection by right-clicking and choosing <b>Continue</b> in the context menu. To change the selected curves, right-click on <b>Curves</b>, choose <b>Reset</b> in the context menu and perform selection again.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Method</b> drop-down list, select <b>Mapping</b>. The <b>Surface</b>, <b>Curve Reference Data</b> and <b>Surface Reference Data</b> items will show up in the selection list.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the surface onto which the selected curves are to be mapped.
+<BR><BR><IMG border=1 SRC="../../../../images/curves/MAP-S1.gif"><BR><BR>
+To change the selected surface, right-click on <b>Surfaces</b>, choose <b>Reset</b> in the context menu and perform selection again.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select three points, in the 
+following order, to define the mapping points of the curves:           
+     
+<table>
+<tr><td valign="middle">
+<UL class="noleft">
+<LI>The origin (0)</LI>
+                
+<LI>
+A point on the x-axis (PX)</LI>
+                
+<LI>
+A point on the y-axis (PY).</LI>
+</UL></td><td><IMG border=1 SRC="../../../../images/curves/MAP-C.gif"></td>
+</tr>
+</table>
+To change the selected points, right-click respectively on <b>Origin</b>, <b>Point on X axis</b>, <b>Point on Y axis</b> under <b>Curve Reference Data</b>, choose <b>Reset</b> in the context menu and perform selection again.<p></p>
+
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Specify the mapping points on the surface, in the following order:
+<table><tr><td>
+<UL class="noleft">
+<LI>
+The origin (O')
+
+<LI>
+A point on the x-axis (PX')               
+
+<LI>
+A point on the y-axis (PY').</LI>
+</UL>
+</td><td><IMG border=1 SRC="../../../../images/curves/MAP02.gif"></td>
+</tr></table>
+To change the selected points, right-click respectively on <b>Origin</b>, <b>Point on X axis</b>, <b>Point on Y axis</b> under <b>Surface Reference Data</b>, choose <b>Reset</b> in the context menu and perform selection again.<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Proportions</b>
+            <P>The points you select determine both the 
+            reference system on the surface and the proportions of the resultant curve, defined as the ratio between the points specified 
+            for the curves and those specified on the surface. In other 
+            words, the resultant curves may be scaled unequally in the 
+            x and y directions.
+
+
+</td></tr></table><br>
+As shown in the above illustration, a preview of the mapped curves is immediately displayed. 
+To change the selected points, right-click respectively on <b>Origin</b>, <b>Point on X axis</b>, <b>Point on Y axis</b> under <b>Surface Reference Data</b>, choose <b>Reset</b> in the context menu and perform selection again.
+<P>Note that when mapping onto a closed surface, the program 
+            displays a vector, indicating the mapping direction, and asks you to 
+            confirm the mapping direction, since double boundaries give rise to 
+            ambiguity.</P> 
+
+<p></p>
+
+</td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the curves.<br><br><IMG border=1  src="../../../../images/curves/MAP03.gif" ><br><br>Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your selections.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_cv_04_15_01.htm"><b>Mapping curves onto a surface</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

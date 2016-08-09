@@ -1,0 +1,139 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Join Surface</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1161">Join</span></p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+361">Join Surface</span> command enables you to join two or more surfaces to form a single surface.<br>
+
+
+
+
+Three different union modes can be chosen in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+360">Autosmooth</span> drop-down list.</p>
+
+
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+357">Not enabled</span>&nbsp;&#151;&nbsp;Using this method, the selected surfaces are simply joined. 
+
+
+
+
+
+<ul class="noleft">
+<li>If they have <i>no shared boundary</i>, the proper control points are moved so that the two surfaces are joined. The resulting surface will have an invisible edge at the shared boundary.</li>
+
+<li>If they already have a shared boundary they are joined at the shared boundary, which becomes an edge. The shape of the surface is not modified and the resulting surface has a real edge at the shared boundary.</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+358">Fixed boundary</span>&nbsp;&#151;&nbsp;The surfaces are joined in such a way that their shape is modified to obtain slope continuity. The resulting surface has an invisible edge at the shared boundary.</li>
+
+
+
+
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+359">Movable boundary</span>&nbsp;&#151;&nbsp;The surfaces are joined in such a way that the border between one surface and the other has a uniform curvature. The resulting surface has an invisible edge at the shared boundary.</li>
+
+
+
+
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Conversion to NURBS</b><br>
+When a selected surface is not a NURBS, you will be asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>).</td>
+
+
+
+</tr>
+</table>
+<br>
+<p style="margin-bottom:0;"><a name="SurfaceUnion_OldEntMode"></a>You can specify what to do with the original surfaces. In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+392">Base Entities</span> drop-down list, select one of the following:</p>
+
+
+
+<table>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+395">Delete</span></td>
+
+
+
+<td>To remove the original surfaces from the model. Only the resulting joined surface will be available.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+394">Hide</span></td>
+
+
+
+<td>To hide the original surfaces, though keeping them in the model.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+393">Keep</span></td>
+
+
+
+<td>To keep the original surfaces, leaving them visible.</td>
+</tr>
+</table>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+Please note that the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+395">Delete</span> and 
+
+
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+394">Hide</span> options do not apply to faces of solids and skins. An appropriate warning is displayed in such cases.
+
+
+
+</td></tr></table>
+<p>Finally, take into account that the command applies only to not trimmed surfaces. Selection of trimmed surfaces is not enabled.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_SurfaceUnion.htm"><b>Join two surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

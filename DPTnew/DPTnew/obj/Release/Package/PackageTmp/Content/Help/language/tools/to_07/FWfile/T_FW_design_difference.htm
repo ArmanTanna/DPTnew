@@ -1,0 +1,151 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(623,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Check Design Differences</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Check design differences</b></i> </td>
+ --></tr>
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span> command enables you to compare two (nearly identical) solids, surfaces or skins for analyzing small differences between them. It can typically be used to detect presence of any relative bulge, compute distances between areas having differences or find the modifications applied over the skins.</p>
+
+<p>See the example below; in <b>1</b>, there are two overlapping skins (purple and grey) having some differences. For the purpose of visualizing the differences, the skins have been shown separately in <b>2</b> and <b>3</b>. The noticeable differences have been highlighted in red circle. However, there are other minute differences that are not visible by naked eye. The <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7827">Check Design Differences</span> command is useful to locate these differences.<br>
+<br>
+<img src="../../../../images/tools/to_07/check_diff-1.gif" border="1"></p>
+
+<p><a name="entities"></a>The comparison is made between two sets of entities selected for the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+13">First Entities</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+14">Second Entities</span> selectors, respectively. It is necessary that both set of entities should be present at the same absolute location in the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7877">Absolute Reference System (World)</span>, as shown for <b>1</b> in the image above. Since they will be overlapping with each other, either you can hide one of them after making the first selection, or make the selection from the Model Structure.</p>
+
+<p style="margin-bottom:0;">Once the selections are complete, select the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../../images/general/preview.gif" align="middle">) button to start the computation process. The results of the computation are visible in the Graphics Area over the entities in stipulated colors, as shown below.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td rowspan="4"><img src="../../../../images/tools/to_07/check_diff-2.gif" border="1"></td>
+<td><b>1</b> - New face (red)</td>
+</tr>
+
+<tr>
+<td><b>2</b> - Face with no difference (grey)</td>
+</tr>
+
+<tr>
+<td><b>3</b> - Face with some difference (green)</td>
+</tr>
+
+<tr>
+<td><b>4</b> - Face currently highlighted having difference (orange)</td>
+</tr>
+
+<tr>
+<td colspan="2">Note that the colors are displayed as per the color <span class="UI_COMMAND" id="idd_colorset.msg+idd_colorset+5">Set</span> defined in <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_to_06_08.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4524">Colors and Materials</span></a>.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p><a name="Threshold"></a>In the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+121">Threshold</span> edit box you can define the minimum value above which the differences are highlighted.</p>
+
+<p style="margin-bottom:0;"><a name="swap"></a>Use the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+122">Exchange Entities</span> check box to change entity selection sequence.</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the entities selected for the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+13">First Entities</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+14">Second Entities</span> selectors are swapped. Hence, the comparison is reversed.</li>
+
+<li>When the check box is cleared, the sequence of selection of entities remains the same as done for the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+13">First Entities</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+14">Second Entities</span> selectors.</li>
+</ul>
+
+<p>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+127">First modified entities</span> node enables you to specify entities over which the differences are to be highlighted. This node is a drop-down list from which you can select:</p>
+
+<ul class="noleft">
+<li><a name="modified"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+127">First modified entities</span> - The highlighting of differences takes place over the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+13">First Entities</span> selection.</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+128">Second modified entities</span> - The highlighting of differences takes place over the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+14">Second Entities</span> selection.</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+129">Added Entities</span> - The highlighting of differences takes place only over those faces that are new.</li>
+</ul>
+
+<p><a name="entity"></a>If more than one difference is found you can use the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_TOOLTIP_+2">Next Group</span> and <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_TOOLTIP_+1">Previous Group</span> (<img src="../../../../images/general/navigate.gif" align="absmiddle">) buttons besides <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+126">Entity</span> to highlight, one by one, the entities having differences. The differences present on the highlighted entity are analyzed by <a href="#local"><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+123">Check Local Differences</span></a>. You can also directly select the entity on which you need to view the local difference for the <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+126">Entity</span> selector.</p>
+
+<p style="margin-bottom:0;"><a name="local"></a>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+123">Check Local Differences</span> check box enables you to view specific difference values for the highlighted entity.</p>
+
+<ul style="margin-top:0;">
+<li>When cleared, you can only see highlighting of the entities having difference. There is no numeric information about the magnitude of the difference.</li>
+
+<li>When selected, this option acts as a node. Under the node there are additional options that provide difference values for the currently highlighted entity. 
+
+<ul class="noleft">
+<li><a name="min"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+4">Min. Distance</span> - Displays the value of the minimum difference found</li>
+
+<li><a name="max"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+3">Max. Distance</span> - Displays the value of the maximum difference found</li>
+
+<li><a name="graph"></a><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+6">Graph</span> - On expanding the node, a graphical plot of the difference values is displayed. The following options in this node control the graph: (you might have to move the graph window to view these options)
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+21">Type</span> - Define the kind of graph to be generated:
+
+<ul type="circle" class="noleft">
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+19">Distribution</span> - Creates a distribution graph, thus displaying the number of points with a particular value</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+20">Repartition</span> - Creates a repartition graph, thus displaying the total amount of points below a particular tolerance (the sum starting from value 0)</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+22">Min. distance</span> - The minimum value of the graph range</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+23">Max. distance</span> - The maximum value of the graph range</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-left:30;"><a name="max_dist"></a>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> edit box enables you to specify the maximum difference value above which the differences will NOT be highlighted.</p>
+
+<p>Additional options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.</p>
+
+<p style="margin-bottom:0;"><a name="zoom"></a>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+125">Zoom entities</span> check box enables you to view the currently highlighted entity up-close:</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the currently highlighted entity is zoomed in. When you use the (<img src="../../../../images/general/navigate.gif" align="absmiddle">) <a href="#entity">buttons</a>, the view will change to provide maximum zoom on the entity getting highlighted.</li>
+
+<li>When the check box is cleared, the current view position is maintained.</li>
+</ul>
+
+<p><a name="density"></a>In the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+10">Surface sampling density</span> edit box you can enter the number of sampling points per mm<sup>2</sup> that will be used for the calculation of differences.</p>
+
+<hr color="silver">
+</body>
+</html>
+

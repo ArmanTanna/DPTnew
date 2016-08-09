@@ -1,0 +1,252 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plotting in special formats</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+<STYLE>.noteme{font-family: Arial; font-size: 10pt;}</STYLE>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+<P><A name="top"></A></P>
+<H1>Plotting in special formats<hr color="navy"></H1>
+
+
+You can print your models and drawings from the <b>think<font color="#FF0F00">3</font></b> application to any device installed on your Microsoft&reg; Windows system.<br><br>
+In addition to this, you can print to some <i>special devices</i> whose print options are controlled through the ".ini" files located in the "thinkdesign/files/printers" folder in the installation root
+directory.
+This document is intended to provide you with all the necessary information for using the special printing devices. It is composed of the following sections:
+<ul>
+<li><a href="#overview">Overview on special printing devices</a>
+<li><A href="#Structure">Structure of the initialization files</A>
+<li><A href="#Creating">Creating your own initialization files</A>
+<li><A href="#Plotting">How special printing is performed.</A></ul>
+<h3><a name="overview">Overview on special printing devices</a><hr color="silver"></h3>
+Printing to special format files enables you:
+<ul>
+<li>To exchange data with other systems
+<li>To print at a later stage on devices that are 
+  currently off-line.</li>           </ul> 
+The special device initialization files that come along with the <b>think<font color="#FF0F00">3</font></b> application are the following:
+<ul>
+<li>plot_bgl.ini&nbsp;&#8212;&nbsp;BGL Plotter format
+<li>plot_ccrf.ini&nbsp;&#8212;&nbsp;Calcomp Compressed Raster Format
+<li>plot_hpgl.ini&nbsp;&#8212;&nbsp;HPGL Plotter format
+<li>plot_hpgl2.ini&nbsp;&#8212;&nbsp;HPGL-2 Plotter format
+<li>plot_hprtl.ini&nbsp;&#8212;&nbsp;HP Raster Transfer Language
+<li>plot_pci.ini&nbsp;&#8212;&nbsp;PCI-907 Plotter format
+<li>plot_pcl5.ini&nbsp;&#8212;&nbsp;HP-PCL5 Printer format
+<li>plot_postscript.ini&nbsp;&#8212;&nbsp;PostScript format
+<li>plot_tiff.ini&nbsp;&#8212;&nbsp;Tagged Image File Format.</li>   
+</ul>
+<blockquote>
+(<i>All names mentioned above and in the following document are trademarks used for identification purposes only.</i>)</blockquote>
+The corresponding devices are displayed in the <b>Name</b> box of the <b>Printer</b> tab in the <b>Print Setup</b> dialog box, once you have selected the <b>Print</b> mode.<br><br><IMG src="images/fid98_10.gif"><br><br>
+You can create your own special device initialization files, provided that you adhere to the following rules:
+<ul>
+<li>They must reside in the "thinkdesign/files/printers" folder
+<li>Their name must be "plot_<i>string</i>.ini" where <i>string</i> is any string you like, and will help you identify the type of the special device
+<li>Their contents must be created following the rules described in "<A href="#Structure">Structure of the initialization files</A>". <i>See also</i> "<A href="#Creating">Creating your own initialization files</A>".</li>
+</ul>
+
+<h3><a name="Structure"></a>Structure of the initialization files<hr color="silver"></h3>
+The following is one of the initialization files that you can find inside the "printers" subfolder (plot_bgl.ini).
+<blockquote>
+<pre>
+Use Gbplo=0
+Name=BGL Plotter
+Comment=
+Type=Oce' Graphics G1964
+Disp=BGL
+Where=LPT1:
+Resolution=
+HWMargin=15,15
+Formats
+'A4 (29.7 x 21.0 cm)'   '297,210'
+'A3 (42.0 x 29.7 cm)'   '420,297'
+'A2 (59.4 x 42.0 cm)'   '594,420'
+'A1 (84.1 x 59.4 cm)'   '841,594'
+'A0 (118.9 x 84.1 cm)'  '1189,841'
+endformats
+Area SPECIAL
+endarea
+Area HIDE
+endarea
+</pre></blockquote>
+You can edit the existing ".ini" files to change them as you need; you can also create your own ".ini" files (provided you call them "plot_<i>...</i>.ini" in the "printers" subfolder).  Most of the fields of the ".ini" files are displayed in the <b>Print Setup</b> dialog box opened by the <IMG SRC="../../images/projbrow/document_data.gif"> (<b>Properties</b>) button in the <b>Printer</b> tab, when you choose the <b>Print</b> option.
+<blockquote><IMG src="images/fil91_11.gif"></blockquote>
+Below, you will find a description of the fields of the ".ini" files and of how to edit them.
+<blockquote><table border=1 bordercolor="navy" bgcolor=#FFFFE1>
+<tr>
+<td class=noteme><b>When your changes are applied</b><br><br>
+Please note that if you edit a ".ini" file while you have a <b>think<font color="#FF0F00">3</font></b> application session running, any changes you made will be reflected to the <b>Print Setup</b> dialog box only the next time you start the <b>think<font color="#FF0F00">3</font></b> application. In other words, you have to stop it and restart it to see your changes.
+</td></tr></table></blockquote>
+<table>
+<tr valign="top">
+<td width="200"><b>Use Gbplo=</b><i>0|1</i></td>
+<td>This instruction controls the way printing is performed:
+<table>
+<tr valign="top">
+<td width="20"><b>0</b></td>
+<td>Printing is performed using the <b>think<font color="#FF0F00">3</font></b> application's internal printing methods (default)</td>
+</tr>
+<tr valign="top">
+<td><b>1</b></td>
+<td>Printing is performed using <b>GBPLO</b> (<b>GBPLO</b> is a print program that is installed together with <b>think<font color="#FF0F00">3</font></b> applications and which can also be used separately (<i>see</i> <b><A href="c01.htm">GBPLO print program</A></b>).
+</td>
+</tr>
+</table><BR>
+</td>
+</tr>
+<tr valign="top">
+<td><b>Name=</b><i>name</i></td>
+<td>The conventional <i>name</i> assigned to the special format. The name typed in this field is displayed as the <b>Name:</b> in the <b>Print Setup</b> dialog box.<BR><BR>  </td>
+</tr>
+<tr valign="top">
+<td><b>Comment=</b><i>comment</i></td>
+<td>Any <i>comment</i> you like. It can be useful when you have defined two similar but not identical special printing devices, in order to distinguish which is which between the two. It is displayed as the <b>Comment:</b> in the <b>Print Setup</b> dialog box.<BR><BR>  </td>
+</tr>
+<tr valign="top">
+<td><b>Type=</b><i>type</i></td>
+<td>Conventional description of the device <i>type</i>. It is displayed as the <b>Type:</b> in the <b>Print Setup</b> dialog box.<BR><BR>  </td>
+</tr>
+<tr valign="top">
+<td><b>Where=</b><i>output device</i></td>
+<td>The name of the <i>output device</i>  or of the file to which the plotting is to be directed. It is displayed as <b>Where:</b> in the <b>Print Setup</b> dialog box.<BR><BR>  </td>
+</tr>
+<tr valign="top">
+<td><b>Resolution=</b><i>nnn</i> [dpi]</td>
+<td>The printing device resolution. You can express it in the following two different ways:
+<table>
+<tr valign="top">
+<td width="50"><i>nnn</i> dpi</td>
+<td>where <i>nnn</i> is 
+            the resolution value in dots per inch and the string dpi specifies "dots per inch"</td>
+</tr>
+<tr valign="top">
+<td><i>nnn</i></td>
+<td>where <i>nnn</i> is the resolution value (notice that dpi is omitted) in points per millimeter.</td>
+</tr>
+</table>
+If the resolution value is omitted, the default value corresponding to the device will be assumed. The resolution value is displayed as <b>Resolution:</b> in the <b>Print Setup</b> dialog box. <BR><BR>  
+</td>
+</tr>
+<tr valign="top">
+<td><b>HWMargin=</b><i>ho,ve</i></td>
+<td>In some devices, the printing area does not cover the full size of the sheet but is contained inside the sheet: there are some "hardware" margins that can be specified here. 
+<ul>
+<li>The <i>ho</i> value is the horizontal margin applied to the right and to the left of the sheet
+<li>The <i>ve</i> value is the 
+        one applied to the top and to the bottom.</li>            </ul>
+If the hardware margin values&nbsp;are 
+      omitted, the default values corresponding to the device will be 
+      assumed.<BR><BR>               </td>
+</tr>
+</table>
+<table>
+<tr valign="top">
+<td width="200"><b>FOrmats</b><br>
+'<i>format description</i>' '<i>width</i>,<i>height</i>'<br>
+...<br>
+<b>endformats</b></td>
+<td>This section can be used to define the possible sheet sizes for your special device. You can define one format per line with the following syntax:<blockquote>
+'<i>format description</i>' '<i>width</i>,<i>height</i>'
+</blockquote>
+where:
+<ul> 
+<li><i>format description</i> is any set of strings you like identifying the format (avoid using the <b>'</b> character&nbsp;&#151;&nbsp;single quotation mark&nbsp;&#151;&nbsp;inside the set of strings)
+<li><i>width</i> is the horizontal size of the format, in millimeters
+<li><i>height</i> is the vertical size of the format, in millimeters
+<li>quotation marks are to be used to start and end 
+        both the <EM>format description</EM> and the 
+        <EM>width,height&nbsp;</EM>couple of values.</li>         
+</ul>
+</td>
+</tr>
+</table>
+<table>
+<tr valign="top">
+<td width="200"><b>Area SPECIAL<br></b>
+<i>GBPLO's initialization file directive</i><br><b>
+...<br>
+end area</b></td>
+<td>
+      <P>You can add to this section, one per line, any of <A href="c02.htm#b"><b>GBPLO</b>'s initialization file directives</A> appropriate for the specific device. The directives you add to the <b>Area SPECIAL</b> are displayed inside the <b>Special Options</b> frame of the <b>Print Setup</b> dialog box.</P>
+      <P>For example, in the case of the BGL format,&nbsp;you can manage the 
+      printing of large drawings&nbsp;so that the plotter effects printing in 
+      frames. To activate this printing mode, you will have to add the following 
+      directive:<BR>FRA ON.</P>
+      <P>Such directives can be used wheteher Gbplo=0 or GBplo=1. For a complete list of the available directives, <EM>see </EM>           <A href="c02.htm#b"><b>GBPLO</b>'s initialization file directives</A>.<BR></P>  </td>
+</tr>
+<tr valign="top">
+<td width="200"><b>Area HIDE<br></b>
+<i>GBPLO's initialization file directive</i><br><b>
+...<br>
+end area</b></td>
+<td>You can add to this section, as well as to the Area SPECIAL section, one per line, any of <A href="c02.htm#b"><b>GBPLO</b>'s initialization file directives</A> appropriate for the specific device. The directives you add to the <b>Area HIDE</b>are <EM>not </EM>displayed in the <b>Print Setup</b>    dialog box. Such directives can be used wheteher Gbplo=0 or GBplo=1. </td>
+</tr>
+</table>
+<h3><a name="Creating"></a>Creating your own initialization files<hr color="silver"></h3>
+You may need to create your own ".ini" files to enable printing to some special device using customized printing parameters. Proceed as follows:<br>&nbsp;<br>
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>In the "thinkdesign\files\printers" folder, make a copy of one of the ".ini" files. Make sure you make the copy inside the said folder, otherwise the new file won't be recognized as a special printing device file.</td>
+</tr>
+<tr valign="top">
+<td><b>&nbsp;</b></td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Rename the copied file to "plot_<i>string</i>.ini", where <i>string</i> is a string identifying your printing device. Avoid using blanks inside <i>string</i>.  Make sure you call the new file "plot_<i>string</i>.ini", otherwise it won't be recognized as a special printing device file.</td>
+</tr>
+<tr valign="top">
+<td><b>&nbsp;</b></td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Using any text editor program&nbsp;&#8212;&nbsp;for example, Microsoft&reg; Word Pad&nbsp;&#8212;&nbsp; edit the plot_<i>string</i>.ini file</td>
+</tr>
+<tr valign="top">
+<td><b>&nbsp;</b></td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Edit the ".ini" fields adhering to the rules described in "<A href="#Structure">Structure of the initialization files</a>".</td>
+</tr>
+</table><br>
+The new device defined in the plot_<i>string</i>.ini file will be displayed in the <b>Name</b> box of the <b>Printer</b> tab in the <b>Print setup</b> dialog box, once you have selected the <b>Print</b> mode. 
+<h3><a name="Plotting"></a>How special printing is performed<hr color="silver"></h3>
+When you select one of the special peripherals listed in the <b>Name</b> selection box of the <b>Printer</b> tab in the <b>Print Setup</b> dialog box, your current model/drawing is printed to the output device or file you selected.
+<ul>
+<li>If the "<b>Gbplo=</b>" directive in the ".ini" file is set to 0, printing will be performed using the <b>think<font color="#FF0F00">3</font></b> application's internal printing methods. <br>On the contrary, if <b>Gbplo=1</b>, printing is performed using GBPLO.
+
+<li>In the case of plotting via GBPLO, a proper <A href="c03.htm#2.8">initialization file for GBPLO</a> will be automatically created at the run-time, containing all the parameters you set inside the ".ini" file for the specific device and the file will be printed.<br><br>
+Please notice the "gbplo.tpl" template file (in "thinkdesign\files\printers") is used by the <b>think<font color="#FF0F00">3</font></b> application to create the proper initialization file 
+  for GBPLO. You can edit the "gbplo.tpl" file adding to it <A 
+  href="c02.htm#b"><B>GBPLO</B>'s initialization file 
+  directives</A>&nbsp;that you intend to use any time you print.</li>                  
+</ul>
+
+<hr color="silver">
+</body>
+</html>

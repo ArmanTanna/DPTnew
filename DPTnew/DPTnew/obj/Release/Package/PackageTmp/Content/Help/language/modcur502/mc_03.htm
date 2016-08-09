@@ -1,0 +1,209 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Inserting a curve through points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Inserting a curve through points</h4>
+
+<table border="0">
+<tr>
+<td align="LEFT" valign="TOP" width="20"><b>1</b></td>
+<td align="LEFT" valign="TOP">After starting the <a href="../curves/FWfile/T_FW_mc_03.htm"><span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+373">Through Point Curve</span></a>, select the curve you want to modify.<br>
+
+
+<br>
+<img src="../../images/modcur502/mci03_03.gif"><br>
+<br>
+If the selected curve is a specialized curve and not a NURBS, the program asks you to confirm its conversion into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>).<br>
+
+
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b><i>Tolerance for converting into NURBS</i></b> 
+
+<p>You can control the way the curve is converted by setting a suitable <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+52">Tolerance</span></a>. The lower the tolerance value, the more accurate the resulting NURBS will be and, hence, the more control points it will have.</p>
+
+
+
+
+</td>
+</tr>
+</table>
+
+<br>
+</td>
+</tr>
+
+<tr>
+<td align="LEFT" valign="TOP"><b>2</b></td>
+<td align="LEFT" valign="TOP">Choose one of the constraints you want to apply to the endpoints:<br>
+<br>
+<img src="images/mcd01_03.gif"> <br>
+<br>
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+258">Fixed endpoints</span></td>
+
+
+
+
+<td>keeps the endpoints in the same positions.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+259">Fixed end tangent</span></td>
+
+
+
+
+<td>leaves the tangent at one or both endpoints unchanged: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+458">One</span>&nbsp;&#151;&nbsp;leaves the tangent unchanged at the selected endpoint only.</li>
+
+
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+104">Both</span>&nbsp;&#151;&nbsp;leaves the tangent unchanged at both endpoints.</li>
+
+
+
+
+
+<li style="list-style: none"><br>
+<img src="images/mcd05_03.gif">.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Fixed end curvature</b></td>
+<td>leaves the curvature unchanged at one or both endpoints: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+458">One</span>&nbsp;&#151;&nbsp;leaves the curvature unchanged at the selected endpoint only.</li>
+
+
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+104">Both</span>&nbsp;&#151;&nbsp;leaves the curvature unchanged at both endpoints.</li>
+
+
+
+
+
+<li style="list-style: none"><br>
+<img src="images/mcd06_03.gif">.</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td align="LEFT" valign="TOP"><b>3</b></td>
+<td align="LEFT" valign="TOP">Select the through points (by clicking on them or using a snap action).<br>
+<br>
+<img src="../../images/modcur502/mci04_03.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr>
+<td align="LEFT" valign="TOP"><b>4</b></td>
+<td align="LEFT" valign="TOP">End input.</td>
+<br>
+</tr>
+
+<tr>
+<td align="LEFT" valign="TOP"><b>5</b></td>
+<td align="LEFT" valign="TOP">Type the values of the <span class="UI_OPTION" id="idd_cthp.msg+idd_cthp+2552">Local factor</span> and of the 
+
+
+
+<span class="UI_OPTION" id="idd_cthp.msg+idd_cthp+2553">Propagation factor</span> in the corresponding boxes.<br>
+
+
+
+
+<br>
+<img src="images/mcd03_03.gif" border="0"></td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td align="LEFT" valign="TOP"></td>
+</tr>
+
+<tr>
+<td bordercolor="#ffffe1"><span class="UI_OPTION" id="idd_cthp.msg+idd_cthp+2552">Local factor</span> <b>and</b> 
+
+
+
+<span class="UI_OPTION" id="idd_cthp.msg+idd_cthp+2553">Propagation factor</span> 
+
+
+
+
+
+<br>The local factor controls the application of the change to the control points around the selected through point. The smaller the local factor, the smaller the section of curve modified, although the change is more marked. The propagation factor, on the other hand, proportionally controls the extent to which the change is applied not only to the section related to the interpolated point but to the entire curve.<br>
+<br>
+<img src="images/mcl01_03.gif">
+</td>
+</tr>
+</table>
+
+<p>&nbsp;<br>
+
+
+<table>
+<tr>
+<td align="LEFT" valign="TOP" width="20"><b>6</b></td>
+<td align="LEFT" valign="TOP">Confirm by clicking <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1490">Yes</span>.<br>
+
+
+
+
+<br>
+<img src="images/mcd04_03.gif"><br>
+<br>
+The curve will be modified.<br>
+<br>
+<img src="../../images/modcur502/mci05_03.gif"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Job: Additional Advanced Curve Continuity Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h3>Additional Advanced Curve Continuity Options</h3>
+
+<p>Several options are available under <b>More Options</b> in the selection list of the <a href="../FWfile/T_FW_AdvancedContinuity.htm"><b>Advanced Curve Continuity</b></a> command, in order to enable you to better control the shape of the resulting curve(s). Please refer to the <SPAN id="TWOD">model in <a href="T_HW_AdvancedContinuity.htm"><b>Modifying the continuity between two chains of curves</b></a> for the </SPAN>illustrations below.</p>
+
+<table>
+<tr valign="top">
+<td><b>Shape factor</b></td>
+<td>This parameter affects the resulting curve shape based on two different criteria: 
+
+<ul class="noleft">
+<li><i>Shape similarity</i>&nbsp;&#151;&nbsp;the shape of the resulting curve will have to be as similar as possible to the initial part of the contour</li>
+
+<li><i>Distance</i>&nbsp;&#151;&nbsp;the shape of the resulting curve will have to be as close as possible to the initial part of the contour.</li>
+</ul>
+
+When the value is 0.0 the result will be computed only based on the<i>shape similarity</i> criterion with the initial part of the chain. On the contrary, when the value is set to 1.0, the result will be computed only based on the <i>distance</i> from the initial part of the chain. <br>
+<br>
+ 
+
+<table cellspacing="5%">
+<tr valign="top">
+<td><img border="1" src="../../../images/curves/AC09.gif"></td>
+<td><img border="1" src="../../../images/curves/AC10.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Shape factor 0.0</b></td>
+<td><b>Shape factor 1.0</b></td>
+</tr>
+</table>
+
+When the value is set to an intermediate value between 0.0 and 1.0, both the said criteria will be taken into account proportionally to the value itself.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>Flexibility</b></td>
+<td>This parameter enables you to set the flexibility of the resulting curve. Four values are available(<b>Minimum</b>, <b>Small</b>, <b>Medium</b> and <b>Big</b>). The higher the chosen value, the more flexible and complex the resulting curve will be. So, if you use a high value, you will be able to reach a result also in complex cases, but the resulting curve may have oscillations.<br>
+&nbsp;</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

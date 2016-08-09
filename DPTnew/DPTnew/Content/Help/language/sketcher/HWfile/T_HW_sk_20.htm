@@ -1,0 +1,84 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Substituting an entity in a profile</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE>.noleft{margin-left:22; margin-top:0;}</STYLE>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<H3>Substituting an entity in a profile</H3>
+
+<p>Consider a model as shown in the image.
+<br>
+<br>
+<IMG src="../../../images/sketcher/subs_2.gif" border=1>
+<br>
+<br>
+It has a base profile as shown:
+<br>
+<br>
+<IMG src="../../../images/sketcher/subs_1.gif" width="263" height="131" border=1>
+<br>
+<br>
+Let us try to edit this base profile with the <a  href="../FWfile/T_FW_sk_20.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4493">Remove/Substitute Entity</span></a> command.</p>
+
+<TABLE>
+<TR VALIGN=top>
+<TD width="20"><B>1</B></TD>
+<TD>In the profile mode,  try to create another entity, an arc, as shown:
+<br>
+<br>
+<IMG src="../../../images/sketcher/subs_3.gif" border=1>
+<br>
+<br>
+We will try to replace the outer curve with this new curve.<br>&nbsp;</TD>
+<TD></TD></TR>
+
+<TR VALIGN=top>
+<TD><B>2</B></TD>
+<TD>Start the <a href="../FWfile/T_FW_sk_20.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4493">Remove/Substitute Entity</span></a> command. Click the selector 
+<span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+65">Entity to be removed</span> and  select the the outer curve. Now click the selector 
+<span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+66">Replace with entity</span> and select the curve created in the previous step. Apply your changes and exit the profile environment. <br>
+<br>
+<IMG src="../../../images/sketcher/subs_4.gif" border=1>
+<br>
+<br>
+Note that the model is updated and the new entity immediately replaces the old one.
+The features built on the previous profile are also kept intact. Also note that the removed entity is no longer a part of the original profile, instead is a free form curve. 
+<br>
+<br>
+<table border=1 bordercolor="navy" bgcolor=#FFFFE1 cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>NOTE</b>:<br><b>Any existing constraints on the profile that are not compatible with the new entity are lost.</b><br>
+In our example, you'll see the linear dimension of the substituted line disappears.</td>
+</tr>
+</table>
+</TD>
+<TD></TD></TR>
+</TABLE>
+
+<hr color="silver">
+</body>
+</html>

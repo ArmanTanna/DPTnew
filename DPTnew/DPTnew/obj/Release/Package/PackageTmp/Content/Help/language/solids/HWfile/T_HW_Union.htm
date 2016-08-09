@@ -1,0 +1,103 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<title>Job: Creating a Local Boolean Union</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating a Local Boolean Union</h3>
+
+<p>The <a href="../FWfile/T_FW_Union.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+17">Solid Union</span></a> command enables you to join two solids and limiting the resulting solids to some bounding surfaces. For example, you can create a bead rib starting from the two solids in the following illustration.</p>
+<img border="1" src="../../../images/solids/Union00.gif">
+
+<p>You can accomplish this task by loading the "<i>LocalUnion.e3</i>" file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and following the steps given below.</p>
+
+<ol class="noleft">
+<li>Invoke the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+17">Solid Union</span> command and select 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+2">Local</span> in the 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+3">Boolean</span> drop-down list.<br>
+
+<br>
+</li>
+
+<li>Select the first solid.<br>
+<br>
+<img src="../../../images/solids/Union02.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the second solid.<br>
+<br>
+<img src="../../../images/solids/Union03.gif" border="1"><br>
+<br>
+To change the selected solids right-click on <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+4">Solids</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+
+<br>
+</li>
+
+<li>Now select the bounding face for the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+5">Faces</span> selector.<br>
+
+<br>
+<img border="1" src="../../../images/solids/Union04.gif"><br>
+<br>
+Please note that, unless you clear the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+6">Chain</span> check box, all adjacent tangent faces in a chain are automatically selected.<br>
+
+<br>
+<img border="1" src="../images/Union05.gif"><br>
+<br>
+To change the selected faces, right-click on <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+5">Faces</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and perform the selection again.<br>
+
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="PERSON.msg+PERSON+29">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button to see the preview of the result. In big models this may take some time.<br>
+
+<br>
+<img border="1" src="../images/Union07.gif"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the union.<br>
+<br>
+<img border="1" src="../../../images/solids/Union08.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to discard your changes.</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+If you need to retain the original solids after performing the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1530">Boolean</span>, select the 
+<span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+20">Keep Original Solids</span> check box before applying the command.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,191 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2015t2" content="New">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="Revisor" content="Nicola Binaghi">
+<title>What's new in v. 2015.2</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="viaMk();"  bgcolor="White">
+
+<p align="center" style="margin-bottom:0;"><img src='../../images/company/Logo-black.png'></p>
+<hr size=3 color="silver">
+
+<h1 style="text-align: center"><a name="top"></a>ThinkDesign 2015.2 Release Notes</h1> 
+<hr color="silver">
+<p class="noindent" style="margin-top: 0; color: font-size: larger;">Many improvements have been made in version 2015.1 and 2015.2. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+ <br>
+<ul class="litleft">
+<li style="color: font-size: larger;"><a href="#DocumentExplorer"><b>Document Explorer: Improvements of the Model History User Interface</b></a></li>
+<li style="color: font-size: larger;"><a href="#Partlist"><b>Partlist Editor Enhancements</b></a></li> 
+<li style="color: font-size: larger;"><a href="#Mold"><b>Mold Standard Part Enhancements and new Multi-Cavity Layout</b></a></li>
+<li style="color: font-size: larger;"><b><a href="#NPT">NPT threaded hole</a></b></li>
+<li style="color: font-size: larger;"><b><a href="#NMT">New Mating</a></b></li>
+<li style="color: font-size: larger;"><b><a href="#DAT">Data Converters</a></b></li>
+<li style="color: font-size: larger;"><b><a href="#3DP">New 3D Printing command</a></b></li>
+<li style="color: font-size: larger;"><b><a href="#NLS">New Licensing System</a></b></li>
+<!-- <li style="color: font-size: larger;"><font color="gray">Mold - Layout</font></li> -->
+<!-- <li style="color: font-size: larger;"><font color="gray">...</font></li> -->
+</ul>
+<!--<li style="color: font-size: larger;"><a href="#Ansys"><b>ANSYS plug-in</b></a></li> 
+<li style="color: font-size: larger;"><a href="#CM"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span></a></li>
+<li style="color: font-size: larger;"><a href="#Cnv"><b>Data Converter</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJMD"><b>MoldDesign</b></a></li> 
+<li style="color: font-size: larger;"><a href="#PRJ884"><b>PARTsolutions Plug-in</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJPL"><b>Part List</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJperf"><b>Performance Improvements</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJ897"><b>Subdivision Solid</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJW81"><b>Windows 8.1 Support</b></a></li>
+<li style="color: font-size: larger;"><a href="#PRJT3W"><b>think3 Wizards (API-COM) Support</b></a></li>
+
+</ul> -->
+<!-- <p align="center"><font color="red" SIZ=+2><b>WORK IN PROGRESS</b></font></p> -->
+<hr color="silver">
+
+<br>
+<br>
+<h2><a name="DocumentExplorer"></a>Document Explorer: Improvements of the Model History User Interface</h2>
+<p>The old fixed model history UI area has been replaced by a new much more flexible GUI object window, which enables users to adapt it to her/his needs.<br> 
+The new window is called <b>Document Explorer</b>. As for the previous versions of <b>thinkdesign</b>, it will be integrated with the <b>thinkdesign</b> document, using the same elements, such as <i>Model Structure</i> and <i>Visual Bookmarks</i>, now called <b>Tabs</b>.</p>
+<p>The following actions can be performed by the user to arrange and customize the entire structure of the windows:</p>
+<ul class="litleft">
+<li>Keep the <b>Document Explorer</b> window docked, as since the previous versions of ThinkDesign.</li>
+<li>Float both the entire <b>Document Explorer</b> window and each single tab pages over the screen.</li>
+<li>Hide both the entire <b>Document Explorer</b> and a single tab page.</li>
+<li>Pin the <b>Document Explorer</b> window either to the Left or to the Right document border.</li>
+<li>Reset the entire <b>Document Explorer</b> window content to the default layout.</li>
+</ul>
+<p>See <a href="./DocEXP.htm" target="_self"><b>Document Explorer</b></a> for details.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+<h2><a name="Partlist"></a>Partlist Editor Enhancements</h2>
+<p>Two major enhancements and two minor enhancements have been added to this version.</p>
+<ul class="litleft">
+<li>The major enhancements consist of providing the <b>Edit Part Data</b> command in the right-click context menu and of showing custom properties as Boolean in the part list. These properties will in fact be shown as check-boxes in the part list editor. If the value of the property is 0, then the check box in the Part List for that component will be unchecked, else checked.</li>
+<li>The minor enhancements consist of showing hidden components rows in Italics and restrict data type entry into part list cells while editing.</li>
+</ul>
+<p>See <a href="./Partlist.htm" target="_self"><b>Partlist Editor Enhancements</b></a> for details.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+<h2><a name="Mold"></a>Mold Standard Part Enhancements and new Multi-Cavity Layout</h2>
+<!-- <div align="center"><font color="red"><b><i>Preliminary - Work in progress</i></b></font></div> -->
+<p>A
+new way for creating multiple copies of product/core cavity sets, position and
+orient them is now available. The new command <b>Multi-Cavity Layout</b>, which helps
+you create a number of instances of product/cavity sets and also to
+ position and orient them as you wish. <br><br>See <a href="Layout.htm"><b>Multi-Cavity Layout</b></a> for details.</p>
+<P>New enhancements have been made also to the <b>Mold Standard Parts</b> command and to the management of custom parts and threads. See <a href="Mold2.htm"><b>here</b></a> for details.</P>
+
+<p>See also improvements in: <a href="../rn_td_2014T1/whatsnew.htm#PRJMD">v. 2014.1</a>, <a href="../rn_td_2013T1/whatsnew.htm#PRJMD"> v. 2013.1</a>, <a href="../rn_td_2012T1/SP1.htm#Mold">v. 2012 SP1</a>, <a href="../rn_td_2011T1/MoldDesign.htm">v. 2011.1</a> and <a href="../rn_td_2010T1/Mold.htm">v. 2010.1</a>.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+
+<h2><a name="NPT"></a>NPT Threaded Hole</h2>
+<p>The <i>National Pipe Thread</i> or <i>NPT</i> is an American standard for threads on tapered surface. Till last versions, <b>Thinkdesign</b> performed the feature using cylindrical holes. Starting from this version a specific feature has been developed. See <b><a href="NPT.htm">National Pipe Thread</a></b> for details.<!-- Currently
+in ThinkDesign, when user creates a NPT standard hole we still create a
+cylindrical hole. If user creates a NPT standard threaded hole, we create a
+cylindrical hole with threaded surface. Both these features are actually
+incorrect and needs to be changed --></p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> 
+
+
+
+<h2><a name="NMT"></a>New Mating</h2>
+<p>The Mating environment has been changed (see <a href="newmating.htm"><b>New Mating</b></a>) with the goal of providing you with a brand new UI so that the operations of working with constraints is much easier and natural than it was in previous versions. The <b>Multiple Mating</b> is no longer available, since the new structure of the mating mechanism is much more flexible and much smarter, so that only one <b>Mating</b> command will manage the whole kinematic chain, also in the cases previously covered by multiple mating.</p>
+<ul>
+<li><a href="newmating.htm#NM01">General Information</a></li>
+<li><a href="newmating.htm#NM02">New Features</a></li>
+<li><a href="newmating.htm#NM03">Ignoring Constraints</a></li>
+<li><a href="newmating.htm#NM04">Failing Constraint Managements</a></li>
+<li><a href="newmating.htm#NM05">Interaction between Model Structure and Mating Structure</a></li>
+<li><a href="newmating.htm#NM06">Interaction from the Model Structure to the Mating Structure</a></li>
+<li><a href="newmating.htm#NM07">Interaction from the Mating Structure to the Model Structure</a></li>
+<li><a href="newmating.htm#NM08">Mating Structure Context Menu</a></li>
+<li><a href="newmating.htm#NM09">Interactions with the Graphics Area</a></li>
+<li><a href="newmating.htm#NM10">Fixed Constraint</a></li>
+<li><a href="newmating.htm#NM11">Gear Constraint</a></li>
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note for the old users</b><br>
+Please take into account that since there is no longer a reference entity and an entity to be positioned, but both entities are involved symmetrically in the application of constraints, do not expect the first entity to be fixed as it was in older versions. To make it fixed, use the <a href="newmating.htm#NM10">Fixed Constraint</a> command.
+<br><br>
+<b>Old Assemblies and Compatibility</b><br>
+If you load a model containing mating events created with previous versions of <b>ThinkDesign</b>, they will be automatically converted to the new mating structure. So, even if you do not perform any action on the model, when you close it you will be asked whether to save it with the new mating structure. Obviously, if you need to use it with older versions of the package, do not save it. The new mating structure is not supported in older versions, so we recommend making a copy of the file if you need to use it in such versions, or to be very careful not to save it with the current version.
+</td>
+</tr>
+</table>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+<h2><a name="DAT"></a>Data Converters</h2>
+<p>The <b>TD XchangeReader</b> module is now capable to read:</p>
+<ul class="litleft">
+<li>Any SolidWorks&copy; version up to 2015</li>
+<li>Any Autodesk&reg; Inventor&reg; version up to 2015</li>
+<li>Any JT version up to 10.0</li>
+<li>Any Siemens NXTM (Unigraphics) version from V11.0 up to NX 10.0</li>
+<li>Any CATIA&reg; V5 version from R4 to V5-6R2014</li>
+<li>Any CATIA&reg; V6 version from 2011 to 2013</li>
+<li>Any Parasolid&reg; version up to v27.0</li>
+<li>Any Pro/ENGINEER version up to Wildfire 5</li>
+<li>Any Creo<SUP><FONT SIZE="-1">TM</FONT></SUP> Parametric version up to 3.0</li>
+</ul>
+<p>For the Autodesk&reg; DXF/DWG format, the DWGDirect 3rd party library has been upgraded to Teigha&reg; 4.01.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+
+<h2><a name="3DP"></a>New 3D Printing command</h2>
+On Windows 8.1 systems or higher, the <b>3D Prinitng</b> command enables you to print to a 3D printer. See <a href="3dPrinting.htm"><b>3D Printing</b></a> for details.
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+
+<h2><a name="NLS"></a>New Licensing System</h2>
+<p>The Licensing System has been completely renewed. Connect to <b>think<font color="#FF0F00">3</font></b> <b>Customer Care</b> using the account you received from <b>think<font color="#FF0F00">3</font></b> and click on <b>License Information</b> for details.<br><br>
+<img border=1 src="LICENSE_IMAGES/LiceneInformation.jpg">
+<br><br>See also <b>SafeNet</b>&reg; <a href="http://localhost:1947/_int_/ACC_help_index.html">Sentinel Admin Control Center</a> on the web. In case of need, get in touch with the Customer Care Service.</p>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
+<p>&nbsp;</p>
+<hr color="silver">
+<p align="center"><img src="../../images/company/thinkdesignsuite-black.png"></p>
+<hr  size=3 color="silver">
+<br>
+<table width="100%">
+<tr>
+<td align="left"></td>
+
+<td align="center"><!-- <b><font color="red" size=+1><b><i>WORK IN PROGRESS</i></b></font></b><br> --><b><i>Last update:</i>&nbsp;18 May 2015</b><!-- Laudetur Jesus Christus, Laudetur cum Maria. Semper Laudentur! --></td>
+<td align="right"></td>
+</tr>
+</table>
+<!--  -->
+
+
+
+<br>
+<hr size=3 color="silver">
+
+
+</body>
+</html>

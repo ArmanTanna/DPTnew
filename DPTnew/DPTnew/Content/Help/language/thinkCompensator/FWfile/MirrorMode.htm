@@ -1,0 +1,95 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Computation in Mirror Mode</title>
+
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+
+<style type="text/css">
+.CommandTitle
+{
+ color: black;
+ font-family: Verdana;
+ Font-size: 14pt;
+ Font-style: normal;
+ Font-weight: bold;
+ Text-align: left;
+ border-bottom : thin solid Silver;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h4><a name="P0000367"></a>Computation in Mirror Mode</h4>
+
+<p style="margin-bottom:0;">In the <a href="T_FW_compensationhost.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span></a> and <a href="T_FW_globalfieldidentification.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span></a> commands, you can work based on the displacement field symmetry.</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>If a symmetry is there, by selecting the displacement field symmetry option you are ensured the final Global Model deformation will be a symmetric one.</li>
+
+<li>You can also set the symmetry option to run the computation on either half or on the entire displacement field and be sure to obtain the result relative to the entire displacement field.</li>
+
+<li>A check tool is available to detect symmetries in meshes (see "<a href="T_FW_CheckSymmetry.htm"><span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+70">Check Symmetry</span></a>"). Once a symmetry is detected, you can use the symmetry option to ensure the result is symmetric.</li>
+</ul>
+
+<p>To activate the symmetry method, select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> check box under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.<br>
+&nbsp;</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="SymmetryPlaneGSM"></a><b>Defining the symmetry plane</b> <br>
+The <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list enables you to choose the selection method to define the symmetry plane: <!--  -->
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></td>
+<td>A face of a solid is to be selected (the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+29">Face</span> selector will then turn to green).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></td>
+<td>Three points identifying the plane are to be specified (the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span> selector will then turn to green).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+47">Datum plane</span></td>
+<td>An existing datum plane is to be selected (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span>).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></td>
+<td>Select an axis (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>, see "How to define an axis or a line") and a point (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>) which the plane must be through.</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></td>
+<td>Select an axis (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>, see "How to define an axis or a line") the plane must be perpendicular to and a point (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>) the plane must be through.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></td>
+<td>Specify the coefficient values of the cartesian equation of the plane (<b>A</b><i>x</i>+<b>B</b><i>y</i>+<b>C</b><i>z</i>+<b>D</b>=0) in the respective mini-dialog boxes (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+84">Coeff. A</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+85">Coeff. B</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+86">Coeff. C</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+87">Coeff. D</span>), and a through point (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>).</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

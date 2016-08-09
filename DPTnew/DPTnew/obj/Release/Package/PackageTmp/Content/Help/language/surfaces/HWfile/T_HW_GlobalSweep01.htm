@@ -1,0 +1,161 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Sweeping one contour along a drive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.myyellowcursor{"background:"#ffffe1";cursor:s-resize;border-width:1px;border-color:#000000"}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Sweeping one contour along a drive</h2>
+
+<p class="notop">In this task you will use the <a href="../FWfile/T_FW_GlobalSweep.htm"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a> command to create a sweep surface along a contour.<br>
+
+
+ <i>Please note that you can accomplish this task by loading file "GlobalSweep01.e3"</i>.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS01-01.gif"><br>
+<br>
+The shape you want to create is the one you can obtain by moving the red curve along the multi-colored contour, trying to follow the orientation of the latter as much as possible. In other words, the red curve will be swept along the contour made up of the green and blue curves on the right. As to having it follow the orientation of the drive contour, you will have to check which <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> best matches your needs.</p>
+
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>First of all check the curvature of the drive curves. Start the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_CurveCurvature.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span></a> command and select them. You will see they have very different curvatures.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-02.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Start the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command, then right-click on the first curve of the drive contour and select 
+
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../images/general/litarr.gif">
+
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4688">Chain from This</span>. Right-click and select 
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end selection.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-03.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Now, in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+103">Sweep</span> drop-down list, choose 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+104">Curves</span> and then select the section curve.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Now, if you select the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+10">Constant</span> 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span>, the section curve will be translated along the drive contour maintaining its original orientation. Click the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) to assess the result you would obtain.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-04bis.gif"><br>
+<br>
+The shape you obtained is definitely too flat to match your need to have the section follow the drive contour as much as possible.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Try to set <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> to 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+12">Frenet</span> to see if you get a better result. The <a href="../../MathConc/T_MC_Frenet.htm"><i>Frenet reference</i></a> (tangent vector, normal vector and binormal vector) of a curve is the intrinsic reference which describes the curve orientation in the space at each of its point. The preview you get by clicking the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) is the following:<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-05.gif"><br>
+<br>
+As the curvature of each of the curves in the drive contour is different, the resulting shape is not continuous an thus it is still far from your expectations.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td widht="20"><b>4</b></td>
+<td>Change the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> to 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+13">Enhanced Frenet</span>. The contours will still be swept along each curve of the drive contour assuming the orientation of the Frenet reference of the latter as much as possible, with an enhancement enabling the resulting surface to be continuous (
+<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G0"><b>G0</b></a>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS01-06.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the shape.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS01-07.gif"> 
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

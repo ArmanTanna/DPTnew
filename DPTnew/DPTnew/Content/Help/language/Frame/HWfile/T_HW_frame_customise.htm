@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="2009t1" content="translate">
+<title>Job: Creating Customized Frame Catalogs</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Creating Customized Frame Catalogs</h2>
+
+<p>The following illustration explains how to create a customized Frame catalog that can be used to insert in a frame part.<br>
+<br>
+ In this tutorial you will create a custom Frame catalog of cross section. Open the <i>frame_custom.e3</i> file from the Samples folder of your <b>think<font color="#FF0F00">3</font></b> installation and will appear as shown in the image below:<br>
+<br>
+ <img src="../../../images/frame/frame_cutom.gif" border="1"><br>
+<br>
+ The model is a simple rectangle with two driving dimensions (use <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1671">Spreadsheet</span></a> to check the assignment of variables) as shown in the image below:<br>
+<br>
+ <img src="../images/frame_spreadsheet.gif" border="0"><br>
+<br>
+ Now follow the steps to create a custom catalog.<br>
+<br>
+</p>
+
+<ol class="noleft">
+<li>Start <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span> command to create a family of frame catalog based on the current model.<br>
+<br>
+ <img src="../images/custom_part_family.gif" border="0"><br>
+<br>
+ Specify the description of the part family as <i>frame_plate</i> in the <b>Description</b> edit box and click <b>OK</b>.<br>
+<br>
+</li>
+
+<li>Start the catalog manager and locate the newly created catalog <i>frame_plate</i> in the <b>Part Family</b> index as shown in the image below:<br>
+<br>
+ <img src="../images/frame_catalog.gif" border="1"><br>
+<br>
+</li>
+
+<li>Right-click the <i>frame_plate</i> catalog and select <span class="UI_OPTION" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span> from the context menu to define the different parameters. Enter three sets of values for Length and Width variables in the dialog box as shown in the image below:<br>
+<br>
+ <img src="../images/custom_part_config.gif" border="0"><br>
+<br>
+ Click <b>OK</b> to save the configuration.<br>
+<br>
+</li>
+
+<li>Right click on the Line catalog specification. For this tutorial, right-click on the <b>Steel - hot rolled - UNI</b> and select <span class="UI_OPTION" id="IDD_TP_EDIT_POPUP.msg+IDD_TP_EDIT_POPUP+3">Edit Values</span> from the context menu. The <b>Edit Value</b> dialog box is displayed.<br>
+<br>
+</li>
+
+<li>Enter <b>frame_plate</b>, <b>Frame_custom</b> (name of the catalog) and <b>PF</b> in the corresponding <b>Catalog</b>, <b>Catalog ID</b> and <b>Representation</b> columns respectively as shown in the image below.<br>
+<br>
+<img src="../images/edit_values.gif" border="0"><br>
+<br>
+ Click <b>OK</b> to save the values.<br>
+<br>
+</li>
+
+<li>Test your work by using the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+2">Frame Parts</span> command.<br>
+<br>
+</li>
+
+<li>Expand <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+162">Line</span> node (<img src="../../../images/general/node.gif" align="absmiddle">) and select the <i>frame_plate</i> option from the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+3">Sections</span> drop-down list. Expand the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+3">Sections</span> node (<img src="../../../images/general/node.gif" align="absmiddle">) to view the table of values. Double click on the value for selection. Then <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+3">Apply</span> <img src="../../../images/general/APPLYbutton.gif" alt="" border="0" align="absmiddle"> the command to insert the cross section in a frame part.</li>
+</ol>
+ 
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Frame.htm"><b>Overview of Frame</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,143 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Building lips</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.myyellowcursor{"background:"#ffffe1";cursor:s-resize;border-width:1px;border-color:#000000"}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.notopbot{margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Building lips</h2>
+
+<p class="notopbot">In this task you will use the <a href="../FWfile/T_FW_GlobalSweep.htm"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a> command to create <i>lips</i> on some surfaces.</p>
+
+
+
+<ul class="noleft">
+<li>First of all you will create some surfaces by sweeping some contours along a drive keeping an orientation based on the one of some selected surfaces (that is: during the motion, the normal will be the one of the surface, while the tangent will be the one of the curve).</li>
+
+<li>From the new surfaces, you will then create a static solid using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm"><b>Make Solid</b></a> command.</li>
+
+
+<li>Finally, using a <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Difference.htm"><b>Boolean Difference</b></a> you will obtain the "lips".</li>
+
+</ul>
+
+<p><i>Please note that the model used in this task is contained in file "LIPS.e3"</i>.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS03-01.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command. In the 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> drop-down list select 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+16">Surface based</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>As drive curves, select the inner boundaries of the uppermost surfaces. Right-click and select <b>Continue</b> to end the drive curve selection.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS03-02.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+103">Sweep</span> drop-down list, choose 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+104">Curves</span> and then select the section curves.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GS03-03.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Check the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+42">Close Sweep</span> box to obtain a closed surface. Click the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif"> ) to assess the result you will obtain.<br>
+
+
+<br>
+<img border="1" src="../images/GS03-04.gif"><br>
+<br>
+Click <img src="../../../images/general/OKbutton.gif"> to create the surfaces.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS03-05.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Start the <b>Make Solid</b> command and transform all of the surfaces created using the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command into a solid.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Finally, to obtain the "lips", start the <b>Boolean Difference</b> command and subtract the solid obtained in previous step (<b>Solid B</b>) from the original one (<b>Solid A</b>). The lips are created.<br>
+<br>
+<img border="1" src="../../../images/surfaces/GS03-08.gif"> </td>
+</tr>
+</table>
+
+
+<hr color="silver"> 
+</body>
+</html>
+

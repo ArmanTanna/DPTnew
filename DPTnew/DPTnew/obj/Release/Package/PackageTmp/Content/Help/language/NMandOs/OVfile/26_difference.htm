@@ -1,0 +1,76 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+
+<title>Examples of Boolean Difference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.litleft{margin-left:26;margin-top:0}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Examples of Boolean Difference</h3>
+
+<p>The purpose of these examples is to show you how you can generate complex models by using simple Boolean <b><a href="../../solids/FWfile/T_FW_Difference.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1536">Difference</span></a></b> operations.</p>
+
+
+<p>Let's see, first of all, a simple example: the red solid is subtracted from a base (transparent in the example).<br>
+<br>
+<img src="../../../images/solids/NMandOS/6-diff3.gif" border="1"></p>
+
+<p>Following is the result after the subtraction operation.<br>
+<br>
+<img src="../../../images/solids/NMandOS/6-diff2.gif" border="1"></p>
+
+<p>Let's now see a more realistic example. Typically, the cavities are needed in the models for casting, forging and die casting are obtained by creating models in an expendable material or using a pre-formed matrix. By using Boolean operations you can design separately the parts which will be used to generate the final model, furthermore, you can use the same parts for other purposes connected with mold creation.<br>
+<br>
+<img src="../../../images/solids/NMandOS/6-diff.gif" border="1"></p>
+
+<p>The result of the Boolean <b><a href="../../solids/FWfile/T_FW_Difference.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1536">Difference</span></a></b> operation(s) between the solid and the external body is a very complex model, as shown by the example below. Building the same model by means of single operations would have been much more difficult, since both the cavity and the impressions are extremely complex. The interiors of the cavity can be seen by generating a section view by using the 
+<a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_22.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7883">Define Section View</span></a> command.<br>
+
+<br>
+<img src="../../../images/solids/NMandOS/6-diff-clipping.gif" border="1"></p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note for mold makers:</b><br>
+<br>
+This approach can be easily applied on cooling design. You can keep cooling holes as solids (in other words, as separate tools) and then subtract them when you need the holes.</td>
+</tr>
+</table>
+<br>
+<hr color="silver">
+<h5>Related Materials</h5>
+
+<ul class="noleft">
+<li><a href="26.htm"><b>How to use Booleans</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

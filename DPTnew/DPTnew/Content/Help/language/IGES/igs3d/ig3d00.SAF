@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Converting from IGES 3D to think3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body onload="viaMk();" >
+
+<a name="top"></a> 
+
+<h3>Converting from IGES 3D to think3</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application can <a href="../ig_01.htm">load</a> IGES 3D models generated with other CAD programs.</p>
+
+<h4>General concepts</h4>
+
+<ul class="noleft">
+<li>Entities are converted according to the <b><a href="POPIig3d01.htm">IGES 3D to think3 conversion table</a></b>.</li>
+
+<li>Conversion is performed according to the current values of the parameters of the <b>IGES Options</b> dialog box opened by selecting <span class="UI_COMMAND" id="eklib.msg+eklib+349">Options</span>.</li>
+
+
+<li>Layers are converted as per map table defined in the <a href="../../file/IDPP_IGES_LAYERS.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the IGES Conversion Options. If no mapping is defined, the layer name is preserved as it is.</li>
+
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><b>General warning on conversion of 3D IGES models to</b> <b>think<font color="#FF0F00">3</font></b><br>
+<br>
+To know exactly which IGES entities are converted to <b>think<font color="#FF0F00">3</font></b> and, if they are, which the corresponding <b>think<font color="#FF0F00">3</font></b> entities are, see the conversion table.<br>
+<br>
+In general, this is what happens:</p>
+
+<ul class="noleft">
+<li>IGES curves are converted to their corresponding <b>think<font color="#FF0F00">3</font></b> curves</li>
+
+<li>IGES surfaces are converted to their corresponding <b>think<font color="#FF0F00">3</font></b> surfaces</li>
+
+<li>only IGES <b>Manifold Solid B-Rep Object</b> (<i>entity 186</i>) solids are converted to <b>think<font color="#FF0F00">3</font></b> solids: all IGES solid entities related to the <b>Solid Instance</b> (<i>entity</i> 430) objects&nbsp;&#151;&nbsp; as the entities with the following numbers: 152, 154, 156, 158, 160, 162, 164, 168, 180, 182, 184&nbsp;&#151;&nbsp; are <b><i>not</i></b> converted. They are ignored during the conversion process.</li>
+
+<li>You can convert solids to their component surfaces by clearing the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+75">Save/Load solid entities</span> check box in the 
+<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> page <b>IGES Options</b> dialog box.</li>
+
+</ul>
+</td>
+</tr>
+</table>
+
+<h4>Tips on converting 3D models from IGES to think3</h4>
+
+<p>If you already know the environment in which the original IGES file was generated and which settings are the best for converting files generated i such an environment, the conversion will be easily performed with no problems.</p>
+
+<p>On the contrary, if you don't know in which environment your IGES file was created and/or which settings to use, you will have to try to convert it for the first time, see what you get and then if the result is not the expected one or you think it's not acceptable, try to set the proper parameters.</p>
+
+<p>So, if you know the environment in which your IGES file was produced, set the proper settings and <a href="../ig_01.htm">open</a> the file. Otherwise, in general, you'll have to proceed as follows:</p>
+
+<ul class="noleft">
+<li>Try to open your IGES file at least once or twice and see what you get. After examining the results, set to the proper values those parameters which mainly affect conversion accordingly to the results you've obtained and open the file again</li>
+
+<li>If you have troubles obtaining surfaces instead of solids in <b>think<font color="#FF0F00">3</font></b> (your solids are split to their component surfaces),&nbsp; check the "<font face="Courier New">Min. user-intended resolution of model</font> " value in the <a href="../ig_02.htm">log file</a> of the last conversion you tried to perform. The <b>think<font color="#FF0F00">3</font></b> default value for this parameter is 0.001 mm&nbsp; or 0.0001 inches. If the value you can read in the log file is higher (say, for example, 0.2), this is probably the cause of your problems. You have two possibilities: 
+
+<ul class="noleft">
+<li>Try to "close" the solid using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command and specifying the proper tolerance value (<b>Edit tolerance</b>: a bigger value than the one you read in the log file)</li>
+
+
+<li>Re-generate the model with the proper tolerance value in the original environment, convert it to the IGES format and open it again in the <b>think<font color="#FF0F00">3</font></b> application.</li>
+</ul>
+</li>
+
+<li>If the file is not loaded, open the IGES file using an ASCII text editor and check the last line: it must contain the "T" character, identifying the <i>Terminate Section</i>. If the "T" character is not present in the last line, then the file is truncated: it's spoiled and it cannot be loaded</li>
+
+<li>If you get a "Dr. Watson's" warning, you can try to change the <b>Validation</b> value from <b>Full</b> to <b>Delete not fixed</b>: this way, while opening your IGES file, you'll delete all entities which the validation process cannot correct</li>
+
+<li>Reading the <a href="../ig_02.htm">log file</a> of the conversion process is the most direct and simplest way to check conversion errors. In such file, errors are logged in appropriate sections, which will help identify where the problem is.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="IGES_Untrimmed"></a><b>Untrimmed surfaces when loading IGES files</b> <br>
+If you encounter many untrimmed surfaces when loading an IGES file, it is highly recommended that you proceed as follows: 
+
+<ol class="litleft">
+<li>Load the file with the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+128">Surface trimming modes</span> option in the 
+<a href="mk:@MSITStore:cnv.chm::/language/IGES/ig_options.htm">IGES Conversion Options</a> set to the default option (
+<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+129">As per IGES file</span>).</li>
+
+
+<li>If you don't get any significant improvement, switch the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+128">Surface trimming modes</span> option to 
+<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+131">3D curves</span>.</li>
+
+
+<li>If you still don't get any significant improvement, switch the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+128">Surface trimming modes</span> option to 
+<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+130">UV curves</span>.</li>
+
+</ol>
+
+See also <a href="../../glossary/IGES142.htm">Trimmed Surfaces and the IGES entity #142</a>.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

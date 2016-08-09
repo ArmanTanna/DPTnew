@@ -1,0 +1,104 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying geometric transformations to selected control points (surfaces)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying geometric transformations to selected control points</h3>
+
+<p class="notop">The <b>Transform</b> item under <b>Tools</b> in the selection list of the <b><a href="../FWfile/T_FW_ms_08.htm">Surface through Control Points</a></b> command enables you to apply a transformation&nbsp;&#151;&nbsp;a translation, a rotation or a rototranslation&nbsp;&#151;&nbsp;to the currently selected points.<br>
+The surface shape will be updated dynamically while the transformation is being applied.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" class="ver9">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+92">Transform</span> option&nbsp;&#151;&nbsp;as well as the 
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+277">Step</span> and 
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+135">Scale</span> ones&nbsp;&#151;&nbsp;are not available unless there are valid control points selected. For this reason, when the selection is reset the said options are closed.<br>
+
+
+
+Please also note that the mentioned options are mutually exclusive: any time you select a new option, the current modification will be completed and the new one will begin.<br>
+ Finally, note that both with the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+135">Scale</span> and with the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+92">Transform</span> option, the default location for of the start point is the center of mass of the currently selected control points.</td>
+
+
+
+</tr>
+</table>
+
+<br>
+<p>After selecting one or more control points, click on <b>Transform</b> under <b>Tools</b> in the selection list. A spherical set of handles will be displayed.<br>
+<br>
+<img border="1" src="../../../images/surfaces/MPC_TRANSFo01.gif"></p>
+
+<ul class="noleft">
+<li>The three straight lines represent three orthogonal space directions<br>
+&nbsp;</li>
+
+<li>The three arcs represent the three angles of revolution (about each of the three orthogonal directions). You can rotate the selected control points about an axis by dragging the corresponding arc or by typing the value of the rotation into the <b>Angle</b> box which shows up when you pick the arc.<br>
+<br>
+<img border="1" src="../images/MPC_TRANSFO02.gif"><br>
+&nbsp;</li>
+
+<li>A circular handle is displayed on the origin of the sphere and on each of the other end points. You can apply a translation to the selected control points by dragging the origin around or by typing its X, Y, Z coordinates relative to the current Work Plane reference system into the <b>Move X</b>, <b>Move Y</b> and <b>Move Z</b> boxes which show up when you pick the handle.<br>
+<br>
+<img border="1" src="../images/MPC_TRANSFO03.gif"><br>
+&nbsp;</li>
+
+<li>The selected control points can be moved along the corresponding direction by dragging the handles at the end points or by typing the X, Y, Z components of the translation into the <b>Delta</b> boxes which show up when you pick the handle.<br>
+<br>
+<img border="1" src="../images/MPC_TRANSFO04.gif"><br>
+&nbsp;</li>
+
+<li>A square handle is displayed on each of the three lines representing the X, Y, Z directions. Square handles enable you to translate the selected control points on a plane. You can move the selected control points on a plane by dragging the square handles: 
+
+<ul class="noleft">
+<li>When you pick the square handle on the X axis, you will move the selected control points on the plane YZ</li>
+
+<li>When you pick the square handle on the Y axis, you will move the selected control points on the plane XZ</li>
+
+<li>When you pick the square handle on the Z axis, you will move the selected control points on the plane XY.</li>
+</ul>
+</li>
+</ul>
+
+<p>To define a translation, once all the control points have been selected, you can simply click on the origin and then specify the end point of the translation.<br>
+Before applying the transformation, you can also redefine both the position and the orientation of the handle system.</p>
+
+<p>See the description and the step-by-step examples of the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_MoveCopy.htm"><b>Move Copy Entities</b></a> command for further details (the methods to be used to apply geometric transformations to control points are exactly the same).</p>
+
+
+<hr color="silver">
+</body>
+</html>
+

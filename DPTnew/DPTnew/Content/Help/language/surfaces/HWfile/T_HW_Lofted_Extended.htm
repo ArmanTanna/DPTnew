@@ -1,0 +1,92 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="2009t1" content="translate">
+<title>Job: Extending the Resulting Surface with the Lofted Surface Command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4>Extending the Resulting Surface with the Lofted Surface Command</h4>
+
+<p style="margin-bottom:0;">Specific options for extending the resulting surfaces are available under the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node of the <a href="../FWfile/T_FW_Lofted.htm">
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span></a> command, when the 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+112">Type</span> is set to <a href="../FWfile/T_FW_LoftedGrid.htm">
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+115">Grid</span></a>. Some mini-dialog boxes will be available once these options are applicable (displayed when the 
+<span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is expanded). They remain active but not visible when the 
+<span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is collapsed.<br>
+
+The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+282">Extend</span> check box is displayed so as to allow the extension of the surface in the perpendicular direction to the boundary set.</p>
+When the extension is required simultaneously in both parametric directions, the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+284">Extension Mode</span> drop-down list shows up in the selection list.</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+285">Geometric</span> </td>
+<td>The extension will be computed based on the current geometry:<br>
+ <br>
+ <img border="1" src="../images/LSE_Geometry.gif"><br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+286">Parametric</span> </td>
+<td>The extension will be computed by extending the parameters of the curves and by minimizing the distance between the same curves.<br>
+ <br>
+ <img border="1" src="../images/LSE_Parameter.gif"><br>
+ &nbsp;</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Please take into account the following points: 
+
+<ul class="noleft">
+<li>The capability of extending the surface is available only when the continuity constraint on the edge is positional (G0).<br>
+<br>
+<img border="1" src="../../rn_2007T1/images/LFT08.gif"><br>
+<br>
+</li>
+
+<li>When the continuity constraint is tangency, the surface cannot be extended, that is, the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+282">Extend</span> check box does not show up.<br>
+
+<br>
+<img src="../../rn_2007T1/images/LFT09.gif"><br>
+<br>
+</li>
+
+<li>Extension is not possible on closed curves, and so the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+282">Extend</span> check box does not show up.<br>
+
+<br>
+<img border="1" src="../../rn_2007T1/images/LFT10.gif"><br>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

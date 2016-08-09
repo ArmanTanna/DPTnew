@@ -1,0 +1,88 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup"> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<TITLE>Job: Creating the common tangent plane to two surfaces</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3><a name="TwoCurves"></a>Creating the common tangent plane to two surfaces</h3>
+<table>
+<tr valign="top">
+<td width="20" valign="baseline"><b>1</b></td>
+<td>Load file "TangentPlane_SrfSrf.e3"
+<BR><BR><IMG border=1 SRC="../../../images/aixprod/TSS01.gif"><BR><BR> and start the <a  href="../FWfile/T_FW_TangentPlane.htm"><b>Tangent Plane</b></a> command.
+<BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>First Point</b> on the surface on the right:
+<BR><BR><IMG border=1 SRC="../images/TSS02.gif">
+<br><br>You can easily redefine the position of both selected points by using the corresponding handles or by typing the curve parameter value into the <b>First UV</b> and <b>Second UV</b> boxes respectively. Therefore, you are enabled to interactively check the existence of a common tangent plane. While you change the point position, as soon as a common tangent plane is detected, the warning will disappear and a preview of the plane will be displayed.
+The <b>First surface vector</b> drop-down list under <b>More Options</b> enables you to choose <b>Tangent U</b> or <b>Tangent V</b> as the first surface vector to be used when displaying the tangent plane. Similarly, the <b>Second surface vector</b> drop-down list enables you to do the same for the second point.
+<BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the second point on the surface on the left.
+<BR><BR><IMG border=1 SRC="../images/TSS03.gif"><BR><br>
+As you can see, a message warns you no tangent plane could be found.<br>&nbsp;
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>To make the message disappear and obtain a tangent plane, deselect the <b>Exactly on first point</b> check box under <b>More Options</b>
+<BR><BR><IMG border=1 SRC="../images/TSS04.gif">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Exactly on first point</b><br>
+When the <b>Exactly on first point</b> check box is selected, the program tries to create a tangent plane which is exactly through the first point you specified. If such a plane does not exist, a message is displayed warning you that no such plane is defined.<br>
+If you deselect the <b>Exactly on first point</b>, the program will calculate the point which is the closest to the one you specified and for which a tangent plane exists and will create this plane.
+<br>This is a solution in most situations.<br>&nbsp;
+</td></tr></table><br>
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>5</b></td>
+<td>Select 
+<img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the plane.<BR><BR><IMG border=1 SRC="../../../images/aixprod/TSS05.gif">
+</td>
+</tr>
+</table>
+<h5><hr color="silver">Use Cases</h5> 
+<ul class="noleft">
+<li><a href="T_HW_T01.htm"><b>Creating a Lofted surface through a curve and tangent to a surface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

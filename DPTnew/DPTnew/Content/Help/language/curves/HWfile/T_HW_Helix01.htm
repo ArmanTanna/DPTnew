@@ -1,0 +1,131 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2007t1" content="translate">
+<title>Job: Creating a cylindrical or conical circular helix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating a cylindrical or conical circular helix</h3>
+
+<p>You can follow the easy steps of this example to see how to create a circular helix curve, which can be either cylindrical or conical. Before starting, open sample file "CreateHelix.e3".</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_cv_05.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+254">Helix Curve</span></a> command.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span> drop-down list select 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+396">Axis and point</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Check that the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+210">Rotation</span> drop-down list is set to 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+278">Clockwise</span>. If it isn't, set it to 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+278">Clockwise</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+54">Axis</span> drop-down list, select 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>). Then select the line.<br>
+
+<br>
+<img border="1" src="../../../images/curves/HXC00.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the start point for the helix curve.<br>
+<br>
+<img border="1" src="../images/HXC01.gif"><br>
+<br>
+A preview of the helix curve is displayed.<br>
+<br>
+<img border="1" src="../images/HXC02.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Drag the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+276">Height</span> handle to the desired location or type in the corresponding value.<br>
+
+<br>
+<img border="1" src="../images/HXC03.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Expand the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node. The 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+280">Taper Ratio Angle</span> check box will be displayed. Check the box and type the desired taper angle value in the adjacent box immediately shown up.<br>
+
+<br>
+<img border="1" src="../images/HXC04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Make the pitch variable by selecting the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+404">Pitch law</span> check box. In the adjacent drop-down list, select 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+407">Quadratic</span> to have the pitch vary according to a quadratic law from the initial value (
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+413">Pitch</span>) to the final one (
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+409">End Pitch</span>) that you will specify.<br>
+
+<br>
+<img border="1" src="../images/HXC05.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>In order to obtain a high quality resulting curve (higher internal continuity and degree), select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+364">High Quality Approximation</span> box.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>10</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curve.<br>
+<br>
+<img border="1" src="../../../images/curves/HXC06.gif"><br>
+<br>
+By right-clicking on the curve and selecting <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+611">Info</span><img src="../../../images/general/litarr.gif">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1653">Single Entity</span>, you can check that, having selected the 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+364">High Quality Approximation</span> box, the degree of the resulting curve is 9 and its continuity is 4.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

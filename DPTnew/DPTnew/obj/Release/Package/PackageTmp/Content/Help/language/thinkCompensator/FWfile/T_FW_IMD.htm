@@ -1,0 +1,180 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(530,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Identify Measured Data</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+10">Identify Measured Data</span><br>
+<span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+1">Adaptation</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span></p>
+<hr color="#63a9d8">
+
+
+<p>Using the following two commands, you can perform compensation or adaptation processes on Measured Data, which can be obtained by scanning the physical model.</p>
+
+<ul class="noleft">
+<li>The <span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span> command enables you to compensate the part based on the measured data. The reverse deformation data from the physical model is applied to the digital model to compensate it for neutralizing the spring-back effect.<br>
+<br>
+</li>
+
+<li>The <span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span> command enables you to apply deformation to adapt the original surfaces of the model to match the Measured Data. It is done by identifying the deformation from the physical model as compared to the initial digital model. Then the deformation is applied to the digital model. Hence, using this command you can create a digital model that is identical to the physical tool.</li>
+</ul>
+
+<p style="margin-bottom:0;">When these commands are applied, the result is a GSM surface (containing the computed transformation). This generated surface can be used by the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMR.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7012">GSM Replicate</span></a> command as <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+181">Deformed reference entity</span>, and the replication is applied on the <a href="#inputs"><span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+251">Initial Mesh</span></a> (the digital model).</p>
+
+<ul style="margin-top:0;">
+<li>In case of the adaptation process (<span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span>), the initial mesh will be modified to fit the measured one.</li>
+
+<li>In case of the compensation process (<span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span>), the initial mesh will be modified to correspond the proposed geometry to be used as the compensated one.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="inputs"></a>On starting the command you need to select:</p>
+
+<ul class="noleft">
+<li><span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+251">Initial Mesh</span> - It corresponds to the original digital model.</li>
+
+<li><span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+252">Measured Mesh</span> - It corresponds to the scanning result of the physical model.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+It is necessary that the two input mesh are properly aligned; you can use the <a href="../OVfile/T_OV_Alignment.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span></a> commands to perform the alignment.</td>
+</tr>
+</table>
+
+<p>Once the two meshes have been selected, you need to define a set of "handles" (see <a href="#Correspondence"><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+264">Correspondence</span></a>). Using these handles, the system will compute by an iterative process a spatial deformation that allows minimizing the mean of squared distances between the modified initial mesh and the measured mesh.</p>
+
+<p><a name="Decimation"></a>The <span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+269">Decimation Distance</span> text box enables you to define a decimation distance value. This will ensure that only a subset of the nodes is used for distance computation, hence, requires less processing time. If you set the decimation distance as <b>0</b>, all nodes will be used. If you choose to control the edge length variations (by using the <a href="#edge"><span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+270">Length Preserving Weight</span></a> option), the variations of edge length will be evaluated only on edges containing at least one of the used nodes.</p>
+
+<p style="margin-bottom:0;"><a name="Correspondence"></a>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+264">Correspondence</span> option enables you to choose the initial set of handles that will be used to compute the correspondence between the meshes. In this drop-down list, you can select:</p>
+
+<ul style="margin-top:0;">
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+255">To be selected</span> - You have to select the set of initial and target points. These points may be standalone ones (to be selected for the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+127">Points</span> selector), or defined in an ASCII (.pt) file (that you can select by using the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+132">Browse</span> option, and also define its <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+4">Unit of Measurement</span>). To be valid, the initial and target sets must have the same cardinality. The definition of pairs of matching points is based on the order of selection.</li>
+
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+260">Absolute bounding boxes</span> - The system first computes the bounding box of each mesh. This initial bounding box is then split along its longest direction as per the value specified in the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+266">No. of boxes</span> text box. Now all the similar corners of each box are considered as matching handles.</li>
+
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+262">Decimation</span> - As per the value specified in the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+267">Target No. of points</span> text box, the system internally adjusts the decimation distance so as to reach the target number of centers (plus or minus one). The initial points will be the ones resulting form the decimation of the <i>initial mesh</i>, and each corresponding target will be the point realizing the minimum distance on the <i>measured mesh</i>.</li>
+
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+263">Max. dist. of zones</span> - As per the value specified in the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+268">Target No. of zones</span> text box, the same number of zones are defined (plus or minus one) on the <i>initial mesh</i>. For each zone, handles are defined on point couples that maximize the minimum distances between them.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="Symmetry"></a>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> check box can be selected if the deformation has to fulfill planar symmetry conditions by applying mirror constraints about up to three reference planes (<span class="UI_SELECTOR" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span>) to be selected. This is very useful if the model you are using is symmetric; you are enabled to apply constraints only to one half of the model and then, taking advantage of the existing symmetry, automatically apply them to the mirrored half.</p>
+
+<ul style="margin-top:0;">
+<li>When the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> check box is selected, the system will compute a GSM deformation fulfilling the symmetry condition(s). If the initial mesh is symmetrical versus the defined planed, the modified mesh (obtained by applying the result of this command using <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7012">GSM Replicate</span>) will also fulfill the symmetry conditions.</li>
+
+<li>When this check box is cleared, symmetry is not maintained.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="edge"></a>The <span class="UI_SELECTOR" id="GMDecim.msg+_GMDECIM_LABEL_+270">Length Preserving Weight</span> option enables you to apply the minimization criterion on both the distance computation and an evaluation of the edge length variation. The edges used for length evaluation are the ones connected to at least one of the vertex kept by the decimation. (All edges are used if the <a href="#Decimation"><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+269">Decimation Distance</span></a> is set to 0).</p>
+
+<ul style="margin-top:0;">
+<li>When this check box is selected, you can specify the edge length value in the corresponding text box.</li>
+
+<li>When this check box is cleared, only distance computation is applied.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="iterations"></a>At times, the initial set of handles may not be sufficient to reach a satisfying result. To get better result you can perform several iterations by selecting the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+271">No. of iterations</span> check box. The system will automatically enrich the set of handles after each loop, if necessary.</p>
+
+<ul style="margin-top:0;">
+<li>When the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+271">No. of iterations</span> check box is selected, you can additionally define: 
+
+<ul class="noleft">
+<li>The number of iterations to perform in the corresponding text box.</li>
+
+<li>The tolerance value in the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+66">Tolerance</span> text box. It is the maximum distance between the initial and the measured mesh.</li>
+
+<li>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+272">Increment size</span> is the maximum number of points that will be added in the handle set after each iteration.</li>
+
+<li>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+288">Rejection distance</span> is the radius value of the rejection sphere defined around each initial point added at any iteration, guaranteeing that no new point will be added inside any rejection sphere.</li>
+</ul>
+</li>
+
+<li>When this check box is cleared, only a single iteration is performed.</li>
+</ul>
+
+<p><a name="GSM"></a>GSM parameters like <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_RoundnessSamples.htm"><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+68">Roundness</span></a>, <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_BulgeSamples.htm"><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+63">Bulge</span></a>, and <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_StiffnessSamples.htm"><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+274">Stiffness</span></a> can be defined under the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+273">GSM Parameters</span> node.</p>
+
+<p style="margin-bottom:0;"><a name="Optimization"></a>Under the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+275">Optimization Parameters</span> node you can define:</p>
+
+<ul style="margin-top:0;">
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+67">Max. No. of Loops</span> - It is the maximum number of optimization loops allowed per iteration.</li>
+
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+276">Freedom radius</span> - It controls the domain of variation of each handle. Once a set of handles are defined (made of a pair of initial and target points), the optimizer adjusts the actual position of target point around the defined one. 
+
+<ul class="noleft">
+<li>When this check box is cleared, the size of this movement (adjustment) is set automatically.</li>
+
+<li>When this check box is selected, the size of this movement (adjustment) is limited within the user defined value.</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="distance"></a>The <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> option under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enables you to reject higher distance values.</p>
+
+<ul style="margin-top:0;">
+<li>When the check box is selected, the point realizing the minimum distance on the opposite mesh is supposed to be at a distance less than or equal to the user defined value.</li>
+
+<li>When the check box is cleared, the system internally computes this maximum presumed distance. Also, the text box is not available.</li>
+</ul>
+
+<p>After making all the settings, you can select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../images/general/preview.gif" align="middle">) button to make the computation and see the preview.</p>
+
+<p style="margin-bottom:0;"><a name="Results"></a>Once the preview has been generated, you can see the following computation results under the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+104">Results</span> node.</p>
+
+<ul style="margin-top:0;">
+<li><span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+93">Loop(s)</span> - The number of optimization loops performed during the last iteration</li>
+
+<li>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+47">Distance</span> and <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+281">Edge Length</span> nodes will display the following: 
+
+<ul class="noleft">
+<li>The extreme and mean values.</li>
+
+<li>The possibility to hide the graphic color map representing the result by selecting the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+253">Hide</span> check box.</li>
+
+<li>The possibility to display a histogram (distribution or repartition) of the result by selecting the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+109">Graph</span> node, and using the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+88">Type</span> drop-down list.</li>
+
+<li>Minimum and maximum thresholds values that you can modify. Changing one of the threshold impacts both the color map and the histogram representation of the result.</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Related topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_thinkcompensation.htm"><b>An Overview of Compensator</b></a></li>
+
+<li><a href="../OVfile/T_OV_adaptation.htm"><b>An Overview of Adaptation</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

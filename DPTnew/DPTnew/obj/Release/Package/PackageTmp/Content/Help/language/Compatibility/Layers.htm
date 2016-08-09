@@ -1,0 +1,36 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="T_2008t1" content="translate">
+<title></title>
+
+
+<style type="text/css">
+ .noleftlit {
+  margin-left: 22;
+  margin-top: 0px;
+  margin-bottom: opx;
+ }
+</style>
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<ul class="noleftlit">
+<li><b>Layers</b>: layers will <i>keep</i> their visibility value (on/off), their status of current/non current and their description, while they will loose their original names and will automatically be assigned a number (apart from layer 0, which will keep its 0 name=number). So, in general, the properties of name, lock, color, line type and width will be lost.<br>
+Furthermore, as to names, a particular case is when a document created in versions older than 2008.1 containing layers <i>n<sub>1</sub></i>,...., <i>n<sub>m</sub></i> is first loaded into version 2008.1, in which case the layer names are automatically generated as "Layer<i>n<sub>1</sub></i>",...., "Layer<i>n<sub>m</sub></i>" and then saved. If such a document is reloaded with a previous version, the layer names are lost but their numbers will be the same as in the original document (<i>n<sub>1</sub></i>,...., <i>n<sub>m</sub></i>). 
+</li>
+</ul>
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>General Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTDC();HideTR();">
+<a name="top"></a> 
+
+<h1>General Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following general utility improvements.</p>
+
+<ul class="noleft">
+<li id="HIDELI"><a href="#P805">Enhancement in the ANSYS plug-in installation</a></li>
+
+<li id="HIDELI"><a href="#P765">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7825">Two-Entity Distance Map</span> command</a></li>
+
+<li id="HIDELI"><a href="#P751">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_View.msg+MenuBar_Document_View+7885">Define Section View</span> command</a></li>
+
+<li><a href="#P749">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span> command</a></li>
+
+<li><a href="#Zoom">Zoom using the entity selector in the selection list</a></li>
+
+<li><a href="#437">Improvement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command</a></li>
+
+<li><a href="#CCB16142">Enhancement in making <SPAN id="TWOD"><span class="UI_COMMAND_NOBOLD" id="idd_ms_search.msg+idd_ms_search+1">Search in Model Structure</span></SPAN><SPAN id="HIDETD">Search in Drawing Structure</SPAN></a></li>
+
+<li id="HIDELI"><a href="#filter">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box</a></li>
+</ul>
+
+<hr color="silver">
+<!-- PRJ: P805 - OWN: STPI -->
+<h2 id="HIDEH2"><a name="P805">Enhancement in the ANSYS plug-in installation</a></h2>
+
+<p id="HIDEP">In this version, you are provided with the choice of installing the <b>ANSYS 11.1</b> and/or <b>ANSYS 12.1</b> plug-ins from the custom window of the <a href="mk:@MSITStore:tdein.chm::/language/tdein/install.htm">installation wizard</a> during the installation process. With this enhancement, you are enabled to choose the plug-in that supports the ANSYS application available on your workstation.</p>
+
+<table id="F2DNOTVISIBLE" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+Prerequisite of using the <b>ANSYS</b> plug-in is to have the <b>ANSYS</b> application installed in the workstation. <!-- Ensure that you have installed the <b>ANSYS</b> application before installing our company's application. -->
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver" id="HIDEHR">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P765 - OWN: Patrick Bosinco -->
+<h2 id="HIDEH2"><a name="P765">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7825">Two-Entity Distance Map</span> command</a></h2>
+
+<p id="HIDEP">For Meshes, a new method of computing distance has been introduced, that detects and takes into account the correspondence between the closest points. The new <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+40">Closest point</span> option is available in the <a href="mk:@MSITStore:HELP.CHM::/language/tools/to_07/FWfile/T_FW_TwoMap.htm#method"><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+28">Method</span></a> drop-down list. When this option is selected, the nodes will always have a correspondence (except if filtered by the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> option), and the mesh will not have non-computed areas due to missing projection.</p>
+
+<p id="HIDEP" style="margin-bottom:0;">In this version, under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+8">Absolute Distance</span> check box has been introduced.</p>
+
+<ul style="margin-top:0;">
+<li id="HIDELI">When selected, the distance map does not show any relative positioning as the computation is based only on the absolute distance.</li>
+
+<li id="HIDELI">When cleared, the distance map allows visualizing entities that are crossing each other (or if there are up and down oscillations between them).</li>
+</ul>
+
+<hr id="HIDEHR" color="silver">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+<!-- PRJ: P751 - OWN: Rumeet -->
+ 
+
+<h2 id="HIDEH2"><a name="P751"></a>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7885">Define Section View</span> command</h2>
+
+<p id="HIDEP" style="margin-bottom:0;">The <span class="UI_OPTION" id="SectionView.msg+_SECTIONVIEW_LABEL_+11">Flip Section View Plane</span> check box has been introduced in the <a href="mk:@MSITStore:HELP.CHM::/language/view/FWfile/T_FW_vw_22.htm"><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+1">Define Section View</span></a> selection list.</p>
+
+<ul style="margin-top:0;">
+<li id="HIDELI">When selected, the section view is inverted along the section plane.</li>
+
+<li id="HIDELI">When cleared, the primary section view is displayed.</li>
+</ul>
+
+<hr id="HIDEHR" color="silver">
+<span id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></span><!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+<!-- PRJ: P749 - OWN: Valeria Naldi -->
+<h2><a name="P749"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span> command</h2>
+
+<p>The <span id="TWOD">three</span><span id="HIDETD">two</span> new <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+108">Scale</span> text boxes (<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+101">Scale X</span>, <span id="HIDETD">and</span> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+105">Scale Y</span><span id="TWOD">, and <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+106">Scale Z</span></span>) are displayed in the Graphics Area on selecting the <span id="TWOD">model</span><span id="HIDETD">drawing</span> by using the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Scale.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span></a> command. You can scale the model independently in the
+<SPAN id="TWOD"><b>X</b>, <b>Y</b>, and <b>Z</b></SPAN><SPAN id="HIDETD"><b>X</b> and <b>Y</b></SPAN> directions by entering the corresponding values in the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+101">Scale X</span>, <span id="HIDETD">and</span> <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+105">Scale Y</span> <span id="TWOD">and <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+106">Scale Z</span></span> text boxes, respectively.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+<!-- PRJ: Zoom entities - OWN: Paola Pastore  -->
+<h2><a name="Zoom"></a>Zoom using the entity selector in the selection list</h2>
+
+<p>Once an entity has been selected for a <i>selector</i> in the selection list, the context menu on that <i>selector</i> will have the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+191">Zoom entities</span> option. On selecting it, the entities selected for the <i>selector</i> will be zoomed in.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P437 - OWN: Mohan Rangasamy Raj Kamanaickenpalayam  -->
+<h2><a name="437"></a>Improvement in the <span class="UI_COMMAND_" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command</h2>
+
+<p>It is now possible to offset the curves without converting them into NURBS by using the <a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_07.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span></a> command.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: CCB16142 - OWN: Swati Laddha -->
+<h2><a name="CCB16142"></a>Enhancement in making <SPAN id="TWOD"><span class="UI_COMMAND_NOBOLD" id="idd_ms_search.msg+idd_ms_search+1">Search in Model Structure</span></SPAN><SPAN id="HIDETD">Search in Drawing Structure</SPAN></h2>
+
+<p>The <span class="UI_DROPDOWNITEM" id="idd_ms_search.msg+idd_ms_search+5+5">Warnings</span> option has been introduced in the <span class="UI_OPTION" id="idd_ms_search.msg+idd_ms_search+4">Search in:</span> drop-down list of the <span class="UI_COMMAND" id="idd_ms_search.msg+idd_ms_search+1">Search in Model Structure</span> dialog box. It enables you to make a search only within those features/entities that have warnings on them.
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+
+<h2 id="HIDEH2"><a name="filter"></a>Enhancement in the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box</h2>
+
+<p id="HIDEP">The following are the enhancements in the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box.</p>
+
+<ul>
+<li id="HIDELI">The <span class="UI_OPTION" id="idd_filters.msg+idd_filters+21">Component</span> check box has been introduced in the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+23">Inside</span> area. 
+
+<ul class="noleft">
+<li id="HIDELI">When selected, the components inside a component are selected.</li>
+
+<li id="HIDELI">When cleared, only the top level component is selectable.</li>
+</ul>
+</li>
+
+<li id="HIDELI"><a name="mat"></a>The <span class="UI_OPTION" id="idd_filters.msg+idd_filters+52">Material</span> drop-down list has been introduced in the <span class="UI_OPTION" id="idd_filters.msg+idd_filters+27">Attributes</span> area. This drop-down displays the materials applied on the model. It enables you to set the selection filter to a specific material, similar to that of color filter.</li>
+</ul>
+
+
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver" id="HIDEHR">
+<SPAN id="TWOD"><a href="#top"><img border="0" src="../../images/general/Top1.gif"></a></SPAN> <!-- END PRJ -->
+
+</body>
+</html>
+

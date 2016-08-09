@@ -1,0 +1,86 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>Propagation Limits</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span></h2>
+
+
+<p>The <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span> option is available in the selection list of the <a href="T_OV_ISM.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7897">Interactive Modeling</span></a> commands (except for <a href="../FWfile/T_FW_close_solid.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7899">Extend Faces/Close Solid</span></a>). This option assists in the face selection process.<br>
+
+<br>
+At times there can be multiple faces that radiate out from a single face. The <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span> option can be used to select all those face in a single step. Refer to the image shown below.</p>
+
+
+<table>
+<tr>
+<td><img src="../../../images/ISM/prop_limits.gif" border="1"></td>
+<td valign="bottom">
+<ol>
+<li>Top face</li>
+
+<li>Square slot</li>
+
+<li>Chamfer on square slot's top edge</li>
+
+<li>Circular slot</li>
+
+<li>Fillet on circular slot's top edge</li>
+
+<li>Bottom face</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>In the above situation all the numbered faces are radiating out from the bottom face as depicted by the red arrow.<br>
+<br>
+If the selection of the faces is done in the following manner</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td align="center"><img src="../../../images/ISM/prop_limits_selection-1.gif" border="1"></td>
+<td rowspan="2" align="center" valign="middle"><img src="../../../images/ISM/arrow-right.gif" border="0"></td>
+<td align="center"><img src="../../../images/ISM/prop_limits_selection-2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td width="200" align="center"><i>Bottom face</i> is selected for the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+1">Faces</span> selector</td>
+
+<td width="200" align="center"><i>Top face</i> is selected for the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span> selector</td>
+
+</tr>
+</table>
+
+<p>then all the intermediate faces will be included for the face selection and the command will be applied on all of them. Note that the command is not applied to the face that is selected for the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span>.</p>
+
+
+<p><a name="prop_limit">The face selected for the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+10">Propagation Limits</span> will act as the limiting face such that the command will be applied on all the faces lying between it and the face selected for the 
+<span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+1">Faces</span> selector.</a></p>
+
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../tocpages/EL_ISM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../tocpages/EL_ISM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Interactive Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

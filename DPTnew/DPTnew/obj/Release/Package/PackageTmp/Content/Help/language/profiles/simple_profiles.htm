@@ -1,0 +1,52 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+
+<META name="T_2009t1" content="translate">
+<TITLE>Create profiles as simple as possible</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY bgcolor="white">
+<H3>Create profiles as simple as possible</H3>
+<P>Keep in mind that the purpose of 2D profile geometry is to produce 3D features. Since every entity might need to be constrained, use the profile geometry to obtain the basic 3D solid, and add solid features where feasible. This will save time, provide a degree of freedom at the feature level, and will keep the profile light for future modifications on the model.</P>
+<P>Approach design tasks with the following in mind:</P>
+	<UL class="noleft">
+		<LI>Use <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_09_03.htm"><SPAN class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6311">Solid Fillet</SPAN></a> and 
+		<a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm"><SPAN class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+413">Hole</SPAN></a>
+features instead of 2D fillets and circles in the profile.<BR><BR></LI>
+		<LI>Don't keep two aligned segments/profiles. Delete one, and then trim the other one to the correct end.<BR><BR></LI>
+		<LI>Don't insert axis or reference lines if unnecessary. Provide these for necessary references for design tasks and not for those references that are usually associated in a 2D drawing, like a bore axis. Create the minimum, necessary, profile geometry so as to provide the greatest flexibility for future editing.<BR><BR><IMG border="1" src="images/profiles_15.gif"><BR><BR></LI>
+		<LI>Using features rather than a single complex profile provides much more control on the design of the part.<BR><BR><IMG border="1" src="images/profiles_16.gif"><BR><BR></LI>
+		<LI>This will keep profiles simpler. Moreover, a feature can be better controlled (using the 
+<a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_05.htm"><SPAN class="UI_OPTION" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+1207">Delete</SPAN> <b>Feature</b></a>
+,
+<a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_14.htm"><SPAN class="UI_OPTION" id="ButtonToolbar_History.msg+ButtonToolbar_History+1205">Deactivate</SPAN></a>
+and <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_06.htm"><SPAN class="UI_OPTION" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+1211">Redefine</SPAN><b>Feature</b></a>
+
+commands) than geometry within the profile.
+
+<BR><BR>However, if you feel you will not need to deal with future modifications or you wish greater control in locking features through 2D constraints, you can extrude a profile with all of the features in mind (i.e. hundreds of circles, isles, 2d fillets, etc.). This will allow VERY fast and effective geometry creation for design tasks. This is especially true when you already have the 2D geometry, as an example, a legacy drawing.</LI>
+	</UL>
+<P>See the following example.</P>
+	<OL class="noleft">
+		<LI>A 2d drawing is used to create a 3D model.<BR><BR>
+<P><IMG border="1" src="images/profiles_17.gif"><BR><BR></P></LI>
+		<LI>Here are the two 2D sections to be used. One is very complex, it contains hundreds of holes, slots.<BR><BR><IMG border="1" src="images/profiles_18.gif"><BR><BR></LI>
+		<LI>Just extrude both:<BR><BR><IMG border="1" src="images/profiles_19.gif"><BR><BR></LI>
+		<LI>The Boolean	<a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Intersection.htm"><SPAN class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+8">Intersect Solid</SPAN></a>
+feature will complete the job.<BR><BR><IMG border="1" src="images/profiles_20.gif"><BR><BR>To learn more on this, see <A href="valid_profiles.htm">Create valid 2D profiles for creating 3D models</A> and <A href="check_drawing.htm">If you are referencing an existing 2D drawing, check the drawing you are going to use for your profiles</A>.</LI>
+	</OL>
+<HR color="silver"><H5>Related Topics</H5>
+	<UL class="noleft">
+		<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><B>Rules for Profiles and Constraints</B></A></LI>
+	</UL>
+<HR color="silver">
+</BODY>
+</HTML>

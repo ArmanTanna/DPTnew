@@ -1,0 +1,114 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Creating a flange with user defined profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating a flange with user defined profile</h3>
+
+<p>The following illustration explains the procedure of creating a flange of user defined shape, which is obtained by editing the flange profile.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_Flange.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span></a> command and select an edge on which the flange is to be created.<br>
+<br>
+<img src="../../../images/sheetmetal/sketched_flange_01.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+138">Use Profile</span> check box in the selection list. The <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+139">Edit Profile</span> option substitutes the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+44">Length</span> option. Also, depending on the edge selected for creating the flange, the preview of a rectangular flange profile is visible.<br>
+<br>
+<img src="../../../images/sheetmetal/sketched_flange_02.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click on the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+139">Edit Profile</span> option, the <span class="UI_OPTION" id="eklib.msg+eklib+558">2D Profile</span> mode is invoked. Edit the flange profile to get the desired shape.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>The following points should be kept in mind while editing the flange profile:</b> <br>
+<ul>
+<li>The bottom curve of the profile should continue to coincide with the selected edge.</li>
+
+<li>The bottom curve of the profile can be extended beyond the length of the selected edge.</li>
+
+<li>The bottom curve of the profile can be shortened beyond the length of the selected edge.</li>
+
+<li>The profile has to be closed.</li>
+
+<li>The profile can contain internal closed loops.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li>Once the editing process is complete, click on the <span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span> tab to resume the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command. The edited flange profile is shown in the following figure.<br>
+<br>
+<img src="../../../images/sheetmetal/sketched_flange_03.gif" border="1"><br>
+<br>
+</li>
+
+<li>Apply the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command by clicking on the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> <img src="../../../images/general/Applybutton.gif" align="absmiddle"> button.<br>
+<br>
+<img src="../../../images/sheetmetal/sketched_flange_04.gif" border="1"></li>
+</ol>
+
+<p>On redefining the flange feature the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+138">Use Profile</span> option will be grayed out. Hence, it is not possible to substitute the existing flange profile with a new one. But, you can select the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+139">Edit Profile</span> option to edit the flange profile. Alternatively, you can right-click on the profile in the model structure, which is an integral part of the flange command, and select <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4869">Edit 2D Profile</span> from the context menu to edit it.<br>
+<br>
+<img src="../images/sketched_flange.gif" border="1"><br>
+<br>
+Following images show few more possibilities of using a modified flange profile.<br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="250"><img src="../../../images/sheetmetal/sketched_flange_07.gif" border="1"></td>
+<td width="220"><img src="../../../images/sheetmetal/sketched_flange_08.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td width="220">The profile contains internal closed loops</td>
+<td width="220">The profile is oriented by specifying the orientation angle</td>
+</tr>
+
+<tr valign="top">
+<td width="220"><br>
+<img src="../../../images/sheetmetal/sketched_flange_05.gif" border="1"></td>
+<td width="220"><br>
+<img src="../../../images/sheetmetal/sketched_flange_06.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td width="220">The bottom curve of the profile extends beyond the length of the selected edge</td>
+<td width="220">The bottom curve of the profile is shorter than the length of the selected edge</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Trimming with healing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 5;
+margin-bottom: 5;
+}
+.notop{margin-top:0;}
+.nobottom{margin-bottom:0;}
+.notopbot{margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft
+{
+margin-left: 26;
+margin-top: 5;
+margin-bottom: 5;
+}
+.five
+{
+
+margin-top: 5;
+margin-bottom: 5;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Trimming with healing</h3>
+
+<p class="nobottom">When using the <a href="../FWfile/T_FW_TrimWithLimits.htm"><b>Trim Surface with Limits</b></a> command in one of the following situations:</p>
+
+<ul class="noleft">
+<li class="five">The limiting curve(s) do(does) not reach the boundary of the surface(s).</li>
+
+<li class="five">The limiting set of curves does not form a chain.</li>
+</ul>
+
+<p style="margin-top:0;">you might not be satisfied with the result of automatic healing (that is: using the command with the <b>Mode</b> drop-down list set to <b>Automatic</b> under <b>Proximity Radius</b>). In this case you can manually override the automatic solution by imposing constraints in one of the following ways. See "<a href="../HWfile/T_HW_TrimLimitOptions.htm">Using the Proximity Radius, Manual Repair and Advanced Options</a>" for details on the use of the options.</p>
+
+<p style="margin-bottom:0;">Here are the <i>healing</i> operations you can perform:</p>
+
+<ol class="litleft">
+<li class="five">Exclude one or more dead chain ends from the automatic solution (<b>Ignore dead ends</b>). This may be needed because you want to heal certain dead ends manually (note that the automatic healing may insert curves, trim the curves back, etc.), and the method the automatic algorithm chooses for healing may not be good enough for you.<br>
+Another reason may be that a curve does not need healing at all (that is: it is a superfluous curve), as shown in the example used in the description of the <a href="../HWfile/T_HW_TrimLimitOptions.htm#IDE"><b>Ignore dead ends</b></a> option).</li>
+
+<li class="five">Force to connect two dead chain endpoints (<b>Join dead ends</b>). This method may be needed when there are a few dead ends close to each other (in terms of the selected <b>Proximity Value</b>), or if the connection you need is <i>not</i> to the closest dead endpoint. Just think of a street corner where 4 roads meet: the possible connections are where one may pass the crossing (straight, left, right).</li>
+
+<li class="five">Force to connect a dead chain endpoint to a surface vertex.</li>
+
+<li class="five">Force to connect a dead chain endpoint to a surface boundary. This method and the previous one are needed when the dead end must be connected to the surface boundary, for example when a contiguous chain over a set of patches is to be created.</li>
+</ol>
+
+<p>Methods 2, 3 and 4 require that a dead chain endpoint is identified first. After that, all dead ends are activated for picking, as well as the surface vertices and edges. One can select any of these to create a constraint. Also patch surface can be picked. 
+</p>
+
+<hr color="silver">
+</body>
+</html>
+

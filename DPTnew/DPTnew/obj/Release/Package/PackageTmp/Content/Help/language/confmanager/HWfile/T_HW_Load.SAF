@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Job: Loading a configuration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Loading a configuration</h3>
+
+<p>Prerequisite for this job is to perform <a href="T_HW_Save.htm"><b>Save a configuration</b></a> job.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+All the Configuration Manager functionalities can be accessed from <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+1667">Tools</span><img src="../../images/general/litarr2.gif"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span><img src="../../images/general/litarr2.gif">..., when no document is open.</td>
+</tr>
+</table>
+
+<br>
+<ol>
+<li>Start the <a href="../FWfile/T_FW_Load.htm"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7278">Load</span></a> command. A browser window will be displayed, as shown in the figure.<br>
+<br>
+<img src="../images/configuration_manager_3.gif"><br>
+<br>
+</li>
+
+<li>Enter <b>Sample.t3c</b> for <b>File name</b> or select it from the browser window.<br>
+<br>
+</li>
+
+<li>Click <b>Open</b> to load the selected configuration. <a name="reset"></a>The program prompts for an explicit Reset operation, as shown in the image below:<br>
+<br>
+<img src="../images/Load_warn1.gif" border="1"><br>
+When you select <b>Yes</b> or <b>No</b>, the following warning message is displayed, <i>"To apply the loaded configuration, exit from <img src="../../../images/company/thinkdesignPath_I.gif" align="middle"> and start it again. Exit now?"</i><br>
+<br>
+
+ 
+
+<ul>
+<li>When you click <b>Yes</b>, the program first resets the current configuration and then applies the loaded new configuration on re-starting the application. (Here the Reset functionality allows you to realize the switch occurring from the current to the loaded configuration).</li>
+
+<li>When you click <b>No</b>, the program overwrites the current configuration with the new configuration settings.</li>
+</ul>
+
+<br>
+<br>
+</li>
+
+<li>Click <b>Yes</b>, to exit the application and load the new configuration.<br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

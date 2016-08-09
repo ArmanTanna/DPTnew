@@ -1,0 +1,322 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Work Plane Enhancements and Improvements</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>Work Plane Enhancements and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following enhancements to the Work Plane editing and management.</p>
+
+<ul class="noleft">
+<li><a href="#WP-display">Enhancement in the Work Plane visualization</a></li>
+
+<li><a href="#P0000260">Enhancement in the Work Plane editing techniques</a></li>
+
+<li><a href="#on_entity">The new <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> command</a></li>
+
+<li><a href="#move">Enhancement in the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4470">Move</span> command</a></li>
+
+<li><a href="#X-align">Enhancement in the <span class="OLD" style="font-weight:normal">Align to X</span> command</a></li>
+
+<li><a href="#Z-align">Enhancement in the <span class="OLD" style="font-weight:normal">Align to Z</span> command</a></li>
+
+<li><a href="#face">Enhancement in the <span class="OLD" style="font-weight:normal">Set on Face</span> command</a></li>
+
+<li><a href="#quick_edit">Quick editing of Work Plane by the new <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> command</a></li>
+
+<li><a href="#ELVIRA">Enhancements in the general method for axis, line and direction definition</a></li>
+
+<li><a href="#Plane">Enhancements in the general method for plane definition</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<h2><a name="WP-display">Enhancement in the Work Plane visualization</a></h2>
+
+<p>From this version onwards it is possible to visualize all the three coordinate planes on the Graphics Area, as shown in the image below.<br>
+<br>
+<img src="../../images/Options/3planes.gif" border="1"><br>
+<br>
+The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1719">3 planes</span> option under <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1716">Planes</span> area of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1753">Reference Systems</span> - <a href="OPS.htm#appear"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1755">Appearance</span></a> category in <span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span> controls the display of the three planes. The XY-plane is the Work Plane.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P260 - OWN: MABO -->
+<h2><a name="P0000260">Enhancement in the Work Plane editing techniques</a></h2>
+
+<p>The Work Plane editing methodology has been changed in this version. Previously the <span class="OLD">Edit Work Plane</span> dialog box was used to define the various parameters for Work Plane positioning. Now this dialog box is no longer available. However, with the enhancements made in this version, new commands have been introduced and the functionality of many existing commands has been augmented to perform all kinds of Work Plane editing, that too in a more intuitive manner.</p>
+
+<br>
+<p>The following Work Plane editing commands present in previous versions of the <b>think<font color="#FF0F00">3</font></b> application will no longer be available henceforth.</p>
+
+<ul>
+<li><span class="OLD">Edit</span></li>
+
+<li><span class="OLD">Point on Face</span></li>
+
+<li><span class="OLD">Set on Profile</span></li>
+
+<li><span class="OLD">On Curve</span></li>
+
+<li><span class="OLD">On Surface</span></li>
+
+<li><span class="OLD">On Point</span></li>
+
+<li><span class="OLD">Exchange Y with Z</span></li>
+</ul>
+
+<br>
+<p>Instead you can make use of the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> or the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> commands to get the required result.</p>
+
+<br>
+<p>Also note that the labels of the following Work Plane editing commands have been changed:</p>
+
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td width="100"><b><u>Old name</u></b></td>
+<td><b><u>New name</u></b></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Set to World</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1595">On Absolute Reference System (World)</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Set on View</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1597">On View</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Set on Face</span></td>
+<td><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7900">On Face or Datum Plane</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Set on Profile</span></td>
+<td><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1601">On Profile</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Align to X</span></td>
+<td><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1611">Align X-Axis</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Align to Z</span></td>
+<td><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1617">Align Z-Axis</span></td>
+</tr>
+</table>
+
+<br>
+<p>The display and appearance of the Work Plane are now controlled by the options of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> - <a href="OPS.htm#ref_sys"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1753">Reference Systems</span></a> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1753">Reference Systems</span> - <a href="OPS.htm#appear"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1755">Appearance</span></a> categories. Previously they were controlled by the options in the <span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span> - <a href="OPS.htm#WP"><span class="OLD">Work Plane</span></a> category, which has been removed henceforth.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The Work Plane is now always visible during the redefinition of a "feature" that used a Work Plane element for its creation. (For example, the Work Plane axis could have been used to define the direction during a command's execution.) This way you can get the proper feedback (highlight) on the used Work Plane element.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="on_entity">The new <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> command</a></h2>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> command enables you to position the Work Plane over a selected entity. This command can be started in the following three ways:</p>
+
+<ul>
+<li>Selecting <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span></li>
+
+<li>Double clicking on the Work Plane</li>
+
+<li>Selecting the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4714">On Entity</span> option from the context menu displayed by right clicking on the Work Plane</li>
+</ul>
+
+<br>
+<p>After starting the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span> command you need to select an entity that can be profile, line, curve, surface, face or datum plane. Depending on the entity selected, additional options in the selection list will be displayed to define the origin and orientation of the Work Plane.<br>
+<br>
+<img src="images/WP_SL.gif" border="1"><br>
+<br>
+On selecting the <span class="UI_OPTION" id="TDWorkPlaneUI.msg+_TDWorkPlaneUI_LABEL_+23">Associative Mode</span> check box, the Work Plane becomes associative with the entity that was selected to position it (only if the selected entities are associative). In such a situation, if the selected entity is transformed, the Work Plane also gets repositioned accordingly.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+You can select a curve inside a 2D profile to define the Work Plane only if the <a href="Sketcher.htm#autosnap"><span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3051">2D Profiles</span></a> check box is selected in the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3061">Inside</span> area of the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3034">Customize AutoSnap</span> dialog box.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="move">Enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4470">Move</span> command</a></h2>
+
+<p>On starting the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4470">Move</span>, the origin of the Work Plane gets selected. Now you just need to select another point to move the origin to it. You can also drag the origin to a new location. Note that while the origin of the Work Plane moves to the new point, the orientation of the Work Plane does not change. Once the Work Plane is moved, you exit the command automatically.</p>
+
+<br>
+<p>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+5569">Move</span> command can also be accessed from the context menu displayed by right clicking on the Work Plane.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="X-align">Enhancement in the <span class="OLD">Align to X</span> command</a></h2>
+
+<p>From this version the <span class="OLD">Align to X</span> command is now termed as <span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1611">Align X-Axis</span>. After starting the command you need to pick a direction to align the <i>X-axis</i> in the same direction. This can be done in two ways:</p>
+
+<br>
+<ul>
+<li>By selecting a straight entity that can be either a line or an edge.</li>
+
+<li>By selecting a point. In this case the direction is specified by the virtual line joining the Work Plane origin and the projection of the selected point on the Work Plane.</li>
+</ul>
+
+<br>
+<p>Note that while the <i>X-axis</i> of the Work Plane is realigned with the specified direction, the position of the Work Plane does not change.</p>
+
+<br>
+ 
+
+<p>The <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+5568">Align X-Axis</span> command can also be accessed from the context menu displayed by right clicking on the Work Plane.</p>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><b>Note</b> <br>
+In case you select an entity such that the <i>X-axis</i> cannot be aligned with it, you will receive a warning. This will happen if you try to select a straight line that is aligned with the <i>Z-axis</i>.</td>
+<td><img src="images/WP_warning.gif"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### --> 
+
+<h2><a name="Z-align">Enhancement in the <span class="OLD">Align to Z</span> command</a></h2>
+
+<p>From this version the <span class="OLD">Align to Z</span> command is now termed as <span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1617">Align Z-Axis</span>. After starting the command you need to pick a direction to align the <i>Z-axis</i> in the same direction. This can be done by selecting a straight entity that can be either a line or an edge.</p>
+
+<br>
+<p>After the <i>Z-axis</i> has been aligned, you can optionally align also the <i>X-axis</i> by selecting a line or a point, as described in the <a href="#X-align">previous topic</a>. If you don't want to align the <i>X-axis</i>, press the <b>ESC</b> key to quit the command.</p>
+
+<br>
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1617">Align Z-Axis</span> command can also be accessed from the context menu displayed by right clicking on the Work Plane.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### --> 
+
+<h2>Enhancement in the <span class="OLD">Set on Face</span> command</h2>
+
+<p>From this version the <span class="OLD">Set on Face</span> command is now termed as <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7900">On Face or Datum Plane</span>. As the new name suggests, this command now allows you to not only set the Work Plane on a selected face but also on a Datum Plane.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="quick_edit">Quick editing of Work Plane by the new <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> command</a></h2>
+
+<p>A new <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> command has been introduced in this version. This command enables you to quickly reorient and reposition the Work Plane. This command can also be started just by clicking on the Work Plane or by pressing <b>Q</b> on the keyboard.</p>
+
+<br>
+<p>On starting the <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> command, translation <img src="../../images/rn_2008T1/WP_trans_handle.gif" align="absmiddle"> and rotation <img src="../../images/rn_2008T1/WP_rot_handle.gif" align="absmiddle"> markers are displayed over each axis, and can be effectively used to transform the Work Plane.</p>
+
+<br>
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span> command is very versatile and offers you numerous methods to transform the Work Plane. Refer to the command description in the Online Documentation for details.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### --> <!-- PRJ: BRISA - OWN: ELDO --> 
+
+<h2><a name="ELVIRA"></a>Enhancements in the general method for axis, line and direction definition</h2>
+
+<p>There are several methods to define a line, an axis or a direction, as stated in the "How to Define an Axis or a Line" document of the online help. Usually this is done by selecting a straight entity. At times, the program supports the selection of the coordinate axis as the straight entity. In previous versions, the coordinate axis selection in such situations was possible only by the explicit use of the <b>X</b>, <b>Y</b>, <b>Z</b> options from the direction/axis definition drop-down list.<br>
+<br>
+With the enhancement made in this version it is now possible to select the axes of the Work Plane as the straight entity by directly clicking on them in the coordinate axes symbol displayed over the Work Plane (see the command <span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+191">Show Work Plane</span>). To do so, choose the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> option (instead of <b>X</b>, <b>Y</b>, <b>Z</b>) from the drop-down list and then click on one of the axes, as displayed in the image below.<br>
+<br>
+<img border="1" src="../HWfile/images/WPSelectAxis.gif"><br>
+<br>
+In this case, the direction is defined as the line parallel to the selected axis and passing through the origin of the coordinate system. However, you can change the origin by resetting the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span> selector and specifying another point the line must pass through, though retaining its direction.<br>
+<br>
+ Nevertheless, the method used in former versions is still available. A new <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1761">Set direction/axes using X, Y, Z</span> check box has been added to the <a href="OPS.htm#CCB7097"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+57">Input</span></a> category of the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span> so as to enable you to choose the method you feel more comfortable with.</p>
+
+<br>
+ 
+<ul>
+<li>When the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1761">Set direction/axes using X, Y, Z</span> check box is selected, the direction/axis definition drop-down list will still contain the <b>X</b>, <b>Y</b>, <b>Z</b> or (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span>) options, with the same behavior as in former versions. Also, the interactive modality (direct pick of coordinate axes) will be possible.<br>
+<br>
+</li>
+
+<li>When the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1761">Set direction/axes using X, Y, Z</span> check box is NOT selected, the direction/axis definition can be done only by direct selection (clicking the coordinate axis after selecting the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> option). In this case the drop-down list will not include the <b>X</b>, <b>Y</b>, <b>Z</b> options. Yet, once an axis has been selected, its corresponding letter <b>(X)</b>, <b>(Y)</b>, <b>(Z)</b> will be displayed adjacent to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span>.</li>
+</ul>
+
+<br>
+<p>(See also another example for the definition of a direction: "<a href="Curves.htm#YAXIS">New <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command</a>")</p>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="plane">Enhancements in the general method for plane definition</a></h2>
+
+<p>To execute some commands you need to define a plane. From this version onwards, apart from selecting a <i>planar face</i> or <i>datum plane</i>, it is possible to select one of the <a href="#WP-display">three coordinate planes</a> for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span> selector.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+</body>
+</html>
+

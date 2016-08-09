@@ -1,0 +1,247 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Defining the shape of the initial surface</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Defining the shape of the initial surface</h3>
+
+<p>When using the <a href="../FWfile/T_FW_Capping.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span></a> command to create a filling surface, in some particular situations the result you get&nbsp;&#151;&nbsp;when the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is set to its default value: 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+138">Automatic</span>&nbsp;&#151;&nbsp;may differ from the one you expect. By properly selecting the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> value, you can control such situations obtaining the desired result.</p>
+
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list enables you to select the best type of surface for your goals:<br>
+
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="85"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+138">Automatic</span></td>
+
+<td>the program automatically chooses the best type of filling surface among (portions of) a plane, a cylinder or a sphere.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span></td>
+
+<td>the surface that will be used is a portion of a plane to be defined using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list which shows up as soon as you select the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span> option. For details on the plane definition method, see "
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>".</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span></td>
+
+<td>the surface will be defined as a cylinder. You can define: 
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).</li>
+
+
+<li>The radius, by selecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+143">Radius</span> check box (which shows up as soon as you click on 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span>) and typing the value into the adjacent box. The default value is displayed when you select the check box for the first time.</li>
+
+
+<li>The orientation of the surface, by selecting/deselecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+34">Invert</span> check box, displayed as soon as you click on 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span>.</li>
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span></td>
+
+<td>the surface will be defined as a sphere. You can define: 
+
+<ul class="noleft">
+<li>The center.</li>
+
+<li>A <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details) which can be used to define the axis between the poles of the sphere, thus defining the directions of the u and v isoparametric curves of the surface. Using this option, you can control the alignment of the isoparametric curves, avoiding undesired rotations.</li>
+
+
+<li>The radius, by selecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+143">Radius</span> check box and typing the value into the adjacent box.</li>
+
+
+<li>The orientation of the surface, by selecting/deselecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+34">Invert</span> check box.</li>
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+148">Saddle curvature</span></td>
+
+<td>the surface will be defined as a torus. You can define: 
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> of rotation of the torus (see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>" for details) and its 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>.</li>
+
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+197">Inner radius</span>, by selecting the corresponding check box and typing the value into the adjacent box.</li>
+
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+196">Section radius</span>, also in this case by selecting the corresponding check box and typing the value into the adjacent box.</li>
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+149">Existing surface</span></td>
+
+<td>the surface that will be used is an existing one to be selected (a specific <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+21">Surface</span> item is displayed in the selection list). You will also have to select a 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+208">Projection type</span> suitable for the surface you selected. Final results depend on the chosen projection type and on the corresponding direction. Available projection types are the following: 
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span>&nbsp;&#151;&nbsp;a common direction of projection is used.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/PT-flat.gif"><br>
+<br>
+This method implies selecting the direction of projection, an <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span><br>
+
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span>&nbsp;&#151;&nbsp;a spherical projection is used.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/PT-docubelcurvature.gif"><br>
+<br>
+This method implies selecting the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+147">Point</span> to be used as the center of the sphere.<br>
+
+&nbsp;</li>
+
+<li><span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span>&nbsp;&#151;&nbsp;a cylindrical projection is used.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/PT-singlecurvature.gif"><br>
+<br>
+This method implies selecting the <span class="UI_SELECTOR" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>(see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>" for details).<br>
+
+&nbsp;</li>
+
+<li><span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span>&nbsp;&#151;&nbsp;a normal projection is used. The normal to the surface at each point of the surface defines the direction of projection.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/PT-normal.gif"></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>The following is an example of a typical situation in which the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+138">Automatic</span> choice is not appropriate.</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Suppose you have a set of curves like the ones in the following illustration, to be joined by a surface using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command. After starting the command select all the curves using a window selection.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/CPS-01.gif"><br>
+<br>
+You might reasonably expect the shape of the resulting surface to be cylindrical. Once the curves have been selected, leave constraints to their default values. <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Click the preview button ( <img src="../../../images/general/preview.gif" align="middle">) to display a preview. The result you get is really different from the one you expected:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CPS-03.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>To obtain a good result, click on <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to expand and select 
+<span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span> in the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list. Click on the 
+<span class="UI_SELECTOR" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> item in the selection list. The 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+143">Radius</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+34">Invert</span> check boxes show up in the model. Select 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+34">Invert</span>.<br>
+
+<br>
+<img border="1" src="../images/CPS-04.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click the preview button ( <img src="../../../images/general/preview.gif" align="middle">) to display a preview. The result you get now is the one you expected:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CPS-05.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and modify the shape of the object.<br>
+<br>
+<img border="1" src="../../../images/surfaces/CPS-06.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_Capping_Existings.htm"><b>Creating a capping surface starting from an existing surface</b></a></li>
+
+<li><a href="../OVfile/T_OV_CappingWarnings.htm"><b>Warnings of the Capping command related to incompatibilities</b></a></li>
+
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMChecking.htm"><b>Checking your results</b></a></li>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

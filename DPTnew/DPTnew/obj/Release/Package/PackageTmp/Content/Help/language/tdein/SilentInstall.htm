@@ -1,0 +1,95 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<meta name="T_2013t1" content="translate">
+	<meta name="Revisor" content="Stefania Fortuzzi">
+	<title>Silent Installation</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+<h2>Silent Installation</h2>
+
+<p>A silent installation is a typical requirement of organizations, where background processes without any user interaction can be arranged. Infact it does not need a user to monitor the installation or to provide input via dialog boxes</p>
+<p>A silent installation runs on its own from a shared location, without any user interaction.</p>
+<p>The main steps are:</p>
+<ol>
+<li>Record</li>
+<li>Playback</li>
+</ol>
+<p>It will perform the first step once, and the others as many times as the number ofPCs on which you must repeat the installation</p>
+<table border="1" bgcolor="#ffffe1">
+<tr>
+<td class="noteme"><b>Note</b>
+<p>The Operating System used for the registration must be the same as the one used for the play back.
+</td>
+</tr>
+</table>
+<br>
+<hr color="silver">
+<h5>Record</h5>
+<p>The goal of recording an installation is to create the "Response File". </p>
+<p>A normal (non-silent) installation receives the necessary input from the user. On the contrary a silent installation does not prompt the user for input: it reads the necessary input from "Response File". </p>
+<p>To record an installation do the following:</p>
+
+<ul>
+<li>Select  <b>Start<img src="../../images/general/litarr.gif">Accessories<img src="../../images/general/litarr.gif">Run</b>
+</li>
+
+<li>In the <b>Open</b> box of the <b>Run</b> dialog box type:
+<br> 
+<tt>"<i>Installation_image</i>\<img src="../../images/company/thinkDesignPath_C.gif" border="0" align="middle">\setup.exe" /r</tt>
+<br>and hit the <b>ENTER</b> key or select <b>OK</b>
+</li>
+<li>Perform the usual installation.</li>
+</ul>
+<p>In the "C:\Windows" folder you will find the response file: <b>setup.iss</b>.<!--  You can change the location and the name of this file by adding the <b>/f1</b> key in the run string, for example:<br><br>
+<tt>"<i>Installation_image</i>\<img src="../../images/company/thinkDesignPath_C.gif" border="0" align="middle">\setup.exe" /r/f1"<i>Installation_image</i>\TDsetup.iss"</tt><br> -->
+</p>
+<p>The response file contains an ASCII text, you can read it with a plain text editor. It is strongly suggested not to change it.</p>
+<hr color="silver">
+<h5>Playback</h5>
+<p>To perform the silent installation, you have to share the <i>Installation_image</i> folder and then in the <b>Run</b> dialog box type the run string<br><br>
+<tt>"<i>Installation_image</i>\<img src="../../images/company/thinkDesignPath_C.gif" border="0" align="middle">\setup.exe" /s&nbsp;/f1&nbsp;"<i>Installation_image</i>\TDsetup.iss"</tt>
+</p>
+<p>For playback the use of the <b>/f1</b> key is mandatory. It is not mandatory to use <b>/f1</b> in playback if <b>setup.iss</b> is in the <tt>.../thinkdesign/</tt> folder where the right <b>setup.exe</b> is. You need it only to specify the location of the iss file if it is different.</p>
+<p>In order to verify the installation result, you can read the <b>setup.log</b> file created by default in the same folder of <b>setup.exe</b>.</p> 
+<p>You can change the location and the name of the log file by adding the <b>/f2</b> key in the run string, for example:<br><br>
+<tt>"<i>Installation_image</i>\<img src="../../images/company/thinkDesignPath_C.gif" border="0" align="middle">\setup.exe" /s&nbsp;/f2&nbsp;"C:/temp/TDlog.log"</tt>
+</p>
+<p>In the following table the error codes and their short descriptions</p>
+<br>
+<table  border="1">
+<tr><td>
+Code</td><td>Error Description</td></tr>
+<tr><td>&nbsp;&nbsp;0</td><td>Success</td></tr>
+<tr><td>&nbsp;-1</td><td>General error</td></tr>
+<tr><td>&nbsp;-2</td><td>Invalid mode</td></tr>
+<tr><td>&nbsp;-3</td><td>Required data not found in the Setup.iss file</td></tr>
+<tr><td>&nbsp;-4</td><td>Not enough memory available</td></tr>
+<tr><td>&nbsp;-5</td><td>File does not exist</td></tr>
+<tr><td>&nbsp;-6</td><td>Cannot write to the response file</td></tr>
+<tr><td>&nbsp;-7</td><td>Unable to write to the log file</td></tr>
+<tr><td>&nbsp;-8</td><td>Invalid path to the InstallShield Silent response file</td></tr>
+<tr><td>&nbsp;-9</td><td>Not a valid list type (string or number)</td></tr>
+<tr><td>-10</td><td>Data type is invalid</td></tr>
+<tr><td>-11</td><td>Unknown error during setup</td></tr>
+<tr><td>-12</td><td>Dialog boxes are out of order</td></tr>
+<tr><td>-51</td><td>Cannot create the specified folder</td></tr>
+<tr><td>-52</td><td>Cannot access the specified file or folder</td></tr>
+<tr><td>-53</td><td>Invalid option selected</td></tr>
+
+</table>
+<hr color="silver">
+</body>
+</html>

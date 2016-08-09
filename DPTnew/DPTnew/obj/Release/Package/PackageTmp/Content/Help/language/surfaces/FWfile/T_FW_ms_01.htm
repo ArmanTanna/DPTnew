@@ -1,0 +1,135 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(505,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Continuity (Surface)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script> -->
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1163">Continuity</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+215">Surface Continuity</span> command applies positional or tangency continuity to two surfaces. You can also apply positional continuity between a surface and a curve so that one of the boundaries of the surface coincides with the curve.</p>
+
+<p style="margin-bottom:0;">You will be able to select the continuity <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+205">Degree:</span> to be applied:</p>
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+208">Positional</span></li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+57">Tangency</span></li>
+</ul>
+
+<p style="margin-bottom:0;">Three methods are available in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+147">Method</span> drop-down list:</p>
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+209">Fit reference surface</span></li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+210">Adjust both</span></li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+211">Change boundary and adjust both</span></li>
+</ul>
+
+<p>The meaning of the methods slightly differs depending on the selected <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+205">Degree:</span>. Further parameters are available to customize results (<i>for details see the step-by-step examples listed below</i>).</p>
+
+<ul class="noleft">
+<li><a name="Positional"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+208">Positional</span><br>
+ The three methods you can select in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+147">Method</span> drop-down list have the following meanings: 
+
+<ul class="noleft">
+<li><a name="Positional_FitReference"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+209">Fit reference surface</span>&nbsp;&#151;&nbsp;a curve or a surface (indicated through <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+207">Reference curve or surface</span>) is not affected by the change while the surface indicated through <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span> is modified by moving one of its boundary so as to make it match the reference entity. The match can be restricted to the part corresponding to the reference entity (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span>) or extended to the entire boundary (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+213">Match boundary</span>) depending on the selected <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+204">Scope:</span>.</li>
+
+<li><a name="Positional_AdjustBoth"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+210">Adjust both</span>&nbsp;&#151;&nbsp;both surfaces (the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span> item is displayed twice in the selection list) are changed proportionally to the <i>weights</i> you assign them (in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+6">1st Weight</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+7">2nd Weight</span> mini-dialog boxes showed up by the application on the two surfaces), which are values in the range [0,1]: the higher the value of the weight, the more affected by the corresponding surface the resulting surface will be.</li>
+
+<li><a name="Positional_ChangeBoundary"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+211">Change boundary and adjust both</span>&nbsp;&#151;&nbsp;this method enables you to change the boundary to which continuity must be applied once that you have already selected the two surfaces. The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span> item turns to red in the selection list and you can perform selection again.</li>
+</ul>
+
+<br>
+</li>
+
+<li><a name="Tangency"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+57">Tangency</span><br>
+ Tangency continuity can be applied to surfaces already positionally continuous.<br>
+The three methods you can select in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+147">Method</span> drop-down list have the following meanings: 
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li><a name="Tangency_FitReference"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+209">Fit reference surface</span>&nbsp;&#151;&nbsp;a curve or a surface (indicated through <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+207">Reference curve or surface</span>) is not affected by the change while the change is applied to the surface indicated through <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span>. A <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+140">Propagation:</span> mini-dialog box displayed by the application on the common boundary enables you to define the propagation factor of the surface. The propagation factor is a value in the range [0,1] controlling the extent to which the change is distributed over the surface. The higher the propagation value, the more the change extends to the rest of the surface, starting from the involved boundary. 0 inhibits propagation, 1 extends the change to the whole surface. The modification can be restricted to the part corresponding to the reference entity (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span>) or extended to the entire boundary (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+213">Match boundary</span>) depending on the selected <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+204">Scope:</span>.</li>
+
+<li><a name="Tangency_AdjustBoth"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+210">Adjust both</span>&nbsp;&#151;&nbsp;both surfaces (the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span> item is displayed twice in the selection list) are changed proportionally to the <i>weights</i> you assign them (in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+6">1st Weight</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+7">2nd Weight</span> mini-dialog boxes showed up by the application on the two surfaces), which are values in the range [0,1]: the higher the value of the weight, the more affected by the corresponding surface the resulting surface will be. In addition, you can set propagation factors for both surfaces (in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+141">1st Propagation</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+142">2nd Propagation</span> mini-dialog boxes displayed by the application on the two surfaces). The higher the propagation value for each surface, the more the change extends to the rest of the surface, starting from the involved boundary. 0 inhibits propagation, 1 extends the change to the whole surface.<br>
+ Applying tangency continuity modifies the portion of the second selected surface closest to the boundary shared with the other surface. The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+149">Scale:</span> factor controls the amount by which that portion of surface is modified. It must be a value greater than 0. The higher the value, the more evident the change in the portion of surface.</li>
+
+<li><a name="Tangency_ChangeBoudary"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+211">Change boundary and adjust both</span>&nbsp;&#151;&nbsp;this method enables you to change the boundary to which continuity must be applied once that you have already selected the two surfaces. The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+191">Surface to Be Modified</span> item turns to red in the selection list and you can perform selection again.</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="CheckContinuity"></a>By clicking the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+120">Check Continuity</span> node under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> you can check continuity values such as maximum distance, mean square distance, maximum angle of tangents with common direction, maximum and minimum normal angle and maximum and minimum curvature difference.</p>
+
+<p>If the selected surfaces are specialized surfaces, a confirmation is required for their conversion to NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>).</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
+
+
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7559">Advanced Surface Continuity</span><br>
+ Please note that by using the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_AdvancedContinuity.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7559">Advanced Surface Continuity</span></a> command you can apply continuity up to the <i>curvature</i> type also between sets of consecutive surface boundaries and/or curves.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ms_01_positional.htm"><b>Apply Positional Continuity to two separate surfaces</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_01_tangency.htm"><b>Apply Tangency Continuity to two surfaces</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ContinuityMethod.htm"><b>Setting the continuity method</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_01_LocalGlobal.htm"><b>Applying continuity locally or to a whole boundary</b></a></li>
+
+<li><a href="../HWfile/T_HW_Continuity_Check.htm"><b>Checking continuity data</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

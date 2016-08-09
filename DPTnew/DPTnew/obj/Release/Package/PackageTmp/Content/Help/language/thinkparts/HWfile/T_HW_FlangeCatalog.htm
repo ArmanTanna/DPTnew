@@ -1,0 +1,73 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10006,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<script language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+	 return true;
+}
+window.onerror = errorHandler;
+</script>
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating a new catalog of flanges</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body onload="viaMk();"  BGCOLOR="white">
+
+<h4>Creating a new catalog of flanges</h4>
+
+<A name="top"></A> 
+
+<p>In this example of the usage of the <a href="../FWfile/T_FW_CreatePartFamily.htm"><b>Create Part Family</b></a> command, you have a model of a flange from which you want to create a catalog of flanges of different diameters.
+</p>
+
+<p><IMG border=1 SRC="../../../images/thinkparts/flange.gif"></p>
+
+<p>Prerequisite to this procedure is the availability of a <b>think<font color="#FF0F00">3</font></b> application licence and the installation of <b>thinkparts</b>. A model (a flange in our example) must be open in the <b>think<font color="#FF0F00">3</font></b> application.
+</p>
+
+<p>These are the steps necessary to accomplish the task: 
+</p>
+
+<ol>
+	<li>Rotate the model so that it looks nicely; this view will be captured to obtain the catalog preview. It is also a good idea to hide all dimensions leaving just the ones that correspond to independent variables, as these will be the part attributes.</li>
+	<li>Start the <b>Tools</b> <img src="../../../images/general/litarr.gif"> <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><b>Spreadsheet</b></a> to enter the following variables and assign them to the relevant dimensions:<br>
+
+<IMG SRC="../images/tpl01_04.gif"><br></li>
+	<li>Start the <b>Tools</b> <img src="../../../images/general/litarr.gif"> <a href="../FWfile/T_FW_CreatePartFamily.htm"><b>Create Part Family</b></a> command and enter the following information in the relevant fields:<br>
+		<table border="0" bordercolor="navy">
+		<tr valign="top">
+			<td class="hea"><b>Name</b></td>
+			<td>FLANGE</td>
+		</tr>
+		<tr valign="top">
+			<td class="hea"><b>Description</b></td>
+			<td>Flanges</td>
+		</tr>
+		<tr valign="top">
+			<td class="hea"><b>Part description</b></td>
+			<td>Flange of diameter &lt;d&gt;</td>
+		</tr>
+		</table>
+		Press <b>OK</b> when you are ready to create the catalog.</li>
+	<li>Open the <a href="../FWfile/T_FW_CatBrowser.htm"><b>Catalog Browser</b></a>, if necessary, and verify that the <b>Part Family</b> index has been created and that it contains the <b>Flanges</b> catalog.</li>
+	<li>You are now enabled to use <a href="../FWfile/T_FW_EditValues.htm"><b>Edit Values</b></a> to add new parts to your catalog.</li>
+</ol>
+
+<HR color="silver">
+</BODY>
+</HTML>

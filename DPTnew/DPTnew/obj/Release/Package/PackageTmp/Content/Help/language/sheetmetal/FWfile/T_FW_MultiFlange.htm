@@ -1,0 +1,107 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(3880,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2016t1" content="translate">
+<meta name="Author" content="NIBI">
+<title>Multi Flange</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../../images/general/litarr.gif"> Multi Flange </p>
+<hr color="#63a9d8">
+<br><br>
+
+<p><a name="#EDG"></a>The <b>Multi Flange</b> command enables you to add multiple flanges to a sheetmetal on its linear edges selected for the <b>Edges</b> selector.
+<br><br>
+<img border=1 src="../images/MF01.jpg">
+<br><br>
+</p>
+At the same time, you can select separate chains with discontinuity points, and they will be correctly managed by the command with the proper miter gaps.<br>&nbsp;</p>
+
+<h4 style="margin-bottom:2;">Input method</h4>
+<p style="margin-top:0;">The input method is very similar to the one of the <a href="T_FW_Flange.htm"><b>Flange</b></a> command. Obviously, selection of multiple edges is allowed.<br><br>
+Edges can also be separated ones, and can be selected one by one. The following illustrations show some simple situations that may actually occur.<BR><BR><IMG border=1 SRC="../images/input01.png">
+<IMG border=1 SRC="../images/input02.png"><IMG border=1 SRC="../images/input03.png"><IMG border=1 SRC="../images/input04.png"><br><br></p>
+<p>The length of all the created flanges will be the same for all and it can be input numerically or dragged using the proper handle.<BR><BR><IMG border=1 SRC="../images/length01.png"><br><br></p>
+
+
+<p>Miter gaps are possible, in order to obtain symmetric flanges. Using miter gaps is similar to tear corner reliefs. When the miter is selected, it is obviously not possible to have corner reliefs.<br>
+If the miter gap is selected, the intersection of flanges is avoided by maintaining the miter gap and also by auto-adjusting the flange in case the orientation is other than 90°.
+<BR><BR><IMG border=1 SRC="../images/miter.png">
+<br><br>
+</p>
+<p>When the miter is selected, the gap will be displayed in the selection list.<br>
+When the offset is selected, you can extend the edge till the needed distance. When the Offset is selected, the miter is not displayed and available. When the miter is selected, the offset will not be displayed and available.
+</p>
+
+<!-- <div align="center"><img src="comingsoon.jpg" border=0></div> -->
+
+<p>The <b>Orientation</b> option, with respect to the edge face, is included and can be set under <b>More Options</b>.<br>
+Other options such as <b>Alignment</b>, <b>Length</b>, <b>Allowance</b>, <b>Side angles</b>, <b>Extension</b> work in the same way as they do in the <b>Flange</b> command and are available under <b>Local Properties</b>.<br><br>
+<img border=1 src="../images/MF02.jpg">
+<br><br>
+</p>
+<p>When the miter option is selected it creates flanges symmetric at the intersection with miter gap<br><br><IMG border=1 SRC="../images/miter02.png"><br><br></p>
+<p>If you want to have corner reliefs without miter gap, the following corner relief options will be provided.</p>
+<p>a)	Rectangular corner relief<br><br><IMG border=1 SRC="../images/crelief01.png"> <IMG border=1 SRC="../images/crelief02.png"></p>
+<p>b)	Circular corner relief<br><br><IMG border=1 SRC="../images/ccr01.png"> <IMG border=1 SRC="../images/ccr02.png"></p>
+<p>c)	Triangular circular relief<br><br><IMG border=1 SRC="../images/tcr01.png"> <IMG border=1 SRC="../images/tcr02.png"></p>
+<br>&nbsp;<br>
+<h4>Future developements</h4>
+<p>1)	The Overlap flanges option will be available<br><br><IMG border=1 SRC="../images/overlap.png"></p>
+<p>2)	Other Orientation options can be added.</p>
+<p>3)	Flange using profiles: rather than indicating the length value, you may choose to use profiles for respective edges. But it will be like "<i>all profiles or no profiles</i>".
+<br><br><IMG border=1 SRC="../images/prf01.png"> <IMG border=1 SRC="../images/prf02.png"></p>
+
+<hr color="silver">
+<!-- <h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Flange.htm"><b>Add a flange to a solid</b></a></li>
+
+<li><a href="../HWfile/T_HW_Flange_RefPlan.htm"><b>Add a flange to a solid using a reference plane to define the bend angle</b></a></li>
+
+<li><a href="../HWfile/T_HW_Flange_Relief.htm"><b>Add a flange to a solid with Relief</b></a></li>
+
+<li><a href="../HWfile/T_HW_Flange_Sketched.htm"><b>Creating a flange with user defined profile</b></a></li>
+</ul>
+
+<hr color="silver"> -->
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_SheetMetal.htm"><b>Sheet Metal Workflow</b></a></li>
+
+<li><a href="../OVfile/T_OV_BT00.htm"><b>The Bend Table</b></a></li>
+
+<li><a href="../OVfile/T_OV_LocalData.htm"><b><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> and the Lock Marker</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

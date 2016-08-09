@@ -1,0 +1,93 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML><HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Job: Using the Remove Overlaps command to create a Hole Table</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();">
+
+
+
+<H4>Using the Remove Overlaps command to create a Hole Table</H4>
+<p>There are drawings in which holes might be represented using two separate semicircles rather then a whole circle. This may happen, for example, when a hole is created across an edge, like in the <span id="TWOD">model shown in </SPAN>the following picture
+<span id="TWOD"> (file "RemoveOverlaps+HoleTable.e3")</SPAN>:
+
+<span id="TWOD"><BR><BR>
+
+<IMG border=1 SRC="../../../images/dimensio/ROHT_01.gif">&nbsp;<IMG border=1 SRC="../../../images/dimensio/ROHT_02.gif"><BR><BR>
+The drawing view obtained by the above model view on the right displays the holes not as circles, but as two separate semicircles, as you can see in the following image (file "RemoveOverlaps+HoleTable.e2"):</SPAN>
+<BR><BR><IMG border=1 SRC="../images/ROHT_11.gif"><BR><BR>
+<p>If you try to apply the <a  href="../FWfile/T_FW_HoleTable.htm"><b>Hole Table</b></a> command and select the six semicircles representing the holes:
+<BR><BR><IMG border=1 SRC="../images/ROHT_08.gif"><BR><BR>
+you will see that nothing is selected: the semicircles do not identify holes.
+<BR><BR><IMG border=1 SRC="../images/ROHT_04.gif"><BR>
+<p>In order to successfully apply the <b>Hole Table</b> command, you will have to merge each couple of adjacent semicircles into the corresponding circles. To do this, you can take advantage of using the <a href="mk:@MSITStore:dw.chm::/language/drawing/FWfile/T_FW_RemoveOverlaps.htm"><b>Remove Overlaps</b></a> command.
+
+<table>
+<tr valign="top">
+<td width="20" valign="baseline"><b>1</b></td>
+<td>After starting the <b>Remove Overlaps</b> command, in the <b>Select</b> drop-down list choose <b>Window</b> and specify the two opposite corners as displayed in the picture below:<BR><BR><IMG border=1 SRC="../images/ROHT_05.gif"><br><br>
+The semicircles are selected:
+<BR><BR><IMG border=1 SRC="../images/ROHT_06.gif">
+<br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20" valign="baseline"><b>2</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> to apply the command. The following report is displayed:
+<BR><BR><IMG SRC="../images/ROHT_07.gif"><br><br>
+The six semicircles have been merged into the corresponding three circles.
+<br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20" valign="baseline"><b>3</b></td>
+<td>Now you can start the <b>Hole Table</b> command and select the holes.
+<BR><BR><IMG border=1 SRC="../images/ROHT_08.gif"><br>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20" valign="baseline"><b>4</b></td>
+<td>Specify the point to be used as the coordinate origin for computing the hole coordinates to be listed in the hole table.<BR><BR><IMG border=1 SRC="../images/ROHT_09.gif"><br>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> to confirm your selections and create the hole table.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>To position the hole table, just drag it using the selection button of the mouse. Release the mouse button in the position where you want to place the hole table.
+<BR><BR><IMG border=1 SRC="../images/ROHT_10.gif"><BR><BR>
+
+</td>
+</tr>
+</table>
+
+<h5><hr color="silver">Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_HTORIGIN.htm"><b>Hole Table: Customizing the Symbol of the Origin</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

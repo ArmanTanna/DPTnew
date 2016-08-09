@@ -1,0 +1,267 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying a through highlight controlled modification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+ {
+  margin-left: 26;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: decimal;
+ }
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying a <i>through highlights</i> controlled modification</h3>
+
+<p>In this job you will apply a controlled modification to the shape of some surfaces so as to have one of their <i>highlight</i> lines match a specified curve, in order to obtain an improved shape.</p>
+
+<p style="margin-bottom:0;">The steps you will follow are the following:</p>
+
+<ul class="noleft">
+<li class="ver9"><a href="#Step01"><b>Step 1</b></a>:<br>
+Display zebra lines on the surfaces.</li>
+
+<li class="ver9"><a href="#Step02"><b>Step 2</b></a>:<br>
+Create the "highlight" line by using the <b>Silhouette</b> command.</li>
+
+<li class="ver9"><a href="#Step03"><b>Step 3</b></a>:<br>
+Based on the actual highlight line, create a smoother curve by using the <b>Insert Curve Through Control Points</b> command.</li>
+
+<li class="ver9"><a href="#Step04"><b>Step 4</b></a>:<br>
+Constrain the surfaces to have their new highlight line coincide with the smoother curve you created by using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> option of the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command.</li>
+
+
+</ul>
+
+<p>This method guarantees that you will actually obtain nicer and smoother surfaces.</p>
+
+<h4><a name="Step01"></a>Step 1: Display zebra lines on the surfaces</h4>
+
+<ol class="litleft">
+<li>Open file "GSMH.e3".<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH000.gif"><br>
+&nbsp;</li>
+
+<li>Run <b>Tools</b><img src="../../../images/general/litarr.gif"><b>Info</b><img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_Zebra.htm"><b>Zebra</b></a></li>
+
+
+<li>Set the <b>Type</b> to <b>Isophotes</b>.</li>
+
+<li>Set the <b>Isophote Direction</b> to <b>Z</b>.</li>
+
+<li>Click on the handle corresponding to the XY angle. In the <b>Angle</b> mini-dialog box, type <b>-30</b>.<br>
+<br>
+<img border="1" src="../images/GH_ISO_01.gif"><br>
+&nbsp;</li>
+
+<li>Select the two surfaces as in the following illustration.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH001.gif"><br>
+<br>
+Isophotes will be immediately displayed:<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_ISO_Last.gif"><br>
+&nbsp;</li>
+</ol>
+
+<p>The <i>highlight line</i> you will create is the one pointed at by the blue arrows in the following image.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH002.gif"><br>
+<br>
+In the following step, you will create the curve corresponding to the above highlight line by using the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_12.htm"><b>Silhouette</b></a> command.<br>
+
+&nbsp;</p>
+
+<h4><a name="Step02"></a>Step 2: Create the highlight line</h4>
+
+<ol class="litleft">
+<li>Start the <b>Silhouette</b> command.</li>
+
+<li>Select the surfaces in the right half of the model.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GHS_NOL_01.gif"><br>
+&nbsp;</li>
+
+<li>Select the <b>Interactive direction</b> check box and set the <b>Direction</b> to <b>Z</b>.</li>
+
+<li>Click on the handle corresponding to the XY angle. In the <b>Angle</b> mini-dialog box, type <b>-30</b>.<br>
+<br>
+<img border="1" src="../images/GHS_LOC_03.gif"><br>
+&nbsp;</li>
+
+<li>The silhouette curve is created. As you can see it's not particularly smooth.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GHS_NOL_04.gif"><br>
+&nbsp;</li>
+</ol>
+
+<p>In next step, using the <a href="mk:@MSITStore:help.chm::/language/curves/mc_01/FWfile/T_FW_mc_08_01.htm"><b>Insert Curve Through Control Points</b></a> command, you will create a smoother curve.<br>
+
+&nbsp;</p>
+
+<h4><a name="Step03"></a>Step 3: Create a smoother highlight line</h4>
+
+<ol class="litleft">
+<li>Start the <b>Insert Curve Through Control Points</b>.</li>
+
+<li>Specify the five points as indicated in the following illustration, where the first and the fifth point coincide respectively with the first and the last endpoint of the highlight curve.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_01.gif"><br>
+<br>
+The curve is created.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_03.gif"><br>
+&nbsp;</li>
+</ol>
+
+<p>In the following step, you will use the <a href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command to constrain the surfaces to have a new highlight curve coincident with the smoother curve you created.<br>
+
+&nbsp;</p>
+
+<h4><a name="Step04"></a>Step 4: Apply the <i>through highlights</i> controlled modification</h4>
+
+<ol class="noleft">
+<li>Start the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command.<br>&nbsp;</li>
+
+
+<li>Set <b>Preserving</b> to <b>Curves</b> and click on <b>Curves (Group 1)</b>. Then click on the top boundaries of the surfaces in the right-hand half of the model.<br>
+<br>
+<img border="1" src="../images/GH_LOC_05.gif"><br>
+&nbsp;</li>
+
+<li>Click on <b>Curves (Group 2)</b>. Then select the surface boundaries on the symmetry plane of the model, as in the following illustration.<br>
+<br>
+<img border="1" src="../images/GH_LOC_06.gif"><br>
+&nbsp;</li>
+
+<li>Under <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span>, set the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> drop-down list to 
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+67">Highlights</span>.<br>&nbsp;</li>
+
+
+
+<li>Set <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+421">Initial highlight</span> to 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+36">Curve</span> and click on the highlight curve obtained in <a href="#Step02">Step 2</a>.<br>
+
+
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_07.gif"><br>
+&nbsp;</li>
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+56">Support Surface</span> item shows up in the selection list to warn you need to select the surface the initial highlight refers to.<br>
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Selecting of the</b> <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+56">Support Surface</span><br>
+
+
+Please note that if the highlight curve you select is of the <a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curve on Surface</a> type, no support surface selection is required, as the surface is autoamtically identified by the selected curve.</td>
+
+</tr>
+</table>
+
+<br>
+Click on the support surface:<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_SUPPORT.gif"><br>
+<br>
+Click on the surface the highlight curve you selected refers to.<br>
+&nbsp;</li>
+
+<li>Click on <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+422">Target highlight</span> and select the smoother curve you created in <a href="#Step03">Step 3</a>.<br>
+
+
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_08.gif"><br>
+&nbsp;</li>
+
+<li>Set <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+205">Projection direction</span> to 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+167">Normal to view</span>.<br>
+
+
+&nbsp;</li>
+
+<li>Select the surfaces to be modified.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_09.gif"><br>
+<br>
+Here is the preview of the result.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_10.gif"><br>
+&nbsp;</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> to confirm the modification and stop the command.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_RESULT.gif"><br>
+&nbsp;</li>
+
+<li>You can now check that the modified shape is really through the highlight line you created in <a href="#Step03">Step 3</a>. To do this, repeat the same operations you did in <a href="#Step01">Step 1</a> 
+
+<ul class="noleft">
+<li>Run <b>Tools</b><img src="../../../images/general/litarr.gif"><b>Info</b><img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_Zebra.htm"><b>Zebra</b></a></li>
+
+
+<li>Set the <b>Type</b> to <b>Isophotes</b>.</li>
+
+<li>Set the <b>Isophote Direction</b> to <b>Z</b>.</li>
+
+<li>Click on the handle corresponding to the XY angle. In the <b>Angle</b> mini-dialog box, type <b>-30</b>.</li>
+</ul>
+
+You will see that the zebra line visualization you get matches exaclty the line you created in <a href="#Step03">Step 3</a>.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GH_NOL_FINALZEBRA.gif"></li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

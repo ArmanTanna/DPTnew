@@ -1,0 +1,177 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Section View Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Section View Options</h2>
+
+<p>While using the <a href="../FWfile/T_FW_vw_22.htm"><span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7883">Define Section View</span></a> command, you need to define the sectioning plane in reference to a reference plane. The reference plane is defined using the 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list of the 
+<span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7883">Define Section View</span> selection list. There are various methods to define a reference plane as described in the 
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a> document.</p>
+
+
+<p>For the purpose of this document, we are using the following model for illustration with the highlighted face selected as the reference plane.<br>
+<br>
+<img src="../../../images/view/section_view-1.gif" border="1"></p>
+
+<p>Once the reference plane has been defined, you can make use of the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+19">More Conditions</span> drop-down list to select one of the following methods to define the sectioning plane. Depending upon the method selected additional selectors will be displayed in the selection list, their description are given under the images.</p>
+
+
+<ul class="noleft">
+<li><a name="none"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+50">None</span><br>
+
+The sectioning plane is created at the very same location as the reference plane. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/view/section_view-none.gif" border="1"></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="point"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+51">Parallel &amp; point</span><br>
+
+The sectioning plane is defined as the plane parallel to the reference plane and passing through a selected point. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/view/section_view-2.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/view/section_view-4.gif" border="1"></td>
+</tr>
+</table>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>: Select the point through which the sectioning plane will pass.<br>
+
+<br>
+</li>
+
+<li><a name="dist"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+52">Parallel &amp; distance</span><br>
+
+The sectioning plane is defined in such a way that it stays parallel to the reference plane and positioned at an offset distance specified in the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+22">Distance</span> mini-dialog box.<br>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../images/section_view-dist.gif" border="1"></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="perp"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+53">Perpendicular &amp; axis</span><br>
+
+The sectioning plane is define is such way that it is perpendicular to the reference plane, orients itself in the direction defined by a selected axis and positions itself on a selected origin. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/view/section_view-axis1.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/view/section_view-axis2.gif" border="1"></td>
+</tr>
+</table>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>: Select an axis to define the orientation of the sectioning plane.<br>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>: Select a point through which the sectioning plane will pass.<br>
+
+<br>
+</li>
+
+<li><a name="angle"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+54">Angle &amp; axis</span><br>
+
+The sectioning plane is defined in such a way that orients itself in the direction defined by a selected axis, positions itself on a selected origin and subtends an angle defined in the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span> mini-dialog box. 
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../images/section_view-angle.gif" border="1"></td>
+</tr>
+</table>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>: Select an axis to define the orientation of the sectioning plane.<br>
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>: Select a point through which the sectioning plane will pass.<br>
+
+<br>
+</li>
+</ul>
+
+<p>Once the section plane has been defined you can make use of additional options in <span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+2">More Options</span>. The following are the options available.
+
+<ul>
+<li><a name="cap"></a><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+3">Show Capping</span> check box: When selected, a capping surface is displayed at the location where the material is present in the model but has been cut to display the section view. There are two options available for selection in the drop down list.
+
+<ul>
+<li><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+6">Entity color</span>: The color of the capping surface will be same as that of the model.<br><br>
+
+<img src="../../../images/view/section_view-capping1.gif" border="1"><br><br>
+</li>
+<li><a name="cap1"></a><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+4">Color</span>: You can select the color of the capping surface using the 
+<span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+4">Color</span> dialog box.<br><br>
+
+
+<img src="../../../images/view/section_view-capping2.gif" border="1"><br><br>
+</li>
+</ul>
+</li>
+
+<li><a name="insert"></a><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+9">Show section edges</span> check box: When selected, the section edges of the sectioned model are highlighted.<br><br>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+	<td><img src="../../../images/view/section_view-capping1.gif" border="1"></td>
+	<td><img src="../../../images/general/Arrow_To_Right.gif" border="0"></td>
+	<td><img src="../../../images/view/section_view-edges1.gif" border="1"></td>
+</tr>
+</table><br>
+
+
+There are two options available for selection in the drop down list.
+<ul>
+<li><a name="insert1"></a><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+10">Rendering mode color</span>: The color of the edges is same as that of the color of the model.</li>
+
+
+<li><a name="insert2"></a><span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+4">Color</span>: You can select the color of the edges highlighted using the 
+<span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+4">Color</span> dialog box. <br><br>
+
+
+<img src="../../../images/view/section_view-edges2.gif" border="1">
+<br><br>
+</li>
+
+</ul>
+</li>
+</ul>
+
+</p>
+
+
+<hr color="navy">
+</body>
+</html>
+

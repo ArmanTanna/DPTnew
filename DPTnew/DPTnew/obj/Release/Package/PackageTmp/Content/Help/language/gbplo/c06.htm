@@ -1,0 +1,1006 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plot: Initialization file directives - Part 2</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A name="top"></A> 
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="COMP"></A>GRA COMP&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines data compression modes (RASTER)</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA COMP </B><I>[modes</I>]
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>modes&nbsp;</EM></TD>
+
+<TD VALIGN=top>integer; data compression modes; 
+      positive or null values allowed, their meaning linked to the output 
+    device</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>0</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the raster drawing data compression modes.
+
+<P>The code without arguments is equivalent to GRA COMP 0.
+
+<P>The fact that the meaning of the <I>mod</I> values depends upon the
+device used is shown in the table below.
+
+<P>
+<BR>&nbsp;
+<TABLE BORDER =1 CELLPADDING=5 WIDTH="755">
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+0>DEVICE</FONT></FONT></B></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+0>FORMAT</FONT></FONT></B></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+0>DEFAULT</FONT></FONT></B></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+0>VALUES ALLOWED</FONT></FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>HP29xx</FONT></FONT></CENTER>
+
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>HP22xx</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>PCL</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 Not compressed</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>PCL3</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>PCL3</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 Not compressed</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>PCL5</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>PCL5</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 Not compressed</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>1 Macintosh Pack Bits Encoding</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>HPRTL</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>HP-RTL</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 Not compressed</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>1 Macintosh Pack Bits Encoding</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>CCRF</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>CCRF</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>2</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>2 RLE Calcomp
+Compressed Raster</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>Format (Run-length Encoding)</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>IPS</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>Image</FONT></FONT></CENTER>
+
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>Postscript</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>2</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 ASCII
+- Not compressed</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>1 Binary - Not compressed</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>2 ASCII - Run-length Encoding</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>3 Binary - Run-length Encoding</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>TIFF</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>TIFF</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0 Not compressed</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>1 Macintosh Pack Bits Encoding</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>2 CCITT Modified Huffman Encoding</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>3 CCITT G3 1D FAX</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>4 CCITT G3 2D FAX</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>5 CCiTT G3 2D FAX</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>6 LWZ</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="23%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>POSTSCRIPT</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="20%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>POSTSCRIPT</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="13%">
+<CENTER><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT></CENTER>
+</TD>
+
+<TD VALIGN=top WIDTH="44%"><FONT FACE="HELVETICA"><FONT SIZE=+0>0</FONT></FONT>&nbsp;
+
+<P><FONT FACE="HELVETICA"><FONT SIZE=+0>1 optimizes "lineto" and "moveto"</FONT></FONT>&nbsp;
+<BR><FONT FACE="HELVETICA"><FONT SIZE=+0>instructions</FONT></FONT></P></TD>
+</TR>
+</TABLE>
+&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ODVT</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DLPAT"></A>GRA DLPAT&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines pattern to be associated to line</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA DLPAT</B> <I>line </I>{<I>pattern</I>}
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>line&nbsp;</EM></TD>
+
+<TD VALIGN=top>integer identifying line to be 
+      modified; values allowed 4:16</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><EM>pattern&nbsp;</EM></TD>
+
+<TD VALIGN=top>sequence of one or more integers 
+      (maximum 8) which defines the line pattern; values allowed and 
+      meanings:&nbsp;
+
+<P>&gt; 0 draw mode: length of a section of line actually drawn&nbsp;
+
+<P>&lt; 0 move mode: length of a section not drawn between two successive
+sections drawn.&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;</P></TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the pattern to be associated to the line specified.
+
+<P>Functions only if the mode used for the dashed line is software (GRA
+LTRM SW).
+
+<P><B><I>Example</I></B>
+
+<P><TT>GRA DLPAT 5 3 -1 1 -1</TT>
+
+<P>attributes the following pattern to line 5:
+
+<P><IMG src="graphics/image122.gif" >
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA LTRM</B>&nbsp;
+<BR><B>GRA LTRP</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="FLOAD"></A>GRA FLOAD&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Sets font to be loaded in memory</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA FLOAD</B> <I>num</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>num&nbsp;</EM></TD>
+
+<TD VALIGN=top>number identifying font; values allowed 
+      0: 99</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>0</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to substitute the font used to display quality 3 texts (<I>stroke
+precision</I>) with an alternative font.
+
+<P>Advantages:
+
+<P>possibility of using a "customized" font (better defined, in your preferred
+typographical style)
+
+<P>possibility of displaying characters belonging to the extended ASCII
+set, to manage the special characters of a particular language (e.g.: &agrave;,
+&eacute;, &Ouml;, &uuml;)
+
+<P>possibility of displaying fonts based on characters which are not roman
+(e.g.: Cyrillic).
+
+<P>Enter<I> num</I>=0 to reset standard font.
+
+<P>The font is loaded in the memory from the directory specified by DRF.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>DRF</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="FOFFS"></A>GRA FOFFS&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines a character width correction factor (BGL)</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA FOFFS</B> <I>factor</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>factor&nbsp;</EM></TD>
+
+<TD VALIGN=top>real number defining the correction 
+      factor to be applied to the character width; values allowed: from 
+      -infinity to 0.5 (default 0).</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>0</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>In plotters managed with BGL (Benson Graphic Language) the dimensions
+and positioning of the characters in texts are defined by a rectangle occupied
+by the character, as shown in the figure.
+
+<P>Note: the degree to which this rectangle is larger than the character
+actually drawn depends upon the font used (and in some fonts even upon
+the letter of the alphabet). The program must, therefore, apply correction
+factors for the width and positioning point of each text to obtain a plotted
+drawing which corresponds to the parameters set.
+
+<P>However, since the offset shown in the figure depends upon the font
+you selected, you must adapt it to obtain satisfactory results.
+
+<P>You can adjust the offset value to be used with code GRA FOFFS, taking
+into account the following.
+
+<P><IMG src="graphics/image126.gif" >
+
+<P>The <I>factor</I> parameter represents the ratio between the offset
+shown in the figure and the width of the rectangle occupied by the character
+(including the two offsets - left and right).
+
+<P><I>Factor</I> values greater than or equal to 0.5 are meaningless since
+they would correspond to actual character widths less than or equal to
+zero.
+
+<P>0 <I>factor </I>values correspond to a font in which the characters
+occupy the entire width of the rectangle, i.e.: the program does not effect
+corrections.
+
+<P>Intermediate values are approximations of the situation for the various
+fonts. Consider the following table with <I>factor</I> values recommended
+according to the type of font and the plotter model.
+<BR>&nbsp;
+<TABLE BORDER =1 CELLPADDING=5 WIDTH="496">
+<TR>
+<TD VALIGN=top COLSPAN="3" WIDTH="50%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+1>Series 16xx</FONT></FONT></B></CENTER>
+</TD>
+
+<TD VALIGN=top COLSPAN="3" WIDTH="50%">
+<CENTER><B><FONT FACE="HELVETICA"><FONT SIZE=+1>Series 18xx</FONT></FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>Leroy</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.0625</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>Leroy</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.0625</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>ISO</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.115</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>ISOVEC</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.25</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>Fast Benson</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.1875</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>ISOARC</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.25</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>DIN</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.25</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>DIN</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.25</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>Cyrillic</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.0625</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="29%"><FONT FACE="HELVETICA"><FONT SIZE=+1>Cyrillic</FONT></FONT></TD>
+
+<TD VALIGN=top WIDTH="21%"><FONT FACE="HELVETICA"><FONT SIZE=+1>0.25</FONT></FONT></TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="INTERF"></A>GRA INTERF&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines type of plotter connection</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA INTERF</B> <I>type</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>type&nbsp;</EM></TD>
+
+<TD VALIGN=top>argument defining the type of 
+      connection, values allowed:&nbsp;
+
+<P>DC serial line with DCR-CTS protocol;&nbsp;
+
+<P>PA parallel line and (for MS-DOS) parallel line 
+      without protocol control;&nbsp;
+
+<P>SX serial line protocol 
+XON/XOFF.</P></TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;
+<P><B><FONT color=navy>DESCRIPTION</FONT> 
+<HR align=left color=navy width=150>
+</B>
+<P>Enables you to specify the type of connection used to dialog with
+the plotter.
+<P>If you use the PA option with serial line (MS-DOS environment) the
+program does not carry out a control, since it expects that there is a
+HW protocol.
+
+<P>Available for the following output formats (with the details described).
+
+<P>BGL available on MS-DOS systems only; default value SX.
+<P>CALCOMP available on MS-DOS systems only; default value PA.
+
+<P>HP-GL default value SX.
+
+<P>HP-GL/2 default value PA.
+
+<P>Raster available on MS-DOS systems only; default value PA.
+
+<P>PostScript available on MS-DOS systems only; default value PA.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><I>See also:&nbsp;</I></TD>
+
+<TD VALIGN=top><I><B>GRA ODVT</B>&nbsp;</I></TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="INTPL"></A>GRA INTPL<I>&nbsp;</I></font>
+</td>
+
+<td valign="bottom"><EM>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </EM></td>
+
+<td valign="bottom"><i>Defines plotter degree of intelligence</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA INTPL</B> <I>code</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>code&nbsp;</EM></TD>
+
+<TD VALIGN=top>specifies the plotter level of 
+      intelligence, values allowed and meanings:&nbsp;
+
+<P>0 minimum use of plotter character 
+      generator;&nbsp;
+
+<P>1 intermediate level, full use of plotter 
+      character generator (default);&nbsp;
+
+<P>2 special functions (only CALCOMP-PCI plotter 
+      driver, thus adding the CDCL set of commands).</P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>1</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to specify the degree of intelligence of the plotter used.
+
+<P>
+
+<P>You must set intelligence to 0 on some models, since they cannot manage
+all functions, such as text attributes defined by the commands for definition
+of the base-height ratio, character gap and character slant.
+
+<P>
+
+<P>Example: if you assign the value 2, with the CALCOMP - CDCL format,
+you can manage color map (GRA CMAP) definition and the thickness of the
+lines in the drawing (GRA MWIDTH and GRA PWIDTH)<span style="DISPLAY:none">line width</span><span style="DISPLAY:none">line weight</span>.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ODVT</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="LEADBL"></A>GRA LEADBL&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Switches On/Off insertion of a blank before output records</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA LEADBL </B><I>option</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>option&nbsp;</EM></TD>
+
+<TD VALIGN=top>may assume the following values:&nbsp;
+
+<P>ON : switches insertion of a blank On;&nbsp;
+
+<P>OFF : inhibits insertion of a blank 
+      (default);&nbsp;
+
+<P>0 as OFF;&nbsp;
+
+<P>1 as ON.</P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>OFF</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to switch On/Off the insertion of a blank before each output
+record.
+
+<P>You must switch this On when the port for connection to the output device
+uses the first character of each record as a control character (e.g: 1
+in first column for some printers is equivalent to skipping a page). In
+such cases, the first character of the record is lost.
+
+<P>The code without arguments is equivalent to GRA LEADBL ON.
+<BR>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="LTRM"></A>GRA LTRM&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines dashed line drawing modes</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA LTRM </B><I>option</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>option&nbsp;</EM></TD>
+
+<TD VALIGN=top>may assume the following 
+      values:&nbsp;&nbsp;
+
+<P>HW : hardware dashed lines (default);&nbsp;
+
+<P>SW : software dashed lines.</P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>HW</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to decide whether dashed lines are drawn with the modes of
+the hardware used, or software modes, i.e.: using the algorithm prepared
+in the program.
+
+<P>If you defined the GRA ARCM key HW, the GRA LTRM SW request may be meaningless.
+In this case, the dashed line is drawn in HW mode.
+
+<P>Similarly, the step defined with GRA LTRP may be ignored if you switch
+the HW mode On.
+
+<P>If you select the SW mode, you can redefine both the dashed line step
+(GRA LTRP), and the entire pattern (GRA DLPAT). The SW dash cannot be applied
+to entities which were drawn with the HW mode, e.g.: arcs or polylines
+(GRA ARCM HW|PO).
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ARCM</B>&nbsp;
+<BR><B>GRA DLPAT</B>&nbsp;
+<BR><B>GRA LTRP</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="LTRP"></A>GRA LTRP&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines dashed line step</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA LTRP </B><I>factor</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>factor&nbsp;</EM></TD>
+
+<TD VALIGN=top>real number defining the 
+      multiplication factor of the dash in the dashed lines.&nbsp;</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top>Default: 1</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to modify the length of the step of the dashed lines.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA DLPAT</B>&nbsp;
+<BR><B>GRA LTRM</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="MERGE"></A>GRA MERGE&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Activates merging of two or more drawings</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA MERGE </B><I>[option</I>]
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>option&nbsp;</EM></TD>
+
+<TD VALIGN=top>may assume the following 
+      values:&nbsp;&nbsp;
+
+<P>0 drawing merging Off (default);&nbsp;
+
+<P>1 first drawing;&nbsp;
+
+<P>2 intermediate drawings;&nbsp;
+
+<P>3 last drawing.&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;</P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>0</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to activate the merging of two or more drawings on a single
+sheet provided that the devices support this function (HP-GL, HP-GL/2,
+Raster, HP-RTL).
+
+<P>The default is merging Off, and the sheet feed code (AVA) and multiple
+copies code (NCO) are recognized and managed to produce one or more copies
+on different sheets. The correct orientation of the drawing is calculated
+to obtain larger drawings on roller plotters, guaranteeing the <I>long-axis</I>
+(implicit frame) of the sheet loaded.
+
+<P>To merge 2 or more drawings on the same sheet, use the GRA MERGE code
+as described below.
+
+<P>Set <I>option=</I>1 on the first drawing to be produced. In this case
+you set the area to be occupied by the entire composite drawing, between
+the maximum working area of the first drawing and the sheet size defined
+with DIM (or with GRA FORMD). The correct orientation of the drawing is
+calculated. The codes for multiple copies and paper feed are inhibited.
+
+<P>Set <I>option</I>=2 for intermediate drawings, if any. This also inhibits
+the codes for multiple copies and paper feed.
+
+<P>Set<I> option</I>=3 for the last drawing to be merged; this activates
+paper feed and multiple copy management.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA AVAN</B>&nbsp;
+<BR><B>GRA NCOP</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="MWIDTH"></A>GRA MWIDTH&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines thickness management modes<span style="DISPLAY:none">line width</span><span style="DISPLAY:none">line weight</span></i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA MWIDTH </B><I>option</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>option&nbsp;</EM></TD>
+
+<TD VALIGN=top>&lt;opt&gt; may assume the following 
+      values:&nbsp;
+
+<P>ON thickness is expressed in units of the 
+      device;&nbsp;
+
+<P>OFF thickness management Off (default);&nbsp;
+
+<P>0 as OFF;&nbsp;
+
+<P>1 as ON;&nbsp;
+
+<P>2 thickness is expressed relative to the current 
+      scale;&nbsp;
+
+<P>3 thickness is expressed in the unit specified 
+      with GRA PWIDTH, or, by default, in mm.&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;</P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top>&nbsp;</TD>
+
+<TD VALIGN=top><B>Default: </B>OFF</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to switch On/Off the management of thickness associated to
+the pen numbers (<i>line weight</i> or <i>line width</i>) of the graphic entities and to set the mode in which the
+thickness specified with the code GRA PWIDTH must be interpreted.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA PWIDTH</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="NCOLS"></A>GRA NCOLS&nbsp;</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines the maximum number of colors used on the output device</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA NCOLS </B><I>max_num</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>max_num&nbsp;</EM></TD>
+
+<TD VALIGN=top>integer defining the maximum number of 
+      colors which can be used, values allowed: from 2:256 or the number of 
+      colors available</TD>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the maximum number of colors to be used on the output device.
+
+<P>This is the minimum number between <I>num </I>(specified by the parameter)
+and the maximum number of colors actually supported by the device.
+
+<P>This option is useful to specify the number of colors where the program
+cannot determine this data automatically, or to constrain limitation of
+the number of colors which can be used.
+
+<P>If you do not specify this number, the maximum number managed by the
+device is assumed as the default.
+
+<P>Note: to specify <I>num</I> colors is to indicate the colors between
+0 and <I>max_num</I> -1 (0 is the color of the <I>background</I>); on plotters
+with <I>n </I>pens you must, therefore, specify <I>max_num</I>=<I>n</I>+1
+colors.
+
+<P>Any colors with index greater than <I>num</I> are automatically mapped
+in rotating fashion over the colors from 1 to <I>max_num</I>-1.
+
+<P>The actual number of colors is determined only when you switch On the
+device and is set as the minimum between those requested and those actually
+available. The colors actually available depend on the hardware used.
+
+<P>
+
+<P>
+
+<P><B><I>Example</I></B>
+<DIR>
+<LI>
+NCOLS 12 
+
+
+<P>colors 12 and 23 are mapped in the same position as color 1.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA CMAP</B>&nbsp;
+<BR><B>GRA COLCH</B>&nbsp;</TD>
+</TR>
+</TABLE></P>
+ </LI>
+</DIR>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,120 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+<!-- Error Handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating a lofted surface starting from two orthogonal sets of parallel curves (Grid)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+.notop{margin-top:0;}
+</style>
+
+<style>
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style>
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+<h3>Creating a lofted surface starting from two orthogonal sets of parallel curves (Grid)</h3>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_Lofted.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span></a> command, you can proceed as follows (<i>please note that you can follow this step-by-step example by loading file</i>: "UVcurve.e3").
+
+
+
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/Lofted_UV_01.gif"><BR><BR>
+As you can see, the curves in the above model identify two orthogonal sets of parallel curves (the blue ones and the red ones).<br><br>
+<i><b>Suggestion</b></i>: to make curve selection easier, turn the viewing mode to <a  href="../../view/FWfile/T_FW_vw_33.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1239">Wireframe</span></a>.<br><br>
+
+
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>To obtain an <i>associative</i> surface, that is an open solid&nbsp;&#151;&nbsp;a <i>Skin</i>&nbsp;&#151;&nbsp; retaining a link to its base curves, so that if you modify such curves the surface will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> box. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+
+<br></td>
+</tr>
+<tr valign="top">
+<td width="15"><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+106">Select As</span> drop-down list, select the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+107">Grid</span> option.<p></p></td>
+
+
+
+</tr>
+<tr valign="top">
+<td width="15"><b>3</b></td>
+<td>Select the blue curves as the first set of curves (please note the selection order is completely free):
+<BR><BR><IMG border=1 SRC="../images/Lofted_UV_02.gif"><br><br>
+Once you selected all the curves of the first set, end selection:<BR><BR><IMG border=1 SRC="../../../images/surfaces/Lofted_UV_03.gif"><br><br>
+To change the selected curves (for example if you selected the wrong ones by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+109">Boundary Set A</span> in the selection list, select 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> and perform selection again.<p></p>
+
+
+
+</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the red curves as the second set of curves (please note the selection order is completely free):
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/Lofted_UV_04.gif"><br><br>
+Once you selected all the curves of the second set, end selection:<BR><BR><IMG border=1 SRC="../../../images/surfaces/Lofted_UV_05.gif"><br><br>
+To change the selected curves (for example if you selected the wrong ones by mistake), right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+110">Boundary Set B</span> in the selection list, select <b>Reset</b> and perform selection again.<br>
+
+
+
+Please note that if you select <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+112">Type</span> drop-down list is set to 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+113">Default</span>, which is the default value. With the previous selection, the current surface type automatically determined is 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+115">Grid</span>.
+
+
+
+<p></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surface. 
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/Lofted_UV_09.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

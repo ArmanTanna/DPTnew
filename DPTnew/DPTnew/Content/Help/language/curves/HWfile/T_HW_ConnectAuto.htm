@@ -1,0 +1,281 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Inserting connecting curves - Automatic mode</title>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 5px;
+}
+</style>
+
+<style>.OLD{font-weight: bold;}</style>
+
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h4><a name="cv_hw_07"></a>Inserting connecting curves - Automatic mode</h4>
+
+<p>To accomplish this task, open file "connect<span id="E2">.e3</SPAN>".</p>
+
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After starting the <a href="../FWfile/T_FW_cv_07.htm"><b>Connect Curve</b></a> command, click on the first and on the second curve close to the end points to connect, or, if you prefer, use the <a href="mk:@MSITStore:selsna.chm::/language/tocpages/T_TOC_Snap_CMD.htm">snap commands</a>.<br>
+
+<br>
+<img border="1" src="../../../images/curves502/cnct-01.gif"><br>
+<br>
+Then set the <b>Edit Mode</b> drop-down list to <b>Automatic</b> (if not already set so). <br>
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Filtering selection on end points</b><br>
+You can enable the command to select points<span id="TWOD">, curves and surfaces</SPAN>
+<span id="HIDETD"> and curves</SPAN> or restrict selection to 
+<span id="TWOD">curves and surface</SPAN>
+<span id="HIDETD">curve</SPAN> boundaries only. A context menu is available when right-clicking on 
+<span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+263">First endpoint</span> or 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+264">Second endpoint</span>:<br>
+
+
+
+<br>
+<img border="1" src="../images/CCR-Filter.gif"><br>
+<br>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+343">Curves Only</span>&nbsp;&#151;&nbsp;enables selection of curves
+<span id="TWOD"> and surface boundaries</SPAN>.</li>
+
+
+
+
+<li><span id="TWOD">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+344">Points - Curves - Surfaces</span></SPAN>
+<span id="HIDETD">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+377">Points - Curves</span></SPAN>&nbsp;&#151;&nbsp;enables selection of points
+<span id="TWOD">, curves and surfaces, but <i>does not</i> allow selection of surface boundaries</SPAN>
+<span id="HIDETD"> and curves</SPAN>.</li>
+
+
+
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<p>As soon as the curves are selected, the <b>1st U</b> and <b>2nd U</b> mini-dialog box/handle pairs are displayed on the endpoints:<br>
+<br>
+<img border="1" src="../../curves502/images/cnct-02.gif"><br>
+<br>
+You can always change the position of the endpoints either by dragging the handles or by specifying the desired value of parameter U. You can assign a numeric value, called <i>weight</i>, to each of the curves to be connected so as to control the shape of the connecting curve. A handle is also available to change the weight interactively. The higher the weight, the longer the section of connecting curve that follows the shape of the connected curve starting from the point of connection. See also step 6 for further details on weights.</p>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>You can set the same continuity conditions at both endpoints of the blending curve, or different conditions at each endpoint. To set the same conditions, select the <b>Same continuity</b> check box. To set different conditions, uncheck the box: a separate <b>Continuity By</b> drop-down list will show up at each endpoint.<br>
+<br>
+<img border="1" src="../images/UCN-01.gif"><br>
+<br>
+Suppose you have checked the <b>Same continuity</b> box. Only one drop-down list will be available in the selection list. The default value is <b>Tangency</b>, but you can set continuity to each of the following <a href="../../Mathconc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a>: 
+
+<table>
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G0"><b>Position</b></a></td>
+<td>specifies that only geometric continuity is required at the endpoints.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G1"><b>Tangency</b></a></td>
+<td>specifies that the blending curve must share the same tangent line as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G2"><b>Curvature</b></a></td>
+<td>specifies that the blending curve must have the same value of curvature as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G3"><b>Torsion</b></a></td>
+<td>specifies that the blending curve must have the same value of torsion as the parent curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G3.5"><b>Smooth curvature</b></a></td>
+<td>specifies that the parent curve's curvature plot and the blending curve's curvature plot must be tangent continuous at the specified end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../Mathconc/T_MC_ContinuityClassification.htm#G4"><b>Curvature plot curvature</b></a></td>
+<td>specifies that the parent curve's curvature plot and the blending curve's curvature plot must be curvature continuous at the specified end.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<p id="HIDEP">By selecting the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><b>Curve Curvature</b></a> command you can also display a curvature plot which will help you check the shape and the smoothness of the resulting curve.<br>
+<br>
+<img border="1" src="../../curves502/images/cnct-03.gif"><br>
+<br></p>
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>By selecting the options of the <b>Result</b> drop-down list you can specify what kind of result you want to obtain: 
+
+<table>
+<tr valign="top">
+<td width="150"><b>Connect curve only</b></td>
+<td>the only result of the command will be the connecting curve.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Split original curves</b></td>
+<td>the result of the command will be curves split from the original curves in addition to the connecting curve. These curves will join the connecting curve with the specified continuity at their ends. Thus, the maximum number of curves you will obtain with this option is three.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Join original curves</b></td>
+<td>the result will be a single curve made of the connecting curve and the two curves derived from the original ones according to the chosen endpoints and to the specified continuity conditions.</td>
+<td width="145"><img border="1" src="../../../images/curves/CN-R03.gif"></td>
+</tr>
+</table>
+
+A <b>Hide</b> check box shows up when the <b>Split original curves</b> or <b>Join original curves</b> options are selected: when checked, the original curves will be hidden as soon as the connecting curve is created.<br>
+When <b>Join original curves</b> is selected, three further additional options are available: 
+
+<table>
+<tr valign="top">
+<td width="100"><b>Max. No. arcs</b></td>
+<td>specifies the maximum number of arcs (parametric spans) you want the resulting curve to be composed of.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Max. Degree</b></td>
+<td>specifies the maximum degree to use in the resulting joined curve.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Tolerance</b></td>
+<td>specifies the tolerance for the resulting joined curve, which is an Euclidean space tolerance for the parameter equal distance between the resulting joined curve and the original parent and blending curves.<br>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Default</b> drop-down list under <b>More Options</b> you can choose the type of construction for the connecting curve. 
+
+<table>
+<tr valign="top">
+<td><b>Single arc</b></td>
+<td>produces a single arc curve (a Bezier control point curve) with a degree determined by the specified geometric continuity conditions at the endpoints.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Minimum degree</b></td>
+<td>produces a NURBS curve with multiple arcs. The degree&nbsp;&#151;&nbsp;at least three&nbsp;&#151;&nbsp;will be the minimum necessary to maintain the specified geometric continuity conditions both internally and at the endpoints.<br>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>When the continuity conditions are set to <b>Curvature</b> or higher, the <b>Weight Mode</b> drop-down list shows up under <b>More Options</b>, enabling you to select the type of weights to be set. 
+
+<table>
+<tr valign="top">
+<td><b>Tangency</b></td>
+<td>in this case weights specify the lengths of the tangent vectors: the higher the weight, the longer the section of connecting curve that follows the shape of the connected curve starting from the point of connection (about the meaning of weights, see also <a href="../../curves502/cv_07_bis.htm"><b>Significance of Tangent Weights</b></a>).</td>
+</tr>
+
+<tr valign="top">
+<td><b>Second Derivative</b></td>
+<td>in this case weights specify the length of the second derivative in the direction of the tangent for the first and second curve respectively, which is the "speed" of the curvature change (the higher the weight, the speedier the curvature change).</td>
+</tr>
+
+<tr valign="top">
+<td><b>Third Derivative</b></td>
+<td>(available only if continuity is set to <b>Torsion</b> or higher) in this case weights specify the length of the third derivative in the direction of the tangent for the first and second curve respectively.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Fourth Derivative</b></td>
+<td>(available only if continuity is set to <b>Curvature plot curvature</b> or higher) in this case weights specify the length of the fourth derivative in the direction of the tangent for the first and second curve respectively.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Reset</b> <br>
+When the mode is set to <b>Automatic</b>, the <b>Reset</b> button will compute the blending curve resulting from the specified geometric continuity at each end, the tangent weights at each endpoint and the setting of the <b>Default</b> mode (<b>Single arc</b> or <b>Minimum degree</b>).<br>
+<i>If you had previously specified curvature weights, these values will be reset to defaults and curvature weights will no longer be maintained.</i> </td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and create the curve (s). In the following illustration you can see the curve obtained setting the <b>Result</b> to <b>Connect curve only</b>, continuity conditions to <b>Tangency</b> and <b>Weight</b> to <b>1</b> at both endpoints.<br>
+<br>
+<img border="1" src="../../../images/curves/UCN-UF.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<div style="DISPLAY: none">Blend Curve</div>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../../curves502/cv_07_bis.htm"><b>Significance of Tangent Weights</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

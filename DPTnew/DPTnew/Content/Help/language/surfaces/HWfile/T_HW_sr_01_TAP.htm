@@ -1,0 +1,87 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML><HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating a Plane Through an Axis and a Point</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22; margin-top:0;margin-bottom:0;}</style>
+
+<style>
+.notop{;margin-top:0;}
+</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<A NAME="top"></A>
+<H2>Creating a Plane Through an Axis and a Point</H2>
+
+<p class="notop">Creating a plane through an axis and a point can be useful in a number of situations. For example, you might need to create a particular section of a solid based on an axis and a point of a feature. You can obtain the section by creating the plane and then by cutting the solid along the plane using the <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_11.htm"><b>Cut Solid</b></a> command.
+
+<p>Once you started the <a  href="../FWfile/T_FW_sr_01.htm"><b>Plane</b></a> command, proceed as follows:<br>&nbsp;
+
+<TABLE>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>In the <b>Reference Plane</b> drop-down list select <b>Through axis &amp; point</b><p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Axis</b> drop-down list, select the <b>Line</b> option. Select the axis.<br>
+<BR><IMG border=1 SRC="../../../images/surfaces/plane_TAP_01.gif"><BR><BR>
+Select the point the resulting plane must be through, making sure it doesn't lie on the selected axis, in which case you'd get a message.<br>
+<BR><IMG border=1 SRC="../images/plane_TAP_02.gif"><BR><br>
+To change the selected entities (axis and/or point), right-click on the corrwsponding items (<b>Axis</b>, <b>Point</b> in the selection list, select <b>Reset</b> in the context menu and perform selection again. <p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>More conditions</b> drop-down list, select <b>None</b> (if it isn't already selected).<br>
+<p></p></td>
+</tr><tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Extension</b> drop-down list, select <b>Object</b>. To adjust the plane size to the one of the solid, select the solid:
+
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/plane_TAP_03.gif"><BR><BR>
+The following preview of the plane is displayed:
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/plane_TAP_04.gif"><BR><BR>
+To change the selected solid, right-click on <b>Solid</b> in the selection list, select <b>Reset</b> in the context menu and perform selection again.<br>
+The arrow indicates the plane normal. If necessary, reverse its direction by double-clicking on it.
+<BR><BR><IMG border=1 SRC="../images/plane_TAP_05.gif">
+<p></p></td>
+</tr>
+
+<tr valign="baseline">
+<td width="15"><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the plane. 
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/plane_TAP_06.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<p>With a plane surface created with this method, cutting the solid with the <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_11.htm"><b>Cut Solid</b></a> command to get the desired section is very easy:<BR><BR><IMG border=1 SRC="../../../images/surfaces/plane_TAP_07.gif">
+
+
+<hr color="silver">
+<h5>Tips and Tricks</h5> 
+<ul class="noleft">
+<li><a href="T_HW_sr_01_MoreConditions.htm"><b>Applying additional conditions when creating a plane</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

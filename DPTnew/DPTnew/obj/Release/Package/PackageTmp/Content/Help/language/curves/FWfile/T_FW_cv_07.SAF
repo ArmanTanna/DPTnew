@@ -1,0 +1,110 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(307,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Connect Curve</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 5px;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1378">Connect</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+49">Connect Curve</span> command creates a connecting curve between end points of two entities that can be curves<span id="TWOD">, edges or surface boundaries</span>.</p>
+
+<p>On starting the command, you need to select the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+263">First endpoint</span> and the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+264">Second endpoint</span> to connect.</p>
+
+<p><a name="edit"></a>Three different modes can be selected in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+198">Edit Mode</span> drop-down list:</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+159">Automatic</span><br>
+It enables you to create a blending curve matching specified conditions at each of its endpoints. You can set the same continuity conditions at both endpoints of the blending curve, or different conditions at each endpoint. To set the same conditions, select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+197">Same continuity</span> check box. To set different conditions, clear this check box. Now a separate <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+304">Continuity</span> drop-down list will show up at each endpoint. You can define all available continuity conditions, as described in the "<a href="../../Mathconc/T_MC_ContinuityClassification.htm">Continuity Types</a> document". When the continuity conditions are set to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+116">Curvature</span> or higher, the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+328">Weight Mode</span> drop-down list shows up under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, enabling you to select the type of weights to be set.<br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+114">Control points</span><br>
+It enables you to create a blending curve by specifying the geometric continuity conditions at the endpoints and to move/edit its control points explicitly (while maintaining the specified continuity conditions). This is useful when you need to modify the shape of the internal part of the blending curve itself. Constraints can also be set on the curve control points.<br>
+<br>
+</li>
+
+<li><a name="fit"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+520">Fit Curves</span><br>
+It enables you to create the connecting curve such that it fits with an existing curve, which is to be selected for the <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+521">Reference Curves</span> selector. The weights of the connecting curve are automatically calculated to generate the best possible fit.</li>
+</ul>
+
+<p>By default, the selected points to be connected are the ones used for selection, though they can be changed interactively by dragging a handle. In the automatic mode the location of end points can be defined by specifying parameter values. <a href="mk:@MSITStore:selsna.chm::/language/tocpages/T_TOC_Snap_CMD.htm">Snap commands</a> can also be used for the selection of the blending curve end points.</p>
+
+<p style="margin-bottom:0;">Connecting curves are NURBS whose degree and number of arcs depend on the selected option in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+310">Default</span> drop-down list (under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>).</p>
+
+<ul class="noleft" style="margin-top:2px;">
+<li>If you choose <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+214">Minimum degree</span>, the resulting curve will have the lowest possible degree while the number of its arcs will be increased as much as required to satisfy the continuity conditions.</li>
+
+<li>If you choose <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+213">Single arc</span>, the resulting curve will be made up of only one arc. In automatic mode its degree will be increased as much as required to satisfy the continuity conditions, while in control points mode you will be enabled to explicitly increase/decrease it.</li>
+</ul>
+
+<p id="HIDEP" style="margin-bottom:4px;">The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box enables you to create curves which retain a link to the original entities it is derived from.</p>
+
+<ul class="noleft">
+<li id="HIDELI">When this check box is selected, the resulting curves will be associative. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the Model Structure.<br>
+<br>
+If you select non-associative entities (such as <span id="TWOD">non-associative surface borders or</span> non-associative curves), a message will be displayed to inform that you have selected non-associative entities, which will become the root of the structure.<br>
+<br>
+</li>
+
+<li id="HIDELI">When this check box is cleared, the resulting curves will not be associative.</li>
+</ul>
+
+<p>By using the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><b>Curve Curvature</b></a> command, you can interactively check the curve shape by displaying the curvature plot of the resulting curve and the reference curves, thus, enabling you to control the scale and the density of the plot.</p>
+
+<p>Finally, if you expand the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+349">Vectors</span> node, you will access items enabling you to define the direction of the tangent at the end point of the curve.</p>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ConnectAuto.htm"><b>Insert connecting curves - <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+159">Automatic</span> mode</b></a></li>
+
+<li><a href="../HWfile/T_HW_ConnectCP.htm"><b>Insert connecting curves - <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+114">Control points</span> mode</b></a></li>
+
+<li><a href="../HWfile/T_HW_Fit_Curve.htm"><b>Insert connecting curves - <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+520">Fit Curves</span> mode</b></a></li>
+
+<li id="HIDELI"><a href="../HWfile/T_HW_ConnectCurveToSurface.htm"><b>Insert a connecting curve between a curve and a surface</b></a></li>
+
+<li><a href="../../curves502/cv_07_bis.htm"><b>Significance of Tangent Weights</b></a></li>
+
+<li><a href="../HWfile/T_HW_KD.htm"><b>Use the Distribution law options</b></a></li>
+
+<li><a href="../HWfile/T_HW_Constraints.htm"><b>Set constraints on Control Points</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

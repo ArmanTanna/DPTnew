@@ -1,0 +1,81 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<title>Trim/Extend Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script> -->
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7029">Trim/Extend</span></p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Trim Extend Surface</b></i> 
+</td>
+ --></tr>
+</table>
+
+
+<p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+313">Trim/Extend Surface</span> command enables you to trim or extend a surface using one of two methods, to be chosen in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list:</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span><br>
+by changing the range of the parameters of the selected <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+132">Surfaces</span> so that the limits of the range differ from the original limits (this mode does not apply to surface boundaries deriving from a trimming operation: in such cases selection is not enabled)</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+57">Tangency</span><br>
+by indicating a numeric value corresponding to the length of the arc to be added to the specified boundary (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+18">Boundary</span>) of the surface while maintaining tangency continuity.</li>
+</ul>
+
+<p>Using the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span> mode, as each surface is described by parametric equations as a function of two parameters, U and V, varying in the range [0,1], if you modify the limits for one or both parameter ranges, you can change the extension of the surface. Thus, if you indicate ranges contained in the original ranges, the surface is trimmed while if you indicate ranges containing the original ranges, the surface is extended according to the new values.</p>
+
+<p>Once you have set the new limits for the parameter ranges, the program reparameterizes the surface (i.e.: it recalculates the parametric equation of the modified surface so that the limits of the U and V parameters are once again 0 and 1). Therefore, surfaces obtained by changing the parameter ranges are not surfaces with parameter limitations and cannot be "reconstructed" using the <a href="T_FW_SurfaceUntrim.htm"><b>Untrim</b></a> command to obtain the original surface again.</p>
+
+<p>Notice that the parametric extent of very flexible NURBS surfaces (i.e., those with a high number of control points) may give rise to unwanted results. Therefore, it is not a good idea to modify the parameters by more than 20%.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
+
+
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
+</tr>
+</table>
+
+
+<!-- <p>In the previous versions it was not possible to trim or extend a surface on its trimmed boundaries when the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list was set to <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span>.</p> -->
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1386">Boundaries</span> drop-down list is available in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+314">Parameter</span> mode: <!-- the value <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+620">Not trimmed</span> gives the same behavior as the previous versions;  -->the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+505">Select</span> value enables you to select any surface boundary. In this  case, the parametric modification of the surface is performed by modifying its trimming loops.</p>
+<div align="center"><img border="1" src="../images/Surface.gif"></div>
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_TrimExtend.htm"><b>Trim or extend a surface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

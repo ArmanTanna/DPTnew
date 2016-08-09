@@ -1,0 +1,72 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Continuity Types</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#FFFFE1" onload="viaMk();HideThreeD();">
+
+
+
+<h4>Continuity Types</h4>
+
+<p>Continuity is the mathematical way to indicate how smooth the flow between two curves <SPAN id="TWOD">or surfaces </SPAN>is. 
+
+<p>The main types of continuity are two:<br>&nbsp;
+<ul class="noleft">
+<li><b>G continuity</b> (<i>geometric continuity</i>)<br>
+To fulfill <a href="#G0">G0 continuity</a>, two curves must join together at an endpoint. To fulfill <a href="#G1">G1 continuity</a>, (using the first derivative) the <i>directions</i> (and only the directions) of the tangent vectors of the two curves at the joint must coincide. G<i>N</i> continuity implies that the <i>N</i>'th derivatives of the two vectors  be equal in direction.<br>&nbsp;</li>
+<li><b>C continuity</b><br>
+To have C1 continuity the two tangent vectors  must be equal in <i>both magnitude and direction</i>. So, C<i>N</i> continuity implies that the N'th derivatives of the two vectors be equal both in magnitude and direction. </li>
+</ul>
+
+<p>Here is a brief description of the main G continuity levels available in <b>think<font color="#FF0F00">3</font></b> applications.</p>
+<ul class="noleft">
+<li><a name="G0"></a><b>G0</b> or <b>Positional</b> continuity.
+<br>Two curves having a common endpoint, with no further condition, are positionally continuous. This is the less smooth type of joint, as the only condition to satisfy is the common endpoint, no matter what the flow of the two curves around the joint may be.<br>&nbsp;
+<li><a name="G1"></a><b>G1</b> or <b>Tangency</b> continuity.
+<br>Two curves having a common point and tangent vectors lying along the same direction are said to have tangency continuity.  The two curves may seem to have the same direction at the joint, but the way they change their direction may still be very different (the rate of this change of direction is called <i>curvature</i>). <br>&nbsp;
+<li><a name="G2"></a><b>G2</b> or <b>Curvature</b> continuity.
+<br>Two curves having a common point, tangent vectors lying along the same direction, and having the same curvature (which is, the same rate of change of the direction) are said to have curvature continuity. The directions at the joint seem to change with the same "speed".<br>&nbsp;
+<li><a name="G3"></a><b>G3</b> or <b>Torsion</b> continuity.<br>
+Two curves satisfying the same conditions as the ones having curvature continuity, and, in addition, having the same constant rate of change of the curvature are said to have G3 or <a href="#torsion">torsion</a> continuity.<br>&nbsp;
+<li><a name="G3.5"></a><b>Smooth curvature</b> continuity.<br>
+Two curves having G3 continuity are said to have <b>Smooth curvature</b> continuity at a joint if there is tangency continuity between the two curvature plots.<br>&nbsp;
+<li><a name="G4"></a><b>G4</b> or <b>Curvature plot curvature</b> continuity.<br>
+Two curves having G3 continuity are said to have G4 continuity at a joint if they have the same rate of change of the rate of change of the curvature, which is the same rate of change of torsion. In this case there is curvature continuity between the two curvature plots.
+</ul>
+
+<hr color="silver">
+<p style="margin-top:3;">(<a name="osculating_plane"></a>*) The <i>osculating plane</i> <font face="Symbol" size="+2"><b>W</b></font> of a curve at one of its points is the plane formed by the principal normal (<b>n</b>) and the tangent to the curve at that point (<b>t</b>).<br><br>
+<span id="TWOD"><img src="../../images/tools/to_07/osculating.gif" border=1><br><br></span>
+</p>
+
+<p>(<a name="torsion"></a>**) <i>Torsion</i> is the rate of change of the osculating plane along a curve and is a measure of the deviation of a curve from a plane.</p>
+
+<hr color="silver">
+</body>
+</html>
+
+

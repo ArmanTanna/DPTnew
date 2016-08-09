@@ -1,0 +1,112 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>think3 to STEP conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>think3 to STEP conversion table</h2>
+
+<p>Here is a general conversion table showing how <b>think<font color="#FF0F00">3</font></b> entities are mapped to the STEP ones when converting a <b>think<font color="#FF0F00">3</font></b> file to the STEP format.</p>
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>think3 entity</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>STEP entity to which it is converted</b></td>
+<td bordercolor="navy" bgcolor="#DCDCDC"><b>AP (Application protocol)</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Point</b></td>
+<td bordercolor="navy">ignored</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Line</b></td>
+<td bordercolor="navy">LINE</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Arc</b></td>
+<td bordercolor="navy">CIRCLE - TRIMMED_CURVE</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Other Curves</b> </td>
+<td bordercolor="navy">TRIMMED_CURVE and B_SPLINE_CURVE_WITH_KNOTS</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Plane</b></td>
+<td bordercolor="navy">PLANE</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Cylinder</b> </td>
+<td bordercolor="navy">CYLINDRICAL_SURFACE</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Trimmed surface</b></td>
+<td bordercolor="navy">CURVE_BOUNDED_SURFACE</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Solid</b></td>
+<td bordercolor="navy">MANIFOLD_SOLID_BREP</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Unit of measure</b></td>
+<td bordercolor="navy">UNCERTAIN_MEASURE_WITH_UNIT</td>
+<td bordercolor="navy"><b>AP203/AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Hierarchy</b></td>
+<td bordercolor="navy">Exploded</td>
+<td bordercolor="navy"><b>&nbsp;</b> </td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Color</b></td>
+<td bordercolor="navy">COLOUR_RGB</td>
+<td bordercolor="navy"><b>AP214</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="navy"><b>Layer</b></td>
+<td bordercolor="navy">PRESENTATION_LAYER_ASSIGNMENT</td>
+<td bordercolor="navy"><b>AP214</b></td>
+</tr>
+
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

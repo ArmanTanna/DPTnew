@@ -1,0 +1,113 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Modifying continuity between two sets of surfaces</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Modifying the continuity between two sets of surfaces</h3>
+<p>After starting the <a  href="../FWfile/T_FW_AdvancedContinuity.htm"><b>Advanced Surface Continuity</b></a> command, proceed as follows (<i>please note that you can follow this step-by-step example by loading file: "SurfaceAdvancedContinuity.e3"</i>).</p>
+<p></p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the chain of surface borders to be modified.
+<br><br><IMG border=1 SRC="../../../images/surfaces/ACS01.gif"><br><br>
+Finally, end selection (by right-clicking and selecting Continue or by clicking on <b>Reference Curves or Surface Boundaries</b>).
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the reference boundaries/curves. 
+<br><br><IMG border=1 SRC="../images/ACS02.gif"><br>&nbsp;
+<ul class="noleft">
+<li>Appropriate handles are available to move both the endpoints of the contour to be modified and the ones of the reference contour. Instead of using the handles, you can type the contour parameter value into the corresponding boxes (<b>U0</b>, <b>U1</b>).
+<li>The <b>Continuity</b> drop-down lists enable you to select the type of continuity to be applied along the selected contours (reference and to be modified) and along the contour marked as <b>Preserving</b>.<br>
+The available types are the following (for a detailed description of the continuity types, see <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a>):
+
+<ul class="noleft">
+<li><b>Free</b>&nbsp;&#151;&nbsp;no continuity condition will be applied (available only along the contour marked as <b>Preserving</b>)</li>
+<li><a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm#G0"><b>Position</b></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm#G1"><b>Tangency</b></a></li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm#G2"><b>Curvature</b></a></li>
+
+</ul>
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Set the continuity condition along the reference contour.
+<br><br><IMG border=1 SRC="../images/ACS03.gif">
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set the continuity condition along the contour to be preserved (marked as <b>Preserving</b>)
+<br><br><IMG border=1 SRC="../images/ACS04.gif">
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click the <b>Preview</b> ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) button to get a preview of the result.
+<br><br><IMG border=1 SRC="../images/ACS05.gif"><br><br>
+The <b>Bulge</b> factor of the resulting surfaces can be set through the appropriate drop-down list under <b>More Options</b>. The higher the bulge factor, the more rounded the shape of the resulting surfaces (<i>see also</i> "<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_BulgeSamples.htm">Examples of the Bulge parameter</a>").
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Number of discontinuities</b>
+<br>
+Please note that when the active parts of the selected contours do not have the same number of tangency discontinuities, a warning is displayed.
+</td></tr></table><br>
+<p></p>
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>
+Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surfaces (the resulting surfaces shown in the illustration below are visible after hiding the original ones). 
+<BR><BR><IMG border=1 SRC="../../../images/surfaces/ACSLAST.gif"><BR><BR>
+Click <font color="black"><img src="../../../images/general/CANCELbutton.gif"> to discard your changes.
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

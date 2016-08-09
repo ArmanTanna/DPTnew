@@ -1,0 +1,97 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<TITLE>Understand Entity Relations Info</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Understanding Entity Relations</i></H3>
+
+<p>It is good practise during the editing phase in any design process, to be aware and understand the consequences of the change being made to any part. The <a  href="../FWfile/T_FW_entity_relations.htm"><b>Entity Relations</b></a> command gives you information on the relations of an entity in the <b>Model Structure</b> with other entities in the structure. Take the example of a Hydraulic gear pump assembly. You will analyze one of the parts that make up this assembly and understand the relations it has with other entities in the <b>Model Structure</b>. The assembly file <i>Assy_pump.e3</i> is available in the <b>../samples/Pump</b> folder of your <b>think<font color="#FF0F00">3</font></b> installation.</p>
+<img src="../../../images/history/Ent_rel1.gif" border="1"><br><br>
+<TABLE>
+
+<TR VALIGN=top>
+
+<TD>Note that the component <b>Housing</b> is an <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><b>External reference</b></a> to the <b>Pump</b> assembly.<br><br>
+
+<ul class="noleft">
+<li>To start the <a  href="../FWfile/T_FW_entity_relations.htm"><b>Entity Relations</b></a> command, right click on <b>Housing</b> in the <b>Model Structure</b> and say <b>Info</b> <img src="../../../images/general/litarr.gif"> <b>Entity Relations</b>.<br>
+It takes few seconds for calculating the relations and a message is shown to that effect.<br>
+The <b>Entity Relations Info</b> dialog comes up as shown.<br><br>
+<img src="../images/Ent_rel2.gif" border="1"><br><br>
+You can get information regarding the component and its relations. Apart from the obvious information like name and entity type that are available, the <b>Show relations</b> option gives more detailed information on the relations under 3 different parameters. The default among these is <b>Quick history</b> as seen.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Quick history</b>
+<br>
+With this selection, you can make a faster search of all relationships of the selected entity, considering components as black box. Only the top level relations in the <b>Model Structure</b> is considered in this mode. This mode will be the default, to make the dialog be accessible as fast as is possible. The relations are presented using two list types <b>Parents</b> and <b>Children</b>.<br><br>
+</td></tr></table><br>
+Note the relations shown.
+<li>Change the <b>Show relations</b> option to read <b>Full history</b>.<br>
+The results are shown after a few seconds as below.<br><br>
+<img src="../images/Ent_rel3.gif" border="1">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Full history</b>
+<br>
+This option allows for a deeper (and thus slower) search of all relationships of the selected entity, where relationships are searched for also inside all the components in the assembly. Here also the relations are presented using two list types <b>Parents</b> and <b>Children</b>.</td></tr></table><br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Compare results</b>
+<br>
+In this case, both the modes give same results. This component <b>Housing</b> has relations only in the top level in the assembly hierarchy and therefore the results are same. Check the entity relations of component <b>Back_plate</b> to see the difference in the results of the two modes.</td></tr></table><br>
+Read the relations.<br>
+This component does not have any history events on which it is dependent. So the <b>Parents</b> list type  is empty.<br>
+The <b>Children</b> list type shows the history events that are dependent on this component. If you click on any of these events, they are highlighted on the screen and can be identified in the <b>Model Structure</b> with an asterisk mark next to it.
+
+<li>Click on the event, <b>Mating 146</b>.<br>
+The <b>Analyze Selection</b> button gets activated.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Analyze Selection</b>
+<br>
+This option enables you to analyze the entity relations of a different entity, selected in one of the list views.</td></tr></table><br>
+<li>Click the <b>Analyze Selection</b> button. The relations of this entity are displayed as shown.<br><br>
+<img src="../images/Ent_rel4.gif" border="1"><br><br>
+The <b>Parents</b> list type displays events this entity is dependent on.<br>
+The <b>Analyze Selection</b> options exits the current command as it essentially shows the relations on another entity than the one on which the command was activated.<br> You have to check the <b>Mating</b> relations of <b>Housing</b>. 
+<li>Start the <a  href="../FWfile/T_FW_entity_relations.htm"><b>Entity Relations</b></a> command again. This time the <b>Show relations</b> drop down menu reads <b>Full history</b>. The program remembers and brings up the previous mode set for this option in the current working session. Change it to read <b>Mating.</b><br>
+After a few seconds, the results are displayed as shown.<br><br>
+<img src="../images/Ent_rel5.gif" border="1"><br><br>
+Note here that all the <b>Mating</b> events that are dependent on this component are displayed in the <b>Referring Constraints</b> list type. You can click on them to see them highlighted on the screen and also in the <b>Model Structure</b>. In addition, you can <b>Redefine</b> them, as the <b>Redefine Selection</b> button activates, provided it is applicable to that entity.<br>
+<li> Click <b>Close</b> to exit the dialog.</ul>
+</TD>
+</TR>
+</TABLE>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a  href="T_HW_Ent_rel_Solid.htm"><b>Entity Relations of Solids and features</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

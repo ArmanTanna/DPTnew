@@ -1,0 +1,170 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Constraining a surface through a set of points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Constraining a surface through a set of points</h3>
+
+<p>In this task you will apply a controlled modification to a surface by applying the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span> constraint of the <a href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command. You can accomplish this task by opening file "ThroughPoints.e3".</p>
+
+
+<p><img border="1" src="../../../images/globalshape/TP00.gif"></p>
+
+<br>
+<br>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command. Under <b>Entities to Be Modified</b>, set <b>Entities</b> to <b>Surfaces</b> and select the surface.<br>
+<br>
+<img border="1" src="../../../images/globalshape/TP01.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Under the <b>Preserving</b> node, in the <b>Preserving</b> drop-down list select <b>Curves</b>. Click on the curves to be preserved: in this case, the surface boundary.<br>
+<br>
+<img border="1" src="../../../images/globalshape/TP02.gif"> <br>
+<br>
+In the <b>Constraint</b> drop-down list, select the constraint to be applied along the curves to be preserved (position, tangency, curvature or projection&nbsp;&#151;&nbsp;to avoid changes along a select direction). In this case, select <b>Keep position</b>.<br>
+<br>
+<img border="1" src="../images/TP03.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Under <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span>, set 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Group 1</b> drop-down list, you can choose the <i>type</i> of points to be selected: 
+
+<table>
+<tr valign="top">
+<td><b>Standalone</b></td>
+<td>Free points.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Points on Surface</b></td>
+<td>Points lying on a surface.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Points on Curve</b></td>
+<td>Points lying on a curve.</td>
+</tr>
+
+<tr valign="top">
+<td><b>ASCII File</b></td>
+<td>Point coordinates to be read in an ASCII file to be selected (for details <i>see</i> &quot;<a  href="../OVfile/T_OV_ASCIIPOINTS.htm">Reading point constraints from an ASCII file</a>&quot;).</td>
+</tr>
+</table>
+
+In this case, choose <b>Standalone</b> and select the points you want the resulting surface to be through. In the <b>Constraint</b> drop-down list which shows up on the model, you can choose the continuity constraints to be applied along the points the resulting surface must be through: position, tangency or curvature. In this case, select <b>Target position</b>.<br>
+<br>
+<img border="1" src="../images/TP04.gif">
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+208">Projection type</span> drop-down list, you can select the projection to be used in the controlled modification: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span></td>
+
+<td>the points will be projected normally onto the surface.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span></td>
+
+<td>the points will be projected onto the surface using a linear projection along a specified direction.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span></td>
+
+<td>the points will be projected onto the surface using a cylindrical projection for which you will have to specify the axis.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span></td>
+
+<td>the points will be projected onto the surface using a spherical projection for which you will have to specify the center.</td>
+</tr>
+</table>
+
+In this case, select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click the <b>Preview</b> button (<img border="0" src="../../../images/general/preview.gif" align="absmiddle">) to assess the result.<br>
+<br>
+<img border="1" src="../../../images/globalshape/TP05.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and modify the shape of the surface.<br>
+<br>
+<img border="1" src="../../../images/globalshape/TP06.gif"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

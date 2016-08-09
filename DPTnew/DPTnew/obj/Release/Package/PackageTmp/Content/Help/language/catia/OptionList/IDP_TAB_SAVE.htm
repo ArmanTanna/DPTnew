@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>TD Catia v4 interface Options: Save Tab</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft { margin-left: 22; margin-top: 0; } 
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3><span class="UI_COMMAND" id="idr_thinkcatia.msg+idr_thinkcatia+6">TD Catia v4 interface Options</span>: <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+19">Save</span> Tab</h3>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+4">Select entities</span><b>:</b></td>
+<td>Determines the <img src="../../../images/company/ThinkDesign.gif" align="middle"> entities that are to be translated: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+5">Wireframe</span>&nbsp;&#151;&nbsp;if selected, all entities corresponding to the CATIA<sup><font size="-1">&reg;</font></sup> Wireframe category will be translated. If cleared, the Wireframe entities will be ignored.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+6">Surfaces</span>&nbsp;&#151;&nbsp;if selected, all entities corresponding to the CATIA<sup><font size="-1">&reg;</font></sup> Surface category will be translated to spline surfaces. If cleared, the Surface entities will be ignored.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+7">Solids</span>&nbsp;&#151;&nbsp;if selected, all entities corresponding to the CATIA<sup><font size="-1">&reg;</font></sup> Solid category will be translated to sets of faces. If cleared, the Solid entities will be ignored.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+20">Save options</span><b>:</b></td>
+<td>Determines the file saving mode: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+21">Active layer only</span>&nbsp;&#151;&nbsp;if selected, only the entities belonging to the active layers of the model will be translated to the CATIA<sup><font size="-1">&reg;</font></sup> model.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+22">Partial</span>&nbsp;&#151;&nbsp;if selected, only the entities currently selected in the model will be translated to the CATIA<sup><font size="-1">&reg;</font></sup> model.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+23">All</span>&nbsp;&#151;&nbsp;if selected, all entities in the model will be translated to the CATIA<sup><font size="-1">&reg;</font></sup> model.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="BezierApprox"></a><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+26">Bezier approximation</span><b>:</b></td>
+<td>Enables you to save <img src="../../../images/company/ThinkDesign.gif" align="middle"> entities as Bezier ones (they are approximated by entities defined by an arc): 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+27">Curves</span>&nbsp;&#151;&nbsp;if selected, curves are translated as Bezier curves.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+28">Surfaces</span>&nbsp;&#151;&nbsp;if selected, surfaces are translated as Bezier surfaces.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+33">Model size</span><b>:</b></td>
+<td>Enables you to define the <i>Model size</i>, a parameter that CATIA<sup><font size="-1">&reg;</font></sup> uses to determine the tolerances in calculations; if not correctly set, the solids loaded into CATIA<sup><font size="-1">&reg;</font></sup> may not be closed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+34">Automatic calculation</span>&nbsp;&#151;&nbsp;if selected, the application analyzes the surface related precision of all surface entities, then calculates the model size from the resulting tolerance value.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+32">Value</span>&nbsp;&#151;&nbsp;enter in the relevant field the model size. Clear <b>Automatic calculation</b>, if selected, and use this option if you need to impose a Model size coherent with other CATIA<sup><font size="-1">&reg;</font></sup> files.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+31">Solid options</span><b>:</b></td>
+<td>Enables you to save solid entities as solids: 
+
+<ul class="noleft">
+<li><a name="CreateVolume"></a><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+30">Create volume</span>&nbsp;&#151;&nbsp;if selected, solid entities are saved as solids and not as single surfaces.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+37">Code page</span><b>:</b></td>
+<td>Enables you to set the text code page: 
+
+<ul class="noleft">
+<li>Select from the drop-down list the graphic character set to be used for coding the output file.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" style="margin-bottom:10;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Since CATIA<sup><font size="-1">&reg;</font></sup> doesn't manage closed surfaces, a closed surface is split into two surfaces, as in the case of a cylinder within a solid.<br>
+Entities not correctly converted are moved to layer 1023.<br>
+See <a href="../OVfile/ce20_01_td.htm">Exporting a model to CATIA</a> for further details.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/ce20_01_td.htm"><b>Conversion Table for exporting to CATIA</b></a></li>
+
+<li><a href="../FWfile/T_FW_td2CATIA.htm"><b>Exporting to CATIA Model</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

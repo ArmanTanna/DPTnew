@@ -1,0 +1,144 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Adding Edge rip to a shelled solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Adding Edge rips to a shelled solid</h3>
+
+<p>The <a href="../FWfile/T_FW_Rip.htm"><span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+6922">Edge Rip</span></a> command enables you to create rips on the selected edges of solid with constant thickness, as shown in the images below.</p>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/sheetmetal/rip01.gif" alt="" width="250" height="150" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif" alt="" width="29" height="24" border="0"></td>
+<td><img src="../../../images/sheetmetal/Edge_Rip_2.gif" alt="" width="250" height="150" border="1"> </td>
+</tr>
+</table>
+
+<p>Proceed as follows to obtain the required results:</p>
+
+<ol class="noleft">
+<li>Select the edges along which you want to create rips (no matter whether you select the inner or the outer edge), as shown in the image below. As soon as the first edge is selected, the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list is displayed.<br><br></li>
+
+
+<img border="1" src="../images/rip01.gif"><br>
+<br>
+
+<li>There are three options in the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list. Ensure that the 
+<span class="UI_COMMAND" id="tdesign.msg+_SM_GUI_LABEL_+55">Symmetric</span> option is selected in it.<br>
+
+<br>
+</li>
+
+<li>The current gap value (defined in the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+108">Gap</span> edit box of the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL_DETAILS.htm"><b>Rip/Corner</b></a> of the 
+<span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span>-
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span>-
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+490">Rip/Corner</span> category) is applied when creating the rip. To apply a different gap value:<br>
+
+<br>
+ 
+
+<ol class="noleft">
+<li>Click on <span class="UI_COMMAND" id="tdesign.msg+_SM_GUI_LABEL_+12">Local Properties</span>. The 
+<span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+108">Gap</span> edit box will be displayed.<br>
+
+<br>
+</li>
+
+<li>Click on the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+108">Gap</span> lock icon.<br>
+
+<br>
+</li>
+
+<li>Enter <b>0.6</b> in the edit box.<br>
+<br>
+</li>
+</ol>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections to create the rips, as shown in the image below.<br>
+<br>
+ <img src="../../../images/sheetmetal/Edge_Rip_2.gif" alt="" width="250" height="150" border="1"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard the changes.</li>
+</ol>
+
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td><b>Type</b></td>
+<td><b>Description</b></td>
+<td><b>Results in Bottom View</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="tdesign.msg+_SM_GUI_LABEL_+55">Symmetric</span></td>
+
+<td>the two adjacent parts are cut along the line connecting the inner and the outer edge and placed symmetrically about that line.</td>
+<td><img src="../../../images/sheetmetal/symmetric.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="tdesign.msg+_SM_GUI_LABEL_+54">Full</span></td>
+
+<td>the two adjacent parts are cut along one of their two possible common faces. You can select which of the two by clicking an arrow identifying the cut direction.</td>
+<td><img src="../../../images/sheetmetal/full.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+56">Middle</span></td>
+
+<td>the two adjacent parts are cut along one of their two possible common faces&nbsp;&#151;&nbsp;you can select which of two the by clicking an arrow identifying the cut direction&nbsp;&#151;&nbsp;and aligned along the middle axis of the selected one.</td>
+<td><img border="1" src="../../../images/sheetmetal/middle.gif"></td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+If the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> you chose is 
+<span class="UI_COMMAND" id="tdesign.msg+_SM_GUI_LABEL_+54">Full</span> or 
+<span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+56">Middle</span>, take a look at the arrows displaying the cut direction and click on them in the case you want to invert it.<br>
+
+<br>
+<img src="../../../images/sheetmetal/Edge_Rip_3.gif" alt="" width="250" height="150" border="1"> </td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Also Try to...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_Rip_Curve.htm"><b>Add rips to the curved surface</b></a></li>
+
+<li><a href="T_HW_Vertex_Rip.htm"><b>Add Vertex rip to a solid</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

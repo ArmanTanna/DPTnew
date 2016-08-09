@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Managing the Section Planes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Managing the Section Planes</h3>
+
+<p>During the application of the <a href="../FWfile/T_FW_SpinedTwist.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span></a> command, multiple <i>section planes</i> are generated over the part to define the twist. The <i>section planes</i> are of circular form and their limits are defined by the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5530">Max. radius</span> (outside radius) and <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5527">Min. radius</span> (inside radius) values.<br>
+<br>
+<img src="../../../images/globalshape/section_plane-1.gif" border="1"><br>
+<br>
+By default, the preview of the section planes are not displayed. The preview needs to be activated by selecting the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5531">Show preview</span> check box in the <a href="T_OV_adv_option_sp_twist.htm"><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span></a> dialog box. In this dialog box, you can also do the global settings to define the <i>section plane</i> size and their number of instances to be present on the spine curve.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The twisting action of the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command is applied in the zone lying in-between the section plane limits. In the zone outside <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5530">Max. radius</span> and inside <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5527">Min. radius</span>, the standard GSM modifications are applied to modify the surface in an even manner.</td>
+</tr>
+</table>
+
+<p>It is also possible to individually define the section plane limits by editing them explicitly. To do so, right-click at the section plane handle (red dot on the spine curve) and select <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5555">Show Section Options</span> from the context menu. The radius values of that <i>section plane</i> are now editable.<br>
+<br>
+<img src="../images/section_plane-2.gif" border="1"><br>
+<br>
+You can use the mini-dialog boxes to specify the radius values or drag the respective handles to modify them dynamically. The <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5550">Max. radius</span> value (in the mini-dialog box) can range between the specified <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5551">Min. radius</span> (in the mini-dialog box) and <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5530">Max. radius</span> set in the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> dialog box. The <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5551">Min. radius</span> value can range between <b>0</b> and <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5530">Max. radius</span>.</p>
+
+<p>By default all the <i>section planes</i> are placed equidistant from each other. However, they can be individually moved to the required location just by dragging the section plane handle.</p>
+
+<hr color="silver">
+
+<h5>Related topic</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_sec_direction_sp_twist.htm"><b>Orientating the <i>Section Planes</i></b></a></li>
+<li><a href="T_OV_adv_option_sp_twist.htm"><b>Advanced Options of the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> Command</b></a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>
+

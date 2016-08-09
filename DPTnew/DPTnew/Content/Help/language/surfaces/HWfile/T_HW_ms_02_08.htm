@@ -1,0 +1,202 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Edit Control Points (Surfaces)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../../JSandSTYLES/Frames.js">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();ResizeIFrame1();ResizeIFrame20();ResizeIFrame21();ResizeIFrame22();">
+
+<h2>Edit Control Points</h2>
+
+<p class="notop">The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_SPEECH_+57">Edit Control Points</span> mode of the <a href="../FWfile/T_FW_ms_08.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> command enables you to modify the position of the selected control points.</p>
+
+<p>Proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>If not already selected, in the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list select <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_SPEECH_+57">Edit Control Points</span>.<br>
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td><a name="CPSELECT"></a><i>Select the control points</i> (by clicking or using a window/lasso selection).<br>
+<br>
+<img border="1" src="../../../images/surfaces/MPC01.gif"><br>
+<br>
+<ul class="noleft">
+<li>To select all the control points that define a "rectangle" in the mesh, hold down the <b>SHIFT</b> key while selecting the control points corresponding to the first and the last vertex.<br>
+<br>
+<img border="1" src="../../../images/surfaces/MPC02.gif"><br>
+&nbsp;</li>
+
+<li>The selection of an entire "row" of control points is very simple. In fact, you just need to click on the one of the two dotted "lines" of the polygon mesh along the direction of which you want to select the points. You can proceed as follows:<br>
+There are two lines of the polygon mesh intersecting just below the position of the cursor. If you click on any position along the line of the polygon mesh above or below the point:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP02.jpg"><br>
+<br>
+all the "vertical" row of control points will be selected:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP03.jpg"><br>
+<br>
+Similarly, if you click on any position along the line on the left or on the right of the point:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP04.jpg"><br>
+<br>
+all the "horizontal" row will be selected.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP05.jpg"><br>
+<br>
+<br>
+Alternatively, you can hold down the <b>SHIFT</b> key while selecting the control points corresponding to the first and the last end point.<br>
+<br>
+<img border="1" src="../../../images/surfaces/MPC03.gif"><br>
+<br>
+&nbsp;</li>
+
+<li>To deselect a selected point, click on it while holding down the <b>CTRL</b> key.<br>
+Additional control points can be added to the currently selected ones by picking the control point to be added while pressing the <b>CTRL</b> key of the keyboard.</li>
+</ul>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><i>Move the selected points</i>. You can move control points in one of the following ways:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li><i>By steps</i><br>
+<a name="CTX_SRF_STEP"></a> <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../curves/mc_01/jsoptions/MCP_STEP.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe><br>
+&nbsp;</li>
+
+<li><i>By dragging the control point</i> to another location using the mouse and then clicking the mouse button to fix it at the new location.<br>
+<br>
+Using some keys of the keyboard, you can constrain points to move along the direction of an axis. Proceed as follows: 
+
+<ul class="noleft">
+<li>While dragging the points (<i>after</i> you've pressed the selection button of the mouse), click one of the following keys (no matter whether upper or lower case): 
+
+<table>
+<tr valign="top">
+<td width="30"><b>H</b></td>
+<td>to constrain points to move along the horizontal direction of the screen</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>V</b></td>
+<td>to constrain points to move along the vertical direction of the screen</td>
+</tr>
+
+<tr valign="top">
+<td width="30" valign="top"><b>D</b></td>
+<td>to constrain points to move along the depth direction (the one perpendicular to the plane of the screen). 
+
+<ul class="noleft">
+<li>The distance points will be moved along the depth axis is the same as the one you moved the mouse from the original position along the horizontal axis.</li>
+
+<li>If you move the mouse to right, the points will be moved in the positive depth sense (outward from the screen); if you move the mouse to the left, the points will be moved in the negative sense (inward to the screen).</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>X</b></td>
+<td>to constrain points to move along the X direction of the Work Plane</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>Y</b></td>
+<td>to constrain points to move along the Y direction of the Work Plane</td>
+</tr>
+
+<tr>
+<td valign="top" width="30"><b>W</b></td>
+<td>to constrain points to move along the Z direction of the Work Plane.</td>
+</tr>
+</table>
+</li>
+
+<li>To release the constraint, release the selection button of the mouse. Click another of the above listed keys to change the constraint.</li>
+</ul>
+
+<br>
+<br>
+<a name="CTX_SRF_Magnet"></a> <iframe id="MyIframe1" name="MyIframe1" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../curves/mc_01/jsoptions/MCP_Magnet.htm" onload="viaMk();ResizeIFrame1()" scrolling="no"></iframe><br>
+&nbsp;<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Undoing control point movements</b><br>
+<iframe id="MyIframe20" name="MyIframe20" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../curves/mc_01/jsoptions/InternalUndoRedo.htm" onload="viaMk();ResizeIFrame20()" scrolling="no"></iframe> </td>
+</tr>
+</table>
+
+<br>
+&nbsp;<br>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td><a name="CTX_WEIGHTS_SRF"></a> <iframe id="MyIframe21" name="MyIframe21" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../../curves/mc_01/jsoptions/MCP_Weights.htm" onload="viaMk();ResizeIFrame21()" scrolling="no"></iframe> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>As soon as you double-click on an empty position of the graphics area the change is applied.</td>
+</tr>
+</table>
+
+<p><iframe id="MyIframe22" name="MyIframe22" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/IncreaseDegree.htm" onload="viaMk();ResizeIFrame22()" scrolling="no"></iframe></p>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_Lasso.htm"><b>The Lasso selection method</b></a></li>
+
+<li><a href="T_HW_Constraints.htm"><b>Setting constraints on Control Points</b></a></li>
+
+<li><a href="T_HW_ms_02_08_Continuity.htm"><b>Controlling Surface Continuity</b></a></li>
+
+<li><a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

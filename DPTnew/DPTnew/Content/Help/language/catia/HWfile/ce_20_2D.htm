@@ -1,0 +1,57 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Job: Importing Drawing From CATIA</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;margin-top:0;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Importing Drawing From CATIA</h3>
+
+<p>Starting from a CATIA<sup><font size="-1">&reg;</font></sup> file containing 2D entities, the <a href="../FWfile/T_FW_CATIA2td.htm"><b>From CATIA to <img src="../../../images/company/ThinkDesign_LinkTo.gif" align="absmiddle" border="0"></b></a> command enables you to import them.</p>
+
+<p>Note that when the CATIA<sup><font size="-1">&reg;</font></sup> file is created working with transparency in AuxView and AuxView 2, the CATIA<sup><font size="-1">&reg;</font></sup>entities can't be imported. However, when the file is created working with Draw Elements, they can be imported.</p>
+
+<p>To convert the CATIA<sup><font size="-1">&reg;</font></sup> 2D entities included in a file to a drawing, proceed as follows:</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/ce20_03.htm"><span class="UI_COMMAND" id="idr_thinkcatia.msg+idr_thinkcatia+6">TD Catia v4 interface Options</span></a> to display the <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+1">TD Catia v4 interface Options</span> dialog box and access the <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+18">Load</span> tab.<br><br></li>
+
+<li>In the <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+4">Select entities</span> area, select the <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+16">Drawing</span> check box and clear the <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+29">Model</span> check box.<br><br></li>
+
+<li>Click <span class="UI_COMMAND" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+2">OK</span> to save the settings.<br><br></li>
+
+<li>Click the <a href="../FWfile/T_FW_CATIA2td.htm"><b>From CATIA to <img src="../../../images/company/ThinkDesign_LinkTo.gif" align="absmiddle" border="0"></b></a> command. Selecting the command having open a new model window doesn't affect its running, while if you start the command having an open drawing window in the client area, a warning message is displayed, that the layout environment is still active and you have to close it or switch to model.<br><br></li>
+
+<li>In the <b>Look in</b> box of the file selection box that displays, select the folder where the file to open is located.<br><br></li>
+
+<li>To help identify quickly the file to open, make sure that <b>Files of type</b> contains <b>CATIA<sup><font size="-1">&reg;</font></sup> Model or export (*.model, *.dlv, *.exp)</b>.<br><br></li>
+
+<li>Select the file you want to open then click the <b>Open</b> button.<br><br></li>
+
+<li>The  converted CATIA<sup><font size="-1">&reg;</font></sup> entities are displayed in a new window.</li>
+</ol>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/ce20_01_2D.htm"><b>Conversion Table for importing from CATIA (2d entities)</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

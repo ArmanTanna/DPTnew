@@ -1,0 +1,216 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Using the Proximity Radius, Manual Repair and Advanced Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Using the Proximity Radius, Manual Repair and Advanced Options</h2>
+<p class="notop">The following options are available under <b>More Options</b> in the <a href="../FWfile/T_FW_TrimWithLimits.htm"><b>Trim Surface with Limits</b></a> command:</p>
+
+<ul class="noleft">
+<li><a href="#ProximityRadius"><b>Proximity Radius</b></a></li>
+
+<li><a href="#ManualOverride"><b>Manual Repair</b></a></li>
+
+<li><a href="#AdvancedOptions"><b>Advanced Options</b></a></li>
+</ul>
+
+<p>For a general description about the cases when these options can be useful, see "<a href="../OVfile/T_OV_TrimWithLimits.htm">Trimming with healing</a>".</p>
+
+<h5><a name="ProximityRadius"></a>Proximity Radius</h5>
+
+<hr color="silver">
+<p class="notop">The program looks for free end points in the chain. If it finds some, then it sorts them into groups based on a tolerance value depending on the <b>Mode</b> chosen under <b>Proximity Radius</b>.<br>
+</p>
+
+<table>
+<tr valign="top">
+<td><b>Automatic</b></td>
+<td>Any open gap between free endpoints will be automatically closed by the program if the distance between the points is small enough to make it reasonable&nbsp;&#151;&nbsp;in most situations&nbsp;&#151;&nbsp;for you to expect the two points to be considered coincident.<br>
+However, the tolerance used by the program&nbsp;&#151;&nbsp;that is: the minimum distance under which the gap between two free endpoints will be closed&nbsp;&#151;&nbsp;is the value corresponding to the <a href="#ParameterDomain"><b>Parameter Domain (%)</b></a> you can set under <b>Advanced Options</b>.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Manual</b></td>
+<td>Only gaps where the points have a distance smaller than the <b>Proximity Value</b> from each other will be closed. Set the <b>Proximity Value</b> which best matches your needs depending on the specific situation.</td>
+</tr>
+</table>
+
+<h5><a name="ManualOverride"></a>Manual Repair</h5>
+
+<hr color="silver">
+<p class="notop">There can be special cases where you might want to make a local repair of the work that the system has done. In this case the options in <b>Manual Repair</b> have been provided.</p>
+
+<p>In the <b>Mode</b> drop-down list, you can select one of the following methods.</p>
+
+<table>
+<tr valign="top">
+<td><b>Remove manual constraints</b></td>
+<td>Enables you to "cleanup" the constraints that you have imposed on the healing algorithm and later decided you don't want. Since the code remembers that you have made a special association between some free end points, the automatic (or system) healing ignores these points. By removing the association the system is allowed to include these points in the process again.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="IDE"></a><b>Ignore dead ends</b></td>
+<td>A free endpoint with a manual assignment is ignored by the automatic processing. This option enables you to specify that you want the system to ignore a particular free-end and process without it.<br>
+In the following model, for example, you have set a manual condition on the point indicated by the arrow, but now you have changed your mind and want to ignore it.<br>
+<br>
+<img border="1" src="../images/IDE01.gif"><br>
+<br>
+ With this goal, you proceed as follows: 
+
+<ol class="litleft">
+<li>Set <b>Mode</b> to <b>Ignore dead ends</b>. The <b>Ignore selected dead ends</b> item shows up in the selection list.<br>
+<br>
+<img border="1" src="../images/IDE02.gif"><br>
+&nbsp;</li>
+
+<li>Select the dead end you want the program to ignore.<br>
+<br>
+<img border="1" src="../images/IDE03.gif"><br>
+&nbsp;</li>
+
+<li>Now select the region to be kept by clicking as shown in the following illustration.<br>
+<br>
+<img border="1" src="../images/IDE04.gif"><br>
+&nbsp;</li>
+
+<li>If you apply the command, you will see the dead end you told the program to ignore has actually not been taken into account when trimming.<br>
+<br>
+<img border="1" src="../../../images/surfaces/IDE05.gif"><br>
+&nbsp;</li>
+</ol>
+
+In general, therefore, the <b>Ignore dead ends</b> option can be useful when the automatic healing needs to be replaced by a special method (blend, etc.), or when there are say 3 free points in a particular area and rather than control how they can be joined based on tolerances, one is just to be ignored.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Join dead ends</b></td>
+<td>Enables you to simply make pair wise selections of 2 free-end points to associate with each other and thus force the system to close the selected gaps. Once you have selected this option: 
+
+<ol class="litleft">
+<li>The <b>1st Point to Connect</b> optional selector is displayed in the selection list. Click on the point to connect<br>
+<br>
+<img border="1" src="../../../images/surfaces/STCL-00.gif"><br>
+&nbsp;</li>
+
+<li>Note that you can also force a connection to the surface boundary, by clicking <b>Surface Boundary Edge to Connect</b> in the selection list and then by selecting a surface edge:<br>
+<br>
+<img border="1" src="../../../images/surfaces/STCL-02.gif"><br>
+&nbsp;</li>
+
+<li>Once the edge has been selected, the <b>U</b> mini-dialog box/handle pair is displayed on the surface edge, enabling you to move the connection point along the surface boundary either by interactively dragging the handle or by supplying the parameter value corresponding to the point to be connected.<br>
+<br>
+<img border="1" src="../../../images/surfaces/STCL-04.gif"><br>
+&nbsp;</li>
+
+<li>You can control the way the connection is created by choosing the proper option in the <b>Fill Gap With</b> drop-down list: 
+
+<table>
+<tr valign="top">
+<td><b>Linear connection</b></td>
+<td>the connection is a line, which only ensures positional continuity with the curves to be joined at the connection points.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Extended curve</b></td>
+<td>the connection has tangency continuity with the curves to be joined at the connection points.</td>
+</tr>
+</table>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note on associations</b> <br>
+When making associations between free-end points you should avoid creating a segment which crosses existing trim edges. This can cause invalid trim regions to be created.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Point markers can help you</b> <br>
+Note that a circular marker will be displayed at each free endpoint pair within the required proximity tolerance, so that the two points will be joined.<br>
+<br>
+<img border="1" src="../../../images/surfaces/STCL-markers01.gif"><br>
+<br>
+On the contrary, if the points are outside the tolerance limits, and they will not be joined, a cross marker will be displayed on them.<br>
+<br>
+<img border="1" src="../../../images/surfaces/STCL-markers00.gif"> </td>
+</tr>
+</table>
+
+<br>
+ 
+
+<h5><a name="AdvancedOptions"></a>Advanced Options</h5>
+
+<hr color="silver">
+<p class="notop">The following options are ignored if you are using the <a href="#ManualOverride"><b>Manual Repair</b></a> options.</p>
+
+<table>
+<tr valign="top">
+<td><b>Parallelism Tolerance</b></td>
+<td>One of the typical types of problems in trimming is where there are overlapping segments. In this case the program has to determine if they are really overlapping or the free-end points are just close to the other segment. One of the parameters the program uses is a test for parallelism and this tolerance is used as the limit of what the program considers to be parallel segments. Over the span of the overlapping regions, the tangents of both segments must be within the <a href="#ProximityRadius"><b>Proximity Radius</b></a> and  the parallelism tolerance as well.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="ParameterDomain"></a><b>Parameter Domain (%)</b></td>
+<td>This tolerance represents the maximum step that can be taken to close the gap on the surface. It is given as a percentage of the parameter domain, when the chosen <b>Mode</b> is <b>Automatic</b>.<br>
+This parameter is used to help the program manage the range of space tolerances for a variety of surface sizes. For example if we have the door panel of a car and a surface defining the molding on the door, they have very different sizes. In one case you might be happy closing a gap of 0.1mm automatically on the door, but this 0.1mm might step completely across a feature on the molding. Another example is a closed surface that could have a gap at the close edge of the surfaces. In this case we could be associating 2 points that are "close" in the range but are on opposite sides of the surface from each other.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Reset</b></td>
+<td>Enables you to reset the values back to the ones considered to be normal values. It is only active once either of these <b>Advanced Options</b> is changed.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

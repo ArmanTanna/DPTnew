@@ -1,0 +1,69 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Show discontinuities</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../../../JSandSTYLES/OPTIONS.css" rel="stylesheet" type="text/css">
+<meta name="Options" content="StaticVSDynamic">
+
+<style>
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+blockquote{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFE1">
+
+<p>Tessellation takes into account also cusps, and cusps are visible also when the model representation is shaded. In addition, the isoparametric curve visualization can be activated also for arc joints.</p>
+
+<ul class="noleft">
+<li>When the check box is selected, isoparametric curves on surfaces are displayed for each discontinuity (cusps or arc joints) (in wireframe mode) and the tessellation is also taking into account the cusps (in shaded mode). In this case <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+430">No. of isoparametric curves</span> applies between each discontinuity and/or surface border pair rather than to surface borders only.
+
+<br><br><img border="1" src="../../../../../images/surfaces/DISC_ARCJOINTS.gif"><br><br>
+No additional isoparametric curve corresponding to arc joints will be displayed if you selected <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1409+1">Cusps</span>.
+
+<br><br><img border="1" src="../../../../../images/surfaces/DISC_CUSP.gif">.<br>&nbsp;</li>
+<li>When not selected, isoparametric curves related to cusps are not displayed.
+<br><br><img border="1" src="../../../../../images/surfaces/DISC_NO.gif"></li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><b>About tessellation</b> <br>
+Please note that when you open a model that was saved using a version prior to 2005.1, the applied tessellation parameters are the <i>current ones</i>, that is the ones that will be applied to all newly created entities.<br>
+<br>
+<b>Behavior on multiple selection</b><br>
+Also note what follows: 
+
+<ul class="noleft">
+<li class="ver9">If the values of the tessellation parameters are the same for all the selected entities, then the values displayed in the category page are the ones common to the selected entities.</li>
+<li class="ver9">On the contrary, if the selected entities have different values for the tessellation parameters, the default document values are displayed instead.</li>
+</ul>
+</td>
+</tr>
+</table>
+<br>
+
+<p>Once you have changed the status of this check box, click <a href="../../../../format/properties/curvessurfaces/jsoptions/ApplyChanges.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1236">Apply Changes</span></a> to udpate the visualization of the selected surface.</p>
+
+
+<hr color="navy">
+<table align="center">
+<td ><a  href="../../IDPP_ATT_PARVIS.htm"><img border=0 src="../../../../../images/general/FromPopupToMain.gif" alt="Up to Category Page"></a></td>
+</tr>
+</table>
+</BODY>
+</HTML>
+

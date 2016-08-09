@@ -1,0 +1,108 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Symmetry constraint</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6826">Profile</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint command enables you to constrain two sets of entities in a <a href="T_FW_sk_01.htm">2D profile</a> so that they are symmetric to each other with respect to a symmetry axis.</p>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint requires that the entities be input as 3 groups&nbsp;&#151; <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+69">First Group</span>, <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+70">Second Group</span> and the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+68">Axis Line</span>. So when you apply the constraint you are making the first group of entities to be symmetric to the second group with the symmetry axis being the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+68">Axis Line</span>. You can select more than one entity for a group. The program adds the <img src="../../../images/sketcher/Symmetry.gif" border="0"> identifier for symmetric entities.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+You must make sure to select <i>equal number</i> and <i>similar</i> entities for both the groups. For example, if you select 2 circles and a line for the first group you will have to select another 2 circles and a different line as the second group entities. In fact, the individual entities of each set are constrained to have the same length/radii.</td>
+</tr>
+</table>
+
+<p>Click <a href="../HWfile/T_HW_symmtry.htm">here</a> to try these simple steps for a quick introduction to the command.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+In the profile mode if you use the <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr2.gif" align="absbottom"> <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+5892">Mirror</span> command with <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+4">Copy</span> option selected, the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint will be applied automatically to those entities.</td>
+</tr>
+</table>
+
+<h4>Sense of Symmetry</h4>
+
+<p>When you select an entity for the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint, the command gives a visual feedback of the selected entities by marking them with consecutive numbers, while an arrowhead shows the sense of direction of the starting entity. The entities with same numbers on both the groups will be made symmetric to each other following the &ldquo;sense&rdquo; of the symmetry given by the arrowhead.</p>
+
+<p>An arrowhead is shown for the entity based on the direction it was created. For example, if you draw a line from top of the screen towards bottom, the arrowhead will also be pointing downwards.</p>
+
+<br>
+<img src="../../../images/sketcher/symm_arrow_down.gif" border="1"> <br>
+ 
+
+<p>Similarly for an arc, the arrowhead will represent the sense of rotation&nbsp;&#151;from where to where the arc is drawn. In the following image the arc was drawn from bottom to top.</p>
+
+<br>
+<img src="../../../images/sketcher/symm_arc_down.gif" border="1"> <br>
+ 
+
+<p>When a set of entities is selected, only one arrowhead is displayed for each "connected" entities. This is explained in the following image. Note that each connected entities on each groups (on the left and right side of the red line, the axis) has only one arrowhead. This is true even for an arc and line connected to each other (entities marked 5 and 4). Independent entities have their own arrowheads (entity 3 on both groups).</p>
+
+<br>
+<img src="../../../images/sketcher/symm_group_down.gif" border="1"> <br>
+ 
+
+<p>You can invert the default sense of the entity by double-clicking on the arrowhead for the entity. Click <a href="../HWfile/T_HW_symmtry.htm#sense">here</a> to try these simple steps that explain the behavior of the "sense" of symmetry.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_sk_00.htm"><b>Profiles</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_02.htm"><b>Rules for building a profile</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_01.htm"><b>How to create a profile</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_03.htm"><b>What are reference curves</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_04.htm"><b>What are external entities</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_05.htm"><b>Dimensional and geometrical constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_symmtry.htm"><b>Use the Symmetry constraint</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_ov_prof_tipntricks.htm"><b>Profile environment: Tips and Tricks</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Profiles</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

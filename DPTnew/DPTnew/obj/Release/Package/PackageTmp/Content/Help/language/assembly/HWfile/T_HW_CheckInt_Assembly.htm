@@ -1,0 +1,197 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Job: Checking interferences in an assembly</title>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>blockquote
+	{margin-top:0; margin-left:22;
+	margin-bottom:0; margin-right:0;}
+</style>
+<style>	.jjj
+	{
+		text-align : justify;
+	}
+</style>
+<style>.subtitle
+	{font-family: Verdana; 
+	font-size: 10.5pt; 
+	font-weight: bold;
+	margin-bottom:0; }
+</style>
+<style>.littop
+{margin-top:5;
+margin-bottom:5}
+</style>
+<style>.smallerfont
+	{font-family: Verdana; 
+	font-size: 8.5pt; }
+</style>
+<style>.h1like
+	{font-family: Verdana; 
+	font-size: 16pt;
+	font-weight: bold; }
+</style>
+<style> .nobot
+{
+margin-bottom: 0;
+}
+</style>
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+<style> .smaller
+{
+font-family:Verdana;
+font-size:9pt;
+}
+</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4 class="nobot">Checking interferences in an assembly</h4>
+
+<p>Suppose you wish to check interferences among some parts of the assembly shown in the following illustration </p>
+
+<p><IMG border=1 SRC="../../../images/assembly/assembly.gif"></p>
+where you move the blue driving ring along its axis.
+
+<p>The model related to this job is <em>check_interferences.e3</em>, available in the <i>samples</i> folder.</p>
+
+<p>After starting the <a href="../FWfile/T_FW_CheckInterferences.htm"><b>Check Interferences</b></a> command, proceed as follows:</p>
+
+
+<p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the first group of components.</p>
+
+<p><IMG border=1 SRC="../../../images/assembly/CheckInt01.gif"></p>
+
+<p>
+The selection list updates as shown.</p>
+<p><IMG border=1 SRC="../images/CheckInt02.gif"></p>
+<p></td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>You can now add one or more parts to the group of components/solids currently selected (Group 1) or select Group 2 and add the next part(s) to this group. Suppose you choose this last possibility and select the driving ring.</p>
+<p><IMG border=1 SRC="../../../images/assembly/CheckInt03.gif"></p>
+
+<p>The selection list updates as shown, that is another line is created to select an additional component/solid group, if required and the <strong>Check mode</strong> option is displayed.</p>
+<p><IMG border=1 SRC="../images/CheckInt04.gif"></p>
+<p>
+The <strong>Check mode</strong> option enables you to define the interference check modality by selecting one of the following options in the drop-down list:
+<ul>
+<li><strong>Among groups</strong>&nbsp;&#151;&nbsp;calculates interferences among groups
+<li><strong>Inside groups</strong>&nbsp;&#151;&nbsp;calculates interferences inside groups.</li>
+</ul>
+<p>
+See <a href="T_HW_CheckInt_AmongInside.htm"><b>Checking interferences among or inside groups</b></a> for more information.</p>
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Suppose you've ended your selection and require the interference check. <br>Click <img src="../../../images/general/Computebutton.gif" border="0"></a> (<b>Compute</b>). The solids/components involved in the interference are highlighted. The highlight of the interferring parts is based on the kind of selection filter that is set (Components if the filter is set to Component, Solids if set to Solid. Also you can activate selection of solids inside components). </p>
+
+<p>
+Also a dialog box with the results is displayed. This dialog box includes two tabs, <strong>By Entities</strong> and <strong>By Interferences</strong>, which show the tree views of the interference results, grouped by entities/interferences. Expanding the tree, more information can be retrieved. When you select an item in the tree views, all colliding faces of the selected objects in the Graphics Area are displayed depending upon Display option.</p> 
+
+<p><IMG border=1 SRC="../images/CheckInt_IntRes3.gif"></p>
+<p>
+The dialog box also includes the following options/buttons:
+
+<p>
+<table>
+<tr valign="top">
+<td width="30"></td>
+<td width=160><b>Interferences between threads</b></td>
+<td width=360>When selected, results display also interferences involving objects with some colliding threaded faces (i.e. a threaded screw correctly placed in a threaded hole). When not selected, results exclude these interferences. Make sure that significant interferences are not excluded (i.e. a threaded screw placed too deep in a threaded hole, so that the round-head and the base solid are intersected).</td>
+</tr>
+
+<tr valign="top">
+<td><IMG SRC="../../../images/file/Save_icon.gif"></td>
+<td><b>Save Interference Results</b></td>
+<td width=350>Enables you to save the interference results (by entities or by interferences) to a txt file</td>
+</tr>
+<tr valign="top">
+<td><IMG SRC="../../../images/assembly/CreateIntSolids_icon.gif"></td>
+<td><b>Create Interference Solid(s)</b></td>
+<td>Click to automatically create interference solids of the selected item</td>
+</tr>
+<tr valign="top">
+<td><IMG SRC="../../../images/assembly/CreateVB_icon.gif"></td>
+<td><b>Create Visual Bookmark(s)</b></td>
+<td>Click to automatically create Visual Bookmarks, based on the selected item, showing the single interference(s) and the original view</td>
+</tr>
+<tr valign="top">
+<td></td>
+<td width=160><b>Display</b></td>
+<td width=360><b>Highlight</b>- This option highlights the interfering faces of the parts (Solids or components) selected.<br>
+<b>Highlight & fit</b>- This option fits the highlighted interfering faces of the entities centrally to the Graphics Area. In the process, it hides all the other entities in the assembly that are not a part of the interference selected.<br>
+<b>Interference Solid</b>- This option shows the interfering volume in current color along with the bounding box. It also makes the interfering entities (solids or components) transparent and hides all the other entities in the assembly that are not a part of the interference selected.<br>
+<b>Interference solid & fit</b>- This option centrally fits the highlighted interfering faces in the Graphics Area in addition to the result generated by the <b>Interference solid</b> option.
+</td>
+</tr>
+</table>
+</p>
+
+
+<p>See <a href="T_HW_CheckInt_CreateIntSolids.htm"><b>Creating interference solids</b></a> and <a href="T_HW_CheckInt_CreateVB.htm"><b>Creating Visual Bookmarks showing interferences</b></a> for more information.</p>
+
+<p>If you wish to introduce a tolerance value, you can enter it from the <strong>Minimum Distance</strong> option (available when expanding <strong>More Options</strong>), enabling you to set a minimum distance between the objects so that when their distance is less than this value the objects are considered to be colliding.</p>
+
+<p>Requiring a complete analysis, you may have it done for you just selecting all components.</p>
+
+<p>If the analysis of the components that you selected hasn't detected any interferences, a message is displayed.</p>
+
+<p>Note that, when you start the <b>Check Interferences</b> command, the selection filter for entity types is automatically set to solids and components and you can choose an additional filter, allowing you to consider components inside the selected component(s)/solids inside the selected solid(s). By performing <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_vw_95.htm"><b>Selection Filter</b></a> and selecting the <strong>Component</strong> option under <strong>Inside</strong> in the dialog box, when you select a component/solid, all the nested components/solids are actually selected.
+
+If the option is not selected, when you select a component/solid, only the component/solid at the current level is actually selected.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/CANCELbutton.gif" border="0"></font> (<strong>Cancel</strong>) to discard your changes and quit the command.</p>
+<p>
+Note that by performing again the command, the selection list displays 
+<img src="../../../images/general/RESTOREbutton.gif" border="0"></font> (<strong>Restore Selection</strong>). Click it to restore all the selections used to perform the last <strong>Compute</strong> operation.</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

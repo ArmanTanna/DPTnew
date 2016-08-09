@@ -1,0 +1,78 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Creating the offset of a 3D curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating the offset of a 3D curve</h3>
+
+<p>In this tutorial you are going to offset a 3D curve with reference to a plane by using the <a href="../FWfile/T_FW_cv_06.htm"><span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+47">Offset Curve on Surface</span></a> command. Open the <i>Offset3D.e3</i> file available in the <i>Samples</i> folder of the installation and follow the steps given below.<br>
+<br>
+<img border="1" src="../../../images/curves/OOC01.gif"></p>
+
+<ol class="noleft">
+<li>Start the <span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+47">Offset Curve on Surface</span> command and select the curve you want to offset for the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span> selector.<br>
+<br>
+<img border="1" src="../../../images/curves/OOC02.gif"><br>
+<br>
+</li>
+
+<li>Select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+50">On</span> drop-down list .<br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> drop-down list select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span> and select the datum plane from the Graphics Area. This datum plane will be used as the reference plane for making the offset.<br>
+<br>
+<img border="1" src="../../../images/curves/OOC03.gif"><br>
+<br>
+</li>
+
+<li>Define the offset value as <b>20</b> in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+371">Distance</span> mini-dialog box. If need be, change the direction of offset by double-clicking on the red handle. A preview of the offset curve is displayed.<br>
+<br>
+<img border="1" src="../images/OOC04.gif"><br>
+<br>
+ Note that offset is not continuous and the transitions are not proper.<br>
+<br>
+</li>
+
+<li>Set <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+425">Transition</span> to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+427">Fillet</span> and select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+438">Use inferred surface</span> check box under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. The preview updates to a proper offset curve.<br>
+<br>
+<img border="1" src="../images/OOC05.gif"><br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box and enter <b>2</b> in the adjacent text box. Please note that if this number is greater than 1 (default), each new offset curve will be created relative to the previous one by adding the offset distance in the same direction.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the curve. The two offset curves from the top will appear, as shown in the image below.<br>
+<br>
+<img border="1" src="../../../images/curves/OOC06.gif"><br>
+<i>The datum plane has been made hidden for clarity.</i><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

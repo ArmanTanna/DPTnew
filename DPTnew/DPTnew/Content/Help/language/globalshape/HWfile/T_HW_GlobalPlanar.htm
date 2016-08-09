@@ -1,0 +1,222 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying a controlled modification through control points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying a controlled modification through control points</h3>
+
+<p>In this job you will apply a controlled modification to a surface through a set of control points by using the <a href="../FWfile/T_FW_GlobalPlanar.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+700">Planar Bounding-Box</span></a> command.<br>
+
+
+<i>Please note that you can accomplish this task by loading sample file "globalplanar01.e3"</i><br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP00.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Define the type of entity the controlled modification is to be applied to. In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> drop-down list under 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span> you can select the type of entities the deformation is to be applied to: 
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+116">Solid</span></li>
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span></li>
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span></li>
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span></li>
+
+
+</ul>
+
+Select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the entities the controlled deformation is to be applied to:<br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP01.gif"><br>
+<br>
+A rectangular grid of five control points along each side will be displayed :<br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP02.gif"><br>
+<br>
+<a name="ADDPOINTS"></a>Note that you can always add points to the initial grid by proceeding as follows:<br>
+&nbsp; 
+
+<ol class="noleft" style="list-style: lower-alpha;">
+<li>Set the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> to 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span>. A 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> item will be displayed in the Selection List just below the 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> node.<br>
+
+
+&nbsp;</li>
+
+<li>Click on a line in between two control points.<br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP06.gif"><br>
+<br>
+A whole row of control points will be added:<br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP07.gif"><br>
+<br>
+Finally, note that though being in the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span> node, if you click on an existing point you will be enabled to move it about.</li>
+
+
+</ol>
+
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Define the deformation plane&nbsp;&#151;&nbsp;that is: the plane containing the control points to be used to deform the shape&nbsp;&#151;&nbsp;by choosing one of the items in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list: 
+
+
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+99">On View</span></td>
+
+
+<td>To automatically define the deformation plane as the view plane.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+701">Select plane</span></td>
+
+
+<td>To define a customized deformation plane. Once you have selected it, you can access the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_PlaneSurface.htm">plane definition items</a>. The picture below shows what you would get if you defined the deformation plane as perpendicular to the red line and through its right endpoint.<br>
+
+<br>
+<img border="1" src="../../../images/globalshape/GLOP03.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Apply the controlled deformation using the control points. Once the deformation plane has been selected, the deformation can be applied by setting the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> to 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span> and then by selecting control points (about the selection of control points, see "<i>
+<a href="mk:@MSITStore:help.chm::/language/surfaces/HWfile/T_HW_ms_02_08.htm">Edit Control Points</a></i>") and dragging them about to the very position corresponding to the deformation you want to apply:<br>
+
+
+<br>
+<img border="1" src="../../../images/globalshape/GLOP04.gif"><br>
+<br>
+The following picture shows a different deformation applied using the Work Plane as the deformation plane (the view plane coinciding with the Work Plane):<br>
+<br>
+<img border="1" src="../../../images/globalshape/GLOP05.gif"><br>
+<br>
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+Some actions can be performed at any time during the command session:<br>
+<br>
+ 
+
+<ul class="noleft">
+<li><a name="GSM09ADD"></a><i>Adding further points to the initial grid</i><br>
+See the <a href="#ADDPOINTS">description above</a> for details.<br>
+&nbsp;</li>
+
+<li><i>Adding new entities to the currently selected ones</i><br>
+Please take into account that any time you add a new entity to the current selection the grid is re-initialized (for this reason, if you had added further points, they will be lost and only the initial five points will be left; if you had moved them, the movement will be reset).<br>
+&nbsp;</li>
+
+<li><i>Changing the deformation plane (that is, the plane containing the control points)</i><br>
+&nbsp;</li>
+
+<li><i>Undoing the movement of a control point</i><br>
+just by clicking the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button ( <img src="../../../images/sl_new/b_sl_undo.bmp" align="absmiddle"> ) which shows up on top of the Selection List as soon as a point is moved.<br>
+
+
+&nbsp;</li>
+</ul>
+
+<p>Further options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> (see the <a href="../FWfile/T_FW_GlobalPlanar.htm">command description</a> for details)</p>
+
+
+</td>
+</tr>
+</table>
+
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections modify the shape of the object, or click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

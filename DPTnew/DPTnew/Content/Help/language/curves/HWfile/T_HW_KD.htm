@@ -1,0 +1,119 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Using the Distribution law options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Using the Distribution law options</h3>
+
+
+<p>To use the <b>Distribution law</b> options&nbsp;&#151;&nbsp;which enable you to determine the <i>distribution</i> of motion for the selected control points&nbsp;&#151;&nbsp;inside the <b><a href="../mc_01/FWfile/T_FW_mc_01.htm">Curve through Control Points</a></b> or the <a href="../FWfile/T_FW_cv_07.htm"><b>Connect Curve</b></a> command, proceed as follows.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the curve to modify.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Expand the <b>Constraints</b> node and set the <b>Mode</b> to <b>Define constraints</b> (see <a href="T_HW_Constraints.htm"><b>Setting constraints on Control Points</b></a> for details on how to set constraints on control points). You will have to proceed as follows: 
+
+<ul class="noleft">
+<li>First set the distribution <b>Type</b> you want to use (see below)</li>
+
+<li>Then select the points you want to be affected</li>
+
+<li>Finally pick any point in the selected set: these points are the ones that will be moved directly. All the other points will be moved based on the rule selected in the <b>Type</b> drop-down list (see next step).</li>
+</ul>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Expand the <b>Distribution law</b> node and set the <b>Type</b> to <b>Linear</b> (the type of the distribution can be selected in the drop-down list and can be <b>Linear</b>, <b>Quadratic</b> or <b>Cubic</b>).<br>
+&nbsp;
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Using a window selection, select the control points you want to involve in the modification. You can then click on a specific point to be used as the <i>balance point</i>: this point is the one that is being moved directly. All the other points are moved based on the set <b>Distribution law</b>.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Set the <b>Distribution</b> factor to 0 in order to enable the motion capability for the selected points.<br>
+If you set a different value, the motion will affect also other points in the set of the ones selected at step 4. If the <b>Distribution</b> factor is 1, <i>all</i> the selected points will be affected. In fact, the value of the distribution factor varies in the range [0,1]; the lower this value is, the more the shape will correspond to the type of distribution you selected: 
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>Applies the same movement to all of the selected control points. If this value is set, the type of the distribution is going to be ignored.</td>
+</tr>
+
+<tr valign="top">
+<td><b>0</b></td>
+<td>The movement is applied in inverse proportion to the distance from the control point selected as the balance point. If this value is set, the shape will fully correspond to the type of distribution you selected.<br>
+&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Now set the <b>Mode</b> to <b>Move control points</b> and move the control points. You will see the motion of points is ruled by the distribution law.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Temporarily disabling the distribution effects</b><br>
+If you uncheck the <b>Distribution law</b> box, the constraint will be temporarily removed and you will be able to move <i>all</i> control points, until you check the <b>Distribution law</b> box again.</td>
+</tr>
+</table>
+<br>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_Constraints.htm"><b>Setting constraints on Control Points</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

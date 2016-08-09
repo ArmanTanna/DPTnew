@@ -99,9 +99,16 @@
                 { data: "Description" },
                 { data: "Type" },
                 { data: "Status" },
-                { data: "CCEngineer" },
-                { data: "Language" },
-                { data: "StrCreatedOn" }
+                {
+                    data: "CCEngineer",
+                    render: function (data, type, row) {
+                        return data ? data.split(".")[0] + " " + (data.split(".")[1].indexOf("think") == -1 ?
+                            data.split(".")[1].substring(0, data.split(".")[1].indexOf("dpt") - 1) :
+                            data.split(".")[1].substring(0, data.split(".")[1].indexOf("think") - 1)) : "";
+                    }
+                },
+                    { data: "Language" },
+                    { data: "StrCreatedOn" }
                 ],
                 order: [[1, 'desc']],
                 orderClasses: false,
@@ -186,48 +193,48 @@
                  },
                  enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true" || "@ViewBag.VarUserRole.ToString().ToLower()" == "true"
              },
-                 {
-                     text: 'Update',
-                     className: 'update',
-                     action: function () {
-                         if (myTable.rows('.selected').count() != 0) {
-                             var data = myTable.rows('.selected').data()[0];
-                             $.post(yourApp.Urls.CaseHistoryUrl, {
-                                 CaseId: data.CaseId,
-                             },
-                                             function (result) {
-                                                 var url = yourApp.Urls.CaseHistoryUrl;
-                                                 WinId = window.open(url, '_blank');
-                                                 WinId.document.open();
-                                                 WinId.document.write(result);
-                                                 WinId.document.close();
-                                                 myTable.rows('.selected').deselect();
-                                             });
-                         }
-                     },
-                     enabled: false
-                 },
-                 {
-                     text: 'History',
-                     className: 'history',
-                     action: function () {
-                         if (myTable.rows('.selected').count() != 0) {
-                             var data = myTable.rows('.selected').data()[0];
-                             $.post(yourApp.Urls.GetCaseHistoryUrl, {
-                                 caseId: data.CaseId,
-                             },
-                                             function (result) {
-                                                 var url = yourApp.Urls.GetCaseHistoryUrl;
-                                                 WinId = window.open(url, '_blank');
-                                                 WinId.document.open();
-                                                 WinId.document.write(result);
-                                                 WinId.document.close();
-                                                 myTable.rows('.selected').deselect();
-                                             });
-                         }
-                     },
-                     enabled: false
-                 }
+ {
+     text: 'Update',
+     className: 'update',
+     action: function () {
+         if (myTable.rows('.selected').count() != 0) {
+             var data = myTable.rows('.selected').data()[0];
+             $.post(yourApp.Urls.CaseHistoryUrl, {
+                 CaseId: data.CaseId,
+             },
+                             function (result) {
+                                 var url = yourApp.Urls.CaseHistoryUrl;
+                                 WinId = window.open(url, '_blank');
+                                 WinId.document.open();
+                                 WinId.document.write(result);
+                                 WinId.document.close();
+                                 myTable.rows('.selected').deselect();
+                             });
+         }
+     },
+     enabled: false
+ },
+ {
+     text: 'History',
+     className: 'history',
+     action: function () {
+         if (myTable.rows('.selected').count() != 0) {
+             var data = myTable.rows('.selected').data()[0];
+             $.post(yourApp.Urls.GetCaseHistoryUrl, {
+                 caseId: data.CaseId,
+             },
+                             function (result) {
+                                 var url = yourApp.Urls.GetCaseHistoryUrl;
+                                 WinId = window.open(url, '_blank');
+                                 WinId.document.open();
+                                 WinId.document.write(result);
+                                 WinId.document.close();
+                                 myTable.rows('.selected').deselect();
+                             });
+         }
+     },
+     enabled: false
+ }
                 ]
             });
             myTable.buttons().container().insertBefore('#dptcase_filter');

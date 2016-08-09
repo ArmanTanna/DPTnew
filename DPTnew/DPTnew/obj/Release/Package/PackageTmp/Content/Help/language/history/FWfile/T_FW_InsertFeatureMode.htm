@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Insert Feature Mode</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+
+
+<p>The <img src="../../../images/history/insert_feature_icon.gif"><B>Insert Feature Mode</B> command enables you to insert additional features in a model,
+at a specific feature event that you select within the <b>Model Structure</b>, where a line of demarcation is displayed.</p>
+
+<p>The command is available from the context menu displayed when you select a feature in the <b>Model Structure</b>, except the last one.</p>
+
+<p>When you start the command:
+<ul>
+<li>You are in <i>insert feature mode</i> on the solid to which you applied the command, but this doesn't affect the other objects within your document. In particular:</p>
+
+<ul>
+<li>You are enabled to insert new features in the solid
+<li>Some commands are completely or partially deactivated (see <a  href="../HWfile/T_HW_InsertFeatureMode.htm"><b>Interaction with other commands from Insert Feature Mode</b></a>)
+<li>Features applied to other solids or creation of datum entities or associative curves/surfaces are not affected by such modality, as for their positioning in the <b>Model Structure</b>.
+</ul>
+</p> 
+<li>Above the selected feature, the command displays a line of demarcation which represents the position from which you are enabled to introduce additional features. This line delimits the active features from the ones that are deactivated, whose icons are faded and marked by the command symbol, an arrow, as shown in the following illustration.</p>
+<BLOCKQUOTE><IMG src="../images/HT_insert_feature01.gif"></BLOCKQUOTE> 
+</p>
+</ul>
+</p>
+
+<p>
+Any additional feature that you introduce in the solid is inserted above the feature that was originally selected and below the line of demarcation.</p>
+<BLOCKQUOTE><IMG src="../images/HT_insert_feature02.gif"></BLOCKQUOTE> 
+
+  </p>
+
+<p>
+On the other hand, as specified above, if you create, for instance, an <a  href="../../surfaces/OVfile/T_OV_sr_00.htm">associative surface</a> or a datum plane while the <b>Insert Feature Mode</b> command is active on a solid, the insert feature mode doesn't affect the new surface/datum plane positioning in the solid <b>Model Structure</b>, since they are <i>not</i> features applied to that solid.</p>
+<BLOCKQUOTE><IMG src="../images/HT_insert_feature03.gif"></BLOCKQUOTE> 
+  </p>
+  
+<p>
+Note that the line of demarcation can be moved within the <b>Model Structure</b> branch you are allowed to work at (the whole range of the solid features, except the most recent one) by selecting the line and dragging it to the desired position or by performing the command on the feature where the line has to be transferred. It is removed when you stop the insert feature session. 
+</p>
+
+
+<p>Any time you introduce or move the line, you get feedback of your action also in the graphics area, that is the features deactivated by the line are not displayed, and you may be asked to update some objects by a warning message and/or you may need to rebuild the model.</p>
+  
+<p>As a general rule, you are asked to <a href="../FWfile/T_FW_ht_08.htm">rebuild</a> the model when you quit the command by clicking the <img src="../../../images/icons/general/rebuild_icon.gif" border="0"> (<strong>Rebuild Model</strong>) icon that is switched on.</p>
+  
+<p>
+To end the insert feature session, you can do any of the following:
+<ul>
+<li>Right-click on the feature from where you performed the command and click <B>Insert Feature Mode</B> again from the context menu
+<li>Right-click on an empty area in the <b>Model Structure</b> and select <B>Insert Feature Mode</B> from the context menu
+</ul>
+</p>
+then select the <strong>Rebuild Model</strong> command from the context menu or by clicking the <strong>Rebuild Model</strong> icon still switched on.
+</p>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_InsertFeatureMode.htm"><b>Interaction with other commands from Insert Feature Mode</b></a>
+</ul>
+ 
+<hr color="silver"> 
+</body>
+</html>
+

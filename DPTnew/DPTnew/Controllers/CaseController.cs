@@ -16,6 +16,7 @@ using SafenetIntegration;
 using System.Net.Mail;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Net;
 
 namespace DPTnew.Controllers
 {
@@ -132,7 +133,7 @@ namespace DPTnew.Controllers
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + file.FileName;
+                            ncase.File = path + "\\" + WebUtility.HtmlDecode(file.FileName);
                             file.SaveAs(ncase.File);
                             _db.SaveChanges();
                         }
@@ -267,7 +268,7 @@ namespace DPTnew.Controllers
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + file.FileName;
+                            ncase.File = path + "\\" + WebUtility.HtmlDecode(file.FileName);
                             file.SaveAs(ncase.File);
                             _db.SaveChanges();
                         }

@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>What is a non-manifold solid</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>What is a non-manifold solid</h3>
+
+<p>Non-manifold solids are a representation of solids that are not "real solids" as real workpieces. They add a lot of power and flexibility in solid modeling. They may at times be a result of an incorrect modeling step, or an unexpected result in turning legacy surfaces into a solid. <br>However, what is really important is to be aware of their behavior, and to take advantage of it as a unique and powerful <b>think<font color="#FF0F00">3</font></b> feature.</p>
+
+<p>What you need to know:</p>
+<UL class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open solids</b></A>
+</LI></UL>
+
+<P>A manifold solid is a solid that exists in reality: in other words, it would hold water inside. <BR>A non-manifold solid is not a real solid. <BR>In a <B><I>real solid every single edge always has two (and only two) faces merging to form it.</I></B></p>
+<br><IMG height=229 src="../../../images/solids/NMandOS/cube5.gif" width=261><br>
+
+<p>In this case the solid is non-manifold. There are some edges (the red ones) that have just one face 
+merging with it. It is an Open Solid. Those adage are referred to as <B><I>disconnected edges.</I></B></p>
+
+<P>Open solids are a sub-category of non-manifold solids, and are very useful in modeling complex shapes. See <A href="open-nmt.htm">Open vs non-manifold</A>.</p>
+
+<TABLE cols=2 width="100%" border=1>
+<TR>
+<TD><IMG height=262 src="../../../images/solids/NMandOS/cube6.gif" width=280 border=0> <BR></TD>
+<TD><IMG height=175 src="../../../images/solids/NMandOS/nmtclassic.gif" width=232 border=0></TD></TR>
+<tr><td>In this case the hole is tangent to the edge, so that there is an edge which has more 
+than two faces on it (there are four of them).</td><td>Here are two distinct solids connected at a theoretical point or line (it's one solid, actually). </td></tr>
+</TABLE>
+
+<P>All these situations are supported in the <b>think<font color="#FF0F00">3</font></b> application. They <B>don't compromise model integrity</B>. They also may be turned into manifold solids just by moving the hole position (first example) or adding some material at the common edge (second example). This is also known as Non-Manifold Topology (NMT).</p>
+
+<H3>Real-World examples</H3>
+<P>The above examples are very simple, just aimed at explaining the non-manifold concept.</p>
+
+<P>You may deal with non-manifold solids frequently when handling legacy surfaces (in the worst cases). <BR>In the following examples, some surfaces are joined together (make solid command) as an open solid; a "skin". <BR>But there are some problems. There are "rips" and overlapped edges, as highlighted in orange, (the default color for this kind of highlight). This may be due to the bad quality of particular surfaces, incorrect translation or tolerance problems.</p>
+
+<P><IMG height=301 src="../../../images/solids/NMandOS/nmt11.gif" width=423></p> <BR><IMG height=241 
+src="../../../images/solids/NMandOS/nmt-nonclassic.gif" width=495> 
+<P>In other words, the <I>topology</I> is not correct. The <I>topology</I> is, 
+in simple words, the way the objects are described in the real 3D space. If the 
+object we are creating does not really exist in the real 3D space, the topology 
+is not respected. 
+<P>This situation needs corrective actions. Untrimming and re-trimming surfaces 
+or loosening tolerances, as an example. <BR>Also, you may 
+search <b>think<font color="#FF0F00">3</font></b>'s Knowledgebase for real world cases.
+<P>As stated above, a non-manifold situation it is not a problem itself. The 
+model integrity is not compromised, you can handle the model as needed. 
+<BR>&nbsp; 
+<P><B>Note 1:</B> The <b>think<font color="#FF0F00">3</font></b> application always allows users to work with non-manifold 
+solids. They are not intended as "a problem", but rather as a modeling 
+circumstance that is allowed and can be managed as needed, adding more power and 
+flexibility. 
+<P><B>Note 2</B>: In the <b>think<font color="#FF0F00">3</font></b> application, a manifold solid can also have all the normals 
+pointing&nbsp; inside, which means that the solid is just a "hole" inside the 
+infinite 3D space . This is not a usual situation, but it is allowed as well. 
+<P><IMG height=182 src="../../../images/solids/NMandOS/normOK.gif" width=269 border=0><IMG height=212 
+src="../../../images/solids/NMandOS/normINV.gif" width=240></p> <p>Therefore, a manifold solid, could be a "black 
+hole", which basically means that all the features you'll apply on it will work 
+on the opposite way (a "pin" will be a "hole" and vice versa). If a manifold 
+solid does not have correct behavior, check the normals using <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_13_12.htm"><b>Check Normals</b></a></b>, and invert them all (just one click). 
+
+<BR>On the left side is a correct solid (material inside, normal pointing out), 
+on the right a manifold "inverted" solid (material outside, normals pointing 
+inside).
+
+<P>To determine the position of disconnected edges or non-manifold faces in a non-manofild solid see <A href="disconnected.htm">Disconnected edges vs non manifold faces</A>.</P>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<UL class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open solids</b></A>
+</LI></UL>
+
+<hr color="silver">
+</body>
+</html>
+

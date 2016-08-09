@@ -1,0 +1,95 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="2009t1" content="translate">
+<title>Overview of Nodes</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Overview of Nodes</h2>
+
+<p>A node is an intersection of two or more frame parts. After the initial selections of the predefined profile and the cross section parameters, the following two options enable you edit and apply the different properties to a node.</p>
+
+<a name="joint"></a>
+<p>The <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+16">Joint Type:</span> drop-down list enables you to select the type of node. The following are the options available.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+7">Disjoined</span>: The two intersecting frame parts are not joined as shown in the image below:<br>
+<br>
+<img src="../../../images/frame/node_disjoined.gif" border="1"></li>
+
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+6">Miter</span>: The two frame parts are joined with a 45 degree angle as shown in the image below:<br>
+<br>
+<img src="../../../images/frame/node_mitre.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+5">Butt</span>: The longest of the two frame parts is kept intact and the other is trimmed as shown in the image below.<br>
+<br>
+<img src="../../../images/frame/node_butt.gif" border="1"><br>
+</li>
+</ul>
+
+<a name="trim"></a>
+<p>The <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+27">Trim Mode:</span> drop-down list enables you to trim the frame parts at the node. The following are the methods.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+24">First face</span>: The frame part is trimmed to a selected face of another frame part as shown in the image below:<br>
+<br>
+<img src="../../../images/frame/trim_face.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+25">Simplified faces</span>: The Frame part is trimmed to the selected faces of the frame parts as shown in the image below:<br>
+<br>
+<img src="../../../images/frame/trim_simplified.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+26">All faces</span>: It is almost same as that of the Simplified faces. Here the Frame Part is trimmed to the real surface of the selected frame part (excluding the curvature on the edges).</li>
+</ul>
+
+<h3>Additional Node Options</h3>
+
+<p>After selecting the line specification, the cross section parameters and the type of node, the following options are available to do further operations on a single node. Click on a node handle and the following additional options are displayed in the selection list.<br>
+<br>
+ <a name="node"></a><b>Node <i>X</i></b>: A new node is displayed with the <i>X</i> representing the node number you have clicked. By expanding the node (<img src="../../../images/general/node.gif" alt="" width="9" height="9" border="0">) the following options are available.</p>
+
+<ul class="noleft">
+<li><a name="part"></a><b>Trim part <i>Y</i></b> check box: When selected it enables you to trim the frame part associated with the selected node. The number of Trim part displayed in the selection list depends on the number of frame parts that form the node. The <i>Y</i> is replaced by the number in increasing order corresponding to the frame parts.<br>
+ The trimming of the frame part can be done by selecting the options in the drop-down list. 
+
+<ul>
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+23">By Faces</span>: The trimming of the frame part is done by selecting a face using the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+14">Faces</span> selector.</li>
+
+<li><span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+30">By Parts</span>: The trimming of the Frame part is done by selecting a associated frame part using the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+29">Parts</span> selector.</li>
+</ul>
+</li>
+
+<li><a name="offset"></a><b>Offset <i>Z</i></b>: The offset edit box is displayed on the frame parts in the graphics area. This enables you to specify the value by which the material of the frame part can be added or removed. The <i>Z</i> represents a number in increasing order of frame parts that can be offset from the selected node.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="T_2009t3" content="translate">
+<title>Lighting command</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span> </p>
+<hr color="#63a9d8">
+
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span> command enables you to edit the default light settings of the application or the light studio applied using the <a href="T_FW_Light_tab.htm">Light Studio tab</a> of the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+1">Rendering Library</span>. Start the command to get the following options in the selection list.<br>
+<br>
+<a name="light"></a>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> check box when selected enables you to add or delete a light from the light studio. Two buttons are available corresponding to the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+5">Lights</span> check box in the selection list.
+
+<a name="light1"></a><a name="light2"></a>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="120" valign="top"><img src="../../../images/icons/thinkreal/Light_new.gif" border="0" align="middle"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+6">New Light</span></td>
+<td>Each click on the button adds a new light to the light studio. Each new light added to the studio will be displayed in the corresponding drop-down list.<br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+Also a new light can be added by selecting the type of lighting from the context menu by right clicking on the button and select <span class="UI_COMMAND" id="RenderUI.msg+_RENDERUI_LABEL_+6">New Light</span><img src="../../../images/general/litarr.gif"><a href="../OVfile/T_OV_light_options.htm">Lighting options</a>. Then select one of the lighting options.<br><br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/icons/thinkreal/Light_delete.gif" alt="" border="0" align="middle"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+7">Delete Light</span></td>
+<td>Each click on the button deletes a light from the light studio. The light that has to be deleted to be selected from the corresponding drop-down list.</td>
+</tr>
+</table>
+</p>
+ 
+
+<p><a name="type"></a>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+15">Type</span> drop down list enables you to select different <a href="../OVfile/T_OV_light_options.htm">types of light settings</a>.<br>
+<br>
+ <a name="fixed"></a>Under <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+4">Studio Options</span> the <span class="UI_OPTION" id="tdesign.msg+_RENDERLIGHT_UI_LABEL_+300">Fixed To View</span> check box is available.<br>
+
+<ul class="noleft">
+<li>When the check box is cleared it sets light orientation with respect to the current view. Hence, if the model is rotated, then even the light changes the position accordingly.</li>
+
+<li>When the check box is selected, the light is fixed in a position. Hence if the model is rotated, then the light remains fixed in the same position.</li>
+</ul>
+</p>
+ 
+
+<p>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> following check boxes are available.<br>
+<br>
+
+<ul class="noleft">
+<li><a name="preview"></a><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+3">All Lights Preview</span>: 
+
+<ul class="noleft">
+<li>When this check box is selected, all the lights are displayed in the current light studio.</li>
+
+<li>When the check box is cleared, only the light selected in the lights drop-down list is displayed.</li>
+</ul>
+
+<br>
+</li>
+
+<li><a name="view1"></a><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+2">Show Handles</span>: 
+
+<ul class="noleft">
+<li>When the check box is selected, the vector handle is displayed for the lights present in the current light studio.</li>
+
+<li>When the check box is cleared, the vector handle is not displayed.</li>
+</ul>
+</li>
+</ul>
+</p>
+
+<p>With effective lighting the following image of the model is rendered.<br>
+<br>
+ <img src="../../../images/rendering/spoon.jpg" alt="" border="1">
+</p>
+
+<p>After making the required selection, the following buttons are available in the selection list.
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td width="100"><img src="../../../images/icons/icons_medium/ID_hidepreview.bmp" alt="" border="0" align="middle"><b>/</b><img src="../../../images/general/preview.gif" alt="" border="0" align="middle"></td>
+<td><span class="UI_COMMAND" id="RenderUI.msg+_RENDERUI_TOOLTIP_+1">Hide Preview</span>/<span class="UI_COMMAND" id="RenderUI.msg+_RENDERUI_TOOLTIP_+2">Show Preview</span></td>
+<td>Toggles between hide and show preview modes of the current lights.</td>
+</tr>
+
+<tr>
+<td><a name="render"></a><img src="../../../images/icons/thinkreal/render_button.gif" border="0"></td>
+<td><span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_TOOLTIP_+4">Rendering</span></td>
+<td>Performs a quick rendering.</td>
+</tr>
+</table>
+<br>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<ul class="noleft">
+<li>All the options in the selection list which are in <i>Bold</i> or appended with <i>(*)</i> sign are used for static rendering; Hence, the settings made in these parameters are visible only in static rendering.</li>
+</ul>
+</td>
+</tr>
+</table>
+</p>
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_lighting.htm"><b>Overview of Lighting</b></a></li>
+
+<li><a href="T_FW_Light_tab.htm"><b>Light Studio Tab</b></a></li>
+
+<li><a href="../OVfile/T_OV_orientation_light.htm"><b>Orientation of Lighting</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

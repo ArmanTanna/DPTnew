@@ -1,0 +1,138 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: Using the Advanced conversion options (Surfaces)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Using the Advanced conversion options</h3>
+
+<p>The following options are available when you select <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+375">Advanced</span> in the <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+206">Fix</span> drop-down list of the <a href="../FWfile/T_FW_sr_21.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1183">Convert to NURBS</span></a> command. These settings enable you to have the maximum control on the surface continuity and precision.</p>
+
+ 
+
+<div align="center"><img border="1" src="../images/C2NADV.gif"><br>
+&nbsp;</div>
+
+<table>
+<tr valign="top">
+<td><a name="Boundary"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+369">Boundary continuity order</span><br>
+&nbsp;</td>
+<td>Enables you to select the continuity order for the boundaries of the resulting surface: <a href="../../MathConc/T_MC_ContinuityClassification.htm#G0"><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span></a>, <a href="../../MathConc/T_MC_ContinuityClassification.htm#G1"><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span></a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G2"><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span></a>.<br>
+The continuity order along the boundaries is to be set as the first condition, as once it is set the internal continuity order for the selected surfaces (<span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+368">Continuity order</span>, see below) is automatically set to the same degree.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="order"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+368">Continuity order</span></td>
+<td>Enables you to select the continuity order for the internal areas of the resulting surface. Once the continuity order along the boundaries (<span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+369">Boundary continuity order</span>, see above) has been set, the internal continuity will automatically be set to the same value (<span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span>, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span> or <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span>, according to the choice you've made).<br>
+If you select <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+451">Maximum</span>, the resulting entity will have the maximum continuity value at the internal knots, which is the entity degree minus 1 (high knot continuity, NURBS <i>multiplicity</i> = 1). For example if the entity degree is 7, continuity at internal knots will be 6. In general, the resulting entity will be much smoother.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Udeg"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+198">Deg. U</span></td>
+<td>Enables you to define the actual degree for the resulting surface along the direction of parameter U.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Vdeg"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+199">Deg. V</span></td>
+<td>Enables you to define the actual degree for the resulting surface along the direction of parameter V.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Tolerance"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+130">Tolerance</span></td>
+<td>Enables you to control the tolerance settings. 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+458">High</span><br>
+ Default values (<span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span> = 0.001, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span> = 0.1 deg, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span> = 0.05).</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+459">Medium</span><br>
+ Sets the tolerance values to the following: <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span> = 0.01, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span> = 0.2 deg, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span> = 0.1</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+460">Low</span><br>
+ Sets the tolerance values to the following: <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span> = 0.1, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span> = 0.3 deg, <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span> = 0.15</li>
+</ul>
+
+Please note that if you modify the tolerance values described below, the <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+130">Tolerance</span> option is automatically set to <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+461">Custom</span>.<br>
+<table>
+<tr valign="top">
+<td><a name="Position"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+96">Position</span></td>
+<td>Enables you to set the tolerance value to be used in case of positional continuity, in millimeters or inches, depending on the current unit of measure. It is the difference between the real positional continuity and the one you can obtain.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Tangency"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+57">Tangency</span></td>
+<td>Enables you to set the tolerance value to be used in case of tangency continuity, in degrees. It is the difference between the real tangency and the one you can obtain.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Curvature"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+56">Curvature</span></td>
+<td>Enables you to set the tolerance value to be used in case of curvature continuity, as a percentage of the maximum curvature.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Ratio"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+456">Internal Tolerance Ratio</span></td>
+<td>Enables you to set the ratio between the inner tolerance and the boundary tolerance. This can be very useful, as it enables you to balance the tolerance based on your own needs, either in the case you are more interested to the boundary conditions than to the inner conditions or vice versa.<br>
+&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Max_arcs"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+457">Max. No. of Arcs</span></td>
+<td>Enables you to control the number of arcs, affecting the accuracy of the result: 
+
+<ul class="noleft">
+<li>When the check box is selected, you will be enabled to limit the number of arcs to the one you will enter.<br>
+Please note that when this option is set, reaching a satisfying accuracy may take some time. Therefore, a progress bar is displayed to show the completion status of the computation.</li>
+
+<li>When the box is not selected, the command will automatically generate as many arcs as needed in order to produce a surface within the specified tolerances.<br>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Uarcs"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+372">Max. arcs U</span></td>
+<td>Enables you to define the maximum number of arcs for the resulting surface along the direction of parameter U.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Varcs"></a><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+373">Max. arcs V</span></td>
+<td>Enables you to define the maximum number of arcs for the resulting surface along the direction of parameter V.<br>
+&nbsp;</td>
+</tr>
+</table>
+
+<p>Additional settings are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. See <a href="T_HW_C2NMO.htm">"Using additional conversion options (More Options)"</a> for details.</p>
+
+<hr color="silver">
+</body>
+</html>
+

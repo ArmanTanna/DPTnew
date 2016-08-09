@@ -1,0 +1,160 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2007t1" content="internally">
+<title>Plot: GBPLO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</head>
+
+<BODY bgcolor="white">
+
+<A name="top"></A> 
+<h1><a name="1"></a><a name="1.1">GBPLO</a><hr color="navy"></h1>
+
+
+<p>GBPLO is a printing application enabling you to produce drawing files generated in <b>think<font color="#FF0F00">3</font></b>'s  and AutoCAD&reg;'s environments as output on a plotter or printer, or on a file in the corresponding format or
+other formats. </p>
+
+<p>The advantage of using an independent program to print
+drawings is that no graphics stations are occupied during
+printing. In fact, you can use GBPLO "<i>concurrently</i>"
+with the interactive program, continuing work with the latter
+while the plotter or printer is operating. </p>This document describes the following general topics. 
+<UL>
+<li><A href="c01.htm#1.2">Input and output formats</A>
+<li><A href="c01.htm#1.3">General methods for use</A>
+<li><A href="c01.htm#1.4">Output to file and output to print device</A>.</li></UL>
+
+<blockquote><i>Any product names mentioned in this document are trademarks used for 
+identification purposes only.</i></blockquote>
+
+<h3><a name="1.2"> Input and output formats</a> <hr color="silver"></h3>
+
+<p>The input for GBPLO consists of drawing files in one of the following formats: </p>
+
+<ul>
+<li>GBG DraftMaker format (extension ".d")   
+    <li>AutoCAD&reg; DXF&#8482; format (extension ".dxf") 
+    <li>AutoCAD&reg; DWG format (extension ".dwg") </li>
+</ul>
+<blockquote><table border=1 bordercolor="navy" bgcolor=#FFFFE1>
+<tr>
+<td class=noteme><img src="../../images/general/handstop.gif">&nbsp;<b><a name="PL_TD"></a>Plotting think3 documents</b><br><br>
+In order to plot <b>think<font color="#FF0F00">3</font></b> documents using GBPLO, you will have to:
+<ul>
+<li>Save <b>Drawings</b> in one of the following formats (instead of the usual ".e2" format):
+<ul>
+<li>GBG DraftMaker &nbsp;&#151;&nbsp;extension "<b>.d</b>"
+<li>DXF &nbsp;&#151;&nbsp;extension "<b>.dxf</b>"
+<li>DWG &nbsp;&#151;&nbsp;extension "<b>.dwg</b>"
+</ul>
+<li>Save <b>Models</b> in one of the following formats (instead of the usual ".e3" format):
+<ul>
+<li>DXF &nbsp;&#151;&nbsp;extension "<b>.dxf</b>"
+<li>DWG &nbsp;&#151;&nbsp;extension "<b>.dwg</b>"
+</ul>
+</ul>
+
+</td></tr></table></blockquote>
+
+
+
+<p>You can generate output in the following formats: </p>
+
+<ul>
+    <li>BGL format 
+    <li>CALCOMP PCI format 
+    <li>CALCOMP CCRF format 
+    <li>HP-GL format 
+    <li>HP-GL/2 format 
+    <li>HP-PCL format 
+    <li>HP-PCL3 format 
+    <li>HP-PCL5 format 
+    <li>HP-RTL format 
+    <li>TIFF format 
+    <li>PostScript format 
+    <li>Image PostScript format
+	<li>MS-Windows formats</li>
+      
+</ul>
+<h3><a name="1.3"> General methods for use</a><hr color="silver"></h3>
+        <p>GBPLO recognizes the format of the input file
+        automatically. </p>
+        <p>To specify the characteristics required at output, you
+        can combine three methods:</p>
+        <ol>
+            <li>Supply a set of <i>options</i> directly in the
+                run string (<i>see section</i> <A href="c03.htm#2.7">"Run string"</A>) 
+            <li>Define a set of <i>directives</i> in an <i>initialization
+                file</i> (<I>see section</I> <A href="c03.htm#2.8">Initialization
+                file</A>) 
+  indicated to GBPLO when you run the program 
+            <li>Let the program, with its interactive
+                "questions-answers" (<i>see section</i> <A href="c03.htm#2.10">Interactive mode</A>),
+                request the data necessary to produce the output.
+            </li>
+        </ol>
+        <p>It is a good idea to group together all frequently used 
+directives which are not often modified in the initialization file, specifying 
+special options in the run string, allowing the program to request those which 
+are necessary (which cannot be omitted) and were left unspecified because 
+forgotten or for some other reason.<BR>         
+                
+              
+                
+                
+                <blockquote><table border=1 bordercolor="navy" bgcolor=#FFFFE1>
+<tr>
+<td class=noteme>
+        <img src="../../images/general/warning3.gif">&nbsp;<b>Run string options and Initialization file directives</b>
+		<br><br>If you specify the same mode both as a
+        directive in the initialization file and as an option in
+        the run string, the latter always applies: for example,
+        if the format indicated in the initialization file
+        differs from that indicated in the run options, the
+        program prints with the values supplied by the latter;
+        this allows the user to avoid modification of the
+        standard parameters normally used for printing
+        (initialization file), changing only those occasionally
+        used in the run time.</td></tr></table> </blockquote></p>
+		
+		
+		
+		
+        <h3><a name="1.4"></a> Output to file and output to
+        print device<hr color="silver"></h3>
+        <p>GBPLO output, in any of the formats listed in section <A
+        href="c01.htm#1.2">Input and output formats</A>, can be produced
+        in a file or directly on the print device (printer or
+        plotter). The two methods are identical for GBPLO; in
+        fact, it sends output to an "output device"
+        defined by the user: the host system interprets the name
+        of the output device as the print device, if there is one
+        with a defined name, or as a file. </p>
+        <p>For this reason, and for clarity, the term
+        "printing" is used both to indicate
+        reproduction on a printer (or plotter) and with the
+        extended meaning of generating an output file in one of
+        the formats supported.<br>
+        <br>
+        </p>
+
+
+<hr color="silver">
+</body>
+</html>

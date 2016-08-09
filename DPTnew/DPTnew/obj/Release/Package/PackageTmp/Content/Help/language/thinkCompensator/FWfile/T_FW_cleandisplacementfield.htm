@@ -1,0 +1,71 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(532,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Clean Displacement Field</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td align="left"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+4">Clean Displacement Field</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+35">Clean Displacement Field</span> command enables you to remove couples of points (or move some of them) considered as not consistent, that could have been detected through the <a href="T_FW_displaydisplacementfield.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+49">Show Displacement Field</span></a> command, so as to avoid the presence of inconsistencies while creating the desired deformation through the <a href="T_FW_globalfieldidentification.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span></a> command.</p>
+
+<p>The command compares the displacement vector of the field, with the <i>average</i> displacement vector of all the couples of points in the <i>neighborhood</i>. The displacement vector is the one between the couple formed by the initial and by the target points selected for <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+2">Browse for Initial Points</span> and <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+3">Browse for Target Points</span>, respectively.</p>
+
+<p>Under the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+14">Neighborhood</span> node, you can find options enabling you to define the neighborhood both in terms of shape (in the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+15">Zone</span> drop-down list you can choose <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+44">Box</span>, <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+45">Sphere</span> or <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+46">Ellipsoid</span>) and of distances once the shape has been chosen. For example, if you choose a <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+44">Box</span>, you will have to supply the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+7">Box size on X</span>, <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+8">Box size on Y</span> and <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+9">Box size on Z</span> values.</p>
+
+<p>The consistency criteria can be either the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+47">Distance</span> between the two vectors, or their <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+48">Angle</span>, as you can choose in the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+32">Consistency Deviation Criterion</span> drop-down list under the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+31">Show inconsistencies</span> node. The specified <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+33">Threshold</span> value will be used to assess the consistency.</p>
+
+<p>Feedbacks about target points, displacement values (minimum, maximum and mean), and inconsistent points can be displayed in the selection list under the corresponding nodes (on selecting its check boxes). Graphs can also be obtained using the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+105">Graph</span> node available under <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+10">Show displacement field</span>. See "<i><a href="../HWfile/T_HW_graphs.htm">Displaying graphs in Compensator</a>" for details on how to obtain graphs in <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+1">Compensator</span>.</i></p>
+
+<p style="margin-bottom:0">The cleaning method for detected inconsistencies can be selected in the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+78">Clean Inconsistencies</span> drop-down list:</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+75">Delete initial &amp; target points</span><br>
+ to remove both the initial and the target point which are generating the inconsistency.</li>
+
+<li><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+76">Keep target points</span><br>
+ to preserve the target point at its location and to move the initial one to a more consistent location.</li>
+
+<li><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+77">Keep initial points</span><br>
+ to preserve the initial point at its location and to move the target one to a more consistent location.</li>
+</ul>
+
+<p><a name="loops"></a>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+78">No. loops</span> option enables you to run the filtration process a specified number of times, to remove points progressively. You need to enter the number of times the process will be looped in the corresponding text box. When the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+78">No. loops</span> <b>= 1</b>, the command is run only one time to remove some points according to the chosen criteria. However, due to the removed points, the neighborhood and average computations changes. Hence, by running the filtration loop again, the program could find some more points to remove.</p>
+
+<p style="margin-bottom:0;">Every time the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) button is selected, new point files are generated. If <i>file</i>.pt was the original file name, you will have:</p>
+
+<ul class="noleft" style="margin-bottom:0;">
+<li><i>file</i>_clean<i>#</i>.pt</li>
+
+<li><i>file</i>_bad<i>#</i>.pt</li>
+</ul>
+
+<p style="margin-top:0">where "clean" files contain the <i>cleaned</i> set of points, "bad" files contain the removed points and <i>#</i> is a progressive number automatically incremented at each click on (<img src="../../../images/general/APPLYbutton.gif" align="middle">) in the same session.</p>
+
+<hr color="silver">
+</body>
+</html>
+

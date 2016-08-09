@@ -1,0 +1,111 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>Job: Viewing Exploded assembly in the Exploded-View player</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h4>Viewing Exploded assembly in the Exploded-View player</h4>
+
+<p class="noindent">To accomplish the task, load the <i>exploded_view.e3</i> file from the <i>pump</i> folder inside the <i>samples</i> folder of the installation.</p>
+
+<ol class="noleft">
+<li>Click the Visual Bookmarks tab (<img align="absmiddle" src="../../../images/visualbookmarks/visual_bookmark.gif">) from the left pane of Graphics Area.<br>
+<br>
+</li>
+
+<li>Right-click on <b>Exploded 1</b> bookmark (created using <a href="T_HW_vw_43.htm"><b><u>Exploding assembly</u></b></a>) and select <span class="UI_COMMAND" id="tdesign.msg+_VBOOKMARK_UI_SPEECH_+67">View Exploded Assembly</span> from the context menu. The exploded view of the assembly and the <span class="UI_COMMAND" id="tdesign.msg+_VBOOKMARK_UI_SPEECH_+67">View Exploded Assembly</span> selection list gets displayed, as shown in the image below.<br>
+<br>
+<img src="../images/exp_view_1.gif" border="1"><br>
+<br>
+The number of steps taken place to explode the assembly is <b>3</b> and is displayed in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+50">Current Step</span> edit box.<br>
+<br>
+</li>
+
+<li>Enter <b>0</b> in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+50">Current Step</span> edit box and <b>1</b> in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+53">Step(s) to Jump</span> edit box.<br>
+<br>
+</li>
+
+<li>Select <b>25</b> from the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+93">Frames per step</span> drop-down list and select <b>2</b> in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+55">Delay factor</span> drop-down list to attain smooth transition.<br>
+<br>
+</li>
+
+<li>Next, click <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_TOOLTIP_+4">Play</span> button to view the explode sequence. You can do the following:</li>
+
+<ul class="noleft">
+<li>Click <img src="../../../images/general/exploded_next.gif"> to view the next step in the exploded assembly.</li>
+
+<li>Click <img src="../../../images/general/exploded_previous.gif"> to view the previous step in the exploded assembly.</li>
+
+<li>Click <img src="../../../images/general/exploded_last.gif"> to view the last step in the exploded assembly.</li>
+
+<li>Click <img src="../../../images/general/exploded_first.gif"> to view the starting step in the exploded assembly.</li>
+
+<li>Click <img src="../../../images/general/exploded_play.gif"> to view the exploded assembly.</li>
+
+<li>Click <img src="../../../images/general/exploded_stop.gif"> to stop the player while viewing the exploded assembly.<br>
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+Select the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+54">Invert play direction</span> check box to view the exploded assembly from the last step to the first step. Also, to display the transition of the assembly parts repeatedly select the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+52">Loop</span> option.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>To capture the images of each step of the whole explode assembly sequence you need to click on the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+63">Create image(s)</span> node and do the following: 
+
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+96">Sequence</span> option from the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+94">Mode:</span> drop-down list to display the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+101">Start step</span> and <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+102">End step</span> edit boxes.</li>
+
+<li>Make sure <b>0</b> is entered in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+101">Start step</span> and the last step value is entered in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+102">End step</span> edit box.</li>
+
+<li>You have multiple formats in the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+97">Image type:</span> drop-down list to save the images. Select the <span class="UI_COMMAND" id="eklib.msg+td_filext+32">Joint Photographics Experts Group (*.jpg)</span> format from it.</li>
+
+<li>Next, the images to be captured will be saved in a default location mentioned in <b>Path</b>. If you need to change the default location, click on the default path and a file selection list box is displayed to select the location.</li>
+
+<li>Select <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+66">800 x 600</span> from the <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+70">Image resolution</span> drop-down list to define the resolution of the images<br>
+<a name="#CI"></a> and click <span class="UI_COMMAND" id="ExplAssyUI.msg+_EXPLASSY_UI_TOOLTIP_+8">Create Images</span> (<img align="absmiddle" src="../../../images/assembly/Create_images.gif">) button to capture the images.</li>
+</ol>
+
+<br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_vw_44.htm"><b>Editing an exploded view</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

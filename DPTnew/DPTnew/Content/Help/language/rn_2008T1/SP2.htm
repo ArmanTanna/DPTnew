@@ -1,0 +1,273 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>What's New in Service Pack 2</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>What's New in Service Pack 2</h1>
+
+<p class="noindent">Version 2008.1 Service Pack 2 introduces the following improvements.</p>
+
+<ul style="margin-left:22;">
+<li><a href="#NEW">Enhancement in the installation procedure</a></li>
+
+<li><a href="#taper">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+7823">Taper Dimension</span> command</a></li>
+
+<li><a href="#reshape">The new <span class="UI_COMMAND_NOBOLD" id="thinkreshapeButton.msg+thinkreshapeButton+1">Reshape</span> module</a></li>
+
+<li><a href="#hlr">The new faster drawing views generation mechanism</a></li>
+
+<li><a href="#MDF">The new MoldDesign module</a></li>
+
+<li><a href="#ttmenu">Menu commands reorganization</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<h2><a name="NEW">Enhancement in the installation procedure</a></h2>
+
+<p>The installation procedure has been significantly enhanced and powered by adding the possibility of installing two new modules, <a href="#reshape"><b>Reshape</b></a> and <a href="#MDF"><b>Mold Design</b></a>.</p>
+
+<p>To install the said tools, proceed as follows:</p>
+
+<ul>
+<li>In the <b>Setup Type</b> installation wizard select <b>Custom</b> and click <b>Next</b>.</li>
+
+<li>In the <b>Select Features</b> wizard that will show up: 
+
+<ul class="noleft">
+<li>Check the <b>Reshape</b> box to install <b>Reshape</b>. When the box is cleared, <b>Reshape</b> will not be installed.</li>
+
+<li>Check the <b>MoldDesign</b> box to install <b>Mold Design</b>. When the box is cleared, <b>Mold Design</b> will not be installed.</li>
+</ul>
+</li>
+
+<li>Click <b>Next</b> to go on with the installation procedure.</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000429 - OWN: DIPA -->
+<h2><a name="taper">The new <span class="UI_COMMAND" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+7823">Taper Dimension</span> command</a></h2>
+
+<p>This version introduces a new <span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1445">Dimension</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+7814">Taper</span> command. Using this command it is possible to dimension the pitch and taper aligned to the standard GB/T 15754-1995. The taper/slope dimension will be associated to the 2 selected edges representing the oblique face and the reference line/plane. For further details, refer to the online help.<br>
+In order to insert a taper dimension, a new linear dimension type with a specific display list and a parameter set to define its representation is needed. As a consequence, the following style specializations have been introduced in this version:<br>
+<br>
+</p>
+
+<ul>
+<li>The new dimension type, <span class="UI_DROPDOWNITEM" id="idd_sty_new_spec.msg+idd_sty_new_spec+4+13">Taper dimension</span>, in the <span class="UI_COMMAND" id="idd_sty_new_spec.msg+idd_sty_new_spec+1">Specialize Style</span> dialog box.</li>
+
+<li>The new options, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1775">Show symbol</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+845">Format</span>, in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1774">Taper dimension</span> area of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1021">Symbol</span> and <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+837">Unit</span> categories.</li>
+
+<li>The <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7677">Taper designations</span> command has been introduced to predefine the taper dimension designations. A <span class="UI_COMMAND" id="idd_dim_org_tp.msg+idd_dim_org_tp+1">Organize Taper Designations</span> dialog box is displayed when the command is started. See the online help for a complete description of all the options inside the dialog box.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="reshape">The new <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+1">Reshape</span> module</a></h2>
+
+<p><span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+1">Reshape</span> is a fully integrated module of <b>ThinkDesign</b> that provides reverse modeling solutions. It has been explicitly developed for solving the problems of CAD users who need to import and manage files obtained through 3D digitizing operations of physical models. It facilitates fast prototyping, design review, finite element analysis, and inspection. <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+1">Reshape</span> can be profitably exploited whenever a physical model (which can be wooden, clay or resin made) or even a real object needs to be described as a computerized 3D shape to be processed or modified.</p>
+
+<br>
+<p>Using <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+1">Reshape</span> you can import <i>Meshes</i> and <i>STL objects</i> obtained from digitalization machines. On such files, clean-up operations can be performed in case the data is not perfect for further processing. Depending upon the requirement you can use the Reshape tools to modify the <i>Mesh</i>, for example, detect meaningful edges (or character lines), split or cut the mesh, and make standard GSM modifications. All the operations are obtained through robust automatic processes with good quality results. If required, using the modified mesh, Reshape can do surface reconstruction to cover partially or fully the mesh with surfaces.</p>
+
+<br>
+<p>You are also enabled to intervene manually when required, exploiting all the possibilities offered by <b>ThinkDesign</b>. For instance, you can use the standard surfacing tools of <b>ThinkDesign</b> to generate surfaces by using the <i>Mesh</i> as a template. Also, you can make use of <i>Mesh</i> in the assemblies or generate a drawing from it.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000461 - OWN: RUAN -->
+<h2><a name="hlr">The new faster drawing views generation mechanism</a></h2>
+
+<p>A new option, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1781">Hidden line computation</span>, has been introduced in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> category to help the user switch between <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Fast (hardware mode)</span> and <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+1">Accurate (software mode)</span>.</p>
+
+<br>
+ 
+
+<p>When the hidden line computation is set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Fast (hardware mode)</span>, each drawing view will be associated with a precision limit and it can be seen in the <span class="UI_COMMAND" id="idd_info_single.msg+idd_info_single+1">Single Entity Info</span> dialog box as shown below:<br>
+<br>
+<img src="images/hlr_P461.gif"><br>
+<br>
+</p>
+
+<p>The hidden line algorithm excludes the entities:</p>
+
+<ul>
+<li>smaller than the precision value</li>
+
+<li>partially or almost completely hidden (where a very small portion is visible and that could be smaller than the precision limit).</li>
+</ul>
+
+<br>
+ 
+
+<p>Note that the precision value will depend merely on the size and the graphic discretization of a model, the Graphics card and the kind of drawing view. Also note that the <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Fast (hardware mode)</span> hidden lines mechanism will be actually effective only if the Graphics card in use is a Professional or High End one, included in the list you can find in the "Graphics cards for high quality rendering" section of the "Graphics cards" document in the online help. In all the other cases, the <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+1">Accurate (software mode)</span> mode will be automatically used.<br>
+<br>
+ In order to make existing options in <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> dialog box consistent with their location under <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+519">Edit Properties</span> of a drawing view, a few items have been reorganized. <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1469">Filter entities smaller than</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+573">Light representation</span> have been moved from <span class="UI_COMMAND" id="eklib.msg+optsmsg+1">Document Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+545">Drawing</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+560">General</span> to <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span>.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+ <br>
+<ul>
+<li>The new option is active only when the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+628">Representation</span> is set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span> and the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+631">Show dashed hidden lines</span> option is not selected in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+623">Visibility</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+627">Geometry</span> area.</li>
+
+<li>The new option works on all views except the flat pattern, exploded, cross-section and developed views. Also, it is not effective with components in light representations.</li>
+
+<li>If the option is set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1782+2">Fast (hardware mode)</span>, the resulting drawing file will <i>not</i> be compatible with any of the previous versions.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="MDF">The new MoldDesign module</a></h2>
+
+<p><b>MoldDesign</b> is a fully integrated module of <b>ThinkDesign</b> that provides high degree of automation to the mold designing process. The design process of a mold involves project planning &amp; product analysis to develop the <i>Core</i> and <i>Cavity</i>, along with the complete injection mold assembly. The various <b>MoldDesign</b> functionalities are capable of managing all the stages of the designing process, by making use of easy-to-use but powerful and flexible tools to achieve significant reduction in the designing time.</p>
+
+<br>
+<p><b>MoldDesign</b> facilitates the automatic extraction of <i>core</i> and <i>cavity</i> along with <i>inserts</i>, creation of 2D tables, form the mold base (with plates and columns) by making use of standard vendor's catalogs, electrode design, insertion of standard parts (like ejector pins, core pins, sprue bush, screws), and creation of cooling systems along predefined 3D paths.</p>
+
+<br>
+<p><b>MoldDesign</b> makes use of the same powerful engine that drives <b>ThinkDesign</b>, which supports the well know features like Hybrid Modeling, GSM, and Interactive Solid Modeling. It simply translates to impeccable control over creation &amp; modification of the mold and at the same time being parametric and associative. Hence, any modification of the original part can effectively propagate to the mold assembly structure. By amalgamating <b>MoldDesign</b> with the <b>thinkPLM</b> product, it becomes possible to effectively manage the documentation, revisions and generation of specifications to reduce time and cost.</p>
+
+<br>
+<p><b>MoldDesign</b> along with the functionalities of <b>ThinkDesign Suite</b> has the potential to embrace the whole mold design process and efficiently manage specific design modifications at every stage of the design cycle.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ 
+
+<h2><a name="ttmenu">Menu commands reorganization</a></h2>
+
+<p>In order to streamline the menu bar organization, the <b>thinkteam</b> menu is displayed only when a <b>thinkPLM</b> license is available.</p>
+
+<p>For this reason, the following commands have been relocated to different menus:</p>
+
+<br>
+ 
+
+<table border="1" cellspacing="0" bordercolor="#FFFFFF" style="margin-left: 30">
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>Old Command Path</b></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>New Command Path</b></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>Command Name</b></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>License requirements</b></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>Notes</b></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="OLD" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7051">Catalog Browser</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">Any license</td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="OLD" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>thinkparts</b></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="OLD" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">Any license</td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">Available when a 3D Model is active</td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="OLD" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="UIGeneric.msg+_LABEL_+22">Options</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><b>thinkPLM</b> Level 0</td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">With other <b>thinkPLM</b> licenses the Old Command Path is retained</td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="OLD" id="MenuBar_Empty_Tools_thinkteam.msg+MenuBar_Empty_Tools_thinkteam+6700">thinkteam</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;"><span class="UI_COMMAND" id="MenuBar_AssemblyAnalyzer_Tools.msg+MenuBar_AssemblyAnalyzer_Tools+6444">Assembly Analyzer</span></td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">Any license</td>
+<td bordercolor="#E0E0D8" style="border-bottom-width: thick; font-size: 10px;">Available when a 3D Model is active</td>
+</tr>
+</table>
+
+<br>
+<p>Also, the <b>thinkPLM Options</b> tab has been removed from the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span> command dialog box. The relevant options are available through the <span class="UI_COMMAND" id="UIGeneric.msg+_LABEL_+22">Options</span> command.</p>
+
+<br>
+<p>The following commands have been removed from the menu bar and have been placed in the context menu of components in the Model Structure and that of groups in the Drawing Structure. The command names, moreover, have been slightly changed to make their function clearer to the user:</p>
+
+<ul style="margin-bottom: 0px;">
+<li><span class="UI_COMMAND" id="MenuBar_Part_Edit_thinkteam.msg+MenuBar_Part_Edit_thinkteam+6270">Edit Part Data</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Part_Edit_thinkteam.msg+MenuBar_Part_Edit_thinkteam+6271">Copy Part Data</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Part_Edit_thinkteam.msg+MenuBar_Part_Edit_thinkteam+6274">Paste Part Data</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Part_Edit_thinkteam.msg+MenuBar_Part_Edit_thinkteam+6277">Define Sequence</span></li>
+
+<li><span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+6296">Edit Relation</span></li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Collision Detection and Interference Check - Overview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22;margin-top:4;}</style>
+
+<style>.litleft{margin-left:26;margin-top:4;}</style>
+
+<style>.littop{margin-top:1;}</style>
+
+<style>h3{margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+		
+
+<h4>Collision Detection and Interference Check</h4>
+
+<p>Collision detection and interference check may result in powerful tools to increase intuitiveness and functionalities in the construction phases of an assembly and any time you need information about collisions and interferences among solids, components and sets of solids and components.</p>
+
+<p>These tools enable you to carry out the following features:</p>
+
+<p>
+<table>
+<tr valign="top">
+<td><b><A HREF="#Static">Static collision check</A></b></td>
+<td>Static analysis, through the <strong>Check Interferences</strong> command</td>
+</tr>
+<tr valign="top">
+<td width=160><b><A HREF="#drag">Collision detection during drag &amp; drop</A></b></td>
+<td>Dynamic analysis, detecting collisions during drag &amp; drop actions involving semi-constrained entities</td>
+</tr>
+</table>
+</p>
+
+<p>&nbsp;<p>
+
+<A name="Static"></A>
+<h5>Static collision check<hr color="silver"></h5>
+
+The purpose is to allow you to identify the parts (solids or components) of a model, which collide with each other. This information can be returned to you in form of visual feedback (such as a highlight of the colliding parts), or/and a list of colliding objects. You may explicitly select the components to analyze.</p>
+
+<p>The <strong>Check Interferences</strong> command provides a simple way to achieve a complete and fast analysis of interferences between all components.</p>
+
+<p>Interferences are checked with no limit to the number of objects. There's no need to create Boolean intersections to detect interferences and intersection solids may be created only if required. In addition, you are not compelled to select one by one the involved components for a complete analysis, but may have it done for you just selecting all components.</p>
+
+<p>An interesting possibility is to consider as colliding two objects which are <em>too close</em> to each other, allowing you to select a minimum distance. This feature may permit safer checks on assemblies before production, since in many cases parts not colliding during design may collide during the actual building process, due to intrinsic differences between design tolerance and machinery tolerance.</p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note on "minimum distance"</b>
+<br>The  minimum distance option is meant to work only with faces in highlight. If the distance is set to values greater than zero, then also faces having a distance value smaller than the minimum distance value will be highlighted and treated like if they were interferring.
+<br>If you choose to see the <i>interference solid</i>, instead, you will be unable to see anything, since the interference solid is calculated with Boolean operations on the <i>real</i> solids. The interference solid is not created in case there is not a real solid intersection. 
+</td></tr></table><br>
+
+<p>&nbsp;<p>
+
+<A name="drag"></A>
+<h5>Collision detection during drag &amp; drop<hr color="silver"></h5>
+
+This feature enables a more realistic interaction between semi-constrained moving objects such as kinematic chains.</p>
+
+<p>You get immediate feedback when two parts collide: the moved part stops its motion in a touching position (the touching parts may be highlighted). Any further attempt to move the touching part in a way that would imply a collision should have no effect; you have to <em>move away</em> the touching part to obtain an actual movement.</p>
+
+<p>With collision detection enabled during drag &amp; drop, apart from having a more realistic visual behavior, a correct placement of components is guaranteed, with no parts compenetrating each other.</p>
+
+<p>You also have the choice to ignore or include threaded entities  during collision detection. It's important to note that this check is made only when you need to ignore threads and the appropriate parameter is set.</p> 
+
+<p>Activation of collision detection during drag &amp; drop can be done through the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_OLE.htm"><b>Feedback</b></a> option in <b>Clipboard/Drag&amp;Drop</b> category of the <b>System Options</b>. In this option you may choose whether you want collisions to be detected and in that case whether you want colliding parts to be highlighted or/and their motion interrupted.</p> 
+
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_CheckInterferences.htm"><b>Check Interferences</b></a>
+<li><a href="mk:@MSITStore:help.chm::/language/edit/HWfile/T_HW_CollisionDetection.htm"><b>Collision detection during drag &amp; drop</b></a>
+
+<li><a href="../HWfile/T_HW_Ignorethreads.htm"><b>Ignore threads during Collision</b></a>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>

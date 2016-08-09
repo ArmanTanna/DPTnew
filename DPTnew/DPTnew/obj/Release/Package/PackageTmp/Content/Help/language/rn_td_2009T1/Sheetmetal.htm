@@ -1,0 +1,119 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Sheet Metal Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+ 
+
+<h1>New Sheet Metal Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements and improvements to the Sheet Metal functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#505">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7782">Vertex Rip</span> command</a></li>
+
+<li><a href="#498">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> command</a></li>
+
+<li><a href="#578">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command</a></li>
+</ul>
+<br>
+<hr color="silver">
+<!-- PRJ: P0000505 - OWN: Mohamed Noor Muzamil -->
+<h2><a name="505">The new <span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7782">Vertex Rip</span> command</a></h2>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:shm.chm::/language/sheetmetal/Hwfile/T_HW_Vertex_Rip.htm"><span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7782">Vertex Rip</span></a> command has been introduced in this version that enables you to create rips on the selected vertex of a solid, as shown in the images below.<br>
+<br>
+</p>
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td align="center"><img src="../../images/rn_td_2009T1/Vertex_Rip_2.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif" align="center"></td>
+<td align="center"><img src="../../images/rn_td_2009T1/Vertex_Rip_3.gif" border="1"></td>
+</tr>
+</table>
+
+<br>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<!--PRJ: P0000498-  OWN: Mohamed Noor Muzamil-->
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="498">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> command</a></h2>
+
+<p>Starting from this version, it is possible to perform the unbend operation on the <i>doubly curved surfaces</i> by using the <a href="mk:@MSITStore:shm.chm::/language/sheetmetal/HWfile/T_HW_Doubly_Curved_Surface.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span></a> command.<br>
+<br>
+</p>
+
+<table border="0" style="margin-left:30" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><img src="../../images/rn_td_2009T1/Doubly_Curved_Surface.gif" border="1"></td>
+<td align="center"><img src="../../images/rn_td_2009T1/Doubly_Fixed_Face.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Doubly Curved Surface</b> </td>
+<td align="center"><b>Fixed surface selected to unbend the model</b></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"><br>
+<img src="../../images/rn_td_2009T1/Doubly_curved_Flat.gif" border="1"></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"><b>Resulting Flattened View</b></td>
+</tr>
+</table>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000578 - OWN: Mohamed Noor Muzamil -->
+<h2><a name="578">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6990">Flange</span> command</a></h2>
+
+<p>The <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+164">Keep inner base</span> and <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+165">Keep outer base</span> are two new options introduced in the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+32">Alignment</span> drop-down list of the <span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+39">Flange</span></a> selection list. They enable you to maintain the constant length of the base (face on which the flange command is applied), as shown in the images below. The red dashed line in the following two images represent the internal and external length of the base, respectively.<br>
+<br>
+</p>
+
+<table cellspacing="2" style="margin-left:30" cellpadding="2" border="0">
+<tr>
+<td><img src="../../images/rn_td_2009T1/Internal_Base.gif" border="1"></td>
+<td><img src="../../images/rn_td_2009T1/External_Base.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+164">Keep inner base</span> selected</td>
+<td align="center"><span class="UI_COMMAND" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+165">Keep outer base</span> selected</td>
+<td></td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

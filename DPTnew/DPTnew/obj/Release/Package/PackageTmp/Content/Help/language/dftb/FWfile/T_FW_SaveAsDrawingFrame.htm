@@ -1,0 +1,82 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Marco Springhetti">
+<meta name="T_2010t1" content="translate">
+<title>Save as Drawing Frame</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img alt="" src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span> command enables you to save the current drawing as a Drawing Frame.</p>
+
+<p>When you start the command, the following options are available in the selection list:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><a name="Name"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+76">Name</span></td>
+<td>Enter the name of the Drawing Frame. The program uses this information to build the actual Drawing Frame filename.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Desc"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+77">Description</span></td>
+<td>Enter the Drawing Frame description. This is the text that the program displays in the list of available Drawing Frames of the <a href="T_FW_DFaTB.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_FrameTBlock.msg+MenuBar_Document_Insert_FrameTBlock+6286">Drawing Frame and Title Block</span></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Size"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+7">Size</span></td>
+<td>Select from the drop-down list the size of the Drawing Frame. The program uses this information to build the actual Drawing Frame filename.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Orient"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+8">Orientation</span></td>
+<td>Select either the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+25">Landscape</span> or the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+26">Portrait</span> orientation.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Origin"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+83">Title Block Origin</span></td>
+<td>Select a point for insertion of the Title Block. The program inserts a point on the layer <i>Layer1023</i> in the Title Block position that will be removed when you insert the Drawing Frame with the <span class="UI_COMMAND" id="MenuBar_Document_Insert_FrameTBlock.msg+MenuBar_Document_Insert_FrameTBlock+6286">Drawing Frame and Title Block</span> command.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Anchor"></a><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+82">Part List Anchor Point</span></td>
+<td>Specify the anchor points at respective corner positions (<span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+78">Top left</span>, <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+79">Top right</span>, <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+80">Bottom left</span>, and <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+81">Bottom right</span>) on the Drawing Frame to insert the Part List.<br>
+On redefining a Drawing Frame with a Part List placed on an anchor point (using the <a href="mk:@MSITStore:dftb.chm::/language/DFTB/FWfile/T_FW_DFaTB.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_FrameTBlock.msg+MenuBar_Document_Insert_FrameTBlock+6286">Drawing Frame and Title Block</span></a> command), the Part List will retain its attachment to the anchor point with the new Drawing Frame too.</td>
+</tr>
+</table>
+
+<p>When you click <b>OK</b>, the drawing is saved as <i><a href="mk:@MSITStore:help.chm::/language/customize/OVfile/UserFolder.htm">user folder</a>\files\drwFrames\&lt; <span class="UI_COMMAND" id="idd_drw_save_as_frame.msg+idd_drw_save_as_frame+6">Size:</span>&gt;_&lt; <span class="UI_COMMAND" id="idd_drw_save_as_frame.msg+idd_drw_save_as_frame+8">Orientation</span>&gt;_&lt; <span class="UI_COMMAND" id="idd_drw_save_as_frame.msg+idd_drw_save_as_frame+3">Name portion:</span>&gt;.e2.</i><br>
+ Note that you are enabled to set a different path with the <a href="mk:@MSITStore:cm.chm::/language/confmanager/FWfile/T_FW_Local_or_Remote.htm"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7277">Local/Remote</span></a> of the <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span> tool. This enables you share a standard configuration among your network clients.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_DFcustomize.htm"><b>Drawing Frames: standard configuration files and customization</b></a></li>
+
+<li><a href="../HWfile/T_HW_DFcreate.htm"><b>How to create customized Drawing Frames</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

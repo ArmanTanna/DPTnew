@@ -1,0 +1,2156 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plot: Initialization file directives - Part 3</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+                
+<A name="top"></A> 
+                        
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy"><A NAME="NPBUF"></A>GRA NPBUF</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Sets maximum number of instructions per path (PostScript)</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA NPBUF</B> <I>max_num</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><I>max_num</I>&nbsp;&nbsp;&nbsp;</TD>
+
+<TD VALIGN=top>integer greater than 10, defining the maximum
+number of instructions contained in a path (default 1200).</TD>
+</TR>
+</TABLE>
+
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the maximum number of graphics instructions managed for PostScript
+in a <I>path</I>, i.e.: in the 
+device's temporary graphics buffer.
+
+<P>Every system has a maximum limit for the number of graphics instructions
+contained in one <I>path</I>. To optimize functioning, set the <I>max_num</I>
+value closest to this limit.
+
+<P>To identify the limit value, refer to the hardware documentation supplied
+by the manufacturer.
+<BR>&nbsp;
+
+<P>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="GRAODVC"></A>GRA ODVC</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Manages serial port configuration</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA ODVC</B> <I>[opt [baud_rate [parity [data [stop_bit [timeout
+[perm_flg]]]]]]]</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><I>opt</I>&nbsp;&nbsp;&nbsp;</td><td>option which may assume the following values:&nbsp;
+<ul>
+<li><b>ON</b>&nbsp;&#151;&nbsp;enables automatic serial port configuration (default)
+<li><b>OFF</b>&nbsp;&#151;&nbsp;disables automatic serial port configuration
+<li><b>0</b>&nbsp;&#151;&nbsp;as OFF
+<li><b>1</b>&nbsp;&#151;&nbsp;as ON
+</ul></td>
+<tr valign="top">
+<td><I>baud_rate</I>&nbsp;&nbsp;&nbsp;</td><td>defines the serial line baud rate; may assume these
+values:
+<ul>
+<li>1200 bauds&nbsp;
+<li>2400 bauds&nbsp;
+<li>4800 bauds&nbsp;
+<li>9600 bauds (default)&nbsp;
+<li>12400 bauds&nbsp;
+<li>19800 bauds.&nbsp;
+</ul>
+</td></tr>
+<tr valign=top>
+<td><I>parity</I>&nbsp;&nbsp;&nbsp;</td><td>defines the type of parity check, which may be:
+<ul>
+<li><b>0</b>&nbsp;&#151;&nbsp;Off (default)&nbsp;
+
+<li><b>1</b>&nbsp;&#151;&nbsp;odd&nbsp;
+
+<li><b>2</b>&nbsp;&#151;&nbsp;even&nbsp;
+</ul>
+</td></tr>
+<tr valign="top">
+<td><I>data</I>&nbsp;&nbsp;&nbsp;</td><td>defines the number of data bits for the port, which may
+be:
+<ul>
+<li><b>7</b>or&nbsp;
+<li><b>8 </b>(default)&nbsp;
+</ul></td></tr>
+<tr valign=top>
+<td><I>stop_bit</I>&nbsp;&nbsp;&nbsp;</td><td>defines the number of stop bits, which may be:&nbsp;
+<ul>
+<li><b>0</b>&nbsp;
+<li><b>1</b> (default)&nbsp;
+<li><b>2</b>&nbsp;</ul>
+</td></tr>
+<tr valign=top>
+<td><I>timeout</I>&nbsp;&nbsp;&nbsp;</td><td>defines the timeout time, in tenths of a second. The
+value 0 indicates an infinite timeout. The default is 20 tenths of a second.&nbsp;
+</td></tr>
+<tr valign=top>
+<td><I>perm_flg</I>&nbsp;&nbsp;&nbsp;</td><td>flag which can assume the following values:&nbsp;
+<ul>
+<li><b>0</b>&nbsp;&#151;&nbsp;temporary configuration&nbsp;
+
+<li><b>1</b>&nbsp;&#151;&nbsp;permanent configuration (default).&nbsp;</ul>
+</td></tr>
+</TR>
+</TABLE>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Switches On/Off automatic serial port configuration for output devices
+(plotters and printers).
+
+<P>It may be useful to switch Off this function if the configuration of
+the device in question does not correspond to that envisaged.
+
+<P>If automatic configuration is On, you can manage the serial port parameters:
+the baud rate, parity, number of data bits, stop bits, the timeout period
+and the permanence of the configuration.
+
+<P>The code without arguments is equivalent to:
+
+<P>GRA ODVC ON 9600 0 8 1 20 1.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ODVT</B>&nbsp;
+<BR><B>ODEV</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="ODVL"></A>GRA ODVL</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines output device limits</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+
+         <TABLE BORDER=0 >
+          <TR>
+          <TD VALIGN=top><B>GRA ODVL </B></TD>
+           <TD VALIGN=top><I>x<SUB>1</SUB> y<SUB>1</SUB> x<SUB>2</SUB> y<SUB>2</SUB>
+[un_meas_1] |</I> <EM>dx<SUB>1</SUB> dy<SUB>1</SUB> dx<SUB>2</SUB> 
+      dy<SUB>2</SUB>         un_meas_2
+         <BR></EM>
+
+               </TD>
+         </TR>
+         </TABLE>
+
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><I>x<sub>1</sub>, y<sub>1</sub></I>&nbsp;</TD>
+
+<TD>integers which set the absolute coordinates of the bottom left-hand
+corner of the rectangle defining the working area</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>x<sub>2</sub>, y<sub>2</sub>&nbsp;</SUB></I></TD>
+
+<TD>integers which set the absolute coordinates of the top right-hand corner
+of the rectangle defining the working area</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>dx<SUB>1</SUB> dy<SUB>1</SUB>&nbsp;</I></TD>
+
+<TD>integers which set the coordinates relative to the hardware limits
+of the bottom left-hand corner of the working area. Positive values refer
+to the bottom left-hand hardware limit, negative values refer to the top
+right-hand hardware limit.</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>dx<sub>2</sub>, dy<sub>2</sub>&nbsp;</I></TD>
+
+<TD>integers which set the coordinates relative to the hardware limits
+of the top right-hand corner of the working area. Positive values refer
+to the bottom left-hand hardware limit, negative values refer to the top
+right-hand hardware limit</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>un_meas_1&nbsp;</I></TD>
+
+<TD>unit of measure for the absolute limit coordinates; values allowed
+and meanings:&nbsp;
+
+<P><I>PI limits expressed in units of the device (default);</I></P></TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>MM&nbsp;</I></TD>
+
+<TD>unit&nbsp; of&nbsp; measure&nbsp; in millimeters; recalculated in units
+of the device depending on the resolution</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><I>un_meas_2&nbsp;</I></TD>
+
+<TD>unit of measure for the relative limit coordinates; values allowed
+and meanings:&nbsp;
+
+<P><I>RP unit of measure in units of the device;</I>&nbsp;
+
+<P><I>RM unit of measure in m,illimeters<SUB>.</SUB></I></P></TD>
+</TR>
+</TABLE>
+
+
+<P><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+<P>Defines the active area of the output device, i.e., the 
+area in which you intend to draw. 
+<P>The definition may be absolute or relative to the 
+device's hardware limits, expressed in units of the device or in m,illimeters. 
+If the limits defined exceed those of the hardware, they are brought within the 
+latter. 
+<P>The use of m,illimeters as the unit of measure (whether 
+absolute or relative) allows you to define the areas irrespective of the device 
+used. 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      FORMD</B>&nbsp; <BR><B>GRA 
+      ODVT</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ODVSC></A>GRA ODVSC </font></td>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</font></td>
+    <td vAlign=bottom><i>Defines 
+      output device closing string</i><SUB 
+  >&nbsp;</SUB></td></tr></table>
+<p><b><font color=navy>SYNTAX</font>
+<hr align=left color=navy width=150></b>
+
+</b>
+<P><B>GRA 
+ODVSC</B> <EM>string 
+|</EM>&nbsp;<I>@name </I>
+<P>
+<p><b><font color=navy>ARGUMENTS</font>
+<hr align=left color=navy width=150></b>
+
+</b><BR>&nbsp; 
+<TABLE border=0>
+  <TR valign=top>
+<TD vAlign=top><I>string</I>&nbsp;&nbsp;&nbsp;</td>
+<td vAlign=bottom>string transmitted to the device at 
+      closure.</td></tr>
+<tr valign=top> 
+	  <td><b> 
+      </b>@<I>name</I><b>&nbsp;&nbsp;&nbsp;</b></TD>
+      <td>name of the file containing the strings to be 
+      transmitted to the device at its closure. <BR 
+      >&nbsp;</P></td></TR></TABLE>
+<P><B><FONT color=navy>DESCRIPTION</FONT><EM>
+<HR align=left color=navy width=150>
+</EM></B>
+<P></P>
+<P>Defines a string of characters to be transmitted to the output device 
+(plotter) at its closure (only for devices which have this function: for details 
+on how to use this parameter, refer to the documentation about the device). 
+<P>You can include special characters in the string in 
+symbol form, as follows: 
+<DIR>
+<LI>{CR} "carriage return" character 
+<LI>{LF} "line feed" character 
+<LI>{CL} "carriage return and line feed" character 
+<LI>{nn} character represented by ASCII value nn. 
+ </LI></DIR>These notations are completely converted into the corresponding 
+characters. 
+<P>Where allowed by the device used, you can use a closing 
+file, by placing the character @ before the name of the file; the latter is 
+opened and transmitted to the device line by line in place of the string. 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      ODVT</B>&nbsp; <BR><B 
+    >PRC</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ODVT></A>GRA ODVT&nbsp; </font></td>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</font></td>
+    <td vAlign=bottom><i>Defines 
+      type of output format (device) used&nbsp;</i></td></tr></table>
+<P><B><FONT color=navy>SYNTAX</FONT> 
+<HR align=left color=navy width=150>
+</B>
+<P><B>GRA ODVT </B>output_type 
+<P><B><FONT color=navy>ARGUMENTS</FONT> 
+<HR align=left color=navy width=150>
+</B>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><EM>output_type</EM>&nbsp;</TD>
+    <TD vAlign=top>mnemonic identifier for type of 
+      graphic output format<EM>.&nbsp;</EM>The default depends on the 
+      installation configuration: it is usually HP-GL/2. 
+</TD></TR></TABLE>&nbsp; 
+<P><B><FONT color=navy>DESCRIPTION</FONT> 
+<HR align=left color=navy width=150>
+
+<P></B>&nbsp;
+<P>Allows you to define the type of format to be used for the graphics output. 
+<P>If you indicate an output which is not allowed, an error 
+indication appears. 
+<P>If you do not specify the type of format, the program 
+always assigns a default type, depending on the installation configuration. The 
+mnemonic identifiers for the various devices appear at the end of this 
+description. 
+<P>Note: the definition of the type of format must precede 
+the other configuration commands for the same device in the initialization file. 
+The same applies if you use the code as an option in the run string. 
+<P>Wherever the hardware/software configuration does not allow you a choice, the 
+default type is already correct, therefore, the command&nbsp; has no impact. <BR>&nbsp; </P> 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+    >ODEV</B>&nbsp;</TD></TR></TABLE>
+<P>The following tables show the values allowed for types of output 
+device/format: </P> 
+<DIR>
+<LI>BGL 
+<LI>CALCOMP 
+<LI>HP-GL 
+<LI>HP-GL/2 
+<LI>Raster 
+<LI>PostScript 
+<LI>MS-Windows environments </LI></DIR><B><I><FONT size=+1>BGL</FONT></I></B> 
+<UL>
+  <LI>G16xx (series 16 and previous) 
+  <LI>G18xx (series 18 and subsequent) </LI></UL>     
+<P><B><I><FONT 
+size=+1>CALCOMP</FONT></I></B> 
+<DIR>
+<LI>Cxx </LI></DIR> 
+<P><B><I><FONT 
+size=+1>HP-GL</FONT></I></B> 
+<UL>
+  <LI>HP74xx 
+  <LI>HPGL1 
+  <LI>HPGL2 </LI></UL> 
+<P><B><I><FONT 
+size=+1>Raster</FONT></I></B> 
+<UL>
+  <LI>HP29xx 
+  <LI>HP22xx 
+  <LI>PCL3 
+  <LI>PCL5 
+  <LI>CCRF 
+  <LI>HPRTL 
+  <LI>IPS 
+  <LI>TIFF </LI></UL>
+<P><B><I><FONT 
+size=+1>PostScript</FONT></I></B> 
+<UL>
+  <LI>POSTSCRI</LI></UL>
+<P><B><I><FONT 
+size=+1>MS-Windows environments</FONT></I></B> 
+<CENTER>
+<TABLE border=0 cellPadding=5 cellSpacing=0 width=661>
+  
+  <TR>
+    <TD vAlign=top width="37%">MWPRINTER</TD>
+    <TD vAlign=top width="63%">output to Print 
+  Manager</TD></TR>
+  <TR>
+    <TD vAlign=top width="37%">MWMETAFILE</TD>
+    <TD vAlign=top width="63%">output to MS-Windows 
+      Metafile</TD></TR>
+  <TR>
+    <TD vAlign=top width="37%">MWCLIPBOARD</TD>
+    <TD vAlign=top width="63%">output to 
+  Clipboard</TD></TR></TABLE></CENTER>&nbsp;
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=P1P2></A>GRA P1P2 </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      reference points P1 and P2</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA P1P2</B> <I>x<sub>1</SUB> y<sub>1</SUB> x<sub>2</SUB> y<sub>2</SUB></I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+ <TR>
+    <TD vAlign=top><B><I 
+      >x<sub>1</SUB>, y<sub 
+      >1</SUB> </I>&nbsp;&nbsp;&nbsp;</td>
+	  <td></B>integers which define the coordinates 
+      of point P1.</td></tr>
+<tr valign=top>
+      <td><B><I 
+      >x<sub>2</SUB>, y<sub 
+      >2</SUB></I></B>&nbsp;&nbsp;&nbsp;</td>
+	  <td>integers which define the coordinates 
+      of point P2.</P></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Redefines the position of points P1 and P2 and so also 
+the working dimensions of the sheet for plotting (in device units of measure). 
+<P>For the plotters which manage it, the <I>frame</I> step (in device units of measure) remains fixed. 
+Each plotter has its own specific frame step linked to the default values of P1 
+and P2,obtained with the plotter on line and GRA SHP1P2. 
+<P>You may have to set a frame step when plotting with <I>framing</I> on file (plotter off line). In this case, the 
+program cannot poll the plotter for the specific frame step. The values of P1 
+and P2 to be specified are those obtained as above. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>FRA</B>&nbsp; 
+      <BR><B>GRA 
+  SHP1P2</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=PNTM></A>GRA PNTM&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      point drawing mode</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA PNTM </B><I>HW |</I>&nbsp;<I>SW [symb 
+[dim]]&nbsp;</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><B 
+      >HW </B>&nbsp;&nbsp;&nbsp;</td><td>the point entity is drawn in device dependent 
+      mode (i.e.: in a hardware mode which depends on the device 
+      used);</td></tr>
+	  <tr valign=top>
+      <td><B>SW 
+      </B>&nbsp;&nbsp;&nbsp;</td><td>the point entity is drawn in software dependent mode, with a 
+      marker.&nbsp;</td> </tr>
+	  <tr valign=top>
+      <td><I>symb</i>&nbsp;&nbsp;&nbsp;</td><td>integer which defines the symbol used to 
+      draw the point entity (default 1); allowed values: 1:4.</td></tr>
+	  <tr valign=top>
+      <td><I>dim</i>&nbsp;&nbsp;&nbsp;</td><td>integer which defines the size expressed in 
+      device dependent units of the symbol used for the point entity (default 
+      2); values allowed </I><FONT size=+1><FONT 
+      face=Symbol>³ </FONT><FONT face=HELVETICA 
+      >1.</FONT></FONT>&nbsp;</P></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Defines the point entity drawing mode. 
+<P>The description of the points via software depends on 
+the symbol <I>symb</I> selected, the description in 
+hardware mode depends on the device used. 
+<P>The arguments are positional; the character "#" allows 
+you to leave the current value of the respective parameter unchanged. <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=PWIDTH></A>GRA PWIDTH </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+<td vAlign=bottom><i>Defines 
+      thickness to be associated to pens<span style="DISPLAY:none">line width</span><span style="DISPLAY:none">line weight</span></I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA PWIDTH</B> {<I>pen thickness </I>[<I>unit</I>]} 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+<TD vAlign=top><I>pen</I>&nbsp;&nbsp;&nbsp;</td>
+<td>integer which identifies the colour (pen) to which the thickness <I>sp</I> must be associated; values allowed -1:256.</td></tr>
+<tr valign=top>
+      <td><I>thickness</I>&nbsp;&nbsp;&nbsp;</td><td>real number 
+      which identifies the thickness associated to the colour <I 
+      >pen</I>; values allowed -256:256;</td></tr>
+	  <tr valign=top>
+      <td><I>unit</I>&nbsp;&nbsp;&nbsp;</td><td>unit of measure; 
+      values allowed and meanings:
+	  
+	  <ul>
+	   <li><b>MM</b>&nbsp;&#151;&nbsp;thickness is expressed in millimeters (default) 
+	   <li><b>CM</b>&nbsp;&#151;&nbsp;thickness is expressed in centimeters
+	   <li><b>IN</b>&nbsp;&#151;&nbsp;thickness is expressed in inches.
+	  
+	  </ul>
+      <P><B>Default</B>:<EM>0. No 
+      thickness.</EM></P></TD></TR></TABLE>
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B></b>
+<P>For each colour index (0:255), allows you to define a 
+thickness (<i>line weight</i> or <i>line width</i>) in various forms. 
+<P>If <I>pen</I>=-1 the thickness 
+specified is assigned to the entire colour table. 
+<P>The presence of <I>unit</I> 
+indicates that you must multiply the <I>thickness </I>value 
+by 1 (MM), by 10 (CM) or 25.4 (IN). 
+<P>If <I>thickness</I> &lt; 0, 
+irrespective of the thickness management mode (GRA MWIDTH) is considered to be 
+in units of the device. 
+<P>If <I>thickness</I> &gt; 0 and the 
+thickness management mode is in units of the device (GRA MWIDTH<B> </B>1), only the whole part of the number expressing the 
+thickness in units of the device is considered. 
+<P>Thickness management may not be available on all 
+devices. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      COLCH</B>&nbsp; <BR><B>GRA 
+      MWIDTH</B>&nbsp; <BR><B>GRA 
+      NCOLS</B>&nbsp; <BR><B>GRA 
+      ODVT</B>&nbsp; <BR><B 
+      >RPL&nbsp;</B></TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ROPS></A>GRA ROPS </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      number of lines per block (Raster)&nbsp;</I></TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA ROPS</B> <I>num-line</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+</b>
+<TABLE border=0>
+ 
+  <TR>
+    <TD vAlign=top><EM 
+      >num-line&nbsp;&nbsp;&nbsp;</EM></TD>
+    <TD vAlign=top>integer which indicates the number of 
+      lines (scanlines) contained in each block (strip) (default 0); values 
+      allowed 0:32000.</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT></b>
+<hr align=left color=navy width=150></b>
+
+
+<P>Allows you to define, in TIFF format output for Raster 
+devices, the number of lines (<I>scanlines</I>) which 
+constitute each block (<I>strip</I>). 
+<P>If <I>num-line</I>=0 the program 
+calculates the value so that the <I>scanlines</I> per <I>strip</I> that are not compressed are almost 8 Kbytes 
+(value selected in accordance with the data in the Adobe manual). <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+    ODVT</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ROTATE></A>GRA ROTATE&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets 
+      drawing angle of rotation&nbsp;</I></TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA ROTATE </B><I>angle</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+    >angle</I>&nbsp;</TD>
+    <TD vAlign=top>integer defining the angle of 
+      rotation; values allowed -360:360 (normally, but there are restrictions 
+      depending on the output device/format).&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to rotate the drawing through an <I>angle </I>to adapt it to the paper size used. 
+<P>Not all devices allow rotation unless you adjust the 
+plotter panel directly. The following values are allowed depending on the output 
+formats/devices (GRA ODVT): 
+<UL>
+  <LI>BGL: 0 and 90; counter clockwise rotation about the 
+  current pen position; to shift the center of rotation, simply relocate the 
+  origin (ROR). Not available on all devices. 
+  <LI>CALCOMP: from 0 to 360; counter clockwise rotation 
+  about the current pen position; to shift the center of rotation, simply 
+  relocate the origin (ROR). 
+  <LI>HP-GL: 0 and 90; counter clockwise rotation about the 
+  origin of the plotter 
+  <LI>HP-GL/2: 0, 90, 180, 270 
+  <LI>Raster: 0, 90, 180, 270 
+  <LI>PostScript: from -360 to +360. </LI></UL>If the 
+rotation moves the drawing off the sheet, relocate the origin of the drawing 
+(ROR). 
+<P>The 90 degree rotation is also useful in cases of mixed 
+output (raster and vector) to obtain the same orientation of the x and y axes. 
+<BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      ODVT</B>&nbsp; <BR><B 
+    >ROR</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=SHDEV></A>GRA SHDEV </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Displays 
+      data relative to graphics devices</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA SHDEV</B> 
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Displays data relative to the graphics devices 
+(diagnostics) on-screen. <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=SHP1P2></A>GRA SHP1P2 </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Displays 
+      reference points P1 and P2</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA SHP1P2</B> 
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Used with a plotter on line, when running GBPLO allows 
+you to display the position of points P1 and P2 which represent the size of the 
+plotting area, also linked to the framing step (if managed by the plotter). 
+<P>This data allows you to use the off line framing (FRA) 
+mode, specifying the dimensions of the frame step for that paper size with the 
+code GRA P1P2. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+      >FRA&nbsp;</B>&nbsp; <BR><B 
+      >GRA P1P2</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=STRIP></A>GRA STRIP </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Manages 
+      leading and trailing blanks on drawing 
+(Raster)&nbsp;</I></TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>GRA STRIP</B> <I>[option]</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+    >option</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>may assume the following values:
+
+      <ul>
+      <LI><b>ON</b>&nbsp;&#151;&nbsp;removes blanks, prints drawing without blank 
+      areas; 
+      <li><b>OFF</b>&nbsp;&#151;&nbsp;prints entire drawing (default) 
+      <li><b>0</b>&nbsp;&#151;&nbsp;as OFF
+      <li><b>1</b>&nbsp;&#151;&nbsp;as ON.</ul></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>On raster devices, enables the removal of any blank 
+lines (<I>scanlines</I>) present when the <I>window</I> supplied exceeds the <I>window</I> actually occupied by the drawing. 
+<P>The ON mode is also useful to reduce insignificant data 
+when you want to place other data before or after the drawing. <BR>&nbsp; 
+<P>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=LAN></A>LAN </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines I/O 
+      language</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>LAN</B> <I>language</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+    >language</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>I/O language code. One of the 
+      following values:<ul>
+      <LI><b>I</b>&nbsp;&#151;&nbsp;Italian (default) 
+      <li><b>E</b>&nbsp;&#151;&nbsp;English&nbsp; 
+      <li><b>F</b>&nbsp;&#151;&nbsp;French 
+      <li><b>G</b>&nbsp;&#151;&nbsp;German 
+      <li><b>J</b>&nbsp;&#151;&nbsp;Japanese 
+      <li><b>K</b>&nbsp;&#151;&nbsp;Korean
+	  .</ul></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+</b>
+</B>
+<P>Allows you to select the language in which the program 
+I/O messages will be displayed. <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=LSI></A>LSI </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      symbol library</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>LSI</B> <I>library</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><EM 
+      >library&nbsp;</EM></TD>
+    <TD vAlign=top>pathname of the symbol library file. 
+      If you do not specify the directory, GBPLO searches the current drawing 
+      directory defined with DRC.&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the library to be used to resolve 
+the occurrences of symbols present in the drawing. 
+<P>The possibility of changing the current symbol library 
+may prove very useful when printing files containing symbols which, although 
+maintaining the same name, assume a different graphic appearance in different 
+contexts. 
+<P>For example, the same drawing may contain symbols to be 
+printed according to European standards and American standards: this option 
+allows you to print both versions of the drawing by simply specifying the two 
+different libraries, without changing the drawing file. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+    >DRC</B>&nbsp;</TD></TR></TABLE>
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=MIS></A>MIS </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      drawing unit of measure</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>MIS</B> <I>unit_code</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><EM 
+      >unit_code&nbsp;</EM></TD>
+    <TD vAlign=top>numeric code identifying the drawing 
+      unit of measure:&nbsp; 
+      <ul>
+      <LI><b>0</b>&nbsp;&#151;&nbsp;millimeters 
+      <li><b>1</b>&nbsp;&#151;&nbsp;centimeters&nbsp; 
+      <li><b>2</b>&nbsp;&#151;&nbsp;decimeters&nbsp; 
+      <li><b>3</b>&nbsp;&#151;&nbsp;meters&nbsp; 
+      <li><b>10</b>&nbsp;&#151;&nbsp;decimal inches&nbsp; 
+      <li><b>11</b>&nbsp;&#151;&nbsp;decimal feet&nbsp; 
+      <li><b>12</b>&nbsp;&#151;&nbsp;decimal 
+  yards.</ul></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the drawing unit of measure, 
+selecting it from the units of the metric - decimal system or imperial measures. 
+<BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=MOD></A>MOD </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets run 
+      mode</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>MOD</B> <I>mode_code</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+    >mode_code</I>&nbsp;</TD>
+    <TD vAlign=top>string identifying the run 
+      mode:&nbsp;&nbsp; <B><BR 
+      >INTER</B> constrains interactive mode&nbsp; <BR 
+      ><B>BATCH</B> constrains 
+      non-interactive (batch) mode.<EM 
+  >&nbsp;</EM></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to constrain the interactive mode (see 
+section 2.10) even if you specify at least one of the main parameters (i.e.: all 
+data requested), or batch mode (i.e.: no interactive questions) even if you do 
+not specify any of the main parameters. <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=MSG></A>MSG </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      message file</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>MSG</B> <I>pathname</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I>pathname</I>&nbsp;</TD>
+    <TD vAlign=top>pathname of the message file.</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the pathname of the message file. 
+This is a file for internal use, necessary for running GBPLO and <I><U>must not be modified</U></I>. 
+<P>You can specify the pathname in relative form, even 
+using symbolic names defined with the DEF directive. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+    >DEF</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=NCO></A>NCO </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets number 
+      of copies</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B><I>NCO</I></B> <I>num_copies</I> 
+<P>or: 
+<P><B><I>GRA 
+NCOP</I></B> <I>num_copies</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><EM 
+      >num_copies&nbsp;</EM></TD>
+    <TD vAlign=top>integer defining the number of copies 
+      to be made of the drawing (default 1); values allowed 1:99.<EM 
+      >&nbsp;</EM></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Defines the number of copies of the drawing required, on 
+output devices with this function. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>AVA</B>&nbsp; 
+      <BR><B>GRA MERGE</B>&nbsp; <BR 
+      ><B>GRA 
+  ODVT</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=NPE></A>NPE </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets pens 
+      available for plotting</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B><I>NPE</I></B> <I>plot_pens</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><i>plot_pens</i>&nbsp;</TD>
+    <TD vAlign=top>number of pens which the plotter puts 
+      on line. <b>Default</b>: 
+8.</TD></TR></TABLE>&nbsp; 
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the total number of pens which the 
+plotter must put on line for the current plotting session. <BR>&nbsp; 
+<P>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ODEV></A>ODEV </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      output device name</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>ODEV</B> <I>name</I> 
+<P>or: 
+<P><B>GRA ODVN</B> <I>name</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+    >name</I>&nbsp;</TD>
+    <TD vAlign=top>name of the symbol file associated to 
+      the output device or name of the file to which plotting is to be 
+    directed.&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Defines the name of the symbol file which identifies the 
+current output device or, if the plotter is off line, indicates the name of the 
+file to which plotting is to be directed. 
+<P>The<B> </B>GRA ODVT code sets a 
+default name depending on the hardware, suitable for a standard configuration. 
+<BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      GFILE</B>&nbsp; <BR><B>GRA 
+      ODVT</B>&nbsp;</TD></TR></TABLE>
+         
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=PPE></A>PPE </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets pen 
+      position at end of plotting</I>&nbsp;</TD></TR></TABLE><B>
+<P><B><FONT color=navy>SYNTAX</FONT> 
+<HR align=left color=navy width=150>
+</B></B>
+<P><B>PPE</B> <I>position_code</I> </P><B>
+<P><B><FONT color=navy>ARGUMENTS</FONT> 
+<HR align=left color=navy width=150>
+
+<P></B></B>
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >position_code</I>&nbsp;</TD>
+    <TD vAlign=top>symbolic code identifying the pen 
+      position after plotting:&nbsp; 
+      <ul>
+      <LI>P1 drawing bottom left-hand corner 
+      <LI>P2 top right-hand corner&nbsp;
+      <LI>P3 top left-hand corner&nbsp; 
+      <LI>P4 bottom right-hand corner.</LI></ul><B>Default:</B>&nbsp; 
+P1 (drawing bottom left-hand 
+corner). </TD></TR></TABLE>&nbsp; 
+
+<P><B><FONT color=#000080>DESCRIPTION</FONT>
+<HR align=left color=navy width=150>
+
+<P></B></B>&nbsp;
+<P>Allows you to define the pen position at the end of 
+plotting. That is to say, upon completion of the drawing, GBPLO moves the pen to 
+the position indicated. 
+<P><IMG height=270 src="graphics/image159.gif" width=760 > 
+<P>This directive is useful if you want to print two or 
+more drawings on the same sheet, merging them in an alternative mode to that of 
+run option -COM<SUB><FONT face=HELVETICA><FONT size=+0>.</FONT></FONT></SUB> 
+<BR>
+     
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=PRC></A>PRC </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      output device initialization string</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>PRC</B> <I>string |</I>&nbsp;<I>@name </I>
+<P><I>or:</I> 
+<P><b>GRA ODVSI </b><I>string</I> |&nbsp;@<EM>n</EM>a<I>me</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> </b></P><b>
+<hr align=left color=navy width=150></b>
+
+</b><BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><EM>string</EM>&nbsp;&nbsp;&nbsp;</td>
+       <TD vAlign=top>string 
+      transmitted to the device when it is opened.</td>
+	  <tr valign=top> 
+         <td><EM>name</EM>&nbsp;&nbsp;&nbsp;</TD><td>name of the file 
+      containing the strings to be transmitted to the device when it is 
+      opened.</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Defines a string of characters to be sent to the output 
+device (plotter) when it is opened, if the devices has this function; for 
+details on how to use this parameter, refer to the documentation about the 
+device used. 
+<P>The string entered substitutes that normally used (if 
+present). 
+<P>You can include special characters in the string in 
+symbol form, as follows: 
+<ul>
+<LI>{CR} "carriage return" character 
+<LI>{LF} "line feed" character 
+<LI>{CL} "carriage return and line feed" character 
+<LI>{<I>nn</I>} character represented 
+by ASCII value <I>nn</I>. 
+</ul>
+These notations are completely 
+converted into the corresponding characters. 
+<P>Where allowed by the device used, you can use an <I>opening file</I>, by placing the character @ before the <I>name</I> of the file; the latter is opened and transmitted 
+to the device line by line in place of the <I>string</I>. 
+</P></LI>
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+      ODVSC</B>&nbsp; <BR><B>GRA 
+      ODVT</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=QAL></A>QAL </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Enables 
+      printing of alternative dimension format</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>QAL</B> <I>alternative_code</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >vfm</B>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>code which controls the display of 
+      alternative dimension formats. This is a 32 bit mask in which each bit 
+      relates to the corresponding alternative (bit 1 « first alternative, bit 2 
+      « second alternative, etc.). <B>Default</B>: 0 (displays fixed part 
+only).</TD></TR></TABLE>&nbsp; 
+ 
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>In drawings from the GBG DraftMaker environment, allows 
+you to manage the display of alternative parts of dimension formats. 
+<P>The <I>n-th alternative </I>is the 
+string between the n-th and (n+1)-th alternative format separator ({a<I>n</I>} or {A<I>n</I>} and {a<I>n+1</I>} or {A<I>n+1</I>}). To display 
+the n-th alternative, set the n-th bit of the mask to = 1. Set more than one bit 
+to = 1 to simultaneously display corresponding alternatives. 
+<P>E.g.: 
+<DIR>
+<LI><I>vfm </I>= 1 displays the first 
+alternative (bit 1) 
+<LI><I>vfm </I>= 2 displays the second 
+alternative (bit 2) 
+<LI><I>vfm </I>= 3 displays the first 
+and second alternatives (bit 1 and bit 2) 
+<LI><I>vfm </I>= 4 displays the third 
+alternative (bit 3) 
+<LI><I>vfm </I>= 5 displays the first 
+and third alternatives (bit 1 and bit 3) </LI></DIR>These values correspond, in 
+the order shown, to the bit mask configuration shown below<SUB><FONT face=HELVETICA><FONT size=+1>.</FONT></FONT></SUB> <BR>&nbsp; 
+<TABLE border=0 cellPadding=5 width=500>
+  
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >15</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >14</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >13</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >12</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >11</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >10</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >9</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >8</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >7</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >6</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >5</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >4</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >3</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >2</B>&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER><B 
+    >1</B>&nbsp;</CENTER></TD></TR>
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD></TR>
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD></TR>
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD></TR>
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD></TR>
+  <TR>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>0&nbsp;</CENTER></TD>
+    <TD vAlign=top width="5%">
+      <CENTER>1&nbsp;</CENTER></TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=QDT></A>QDT&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      leader limit distance</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>QDT</B> <I>distance</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >distance</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>minimum value of the distance between 
+      the normal position of the dimension text and the actual positioning point 
+      above which the leader is drawn, measured on the perpendicular which joins 
+      the two positions.&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the <I>minimum 
+distance </I>from the measuring line above which the leader connecting the 
+dimension texts whose position is free is drawn. 
+<P><IMG height=297 src="graphics/image163.gif" width=759 > <BR>&nbsp; 
+<P>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=QTE></A>QTE </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Sets text 
+      print modes</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>QTE</B> <I>codq0 codq1 codq2 codq3 codq4</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>
+	<I>codq0...codq4&nbsp;</I></TD>
+    <TD vAlign=top>list of the five quality codes for the 
+      representation of text:&nbsp; 
+      <P><I>codq0</I>&nbsp;&nbsp;&nbsp;font to be used 
+      for text with quality 0 to be&nbsp; 
+      <ul>
+      <LI>represented with quality 4 and inexistent user 
+      font. Values 1 to 3 are allowed: 
+      <li>1 hardware font, with precision relative to 
+      string&nbsp; 
+      <li>2 hardware font, with precision relative to single 
+      character&nbsp; 
+      <li>3 internal font</P></LI></ul><I 
+      >codq1</I>&nbsp;&nbsp;&nbsp;font to be used for text with quality 1. 
+      Values 1 to 4 are allowed:&nbsp; 
+      <ul>
+      <LI>1 hardware font, with precision relative to 
+      string 
+      <li>2 hardware font, with precision relative to single 
+      character&nbsp; 
+      <li>3 internal font&nbsp; 
+      <li>4 user font</ul>
+	  <I 
+      >codq2 </I>font to be used for text with quality 2. 
+      Values 1 to 4 are allowed.
+      </ul>
+      <P><I>codq3</I>&nbsp;&nbsp;&nbsp;font to be used 
+      for text with quality 3. Values 1 to 4 are allowed.&nbsp; 
+      <P><I>codq4</I>&nbsp;&nbsp;&nbsp;font to be used 
+      for text with quality 4. Values 1 to 4 are allowed.</P></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>For drawings form the GBG DraftMaker environment, allows 
+you to define the fonts to be used for drawing the text according to its quality 
+attributes. <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=QUO></A>QUO </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      pens for drawing dimensions</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>QUO</B> <I>pen_text [pen_arrows [pen_tol]</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >pen_text&nbsp;</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>pen (color) with which to draw the 
+      dimension text (format)</td></tr>
+	 <tr valign=top>
+      <td><I>pen_arrows</I>&nbsp;&nbsp;&nbsp;</td><td>pen 
+      (colour) with which to draw the dimension arrowheads</td> </tr>
+	 <tr valign=top>
+      <td><I>pen_tol</I>&nbsp;&nbsp;&nbsp;<td>pen (color) 
+      with which to draw the dimension tolerances</P></TD></TR></TABLE>&nbsp; 
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>For drawings form the GBG DraftMaker environment, allows 
+you to differentiate the colour (pen) of the dimensions from that used to draw 
+other drawing entities. 
+<P>You can also differentiate the elements which constitute 
+the dimensions, by assigning different colours to the arrowheads and tolerances. 
+<BR>&nbsp; 
+<P>
+                          
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=QVP></A>QVP </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      dimension decimal separator</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>QVP</B> <I>separator</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><i>separator</i>&nbsp;</TD>
+    <TD vAlign=top>numeric code 
+      identifying the type of decimal separator to be used when drawing the 
+      dimension text:
+	  <ul>
+      <li>0 point, without zero if 
+      less than 1 
+      <li>1 comma, without zero if 
+      less than 1
+      <li>2 point, with zero if less 
+      than 1
+      <li>3 comma, with zero if less 
+      than 1</ul></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the decimal separator to be used in 
+dimension texts, also managing the display of insignificant zeros. Example: 
+<P>QVP 0 <b>=&gt;</b>&nbsp; .1234 
+<br>QVP 1&nbsp;<b> =&gt;</b>&nbsp; ,1234 
+<br>QVP 2&nbsp; <b>=&gt;</b>&nbsp; 0.1234 
+<br>QVP 3&nbsp; <b>=&gt;</b>&nbsp;&nbsp; 0,1234 <BR>&nbsp; 
+<P>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=ROR></A>ROR </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Manages 
+      relocation of drawing origin on plotter</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>ROR</B> <I>dx dy</I> 
+<P><I>or:</I> 
+<P><I><B>GRA 
+RORIG</B> dx dy [u_measure]</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><i>dx</i>&nbsp;&nbsp;&nbsp;</TD>
+    <TD vAlign=top>real number defining the shift in cm 
+      along the x-axis.</td></tr>
+	  <tr valign=top>
+      <td><I>dy</I>&nbsp;&nbsp;&nbsp;</td><td>real number 
+      defining the shift in cm along the y-axis</td></tr>
+	  <tr valign=top>
+      <td><I>u_measure</I>&nbsp;&nbsp;&nbsp;</td>
+	  <td> unit of 
+      measure for the shift; values allowed and meanings:&nbsp; 
+      <ul></ul>
+      <LI>MM millimeters (default); 
+      <li>CM 
+  centimeters.</ul></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to shift the drawing origin on the plotter 
+before plotting. The current position of the origin depends on the type of 
+plotter: on relative-motion plotters (BGL, Calcomp) it remains at the point 
+occupied by the pen at the end of the previous drawing, whilst on 
+absolute-motion plotters (HP) it remains fixed at the bottom left-hand point of 
+the sheet or at the center of the sheet. Set the shift with great care, since an 
+error may cause the drawing to be off the edges of the sheet or make the drawing 
+previous drawings. 
+<P>You must use this code when you rotate the drawing on 
+the Calcomp and BGL plotter, since a 90 ° rotation for Calcomp and BGL moves the 
+drawing from the first to the second frames. 
+<P>Relocating the origin is one way of merging two or more 
+drawings on the same sheet, this being an alternative to the mode activated with 
+run option -COM: although the latter is preferable. <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B>GRA 
+    ROTATE</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=RPL></A>RPL </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      plotter resolution</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>RPL</B> <I>resolution</I> 
+<P>or: 
+<P><B>GRA ODVR</B> <I>r<sub>x</SUB> </I>[<I>r<sub>y</SUB></I>] <I>[DPI]</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD><B>r<sub 
+      >x</SUB></B></TD>
+    <TD>real number which sets the resolution along the 
+      x-axis:&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>
+      <UL>
+        <LI>with <B><I 
+        >RPL</I></B>: in dots per <B><I>centimetre</I></B> if &gt; 0&nbsp; </LI>
+		<LI>with <B><I>GRA ODVR</I></B>: in dots per <B 
+        ><I>millimetre</I></B>&nbsp; 
+        </LI>
+		</UL></TD></TR>
+   <TR>
+    <TD><B>r<sub 
+      >y</SUB></B></TD>
+    <TD>real number which sets the resolution along the 
+      y-axis</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>
+      <UL>
+        <LI>with <B><I>RPL</I></B>: in dots per <B><I>centimetre</I></B> if &gt; 0&nbsp; </LI>
+		<LI>with<B><I> GRA ODVR</I></B>: in dots per <B><I>millimetre</I></B>&nbsp; 
+        </LI></UL></TD></TR>
+    <TR>
+    <TD vAlign=top><B 
+    >DPI</B>&nbsp;</TD>
+    <TD>constrains the unit of measure for the resolution 
+      in dots per inch; if you do not specify this, the resolution is 
+    considered&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>
+      <UL>
+        <LI>with <B><I>RPL</I></B>: in dots per <B><I>centimetre</I></B> if &gt; 0&nbsp; </LI>
+		<LI>with <B><I>GRA ODVR</I></B>: in dots per <B><I>millimetre</I></B>&nbsp; 
+        </LI></UL></TD></TR>
+  </TABLE>
+
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>For devices which allow different resolutions, defines 
+values other than the default. The default values are determined automatically 
+where possible, or preset according to the output device family. 
+<P><B><I><U>CALCOMP PCL format</U></I></B> 
+<P>Default is 40 40. Adjust the resolution if the plotter 
+used has a different configuration. 
+<P><B><I><U>HP-GL and HP-GL/2 format</U></I></B> 
+<P>Default is 40 40. 
+<P><B><I><U>Raster format</U></I></B> 
+<DIR>
+<LI>The program sets the values allowed on the basis of the 
+GRA ODVT value 
+<P><B><U>ODVT 
+default (DPI)</U></B> 
+<P>HP29xx 90 DPI 
+<P>HP22xx 90 DPI 
+<P>PCL3 300 DPI 
+<P>PCL5 300 DPI 
+<P>HPRTL 300 DPI 
+<P>TIFF 90 DPI 
+<P>CCRF 406 DPI 
+<P>IPS 300 DPI</P></LI></DIR><B><I><U>PostScript format</U></I></B> 
+<P>Default is 2400 2400 
+<P><B><I><U>BGL format</U></I></B> 
+<P>The program sets the values allowed on the basis of the 
+GRA ODVT value 
+<P><B><U>ODVT 
+default</U></B> 
+<P>G16xx 20,20 
+<P>G18xx 40,40 
+<DIR></DIR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=TOL></A>TOL&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines 
+      tolerance parameters</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>TOL</B> <I>cenline_dist char_height tol_dist</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >cenline_dist</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD>Character height multiplication factor for 
+      dimensions which identifies the distance to be set in the drawing between 
+      the horizontal line through the center of the tolerances and the 
+      horizontal line through the center of the dimension texts</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >char_height&nbsp;</I>&nbsp;&nbsp;</TD>
+    <TD>Character height multiplication factor for 
+      dimensions which identifies the character height to be used when drawing 
+      the tolerances</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >tol_dist</I>&nbsp;&nbsp;&nbsp;</TD>
+    <TD>Character height multiplication factor for 
+      dimensions which identifies the distance to be set when drawing the 
+      tolerances.</TD></TR></TABLE><B>Default</B> <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >cenline_dist</I>=0&nbsp; <BR><I 
+      >char_height</I>=0&nbsp; <BR><I 
+      >tol_dist</I>=0.2&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the tolerance construction 
+parameters. 
+<P><IMG src="graphics/image171.gif"> <BR>&nbsp; 
+<P>
+
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=UNI></A>UNI&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Specifies 
+      UNI table</I>&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>UNI</B> <I>pathname</I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><B 
+    >pathname</B>&nbsp;</TD>
+    <TD vAlign=top><I>pathname of 
+      the file containing a UNI table.</I></TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to automatically attribute to any dimension 
+which represents the diameter of a hole or a shaft the tolerances defined in 
+accordance with UNI standards (UNI 7218-73: selecting tolerance zones for mating 
+parts recommended to limit the number of tools, test gauges and measuring 
+instruments). The dimension format which you define must contain indications of 
+the position and quality of the tolerance (e.g.: FO "{m}a9", FO "{m}JS10", 
+etc.); you can use the UNI command at any time to add the tolerances contained 
+in the UNI table from the program to all dimensions defined in this way. Any 
+tolerances which you specified are substituted by those shown in the table <BR>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=VNO></A>VNO&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines the 
+      unit normal for the view (Eureka)&nbsp;</I></TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>VNO</B> <I>no<sub>x</SUB> no<sub>y</SUB> no<sub>z</SUB></I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >no<sub>x</SUB></I>&nbsp;</TD>
+    <TD>component in direction x of the world reference 
+      system of the unit normal for the view</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >no<sub>y</SUB></I></TD>
+    <TD>component in direction xy of the world reference 
+      system of the unit normal for the view</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >no<sub>z</SUB></I>&nbsp;</TD>
+    <TD>component in direction z of the world reference 
+      system of the unit normal for the view.</TD></TR></TABLE>&nbsp; 
+<P><B>Default</B> <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I>no<sub 
+      >x</SUB></I>=0&nbsp; <BR><I 
+      >no<sub>y</SUB></I>=1&nbsp; <BR 
+      ><I>no<sub 
+      >z</SUB></I>=0&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the components of the unit normal 
+of the xy plane of the reference system of the current view for "e3" files. This 
+is a z-axis unit vector of the said reference system; given that the latter is a 
+right-hand orthonormal triplet, it is completely defined once you have also 
+defined the y unit vector of the reference system (with VUP). <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+    >VUP</B>&nbsp;</TD></TR></TABLE>
+
+<hr color=#0092ff SIZE=4>
+
+<table border=0>
+  
+  <tr>
+    <td><font color=navy size=+1><A 
+      name=VUP></A>VUP&nbsp; </FONT></TD>
+    <td vAlign=bottom><font color=white size=+1 
+      >&#8212;&#8212;&#8212;</FONT></TD>
+    <td vAlign=bottom><i>Defines the 
+      unit normal for the view (Eureka)&nbsp;</I></TD></TR></TABLE>
+<p><b><font color=navy>SYNTAX</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P><B>VUP</B> <I>up<sub>x</SUB> up<sub>y</SUB> up<sub>z</SUB></I> 
+<P>
+<p><b><font color=navy>ARGUMENTS</FONT> 
+<hr align=left color=navy width=150></b>
+
+
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I 
+      >up<sub>x</SUB></I>&nbsp;</TD>
+    <TD>component in direction x of the world reference 
+      system of the y-axis unit vector of the reference system of the 
+    view&nbsp;</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >up<sub>y</SUB></I></TD>
+    <TD>component in direction xy of the world reference 
+      system of the y-axis unit vector of the reference system of the view</TD></TR>
+  <TR>
+    <TD vAlign=top><I 
+      >up<sub>z</SUB></I>&nbsp;</TD>
+    <TD>component in direction z of the world reference 
+      system of the y-axis unit vector of the reference system of the view 
+  .</TD></TR></TABLE>&nbsp; 
+<P><B>Default</B> <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top><I>up<sub 
+      >x</SUB> </I>=0&nbsp; <BR><I 
+      >up<sub>y</SUB> </I>=1&nbsp; <BR 
+      ><I>up<sub 
+      >z</SUB> </I>=0&nbsp;</TD></TR></TABLE>
+<p><b><font color=navy>DESCRIPTION</FONT> 
+<hr align=left color=navy width=150></b>
+
+</B>
+<P>Allows you to define the components of the unit vector 
+which indicates the direction from the bottom to the top of the view, i.e.: of 
+the y-axis unit vector of the reference system of the current view for "e3" 
+files. Since it is a right-hand orthonormal triplet, the said reference system 
+is completely defined once you have also defined the z unit vector of the 
+reference system (with VON). <BR>&nbsp; 
+<TABLE border=0>
+  
+  <TR>
+    <TD vAlign=top>See also:&nbsp;</TD>
+    <TD vAlign=top><B 
+    >VON</B>&nbsp;</TD></TR></TABLE>
+
+<hr color="silver">
+</body>
+</html>

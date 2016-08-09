@@ -1,0 +1,114 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Creating a box with flanges and hems starting from the very beginning</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Creating a box with flanges and hems starting from the very beginning</h3>
+
+<p>In this task you will create a box with flanges and hems starting from the very beginning, and finally you will unbend it.
+<p align="center"><img border= 1 src="../../../images/sheetmetal/Usecases/Image31.gif"><img border= 1 src="../../../images/sheetmetal/Usecases/TheLastOne2.gif"></p>
+<p>You will go through the following steps:<br>&nbsp;
+<ul class="noleft">
+<li><a href="#Solid"><b>Creating the base solid</b></a>
+<li><a href="#Flanges"><b>Creating the flanges</b></a>
+<li><a href="#Hems"><b>Creating the hems</b></a>
+<li><a href="#Unbend"><b>Unbending the model</b></a>
+</ul><br>
+<h5><a name="Solid"></a>Creating the base solid<hr color="silver"></h5>
+<ol class="litleft">
+<li>Using the <a href="mk:@MSITStore:draft.chm::/language/geometry/gm_04/FWfile/T_FW_gm_01_04.htm"><b>Rectangle</b></a> command, create the rectangular profile you will use to create the base of the box.
+
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/UC01.gif"><BR>&nbsp;
+<li>Select the profile and start the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_sl_01_solid.htm"><b>Linear Solid</b></a> command. In the <b>Depth</b> mini-dialog box, type "2".<BR><BR><IMG border=1 SRC="../images/UC02.gif"><BR><br>Click <img src="../../../images/general/OKbutton.gif" border="0"> to create the solid.<br>&nbsp;
+
+</ol>
+<h5><a name="Flanges"></a>Creating the flanges<hr color="silver"></h5>
+<ol class="litleft">
+<li>Start the <a  href="../FWfile/T_FW_Flange.htm"><B>Flange</B></a> command. In the <b>Length</b> drop-down list, if not already selected, select <b>By value</b>.<br>&nbsp;
+<li>Select the edge on the left, as in the following illustration.
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/UC03.gif"><BR><br>
+A preview of the flange is immediately displayed:
+<BR><BR><IMG border=1 SRC="../images/Image5.gif"><br>&nbsp;
+<li>Select <img src="../../../images/general/APPLYbutton.gif" border="0"> to create the flange and keep the command active.<br><br>
+<li>Select the opposite edge.<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image6.gif"><br><br>Click <img src="../../../images/general/APPLYbutton.gif" border="0"> to create the flange.<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image7.gif"><br>&nbsp;
+<li>Do the same on the two remaining edges. You should get a result similar to the one in the following illustration.
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image11.gif"><br>&nbsp;
+</ol>
+<h5><a name="Hems"></a>Creating Hems<hr color="silver"></h5>
+<p>To create a hem&nbsp;&#151;&nbsp;a flange with a bend angle = 180&deg;&nbsp;&#151;&nbsp;on each of the flanges you have just added to your base solid, without stopping the <a  href="../FWfile/T_FW_Flange.htm"><B>Flange</B></a> command, go on as follows.<br>&nbsp;
+<ol class="litleft">
+<li>Select an edge of the first flange you created. <br><br><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image12.gif"><br>&nbsp;
+<li>In the <b>Length</b> mini-dialog box, type "10".<br><br><IMG border=1 SRC="../images/Image13.gif"><br>&nbsp;
+<li>To have the hem aligned to the inner surface of the selected flange:
+<ul class="noleft">
+<li>Click on the <b>Local Properties</b> node to expand it (<i>see also</i> <a  href="../OVfile/T_OV_LocalData.htm"><b>Local Properties and the Lock Marker</b></a>)
+<li>Click the <b>Alignment</b> item to unlock it 
+<li>In the adjacent drop-down list, select <b>Inner</b><br><br>
+</ul><IMG border=1 SRC="../images/Image14.gif"><br>&nbsp;
+<br>
+<li>Click on <b>Radius</b> to unlock it, and type "1" into the adjacent  box.<br><br><IMG border=1 SRC="../images/Image15.gif"><br>&nbsp;
+<li>To set the bend angle to 180&deg; as required, click on <b>More Options</b> to expand it and select the <b>Orientation</b> check box. The <b>Angle</b> mini-dialog box shows up in the model. Type in "180".
+<br><br><IMG border=1 SRC="../images/Image16.gif"><br>&nbsp;
+<li>A message box with the following message is displayed:<br>
+"<i>Impossible to calculate the length. The 'Exclude bend' mode will be automatically set</i>".<br>
+Select the <b>Don't prompt this warning again</b> and click <b>OK</b> to go on. This message is displayed because you typed in a value of 180&deg; for the bend angle. With such a value, the only <b>Length</b> method allowed is <b>Exclude bend</b> (for details, see <b>Length</b> in the 
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL_POSITION.htm"><b>Positioning</b></a> page inside <b>Sheet Metal</b> category of the <b>Entity Properties</b>). You can prevent the program from displaying the message any time you need to create a hem and thus to specify a bend angle = 180&deg; by simply unlocking <b>Length</b> and selecting <b>Exclude bend</b> in the adjacent drop-down list <i>before</i> changing the value of the bend angle.<br>&nbsp;
+
+<li>Select <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm the creation of the hem.<br>&nbsp;
+<li>To create the other hems on the remaining flanges, you just need to select the flanges, as the correct parameter values (<b>Length</b>, <b>Angle</b>) are already set:
+<br><br><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image20.gif"><br><br>
+Once you select the last flange:
+<br><br><IMG border=1 SRC="../images/Image25.gif"><br><br>
+select <img src="../../../images/general/OKbutton.gif" border="0"> to create the last hem and quit the <b>Flange</b> command.
+<br><br><IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image26.gif"><br>&nbsp;
+</ol>
+<br>&nbsp;
+<h5><a name="Unbend"></a>Unbending the model<hr color="silver"></h5>
+<p>To unbend the model, proceed as follows:<br>&nbsp;
+<ol class="litleft">
+<li>Start the <a  href="../FWfile/T_FW_Unbend.htm"><b>Unbend</b></a> command.<br>&nbsp;
+<li>As the face to keep fixed, select the top face of the base solid, like in the following illustration:<br><br>
+<IMG border=1 SRC="../../../images/sheetmetal/Usecases/Image27.gif"><br>&nbsp;
+<li>In the <b>Type</b> drop-down list, select <b>Global</b>.<br>&nbsp;
+<li>Click <img src="../../../images/general/OKbutton.gif" border="0"> to unbend the solid.
+<br><br><IMG border=1 SRC="../../../images/sheetmetal/Usecases/ThelastOne.gif">
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

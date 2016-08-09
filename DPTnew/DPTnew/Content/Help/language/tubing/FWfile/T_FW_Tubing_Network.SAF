@@ -1,0 +1,87 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Tubing Network</title>
+
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Tubing.msg+MenuBar_Document_Insert_Tubing+1">Tubing</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Tubing.msg+MenuBar_Document_Insert_Tubing+2">Network</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+1">Tubing Network</span> command enables you to insert automatically all tubing elements needed to cover a given profile. On starting the command the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+6">Tubing Network</span> selection list is displayed.</p>
+
+<p>You now need to select the path that will define the tubing network. The path can be a 2D or 3D profile but must consist of only straight line entities. Depending upon the structure of the path, the program automatically decides which tubing element to be inserted at a particular location. For example, if the path contains a perpendicular corner, the program automatically inserts an <i>elbow</i> there.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+You cannot select a profile as a tubing path that has already been used for defining another tubing network. If you try to do so, a suitable warning is displayed.</td></tr></table>
+
+<p>Thereafter, you need to make the <a href="../OVfile/T_OV_Tubing.htm#line">Line Specification</a> using the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> drop-down list. Then expand the <span class="UI_COMMAND" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> node (<img src="../../../images/general/node.gif" align="absmiddle">) to view the various tube element options associated with the particular Line Specification. By clicking the node symbol of individual option, the corresponding catalog with all its data is displayed in the form of a dialog box. Double-click to make a selection. There can be three possible situations arising from the selection you made in a particular catalog:</p>
+
+<ol class="noleft">
+<li>Elements are well defined in each involved catalog and hence there is one consistent element for each type of tubing element needed to form the network. In this case, the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button (<img src="../../../images/general/preview.gif" align="absmiddle">) becomes active and you can select it to see the preview of the tubing network.<br>
+<br>
+</li>
+
+<li>There are more than one consistent elements present in each catalog that can be used to form the network. In such a situation, when you select the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button, the preview will be shown using the first available compatible element present in the catalog. Simultaneously, the program displays a warning informing you that there is a possibility to determine another configuration by using other compatible elements.<br>
+<br>
+</li>
+
+<li>The available elements are incompatible and hence the network cannot be formed. In such a situation, the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../images/general/warnings_on.gif" align="absmiddle">) button is displayed. Select it to view the warning that informs you that the expected element was not found.</li>
+</ol>
+
+<p>Once the path gets covered with all the required tubing elements, you can <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command to generate the tubing network. Each component inserted along the tubing path to form the network is displayed in the Model Structure.</p>
+
+<p>Once the tubing network has been generated, you can modify its individual elements by using the <a href="T_FW_Modify_Part.htm"><span class="UI_COMMAND" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+3">Modify Tubing Part</span></a> command. In this case, the change in the diameter of the modified element is propagated to all other elements to keep the network diameter consistent. As a result all other elements get modified, given that the element with new diameter is available in the catalog. You can also modify the individual line elements constituting the tubing path; the tubing elements will get modified accordingly.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_insert_network.htm"><b>Insert tubing network</b></a></li>
+<li><a href="../HWfile/T_HW_network_modify.htm"><b>Modify the tubing network</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related topic ...</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_Tubing.htm"><b>An Overview of Tubing</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

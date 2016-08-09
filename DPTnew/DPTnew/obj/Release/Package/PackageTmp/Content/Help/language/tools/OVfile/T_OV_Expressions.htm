@@ -1,0 +1,178 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<title>Assigning expressions in the mini-dialog boxes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Assigning expressions in the mini-dialog boxes</h2>
+
+<p>You can assign expressions in any <b>think<font color="#FF0F00">3</font></b> application command that uses mini-dialogs. You can type an expression in the mini-dialog with a numerical input associated.</p>
+
+<img src="../../rn_2005T1/images/05T1INF10_6.gif" border="1"> 
+<img src="../../rn_2005T1/images/05T1INF10_7.gif" border="1"> 
+<img src="../../rn_2005T1/images/05T1INF10_8.gif" border="1">
+
+<p>Once the expression has been confirmed (after you click TAB), it is evaluated and the computed value is inserted in the mini-dialog. Depending on the ability of the command to manage associativity, the reference to the expression may be kept (as in feature creation commands) or lost (as in 2D commands). In the first case, the expression defines the "rule" of the associativity; in the second case, the expression is used just to define a numerical value.</p>
+
+<p>The mini-dialog always shows the value (the result of the expression evaluation). The expression will appear in the mini-dialog when you click on it and start editing; during this phase you can type an expression using the GPL standard operators (+,-, etc.) and [user-] functions (cos, sin, etc.), spreadsheet variables and Adaptive Measures (through the standard tool).</p>
+
+<h4>Expression Definition</h4>
+<p>An <i>Expression</i> is a mathematical formulation combining <i>Operators</i> and <i>Operands</i> that evaluates single numerical values.</p>
+
+<p>The <i>Operator</i> can be a:</p>
+<ul class="noleft30">
+<li class="ver9">GPL operator and function.</li>
+<li class="ver9">GPL user defined function.</li>
+</ul>
+
+<p>The <i>Operand</i> can be a:</p>
+<ul class="noleft30">
+<li class="ver9">Spreadsheet variable</li>
+<li class="ver9">Measure</li>
+<li class="ver9">Numerical value</li>
+</ul>
+
+<p>The system also provides appropriate feedback to facilitate the comprehension of a mini-dialog and/or expression: icons to highlight an associative expression, tooltip to display the expression when the mini-dialog shows the value, tooltip to display the value of a variable, graphical highlight of the specific measured geometry, etc.</p>
+
+<img src="../../rn_2005T1/images/05T1INF10_9.gif" border="1">
+
+<p>An "associative" expression may generate loops (typically in spreadsheet variables and Adaptive Measure uses). When you apply the command, the system warns you about the potential loops.</p>
+
+<h4>Expression Editing</h4>
+
+<p>In a mini-dialog, you can:</p>
+<ul class="noleft30">
+<li class="ver9"><i>Insert a numerical value</i>.</li>
+<br><br>
+<li class="ver9"><i>Insert a variable</i>:
+Assume you create a variable <b>A</b> and confirm the editing (by pressing TAB). The possible scenario are: 
+
+<ul class="noleft">
+<li class="ver9"><b>A</b> is an existing variable. The mini-dialog assumes its value and associates the value to the variable, if the corresponding mini-dialog parameter is associative.</li>
+
+<li class="ver9"><b>A</b> is not an existing variable. A new variable will be automatically created and its value will be equal to the current mini-dialog value. Moreover it will be linked to the mini-dialog if its related parameter is associative.</li>
+
+<li style="list-style: none"><br>
+<img src="../../rn_2005T1/images/05T1INF10_1.gif" border="1"><br>
+</li>
+</ul>
+</li>
+<br>
+<li class="ver9"><i>Insert an <b>Adaptive Measure</b></i>:<br>
+The Adaptive Measure tool, can be activated through the:<br>
+<ul class="noleft">
+<li class="ver9"><i>Context Menu on a mini-dialog</i>: If you type an expression, the Adaptive Measure is placed in the current cursor position or replaces the selected sub-expression. If you do not type the expression, the Adaptive Measure defines the expression or value of the mini-dialog. In case of commands that have the preview attached to the cursor (e.g.: Line, Rectangle, Mating, etc.), the Adaptive Measure tool cannot be activated through the Context Menu on the mini-dialog, when you do not type an expression.</li>
+
+<li style="list-style: none"><br>
+<img src="../../rn_2005T1/images/Exp_2.gif" border="1"><br>
+</li>
+
+<li class="ver9"><i>Context Menu in the graphic area</i>: The Adaptive Measure defines the expression or value of the current mini-dialog.</li>
+
+<li style="list-style: none"><br>
+<img src="../../rn_2005T1/images/Exp_1.gif" border="1"><br>
+</li>
+
+<li class="ver9"><i>Toolbar button (TBD)</i>: If you type an expression, the Adaptive Measure is placed in the current cursor position or replaces the selected sub-expression. If you do not type the expression, the Adaptive Measure defines the expression or value of the mini-dialog.</li>
+
+<li class="ver9">If you define a measure and edit the mini-dialog:
+<ul class="noleft">
+<li class="ver9">In case of associative parameter (e.g. Linear sweep, Mating), a symbol "$i" ("i" is a progressive number) appears in the mini-dialog in the cursor's position or replaces the selected sub-expression.</li>
+
+<li style="list-style: none"><br>
+<img src="../../rn_2005T1/images/Exp_4.gif" border="1">
+<br>
+<br>
+</li>
+
+<li class="ver9">In case of non associative parameter (e.g. Line, Rectangle), the value of the measure appears in the mini-dialog in the cursor position or replaces the selected sub-expression.</li>
+</ul>
+</li>
+<br>
+<li style="list-style: none">If you define a measure and do not edit the mini-dialog, the computed value always appears in the mini-dialog. You can still edit the mini-dialog and click to compose the expression. Once the editing starts, if the corresponding mini-dialog parameter is an associative one, the "$i" (where "i" is a progressive number) symbol appears in the mini-dialog replacing the measure value.<br>
+You can also redefine the inserted adaptive measure. When you are in edit more, select the measure symbol and the standard adaptive measure mini-dialog appears. When you click the mini dialog, you can change its type and its reference. If you do not edit the mini-dialog, you can choose <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+1">Enable Adaptive Measure</span> and the mini-dialog appears, showing the current values of the measure; again you can click and change its type and references.</li>
+<br><br>
+</ul>
+</li>
+
+<li class="ver9"><i>Insert an expression</i>:<br>
+You can type any expression composed by variable, numerical value, measure linked together using GPL operators and functions.</li>
+<br><br>
+<li class="ver9"><a name="MakeVariable"></a><i>Create a variable and assign to it the entire expression or a sub-expression:</i><br>
+This functionality can be activated through the <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+4">Make Variable</span> context menu item on the mini-dialog.<br>
+
+<br>
+ <img src="../../rn_2005T1/images/05T1INF10_4.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-noleft">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><b>Note</b> <br>
+If you edit the mini-dialog, you can select the sub-expression that you want to associate to a variable and create the variable using the appropriate context menu item.</td>
+</tr>
+</table>
+
+<br>
+ The system requires a name for the variable; once it has been typed, it appears in the mini-dialog replacing the selected sub-expression.
+<br>
+<br> 
+<img src="../../rn_2005T1/images/05T1INF10_5.gif">
+<br>
+<br>
+These variables are created in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1671">Spreadsheet</span>. If you do not edit the mini-dialog, the variable is always assigned to the entire expression or value of the mini-dialog and it appears in the mini-dialog at the next editing. These variables are not removed when the command exits, even if they are no longer used.</li>
+<br><br>
+
+<li class="ver9"><i>Unlink the entire expression or a sub-expression replacing it with the result of its evaluation</i>:<br>
+This functionality can be activated through the <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+3">Unlink</span> context menu item on the mini-dialog.<br>
+
+<br>
+<img src="../../rn_2005T1/images/05T1INF10_2.gif" border="1"><br>
+<br>
+ If you edit the mini-dialog, you can select the sub-expression that you want to unlink and use the appropriate context menu item. The selected sub-expression is evaluated and its numerical value is inserted in the mini-dialog.<br>
+<br>
+<img src="../../rn_2005T1/images/05T1INF10_10.gif" border="1"><br>
+<br>
+After you unlink the expression, the simple computed value will be replaced.<br>
+<br>
+<img src="../../rn_2005T1/images/05T1INF10_3.gif" border="1"><br>
+<br>
+If you do not edit the mini-dialog, the entire expression is unlinked.<br>
+<br>
+You can use the <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+5">Break Variable</span> command to replace a variable with its expression; it can be activated through the context menu on the mini-dialog and it is available in editing and idle mode.</li>
+<br><br>
+<li class="ver9"><i>Copy, Cut and Paste of sub-expressions</i>:
+This functionality can be activated through the context menu on the mini-dialog. It allows you to move or copy variable, measure or any sub-expression to another part of the expression of the source mini-dialog or to any another mini-dialog.</li>
+</ul>
+
+<h4>Deleting a variable</h4>
+<p>To delete the variable created using <span class="UI_CONTEXT" id="ExpressionEditorService.msg+_EXPRESSIONEDITORSERVICE_LABEL_+4">Make Variable</span> command, you have to first unlink the variable, exit from the command and delete it in the Spreadsheet.</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_to_13_02.htm"><b>How to define a variable</b></a></li>
+<li><a href="../HWfile/T_HW_to_14_02.htm"><b>Operators and functions that can be used in expressions</b></a></li>
+<li><a href="../../tocpages/T_TOC_Spreadsheet_CMD.htm"><b>Spreadsheet Commands</b></a></li>
+<li><a href="../HWfile/T_HW_to_15_02.htm"><b>How to assign a variable to a drive dimension</b></a></li>
+<li><a href="../HWfile/T_HW_to_16_02.htm"><b>How to assign a variable to features/datum entities/X-reference components</b></a></li>
+<li><a href="../HWfile/T_HW_to_17_02.htm"><b>Other options used to control variables</b></a></li>
+<li><a href="T_OV_Adaptive_Measure.htm"><b>Integrating the Adaptive Measure mechanism in commands</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

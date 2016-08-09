@@ -1,0 +1,137 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Job: Creating a Walk-through Animation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+
+<h3>Creating a Walk-through Animation</h3>
+
+<p><i>It is strongly recommended to go through the <a href="T_HW_Animation.htm">Creating an Animation</a> and <a href="T_HW_Camera.htm">Generating Camera Movements During Animation</a> documents before attempting this tutorial.</i></p>
+
+<p>Using the new <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> evolution it is also possible to create a walk-through animation of the model. This is made possible by making the camera move on a curve (representing the path of the walk-through) and at the same time keeping its focus on the same curve. Follow the steps given below.</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1.</b></td>
+<td>Open the <i>walk_through.e3</i> file from the <i>Samples</i> folder of your installation. In the model you will find the red curve, which denotes the path for the walk through.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2.</b></td>
+<td>Make an exact copy of the red curve at the same location using the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ol_02.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1075">Copy</span></a> and <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ol_03.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1077">Paste</span></a> commands, so that both the curves overlap each other.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3.</b></td>
+<td>To facilitate the selection of the curves in the right order (during setting the camera data), extend one of the curves tangentially along its length by using the <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_mc_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1125">Extend</span></a> command. Make the extension at the farther end from the house.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4.</b></td>
+<td>Invoke the <a href="../FWfile/T_FW_Animation.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+1552">Animation</span></a> command; the 
+<span class="UI_OPTION" id="idd_animate.msg+idd_animate+1">Animation</span> dialog box is displayed. Create a <a href="T_HW_Anm-List.htm">new animation</a>, the <a href="T_HW_Evolution.htm">
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+8">Camera</span> evolution</a> and its <a href="T_HW_Variaton.htm">variation</a>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5.</b></td>
+<td>Set the variation parameters as:<br>
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 0, 
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 20<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6.</b></td>
+<td>Right-click on the variation for the camera and select the <span class="UI_OPTION" id="TDAnimationControls.msg+_TDANIMATIONCONTROLS_MENU_+35">Set Camera Data</span> option from the context menu; the 
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+15">Animation - Evolution</span> selection list is displayed in the Graphics Area.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7.</b></td>
+<td>For the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+43">Camera Path</span> selector, select the extended curve. For the 
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+46">Target Path</span> selector, select the shorter curve. Make both the selections towards the farther end from the house.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8.</b></td>
+<td>Set the value of <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+44">No. of Control Points</span> option under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to <b>1</b>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8.</b></td>
+<td>Once all the parameters have been specified, select the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+1">OK</span> (<img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle">) button to continue.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9.</b></td>
+<td>Now playback the animation by referring to the <a href="../OVfile/T_OV_Playback.htm">Animation Playback</a> document. Ensure before playback that the current view has been set to <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_Perspective.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+7768">Perspective Projection</span></a>.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>10.</b></td>
+<td>During the playback, the view of the animation will move along the specified path. To reverse the movement direction, use the <a href="T_HW_Camera.htm#Invert"><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+45">Invert Movement Direction</span></a> option on both the curve selectors.<br>
+
+<br>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

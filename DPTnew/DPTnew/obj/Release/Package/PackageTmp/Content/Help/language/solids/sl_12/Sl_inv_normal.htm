@@ -1,0 +1,118 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(464,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Invert Normals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+4506">Solid</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7907">Invert Normals</span></p>
+<hr color="#63a9d8">
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7907">Invert Normals</span> command can be used to check, and if necessary, invert the normals to the faces of a solid. This command is more powerful than the <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+1667">Tools</span><img src="../../images/general/litarr.gif" align="absbottom"> <span class="UI_COMMAND" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+6839">Modeling</span><img src="../../images/general/litarr.gif" align="absbottom"> <a href="Sl_13_12.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+7921">Check Normals</span></a> command and supports redefining, selection list based operation, and so on. Note that this command can be applied both on normal as well as open solids.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+1667">Tools</span><img src="../../images/general/litarr2.gif" align="absbottom"> <span class="UI_COMMAND" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+6839">Modeling</span><img src="../../images/general/litarr2.gif" align="absbottom"> <a href="Sl_13_12.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+7921">Check Normals</span></a> command is also present. However, there is no "invert" functionality for this command.</td>
+</tr>
+</table>
+
+<p>Note that this command is particularly useful when you want to apply Boolean operations to solids that have been obtained from surfaces using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command. If the normals are not oriented correctly, the Boolean operation may not produce the result you expected. Use the command to check, and if necessary, invert the normals before performing the Boolean operation.</p>
+
+<p>A brief description to the command is as follows:</p>
+
+<ol>
+<li>Start the command and from the selection list, select the mode. The command allows 3 modes of operation such as <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+2">Global</span>, <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+3">Local</span> and <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+8">Align faces</span>.</li>
+
+<li>Select the solid or the face as per the mode selected in the previous step.</li>
+
+<li>If you need to invert the normals, do so. To invert a normal, double-click on the normal vector. You have to confirm the inversion of normals by clicking the OK (<img src="../../../images/general/OKbutton.gif" align="absmiddle">) button.</li>
+</ol>
+
+<p><b><a name="mode"></a>Modes of operation</b><br>
+The 3 modes of operation for the command are described here:</p>
+
+<ol class="noleft">
+<li><span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+2">Global</span><br>
+<br>
+<img src="images/inv_glob.gif" border="1"><br>
+<br>
+In <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+2">Global</span> mode, you can select a solid and its normal will be displayed, considering the solid as a whole. Note that a solid will have other normals too, for each of its face. So the normal is shown on the face, nearest to the mouse cursor, where you selected the solid. This normal is considered as the representative of the entire group of normals of the solid.<br>
+<br>
+<img src="../../../images/rn_2006T2/inv_glob.gif" border="1"><br>
+<br>
+If this normal is inverted by double-clicking on it, the other normals will also be inverted. Note that the inversion is done based on the sense of direction of the normal vector&nbsp;&#151; if the representative normal is pointing "outwards", all the other vectors pointing outwards will be inverted to point "inwards"; while all the normal vectors pointing "inwards" will be inverted to point "outwards".<br>
+<br>
+<a name="dark"></a>Note that the <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+2">Global</span> mode, by default, sets the <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+9">Darken back-surfaces</span> check box under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> selected. This shows the back surfaces with a dark color. Clear the check box to avoid the darkening. Consider the following images. In the first image, the normal is pointing "outwards". So the back surface is the "inside" surface of the pipe. In the second image, the normal is inverted and is pointing "inwards". So, the back surface is the "outside" surface of the pipe. 
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:10;" style="margin-top:10;">
+<tr>
+<td><img src="../../../images/rn_2006T2/inv_pipe-1.gif" border="1"></td>
+<td><img src="../../../images/rn_2006T2/inv_pipe-2.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td><b>Image 1</b></td>
+<td><b>Image 2</b></td>
+</tr>
+</table>
+
+In the case of solids with non-consistent normals or multshell solids, when the <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+9">Darken back-surfaces</span> check box is not selected, a warning icon <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> appears. Click the icon and the program displays a static normal arrow on each face, with the warning message on a yellow label, <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_WARNTTIP_+3">Not consistent normals</span> or <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_WARNTTIP_+4">This solid is multishell</span>, as per the case. You can click on the <img src="../../../images/general/WARNINGS_OFF.gif" align="absmiddle"> icon to turn off the warnings.<br>
+<br>
+<img src="images/inv_non_cons.gif" border="1"><br>
+<br>
+</li>
+
+<li><span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+3">Local</span><br>
+<br>
+<img src="images/inv_local.gif" border="1"><br>
+<br>
+In <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+3">Local</span> mode, you can select a face or many faces of a solid and normal for each face will be displayed. Also the displayed normals for each face can be individually inverted.<br>
+<br>
+<img src="../../../images/rn_2006T2/inv_face.gif" border="1"><br>
+<br>
+You can use the <a href="mk:@MSITStore:help.chm::/language/surfaces/OVfile/T_OV_Invert_Mode.htm"><span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+15">Inversion Mode</span></a> options to apply a global inversion to all normals based on specified criteria.<br><br></li>
+
+<li><span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+8">Align faces</span><br>
+<br>
+<img src="images/inv_accor.gif" border="1"><br>
+<br>
+In <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+8">Align faces</span> mode, you first select a solid and a reference face belonging to the same solid. The normals for all faces of the solid will be calculated following the orientation of the normal of the reference face. Note that in the <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+8">Align faces</span> mode, no normal vectors (arrows) are displayed. Also by default, the <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+9">Darken back-surfaces</span> under the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is selected. So instead of the arrows, the back-surfaces of the solids will be shown darkened, to display the sense of normals. Note that the referenced face will be highlighted. Consider the following image, a case where all the normals are pointing "inwards".<br>
+<br>
+<img src="../../../images/rn_2006T2/inv_accor.gif" border="1"><br>
+<br>
+In the case of solids with non-consistent normals or multshell solids, when the <span class="UI_OPTION" id="TDInvertNormals.msg+_TDINVERTNORMALS_LABEL_+9">Darken back-surfaces</span> check box is cleared, a warning icon <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> appears. Click the icon and the program displays a static normal arrow on each face, with the message on a yellow label, <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_WARNTTIP_+3">Not consistent normals</span> or <span class="UI_COMMAND" id="TDInvertNormals.msg+_TDINVERTNORMALS_WARNTTIP_+4">This solid is multishell</span>, as per the case. You can click on the <img src="../../../images/general/WARNINGS_OFF.gif" align="absmiddle"> icon to turn off the warnings.</li>
+</ol>
+
+<p><br>
+<b>Support for Model Structure</b><br>
+The command is also supported by the Model Structure. When a normal is inverted, it is highlighted as a feature in the Model Structure as shown:<br>
+<br>
+<img src="images/inv_model.gif" border="1"><br>
+<br>
+The command also supports redefining of the inverted normals. Right-click on the <span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7907">Invert Normals</span> feature and select <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span>. Note that you cannot change the solid and also the mode cannot be changed. You can invert the normals, change the reference and so on, while redefining.</p>
+
+<hr color="silver">
+</body>
+</html>
+

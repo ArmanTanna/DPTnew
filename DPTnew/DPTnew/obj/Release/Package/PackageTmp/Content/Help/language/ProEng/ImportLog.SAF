@@ -1,0 +1,149 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Log file of the Pro/ENGINEER to think3 conversion</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;margin-top:2;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h3>Log file of the Pro/ENGINEER to think3 conversion</h3>
+
+<p>When you <a href="Opening.htm">open a Pro/ENGINEER file</a>, a log file of the conversion is created:</p>
+
+<ul class="noleft">
+<li>in the same folder of the file you opened with the same name of the file you opened and the &quot;.log&quot; extension</li>
+<li>in the folder and with the name you specified in the <b>Log File</b> category of the <a href="options.htm"><b>Options</b></a>.</li>
+</ul>
+
+<H4>The log file structure</H4>
+
+<P>The Pro/ENGINEER to <b>think<font color="#FF0F00">3</font></b> conversion log file has a structure made of the following sections:</P>
+
+<ul class="noleft">
+<li><b>Parsing Phase</b>&nbsp;&#151;&nbsp;a section containing information on the Pro/ENGINEER file being converted:</li>
+<ul>
+<li><b>Reader options</b>&nbsp;&#151;&nbsp;a sub-section containing the status of the current reading options.</li>
+<li><b>Information</b>&nbsp;&#151;&nbsp;a sub-section containing detailed information on the model.</li>
+</ul>
+<li><b>Reading Phase</b>&nbsp;&#151;&nbsp;a section containing information on the conversion activity:</li>
+<ul>
+<li><b>Summary</b>&nbsp;&#151;&nbsp;a section containing the counts of the entities converted and errors or warnings.</li>
+</ul>
+<li><b>TD Direct Conversion Report</b>&nbsp;&#151;&nbsp;a section summarizing the entities and files converted.</li>
+</ul>
+
+<P>Warnings and errors help you identify any kind of problem you might have had while converting a Pro/ENGINEER file.<br>
+You can find details about the errors that occurred, if any, in the <a href="ImportErr.htm">error log file</a>.
+</P>
+
+<H4>Example of Pro/ENGINEER to think3 conversion log file</H4>
+
+<P>Here is an example of a log file: </P>
+<p style="margin-top:0; margin-bottom:0; font-family: 'Courier New', Courier, monospace; font-size: xx-small;">
+
+
+Pro/ENGINEER&nbsp;(TM)&nbsp;file&nbsp;reader.<br>
+Reading&nbsp;data&nbsp;from&nbsp;file&nbsp;&nbsp;:&nbsp;E:\Vault\ProE\arm.prt<br>
+<br>
+<br>
+__________&nbsp;Parsing&nbsp;phase&nbsp;&nbsp;&nbsp;________________________________________<br>
+<br>
+<br>
+&nbsp;PRO-E:PRT&nbsp;PART<br>
+<br>
+&nbsp;VERSION&nbsp;:&nbsp;Pro&nbsp;Engineer&nbsp;2000i2<br>
+<br>
+<br>
+__________&nbsp;Reader&nbsp;options&nbsp;&nbsp;________________________________________<br>
+<br>
+General&nbsp;read&nbsp;options<br>
+Reading&nbsp;Mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Brep<br>
+Read&nbsp;Construction/Datum&nbsp;:&nbsp;No<br>
+Read&nbsp;Texts/3dNotes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;No<br>
+Display&nbsp;visible&nbsp;datum	:&nbsp;Yes<br>
+<br>
+Assembly&nbsp;read&nbsp;options<br>
+Load&nbsp;References&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Yes<br>
+<br>
+Search&nbsp;directories<br>
+Directory&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;E:\Vault\ProE<br>
+Recursive&nbsp;search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Yes<br>
+<br>
+<br>
+__________&nbsp;Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;________________________________________<br>
+<br>
+Model&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;arm<br>
+Version/Release&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Pro&nbsp;Engineer&nbsp;2000i2<br>
+Unit&nbsp;(multiple&nbsp;of&nbsp;mm)&nbsp;&nbsp;&nbsp;:&nbsp;25.4<br>
+<br>
+Model&nbsp;Dimension&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;49.739359<br>
+Bounding&nbsp;Box&nbsp;Min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Xmin=-6.811243,&nbsp;Ymin=-6.370243,&nbsp;Zmin=-2.245243<br>
+Bounding&nbsp;Box&nbsp;Max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Xmax=8.245243,&nbsp;Ymax=2.249411,&nbsp;Zmax=44.370286<br>
+Accuracy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;0.001200<br>
+<br>
+__________&nbsp;Reading&nbsp;phase&nbsp;&nbsp;&nbsp;________________________________________<br>
+<br>
+<br>
+__________&nbsp;Summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;________________________________________<br>
+<br>
+<br>
+Details:<br>
+<br>
+&nbsp;&nbsp;&nbsp;OUT&nbsp;OF&nbsp;FILTER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUCCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOT&nbsp;TREATED&nbsp;&nbsp;&nbsp;&nbsp;TYPE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PART<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FACE<br>
+&nbsp;&nbsp;---------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTAL<br>
+<br>
+Standard:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO&nbsp;BE&nbsp;PROCESSED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;FAIL&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;--------------------------------------------------------------------------<br>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;Solid&nbsp;[118]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;Solid&nbsp;[118]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;--------------------------------------------------------------------------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+Number&nbsp;of&nbsp;errors&nbsp;:&nbsp;0<br>
+Number&nbsp;of&nbsp;warnings&nbsp;:&nbsp;0<br>
+<br>
+<br>
+--------------------&nbsp;TD Direct&nbsp;Conversion&nbsp;Report&nbsp;--------------------<br>
+<br>
+Converted&nbsp;file:&nbsp;E:\Vault\ProE\\arm.prt<br>
+<br>
+<br>
+Type		Name		Count<br>
+----------------------------------------<br>
+<br>
+-1		Solid		1		<br>
+3		CPntCv3d		244		<br>
+6		CPntSrf		55		<br>
+20		Line3d		39		<br>
+36		PlaneSrf		22		<br>
+46		CylSrf		41		<br>
+<br>
+<br>
+Total&nbsp;Number&nbsp;of&nbsp;Entities&nbsp;Converted:&nbsp;402<br>
+<br>
+--------------------------------------------------------------------------<br>
+<br>
+</p>
+
+<hr color="silver">
+</body>
+</html>

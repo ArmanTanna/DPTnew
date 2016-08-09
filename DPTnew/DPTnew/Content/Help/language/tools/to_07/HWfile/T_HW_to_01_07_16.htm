@@ -1,0 +1,93 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Info Single about a Mesh</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<H4>Display information about a selected Mesh</h4>
+
+<p>The "Mesh" entity enables you to load and treat as a single entity different control point meshes from other software packages, for example, structural analysis software (for example, STL format).
+The Mesh entity is composed of a variable number of polygons and vertices.</p>
+
+<p>The following data about the entity are displayed:</p>
+<ul class="noleft">
+<table>
+<tr valign="top">
+<td><b>Topological dimension</b></td>
+<td>Displays the topological dimension of the entity: 3=solid type entity (volume), 2=surface type entity, 1=linear type entity</td>
+</tr>
+<tr valign="top">
+<td><b>Geometrical dimension</b></td>
+<td>Displays the geometric dimension of the entity (generally=3)</td>
+</tr>
+<tr valign="top">
+<td><b>Structured</b></td>
+<td>This box is checked only if the mesh is structured: it has a regular topology made of consecutive lines (if the topological dimension is 1), adjacent rectangles (if the topological dimension is 2), adjacent parallelepipeds (if the topological dimension is 3)</td>
+</tr>
+<tr valign="top">
+<td><b>Structured topology</b></td>
+<td>Displays the number of elements along each topological direction</td>
+</tr>
+<tr valign="top">
+<td><b>Homogeneous</b></td>
+<td>This box is checked only if all the elements have the same number of nodes</td>
+</tr>
+<tr valign="top">
+<td><b>Nodes x element</b></td>
+<td>Displays the number of nodes for each element when the mesh is homogeneous</td>
+</tr>
+<tr valign="top">
+<td><b>Connected components</b></td>
+<td>Displays the number of topologically connected components</td>
+</tr>
+<tr valign="top">
+<td><b>Holes by components</b></td>
+<td>Displays the number of holes for each topologically connected component</td>
+</tr>
+<tr valign="top">
+<td><b>Elements</b></td>
+<td>Displays the number of elements which each entity is composed of</td>
+</tr>
+<tr valign="top">
+<td><b>Nodes</b></td>
+<td>Displays the number of vertices belonging to the entity</td>
+</tr>
+<tr valign="top">
+<td><b>Normals</b></td>
+<td>Displays the number of normals associated to the entity as a whole, since two or more normals may be associated to each vertex</td>
+</tr>
+<tr valign="top">
+<td><b>Show</b></td>
+<td>Enables you to choose whether to display data about the mesh itself or about its boundaries</td>
+</tr>
+</table>
+</ul>	
+																																																													   
+<p>Three types of "Mesh" entities can be displayed:</p>
+<ul class="noleft">
+<li>Solid
+<br><br><img border=1 src="../../../../images/tools/to_07/toi90107.gif"><br><br>
+<li>Surface
+<br><br><img border=1 src="../../../../images/tools/to_07/toi90307.gif"><br><br>
+<li>Linear
+<br><br><img border=1 src="../../../../images/tools/to_07/toi90507.gif">
+</ul>
+
+<hr color="silver">
+</body>
+</html>

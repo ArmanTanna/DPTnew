@@ -1,0 +1,306 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>An Overview on Weld management</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+<h1>An Overview on Weld management</h1>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application features the management of welds with a number of tools that enable you to draw the welds and the welding symbols according to various standards.</p>
+
+<p>&nbsp;</p>
+
+<h4>Welding standards</h4>
+
+<p>Many <a href="../../glossary/T_WeldingStandards.htm">welding standard</a> are supported, each defining the name and the set of welding symbols available. You are enabled to set your preferred standard by choosing it among the list available through the <a href="../FWfile/T_FW_OrganizeWeldings.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7664">Weldings</span></a> command.</p>
+
+<p>&nbsp;</p>
+
+<h4>Drawing welds</h4>
+
+<p>Specialized commands enable you to draw the section and bead views of the welds.<br>
+When you draw the welds, you only need to define the weld parameters once. In fact, whether you draw sectioned or bead representation of the weld first, when you need to draw the other view you are enabled to copy the attributes of the weld from the existing view with the <span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+77">Data from Welding</span> command.<br>
+ Since most of the times you will use a few of the possible types, rather than scrolling through the complete list of available welding types looking for the one you need, you are enabled to use the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7664">Weldings</span> command to define a subset of the types available for the chosen standard. You can return to this command any time to modify the set of preferred types.</p>
+
+<p>&nbsp;</p>
+
+<h4>Welding symbols</h4>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+7809">Welding Symbol</span> command enables you to add a welding symbol to the drawing. If you have already drawn the weld, you are enabled to initialize the welding symbol with the data you already applied to the weld with the <span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+77">Data from Welding</span> command.<br>
+ The symbol offers a comprehensive set of options including, but not limited to, symmetrical welds, peripheral welding, field welding, up to three note fields and other notations.</p>
+
+<p>The following table shows the welding symbols and their names in the different standards, if available.</p>
+
+<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="2" summary="">
+<tr valign="top">
+<td align="center" style="font: small-caps bold; border-bottom: 0px;" bgcolor="#ffffe1">Graphic</td>
+<td style="font: small-caps bold;" colspan="5" align="center" bgcolor="#ffffe1">Welding type</td>
+</tr>
+
+<tr valign="top">
+<td align="center" style="font: small-caps bold; border-top-width: 0px;" bgcolor="#ffffe1">Symbol</td>
+<td style="font: small-caps bold;" align="left" bgcolor="#ffffe1"><span class="UI_DROPDOWNITEM" id="idd_weld_org.msg+idd_weld_org+9+1">ISO (ISO 2553)</span></td>
+<td style="font: small-caps bold;" align="left" bgcolor="#ffffe1"><span class="UI_DROPDOWNITEM" id="idd_weld_org.msg+idd_weld_org+9+2">ANSI (ANSI/AWS A2.4)</span></td>
+<td style="font: small-caps bold;" align="left" bgcolor="#ffffe1"><span class="UI_DROPDOWNITEM" id="idd_weld_org.msg+idd_weld_org+9+3">JIS (JIS Z 3021)</span></td>
+<td style="font: small-caps bold;" align="left" bgcolor="#ffffe1"><span class="UI_DROPDOWNITEM" id="idd_weld_org.msg+idd_weld_org+9+4">GB (GBT 12212)</span></td>
+<td style="font: small-caps bold;" align="left" bgcolor="#ffffe1"><span class="UI_DROPDOWNITEM" id="idd_weld_org.msg+idd_weld_org+9+5">KS (KS B 0052)</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_EdgeFlange.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+454">Edge flange weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+481">Edge flange weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+482">Double-flange weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+454">Edge flange weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+454">Edge flange weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_CornerFlange.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+480">Corner flange weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+480">Corner flange weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SquareButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+455">Square butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+484">Square groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+484">Square groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+455">Square butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+455">Square butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SVButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+456">Single-V butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+485">Single-V groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+485">Single-V groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+456">Single-V butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+456">Single-V butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SBevelButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+457">Single-bevel butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+486">Single-bevel groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+486">Single-bevel groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+457">Single-bevel butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+457">Single-bevel butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SVButt_BR.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+458">Single-V butt with broad root face</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+458">Single-V butt with broad root face</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+458">Single-V butt with broad root face</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SBevelButt_BR.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+459">Single-bevel butt with broad root face</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+459">Single-bevel butt with broad root face</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+459">Single-bevel butt with broad root face</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SUButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+460">Single-U butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+487">Single-U groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+487">Single-U groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+460">Single-U butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+460">Single-U butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SJButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+461">Single-J butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+488">Single-J groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+488">Single-J groove weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+461">Single-J butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+461">Single-J butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_FlaredV.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+476">Flared V weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+476">Flared V weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+476">Flared V weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_FlaredBeavel.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+477">Flared bevel weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+477">Flared bevel weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+477">Flared bevel weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Backing.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+462">Backing weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+462">Backing weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+462">Backing weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+462">Backing weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+462">Backing weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Fillet.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+463">Fillet weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+463">Fillet weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+463">Fillet weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+463">Fillet weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+463">Fillet weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Plug.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+464">Plug weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+464">Plug weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+464">Plug weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+464">Plug weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+464">Plug weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Slot.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+465">Slot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+465">Slot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+465">Slot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+465">Slot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+465">Slot weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Spot.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+466">Spot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+466">Spot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+466">Spot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+466">Spot weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+466">Spot weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Seam.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+467">Seam weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+467">Seam weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+467">Seam weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+467">Seam weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+467">Seam weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SFVButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+468">Steep-flanked V butt weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+468">Steep-flanked V butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+468">Steep-flanked V butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SFBevelButt.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+469">Steep-flanked bevel V butt weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+469">Steep-flanked bevel V butt weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+469">Steep-flanked bevel V butt weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Edge.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+470">Edge weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+470">Edge weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+470">Edge weld</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Surfacing.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+471">Surfacing</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+471">Surfacing</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+471">Surfacing</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+471">Surfacing</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+471">Surfacing</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_SurfaceJoint.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+472">Surface joint</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+472">Surface joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+472">Surface joint</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_ScarfJoint.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+473">Scarf joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+473">Scarf joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+473">Scarf joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+473">Scarf joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+473">Scarf joint</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_FoldJoint.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+474">Fold joint</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+474">Fold joint</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+474">Fold joint</span></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Flash.gif" alt="" border="0" align="absmiddle"></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+479">Flash weld</span></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+479">Flash weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+</tr>
+
+<tr valign="top">
+<td valign="middle"><img src="../../../images/dimensio/W_Lock.gif" border="0" align="absmiddle"></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><i>Not standard</i></td>
+<td valign="middle"><span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+479">Flash weld</span></td>
+<td valign="middle"><i>Not standard</i></td>
+</tr>
+</table>
+
+<br>
+<br>
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Fitting the curve to other curves</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="../../../JSandSTYLES/TwoDPLUS.js">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h4>Curves defined by fitting other curves</h4>
+
+<p>A curve that fits another curve may be useful when you want to use a particular curve whose characteristics are unsuitable for subsequent operations, for example, a curve with a sharp angle.</p>
+
+<p>You can use the fitted curve to maintain the shape of the desired curve while at the same time improving its problem points, for example, by eliminating sharp angles.</p>
+
+<p>You can also use fitted curves to simplify curves obtained from certain operations. Thus, you can reduce the number of arcs of curves<SPAN id="TWOD"> obtained from the intersections of surfaces</SPAN>. For example, if a curve has a large number of arcs, you can fit it over another curve that has only one arc for each convex or concave section of the curve<SPAN id="TWOD"> (i.e., only one arc for each "bend" in the curve)</SPAN>.</p>
+
+<p>You can control the following parameters (remember the values you enter must comply with the <a href="../../MathConc/T_MC_cv_01.htm">fundamental relationship</a> between control points, degree, continuity and number of arcs for a NURBS):</p>
+
+<ul class="noleft">
+<li>The <b>Number of points to fit</b> on the curve. The program determines the number of points and uses those points to calculate the fitted curve</li>
+
+<li>The <b>Arc number</b> in the curve</li>
+
+<li>The <b>Degree</b> of the curve</li>
+
+<li>The <b>Continuity</b> of the curve</li>
+
+<li>The <b>Parameterization</b> type. Depending on your choice, the resulting curve can have an arc-length parametrization (the sample points are spaced as equal arc-length along the curve), a uniform parameterization (the sample points are equally spaced in the domain of the curve) or the same parameterization as the one of the curve to be fitted.</li>
+</ul>
+
+<p>As soon as the curve to fit is selected, a <b>Tangency constraints</b> drop-down list is available, enabling you to set continuity constraints at the first, the second or both end points. Appropriate handles are displayed so as to enable you to rotate the tangents at the end points as you like.</p>
+
+<p>Finally, under <b>Advanced Options</b>, further options are available to define the tolerances used to control the sampling:</p>
+
+<ul class="noleft">
+<li><b>Max. sampled chord error</b>&nbsp;&#151;&nbsp;the maximum distance between the chord (between two adjacent sample points) and the curve.</li>
+
+<li><b>Max. sampled torsion error</b></li>
+
+<li style="list-style: none">&nbsp;&#151;&nbsp;the maximum angle between the normals at two adjacent sample points.</li>
+
+<li><b>Max. sampled arc length</b>&nbsp;&#151;&nbsp;the maximum value for the length of the chord between two adjacent sample points.</li>
+</ul>
+
+<p>When you define curves by fitting them to other curves, you can select multiple curves. The program adds a new curve for each curve you select, using the same data for each new curve. </p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_cv_02_03.htm"><b>Fit a curve to an existing curve</b></a></li>
+<li><a href="../HWfile/T_HW_cv_02_04.htm" ><b>Fit a curve to a set of existing curves</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_FitSuggestions.htm"><b>Fitting Curves: Suggestions and Tips</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>General concepts related to this topic</h5>
+<ul class="noleft">
+<li><a href="../../Notes/T_GL_mc_02.htm"><b>Specialized curves and NURBS curves</b></a></li>
+<li><a href="../OVfile/T_OV_Curves.htm"><b>An overview on curves</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

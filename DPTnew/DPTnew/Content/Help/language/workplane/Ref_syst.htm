@@ -1,0 +1,102 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2009t3" content="translate">
+<title>An Overview of Reference Systems</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>An Overview of Reference Systems</h2>
+
+<p>All entities present in the 3D space of the CAD environment need to have a reference to a define their location and orientation. This reference is provided by a Reference System.  It incorporates an origin and associated axes to define the position of objects in space.</p> 
+
+<p>A reference system is nothing but a three dimensional coordinate system composing of 3 axes. The 3 axes are a set of mutually orthogonal spanning vectors extending infinitely in both directions in the space. All points or vertices in the space are then represented using a linear combination of these spanning vectors. This way they are used to determine distance and direction in relative terms with respect to their location. The <b>think<font color="#FF0F00">3</font></b> application makes use of three different kinds of Reference Systems:
+</p>
+
+<ul class="noleft">
+<li><a href="#abs">Absolute Reference System</a></li>
+<li><a href="#wp">Work Plane Reference System</a></li>
+<li><a href="#prf">Profile Reference System</a></li>
+</ul>
+
+<h3><a name="abs">Absolute Reference System</a></h3>
+
+<p>The Absolute Reference System (also called the World Reference System) is the primary reference system for the 3D / 2D environment of the <b>think<font color="#FF0F00">3</font></b> application. Other reference systems are based relative to the Absolute Reference System. Its position in the space remains the same at all times and cannot be modified by the user. Its axis are displayed as dotted colored lines with the alphabet <b>A</b> over the origin, as shown in the image below.<br><br>
+<img src="../../images/workplane/abs_ref_sys.gif" border="1">
+<br><br>
+The visibility of the Absolute Reference System is controlled by the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif">
+<a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_worldaxes.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7877">Absolute Reference System (World)</span></a> command or you can use the <b>Shift+W</b> shortcut key combination. 
+
+</p>
+
+<h3><a name="wp">Work Plane Reference System</a></h3>
+
+<p>This is the active reference system associated with the Work Plane. This reference system (along with the Work Plane) can be moved freely and oriented as per requirement using the Work Plane editing commands (<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span>). The Work Plane Reference System is always positioned at the center of the Work Plane. Its axis are displayed as solid colored lines, as shown in the image below.
+
+<br><br>
+<img src="../../images/workplane/wp_ref_sys.gif" border="1">
+<br><br>
+The visibility of the Work Plane Reference System is controlled by the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif">
+<a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_47.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+4528">Work Plane</span></a> command or you can use the <b>W</b> shortcut key.
+
+</p>
+
+<p>The <i>XY-plane</i> of the Work Plane Reference System is considered as the Work Plane. Primarily, all the entities are drawn on this Work Plane and are referenced to the Work Plane Reference System.</p>
+
+<h3><a name="prf">Profile Reference System</a></h3>
+
+<p>When you enter the <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_3D_sk.htm">
+<span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span></a> environment, apart from the <i>Work Plane</i> and <i>Absolute Reference (World)</i> reference systems, you also have the Profile Reference System. It is represented by a <b>P</b> symbol at its origin, as shown in the image below. 
+
+<br><br>
+<img src="../../images/workplane/profile_ref_sys.gif" border="1">
+<br><br>
+Even though the 3D profile is always created on the Work Plane, it is at all times referenced to the Profile Reference System. On starting the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment, initially the Profile Reference System is placed at the same location as the Work Plane Reference System. As you progress with the creation of more entities in the 3D profile, the orientation and location of the Work Plane (and its origin) can be changed, however, the Profile Reference System will remain stationary.</p>
+
+
+<p>The visualization of the Profile Reference System can be controlled by selecting the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1729">3D Reference system</span> check box in the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> - 
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_PROFILE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+313">Profile</span></a> category or by pressing <b>Y</b> on the keyboard.</p>
+
+
+<hr color="silver">
+<br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+The display and appearance of the Reference Systems is controlled by the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_WP.htm">
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1753">Reference Systems</span></a> and 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1753">Reference Systems</span>-
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_WRS.htm">
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1755">Appearance</span></a> categories of the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span>.</td></tr></table><br>
+
+<hr color="silver">
+</body>
+</html>

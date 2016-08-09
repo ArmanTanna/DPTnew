@@ -1,0 +1,324 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job:Exploding assembly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:3px;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:3px;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Exploding an assembly</h3>
+
+<p>The <a href="../FWfile/T_FW_vw_43.htm"><b>Explode Assembly</b></a> command in the program has enhancements that allow designers to communicate information on assemblies much more effectively. We take the example of a sub assembly of a <b>Hydraulic gear pump</b> for exploring the functionalities available. The Pump assembly file <i>Assy_pump.e3</i> is available in the Sample folder of your <b>think<font color="#FF0F00">3</font></b> application installation.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy1.gif" border="1"><br>
+<br>
+Some of the components of the above assembly are <b>Unloaded</b> and some are in <a href="../../LightReps/OVfile/T_OV_LightReps.htm"><b>Light Representation</b></a> mode for this task and saved as a new file <i>Pump_exp_view.e3</i>. The effective set of components we use for this example is shown below.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy2.gif" border="1"></p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Open the file <i>Pump_exp_view.e3</i><br>
+<br>
+<ol type="A" class="litleft">
+<li>Start <a href="../FWfile/T_FW_vw_43.htm"><b>Explode Assembly</b></a> command. 
+
+<ul class="noleft">
+<li>In the selection list, key in the <b>Visual Bookmark name</b> as <i>Pump_Assy1</i>, make sure the <b>Explosion</b> drop down list reads <b>Movements</b> (and if it doesn't, select the <b>Movements</b> item).</li>
+
+<li>Ensure that the <b>Default explosion offset</b> menu (under <b>More Options</b>) reads <b>150mm</b>, <b>Sketch path lines</b> and <b>Show path lines</b> drop down menus read <b>None</b>.</li>
+
+<li>Click the <b>Default Explosion</b> button on the top of the selection list.<br>
+You will get a warning message as shown below.<br>
+<br>
+<img src="../images/Exp_assy3.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+As the message suggests, the program ignores components in the assembly that are <b>Unloaded</b> or in <b>Light representation</b> mode.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Click <b>OK</b> to generate the default explode as shown below.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy4.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click the <img src="../../../images/general/APPLYbutton.gif" border="0"><b>Apply</b> button on the top of the selection list to execute the command.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>What happens at this point?</b> <br>
+1.The program creates a special type of Visual Bookmark capturing the default exploded view under the <b>Exploded Assemblies</b> folder in the VB tree, with the name that was specified in the selection list i.e <i>Pump_Assy1</i> in this case. To view the bookmark, right click on it in the VB tree and select <b>View Exploded Assembly</b>.<br>
+2.The <b>View Exploded Assembly</b> bookmark is <b>Read Only</b>.<br>
+3.The number of <b>Steps</b> required to produce the explosion is calculated automatically.(You can check this in the expanded selection list)<br>
+4.The view of the assembly is restored to its original state.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Modify</b> <br>
+Note here that if the <b>Default Explosion</b> is not as per your requirements, you can modify the view by editing one or more <b>Steps</b>.</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>The <b>Path lines</b> enable very clear depiction of the assembly sequence of components and give you better control on the exploded view that is generated. Let's see how it works. 
+
+<div style="margin-left: 2em" type="A" class="litleft">Continue the <a href="../FWfile/T_FW_vw_43.htm"><b>Explode Assembly</b></a> command. 
+
+<ul class="noleft">
+<li>In the selection list, key in the <b>Visual Bookmark name</b> as <i>Pump_Assy2</i>, make sure the <b>Explosion</b> drop down list reads <b>Movements</b> (and if it doesn't, select the <b>Movements</b> item).</li>
+
+<li>Change the <b>Sketch path lines</b> to read <b>Automatic mode</b> and <b>Show path lines</b> drop down menu to read <b>Till current step</b>.</li>
+
+<li>Click <b>Step1</b> (Under <b>Group1</b>) and select all the M8 (component <b>M8X80</b>) bolts. The displacement control handle appears once you select the first entity.</li>
+
+<li>Double click the origin of the handle to move and place it at the center of the component <b>Back_plate</b> as shown.<br>
+<br>
+<img src="../images/Exp_assy5.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+1.Thus you have set the center of movement for the selected components and the origin of the <b>Path line</b>.<br>
+2.It is possible to align the axes Handle just like in the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_MoveCopy.htm"><b>Move Copy Entities</b></a> command.</td>
+
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>In the <b>Move Y</b> minidialog, key in <b>200mm</b> as <b>Y axis</b> displacement for the set of bolts.</li>
+
+<li>Click <b>Step2</b> and select the next component, <b>Back_plate</b>.</li>
+
+<li>Again place the handle origin at its center as before.</li>
+
+<li>In the <b>Move Y</b> minidialog, key in <b>100mm</b> as <b>Y axis</b> displacement for the <b>Back plate</b>.</li>
+
+<li>Click <b>Step3</b> and select the component <b>Plate</b>.</li>
+
+<li>In the <b>Move Y</b> minidialog, key in <b>-100mm</b> as <b>Y axis</b> displacement for the <b>Plate</b>. Your screen should be as shown.<br>
+<br>
+<img src="../images/Exp_assy6.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click the <img src="../../../images/general/APPLYbutton.gif"><b>Apply</b> button on the top of the selection list to execute the command.</li>
+
+<li>To check the VB that is created, go to the <a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/OVfile/T_OV_visualbookmarks.htm"><b>Visual Bookmarks</b></a> tab, right click on the <i>Pump_Assy2</i> VB and say <b>View Exploded Assembly</b>.<br>
+
+The Exploded view captured as a bookmark is seen with the <b>Path lines</b> highlighted.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy7.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+1.In this case, you have controlled the exploded view by specifying the <b>Steps</b> and the components that are to be included in them, while the <b>Path lines</b> are generated automatically.<br>
+2.The <b>Show path lines</b> setting, <b>Till Current Step</b> displays the <b>Path lines</b> generated in all the <b>Steps</b> involved. If you want to display the <b>Path line</b> of a specific <b>Step</b>, set this option to <b>Current step only</b>.<br>
+3.Each <b>Step</b> can be edited at any time, to add parts, movements and Path lines.<br>
+4.It is possible to add a <b>Part</b> which belongs to a previous <b>Step</b> to the current <b>Step.</b></td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td></td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Suppose you want to have control on the <b>Path lines</b> being generated, the <b>Sketch path lines</b> option should read <b>Follow movements</b>, so that your movements are captured.<br>
+To check this option, you will displace only the component <b>Sleeve</b> from the assembly. There are 8 instances of this component. First orient your <a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_01.htm"><b>Work plane</b></a> so that these components are visible neatly. Switch to <b>Wireframe</b> view. 
+
+
+<ol type="A" class="litleft">
+<li value="3">Start the <a href="../FWfile/T_FW_vw_43.htm"><b>Explode Assembly</b></a> command. 
+
+<ul class="noleft">
+<li>In the selection list, key in the <b>Visual Bookmark name</b> as <i>Pump_Assy3</i>, make sure the <b>Explosion</b> drop down list reads <b>Movements</b> (and if it doesn't, select the <b>Movements</b> item).</li>
+
+<li>Ensure that the <b>Sketch path lines</b> reads <b>Follow movements</b> and <b>Show path lines</b> drop down menu reads <b>Till current step</b>.</li>
+
+<li>Click <b>Step1</b> (Under <b>Group1</b>) and select the first instance of the component <b>Sleeve</b>. The displacement control handle appears.</li>
+
+<li>Double click the origin of the handle to move and place it at the center of the component.</li>
+
+<li>Give a displacement to the component in perpendicular direction.<br>
+<br>
+Similarly select and move each instance of the <b>Sleeve</b> in separate <b>Steps</b>.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Groups</b> <br>
+When working with complex assemblies containing hundreds of Parts, <b>Groups</b> provide for a useful structure to define <b>Steps</b>, so that it helps to locate Parts quickly and aid in editing them.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<img src="../../../images/assembly/Exp_assy8.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click the <img src="../../../images/general/APPLYbutton.gif"><b>Apply</b> button on the top of the selection list to execute the command.</li>
+
+<li>To check the VB that is created, go to the <a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/OVfile/T_OV_visualbookmarks.htm"><b>Visual Bookmarks</b></a> tab, right click on the <i>Pump_Assy3</i> VB and say <b>View Exploded Assembly</b>.<br>
+
+The Exploded view captured as a bookmark is seen with the <b>Path lines</b> highlighted.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy9.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+In this case:<br>
+1.The <b>Path lines</b> created follow the user defined movements.<br>
+2.You can choose to display the <b>Path line</b> for a specific step only and have a Visual bookmark capture it, with the <b>Show path lines</b> option reading <b>Current step only.</b> </td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ol>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>There can be situations when you prefer to have complete control on the <b>Path lines</b> created and not have the program generate them for you with either the <b>Default Explosion</b> or the <b>Automatic mode</b> options. In such a scenario, you can use the <b>Path lines</b> option in the <b>Explosion</b> drop down list. First you will move one of the components in the sub assembly and then check the dynamics of using this option. 
+
+<ol type="A" class="litleft">
+<li value="4">Start the <a href="../FWfile/T_FW_vw_43.htm"><b>Explode Assembly</b></a> command. 
+
+<ul class="noleft">
+<li>In the selection list, key in the <b>Visual Bookmark name</b> as <i>Pump_Assy4</i>, make sure the <b>Explosion</b> drop down list reads <b>Movements</b> (and if it doesn't, select the <b>Movements</b> item).</li>
+
+<li>Ensure that the <b>Sketch path lines</b> menu reads <b>None</b> and <b>Show path lines</b> drop down menu reads <b>Till current step</b>.</li>
+
+<li>Click <b>Step1</b> (Under <b>Group1</b>) and select the component <b>Plate</b>. Ensure that the displacement handle is at its center and key in <b>Move Y</b> and <b>Move X</b> minidialog values as <b>-200mm</b> and <b>100mm</b> respectively as shown.<br>
+<br>
+<img src="../images/Exp_assy10.gif" border="1"><br>
+<br>
+</li>
+
+<li>Change the <b>Explosion</b> option to read <b>Path lines</b> keeping <b>Step1</b> active.<br>
+The program presents you with another selection parameter, <b>2 points</b> (under <b>Step1</b>).</li>
+
+<li>Click <b>2 points</b> and select the center's of <b>Plate</b> and <b>Back_plate</b>.<br>
+The <b>Path lines</b> appear as seen below.<br>
+<br>
+ <img src="../../../images/assembly/Exp_assy11.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <b>Path lines</b> always appear on perpendicular planes.</td>
+</tr>
+</table>
+
+<br>
+Editing these <b>Path lines</b> is very simple and interactive. If you right click on the <b>Path line</b>, you will be presented with 5 action options.</li>
+
+<li><b>Add point</b>-To insert an additional point within the <b>Path line</b>.</li>
+
+<li><b>Delete segment</b>-To <i>delete</i> a specific portion of the <b>Path line</b>.</li>
+
+<li><b>Delete</b>-To <i>delete</i> the complete <b>Path line</b>.</li>
+
+<li><b>Align segment</b>-Available only on the <b>first</b> and <b>last</b>segments of the <b>Path line</b> chain. The other segments are perpendicular to the previous and following ones (This situation may occur when you use <b>Follow movements</b> option for generating <b>Path lines</b>).<br>
+When this option is activated you will be provided with 5 variables to choose from for specifying the <b>Direction</b> reference for alignment namely <b>Line</b>, <b>2 Points</b>, <b>X</b>, <b>Y</b> and <b>Z</b> axes.</li>
+
+<li><b>Add Jog</b>-When you need to show a movement that avoids an obstructing component, you use <b>Jog lines</b>. The below picture shows the placement of a <b>Jog line</b>.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy12.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click the <b>Ok</b> button at the top of the selection list to complete the command.</li>
+
+<li>To check the VB that is created, go to the <a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/OVfile/T_OV_visualbookmarks.htm"><b>Visual Bookmarks</b></a> tab, right click on the <i>Pump_Assy4</i> VB and say <b>View Exploded Assembly</b>.<br>
+
+The Exploded view captured as a bookmark is seen with the <b>Path lines</b> highlighted.<br>
+<br>
+<img src="../../../images/assembly/Exp_assy13.gif" border="1"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Editing the</b> Path lines <br>
+Apart from the 4 options presented for editing the <b>Path lines</b>, you can also resize/modify them by:<br>
+1.Pulling the <b>Points</b> on the <b>Path lines</b><br>
+2.Pulling on the line itself (Here you will have the option to control/invert the normal direction of pull.</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_vw_44.htm"><b>Editing an exploded view</b></a></li>
+</ul>
+
+
+<hr color="silver">
+</body>
+</html>
+

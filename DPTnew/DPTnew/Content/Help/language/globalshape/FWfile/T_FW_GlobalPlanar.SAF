@@ -1,0 +1,212 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Planar Bounding-Box</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 5;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7883">Planar Bounding-Box</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:2px;">The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+700">Planar Bounding-Box</span> command enables you to define a controlled modification using a set of control points lying on a plane of your choice&nbsp;&#151;&nbsp;the <i>deformation plane</i>.<br>
+ The controlled modification will be propagated orthogonally to it: each point contained in a line perpendicular to the plane will be deformed in the same way.</p>
+
+<ul class="noleft">
+<li>First, select the <i>type</i> of entities the command is to be applied to. In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span> you can choose one or more of: <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+116">Solid</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span>, or <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span>.<br>
+<br>
+</li>
+
+<li>Once the entity type has been set, you can select the entities to be modified. A rectangular grid of five control points along each side will be displayed.<br>
+Please note that you can always <i>add</i> further control points to the ones of the initial grid by setting the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> to <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span> and by clicking on a line in between two existing control points. This way, a whole row of control points will be added (note that though being in <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span> mode, if you click on an existing point, rather than in between two, you will be enabled to move the point about).<br>
+<br>
+<a name="CP"></a>You can also increase or decrease the number of control points by selecting <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+801">Increase Control Points</span> or <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+802">Decrease Control Points</span>, respectively. One new grid of control points is symmetrically added or removed in both directions.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-bottom:9;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<ul class="noleft">
+<li>The <span class="UI_COMMAND" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+58">Update Projection</span> (<img src="../../../images/general/Computebutton.gif" align="absmiddle">) button is available after rotating the current view, enabling you to refresh the control point grid for the new view.</li>
+
+<li>User modifications are preserved when new control points are added.</li>
+
+<li>When control points are decreased, the grid is re-initialized. If you already have made any deformation then a warning is displayed informing that all changes will be lost.</li>
+</ul>
+</td>
+</tr>
+</table>
+</li>
+
+<li>The deformation plane can be defined in two different ways, by choosing the proper option in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>Automatically, using the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+99">On View</span> option: in this case the deformation plane is the view plane.</li>
+
+<li>To define a different deformation plane, select the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+701">Select plane</span> item. Once you have selected it, you can access the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_PlaneSurface.htm">plane definition items</a>.</li>
+</ul>
+
+<br>
+</li>
+
+<li>To actually perform and <i>apply</i> the controlled modification, you can use the control points. So, once the deformation plane has been selected, you can set the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> to <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span>, select the control points as desired (about the selection of control points, see "<i><a href="mk:@MSITStore:help.chm::/language/surfaces/HWfile/T_HW_ms_02_08.htm">Edit Control Points</a></i>") and drag them about to the very position corresponding to the controlled modification you want to apply, which you can interactively check.</li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Internal Undo/Redo</b><br>
+Every time you move a control point, it is considered as an achieved position. An internal <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button ( <img src="../../../images/general/InternalUndo.gif" border="0" align="absmiddle"> ) is available on top of the selection list to undo the changes. As soon as you click it, your changes will be undone and the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> button ( <img src="../../../images/general/InternalRedo.gif" border="0" align="absmiddle"> ) will show up on top of the selection list. If you click it, your former changes will be applied again.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p style="margin-bottom:0;">The following further options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.</p>
+
+<table>
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> </td>
+<td>Enables you to choose whether to modify the original entities or to apply the change to a copy. 
+
+<ul class="noleft">
+<li>When the box is checked, a copy of the selected entities will be made and the controlled modification will be applied to the copy, so that the unchanged original entities are still there in the model along with the new ones the modification has been applied to.</li>
+
+<li>When the box is cleared, the controlled deformation will be applied directly to the original entities you selected.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+90">Snap to markers</span></td>
+<td>Makes it easier to move control points by using the snap. 
+
+<ul class="noleft">
+<li>When the check box is selected, you will be enabled to move a control point by snapping it exactly to another one.</li>
+
+<li>When the check box is cleared, snapping a control point to another one is not possible.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span></td>
+<td>Enables you to manage the visualization of the original entities during the editing session. 
+
+<ul class="noleft">
+<li>When the box is checked, the original entities are hidden during the editing session.</li>
+
+<li>When the box is cleared, the original entities are visible during the editing session, along with the modified ones.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+47">Drag display</span></td>
+<td>The check boxes available by expanding this node enable you to control the visibility of the cursor, control point markers and shadows during mouse drag operations. Turning visibility off can be useful when the involved entities are complex, to better visualize the shape and the location of the curve during the operation. 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+39">Cursor</span></td>
+<td>When selected, the cursor is visible during mouse drag operations. When not selected, the cursor is not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+48">Markers</span></td>
+<td>When selected, markers of control points are visible during mouse drag operations. When not selected, markers of control points are not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+31">Shadow</span></td>
+<td>When selected, the shadows of the reference entities are visible during mouse drag operations. When not selected, shadows are not visible.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../HWfile/T_HW_GMbend03.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span></a></td>
+<td>The entities you would ordinarily obtain as a result of applying the command are of a special type. By using these options you can convert them into NURBS entities.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../HWfile/T_HW_QualityChecks.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a></td>
+<td>Enables you to perform a set of quality checks.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="tools"></a><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+90">Tools</span></td>
+<td>This node enables you to perform several operations on the selected points: 
+
+<ul class="noleft">
+<li><a name="step"></a>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+44">Step</span> node enables you to move the selected points in the directions of the axes of the Work Plane. On selecting this node a dialog box is displayed. The setting in it specifies the step by which the arrow buttons move the selected control points in the corresponding direction. Hence, each time you click one of the arrow buttons, the control point moves in the direction of the arrow by a distance equal to the value of the step. Note that the last value you entered will be retained for the whole working session, even after the command is ended. 
+
+<table>
+<tr valign="middle">
+<td><img src="../../../images/curves/STEP2D.gif"><img src="../../../images/curves/STEP_ARROWS.gif"></td>
+<td>For each click on the arrow buttons, the control point moves in the direction of the arrow (+x, -x, +y, -y<span id="TWOD">, +z, -z</span>) by a distance equal to the <span class="UI_OPTION" id="idd_stepcnstcv.msg+idd_stepcnstcv+2">Step:</span> value.</td>
+</tr>
+</table>
+</li>
+
+<li><a name="Transform"></a>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+45">Transform</span> node enables you to apply geometric transformations to the selected points, as described in "Applying geometric transformations to selected control points" in the online documentation.</li>
+
+<li><a name="Scale"></a>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+111">Scale</span> option enables you to scale the selected set of points as described in "Applying a scale factor to a set of selected control points" in the online documentation.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+702">Minimum thickness</span></td>
+<td>This option is useful only in the special case where the deformation plane might be reduced to a line. This cannot be allowed, thus a minimal thickness is asked.</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-top:10;" style="margin-bottom:10;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restoring selections after an interruption</b><br>
+If you interrupt the command, your selections and settings are not lost: they are "<i>frozen</i>" in order to enable you to use them again without having to repeat them all, which might take a long time, at least in complex situations.<br>
+Next time you start the command, in fact, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ) will be displayed on top of the selection list. If you select <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="middle"> ), all the selections you made and the settings you defined last time you used the command will be restored, enabling you to go on with no need to repeat those selections/settings.<br>
+ When the command is started with some pre-selected entities, if you click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button you will be asked to confirm restoring the frozen command selections, thus resetting the current selection.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_GlobalPlanar.htm"><b>Apply a controlled modification through control points</b></a></li>
+
+<li><a href="../HWfile/T_HW_GMbend03.htm"><b>Get NURBS surfaces instead of specialized ones</b></a></li>
+
+<li><b><a href="../HWfile/T_HW_QualityChecks.htm">Perform Quality Checks</a></b></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Global Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

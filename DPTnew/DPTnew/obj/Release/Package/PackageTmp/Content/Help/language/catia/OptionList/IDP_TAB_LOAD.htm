@@ -1,0 +1,114 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>TD Catia v4 interface Options: Load Tab</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft { margin-left: 22; margin-top: 0; }</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3><span class="UI_COMMAND" id="idr_thinkcatia.msg+idr_thinkcatia+6">TD Catia v4 interface Options</span>: <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+18">Load</span> Tab</h3>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+4">Select entities</span><b>:</b></td>
+<td>Determines the entities that are to be translated from CATIA<sup><font size="-1">&reg;</font></sup>: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+29">Model</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Model category will be translated. If cleared, the Model entities will be ignored. 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+5">Wireframe</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Wireframe category will be translated. If cleared, the Wireframe entities will be ignored.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+6">Surfaces</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Surface category will be translated. If cleared, the Surface entities will be ignored.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+7">Solids</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Solid category &#151; except mock-up solids, which are converted to wireframe &#151; will be translated (into solids or surfaces, depending on the current value of the <a name="CreateSolid"></a> <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+15">Create solid</span> check box). If cleared, the Solid entities will be ignored.</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+16">Drawing</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Drawing category will be translated. If cleared, the Drawing entities will be ignored.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+8">Hidden entities</span><b>:</b></td>
+<td>Determines how to manage the translation of blanked (hidden) entities: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+10">Hide</span>&nbsp;&#151;&nbsp;if selected, CATIA<sup><font size="-1">&reg;</font></sup> blanked entities are translated as hidden entities.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+9">Show</span>&nbsp;&#151;&nbsp;if selected, CATIA<sup><font size="-1">&reg;</font></sup> blanked entities are translated as visible entities.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+11">Delete</span>&nbsp;&#151;&nbsp;if selected, CATIA<sup><font size="-1">&reg;</font></sup> blanked entities are not translated.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+17">Solid options</span><b>:</b></td>
+<td>Defines how solids are transformed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+15">Create solid</span>&nbsp;&#151;&nbsp;if selected, CATIA<sup><font size="-1">&reg;</font></sup> entities of the Solid category will be translated into solids. If cleared, they will be translated into surfaces. Entities of the Solid category are converted only if the <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+7">Solids</span> check box in the <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+4">Select entities</span> area is checked.</li>
+
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+14">Convert to layers</span>&nbsp;&#151;&nbsp;if selected, all the faces of each CATIA<sup><font size="-1">&reg;</font></sup> solid are converted to surfaces belonging to a different unique layer, from 256 to 1023.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+35">Surface options</span><b>:</b></td>
+<td>Defines how surfaces are transformed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+36">Convert to Bspline</span>&nbsp;&#151;&nbsp;if selected, all CATIA<sup><font size="-1">&reg;</font></sup> entities of the Surface category will be translated into Bspline surfaces, otherwise planes and cylinders are loaded as such.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+39">CATIA Project file </span> <b>:</b></td>
+<td>Defines the CATIA<sup><font size="-1">&reg;</font></sup> project file that will be loaded by <span class="UI_COMMAND" id="idr_thinkcatia.msg+idr_thinkcatia+5">TD Catia v4 interface</span> and used when loading a drawing that refers to it. The CATIA<sup><font size="-1">&reg;</font></sup> project file usually contains some drawing information, like user defined cross-hatches or text parameters. You can browse for the CATIA<sup><font size="-1">&reg;</font></sup> project file by using the <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+38">Browse</span> button.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" style="margin-bottom:10;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p>Note that the <b>From CATIA to <img src="../../../images/company/ThinkDesign.gif" align="absmiddle"></b> command automatically loads models and/or drawings, depending on the <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+4">Select entities</span> option that you selected.</p>
+
+<p>Also note that when you import a drawing from CATIA<sup><font size="-1">&reg;</font></sup>, usually you need to select only the <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+16">Drawing</span> option and keep all the other options unchecked. However, in some specific cases (for instance, a CATIA<sup><font size="-1">&reg;</font></sup> 3D model projected onto a drawing plane), if the conversion seems to be not complete (that is, dimensions and texts are converted but geometric entities are missing), try to select also <span class="UI_OPTION" id="idd_thinkcatia_opt.msg+idd_thinkcatia_opt+5">Wireframe</span>.<br>
+ See <a href="../OVfile/ce20_01_2D.htm">Conversion Table for importing from CATIA (2d entities)</a> for further details.</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/ce20_01.htm"><b>Conversion Table for importing from CATIA 3d entities)</b></a></li>
+
+<li><a href="../OVfile/ce20_01_2D.htm"><b>Conversion Table for importing from CATIA (2d entities)</b></a></li>
+
+<li><a href="../FWfile/T_FW_CATIA2td.htm"><b>Importing from CATIA</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

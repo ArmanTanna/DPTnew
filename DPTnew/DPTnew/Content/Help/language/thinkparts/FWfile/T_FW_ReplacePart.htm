@@ -1,0 +1,59 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Replace Standard Part (thinkparts)</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">  
+
+<style> .noleft {margin-left:22;} </style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<p>The <img src="../../../images/icons/icons_medium/id_ek_tmm_replace.bmp" alt="" border="0" align="absmiddle"> <b>Replace Standard Part</b> command enables you to replace the currently selected parts with one chosen from a <b>thinkparts</b> catalog.</p>
+
+<p>You can find this command in the context menu that displays when right-clicking on a part inserted in the assembly.</p>
+
+<p>The command starts the <a href="T_FW_CatBrowser.htm"><b>Catalog Browser</b></a> and opens the <b>thinkparts</b> catalog where the selected part was originally taken from. The line corresponding to the selected part is highlighted in the catalog query view.<br>
+Choose the new part from the catalog and import it in the model.</p>
+
+<p>If you select <a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic01.htm">more than one part</a> before running <b>Replace Standard Part</b>, all components will be replaced with the one selected from the catalog. Also, note that if the selected parts are of different types or measures, the catalog opens on the last one in the selection sequence. This provides you with a quick mechanism to substitute many different parts with a particular one already inserted in your model: select the latter as last one, then start the <b>Replace Standard Part</b> command and simply close the catalog selection window.</p>
+
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1">The <b>Replace Standard Part</b> command will be correctly completed if you replace a part with another having the same mating methods.
+If you choose a completely different part, having different mating methods — which doesn't generally make sense —  it will be positioned as well as possible, but no mating constraints will be applied to it.</td>
+	</tr>
+</table>
+</p>
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/lamp2.gif" border="0" alt=""><br>
+If the command does not behave as expected, please verify that there are no duplicate <a href="T_FW_SymbolicMating.htm">symbolic matings</a> with the same name. </td>
+	</tr>
+</table>
+</p>
+
+<HR color="silver">
+<H5>Related Topics</H5>
+<UL class="noleft">
+<li><a href="T_FW_Open.htm"><b>Open</b></a></li>
+<li><a href="T_FW_ImportPart.htm"><b>Import</b></a></li>
+</UL>
+
+<HR color="silver">
+</BODY>
+</HTML>

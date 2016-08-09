@@ -1,0 +1,137 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Applying a scale factor to a set of selected control points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying a scale factor to a set of selected control points</h3>
+
+<p class="notop">Scaling sets of control points can be useful in a number of situations. For example, suppose you have a revolved surface: you may need to reduce or to increase the diameter width at a certain height. You can do this by selecting a set of control points about the axis of rotation and very easily using the scaling function.</p>
+<p>The <b>Scale</b> item under <b>Tools</b> in the selection list of the <b><a href="../FWfile/T_FW_ms_08.htm">Surface through Control Points</a></b> command enables you to apply a scale factor to the currently selected points.<br>
+The surface shape will be updated dynamically while the scaling is being applied. 
+The methods are the same as in the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Scale.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span></a> command.<br>
+
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+135">Scale</span> option&nbsp;&#151;&nbsp;as well as the 
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+277">Step</span> and 
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+92">Transform</span> ones&nbsp;&#151;&nbsp;are not available unless there are valid control points selected. For this reason, when the selection is reset the said options are closed.<br>
+
+
+
+
+Please also note that the mentioned options are mutually exclusive: any time you select a new option, the current modification will be completed and the new one will begin.<br>
+ Finally, note that both with the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+135">Scale</span> and with the 
+
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+92">Transform</span> option, the default location of the start point is the center of mass of the currently selected control points.</td>
+
+
+
+
+</tr>
+</table>
+
+<br>
+<p>As soon as the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+135">Scale</span> option is selected, a set of handles looking like a box is displayed and a proper set of items shows up in the Selection List.<br>
+
+
+
+
+<br>
+ <img border=1 src="../images/MCP-Scale.gif"><br>
+<br>
+</p>
+
+<ul class="noleft" style='margin-top:0in' type="circle">
+<li>The central handle is the origin of the scale. You can move it by dragging it to any position you like.</li>
+
+<li>The three axes represent the three coordinate directions, initially parallel to the axes of the Work Plane. They enable you to scale the set of control points along a direction: you can scale the selected set of control points along the corresponding direction by dragging the handle or by typing the scale in the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+108">Scale</span> box that shows up when you click on the handle.</li>
+
+
+
+
+
+<li>The handle on a box vertex enables you to perform homogeneous scaling. You can scale a set of control points by dragging the handle or by typing the scale in the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+108">Scale</span> box that shows up when you click on the handle.</li>
+
+
+
+
+
+<li>You can re-define the initial alignment of the axes of the handle set by properly choosing the desired option in the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+102">X Axis</span>, 
+
+
+
+<span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+103">Y Axis</span>&nbsp;and 
+
+
+
+<span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+107">Z Axis</span> drop-down lists:
+
+
+
+
+<ul class="noleft" style='margin-top:0in' type="square">
+<li><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+16">Line</span><br>
+
+
+
+
+ to align the axis to a line to be selected.</li>
+
+<li><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span><br>
+
+
+
+
+ to align the axis to the direction identified by two points to be selected</li>
+
+<li><span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+113">End point</span><br>
+
+
+
+
+ to align the axis so that its second end point coincides with a point to be selected.
+</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

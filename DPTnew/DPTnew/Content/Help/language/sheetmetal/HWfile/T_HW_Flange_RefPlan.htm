@@ -1,0 +1,93 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Adding a flange to a solid using a reference plane to define the bend angle</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Adding a flange to a solid using a reference plane to define the bend angle</h3>
+
+<table>
+<tr valign="top">
+<td width=20><b>1</b></td>
+<td>Load file "Flange83.e3".
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/RefPlan_00.gif"><BR><BR>
+
+
+Start the <a  href="../FWfile/T_FW_Flange.htm"><B>Flange</B></a> command. In the <b>Length</b> drop-down list, if not already selected, select <b>By value</b>.<br>&nbsp; 
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the edge on which to create the flange. <BR><BR><IMG border=1 SRC="../../../images/sheetmetal/RefPlan_01.gif"><br><br>
+In the <b>Length</b> mini-dialog box which shows up, type the extension of the flange.<p></p></td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>To define the slope of the flange, proceed as follows:
+<ol class="litleft" style="list-style: lower-alpha;">
+<li>Under <b>Local Properties</b>, in the <b>Alignment</b> drop-down list, select <b>Outer flange and bend</b> (proceed as described in "<a  href="../OVfile/T_OV_LocalData.htm">Local Properties and the Lock Marker</a>").</li>
+<li>Select the <b>Orientation</b> check box under <b>More Options</b>.
+<li>In the <b>Reference Plane</b> drop-down list, select <b>Line</b>.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Reference Plane</b><br>
+The <b>Reference Plane</b> can be defined:
+<ul class="noleft">
+<li>As the <b>Edge face</b> of the selected edge.</li>
+<li>As the plane through the selected edge and a <b>Line</b> to be selected.</li>
+<li>As the plane through the selected edge and a line through <b>2 points</b> to be specified.</li>
+</ul>
+</td></tr></table><br>
+<li>Click on the outer edge of the existing flange on the left.</li>
+</ol>
+<br><IMG border=1 SRC="../../../images/sheetmetal/RefPlan_02.gif"><BR><BR>
+A preview is displayed:
+<br>
+<br><IMG border=1 SRC="../images/RefPlan_03.gif"><p></p>
+</td>
+</tr>
+
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the flange.
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/RefPlan_04.gif"><BR><BR>Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

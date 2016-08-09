@@ -1,0 +1,132 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(301,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2010t1" content="translate">
+<title>Extract Zones</title>
+
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Point.msg+MenuBar_Document_Insert_Point+1348">Point</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Point.msg+MenuBar_Document_Insert_Point+4127">Extract Zones</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7749">Extract Zones</span> command enables you to extract zones on Mesh (or couple of Meshes) based on the <a href="#mode">specified criteria</a> and then create associated set of points. Primarily the command processes point data which is sourced from the 
+<span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+9">Mesh nodes</span> of a selected mesh. However, you can also use 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+170">ASCII file</span> (point cloud data), or 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+171">Standalone</span> points.</p>
+
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7749">Extract Zones</span> command has diverse application and hence is available both with 
+<span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+1">Compensator</span> and 
+<span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span>.</p>
+
+
+<ul>
+<li>In the context of <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+1">Compensator</span> it extracts zones from the two meshes simultaneously in a homogeneous way (since the two meshes will be used to define a displacement field and <i>from</i> & <i>to</i> points).</li>
+
+
+<li>In the context of <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span> it is used for extracting zones from a single Mesh (that has been analyzed by the 
+<a href="mk:@MSITStore:HQRE.chm::/language/HQRE/FWfile/T_FW_mesh_analyzer.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7753">Mesh Analyzer</span></a> command, and would be an input for the 
+<a href="mk:@MSITStore:HQRE.chm::/language/HQRE/FWfile/T_FW_super_capping.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span></a> command).</li>
+
+</ul>
+
+<p>For the cases where you make two sets of input, the extraction criteria is evaluated on the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+189">Leading Points</span> (hence is always mandatory), and the extraction is performed in a homogeneous way on the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+190">Leaded Points</span> (optional) to preserve a valid displacement field definition.</p>
+
+
+<p><a name="mode"></a>The various criteria for zone extraction can be selected from the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list.</p>
+
+
+<ul>
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+184">Noise</span>: used to estimate noise on the mesh.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+185">Small curvature radius</span>: used to estimate the minimum curvature radius of the mesh<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+186">Curvature variation</span>: used to estimate the variation of the computed curvature on one point with the curvature computed on its neighboring points. This criterion tends to be zero on all points in a zone with the same curvature.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+187">Curvature difference %</span>: used to estimate the percentage of curvature difference between one point on the <i>leading mesh</i> and its corresponding one on the <i>leaded mesh</i>. This criterion tends to be zero in zones that have same curvatures in both meshes. Note that for this criterion, it is mandatory to provide both 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+223">First Points</span> and 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+224">Second Points</span> inputs.<br>
+
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+188">Free boundary</span>: used to check the free boundaries on the mesh.<br>
+
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The options available in the selection list will depend on the criteria selected in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> drop-down list.</td>
+
+</tr>
+</table>
+
+<p>If the input point data is coming from existing support surfaces, you can optionally select these surfaces for <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+191">Leading Surfaces</span> (or for <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+221">First surfaces</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+222">Second surfaces</span> in case of <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+187">Curvature difference %</span>) and to act as reference so that the curvatures are evaluated more precisely (on these surface).</p> 
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+In case of <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+187">Curvature difference %</span>, it is mandatory to make selection for <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+221">First surfaces</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+222">Second surfaces</span> for <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+170">ASCII file</span> and <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+171">Standalone</span> points as the criterion of computation is based on the differences of the two.</td></tr></table>
+
+<p>The 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+201">Max. presumed distance</span> check box can then be selected to speed up the finding of corresponding points on these surfaces.</p>
+
+
+<p>Irrespective of the selected criteria, you can force the computation to include or exclude the points on the free boundaries. Select <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+193">Include free boundary nodes</span> check box to include nodes on free boundaries even if some of them don't match the criteria. Select the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+198">Exclude Free Boundary Nodes</span> check box to exclude nodes on free boundaries even if some of them match the criteria. Note that you can only select either of the check boxes at a time.</p>
+
+
+<p>You can optionally decide to include only those <i>free boundaries of holes</i> which enclose an area greater than the specified threshold. To do so, select the <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+199">Ignore Holes with Small Area</span> check box and specify the threshold value in the corresponding text box.</p>
+
+
+<p>After making the required selections and settings, select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> <img src="../../../images/general/preview.gif" align="absmiddle"> button to perform the analysis. The key values of the analysis result are displayed in the selection list. Also, the distribution of the result can be viewed graphically by selecting the 
+<span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+101">Graph</span> option. In case of Mesh, you would also see a color map over it. You can choose the required threshold value to be used on the given criteria to create the associated set of points.</p>
+
+
+<hr color="silver">
+</body>
+</html>
+

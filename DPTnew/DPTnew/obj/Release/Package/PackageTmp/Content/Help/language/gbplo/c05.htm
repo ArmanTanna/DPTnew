@@ -1,0 +1,894 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plot: Initialization file directives - Part 1</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A name="top"></A> 
+
+<H1>
+<A NAME="4"></A>Initialization file directives<hr color="navy"></H1>
+
+
+<H2>
+<A NAME="4.1"></A>Introduction</H2>
+This chapter describes the directives which may appear in the initialization
+file. The directives are listed in alphabetical order. You can also include
+most of these directives in the run string, with the suitable names (<i>see</i> <A href="c03.htm#2.9">Summary table</A>) and the form described
+in <A href="c02.htm#2.1.1">Directives and options</A>. The keys which can be used
+in the run string only are described in <A href="c04.htm#3">Run options</A>.
+<BR><br><br><br>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="AVA"></A>AVA</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Controls paper feed at end of drawing</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>AVA </B><I>feed_flag</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><B>feed_flag</B>&nbsp;</TD>
+
+<TD VALIGN=top>sets the paper feed mode on the plotter 
+      or printer after printing the drawing.&nbsp;
+<BR>The 
+      following values are allowed:&nbsp;
+
+<P><B>0</B> inhibits paper feed at the end of the drawing; alternatively,
+you can enter the OFF string;&nbsp;
+
+<P><B>1</B> <I>half page</I> paper feed, or in devices which have this
+function (HP-GL and HP-GL/2 plotters), paper feed up to the end of the
+drawing; alternatively, you can enter the HALF string;&nbsp;
+
+<P><B>2</B> <I>full page</I> paper feed; alternatively, you can enter the
+FULL or the ON string.&nbsp;
+
+<P><B>Default</B>&nbsp;
+<BR><B>2</B> (FULL or ON): full page 
+      paper feed.</P>       </TD>
+</TR>
+</TABLE>
+<BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to control the paper feed at the end of printing. Option
+2 not only transmits a special paper feed command to the device, preparing
+a subsequent drawing on a new intentionally blank page, but also, in some
+devices which normally use raster technology, provokes printing of the
+last drawing transmitted and its deletion from the device's memory.
+
+<P>In devices which use raster technology, you should use the code only
+in the last drawing if you want to merge (GRA<B> </B>MERGE) two or more
+drawings.
+
+<P>The code without arguments is equivalent to GRA ADVANCE<B> 2</B>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>FRA</B>&nbsp;
+<BR><B>GRA MERGE</B>&nbsp;
+<BR><B>GRA NCOP</B>&nbsp;
+<BR><B>GRA ODVT</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="BRE"></A>BRE</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Allows you to stop printing for pen change</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>BRE </B><I>pen1 </I>[<I>pen2</I> [ ... ]]
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>pen1 ... </EM>numbers identifying the pens at which the
+plotter must stop to allow a change&nbsp;</TD>
+</TR>
+</TABLE>
+<BR><p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to temporarily interrupt printing of the drawing, when GBPLO
+detects an entity whose pen attribute is equal to one of the values specified
+with <I>pen1 pen2 ...</I> You can, therefore, change the pen on the device,
+fitting that required. To continue printing the drawing, press Carriage
+Return (Enter, ...).
+<BR>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DEF"></A>DEF</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines symbolic names</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DEF </B><I>symbolic_name actual_name</I>
+
+<P><p><STRONG><font color="navy">ARGUMENTS</font></STRONG></p><STRONG><hr color="navy" width="150" align="left">
+</STRONG>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>symbolic_name&nbsp;</EM></TD>
+
+<TD VALIGN=top>string with which the actual name 
+      specified is symbolically identified</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><EM>actual_name&nbsp;</EM></TD>
+
+<TD VALIGN=top><EM>actual name or pathname for which a 
+      symbolic name is defined</EM></TD>
+</TR>
+</TABLE>
+<BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>This directive, which can be used only in the initialization file, allows
+you to define a <I>symbolic_name</I> which will be used in the directives
+which follow the DEF in the initialization file in place of the specified
+<I>actual_name</I>: each occurrence of the <I>symbolic_name</I> will be
+substituted with the <I>actual_name</I>.
+
+<P>The directive is case sensitive: aBc <FONT FACE="Symbol"><FONT SIZE=+1>¹</FONT></FONT>
+AbC.
+
+<P>A maximum of 10 different DEF directives can appear in the same initialization
+file.
+
+<P>Recursiveness is not allowed: you cannot use symbolic names defined
+with a DEF directive as actual names in another DEF directive. For example,
+if you enter the directive:
+
+<P><TT>DEF DIRMASTER /mainhost/root1/cad,</TT>
+
+<P>a symbolic name for /mainhost/root1/cad/drawings cannot be given using
+a directive of the following type:
+
+<P><TT>DEF DIRDIS DIRMASTER/drawings</TT>
+
+<P>and you must, therefore, use:
+
+<P><TT>DEF DIRDIS /mainhost/root1/cad/drawings</TT>
+
+<P>Obviously, the DEF directive proves very useful when you have to use
+long pathnames more than once.
+<BR>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DIM"></A>DIM</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines sheet size</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DIM&nbsp; </B> <I>size&nbsp; </I>| <I>xmax ymax </I>
+<BR>
+
+<P>or:
+
+<P><B>GRA FORMD</B><I>size </I>| <EM>xmax ymax </EM>[<EM>un_measure</EM>    ]
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>size&nbsp;</EM></TD>
+
+<TD VALIGN=top>defines sheet dimensions by specifying 
+      the standard size; the following values are allowed:&nbsp;
+
+<P>A0 1189 x 841 mm;&nbsp;
+
+<P>A0R (A0 horizontal);&nbsp;
+
+<P>A1 841 x 594 mm;&nbsp;
+
+<P>A1R (A1 horizontal);&nbsp;
+
+<P>A2 594 x 420 mm;&nbsp;
+
+<P>A2R (A2 horizontal);&nbsp;
+
+<P>A3 420 x 297 mm;&nbsp;
+
+<P>A3R (A3 horizontal);&nbsp;
+
+<P>A4 297 x 210 mm;&nbsp;
+
+<P>A4R (A4 horizontal);&nbsp;
+
+<P>A5 210 x 149 mm;&nbsp;
+
+<P>A5R (A5 horizontal).&nbsp;
+
+<P><EM>xmax </EM>real number, defines maximum 
+      dimension in cm along the x-axis.&nbsp;
+
+<P><EM>ymax </EM>real number, defines maximum 
+      dimension in cm along the y-axis.&nbsp;
+
+<P><EM>un_measure </EM>unit of measure for the values 
+      <EM>xmax ymax</EM>; values allowed:&nbsp;
+
+<P>MM millimeters (default);&nbsp;
+
+<P>CM centimeters.</P></TD>
+</TR>
+</TABLE><BR><p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to define the size of the drawing either through the standard
+sizes or by specifying the dimensions and the relative unit of measure.
+
+<P>The size is considered the same as the size of the sheet loaded on the
+plotter, even if the actual dimensions of the sheet are different.
+<BR>
+<BR>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ODVL</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DRC"></A>DRC</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines the drawing directory</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DRC </B><I>drawing_dir</I> <B>Default: </B>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>drawing_dir&nbsp;</EM></TD>
+
+<TD VALIGN=top>pathname of the directory to be 
+      searched for drawings entered&nbsp;</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to define the directory to be searched for the drawings entered
+with the option -F and the symbol library defined with LSI, if you do not
+specify the complete pathname.
+<BR>
+<BR>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>LSI</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DRE"></A>DRE</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Specifies the <b>think<font color="#FF0F00">3</font></b> application installation root directory&nbsp;</i></td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DRE </B><I>pathname</I>
+
+<P><B>Default: </B>GBPLO installation root directory.
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>pathname&nbsp;</EM></TD>
+
+<TD VALIGN=top>pathname of the <b>think<font color="#FF0F00">3</font></b> application installation root 
+  directory</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to specify the <b>think<font color="#FF0F00">3</font></b> application installation root directory, used
+by GBPLO to determine the fonts to be used in drawings generated in the
+<b>think<font color="#FF0F00">3</font></b> environment. These fonts reside in the "fonts" subdirectory
+of the said root directory.
+
+<P>If you do not specify the root directory, GBPLO assumes the GBPLO (DRO)
+installation root directory.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>DRO</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DRF"></A>DRF</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines font directory&nbsp;</i></td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DRF</B> <I>font_directory</I>
+
+<P>or
+
+<P><B>GRA DIRF</B> <I>font_directory</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>font_directory</EM>&nbsp;</TD>
+
+<TD VALIGN=top>pathname for font search (node, 
+      directory and subdirectory)</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the directory containing the font archives (which can be used
+by the application with text quality 4 or after the GRA FLOAD<B> </B>command<B>
+</B>for text quality 3) by specifying the pathname, or node, directory
+and subdirectory, depending on the operating system used
+
+<P>If you do not specify the pathname or if <I>font_directory</I> is
+blank, the program searches for the fonts in the run directory of the
+application program.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA FLOAD</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="DRO"></A>DRO</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines installation root directory</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>DRO </B><I>root_dir</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>root_dir&nbsp;</EM></TD>
+
+<TD VALIGN=top>pathname of the installation root 
+      directory.&nbsp;</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to specify the installation root directory, used by GBPLO
+to construct the name of several files specified in the relative mode (MSG).
+
+<P>Has no effect on files and directories specified with GRA keys.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>MSG</B>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="FER"></A>FER</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines error file</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>FER </B><I>pathname</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+<TABLE BORDER=0>
+<TR>
+<TD VALIGN=top><EM>pathname&nbsp;</EM></TD>
+
+<TD VALIGN=top>pathname of the error 
+file</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to specify the pathname of a file which will be used to record
+any error indications otherwise displayed on-screen.
+<BR>
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="FQU"></A>FQU</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines angle dimension unit of measure&nbsp;</i></td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>FQU </B><I>ang_unit</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>ang_unit&nbsp;</EM></TD>
+
+<TD VALIGN=top>code identifying the unit of measure to 
+      be used for the representation of angle dimensions. Values allowed:&nbsp;
+
+<P><B>SDEC </B>sexadecimal 
+      degrees&nbsp;
+
+<P><B>SGEN </B>sexagesimal 
+      degrees&nbsp;
+
+<P><B>CEN </B>centesimal 
+      degrees&nbsp;
+
+<P><B>RAD </B>radian degrees&nbsp;
+
+<P><B>Default: </B>SGEN 
+      (sexagesimal degrees).&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;</P></TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allow you to define the unit of measure to be used for the representation
+of angle dimension in the drawing.
+<BR>
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="FRA"></A>FRA</font>
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Framing On/Off&nbsp;</i></td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>FRA </B><I>framing_flag</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>framing_flag&nbsp;</EM></TD>
+
+<TD VALIGN=top>flag which can assume the following 
+      values:&nbsp;
+
+<P><STRONG>ON </STRONG>activates framing mode;&nbsp;
+
+<P><STRONG>OFF </STRONG>inhibits framing mode 
+      (default).</P>
+</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to switch the frame drawing mode On/Off on those plotters
+which have the function (BGL, HP-GL, HP-GL/2).
+
+<P>Framing is a mode in which plotting occurs on <I>pages</I> obtained
+by suitably splitting the drawing along the x-axis.
+
+<P>The splitting of the pages along the x-axis (frame step) depends on
+the plotter specification and must be known to the program if it is to
+split the drawing correctly. In the case of plotting off line (output to
+file) you must tell the program the size of the frame step using the code
+GRA P1P2.
+
+<P>If framing is On, you cannot merge two or more drawings on the same
+sheet (GRA MERGE), nor can you make multiple copies (NCO).
+
+<P>In HP-GL/2 use framing only if the drawing is particularly complicated
+and the data transmitted exceeds the plotter memory capacity.
+
+<P>The code without arguments is equivalent to FRA<B> </B>ON.
+
+<P>If the -COM option is present, framing is always Off.
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA MERGE</B>&nbsp;
+<BR><B>GRA P1P2</B>&nbsp;
+<BR><B>GRA SHP1P2</B>&nbsp;
+<BR><B>NCO</B></TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="ARCD"></A>GRA ARCD</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Controls discretization when drawing arcs</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA ARCD </B><I>disc</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>disc&nbsp;</EM></TD>
+
+<TD VALIGN=top>real number, defines the discretization 
+      step for drawing arcs (default -3);&nbsp;
+<BR>values 
+      allowed and meanings:&nbsp;
+
+<P><B>&gt;0</B> fixed 
+      discretization step value (real number in degrees);&nbsp;
+
+<P><B>&lt;0</B> discretization 
+      precision (real number).&nbsp;
+
+<P><B>Default: </B>-3. In some cases the directive is ignored if the
+arc drawing mode is hardware: <B>GRA ARCM HW.</B>
+<BR>&nbsp;</P></TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to control the discretization to be used when drawing arcs.
+
+<P>A positive discretization value defines a fixed step, i.e.: irrespective
+of the arc radius; the value indicated is the angle (expressed in degrees)
+subtended by the step.
+
+<P><IMG height=187 src="graphics/image115.gif" width=758>
+
+<P>If you enter a negative discretization value, the step is calculated
+so as to maintain the <I>camber</I> relative to each discretization section
+below a number output device units (<I>pixels </I>on screen or unit on
+plotter) equal to the absolute value of the value indicated. Note: in the
+latter case, the discretization depends on the radius.
+
+<P><IMG height=85 src="graphics/image116.gif" width=760>
+
+<P>The said discretization has no effect if the arcs are drawn in HW mode,
+except in HP-GL and HP-GL/2 output formats (see manual for HP-GL, CT instruction).
+For hardware texts, you must also specify the QTE directive (run option:
+-QT) during the initialization phase
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ARCM</B>&nbsp;
+<BR><B>GRA LTRM</B></TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="ARCM"></A>GRA ARCM</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines arc drawing mode</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA ARCM</B> <I>option</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>option&nbsp;</EM></TD>
+
+<TD VALIGN=top>may assume the following values:&nbsp;
+
+<P><B>HW: </B>hardware mode;&nbsp;
+
+<P><B>SW: </B>software mode;&nbsp;
+
+<P><B>PO: </B>polyline mode.&nbsp;
+
+<P><B>Default: </B>HW.&nbsp; 
+<BR>&nbsp;</P></TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to set the arc drawing mode, selecting from three possible
+modes.
+
+<P><B>Hardware mode: </B>the arcs are drawn depending on the modes of the
+device used. Not all devices have the hardware mode for drawing arcs and
+this cannot always be used (e.g.: drawing dashed arcs, center off-screen,
+etc.). If the HW mode is On, for those in which it cannot be applied, the
+program automatically switches to SW mode.
+
+<P><B>Software mode: </B>the arcs are drawn in individual segments using
+an algorithm prepared by the program.
+
+<P><B>Polyline mode: </B>the arcs are drawn using a polyline.
+
+<P>The discretization step value defined with GRA ARCD may be ignored on
+some devices when the HW mode is selected and effectively used.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA ARCD</B>&nbsp;
+<BR><B>GRA LTRM</B></TD>
+</TR>
+</TABLE>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="CMAP"></A>GRA CMAP</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Defines content of color map elements</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA CMAP </B>{<I>numcol red green</I> <I>blue</I>}
+
+<P><p><STRONG><font color="navy">ARGUMENTS</font></STRONG></p><STRONG><hr color="navy" width="150" align="left">
+</STRONG>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>numcol </EM>(integer)&nbsp;</TD>
+
+<TD VALIGN=top>Identifies the position&nbsp; of the 
+      color in the color map or conventional value;&nbsp;&nbsp;
+<BR>values allowed and meanings:&nbsp;
+
+<P><B>0:255 </B>assigns the 
+      specified position on the logical color map the three color components 
+      specified, taking into account any mapping set with the GRA COLCH 
+      code.&nbsp;
+
+<P><B>1000:1255</B> assigns the 
+      specified position less 1000 (nco -1000) of the actual color map, the 
+      three color components specified, without taking into account any 
+      remapping.&nbsp;
+</TD>
+</TR>
+<TR><TD>
+<P><i>red </i></td><td>(integer from 0 to 
+      255) defines the value of the red component.&nbsp;
+</td></tr><TR><TD>
+<P><i>green </i></td><td>(integer from 0 to 
+      255) defines the value of the green component.&nbsp;
+<TR><TD>
+<P><i>blue </i></td><td>(integer from 0 to 
+      255) defines the value of the blue component<EM>.</EM>&nbsp;
+</td></tr></TABLE>
+<BR>&nbsp;
+<BR>&nbsp;</P><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Defines the content of a position on the <I>color map</I> in terms of
+the primary color (red, green, blue) components. In other words, generates
+a table of the associated pen (number) and color (RGB components).
+
+<P>Can be used in the following formats:
+
+<P>HP-GL/2
+<BR>PostScript
+<BR>CALCOMP - CDCL, when you set the "plotter degree of intelligence" to
+2 with GRA INTPL.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA COLCH</B>&nbsp;
+<BR><B>GRA INTPL</B>&nbsp;
+<BR><B>GRA NCOLS</B>&nbsp;
+<BR><B>GRA ODVT</B></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<hr color="#0092ff" size="4"><table border="0">
+<tr>
+<td><font size="+1" color="navy">
+<A NAME="COLCH"></A>GRA COLCH</font> 
+</td>
+
+<td valign="bottom"><font size="+1" color="white">&#8212;&#8212;&#8212;</font></td>
+
+<td valign="bottom"><i>Manages match between logical pen and physical pen</i>&nbsp;</td>
+</tr>
+</table>
+<p><b><font color="navy">SYNTAX</font><hr color="navy" width="150" align="left"></b>
+
+<P><B>GRA COLCH</B> <I>{logical_pen physical_pen}</I>
+
+<P><p><b><font color="navy">ARGUMENTS</font><hr color="navy" width="150" align="left"></b>
+<P></P>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top><EM>logical_pen&nbsp;</EM></TD>
+
+<TD VALIGN=top>integer identifying the logical pen 
+      number; values allowed 0:255</TD>
+</TR>
+
+<TR>
+<TD VALIGN=top><EM>physical_pen&nbsp;</EM></TD>
+
+<TD VALIGN=top>integer identifying the physical pen; 
+      only positive or null values are allowed, provided that they are amongst 
+      the number of colors allowed by the device or limited by GRA 
+  NCOLS&nbsp;</TD>
+</TR>
+</TABLE><BR>
+<p><b><font color="navy">DESCRIPTION</font><hr color="navy" width="150" align="left"></b>
+
+<P>Allows you to redefine the matches between elements of the logical <I>color
+map</I> (of the program) and those of the physical <I>color map </I>on
+the output device. That is to say, allows you to define an association
+between the logical pens and the physical pens on the device.
+
+<P>The GRA COLCH code can modify the functioning of the subsequent GRA CMAP
+codes with color index &gt;  255.
+
+<P>The default match between the two <I>color maps</I> is organized as
+follows.
+<UL>
+<LI>
+If the physical <I>color map</I> 
+  has at least 256 positions (colors), the ratio is 1:1 with the logical color 
+  map. 
+  
+
+<LI>
+If the physical <I>color map</I> has less than 256 colors, the logical
+<I>color map </I>cyclically repeats the 1:1 match with the physical colors
+until full.</LI>
+</UL>
+
+<TABLE BORDER=0 >
+<TR>
+<TD VALIGN=top>See also:&nbsp;</TD>
+
+<TD VALIGN=top><B>GRA CMAP</B>&nbsp;
+<BR><B>GRA NCOLS</B>&nbsp;
+<BR><B>GRA ODVT</B></TD>
+</TR>
+</TABLE>
+
+<hr color="silver">
+</body>
+</html>

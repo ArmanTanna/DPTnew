@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Insert Chamfer Dimension</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Creating a Chamfer Dimension</h3>
+
+<p>To create the chamfer dimension, start the <span class="UI_COMMAND" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+7821">Chamfer Dimension</span> command and proceed as follows:</p>
+
+<ol class="noleft">
+<li>You are prompted to select a slant face (line in case of 2D) of the chamfer. <a name="Sface"></a>Select the face you want to dimension.<br> <a name="Afaces"></a>The program automatically selects the adjacent faces, if not you need to select the appropriate adjacent faces.<br>
+<br>
+<img src="../../../images/dimensio/Chamfer_Sface.gif" border="1"><br>
+<br>
+To reset the selection, right-click on <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+138">Adjacent Faces</span> and select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span>. Then, the program resets the selection and allows you to reselect the face to be dimensioned.<br>
+Similarly, to reset the adjacent faces selection, right-click on <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+138">Adjacent Faces</span> in the selection list and select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span>. After the selection is reset, you can select the adjacent faces of your choice.<br>
+<br>
+</li>
+
+<li>You can then define the dimensioning type using the following options available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: <br><br>
+<a name="Dd"></a>Using the <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+143">Two dimensions</span> option, you can select when to apply the double dimension:
+<table>
+<tr>
+	<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+144">Always enabled</span></td>
+	<td>Enables the double dimension in all cases</td>
+</tr>
+<tr>
+	<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+145">For chamfers other than 45 degree</span></td>
+	<td>Enables the double dimension only for angles other than 45&deg;</td>
+</tr>
+</table>
+<br>
+<a name="Ddmode"></a>Using <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+14">Keep Edges</span> drop-down list, you can choose the mode to determine the chamfer dimension to be applied:
+<table>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+141">Two distances</span></td>
+<td>Creates a chamfer dimension based on two distances</td>
+<td><img border="1" src="../../../images/dimensio/Chamfer_Distdist.gif"><br>
+</td>
+</tr>
+<br><br>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+140">Angle &amp; distance</span></td>
+<td>Creates a chamfer dimension based on angle and distance</td>
+<td><img border="1" src="../../../images/dimensio/Chamfer_Angledist.gif"><br><br></td>
+</tr>
+
+</table>
+
+<br>
+<br>
+</li>
+
+<li><a name="DP"></a>Specify the location to place the chamfer dimension(s).</li>
+</ol>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

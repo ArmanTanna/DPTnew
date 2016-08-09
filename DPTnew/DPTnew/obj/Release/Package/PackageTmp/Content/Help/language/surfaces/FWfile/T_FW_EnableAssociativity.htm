@@ -1,0 +1,66 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="2009t1" content="translate">
+<title>Enable Associativity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td width="40"><img src="../../../images/general/RMB.gif"><td align="left"><span class="UI_COMMAND_NOBOLD" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7170">Enable Associativity</span></p>
+<hr color="#63a9d8">
+</table>
+<p style="margin-bottom:6px;">The <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7170">Enable Associativity</span> command enables you to apply associativity to non-associative curves and surfaces.<br>
+
+You need to preselect the non-associative entity in the model (or its icon in the <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>, if it is visible, which can happen only if the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1279">Entities without history</span> box has been checked in the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1272">Model Structure</span> category of the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span>) and to select the command in the context menu.<br>
+
+The selected entity will be &quot;promoted&quot; to an associative entity, with its own icon in the <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>: it will be a <i>History Graph Genitor</i>, that is a generic root associative curve/surface, displayed in the model structure through a generic 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_GRP_HTREE+80">Curve</span>/
+<span class="UI_COMMAND" id="tdesign.msg+_EK_GRP_HTREE+256">Skin</span> icon).<br>
+
+<br>
+<img border="1" src="../../rn_2007t1/images/EnableAssocitive.gif"><br>
+</p>
+
+<p style="margin-bottom:6px;">As an example, consider a skin obtained by sweeping a curve in the direction of an existing line through the associative mode of the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+38">Linear Surface</span> command.<br>
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/EA01.gif"><br>
+<br>
+If the line you have selected as the direction for your sweep is not associative, when you modify the direction of the line the skin will not be changed:<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/EA02.gif"><br>
+<br>
+On the contrary, if, before creating the skin, you apply the <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7170">Enable Associativity</span> command to the line so as to make it associative and then you create the surface, when you modify the line direction, the skin will change accordingly upon rebuilding the model.<br>
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/EA03.gif"></p>
+
+<p>Associativity can be removed from the entity by right-clicking and selecting <a href="T_FW_DisableAssociativity.htm"><span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7169">Disable Associativity</span></a>.</p>
+
+<hr color="silver">
+</body>
+</html>
+

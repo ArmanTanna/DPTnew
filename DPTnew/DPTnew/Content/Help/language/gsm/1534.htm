@@ -1,0 +1,78 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Managing the size of GSM files</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Managing the size of GSM files</h3>
+<p class="notop">When working with GSM you can process the same set of surfaces many times, as needed. This will usually increase the file size, leading to long tessellation times and slow computer performance. Why? How we can solve this problem?</p> <p>GSM uses complex calculations to achieve the results you desire. Because of this the surfaces that are processed through the GSM tools tend to be complex in their construction. As a result, GSM surfaces take up more size that a typical NURBS surface. This increases the file size, leading to very large files.</p> <p>For example, here are the results after several GSM processes on a file:</p> <p>1) Original File size: 27Mb<br>2) After First GSM: 63Mb<br>3) After Second GSM: 160Mb</p> <p>They all contain the same geometry. The file size increases as you increase the number of welding points and loops. Also, this is the nature of specialized GSM surfaces. Because GSM produces highly accurate surfaces, the resulting files may be very large.</p> <p>The calculation time of a GSM modification on an existing GSM surface takes much more time than on a standard surface. This is magnified with each successive generation of GSM modifications to GSM surfaces. Another problem is the tessellation, which usually takes more time on GSM surfaces than on standard NURBS surfaces.</p> <p>Generally speaking, working with <i>heavy GSM surfaces</i>, will take more time than working with <i>standard</i> surfaces; <i>heavy </i>means that<i> </i>iterating calculations on GSM surfaces &nbsp;&#151;&nbsp;that is applying loops and/or GSM applied on GSM applied on GSM...&nbsp;&#151;&nbsp;makes the surface heavy and difficult to be handled, even changing the number of isoparametric curves.</p> <p><b>Note:</b> What is a GSM surface? It is a specialized surface that has been created while processing the original ones using the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> tool. You can check this by right-clicking on the surface and selecting <b>Info<img src="../../images/general/litarr.gif">
+<a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_01_07.htm">Single Entity</a></b> in the context menu.</p>   <p>You can solve this problem in the following way:</p> <p>To purge your GSM file, you can convert the GSM surface to a NURBS surface, or simply save in ".gkd" format (which is pretty much the same, as far as the results are concerned).</p> 
+
+
+
+<h4><b>Convert to NURBS &amp; Save</b></h4> 
+<p class="notop"><b>Modify<img src="../../images/general/litarr.gif">Surfaces<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_21.htm">Convert to NURBS</a></b> will enable you to save the GSM surfaces as NURBS. The Convert to NURBS icon can also be found in the Surface toolbar.</p> 
+
+<ul class="noleft">
+<li><b>Pros</b><br>Convert GSM surfaces to NURBS using specific tolerances that you control. Convert only the surfaces you want to convert. 
+<li><b>Cons</b><br>Can take a long time since you are manually converting the surfaces.</p> 
+</ul>
+
+<h4><b>Save to GKD</b></h4>
+<p class="notop"> <b>File<img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_06.htm">Save As</a></b> will open a save dialog box. In the <b>Save as type</b> drop-down list,  select <b>think3 Neutral Format (*.gkd)</b>.<b> </b>This will automatically convert all GSM surfaces into NURBS surfaces. The other surfaces, if not needed, won't be converted (but saved!) Before saving as ".gkd", check your <b>Tolerance</b> setting under <b>Convert to NURBS</b> in the <b>Construction-Advanced</b> category of the <b>System Options</b>. Saving as ".gkd" will cause the file to lose its layer names but will retain the layers assigned. </p> 
+
+<ul class="noleft">
+<li><b>Pros</b><br>Automatically converts GSM surfaces to NURBS surfaces, Allows ".gkd" files to be opened by any version of <b>think<font color="#FF0F00">3</font></b> applications. Generally reduces file sizes, making them more <i>usable</i>. 
+<li><b>Cons</b><br>Layers are retained, but layer names are lost. May take a long time to save. You need to check the results after saving.</ul>
+<p>Both of these operations could take quite a lot of time, but on large files, this could be very beneficial. Generally it will reduce file sizes, increase computer and graphics performance and will allow for faster GSM modifications.</p> <p><i><b>Suggested Convert To NURBS Tolerance Values</b>:</i><br>&nbsp;
+<ul class="noleft">
+<li><i>Files in mm: <b>0.02 - 0.008</b></i> <li><i>Files in inches: <b>0.0008 - 0.0003</b></i>  </ul>
+<p>These values will lower the size of the examples above in the 5-10 Mb range.</p></ul>
+
+<hr color="silver">
+</body>
+</html>

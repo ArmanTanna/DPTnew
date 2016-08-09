@@ -1,0 +1,115 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+
+<meta name="T_2009t1" content="translate">
+<title>Orientating the Section Planes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Orientating the Section Planes</h3>
+
+<p>During the application of the <a href="../FWfile/T_FW_SpinedTwist.htm"><span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span></a> command, multiple <i>section planes</i> are generated over the part to define the twist. By using the <a href="../FWfile/T_FW_SpinedTwist.htm#mold_direction"><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span></a> and <a href="../FWfile/T_FW_SpinedTwist.htm#sec_direction"><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span></a> options in the <span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+1">GSM Spined Twist</span> selection list it is possible to orient these <i>section planes</i> for producing the right twisting effect in the model.</p>
+
+<p>Following are some graphic illustrations to explain the behavior of these options. The following model is used as an example. Note that the Spine Curve (in green) has deviations in all directions (X, Y &amp; Z).<br>
+<br>
+<img src="../../../images/globalshape/section_direction_example.gif" border="1"><br>
+<br>
+We analyze the model by keeping the Work Plane parallel to the view.</p>
+
+<h4>Case 1</h4>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> = <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+8">Normal to curve plane</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span> = <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+13">Automatic</span></td>
+</tr>
+
+<tr>
+<td><img src="../images/section_direction_automatic.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The <i>section plane</i> is oriented in such a way that its:</p>
+
+<ul class="noleft">
+<li>X-direction is aligned to the normal vector of the <i>spine curve mean plane</i></li>
+
+<li>Z-direction is aligned to the tangent vector of the spine curve.</li>
+</ul>
+
+<h4>Case 2</h4>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> = <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+40">Z</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span> = <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+13">Automatic</span></td>
+</tr>
+
+<tr>
+<td><img src="../images/moldign_direction_Z.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The <i>section plane</i> is oriented in such a way that its:</p>
+
+<ul class="noleft">
+<li>X-direction is aligned to the Z-axis of the Work Plane. Therefore, the <i>section planes</i> are appearing as straight lines.</li>
+
+<li>Z-direction is aligned to the tangent vector of the spine curve.</li>
+</ul>
+
+<h4>Case 3</h4>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> = <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+40">Z</span></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span> = <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+38">X</span></td>
+</tr>
+
+<tr>
+<td><img src="../images/section_direction_X.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The <i>section plane</i> is oriented in such a way that its:</p>
+
+<ul class="noleft">
+<li>X-direction is aligned to the Z-axis of the Work Plane.</li>
+
+<li>Z-direction is aligned to the X-axis of the Work Plane. Therefore, the <i>section planes</i> are appearing vertical.</li>
+</ul>
+<br>
+<hr color="silver">
+</body>
+</html>
+

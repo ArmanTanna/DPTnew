@@ -1,0 +1,129 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>New Assembly Functionalities and Improvements</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>New Assembly Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following improvements to the Assembly functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P386">Mating Feedback Improvements</a></li>
+
+<li><a href="#failure">Mating failure by conflicting constraints</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P0000386 - OWN: SATO -->
+<h2><a name="#P386">Mating Feedback Improvements</a></h2>
+
+<p>In this version, many visualization improvements have been made in the representation of the mating events, both in the <a href="#GA">Graphics Area</a> and <a href="#MS">Model Structure</a>.</p>
+
+<h3><a name="GA">Improvement in mating visualization in the Graphics Area</a></h3>
+
+<br>
+<p>The labels that are displayed upon selecting a mating event is now color coded.</p>
+
+<br>
+<table border="0" cellspacing="2" cellpadding="2" bgcolor="#E1E1E1" style="margin-left:30;">
+<tr>
+<td><font color="green"><b>Green</b></font></td>
+<td>:</td>
+<td>The mating constraint is consistent</td>
+</tr>
+
+<tr>
+<td><font color="yellow"><b>Yellow</b></font></td>
+<td>:</td>
+<td>The mating constraint is having dangling references</td>
+</tr>
+
+<tr>
+<td><font color="red"><b>Red</b></font></td>
+<td>:</td>
+<td>The mating constraint is conflicting</td>
+</tr>
+</table>
+
+<br>
+<p><img src="images/mating_labels.gif" border="1"></p>
+
+<br>
+<br>
+<p>There have been improvements in the way the constraints are represented in the Graphics Area; <b>X</b> marker <i>(with solid line)</i> and <b>O</b> marker <i>(with dashed line)</i> are displayed over the positioned and referenced geometry respectively.</p>
+
+<br>
+ 
+
+<h3><a name="MS">Improvement in mating visualization in the Model Structure</a></h3>
+
+<p>Specific icons in the Model Structure represent that the mating constraint is not consistent.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/MS_icon_mating_failure.gif"></td>
+<td>-</td>
+<td>Mating failure</td>
+</tr>
+
+<tr>
+<td><img src="../../images/rn_2008T1/MS_icon_mating_conflict.gif"></td>
+<td>-</td>
+<td>Conflicting constraint</td>
+</tr>
+
+<tr>
+<td><img src="../../images/rn_2008T1/MS_icon_mating_dangling.gif"></td>
+<td>-</td>
+<td>Missing constraint references</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <br>
+ 
+
+<h2><a name="failure">Mating failure by conflicting constraints</a></h2>
+
+<p>In previous versions, the conflicting constraints only caused a warning to appear without the failure of the mating event itself. With the enhancements in this version, the mating event now completely fails in such situations and is highlighted by the failed event icon (<img src="../../images/rn_2008T1/MS_icon_mating_failure.gif" align="absmiddle">) in the Model Structure. Also the <span class="UI_OPTION" id="tdesign.msg+_CP_ERROR+22">Warning</span> dialog box is displayed where you can see the details about the failure.<br>
+<br>
+<img src="images/mating_fail_warning.gif"></p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

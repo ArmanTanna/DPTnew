@@ -1,0 +1,116 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating the offset of a set of surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Creating the offset of a set of surfaces</h3>
+
+<p>In this job you will apply the <a href="../FWfile/T_FW_Offset.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+122">Offset Surface</span></a> command to a set of surfaces both in the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+482">No trim/extension</span> and in the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+481">Automatic trim/extension</span> mode.<br>
+
+
+<i>Please note that you can accomplish this task by loading file "OffsetSurface.e3".</i><br>
+<br>
+<img border="1" src="../../../images/surfaces/OFF-01.gif"></p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_Offset.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+122">Offset Surface</span></a> command. Set the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+482">No trim/extension</span>: with this mode the offset of each selected surface will be created <i>separately</i> and the resulting offset may differ from the original shape.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Set the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+234">Reference</span> drop-down list to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+348">Normal</span> (for an explanation of the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+235">View</span> option , see "<a href="../HWfile/T_HW_OffsetView.htm">Using the Reference View option</a>"), so as to create the offset surfaces along the normal of each of the selected surfaces (either on the positive or on the negative side: you can double-click the <b>Distance</b> handle to invert the orientation). Then select the surfaces as in the following illustration.<br>
+
+
+<br>
+<img border="1" src="../images/OFF-02.gif"><br>
+<br>
+As you can see from the preview, the resulting shape differs from the one of the original set of surfaces you selected.<br>
+You can define the offset distance by typing its value into the <b>Distance</b> box.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>To maintain the shape of the original surfaces, change <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> to 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+481">Automatic trim/extension</span>: the initial connection between surfaces will be preserved.<br>
+
+
+<br>
+<img border="1" src="../images/OFF-03.gif"><br>
+<br>
+Note that the offset direction along the normal can always be inverted by double clicking on the <b>Distance</b> handle.<br>
+<br>
+<img border="1" src="../images/OFF-04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surfaces.<br>
+<br>
+<img border="1" src="../../../images/surfaces/OFF-05.gif"><br>
+<br>
+Please note that the result in the case of the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+482">No trim/extension</span> mode would be the following:<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/OFF-06.gif"> </td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_OffsetView.htm"><b>Using the Reference View option</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

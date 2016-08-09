@@ -1,0 +1,106 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+ 
+<meta name="T_2009t1" content="cleanup">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Annotations: User Operations</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<a name="top"></a>
+<h4>Annotations: User Operations</h4>
+<p>
+This document provides a quick overview on the main operations you can perform about annotations. See the documentation of the related commands for further details.<br>&nbsp;
+<ul class="noleft">
+<li><b><a href="#Adding">Adding an annotation</a></b>
+<li><b><a href="#Editing">Editing an Annotation</a></b>
+<li><b><a href="#Expanding">Expanding an Annotation</a></b>
+<li><b><a href="#Properties">Reading the Properties of an Annotation</a></b>
+<li><b><a href="#Zoom">Zooming on the Point of Interest of an Annotation</a></b>
+</ul>
+<p>&nbsp;</p>
+<h5><a name="Adding"></a>Adding an Annotation</h5>
+<p class="notop"><hr color="silver">Here is a short description of how to create a new annotation. For details, see <a  href="../HWfile/T_HW_NewAnnotation.htm"><b>Creating a new Annotation</b></a>.<br>&nbsp;
+<ol class="litleft">
+<li>Right-click in the <a href="T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a> and select <a  href="../FWfile/T_FW_NewAnnotation.htm"><b>New Annotation</b></a>
+<li>Select a type.  The <b>Insert</b> drop-down list is defaulted to the <b>Text</b> type.  If the <b>From file</b> option is selected from the drop-down list, a file load dialog box is displayed allowing the user to attach an external file to the annotation.  For instance, a Microsoft&reg; Excel or Microsoft&reg; Word file might be selected.  When the note is <a  href="../FWfile/T_FW_ExpandAnnotation.htm">expanded</a>, a dialog box will display the referenced document. Finally, if you select the <b>From Internet</b> option, in order to associate a <a  href="T_OV_glossary.htm#URL">URL</a>, the <b>Insert from Internet</b> dialog box is displayed, enabling you to enter the desired URL string. The <b>Address</b> box is also a drop-down list containing all of the URLs most recently typed into this dialog, so that reusing URLs is very simple.
+
+<li>Select the <b>Category</b> which the new annotation will belong to (if you select <b>New Category</b>, you will have to enter the new category name in the <b>Name</b> box).
+<li>To associate <a  href="T_OV_Glossary.htm#Keywords.htm"><i>keywords</i></a> with the new annotations, type the keywords, separated by a comma, in the <b>Keywords</b> box.
+<li>In the <b>Point of Interest</b> drop-down list, select <b>Point on face</b> if you want to attach your annotation to a point on a face of a solid, or select <b>Snap point</b> to select a special point, which can be a vertex on a solid, center, end, or mid point on an edge, a point on the corners of an associative surface, a point on profile geometry. Then select a point according to the chosen type. See also <a href="T_OV_Glossary.htm#PointofInterest"><b>Point of Interest</b></a> in the Glossary.
+<li>If the chosen type is <b>From file</b> or <b>From Internet</b>, the default label is the name of the selected file/URL. You can change it as you please. If the chosen type is <b>Text</b>, the label is the first line of the text you typed in.
+</ol>
+<p>&nbsp;</p>
+<h5><a name="Editing"></a>Editing an Annotation</h5>
+<p><hr color="silver">
+To edit an annotation you can do one of the following (<i>see</i> <a  href="../FWfile/T_FW_ModifyAnnotation.htm"><b>Modify Annotation</b></a>):
+<ul class="noleft">
+<li>Double-click on an annotation
+<li>Select the <b>Modify Entity</b> command in the context menu either on top of the annotation entity or in the annotation tree
+<li>Use the <b>Modify<img src="../../images/general/litarr.gif">Annotation</b> command
+</ul>
+The edit command will display the same selection list, as did the creation command.  However, all of the values will be preset with the current data values of the annotation being edited.  The annotation label box becomes modified in color as well as function.  While in the edit command, the label text can be typed directly in the annotation.
+<p>&nbsp;</p>
+<h5><a name="Expanding"></a>Expanding an Annotation</h5>
+<p><hr color="silver">
+Through the context menu or by double-clicking, it is possible to expand an annotation (<i>see</i> <a  href="T_OV_Glossary.htm#ExpandedMode"><b>Expanded Mode</b></a> in the glossary).  
+<p align="center"><IMG border=1 SRC="../images/anno15.gif"></p>
+To start the command, right-click on the annotation label and select <a  href="../FWfile/T_FW_ExpandAnnotation.htm"><b>Expand</b></a> in the context menu. If the annotation is of the <b>Text</b> type (<i>see</i> <a href="../FWfile/T_FW_NewAnnotation.htm"><b>New Annotation</b></a>), a dialog box displaying the associated text will be displayed. 
+<br>If the annotation type is <b>From file</b> (i.e.: there is an attached external file), a dialog box displaying that file will show up.</p>
+
+<p></p>In order to return the annotation to its simplified state, just close the expanded dialog.  The annotation type dictates the interfaces used to interact with the expanded mode dialog.  Like the simplified visibility mode, the leader line maintains connectivity of the dialog with the point of interest.
+<p>&nbsp;</p>
+<h5><a name="Properties"></a>Reading the Properties of an Annotation</h5>
+<p><hr color="silver">The <b>Properties</b> command is also available in the context menu when right-clicking on an annotation. A specific <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_ANOTEPROP.htm"><b>Annotation</b></a> category is also available in the <b>Entity Properties</b> dialog box, displaying information on the annotation. In particular, it will display the files being referenced, category and keywords.
+
+<p>&nbsp;</p>
+<h5><a name="Zoom"></a>Zooming on the Point of Interest of an Annotation</h5>
+<p class="notop"><hr color="silver">A specific command (<a  href="../FWfile/T_FW_ZoomOnPointOfInterest.htm"><b>Zoom on Point of Interest</b></a>) is provided to enable the user to select an annotation and zoom in on its point of interest, very useful to understand where an Annotation is attached, especially in complex models.
+<br>You can start the command either from the <b>View<img src="../../images/general/litarr.gif">Modify</b> menu, or by right-clicking on the annotation and selecting <b>Zoom on Point of Interest</b> in the context menu.
+<BR><br><IMG border=1 SRC="../images/ZOPOI.gif"><br><br>
+
+When the command is started:
+<ul class="noleft">
+<li>The view is panned to center on the point of interest.</li>
+<li>The zoom viewing factor (see <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_VISTE.htm"><b>Zoom factor</b></a> in the <b>View</b> category of <b>System Options</b>) is applied, providing a closer look at the point at which the annotation is attached.</li>
+</ul>
+<BR><IMG border=1 SRC="../images/Zoom.gif"><br><br>Because the annotations are dynamic, it will reposition itself to remain visible even after modifying the view.
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_Annotations.htm"><b>An Introduction to Annotations</b></a>
+<li><a href="T_OV_AnnotationEntity.htm"><b>The Annotation Entity</b></a>
+<li><a href="T_OV_AnnotationGUI.htm"><b>Annotations: the User Interface</b></a>
+<li><a href="../HWfile/T_HW_AnnotationFilterOptions.htm"><b>Annotations: Filter and Filter Options</b></a>
+<li><a href="T_OV_AnnotationBook.htm"><b>Annotations and Visual Bookmarks</b></a>
+<li><a href="T_OV_AnnotationPrinting.htm"><b>Printing out Annotations</b></a>
+<li><a href="T_OV_Glossary.htm"><b>Glossary</b></a>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Annotations</b></a></p>
+<hr color="silver">
+</body>
+</html>

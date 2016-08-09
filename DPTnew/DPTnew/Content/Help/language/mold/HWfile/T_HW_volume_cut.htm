@@ -1,0 +1,118 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2010t1" content="translate">
+<title>Job: Creating a cut and slot using a profile</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Creating an Insert and a slot using a Profile</h2>
+
+<p>In the following tutorial you will create an insert and a slot using a profile in the core. Open the <i>volume_split.e3</i> file available in the <i>Samples/mold</i> folder present at the installation location and follow the steps given below.<br>
+<br>
+The first two steps are the same for creating an insert and a slot in the core.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_volume_split.htm"><span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+30">Split Mold Volume</span></a> command and select the core for the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+21">Part</span> selector.<br>
+<br>
+ <img src="../../../images/mold/volume_split_slot1.gif" border="1"><br>
+<br>
+</li>
+
+<li>From the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+25">Cut-off Insert</span> drop-down list select <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+32">By profile</span> and select the profile, as shown in the image below.<br>
+<br>
+<img src="../../../images/mold/volume_split_1.gif" border="1"><br>
+<br>
+</li>
+</ol>
+
+<ul class="noleft">
+<li><a href="#vol1">Create an insert in the core and cavity.</a></li>
+
+<li><a href="#vol2">Create a slot in the core and cavity</a></li>
+</ul>
+
+<h4><a name="#vol1">Creating an insert in the core and cavity.</a></h4>
+
+<ol class="noleft">
+<li>Select <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+33">Cut only</span> from the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+26">Type</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.<br>
+<br>
+</li>
+
+<li>From the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+27">Extension</span> drop-down list, select <b>Single</b>. Enter the depth value as <b>20</b> in the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+22">Depth</span> mini-dialog box. If necessary, make use of the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+28">Offset</span> and the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+29">Angle</span> check box to provide spacing from the profile and draft to the insert.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create a new <b>X-Reference</b> component which is reflected in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> as <b>Slide Core</b>. The slide core is visualized as seen in the image below after hiding the core.<br>
+<br>
+<img src="../../../images/mold/slide_core.gif" border="1"><br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+28">Offset</span> and <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+29">Angle</span> check box are available for selection in the Graphics Area only on selecting the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+32">By profile</span> in the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+25">Cut-off Insert</span> drop-down list and <b>Single</b> in the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+27">Extension</span> drop-down list.</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<h4><a name="#vol2">Creating a slot in the core and cavity.</a></h4>
+
+<ol class="noleft">
+<li>Select <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+34">Slot only</span> from the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+26">Type</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.<br>
+<br>
+</li>
+
+<li>From the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+27">Extension</span> drop-down list, select <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+37">Double depth</span>. Enter the depth values as <b>50</b> and <b>20</b> in the corresponding <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+23">Depth 1</span> and <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+24">Depth2</span> mini-dialog boxes, as shown in the image below.<br>
+<br>
+<img src="../images/volume_split_slot2.gif" border="1"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the slot in the core, as shown in the image below.<br>
+<br>
+<img src="../../../images/mold/volume_split_slot.gif" border="1"><br>
+<br>
+</li>
+</ol>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+<h5>Also Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_volume_solid.htm"><b>Create an insert and a slot by selecting a predefined solid</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

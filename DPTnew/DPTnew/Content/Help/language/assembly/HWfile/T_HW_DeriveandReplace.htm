@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<TITLE>Job:Deriving and Replacing a Component</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Deriving and Replacing a Component</i></H3>
+
+<p>The goal of this job is to illustrate the <b>Derive and Replace</b> component command.(<i>please note that you can follow this step-by-step example by loading file</i>: "Assy_Pump_Derive.e3" from the Sample/Pump folder of your program installation). 
+<BR><BR><img src="../../../images/assembly/Der_rel1.gif" border="1"><BR><BR>
+<p>The image shows the internal parts of a <b>Hydraulic gear pump</b>. Some components are already unloaded for visibility.</p> 
+<p>Consider this gear pump assembly as your base assembly and it gives a discharge output of value 'X'. Suppose you need to design another gear pump with a higher discharge capacity, you need not design all the individual components all over again. The diameter of the component <b>Piston</b> (Yellow color) has to be increased and all the corresponding diameters for the other assembly components need to be changed. Take the case of component <b>Plate</b> (Blue color). You can use the <a  href="../FWfile/T_FW_DeriveandReplace.htm"><b>Derive and Replace</b></a> command to get a derived component of the <b>Plate</b> and replace the same. Then modify the hole diameters on it and save it as a separate assembly. Similar logical changes can be applied to other variables on other components to design a gear pump that operates on a different discharge value.</p> 
+<TABLE>
+<TR VALIGN=top>
+<TD width="20"><B>1</B>&nbsp;</TD>
+<TD>Load file "Assy_Pump_Derive.e3". You need to modify the hole diameter on the component <b>Plate</b>. Right click on the component and start <a  href="../FWfile/T_FW_DeriveandReplace.htm"><b>Derive and Replace</b></a> command.
+<ul class="noleft">
+<li>Click <img src="../../../images/general/OKbutton.gif" border="0"><b>OK</b> button in the selection list when the <b>X-Reference (component)</b> is selected.<br>
+<li>Save the derived component with name <i>Platederived.e3</i> as shown.<br><br>
+<img src="../images/Del_rel2.gif" border="1">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Replace</b>
+<br>
+Once you save the derived model, it automatically replaces the base model in the assembly. The existing mating relations now refer to the new part. Check the Model Structure to find the X-Reference component <b>PlateDerived</b>. Suppose there is any other relation that is broken, you will get appropriate message that the part will be <b>Unlinked</b>.</ul></td></tr></table><br> 
+</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>2</B></TD>
+<TD>You can now make changes to this replaced component.
+<ul class="noleft">
+<li>Right click <b>PlateDerived</b> and say <b>Set Current</b>.
+<li>Sketch circular profile with Radius 20mm as shown.<br><br>
+<img src="../images/Del_rel3.gif" border="1"><br><br>
+<li>Create a hole using the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_01/FWfile/T_FW_Sl_03_01.htm"><b>Linear Slot</b></a> command as shown.<br><br>
+
+<img src="../../../images/assembly/Der_rel4.gif" border="1"><br><br>
+Similarly you can make additional changes needed on this derived and replaced component assembly and save it with a different name. The changes can be propogated to other components also to have a new gear pump delivering a different output. </ul>
+</TD>
+</TR>
+</TABLE>
+
+<hr color="silver">
+</body>
+</html>

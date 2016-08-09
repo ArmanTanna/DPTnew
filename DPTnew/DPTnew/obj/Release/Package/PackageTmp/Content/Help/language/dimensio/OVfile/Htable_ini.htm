@@ -1,0 +1,120 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Initialization file: an example</title>
+
+<style>.noleft{margin-left:22;}</style> 
+
+<STYLE>.prg {margin-top: 0; font-size: 8pt; font-family: Courier New;}</STYLE>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<pre>
+*
+*   Initialization file for Hole Table
+*
+* --------------------------------------------------------------
+*   Additional field (optional)
+*
+*   The COLUMN key must be followed by the UDC (User Defined Class) whose 
+*   property (UDP) could be associated to the Holes (circles) of the drawing.
+*   The UDC must be of string (character) type. 
+*   This will generate an addition column whose name will be the UDC name.
+*   Second parameter is the maximum length of the associated string. The column
+*   will be large enough to contain the require number of characters,
+
+*   
+***COLUMN ClassName  20
+*
+* --------------------------------------------------------------
+*   Table Sort (mandatory)
+*
+*   SORT  1  by diameter 
+*   SORT  2  by position (X,Y) and Diameter
+*   SORT  3  by type and Diameter
+*   SORT  4  by type, position (X,Y) and Diameter
+*
+SORT  3
+*
+* --------------------------------------------------------------
+*   Weights for different type of holes
+*   (mandatory when the sort mode is by type)
+*
+*   A weight must be defined for each type of hole to define the sort 
+*   priority when sort is required by type (form 1 to 4)
+*
+*   W.HOL  Generic holes         
+*   W.THR  Threaded holes
+*   W.FEA  Other features
+*   W.CUS  Holes with auxiliary data (see COLUMN key)
+*
+*
+W.THR  1
+W.FEA  3
+W.HOL  2
+W.CUS  4
+* 
+* --------------------------------------------------------------
+*   Frame type (mandatory)
+*
+*   FRAME 0 None
+*   FRAME 1 Normal frame (horizontal only)
+*   FRAME 2 Horizontal and Vertical frame
+*
+FRAME  2
+*
+* --------------------------------------------------------------
+*   Reference diameter (mandatory, DO NOT EDIT)
+*
+*   Values are used to identify the threaded and/or counterbored 
+*   holes.
+*
+*
+*        DN        DF        DP        DL        DS1       DS2                          
+*                                                                               
+VALUE    1.60      1.25      1.80      3.50      3.52      0.00
+VALUE    1.80      1.45      2.20      0.00      0.00      0.00
+VALUE    2.00      1.60      2.40      4.50      4.40      0.00
+VALUE    2.50      2.00      2.90      5.00      5.50      0.00
+VALUE    3.00      2.50      3.40      6.00      6.30      6.40
+VALUE    3.50      2.90      3.90      0.00      7.36      0.00
+VALUE    4.00      3.30      4.50      7.50      8.40      8.60
+VALUE    5.00      4.20      5.50      9.50     10.00     10.60
+VALUE    6.00      5.00      6.60     10.50     12.00     12.60
+VALUE    7.00      6.00      7.60      0.00      0.00      0.00
+VALUE    8.00      6.75      9.00     14.00     16.00     16.80
+VALUE   10.00      8.50     11.00     17.00     20.00     21.00
+VALUE   12.00     10.25     13.50     20.00      0.00     25.00
+VALUE   14.00     12.00     15.50     23.00      0.00     28.00
+VALUE   16.00     14.00     17.50     26.00      0.00     31.00
+VALUE   18.00     15.50     20.00     30.00      0.00     34.00
+VALUE   20.00     17.50     22.00     33.00      0.00     37.00
+VALUE   22.00     19.50     24.00     36.00      0.00      0.00
+VALUE   24.00     21.00     26.00     39.00      0.00      0.00
+VALUE   27.00     24.00     30.00     44.00      0.00      0.00
+VALUE   30.00     26.50     33.00     49.00      0.00      0.00
+VALUE   33.00     29.50     36.00     54.00      0.00      0.00
+VALUE   36.00     32.00     39.00     58.00      0.00      0.00
+VALUE   39.00     35.00     42.00     62.00      0.00      0.00
+VALUE   42.00     37.50     45.00     67.00      0.00      0.00
+VALUE   45.00     40.50     48.00      0.00      0.00      0.00
+VALUE   48.00     43.00     52.00     77.00      0.00      0.00
+VALUE   52.00     47.00     56.00     83.00      0.00      0.00
+VALUE   56.00     50.50     62.00     91.00      0.00      0.00
+* 
+* --------------------------------------------------------------
+</pre>
+</body></html>

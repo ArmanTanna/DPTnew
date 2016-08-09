@@ -1,0 +1,174 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally">
+<title>Job: Breaking a component</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Breaking a component</h3>
+
+<table>
+<tr valign="top">
+<td><b>1</b>&nbsp;</td>
+<td>On starting the command from <span class="UI_OPTION" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Assembly.msg+MenuBar_Document_Insert_Assembly+4508">Component</span><img src="../../../images/general/litarr.gif">
+<span class="UI_OPTION" id="MenuBar_Document_Modify_Assembly.msg+MenuBar_Document_Modify_Assembly+4513">Break</span>, you are prompted to select a component. Click on the component you want to break.</td></tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>As soon as you select the component: 
+<ul>
+<li>If it contains no variables, it is immediately broken.</li>
+
+<li>If it contains some variables, in the case the model already contains variables with the same names the <span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+1">Break Component</span> dialog box is displayed, including the following options:<br>
+<br>
+
+<table>
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+2">In file</span></td>
+
+
+
+<td>Displays the total number of variables contained in the model</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+3">Duplicated names</span></td>
+
+
+
+<td>Displays the number of variables whose name is duplicated</td>
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+4">Self driven auto rename</span></td>
+
+
+
+<td>When checked, duplicated variables are automatically renamed and you don't need to select any other option for renaming variables</td>
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+6">Keep original names</span></td>
+
+
+
+<td>Keeps the duplicated variable names unchanged</td>
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+7">AutoRename</span></td>
+
+
+
+<td>Renames the duplicated variables by automatically adding a visible prefix consisting of the letter "N", a sequence number and the "_" character. For example, if the original variable was "A", the duplicated one might be "N1_A".<br>
+You can specify the number of digits of the sequence number by typing or selecting its value in the <span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+13">Digits in numeric prefixes (min)</span> box. In the previous example, if the number of digits was set to 4, the duplicated variable name would be "N0001_A".</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+8">AutoRename (hide)</span></td>
+
+
+
+<td>Renames the duplicated variables by adding a prefix consisting of the character "$", a sequence number and the "_" character. Variables with this kind of prefix are visible in the model/drawing, but they are not in the <!-- <A href="../tools/to_02.htm"> -->spreadsheet<!-- </A> -->. For example, if the original variable was "A", the duplicated one might be "$1_A".<br>
+You can specify the number of digits of the sequence number by typing or selecting its value in the <span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+8">AutoRename (hide)</span> box. In the previous example, if the number of digits was set to 4, the duplicated variable name would be "$0001_A".</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="160"><a name="prefix"></a><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+10">Add prefix</span></td>
+
+
+
+<td>Renames the duplicated variables using the prefix you specify inside the <span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+12">Pre/Suffix</span>. For example, if you type the word "XYZ" inside the 
+
+
+<span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+12">Pre/Suffix</span> box and the original variable was "A", the duplicated one will be "XYZ_A".</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+11">Add suffix</span></td>
+
+
+
+<td>Renames the duplicated variables using the suffix you specify inside the <span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+12">Pre/Suffix</span>. For example, if you type the word "XYZ" inside the 
+
+
+<span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+12">Pre/Suffix</span> box and the original variable was "A", the duplicated one will be "A_XYZ".</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="idd_assy_break.msg+idd_assy_break+9">Throw away</span></td>
+
+
+
+<td>Removes the duplicated variables and replaces them with their static values.</td>
+</tr>
+</table>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td class="noteme" bordercolor="#ffffe1">Note that if the component had been positioned using some mating constraints and the component includes more than one solid/component, the mating event is removed and a warning message is displayed.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5 style="margin-top:0;">Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_outgoing.htm"><b>Create/break a component with outgoing references</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+
+

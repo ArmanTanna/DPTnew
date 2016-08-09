@@ -1,0 +1,45 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t3" content="internally">
+<TITLE>Assign Part Number (thinkparts)</TITLE>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<p>The <img src="../../../images/ThinkParts/ButAssignPN.gif" align="absmiddle"> <B>Assign Part Number</B> command enables you to assign the part data to a part in the selected <b>thinkparts</b> catalog.</p>
+
+<p>You can find this command in the context menu that becomes available when you right-click on a part in an open catalog. <SPAN id="TWOD">Your <b>thinkPLM</b> administrator may have disabled this function for your <b>thinkPLM</b> account, role or group.</SPAN></p> 
+
+<p>Upon execution, <b>thinkparts</b> displays the <a href="mk:@MSITStore:DFTB.chm::/language/dftb/OVfile/T_OV_PartProperties.htm"><b>Part Data</b></a> dialog as defined for the future type of the selected part. This enables you to enter the data relevant to the selected component as defined in your <SPAN id="TWOD"><b>thinkPLM</b></SPAN> configuration. Besides the standard tabs, the dialog contains one or more <b>thinkparts</b> tabs that enable you to inspect the part values defined.</p>
+
+
+<p>Once the part number has been assigned to a part, the latter is inserted as a component in your <SPAN id="TWOD"><b>thinkPLM</b></SPAN> database. A new entry is also added to the <b>thinkparts</b> database with the codified data; this enables you to use the part to generate other components with different part numbers.</p>
+
+<p>The data relevant to the codified components can be exported to remote installations of <b>thinkparts</b> where they can be imported, provided the same <b>thinkparts</b> catalog exists.</p>
+
+<HR color="silver">
+<H5>Related Topics</H5>
+<UL class="noleft">
+<LI><a href="T_FW_RemovePN.htm"><b>Remove Part Number</b></a></LI>
+<li><a href="T_FW_ExportPartnumbers.htm"><b>Export Partnumbers</b></a></li>
+<li><a href="T_FW_ImportPartnumbers.htm"><b>Import Partnumbers</b></a></li>
+</UL>
+
+<hr color="silver">
+</body>
+</html>

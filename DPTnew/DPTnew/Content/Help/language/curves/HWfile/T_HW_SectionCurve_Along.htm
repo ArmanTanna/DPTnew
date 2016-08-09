@@ -1,0 +1,130 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating section curves on a surface along curves</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating section curves on a surface along curves</h3>
+
+<p>Once you have started the <a href="../FWfile/T_FW_cv_14.htm"><b>Section Curve</b></a> command, you can proceed as follows (<i>please note that you can follow this step-by-step example by loading file:</i> "SectionsAlongCurve.e3").<br>
+<br>
+<img border="1" src="../../../images/curves/ALC01.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+265">Entities</span> drop-down list select <b>Surfaces</b>. Select the surfaces you want to create the section curves on and end selection.<br>
+
+
+<br>
+<img border="1" src="../../../images/curves/ALC02.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+220">Sampling Mode</span> drop-down list select 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+223">Along curves</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the curves along which you want the sections to be created:<br>
+<br>
+<img border="1" src="../../../images/curves/ALC03.gif"><br><br>
+The <b>U</b> mini-dialog box/handle pair is displayed at the two endpoints of the selected curves, so as to enable you to change the initial and the final point at which to place the section along the selected curves, either interactivley or by supplying the parameter value.
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set the <b>No. of sections</b> to 20.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the distribution method for the sectioon planes along the curves in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+225">Distribution</span> drop-down list: 
+
+
+
+<table>
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+226">Parametric</span></td>
+
+
+<td class="ver9">Planes are positioned at equal variations of the curve natural parameter.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+227">Curvilinear</span></td>
+
+
+<td class="ver9">Planes are positioned at equal variations of the curve normalized parameter. Parameter variations are proportional to the curve length.<br>&nbsp;
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curves.<br>If you select ed the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+226">Parametric</span> parameterization you will obtain the following result:
+
+
+<br><br>
+<img border="1" src="../../../images/curves/ALC04.gif"> 
+<br><br>
+while if you selected the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+227">Curvilinear</span> parameterization the result will be the following:
+
+
+<br><br>
+<img border="1" src="../../../images/curves/ALC05.gif"> 
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

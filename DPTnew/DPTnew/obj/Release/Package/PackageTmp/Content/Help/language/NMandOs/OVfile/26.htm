@@ -1,0 +1,81 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>How to use Booleans</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>How to use Booleans</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application enables you to use, besides a large group of features and Smart Objects, several Boolean operations. The following section explains what Booleans are, how to use them, and how they can effectively help you when modeling solids.</p>
+
+<p>Here you will find suggestions on how, when and where to use Booleans, together with a few examples. The use of Booleans in advanced design tasks, however, is for expert users only.</p>
+
+<h4>Simple examples of Boolean operations</h4>
+<ul class="noleft">
+<li><b>Union</u></b> - <a href="26_union.htm">How to generate complex models using the Boolean operation Union</a>
+<li><b>Difference</b> - <a href="26_difference.htm">How to design molds using the Boolean operation Difference</a>
+<li><b>Intersection</b> - <a href="26_intersection.htm">How to generate models using the Boolean operation Intersection</a>
+</ul>
+
+<h4>When to use Boolean operations</h4>
+<p>Boolean operations should be used in the following cases:</p>
+<ul class="noleft">
+<li>To rapidly generate core/cavity in mold making, when starting from the finished model and from parting planes. [<a href="26_shape.htm">See this example</a>]
+<li>To work on complex shapes taking the advantage of solids and surfaces interactions; surface modeling can be easily combined with solids.
+<ul class="noleft">
+<li>See <a href="26_booleans_opensolids.htm">Combining surfaces and solids with Booleans</a>.
+</ul>
+<li>To generate a pattern or mirror of complex features, so that they can be easily managed. Furthermore, during a complex modeling session, you can separate the solids which, once combined with the Mirror and Pattern Boolean operations, will generate the final shape. [<a href="26_pattern_mirror.htm">See some examples</a>]  
+<li>To solve <b>filleting problems</b>, when, for example, fillets are <b>colliding</b>. [<a href="26_fillet_collision.htm">See this example</a>]
+<li>Solve complex subtraction cases, for example when a plastic component includes a part which cannot be easily obtained by means of a shell operation from the external part; or when such operation is complex (as for parts derived from legacy data).
+</ul>
+
+<h4>When NOT to use Boolean operations: common mistakes</h4>
+<p>Boolean operations should NOT be used in the following cases:</p>
+<ul class="noleft">
+<li>Before starting a Boolean operation, you should verify whether the same results can be achieved using simpler processes such as protrusions, slots, cutouts, Smart Objects etc.<br>
+
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+It is advisable not to use Boolean operations when features would allow you to obtain the same results, since features can be modified much more easily than Boolean operations.
+</td></tr></table><br>
+<li>Boolean operations generate events inside the <b>Model Structure</b> of the model which can reduce the control you have over the individual operations you perform on the solids obtained from the Boolean operations themselves. For example you cannot easily modify the order of the events in the structure.
+<li> <a href="26_not_use_bool.htm">Common mistakes when using Booleans</a>
+</ul>
+
+<h4>Useful tips</h4>
+<p>You can generate <i>multishell</i> solids if with a single <b><a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> operation you obtain more processing solutions; by doing so, you do not need to perform several <b>
+<a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> operations to achieve the same result. Pay particular attention to the total number of Boolean operations. [See some <a href="26_general_rules.htm">Useful Tips</a>]</p>
+
+
+<hr color="silver">
+</body>
+</HTML>

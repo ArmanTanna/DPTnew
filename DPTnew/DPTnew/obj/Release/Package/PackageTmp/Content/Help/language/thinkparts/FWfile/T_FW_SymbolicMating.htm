@@ -1,0 +1,205 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Symbolic Mating (thinkparts)</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">  
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<p>The <img src="../../../images/icons/icons_medium/id_ek_tmm_smg.bmp" alt="" border="0" align="absmiddle"> <b>Symbolic Mating</b> command enables you to easily define, modify or delete a set of constraints to be used when <a href="T_FW_ImportPart.htm">importing</a> or replacing a part.</p>
+
+<p>You can find this command in the <b>Tools</b> menu of the <b>think<font color="#FF0F00">3</font></b> application. If not present, you may have to <a href="mk:@MSITStore:forcus.chm::/language/tools/to_10/FWfile/T_FW_to_03_10.htm">create a new toolbar</a> with the <b>Tools</b> <img src="../../../images/general/litarr.gif"> <b>Customize</b> command. The command is not available when the drafting environment is active.</p>
+
+
+<p><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+	<tr>
+		<td class=noteme bordercolor="#ffffe1">The symbolic mating environment is enabled only if the current document is a model; the model must contain the parametric template representing the part.</td>
+	</tr>
+</table>
+</p> 
+
+
+<p>Symbolic mating constraints can be defined in any moment during the creation of a catalog. It's obviously only after you have defined some symbolic mating constraints for a part that, when positioning that part in the <b>think<font color="#FF0F00">3</font></b> application, you'll have to specify its constraints inside the current model.</p>
+
+<p>Upon execution, the command displays the following dialog box:</p>
+<img SRC="../images/SymbolicMatingDlg.gif">
+
+
+<p>The operations that you are enabled to carry out are:</p>
+
+<p><ul>
+	<li><a href="#define"><b>Define a constraint</b></a>
+	<li><a href="#modify"><b>Modify a constraint</b></a>
+	<li><a href="#delete"><b>Delete a constraint</b></a>
+</ul>
+</p>
+
+<p>&nbsp;</p>
+
+<A name="define"></A>
+<H4>Defining a symbolic mating constraint</H4>
+
+<p>To define a symbolic mating constraint:
+</p>
+
+<table>
+	<tr valign="top">
+		<td><b>1</b></td>
+		<td>First, define the constraint <b>Direction</b>, which can be:<br>&nbsp;
+			<table>
+				<tr valign="top">
+					<td width=125><b>Outgoing</b></td>
+					<td>the kind of constraint that will be used when components are to be positioned</td>
+				</tr>
+				<tr valign="top">
+					<td><b>Incoming</b></td>
+					<td>the kind of constraint that will be used when components are to be replaced</td>
+				</tr>
+				<tr valign="top">
+					<td><b>Both</b></td>
+					<td>the kind of constraint that will be used both when components are to be positioned and when they are to be replaced.<br>&nbsp;</td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr valign="top">
+		<td><b>2</b></td>
+		<td>Define the constraint <b>Type</b>, which can be:<br>&nbsp;
+			<table>
+				<tr valign="top">
+					<td><IMG SRC="../../../images/thinkparts/v5_tpi04_2000.gif"></td>
+					<td><b>Coincident Aligned</b></td>
+					<td>To create the constraint you have to select a face of the component. When positioning the component, the constrained face will be positioned on the same plane of the face of the model you will select and with the normals pointing in the same sense.</td>
+				</tr>
+				<tr valign="top">
+					<td><IMG SRC="../../../images/thinkparts/v5_tpi05_2000.gif"></td>
+					<td><b>Coincident Antialigned</b></td>
+					<td>To create the constraint you have to select a face of the component. When positioning the component, the constrained face will be positioned on the same plane of the face of the model you will select but with the normals pointing in opposite sense.</td>
+				</tr>
+				<tr valign="top">
+					<td><IMG SRC="../../../images/thinkparts/v5_tpi06_2000.gif"></td>
+					<td><b>Parallel</b></td>
+					<td>To create the constraint you have to select a face of the component. When positioning the component, the constrained face will be positioned on a plane parallel to the one of the face of the model you will select and with the normals pointing in the same sense.</td>
+				</tr>
+				<tr valign="top">
+					<td><IMG SRC="../../../images/thinkparts/v5_tpi07_2000.gif"></td>
+					<td><b>Concentric</b></td>
+					<td>To create the constraint you have to select a face of revolution of the component. When positioning the component, the constrained face will be positioned coaxially aligned to a revolution face you will select in the model.<br>&nbsp;</td>
+				</tr>
+			</table>
+			<table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+				<tr>
+					<td class=noteme bordercolor="#ffffe1"><b>Face highlighting</b><br><br>
+Note that as soon as you select the constraint, only those faces to which the constraint can be applied will be highlighted. So, if you select a coincidence constraint, only plane faces will be higlighted. On the contrary, if you select the alignment constraint, only faces of revolution will be highlighted.</td>
+				</tr>
+			</table><br>&nbsp;</td>
+		</tr>
+		<tr valign="top">
+			<td><b>3</b></td>
+			<td>In the <b>Name</b> box, type the constraint name, or select it in the drop-down list.<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+				<tr>
+					<td class=noteme bordercolor="#ffffe1"><b>Constraint names</b><br><br>Constraint names are very important when replacing components. In fact, when you replace a component, constraints to the model will be retained only if their names are the same both in the old and in the new component. Be careful <b><i>not to assign the same Name</b></i> to two or more constraints; it may prevent the <a href="T_FW_ReplacePart.htm">Replace Part</a> command from functioning correctly.</td>
+				</tr>
+			</table><br></td>
+		</tr>
+		<tr valign="top">
+			<td><b>4</b></td>
+			<td>In the <b>Order</b> box, type the number corresponding to the order in which you want the constraint to be requested when positioning the component; order number corresponding to different constraints will be sorted in ascending order.<br>&nbsp;</td>
+		</tr>
+		<tr valign="top">
+			<td><b>5</b></td>
+			<td>In the <b>Description</b> box, type the prompt message that will be displayed when positioning the component, or select it in the drop-down list.<br>&nbsp;</td>
+		</tr>
+		<tr valign="top">
+			<td><b>6</b></td>
+			<td>Select <b>OK</b>.</td>
+		</tr>
+	</table>
+
+<p>&nbsp;</p>
+
+<A name="modify"></A>
+<H4>Modifying a constraint</H4>
+
+<p>To modify a constraint, proceed as follows:
+</p>
+
+<table>
+	<tr valign="top">
+		<td valign="bottom"><b>1</b></td>
+		<td>Select <b>Edit</b> <img src="../../../images/thinkparts/v5_tpi10_2000.gif"></td>
+	</tr>
+	<tr valign="top">
+		<td><b></b></td>
+		<td></td>
+	</tr>
+	<tr valign="top">
+		<td><b>2</b></td>
+		<td>In the part, select the constraint to be modified.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>3</b></td>
+		<td>Modify the values you need to change (Order, Name, Description)
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1">
+			<tr>
+				<td class=noteme bordercolor="#ffffe1"><b>After modifying a constraint ...</b><br><br>
+... to end the edit session for that constraint select <b>OK</b>. If you need to modify some more constraints, you needn't select <b>OK</b>, but, before changing the values, you must obviously remember to select the new constraint on the part.</td>
+			</tr>
+		</table><br></td>
+	</tr>
+	<tr valign="top">
+		<td><b>4</b></td>
+		<td>Select <b>OK</b>.</td>
+	</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<A name="delete"></A>
+<H4>Deleting a constraint</H4>
+
+<p>To delete a constraint, proceed as follows:
+</p>
+
+<table>
+	<tr valign="top">
+		<td valign="bottom"><b>1</b></td>
+		<td>Select <b>Delete</b> <img src="../../../images/thinkparts/v5_tpi11_2000.gif"></td>
+	</tr>
+	<tr valign="top">
+		<td><b></b></td>
+		<td></td>
+	</tr>
+	<tr valign="top">
+		<td><b>2</b></td>
+		<td>Select the constraint to be removed:<BR><BR><IMG border=1 SRC="../../../images/thinkparts/v5_tpi12_2000.gif"><BR><BR>
+The constraint is immediately removed.<br>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td><b>3</b></td>
+		<td>Select <b>OK</b>.</td>
+	</tr>
+</table>
+
+<HR color="silver">
+<H5>Try to...</H5>
+<UL class="noleft">
+<LI><a href="../HWfile/T_HW_ConstrWasher.htm"><b>Apply symbolic constraints to a washer</b></a></LI>
+<LI><a href="../HWfile/T_HW_ConstrScrew.htm"><b>Apply symbolic constraints to a screw</b></a></LI>
+</UL>
+
+<HR color="silver">
+</BODY>
+</HTML>

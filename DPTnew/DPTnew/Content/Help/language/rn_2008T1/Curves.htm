@@ -1,0 +1,538 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2008t1" content="translate">
+<title>New Curve &amp; Surface Functionalities and Improvements</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Nicola Binaghi">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+
+<style type="text/css">
+.prel{
+ color: Gray;
+}
+</style>
+
+<style type="text/css">
+.noleft{
+ margin-left:22;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BMAAA==" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>New Curve &amp; Surface Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following enhancements to the Curve &amp; Surface commands.<br>
+</p>
+
+<ul class="noleft">
+<li><a href="#P0000337">New <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+125">Extend Curve</span> command</a></li>
+
+<li><a href="#P0000338">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+255">Offset Curve on Surface</span> and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> commands</a></li>
+
+<li><a href="#P0000349">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span> command</a></li>
+
+<li><a href="#P0000347">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span> command</a></li>
+
+<li><a href="#P0000361">Improvements in the <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+36">Pipe Surface</span>, <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> and <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> commands</a></li>
+
+<li><a href="#P0000363">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span> command</a></li>
+
+<li><a href="#P0000365">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command</a></li>
+
+<li><a href="#P0000364">New <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> command</a></li>
+
+<li><a href="#P0000366">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command</a></li>
+
+<li><a href="#P0000291">New <span class="UI_COMMAND_NOBOLD" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+1">Full Round Fillet</span> command</a></li>
+
+<li><a href="#P0000245">New <span class="UI_COMMAND_NOBOLD" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+1">Cutting Line</span> command</a></li>
+
+<!-- <li><a href="#P0000306">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+265">Break Solid</span> command</a></li> -->
+<li><a href="#KeepSpan">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+34">Intersect Curve</span>, <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span>, <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+39">Section Curve</span>, <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span> (<span class="UI_OPTION_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span> mode) commands</a></li>
+
+<li><a href="#CNV2NURBS">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="CurveUI.msg+_CURVE_UI_LABEL_+296">Convert Curve to NURBS</span> and <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span> commands</a></li>
+
+<li><a href="#CAPPING">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command</a></li>
+
+<li><a href="#DRAFTER">New <span class="UI_COMMAND_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command</a></li>
+
+<li><a href="#MCPS">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span> command</a></li>
+
+<li><a href="#P3D">3D Profile selection</a></li>
+</ul>
+
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000337 - OWN: JCME -->
+<h2><a name="P0000337"></a>New <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+125">Extend Curve</span> command</h2>
+
+<p>The new <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+125">Extend Curve</span> command (<span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span> <img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1109">Curve</span> <img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1125">Extend</span>) enables you to modify the length of a selected curve by maintaining any of the following:</p>
+
+<ul>
+<li>Its <i>tangency</i> continuity condition at the selected end point.</li>
+
+<li>Its <i>curvature</i> continuity condition at the selected end point.</li>
+
+<li>Its <i>torsion</i> continuity condition at the selected end point.</li>
+
+<li>Its <i>curvature plot</i> continuity condition at the selected end point.</li>
+
+<li>Its <i>infinite continuity</i> condition at the selected end point, which means the length will be increased by augmenting the value of the parameter describing the curve in its parametric equation.</li>
+
+<li>Its <i>geometric tangency</i> continuity condition at the selected end point. The behavior of the command when this mode is selected is the same as the one of the former <span class="OLD">Extend Tangent</span> command. As a consequence, the latter has been removed.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Minor UI changes in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+35">Connect Curve</span> command</b><br>
+ For the sake of homogeneity and to improve readability and user friendliness, some changes have been made in the user interface of the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+35">Connect Curve</span> command. The former <span class="OLD">Continuity</span> drop-down lists have been changed to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By</span>. The former <span class="OLD">Tangent</span> option has been changed to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+130">Tangency</span>.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000338 - OWN: JCME -->
+ 
+
+<h2><a name="P0000338"></a>Enhancements in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+255">Offset Curve on Surface</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> commands</h2>
+
+<p>Significant enhancements have been made in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+255">Offset Curve on Surface</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> commands.</p>
+
+<ul>
+<li>When some of the resulting offset curves are overlapped, a new <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+437">Curve(s) to Be Deleted</span> selector is now available in both commands when the resulting offsets include overlapping curves, so as to enable you to delete them. The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+436">Remove All Overlaps</span> check box is also available, enabling you to remove all overlapping curves simultaneously, without the need of selecting them one by one.</li>
+
+<li>The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+431">Update preview at end drag</span> check box has been added to both commands. It enables you to control the preview update mode when the offset curves are dragged using the proper handle.</li>
+
+<li>Two new check boxes are now available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+255">Offset Curve on Surface</span> command: <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+439">Use base surface</span> and <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+438">Use inferred surface</span>. 
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+439">Use base surface</span> check box is displayed when all of the selected chains of curves (except the planar ones, if any) are composed of curves of the <i>Curve On Surface</i> type (COS).</li>
+
+<li>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+438">Use inferred surface</span> check box is displayed when at least one of the selected curves is a 3D curve (and none is a COS).</li>
+</ul>
+</li>
+
+<li>The new <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is also available in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+255">Offset Curve on Surface</span> command. It enables you to create curves which retain a link to the curves they derive from. See "Associativity" in "An Overview On Curves" in the online help for further details.</li>
+
+<li>A new very useful possibility is now available in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+421">Offset on Plane</span> command. When the <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box is selected it is possible to select a face of a solid so as to automatically select all its boundary curves. The new selector will then read <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span>.</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000349 - OWN: PABO -->
+ 
+
+<h2><a name="P0000349"></a>Enhancements in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span> command</h2>
+
+<p>Starting from this version, when the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list of the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span> is set to <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span> and some control points have been selected, using some keys of the keyboard, you can directly move points along the direction of an axis. Proceed as follows:</p>
+
+<ul>
+<li>Pressing one of the following keys (no matter whether upper or lower case), the selected points move along: 
+
+<table>
+<tr valign="top">
+<td width="30"><b>H</b> </td>
+<td>The horizontal direction of the screen (the cursor changes to following: <img src="../../images/rn_2008T1/H_cursor.gif" align="absmiddle">).</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>V</b> </td>
+<td>The vertical direction of the screen (the cursor changes to following: <img src="../../images/rn_2008T1/V_cursor.gif" align="absmiddle">).</td>
+</tr>
+
+<tr valign="top">
+<td width="30" valign="top"><b>D</b> </td>
+<td>The depth direction, that is the one perpendicular to the plane of the screen (the cursor changes to following: <img src="../../images/rn_2008T1/D_cursor.gif" align="absmiddle">).</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>X</b> </td>
+<td>The X direction of the Work Plane (the cursor changes to following: <img src="../../images/rn_2008T1/X_cursor.gif" align="absmiddle">).</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>Y</b> </td>
+<td>The Y direction of the Work Plane (the cursor changes to following: <img src="../../images/rn_2008T1/Y_cursor.gif" align="absmiddle">).</td>
+</tr>
+
+<tr>
+<td valign="top" width="30"><b>W</b> </td>
+<td>The Z direction of the Work Plane (the cursor changes to following: <img src="../../images/rn_2008T1/Z_cursor.gif" align="absmiddle">).</td>
+</tr>
+</table>
+</li>
+
+<li>To release the constraint, press another of the above listed keys to change the constraint.</li>
+
+<li>The movement step is view dependent (view size divided by 10).</li>
+
+<li>Pressing <b>SHIFT</b> while using the above listed keys will produce a negative movement along the corresponding direction.</li>
+</ul>
+
+<p>Finally, note that starting from this version it is possible to increase the precision of the free-hand control point positioning mechanism as described in "<a href="General.htm#P0000271">Smooth point positioning using the mouse</a>".</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000347 - OWN: PABO -->
+ 
+
+<h2><a name="P0000347"></a>Enhancements in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span> command</h2>
+
+<p>Significant enhancements have been made in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span> command.</p>
+
+<ul>
+<li><a href="#RSEXT">Extension to surface-based drives</a></li>
+
+<li><a href="#RSSIDE">Side of the motion</a></li>
+
+<li><a href="#RSASS">Associativity</a></li>
+</ul>
+
+<h3><a name="RSEXT"></a>Extension to surface-based drives</h3>
+
+<p>You have the possibility to select a set of surfaces to be used as the second drive only. The picture below shows the swept surface where the section remains tangent to the cylinder surface. The old <span class="OLD">Second Drive Curves</span> selector has been replaced by the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+158">Second Drives</span> drop-down list. See "Using the Rake Sweep Command along a Surface" in the online help for details.<br>
+<br>
+ <img border="1" src="images/RS02.gif"><br>
+<br>
+</p>
+
+<!--  -->
+<h3><a name="RSSIDE"></a>Side of the motion</h3>
+
+<p>You can select one side (or both) where the swept surface will be generated if the section is not located at an end point of the first drive. A specific handle is displayed in such cases:<br>
+<br>
+ <img border="1" src="images/RS01.gif"><br>
+<br>
+For further details, see "Creating a Sweep Surface by Selecting the Side of the Motion" in the online help</p>
+
+<h3><a name="RSASS"></a>Associativity</h3>
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box enables you to create those associative entities called <i>Skins</i>, that is open solids, which retain a link to the surfaces/curves they derive from (see "An Overview of Surfaces: Associative Surfaces (Skins)" in the online help for further details).</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000361 - OWN: JAGO,AMADOU -->
+ 
+
+<h2><a name="P0000361"></a>Improvements in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+36">Pipe Surface</span>, <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> and <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> commands</h2>
+
+<p>The command formerly known as <span class="OLD">Advanced Pipe</span> has been renamed <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+36">Pipe Surface</span>, while the old <span class="OLD">Pipe Surface</span> command has been removed.</p>
+
+<p>In addition, self-intersections are now detected and pointed out through a specific warning message. In the following example the specified value of the radius is too big, thus causing the resulting surface to have a self-intersection. A specific message is then issued to warn you about this situation.<br>
+<br>
+ <img border="1" src="images/SelfIntersection.gif"></p>
+
+<p style="margin-top:8;">Please note that the same self-intersection detection mechanism is also enabled in the following commands:</p>
+
+<ul>
+<li><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></li>
+
+<li><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span>.</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000363 - OWN: JAGO, AMSA -->
+ 
+
+<h2><a name="P0000363"></a>Enhancements in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span> command</h2>
+
+<p>Significant enhancements have been made in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span> command.</p>
+
+<ul>
+<li><a href="#CC">Management of closed curves</a></li>
+
+<li><a href="#EM">Extension Method</a></li>
+</ul>
+
+<h3><a name="CC"></a>Management of closed curves</h3>
+
+<p>It is now possible to manage also tangency and curvature continuity along the surface closures.<br>
+<br>
+ <img border="1" src="images/LoftedClosedG2.gif"><br>
+<br>
+ When the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+283">Close</span> check box is selected, the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+136">Continuity</span> mini-dialog box is displayed nearby. See "Managing Closed Curves with the Lofted Surface Command" in the online help for further details.</p>
+
+<h3><a name="EM"></a>Extension Method</h3>
+
+<p>A new option is available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+282">Extend</span> check box is displayed so as to allow the extension of the surface in the perpendicular direction to the boundary set. For further details see "Extending the Resulting Surface with the Lofted Surface Command" in the online documentation.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000365 - OWN: JAGO,LAURENT -->
+ 
+
+<h2><a name="P0000365"></a>Enhancements in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command</h2>
+
+<p>The following enhancements have been made in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> command.</p>
+
+<ul>
+<li><a href="#ASSOC">Reference Surface Associativity</a></li>
+
+<li><a href="#INTER">Self-intersection Detection</a></li>
+
+<li><a href="#SEMAT">Section Matching</a></li>
+
+<li><a href="#SCALE">Scaling along Two Drives</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><a name="ASSOC"></a>Reference Surface Associativity</h3>
+
+<p>Associativity is now available also when the command is applied to a skin (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+103">Sweep</span> drop-down list set to <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+105">Surface</span>). See the "Associativity" note in the command description of the online help for further details.</p>
+
+<h3><a name="INTER"></a>Self-intersection Detection</h3>
+
+<p>Specific warnings are displayed when self-intersections are detected. In the following example an ellipse has been swept along the drive curves and the resulting surface has a self-intersection which is automatically detected by the program.<br>
+<br>
+ <img border="1" src="images/SelfIntersection2.gif"><br>
+</p>
+
+<h3><a name="SEMAT"></a>Section Matching</h3>
+
+<p>When a <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span> is performed with several sections, starting from this version there are different ways to match their discontinuities (if any).<br>
+ The new <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+80">Section Matching</span> node has been added under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+45">Match Curve-to-Curve Sections</span> option&nbsp;&#151;&nbsp;already existing in former versions&nbsp;&#151;&nbsp;has been moved here.<br>
+ In the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+81">Matching type</span> drop-down list, you can select the actual matching mode to be used by the application for the section mapping. See the command description in the online help for the available options and further details.</p>
+
+<!--  -->
+<h3><a name="SCALE"></a>Scaling along two drives</h3>
+
+<p>When the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> is set to <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+100">Bi-driven</span>, and when possible, the sections are scaled so as to keep in contact with the drives. Up to former versions, the scaling was isotropic. Starting from this version, a new <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+123">Scaling</span> drop-down list has been added to the selection list. See the details in the command description in the online help.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000364 - OWN: JAGO -->
+ 
+
+<h2><a name="P0000364"></a>New <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> command</h2>
+
+<p>The new <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+250">Rotational Sweep</span> command is now available (<span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7616">Rotational Sweep</span>). It enables you to create rotational sweep surfaces by revolving a set of sections <!-- &nbsp;&#151;&nbsp;which can be curves or a surface&nbsp;&#151;&nbsp; -->
+ about an axis you can specify directly or let the program use a default one. Optionally, you can specify a set of drive curves which the rotational surface will have to follow. In addition, self-intersections are detected and pointed out through a specific warning message. See the complete command description in the online help and "Creating a Rotational Sweep Surface" for an example of usage.</p>
+
+<!--  -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000366 - OWN: JAGO, LAURENT -->
+ 
+
+<h2><a name="P0000366"></a>Enhancements in the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> command has been significantly improved. Target <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+7">Curvature Curves</span> with tangency discontinuity points can now be used: tangency discontinuity points will be taken into account in the computation to generate the plot.</p>
+
+<p>In the following image the violet curve is the original curve, while the green ones are the curvature target curves.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/TGC_before.gif"><br>
+<br>
+ And here is the result of the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+2">Curve Target Curvature</span> in the new version.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/TGC_after.gif"><br>
+<br>
+</p>
+
+<p>Please note the differences in the curvature plots of the resulting curves between the former version and the current.</p>
+
+<br>
+ 
+
+<table border="1" bordercolor="black" style="margin-left: 30;">
+<tr>
+<td bordercolor="white"><img border="1" src="../../images/rn_2008T1/TGC_plot_after_part7T1.gif"> </td>
+<td bordercolor="white"><img border="1" src="../../images/rn_2008T1/TGC_plot_after_part.gif"> </td>
+</tr>
+
+<tr>
+<td bordercolor="white">Former</td>
+<td bordercolor="white">Current</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>The "wave" effect obtained in previous version around tangency discontinuity points is no longer there so that the shape of the plot is much more compliant with that of the target curvature curves.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000291 - OWN: TURACCIO -->
+ 
+
+<h2><a name="P0000291"></a>New <span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+1">Full Round Fillet</span> command</h2>
+
+<p>The new <span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+1">Full Round Fillet</span> command (<span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1431">Fillet</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1437">Full Round</span>) enables you to create a fillet tangent to three different surfaces.<br>
+<br>
+ <img border="1" src="../../images/rn_2008t1/FRF01.gif">&nbsp;<img border="1" src="../../images/rn_2008t1/FRF02.gif"><br>
+<br>
+See the online help for a complete command description.<br>
+&nbsp;</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Removal of old <span class="OLD">Triple Fillet</span> command</b> <br>
+ The old <span class="OLD">Triple Fillet</span> has been removed. The rare special cases handled by the old command can still be managed through the solid fillet commands, after converting the involved surfaces to solid entities.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000245 - OWN: DALSANTO -->
+ 
+
+<h2><a name="P0000245"></a>New <span class="UI_COMMAND" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+1">Cutting Line</span> command</h2>
+
+<p>The new <span class="UI_COMMAND" id="SMCuttingCv.msg+_SMCuttingCv_LABEL_+1">Cutting Line</span> command (<span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../images/general/litarr.gif"> <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7908">Cutting Line</span>) enables you to perform the cutting step of the metal stamping process.<br>
+It computes the cutting line corresponding to the contour of the unbent wings along which the metal would be cut.</p>
+
+<table style="margin-left:30;margin-top:10;margin-bottom:10;">
+<tr valign="top">
+<td><img border="1" src="../../images/rn_2008T1/TL001.jpg"> </td>
+<td valign="bottom"><b>1</b>&nbsp;&#151;&nbsp;Pivot curves<br>
+ <b>2</b>&nbsp;&#151;&nbsp;Contour<br>
+ <b>3</b>&nbsp;&#151;&nbsp;Base surfaces<br>
+ <b>4</b>&nbsp;&#151;&nbsp;Target surfaces<br>
+&nbsp;</td>
+</tr>
+</table>
+
+<p>See the command description in the online help for further details on the command and "Creating a Cutting Line" for an example of how to use it.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: KeepSpan_noPRJID - OWN: JCME, BEAL -->
+ 
+
+<h2><a name="KeepSpan"></a><a name="CTX_KeepAllArcs"></a>Enhancement in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+34">Intersect Curve</span>, <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span>, <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+39">Section Curve</span>, <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span> (<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span> mode) commands</h2>
+
+<p>Starting from this version, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+420">Keep all arcs</span> check box, available in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+34">Intersect Curve</span>, <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+33">Project Curve</span>, <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+39">Section Curve</span> and <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span> (<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span> mode) commands, will show up only when necessary, that is only if small spans are actually detected in the resulting curves. The behavior of the check box remains the following.</p>
+
+<ul>
+<li>When the box is checked, all spans are included in the resulting curve (including possible small spans, default).</li>
+
+<li>When the box is cleared, possible small spans will be ignored in the resulting curve.</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: ARCJoints - OWN: JCME -->
+ 
+
+<h2><a name="#CNV2NURBS"></a>Enhancements in the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+296">Convert Curve to NURBS</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span> commands</h2>
+
+<p>The new <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+575">Show Arc Joints</span> check box has been added to the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+296">Convert Curve to NURBS</span> and <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span> commands. This option enables you to display a preview of the arc joints that you will obtain on the resulting NURBS entity. In case of surfaces, the option is active only after you have selected the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (&nbsp;<img border="0" align="absmiddle" src="../../images/general/preview.gif">&nbsp;) button.<br>
+ &nbsp;</p>
+
+<ul>
+<li>When the box is checked, the arc joints are displayed.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/CV_AY_AJ.gif">&nbsp;<img border="1" src="../../images/rn_2008T1/SR_AY_AJ.gif"><br>
+ &nbsp;</li>
+
+<li>When the box is cleared, the arc joints are not displayed.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/CV_NO_AJ.gif">&nbsp;<img border="1" src="../../images/rn_2008T1/SR_NO_AJ.gif"></li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CAPPING - OWN: NIRE, PABO -->
+<h2><a name="CAPPING"></a>Enhancement in the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span> command</h2>
+
+<p>A new option is now available in the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list (enables you to select the best type of surface for your goals): <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+148">Saddle curvature</span>.</p>
+
+<p>The surface you will obtain will be defined as a torus. You can define:</p>
+
+<ul>
+<li>the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> of rotation of the torus (see "<i>How to define an axis or a line</i>" for details) and its <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>.</li>
+
+<li>the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+197">Inner radius</span>, by selecting the corresponding check box and typing the value into the adjacent box.</li>
+
+<li>the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+196">Section radius</span>, also in this case by selecting the corresponding check box and typing the value into the adjacent box.</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: DRAFTER - OWN: JCME -->
+ 
+
+<h2><a name="DRAFTER"></a>New <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command (<span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"> <span class="UI_OPTION" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span>) enables you to create surfaces along a drive contour and tangent to some other surfaces used as drives.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/DRA01.gif"><br>
+<br>
+It can be used to add a draft angle to casting and forging parts.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/DRA02.gif"><br>
+<br>
+See the online help for a complete description of the command and an example of use ("Creating Surfaces along a Drive Contour and Tangent to Some Surface Drives").</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: MCP SRF - OWN: NIRE -->
+ 
+
+<h2><a name="MCPS"></a>Enhancements in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span> command</h2>
+
+<p>A significant enhancement has been made in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span> command. Starting from this version it is possible to increase the degree of the surface in both or just in one of the two parametric directions.</p>
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+190">Increase degree</span> item has been added to the selection list.</p>
+
+<p>When the editing mode (<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span>) is set to <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span> or to <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span>, clicking <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+190">Increase degree</span> causes the degree of the selected surface to be increased by one at each click in both directions, unless you have selected one "row" or one "column" of control points, in which case the increase will be applied only to the corresponding parametric direction (U or V respectively). The preview is immediately updated enabling you to interactively assess the possible result.<br>
+<br>
+ <img border="1" src="../../images/rn_2008T1/MCP_UV.gif"></p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: 3DD - OWN: JCME -->
+<h2><a name="P3D">3D Profile selection</a></h2>
+
+<p>Starting from this version, it will be possible to select <i><a href="Sketcher.htm#P277">3D profiles</a></i> or <i>curves inside 3D profiles</i> within all the curve and surface creation/modification commands where it is possible to select a <i>2D profile</i> or a <i>curve inside a 2D profile</i> respectively.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+

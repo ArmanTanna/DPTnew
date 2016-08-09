@@ -1,0 +1,179 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Revisor" content="Chitti Sowjanya">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a Partially Broken View</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Creating a Partially Broken View</h2>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="5%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<table>
+<tr>
+<td width="55"><img src="../../../images/general/warning3.gif" border="0"></td>
+<td><b>Undo/Redo Buffer Reset</b></td>
+</tr>
+</table>
+
+The <a href="../FWfile/T_FW_dw_05_03.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_BreakLines.msg+MenuBar_Document_Insert_BreakLines+4577">Partial Break on View/Section</span></a> command causes the <b>think<font color="#FF0F00">3</font></b> application to reset its Undo/Redo buffer. Once you start this command, you won't be able to undo it or any previous operation.</td>
+</tr>
+</table>
+
+<p>After starting the <span class="UI_COMMAND" id="MenuBar_Document_Insert_BreakLines.msg+MenuBar_Document_Insert_BreakLines+4577">Partial Break on View/Section</span> command, proceed as follows:</p>
+
+<table border="0">
+<tr align="LEFT" valign="TOP">
+<td width="20"><b>1</b></td>
+<td><a name="PB_Ref"></a>From the <span class="UI_OPTION" id="TDBrokenView.msg+_TDBROKENVIEW_LABEL_+23">Reference Point On</span> drop-down list choose:<br>
+<b>View</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to break the view partially<br>
+<b>Section</b> &nbsp; to break the sectioned view partially<br>
+</td>
+</tr>
+
+
+<tr align="LEFT" valign="TOP">
+<td><b>2</b></td>
+<td>Select a reference point on the view for which the break should be applied.
+<br>
+<br>
+<img border="1" src="../../../images/drawing/dw_05/dw050102.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr align="LEFT" valign="TOP">
+<td><b>3</b></td>
+<td><a name="PB_Bound"></a>From the <span class="UI_COMMAND" id="TDBrokenView.msg+_TDBROKENVIEW_LABEL_+19">Boundary</span> drop-down list, choose the side of the view from which you want to define the broken view.
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+7">Spline</span> &#151; The program prompts you to sketch the boundary. Click to select the spline control points.<br>
+
+
+
+<br>
+<img border="1" src="../../../images/drawing/dw_05/dw050302.gif"><br>
+<br>
+ When finished, end the selection.</li>
+
+<li><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+8">Rectangle</span> &#151; The program prompts you to specify the first and second window corners, which define the opposite corners of the rectangle.<br>
+
+
+
+<br>
+<img border="1" src="../../../images/drawing/dw_05/dw050303.gif"><br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+9">Circle</span> &#151; The program prompts you to select an endpoint or a center point. Click to specify the center of the circle, then click again to specify its radius.<br>
+
+
+
+<br>
+<img border="1" src="../../../images/drawing/dw_05/dw050304.gif"><br>
+<br>
+</li>
+</ul>
+
+You can create as many portions as you need, within the same view, bounded by different borders.<br>
+<br>
+Once you have chosen the bound types, a handle/mini-dialog box pops up to enable you to define the geometric parameter either by dragging the handle or by entering the measure value.</td>
+</tr>
+<tr align="LEFT" valign="TOP">
+<td><b>4</b></td>
+<td>Drag the handle or enter the measure value in the mini-dialog box.</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the partially broken view. 
+
+
+<table bordercolor="white" border="1" align="center">
+<tr>
+<td width="100"><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+7">Spline</span></td>
+
+<td width="100"><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+8">Rectangle</span></td>
+
+<td width="100"><span class="UI_OPTION" id="idp_lv2_portion.msg+idp_lv2_portion+9">Circle</span></td>
+</tr>
+
+<tr>
+<td bordercolor="black"><img src="../../../images/drawing/dw_05/dw050305.gif"></td>
+<td bordercolor="black"><img src="../../../images/drawing/dw_05/dw050306.gif"></td>
+<td bordercolor="black"><img src="../../../images/drawing/dw_05/dw050307.gif"></td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+<table cellpadding="5%" border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> 
+
+<p>The appearance of the cut line is controlled by the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+698">Styles</span> settings on the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DVPS_BREAKLINES.htm">
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+694">Break Lines</span></a> category of the 
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span> dialog box.</p>
+
+
+
+
+<p>Other factors which affect the appearance of the view, such as the visibility of its view name and the visibility of specific types of entities, are controlled from the various categories under <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm#drawing"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+545">Drawing</span></a> of the 
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1726">Options/Properties</span> dialog box.</p>
+
+
+
+
+<p>After you create a detailed view, you can change many of these properties from the various categories of the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm#view"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span></a>.<br><br>
+
+
+You can inherit the breaks applied on the main onto the derived view by selecting the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DVPS_BREAKLINES.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1833">Inherit breaks from main to derived view</span></a> option.</p>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_dw_05_01.htm"><b>Half Break on View/Section</b></a></li>
+<li><a href="../FWfile/T_FW_dw_05_03.htm"><b>Partial Break on View/Section</b></a></li>
+<li><a href="../FWfile/T_FW_dw_05_05.htm"><b>Multi-Broken View</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+
+

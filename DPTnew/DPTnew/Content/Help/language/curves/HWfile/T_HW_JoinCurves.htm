@@ -1,0 +1,419 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Job: Joining curves</title>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="JavaScript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+.ver9{
+font-family: Verdana;
+font-size: 9pt;  
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h3>Joining curves</h3>
+
+<p>Suppose you have a chain of consecutive separate curves like the ones in the following illustration and you need to join them.<br>
+<br>
+<img border="1" src="../../../images/curves/JC00.gif"><br>
+<br>
+</p>
+
+<table border="0">
+<tr>
+<td align="LEFT" valign="TOP" width="20"><b>1</b></td>
+<td align="LEFT" valign="TOP">After starting the <a href="../FWfile/T_FW_mc_05.htm"><span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+377">Join Curve</span></a> command, select the set of consecutive curves to be joined, using the curve chain selection operator.<br>
+
+
+<br>
+<img border="1" src="../../../images/curves/JC01.gif"><br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Selecting by chains</b> <br>
+To select a chain of curves, move the mouse pointer close to the first curve of the chain and then proceed in one of the following two ways: 
+
+<ul class="noleft">
+<li>Right-click and select <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../../images/general/litarr2.gif">
+
+
+
+
+
+
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4688">Chain from This</span> in the context menu.</li>
+
+
+
+
+
+
+
+
+
+<li>From the menu bar, choose: <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr2.gif">
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1099">Select</span><img src="../../../images/general/litarr2.gif">
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1103">Chain</span></span></li>
+
+
+
+
+
+
+
+
+</ul>
+
+The "chain" selection operator selects all consecutive curves starting from the one where the cursor is (about the chain selection operator, <i>see also</i> <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Selection.msg+ButtonToolbar_Selection+215">Select Chain</span></a>).</td>
+
+
+
+
+
+
+
+
+</tr>
+</table>
+
+<br>
+To change the selected curves, right-click on <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span>, select 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+
+
+
+
+
+
+<br>
+The resulting curve will be a <a href="../../Notes/T_GL_mc_02.htm">NURBS</a>. So, if one of the curves you select is not a NURBS, you will be asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>). &nbsp;</td>
+
+
+
+
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>A preview of the resulting curve is displayed.<br>
+<br>
+<img border="1" src="../../../images/curves/JC02.gif"><br>
+<br>
+To interactively evaluate the shape of the resulting curve before confirming its actual creation, it can be useful to display its control points. Check the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+140">Show Control Points</span> box to display the curve control points.<br>
+
+
+
+
+
+
+
+
+<br>
+<img border="1" src="../../../images/curves/JC03.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>What happens to the original curves?</b><br>
+Original curves are now dealt with according to the current value of the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_DISPLAY.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+41">Base entities</span></a> drop-down list in the 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+247">General</span> category of the 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span>.</td>
+
+
+
+
+
+
+
+
+</tr>
+</table>
+
+<br>
+<p><i>Now the resulting curve can be created, but before confirming its creation you can take advantage of the additional options available under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> in order to ensure the downstream shape quality is preserved.</i></p>
+
+
+
+
+
+
+
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+324">Continuity factor (by 1.e-6)</span> box under 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+333">Computation Parameters</span>, type the tolerance value to be used in order to detect different levels of C-continuity (<i>see</i> "
+<a href="../../Mathconc/T_MC_ContinuityClassification.htm">Continuity Types</a>") between the curves. The higher the value the fewer the differences that will be detected.<br>
+
+
+
+
+
+
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><b>4</b></td>
+<td>By using the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><span class="UI_OPTION" id="ButtonToolbar_Tools.msg+ButtonToolbar_Tools+7576">Curve Curvature</span></a> command, you can also display a curvature plot which will help you check the shape and the smoothness of the resulting curve. In the curvature plot, you can change both the 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+16">Scale</span> and the 
+
+ 
+
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+62">Density</span> (or choose to get the plot of the 
+
+
+
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+64">Radius of curvature</span> instead).<br>
+
+
+
+
+
+
+
+
+<br>
+<img border="1" src="../../../images/curves/JC03bis.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span id="HIDETD"><b>4</b></SPAN>
+<span id="TWOD"><b>5</b></SPAN></td>
+
+<td>You can improve the C-continuity properties of the resulting curve at the joints by using the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+317">High parametric continuity</span> check box.<br>
+
+
+
+
+
+
+
+
+By default, when the check box is not selected, the command will respect the C-continuities only, so even if at a joint there was a higher order of G-continuity (for example G3) than the level of the C-continuity (for example C1), then the resulting curve at the joint will be C1.<br>
+On the contrary, when this check box is selected, the same curve will not only be C-continuous, but its C-continuity degree will be increased to the one of the former G-continuity.<br>
+In the example, the curve would be C3 at the end, instead of C1, because the G continuity was higher than the C-continuity.<br>
+<br>
+<img border="1" src="../../../images/curves/JC04.gif"><br>
+<br>
+Selecting the check box will improve the curve smoothness, while the number of control points will generally grow higher.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span id="HIDETD"><b>5</b></SPAN>
+<span id="TWOD"><b>6</b></SPAN></td>
+
+<td>The resulting curve is always obtained as an approximation curve. Under <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+332">Edit computation parameters</span>, you can set the following approximation parameters: 
+
+
+
+
+
+
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+318">Max. No. of Arcs</span>&nbsp;&#151;&nbsp;the maximum number of arcs the resulting curve can be composed of</li>
+
+
+
+
+
+
+
+
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+305">Degree</span>&nbsp;&#151;&nbsp;the degree for the resulting curve</li>
+
+
+
+
+
+
+
+
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+308">Tolerance</span>&nbsp;&#151;&nbsp;the approximation tolerance.</li>
+
+
+
+
+
+
+
+
+</ul>
+
+Please note that in the case of the <span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+377">Join Curve</span> command, the resulting curve can have different continuity levels on each of the joints <b>(<a href="#Relation">*</a>)</b>.<br>
+
+
+
+
+
+
+
+
+&nbsp;</td>
+</tr>
+
+<tr>
+<td valign="baseline"><span id="HIDETD"><b>6</b></SPAN>
+<span id="TWOD"><b>7</b></SPAN></td>
+
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and join the curves.<br>
+<br>
+<img border="1" src="../../../images/curves/JC05.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><a name="Relation"></a><b>(*) Relationship between control points, degree, continuity and number of arcs</b> <br>
+<br>
+Taking into account the different continuities, the relationship of the number of control points as a function of the degree of the curve and the number of arcs is the following:<br>
+<br>
+<img src="../../../images/general/NURBS-Join.gif"><br>
+<br>
+<table border="0">
+<tr>
+<td class="ver9" align="left" valign="top"><i>np</i></td>
+<td class="ver9" align="left" valign="top">is the number of control points</td>
+</tr>
+
+<tr>
+<td class="ver9" align="left" valign="top"><i>deg</i></td>
+<td class="ver9" align="left" valign="top">is the degree of the curve</td>
+</tr>
+
+<tr>
+<td class="ver9" align="left" valign="top"><i>cont(i)</i></td>
+<td class="ver9" align="left" valign="top">is the continuity between the i-th arc and the next one.</td>
+</tr>
+
+<tr>
+<td class="ver9" align="left" valign="top"><i>na</i></td>
+<td class="ver9" align="left" valign="top">is the number of arcs.</td>
+</tr>
+</table>
+
+See also "<a href="../../MathConc/T_MC_cv_01.htm">Relationships between control points, degree, continuity and number of arcs</a>" for further details.</td>
+</tr>
+</table>
+
+<div style="DISPLAY: none">Merge</div>
+<div style="DISPLAY: none">Merge Curves</div>
+<div style="DISPLAY: none">Curve Union</div>
+
+<hr color="silver">
+</body>
+</html>
+

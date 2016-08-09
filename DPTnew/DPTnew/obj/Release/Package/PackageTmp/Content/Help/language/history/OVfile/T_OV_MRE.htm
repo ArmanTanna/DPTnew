@@ -1,0 +1,195 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Representation of Multiple Resulting Events (MRE) inside the Model Structure</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Representation of Multiple Resulting Events (MRE) inside the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span></h2>
+
+
+
+<p>
+If an event is capable of generating more than one entity as a result of its application, it is said to be a <b>M</b>ultiple <b>R</b>esulting <b>E</b>vent, MRE. For example, the application of any transformation command, say <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4457">Move/Copy</span>. The use of the 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> option in this command is an event that will result in creating more than one entity from a single source entity. Consider that when an entity is "copied" more than one entity generated after that single action, the &quot;<i>copy</i>&quot;. Other examples of MRE are also available in abundance, such as the 
+
+
+<a href="../../surfaces/OVfile/T_OV_sr_00.htm#Associative">Associative</a> application of isoparametric curves or boundary curves.
+
+<br>
+<br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+Note that the term MRE is interchangeably used in a similar context. MRE is sometimes referred to as Multiple Resulting &quot;Entities&quot;. In such situations, the stress is on the <i>"<b>entities</b> that resulted</i>&quot; or <i>&quot;<b>resultants</b>&quot;</i>, rather than the <i>"<b>events</b> that generated them&quot;</i>. Note that the idea is to stress on either an action or the result of that action.
+</td>
+</tr></table>
+
+</table>
+<p>
+The Multiple Resulting Entities are displayed using the icons of the commands, that created the resultants.  For example, consider the application of <span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+17">Solid Pattern</span> command.
+
+
+
+
+In this example, a rectangular solid (<b>Solid 2</b> in <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>, shown below) has been patterned, resulting in 4 resultant solids.
+
+
+<br>
+<br>
+<img src="../images/mre_1.gif" border="0">
+<br>
+<br>
+The resultant solids are grouped under <b>Solids 3</b>, with the icon:
+<br>
+<br>
+<img src="../images/mre_2.gif" border="0">
+<br>
+<br>
+This indicates that the entity is a collection of solids, which are made from repeating the <b>Solid 2</b> four times.
+Also the icon of the <span class="UI_COMMAND" id="TDPattern.msg+_TDPATTERN_LABEL_+17">Solid Pattern</span> command indicates that it was used to create the solid. This fact is explicitly stressed again in the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> as:
+
+
+
+<br>
+<br>
+<img src="../images/mre_3.gif" border="0">
+<br>
+<br>
+Similarly for other commands leading to an MRE, the icons will show the relation precisely. See the image below for the <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7026">Scale</span> command with the 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> option selected:
+
+
+
+<br>
+<br>
+<img src="../images/mre_4.gif" border="0">
+<br>
+<br>
+In case of transformation commands without the <span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> option selected (
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4457">Move/Copy</span>, 
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+5892">Mirror</span>, and 
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7026">Scale</span>), the representation will be similar to that of GSM representations. The following image describes this behavior, when 
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif" align="absbottom">
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7026">Scale</span> is applied without 
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> option selected.
+
+
+
+<br>
+<br>
+<img src="../images/mre_7.gif" border="0">
+<br>
+<br>
+If to the resultants of a particular MRE, some features are added, the representation in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> will clearly summarize the changes. For example, in the previous example if a fillet is added to a resultant solid, in the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> it is highlighted as shown:
+
+
+<br>
+<br>
+<img src="../images/mre_5.gif" border="0">
+<br>
+<br>
+If all the resultants of MRE are solids and then they are applied with any 
+<a href="mk:@MSITStore:solids.chm::/language/NMandOS/OVfile/26.htm">Boolean</a> operation,  the 
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> no longer shows the MRE representation. Otherwise, if only a few resultants are used in the Booleans, they are shown in the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> as grayed out. For example, consider the following images showing the 
+
+<span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+7">Solid Union</span> command being applied on the previous example of MRE. In image 1, all the resultants are used for solid union, so the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> no longer shows the MRE representation node. In the image 2, only 2 of the resultants are used for solid union so, they are shown as grayed out in the 
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. 
+
+
+
+<table>
+<tr valign="top">
+<td><b>Image 1 </b>
+<br>
+<br> 
+<img src="../images/MRE_8_no.gif">
+<br></td>
+</tr>
+
+<tr valign="top">
+<td><b>Image 2</b>
+<br>
+<br>
+<img src="../images/MRE_8_grey.gif">
+<br></td>
+</tr>
+</table>
+<p>
+<b><a name="ref"></a>Tracing references</b>
+<br>
+In the case of MREs, it is possible to go to a particular entity that has triggered the MRE. Right-click on the MRE on the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> and select 
+
+<span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7824">Go to Reference</span>, the reference entity will be highlighted.
+
+
+
+<br>
+<br>
+<img src="../images/mre_6.gif" border="0"></p>
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_art4_history.htm">What is model history</a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

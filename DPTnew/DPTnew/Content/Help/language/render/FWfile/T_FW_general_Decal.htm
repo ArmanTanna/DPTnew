@@ -1,0 +1,224 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t3" content="translate">
+<title>Options of the Decal command</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Options of the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7683">Decal</span> command</h2>
+
+<p>A Decal is an image that is meant to be applied or placed onto a surface. The following is the description of the options available in the selection list when the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7683">Decal</span> command is started. The same options are also available in the <a href="T_FW_Decal_command.htm#edit_dec"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+25">Edit Decal</span></a> selection list.</p>
+
+
+<h3>Image</h3>
+
+Click on the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+28">Image</span> drop-down list and select <b>Browse</b> to browse the image (texture) from the storage location. Note that you can map more than one image to the model. After applying one image, select another surface and apply another image. Note that only one image (texture) can be mapped on a surface at a time.<br><br>
+
+
+There is a recommenced size for the texture images. Normally the size of a image file is described by its Width (in pixels) X Height (in pixels). For example, 256X512, 600X412 and so on. The images are best suited for texturing, when their width and height are powers of the number 2. For example, an image file with size 256X512 is well suited for texturing. The reason being, both 256 (=<img src="../../../images/textures/2_to_8.gif" alt="" border="0" align="absmiddle">) and 512 (=<img src="../../../images/textures/2_to_9.gif" alt="" border="0" align="absmiddle">) are powers of 2.<br><br>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+
+<li>If the model needs to be shipped to another computer, make sure that the decal image and the model are saved in the same relative path. Else, the program will display a checkerboard image in place of the decal.</li>
+
+<li>If you delete or move a decal image that has been used on a model from its original location, the program will display the checkerboard image in place of the deleted/moved decal.</li>
+
+<li>Many decal (textures) samples are available in the <i>thinkdesign\files\textures</i> folder of your software installation.</li>
+</ul>
+</td>
+</tr></table>
+</p>
+<h3>Visual Properties</h3>
+
+<p>The different visual properties enable you to define the characteristic of the decal. The following are the different visual properties available:
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+	<td><a href="../HWfile/T_HW_Reflectance.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span></a></td>
+	<td>It determines the amount of light being reflected from the decal image.</td>
+</tr>
+<tr valign="top">
+	<td><a href="../HWfile/T_HW_transparency.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span></a></td>
+	<td>It determines the amount of light to be refracted.</td>
+</tr>
+<tr valign="top">
+	<td valign="top"><a href="../HWfile/T_HW_bumps.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span></a></td>
+	<td>It gives an irregular appearance to the decal, enabling you to add perturbations such as indentations or undulations on the decal surface.</td>
+</tr>
+</table>
+
+</p>
+
+<h3><a name="text_map"></a>Texture Mapping</h3>
+<p>Given below are the different types of mapping available in the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+14">Texture Mapping</span> drop-down list. The following images show a car dash board model being texture mapped using different methods. Note that each mapping renders a different look to the model, though the decal image is the same. The texture mapping of the decal image can also be applied using the <a href="T_FW_texture_space.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span></a> command</p>
+
+<table>
+  <tr>
+    <td><img src="../../../images/textures/texture_ori.gif" border="1"></td>
+  </tr>
+  <tr>
+    <td><div align="center"><b>Original Model</b></div></td>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <td><img src="../../../images/textures/texture_uvmap.gif" border="1"></td>
+  </tr>
+  <tr>
+    <td><div align="center"><span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+2">UV</span></div></td>
+
+
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <td><img src="../../../images/textures/texture_sph.gif" border="1"></td>
+  </tr>
+  <tr>
+    <td><div align="center"><span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+4">Sphere</span></div></td>
+
+
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <td><img src="../../../images/textures/texture_cyl.gif" border="1"></td>
+  </tr>
+  <tr>
+    <td><div align="center"><span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+5">Cylinder</span></div></td>
+
+
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <td><img src="../../../images/textures/texture_pl.gif" border="1"></td>
+  </tr>
+  <tr>
+    <td><div align="center"><span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+3">Plane</span></div></td>
+
+
+  </tr>
+</table>
+<br>
+
+<h4><a name="scale"></a>Scaling</h4>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+113">Same scale</span> check box is available under the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+14">Texture Mapping</span> node.<br><br> 
+<ul class="noleft">
+<li>When the check box is cleared, the application lets you apply <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+106">Scale S</span> and <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+107">Scale T</span> values independently (anisotropic scale). Here you can choose to have the scaling values in the S (vertical) and T (horizontal) directions, as you enter them in the respective edit boxes. Note that in this case the image might be distorted, if the original aspect ratio is not maintained.<br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+106">Scale S</span> value controls the width of the image and the <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+107">Scale T</span> value controls the height of the image.
+</td>
+</tr>
+</table>
+<br>
+</li>
+
+<li>When the check box is selected then the image's width to height ratio (aspect ratio) will be kept constant.  The application tries to do the scaling automatically depending on the selected mapping. However, you can enter the required scaling value in the <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+112">Scale</span> edit box. For example, when you enter a value 10, the image is magnified 10 times, keeping the original aspect ratio. Similarly when the value entered is a decimal value, say 0.5; the image will be rescaled to half.</li>
+
+</ul>
+
+<h4>Advanced Options</h4>
+<p><a name="scale1"></a>The advanced options help the user to provide additional control over the decal.<br><br>
+<ul class="noleft">
+<li>
+The <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+104">Reflection S</span> and <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+105">Reflection T</span> check boxes 'flip' the decal in T and S directions. It produces a mirroring effect.
+<ul> 
+<li>If the box is checked, the image will be flipped (mirrored) along the corresponding direction.</li>
+<li>If the box is not checked, the image will not be flipped.</li>
+</ul><br>
+</li>
+
+<li> 
+<a name="scale2"></a>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+23">Show mapping surface</span> option enable you to view the mapping surfaces (decal surface). This option is not available for <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+2">UV</span> texture mapping.<br>
+<ul>
+<li>When the check box is selected, then the decal surface is highlighted in the model.</li>
+<li>When the check box is cleared, the decal surface is not highlighted.</li>
+</ul><br>
+</li>
+
+<li>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+2">Show Handles</span> option enable you to view mapping mini-dialog boxes in the graphics area on the decal surface. The mini-dialog boxes are the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span>, <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+110">Radius</span>, <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+102">Offset T</span>, <span class="UI_OPTION" id="tdesign.msg+_RENDERTXT_UI_LABEL_+101">Offset S</span>. The display of these options varies according to the selected <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+14">Texture Mapping</span><br>
+<ul>
+<li>When the check box is selected, then all the mini-dialog boxes are displayed on the decal surface.</li>
+<li>When the check box is cleared, then none of the mini-dialog boxes are displayed.</li><br><br>
+</ul>
+
+</li>
+<li>
+The <a href="../HWfile/T_HW_normal.htm"><span class="UI_COMMAND" id="tdesign.msg+_RENDERTXT_UI_LABEL_+111">Normal</span></a> and <span class="UI_COMMAND" id="tdesign.msg+_RENDERTXT_UI_LABEL_+109">Axis Direction</span> options are used to set direction to the applied decal (texture).</li>
+</ul>
+</p>
+<h3>More Options</h3>
+<ul class="noleft">
+<li><a name="scale3"></a>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+32">Mask</span> check box enables you to mask a color or an image. From the corresponding drop-down list you can select:
+<ul>
+<li><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+36">Color</span>: Enables you to mask a certain color in the applied decal image.</li>
+<li><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+35">Image</span>: Enables you to mask a image on the applied decal image.</li>
+</ul>
+</li><br>
+
+
+<li><a name="scale4"></a>The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+31">Pure color</span> check box enables you to control the color of the selected image.<br><br>
+<ul>
+<li>
+When the check box is selecetd, the color of the selected image will be displayed as it is and not mixed with that of the underlying surface.<br><br>
+
+<img border="1" src="../../../images/rn_2005T2/PURE_COLOR_YES.gif"><br><br></li>
+
+<li>When the check box is cleared, the color of the selected image will be mixed with that of the underlying surface.
+<br>
+<br>
+<img border="1" src="../../../images/rn_2005T2/PURE_COLOR_NO.gif"></li>
+</ul>
+ </li><br><br>
+
+<li><a name="scale5"></a>In the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+29">Import Material Data</span> drop-down list, there is a list of material already applied to that current model. When any of the material is selected, then the visual properties (<a href="../HWfile/T_HW_Reflectance.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+11">Reflectance</span></a>, <a href="../HWfile/T_HW_transparency.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+12">Transparency</span></a> and <a href="../HWfile/T_HW_bumps.htm"><span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+13">Bumps</span></a>) of that material will be applied on the decal image.</li> 
+</ul>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_FW_Decal_command.htm"><b>Decal command</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+</body>
+</html>

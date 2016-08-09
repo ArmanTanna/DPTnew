@@ -1,0 +1,454 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>IGES 2D to think3 conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;margin-top:1;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h2>IGES 2D to think3 conversion table</h2>
+
+<p>Here is a general conversion table showing how IGES entities are mapped to the ones of <b>think<font color="#FF0F00">3</font></b> when converting an IGES 3D model to the <b>think<font color="#FF0F00">3</font></b> format. 3D objects are omitted.</p>
+
+<table border bordercolor="white">
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy" bgcolor="#DCDCDC"><b>IGES&nbsp;</b> <br>
+<b>entity number</b></td>
+<td class="cnvtable" bordercolor="navy" bgcolor="#DCDCDC"><b>IGES entity denomination</b></td>
+<td class="cnvtable" bordercolor="navy" bgcolor="#DCDCDC"><b>Corresponding</b> <b>think3</b> <br>
+<b>entity to which it is converted</b></td>
+<td class="cnvtable" bordercolor="navy" bgcolor="#DCDCDC"><b>Notes</b></td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>100</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Circular Arc&nbsp;</b> </td>
+<td class="cnvtable" bordercolor="navy"><b>Arc</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion is controlled by the following parameters in the <a href="../../file/IDPP_DE_IGES_2D_GEOMETRY.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+59">Geometry</span></a> category of the <b>IGES Options</b> dialog box: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+66">Arc tolerance:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+62">Activate Z component for transforming arcs and conics</span></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>102</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Composite Curve</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component curves</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>104</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Conic Arc</b></td>
+<td class="cnvtable" bordercolor="navy"><b>NURBS curve / Conic Arc</b></td>
+<td class="cnvtable" bordercolor="navy">Ellipses are converted to Conic Arcs, while all the other conics are converted to NURBS.</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>106</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Copious data</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component lines</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 11,12 -</i> Polyline</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component lines</b></td>
+<td class="cnvtable" bordercolor="navy">&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 20,21 -</i> Centerline</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Line</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 31 to 38 -</i> Section</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Line</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 40 -</i> Witness Line</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Line</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 63 -</i> Simple closed area&nbsp;</b> </td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component lines</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>110</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Line</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Line</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>112</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Parametric Spline Curve:</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>CTYPE 1</i> - Linear</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component lines</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>CTYPE 2</i> - Quadratic</b></td>
+<td class="cnvtable" bordercolor="navy"><b>NURBS curve</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"></td>
+<td class="cnvtable" bordercolor="navy"><i><b>CTYPE 3</b> - Cubic</i></td>
+<td class="cnvtable" bordercolor="navy"><b>NURBS curve</b></td>
+<td class="cnvtable" bordercolor="navy">The IGES spline will be converted to <i>one</i> <b>think<font color="#FF0F00">3</font></b> NURBS curve if its parameters fit the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+63">Spline conversion tolerance:</span> value set in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+59">Geometry</span> category of the <b>IGES Options</b> dialog box. Otherwise it will be converted to several NURBS curves.</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>124</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Transformation Matrix</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Transformation Matrix</b> (internally used by the program only)</td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>126</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Rational B-Spline Curve</b></td>
+<td class="cnvtable" bordercolor="navy"><b>NURBS curve</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>130</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Offset Curve</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Lines, Arcs, NURBS curves</b></td>
+<td class="cnvtable" bordercolor="navy">Offsets of lines are converted to lines, offsets of arcs to arcs, offsets of conics to NURBS, offsets of NURBS to NURBS</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>202</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Angular Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Angular Dimension</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion of angular dimensions is controlled by the following parameters in the <a href="../../file/IDPP_DE_IGES_2D_DIMENSION.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+48">Dimension</span></a> category of the <b>IGES Options</b> dialog box: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+52">Disassemble angle dimensions</span></li>
+
+<li><b>Invert the arrowheads in angle dimensions</b></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>204&nbsp;</b> </td>
+<td class="cnvtable" bordercolor="navy"><b>Curve Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>206</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Diameter Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Diameter Dimension</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>208</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Flag Note</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>210</b></td>
+<td class="cnvtable" bordercolor="navy"><b>General Label</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>212</b></td>
+<td class="cnvtable" bordercolor="navy"><b>General Note</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component texts</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion of texts is controlled by the following parameters (<a href="../../file/IDPP_DE_DETAILS_2D_TEXT.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+37">Text</span></a> category of the <b>IGES Options</b> dialog box): 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+39">Min. gap:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+40">Gap priority</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+41">Min. ratio:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+42">Ratio priority</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+43">Delta in X:</span> and <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+44">Delta in Y:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+45">Apply on transforming:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+47">String box including final blank</span></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>214</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Leader (Arrow)</b></td>
+<td class="cnvtable" bordercolor="navy"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+56">Arrowheads</span></td>
+<td class="cnvtable" bordercolor="navy">Conversion of arrowheads is controlled by the following parameters in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+48">Dimension</span> category of the <b>IGES Options</b> dialog box: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+51">Dimension arrowhead scaling</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+56">Arrowheads</span></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>216</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Linear Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Linear Dimension</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion of linear dimensions is controlled by the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+53">Disassemble linear dimensions on loading</span> check box in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+48">Dimension</span> category of the <b>IGES Options</b> dialog box; if it's checked, linear dimensions are exploded into their component entities&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>218</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Ordinate Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Ordinate Dimension</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>220</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Point Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>222</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Radius Dimension</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Radius Dimension</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>228</b></td>
+<td class="cnvtable" bordercolor="navy"><b>General Symbol</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>230</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Sectioned Area</b></td>
+<td class="cnvtable" bordercolor="navy"><b>X-hatching</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion is controlled by the two following parameters in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+59">Geometry</span> category of the <b>IGES Options</b> dialog box: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+65">Multiplication factor:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+67">Hatching slant angle</span></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>304&nbsp;</b> </td>
+<td class="cnvtable" bordercolor="navy"><b>Line Font Definition</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>308</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Subfigure Definition</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>310</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Text Font Definition</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>312</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Text Display Template</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>314</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Color Definition</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>320</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Network Subfigure Definition</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>322</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Attribute Table Definition</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>402</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Associativity Instance</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 1 -</i> Group</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Group</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 7 -</i> Group without back pointers</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Group</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 14&nbsp; -</i> Ordered group with back pointers</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Group</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+<td class="cnvtable" bordercolor="navy"><b><i>IFORM 15&nbsp; -</i> Ordered group without back pointers</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Group</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>404</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Drawing</b></td>
+<td class="cnvtable" bordercolor="navy"><i>Not converted</i></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>406 Form1</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Levels</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Layer</b></td>
+<td class="cnvtable" bordercolor="navy">Map table defined in the <a href="../../file/IDPP_IGES2D_LAYERS.htm"><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the IGES Conversion Options. If no mapping is defined, the layer name is preserved as it is.</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>408</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Singular Subfigure Instance</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion is controlled by the following parameter (<a href="../../file/IDPP_DE_IGES_2D.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span></a> category of the <b>IGES Options</b>): 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+35">Invert resulting transformation</span></li>
+</ul>
+
+<div id="Out114d" style="DISPLAY: none">&nbsp; 
+
+<table border="0" bgcolor="#FFFFE1">
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy">when not selected, IGES 408 entities (symbols or <i>Singular Subfigure Instance</i>) are converted by applying the transformations in the following order:<br>
+1) the transformation associated to the entity in the DIRECTORY ENTRY SECTION<br>
+2) the transformation defined in the PARAMETER DATA SECTION<br>
+When selected, IGES 408 entities (symbols or <i>Singular Subfigure Instance</i>) are converted by applying the same transformations in the opposite order.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>410</b></td>
+<td class="cnvtable" bordercolor="navy"><b>View</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">Conversion of the View entity is controlled by the following parameters (<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span> category of the <b>IGES Options</b>): 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+31">Number of views to be converted:</span></li>
+
+<li><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+33">Clipping associated with View</span></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>412</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Rectangular Array Subfigure Instance</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>414</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Circular Array Subfigure Instance</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+
+<tr valign="TOP">
+<td class="cnvtable" bordercolor="navy"><b>420</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Network Subfigure Instance</b></td>
+<td class="cnvtable" bordercolor="navy"><b>Exploded into its component entities</b></td>
+<td class="cnvtable" bordercolor="navy">&nbsp;&mdash;&nbsp;</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

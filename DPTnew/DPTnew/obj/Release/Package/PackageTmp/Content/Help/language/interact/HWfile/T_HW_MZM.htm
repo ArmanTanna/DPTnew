@@ -1,0 +1,113 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Job: Applying controlled modifications to a model using free hand curves</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Applying controlled modifications to a model using free hand curves</h3>
+<p>In the following example, you will sketch a curve using the <a href="../FWfile/T_FW_NFHC.htm"><span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+2">Insert Free Hand Curve</span></a> command and then you will constrain some surfaces of the model through that curve by using a specific option (
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span>) of the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_ZoneModeling.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+500">Zone Modeling</span></a> command (please note that the same options is available also in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMTadvanced.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command).</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After loading the model:
+<br><br><img src="../images/DACI_SKIN.jpg"><br><br>
+start the <span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+2">Insert Free Hand Curve</span> command.<br>&nbsp;</td>
+
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Using the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw200.htm"><span class="UI_COMMAND" id="ButtonToolbar_View.msg+ButtonToolbar_View+7879">Set Target</span></a> command, set the target to the appropriate position.<br>
+
+&nbsp;</td>
+</tr>
+
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Check the <span class="UI_OPTION" id="FreeHandUI.msg+_FREEHANDUI_LABEL_+7">Set Input</span> box, so as to enable input through the Wacom&reg; tablet and pen. In the drop-down list select 
+<span class="UI_OPTION" id="FreeHandUI.msg+_FREEHANDUI_LABEL_+11">On XZ plane</span>, so as to set the input plane to the World XZ plane.
+
+<br>
+Check the <span class="UI_OPTION" id="FreeHandUI.msg+_FREEHANDUI_LABEL_+15">Show Section</span> so as to display the outline of the section obtained on the model by using the input plane. If the 
+<span class="UI_OPTION" id="eklib.msg+eklib+402">Depth</span> is not the right one, you can drag the handle until it matches your needs. 
+
+<br><br><img src="../images/DACI_SKETCH_XZ.jpg"><br><br></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Sketch your new curve and save it.
+<br><br><img border=1 src="../../../images/thinkspeed/DACI_SECTION.jpg"><br>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Start the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+500">Zone Modeling</span> command and select the surfaces of the hood. Set the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> conditions as shown in the following illustration. Then set 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_SPEECH_+208">Projection Type</span> to 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+66">Linear</span>. Please note that with this method the starting curves are automatically selected by the program.
+
+<br><br><img border=1 src="../images/DACI_LINEAR.jpg"><br>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td>If you change <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span>.
+
+<br><br><img border=1 src="../images/DACI_CUBIC1.jpg"><br><br>
+The center is displayed. You can change its position as you like:
+<br><br><img border=1 src="../images/DACI_CUBIC2.jpg">
+<br>&nbsp;
+</td>
+</tr>
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections.
+<br><br><img border=1 src="../../../images/thinkspeed/DACI_LAST.jpg"><br><br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

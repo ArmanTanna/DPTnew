@@ -1,0 +1,304 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(1067,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- <meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="Revisor" content="Mahesh Kiran">
+<meta name="Revisor" content="Stefania Fortuzzi"> -->
+<meta name="Revisor" content="Nicola Binaghi">
+<!-- 20116T1, 6 Ago 2015: Adapted to On-line Help Style, rather than RN one -->
+<!-- 20116T1, 20 Jan 2016: Further integration interventions, AMDG -->
+<!-- 4-Feb-2016: hopefully final version vor the integration of E-Learning links -->
+<!-- A.M.! L.J.E.M.! -->
+<title>New Rendering Functionalities</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> <!-- PRJ: P0000386 - OWN: SATO -->
+<h2><a name="#001"></a>Rendering Functionalities: an Overview</h2>
+
+<p class="noindent">Since Version 2008.1, the old <b><i>thinkreal</i></b> static rendering plug-in has been overhauled and restructured completely to give us the new <b>Renderer</b> product. The new product unifies the approach to setting up all rendering information.<br>
+The user can now generate better photo realistic rendering effects of the models with very easy steps and manage rendering information effectively. To achieve realism, it is possible to setup materials, lighting, decals and define the environment to the model in easy steps. The user also gets a library containing predefined materials, Light Studios and environments to be directly applied on the model at the click of a button, giving the user the ability to create a rendered image of the product quickly.</p>
+
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br><br>
+A complete and very friendly set of <i>e-Tutorial videos</i> on rendering has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8" ><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational videos on rendering here: <a href="../tocpages/T_TOC_ETUTORIAL.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Rendering</b></a>.<br> Enjoy your lessons!</td></tr></table><br>
+
+<br>
+<p class="noindent">To manage the information about the parameters being used for rendering, the <i>render data tree</i> has been provided. It can be accessed by selecting the <span class="UI_COMMAND" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> tab, as shown below.<br>
+<br>
+<img src="../images/render_data.gif" border="1"><br>
+<br>
+</p>
+
+<p class="noindent">Following are the various rendering tools that can be used to generate the required rendering effect:</p>
+
+<ul class="noleft">
+<li><a href="#tr1"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span></a></li>
+
+<ul class="noleft">
+<li><a href="#tr2"><span class="UI_OPTION_NOBOLD" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span></a></li>
+
+<li><a href="#tr3"><span class="UI_OPTION_NOBOLD" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span></a></li>
+
+<li><a href="#tr4"><span class="UI_OPTION_NOBOLD" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span></a></li>
+</ul>
+</li>
+
+<li><a href="#tr5"><span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span></a></li>
+
+<li><a href="#tr6"><span class="UI_OPTION_NOBOLD" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+11">Lighting</span></a></li>
+
+<li><a href="#tr7"><span class="UI_OPTION_NOBOLD" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+13">Environment</span></a><br>
+</li>
+
+<li><a href="#texture"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span></a></li>
+
+<li><a href="#render"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span></a></li>
+
+<ul class="noleft">
+<li><a href="#tr8"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span></a></li>
+
+<li><a href="#tr9"><span class="UI_COMMAND_NOBOLD" id="ArrowButton_General.msg+ArrowButton_General+7867">Ray Tracing</span></a></li>
+
+<li><a href="#tr10"><span class="UI_COMMAND_NOBOLD" id="ArrowButton_General.msg+ArrowButton_General+7868">Final Gathering</span></a></li>
+</ul>
+</li>
+
+<!-- <li><a href="#thinkreal">Comparison with <i>thinkreal</i></a></li> -->
+</ul>
+
+<br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<ol>
+<li>All the rendering commands and library functions are now available in the application without the need of the <b>Renderer</b> plug-in. Here, only dynamic rendering is possible for all the rendering parameters added to the surface or component.</li>
+
+<li>Static rendering is possible only if <b>Renderer</b> is installed with the application.</li>
+
+<li>All the options in the selection list which are in <i>Bold</i> or appended with <i>(*)</i> sign are used for static rendering, that is the changes made in these parameters are visible only in static rendering.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<h2><a name="tr1"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7883">Rendering Library</span></a></h2>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7883">Rendering Library</span> provides predefined Material, Light Studio and Environment, that can be used to add rendering effects to a model.</p>
+
+<br>
+<p>On starting the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7883">Rendering Library</span> command, a side window is displayed towards the right of the Graphics Area, as shown in the image below. It contains three tabs - <a href="#tr2"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span></a>, <a href="#tr3"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span></a> and <a href="#tr4"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span></a> - to select and attach respective rendering data to the model.<br>
+<br>
+<img src="../images/render_library.gif" border="1"></p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+All the tabs of the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span> will have the <b>PreDefined</b> and <b>UserDefined</b> folder in them. The items present in the <b>PreDefined</b> folder cannot be directly edited, deleted or renamed. However, they can be edited after applying it to the model and then saved into the <b>UserDefined</b><img src="../../images/general/litarr.gif"><b>Import</b> folder by using the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+10">Save to Library</span> command. Alternately, you can also copy items from the <b>PreDefined</b> folders to <b>UserDefined</b> folder for instant accessibility.</td>
+</tr>
+</table>
+
+<h3><a name="tr2"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span></a></h3>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td valign="top">
+<p>The <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> tab displays the material library with predefined set of standard materials. All the materials are categorized and saved in an appropriate folder. By exploring the folders you can browse through the various materials in it and see their preview in the preview pane, as shown in the image to the right.</p>
+
+<br>
+<p>The material can be attached to surfaces, solids or components. There are four distinctive methods to attach the material:</p>
+
+<br>
+<ol>
+<li>Select the entity from the Graphics Area, right-click on the material in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu.</li>
+
+<li>Drag the material from the preview pane and drop it over the entity.</li>
+
+<li>Right-click on the material in the preview pane, choose <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span> from the context menu and select the entity in the Graphics Area. Then right click and select <span class="UI_OPTION" id="idd_ekeddat.msg+idd_ekeddat+2">Cancel</span> to end the selection.</li>
+
+<li>Select the entity from the Graphics Area and double click on the material in the preview pane.</li>
+</ol>
+
+<br>
+<p>Once a material is attached, it is displayed in the Render Data tree under the <span class="UI_OPTION_NOBOLD" id="RenderDataUI.msg+_RenderDataUI_LABEL_+1">Materials</span> node. You can right-click on the material name in the Render Data tree and select additional commands, as shown in the image below.<br>
+<br>
+<img src="../images/material_edit.gif" border="1"></p>
+</td>
+<td valign="top"><img src="../images/material.gif" border="1"></td>
+</tr>
+</table>
+
+<br>
+<p>On starting the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span> command, the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+17">Edit Material</span> selection list is displayed. Here, you can modify the visual properties of the material (like color, reflectance, transparency and displacement) and its physical property (like density).<br>
+ The commands in the context menu displayed by right clicking on the material in the preview pane allow you to <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+1">Attach</span>, <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+3">Copy</span>, and <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+6">Export</span> it.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+If the material is attached to a surface or component, then no physical property is associated to it.</td>
+</tr>
+</table>
+
+<br>
+<p>More material related commands can be started by selecting <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7885">Material</span> from the context menu displayed by right clicking the entity in the Graphics Area to which the material is attached. For instance, once a material is edited, it can then be saved into the library (using the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7888">Save to Library</span> command) to be directly used later on.<br>
+<br>
+<img src="../images/material_edit_1.gif" border="1"><br>
+<br>
+</p>
+
+
+<hr color="silver" style="margin-left:30;">
+<h3><a name="tr3"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span></a></h3>
+
+<p>The <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span> tab displays the Light Studio library with predefined set of lights in each studio. All the Light Studios are categorized under specific folders. By exploring these folders you can browse through the various Light Studios in it and see their preview in the preview pane.</p>
+
+<p>To set a Light Studio current, right-click on it in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+7">Set as Current</span>. Alternately you can double click on the Light Studio name. Once a Light Studio is activated, its name appears in the Render Data tree.<br>
+<br>
+<img src="../images/light_studio.gif" border="1"><br>
+<br>
+To edit the applied Light Studio, right-click on its name in the Render Data tree and select <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span>. The <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+1">Lighting</span> selection list is displayed. You can make various settings for each light present in the Light Studio. This includes turning ON and OFF individual lights, change their type, intensity, color and direction. You can also define how the shadows will be formed.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+At a time only one <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span> can be set current to a model.</td>
+</tr>
+</table>
+
+<hr color="silver" style="margin-left:30;">
+<h3><a name="tr4"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span></a></h3>
+
+<p>The <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span> tab displays the predefined set of environments. All the environments are categorized and saved in appropriate folders. By exploring these folders you can browse through the various environments in them and see their preview in the preview pane.</p>
+
+<br>
+<p>On applying an environment, you actually map a texture onto the background and foreground of the model, thus providing the impression that the model is present in a natural surrounding.</p>
+
+<br>
+<p>To set an environment current, right-click on it in the preview pane and select <span class="UI_OPTION" id="RenderLib.msg+_RenderLib_LABEL_+7">Set as Current</span>. Alternately you can double click on the environment name. Once an environment is activated, its name appears in the Render Data tree.<br>
+<br>
+<img src="../images/environment.gif" border="1"><br>
+<br>
+To edit the applied environment, right-click on its name in the Render Data tree and select <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span>. The <span class="UI_OPTION" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+1">Environment</span> selection list is displayed. You can make various settings to define the background, foreground, reflection and scenery. The scenery is a <b>think<font color="#FF0F00">3</font></b> application (<i>*.e3</i>) scene, which can be imported into the model to represent the geometrical scene around it.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<h2><a name="tr5"><span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span></a></h2>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> command enables you to attach an image over the surface of the model. The process is analogous of applying a sticker over an object.</p>
+
+<br>
+<p>The sticker is considered to be a texture that is applied by mapping it over a surface. This process is therefore called texture mapping. After starting the <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7683">Decal</span> command, you have to select the surface and an image to be applied over the selected surface. Thereafter, you can make various other settings to manipulate the way the texture is mapped over the surface by using the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> selection list. This includes scaling and positioning the texture image over the surface, controlling the transparency and bumps, setting the reflectance etc.<br>
+<br>
+The applied decal can be edited using the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+25">Edit Decal</span> selection list. There are two ways to run the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+25">Edit Decal</span> selection list.</p>
+
+<ol>
+<li>Right-click on the decal name in the <span class="UI_COMMAND" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> tree and select <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span>.</li>
+
+<li>Right-click on the decal surface on the model and select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7901">Decal</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7902">Edit</span> from the context menu.</li>
+
+</ol>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<ol>
+<li>The old <span class="OLD">Texture</span> command will no longer be available. Instead the user can use the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> command to get the required results. The behavior of the <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+19">Insert Decal</span> command is similar to the old <span class="OLD">Texture</span> command.</li>
+
+<li>The <span class="OLD">Repeat</span> option in the old <span class="OLD">Texture</span> command is now not available; instead the <b>Wrapped Material</b> option is to be used in the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> command.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<h2><a name="tr6"><span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+11">Lighting</span></a></h2>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+1690">Lighting</span> command initiates the editing of the currently active Light Studio. A new Light Studio can be applied by using the <a href="#tr3"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+3">Light Studio</span></a> tab of <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span> command.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<h2><a name="tr7"><span class="UI_OPTION" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+13">Environment</span></a></h2>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span> command initiates the editing of the currently applied environment. A new environment can be applied by using the <a href="#tr4"><span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+4">Environment</span></a> tab of <span class="UI_COMMAND" id="ButtonToolbar_Render.msg+ButtonToolbar_Render+3">Rendering Library</span> command.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<h2><a name="texture">Texture space</a></h2>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7684">Texture Space</span> command provides a means of mapping images in 3D models. This command maps the decals/wrapped materials (2D materials) inserted by using the <span class="UI_OPTION" id="idd_dlg_renderlib.msg+idd_dlg_renderlib+2">Material</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Texture.msg+MenuBar_Document_Insert_Texture+7683">Decal</span> commands. Also, different types of mapping of images can be done on different surfaces in the same model.<br>
+<br>
+The applied mapping can be edited using the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+26">Edit Texture Space</span> selection list. There are two ways to run the <span class="UI_OPTION" id="RenderUI.msg+_RENDERUI_LABEL_+26">Edit Texture Space</span> selection list.</p>
+
+<ol>
+<li>Right-click on the <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+5">Texture Space</span> in the <span class="UI_COMMAND" id="RenderDataUI.msg+_RenderDataUI_LABEL_+12">Rendering</span> tree and select <span class="UI_OPTION" id="RenderDataUI.msg+_RenderDataUI_LABEL_+6">Edit</span>.</li>
+
+<li>Right-click on the mapped surface and select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7907">Texture Space</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7908">Edit</span> from the context menu.</li>
+</ol>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<h2><a name="render"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span></a></h2>
+
+<p>Rendering is the process of generating an image from a model containing rendering information like lights, material, decal, environment. This helps in understanding the final appearance of the model in a user defined environment. The final visualization of the rendered model can be set in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1653">Rendering</span> category. The rendering effect is generated by the following commands (see also <a href="../FWfile/T_FW_render_commands.htm"> <b>Rendering</b>)</a>:</p>
+<ul class="noleft">
+<li><a name="tr8"></a><a href="../FWfile/T_FW_render_preview.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span></a><br>
+
+The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7666">Preview</span> command enables you to quickly render the model. The quality of the rendering is not of high quality, but it enables the user to have the first look of the rendered image.</li>
+
+<li><a name="tr9"></a><a href="../FWfile/T_FW_render_ray.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7667">Ray Tracing</span></a><br>
+
+The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7667">Ray Tracing</span> command enables you to render the model as a fully shaded and textured, antialiasing image using the full ray tracer render. The geometry is sampled at a sufficient rate to eliminate aliasing artifacts in regions of high intensity gradient.</li>
+
+
+<li><a name="tr10"></a><a href="../FWfile/T_FW_render_final.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7668">Final Gathering</span></a>
+
+The <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7665">Rendering</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7668">Final Gathering</span> command enables you to view the model from a point of view. After primary ray hits the point on objects, final gather is activated and shoots additional rays in the scene collecting color information around the point for which the color is then computed. Final gather renders a model that yields extremely realistic shading effects.</li>
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../../images/general/Top1.gif"></a> 
+
+<!-- <h3><a name="thinkreal">Comparison with <i>thinkreal</i></a></h3>
+
+<p>All the new rendering functionalities of <b>ThinkDesign</b> have been described earlier in this document. For further details see <a href="Comp_thinkreal_Render.htm">thinkreal vs Rendering in ThinkDesign</a>.</p> -->
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+<!-- #################################################################################### -->
+</body>
+</html>
+

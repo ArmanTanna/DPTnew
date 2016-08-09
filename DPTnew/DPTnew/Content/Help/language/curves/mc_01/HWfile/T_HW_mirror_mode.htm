@@ -1,0 +1,186 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Job: Applying mirror constraints while curve editing</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<h4>Applying mirror constraints while curve editing</h4>
+
+<p>While performing curve editing using its control points, it is possible to apply constraints that will control the profile shape with respect to its virtual mirror. This would be useful in those designing processes where the symmetry is obtained by developing only half of the <span id="TWOD">part/</span>profile and then mirroring it to get the complete <span id="TWOD">part/</span>profile. The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> functionality enables you to achieve perfect symmetry while maintaining the right continuity.</p>
+
+<p>Take the example of the curve shown below. To apply a mirror constrain about the <span id="TWOD"><i>YZ-plane</i></span><span id="HIDETD"><i>Y-axis</i></span>, you can proceed as follows:<br>
+<br>
+<img src="../../../../images/curves/mirror_curve-1.gif" border="1"></p>
+
+<ol class="noleft">
+<li id="HIDELI">For the purpose of visualization, activate the virtual mirror of the curve about the plane on which you intend to apply the mirror constraint. To do so, use the <a href="../../../view/FWfile/T_FW_VirtualMirror.htm"><span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7549">Virtual Mirror</span></a> command.<br>
+<br>
+If need be, change the virtual mirror plane by using the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+386">Position:</span> option in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+1">Document Properties</span>-<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+382">View</span>-<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_VIEW_PROPERTIES_ADVANCED.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span></a> category. For this tutorial, it has been set to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+3">ZY</span>. The virtual mirror will appear as shown below.<br>
+<br>
+<img src="../../../../images/curves/mirror_curve-2.gif" border="1"><br>
+<br>
+</li>
+
+<li>Start the <a href="../FWfile/T_FW_mc_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+369">Modify Curve through Control Points</span></a> command on the curve to be edited.<br>
+<br>
+</li>
+
+<li><a name="mirror_mode"></a>You can select the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> check box to apply the mirror constraint on the curve (as per the default settings). However, if there is a need to change the default settings, it is advisable to select this check box after making the new settings.<br>
+<br>
+</li>
+
+<li><a name="set_on"></a>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+156">Set On</span> drop-down list, select the position of the mirroring <span id="TWOD">plane</span><span id="HIDETD">axis</span>. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="100"><span id="TWOD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+151">XY plane</span></span><span id="HIDETD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+170">X Axis</span></span></td>
+<td><span id="TWOD">The <i>XY-plane</i> of the coordinate system is the mirroring plane</span><span id="HIDETD">The <i>X-axis</i> of the coordinate system is the mirroring axis</span></td>
+</tr>
+
+<tr valign="top">
+<td><span id="TWOD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+152">XZ plane</span></span><span id="HIDETD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+171">Y Axis</span></span></td>
+<td><span id="TWOD">The <i>XZ-plane</i> of the coordinate system is the mirroring plane</span><span id="HIDETD">The <i>Y-axis</i> of the coordinate system is the mirroring axis</span></td>
+</tr>
+
+<tr valign="top">
+<td><span id="TWOD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+153">YZ plane</span></span><span id="HIDETD"><span class="UI_SELECTOR" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span></span></td>
+<td><span id="TWOD">The <i>YZ-plane</i> of the coordinate system is the mirroring plane</span><span id="HIDETD">You need to define a custom axis to act as the mirroring axis</span></td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+154">Mirror plane</span></td>
+<td>The virtual mirror plane is the mirroring plane</td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+155">Plane</span></td>
+<td>You need to define a custom plane to act as the mirroring plane by using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> options. See the "<a href="../../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>" document for details.</td>
+</tr>
+</table>
+
+<br>
+For the purpose of this illustration, it has been set to <span id="TWOD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+153">YZ plane</span></span><span id="HIDETD"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+171">Y Axis</span></span>.<br>
+<br>
+</li>
+
+<li><a name="Continuity"></a>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+159">Continuity</span> drop-down list, select the kind of continuity constraint you want to apply on the curve: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="150"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+21">Position</span></td>
+<td>Positional continuity is maintained between the original curve and its virtual mirror</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+22">Tangent</span></td>
+<td>Tangential continuity is maintained between the original curve and its virtual mirror</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+157">Smooth curvature</span></td>
+<td>Curvature continuity is maintained between the original curve and its virtual mirror</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Select the control points that you want to move to apply the mirror constraint. Note that it is necessary to select the first control point if it is not already lying on the mirror <span id="TWOD">plane</span><span id="HIDETD">axis</span>. It will be automatically moved when the constraint is applied.<br>
+<br>
+<img src="../../../../images/curves/mirror_curve-5.gif" border="1"><br>
+<br>
+<i><b>Note:</b> To achieve the mirror constraint, the first control point HAS to be present over the mirror <span id="TWOD">plane</span><span id="HIDETD">axis</span>. Hence its selection is necessary.</i><br>
+<br>
+</li>
+
+<li><a name="adv"></a>Additional options are available under the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+166">Advanced Options</span> node.<br>
+<br>
+<a name="Minimize"></a>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+160">Minimize</span> drop-down list enables you to define the criteria as per which the control points are moved to achieve the specified constraint: 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="220"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+173">Max. distance of point displacement</span></td>
+<td>The control points are moved in such a way that their maximum displacement is kept to a minimum. As a result the displacement of each control point is the same. This is the default option.</td>
+</tr>
+
+<tr valign="top">
+<td width="220"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+174">Average distance of point displacement</span></td>
+<td>The control points are moved in such a way that average of individual displacements is kept to a minimum. As a result the displacement is minimal for all control points except the one at the extremity of the selection.</td>
+</tr>
+
+<tr valign="top">
+<td width="220"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+175">Average distance of curves</span></td>
+<td>The control points are moved in such a way that average distance between the modified and original curve is kept to the minimum. This needs more computation time.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="project"></a>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+161">Projected continuity position</span> option primarily controls the movement of the first control point. 
+
+<ul class="noleft">
+<li>When the check box is selected, the first control point is projected normal to the mirror plane. The other control points are also moved accordingly to attain the mirror constraint.</li>
+
+<li>When the check box is cleared, the normal projection of the first control point onto the mirror plane is not guaranteed. The control points will be moved primarily as per the <a href="#Minimize"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+160">Minimize</span></a> setting.</li>
+</ul>
+
+<br>
+</li>
+
+<li>After making the settings, select the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+150">Mirror mode</span> check box. The selected control points will be moved to achieve the applied constraint. In this illustration, the curve maintains a tangential continuity with its virtual mirror.<br>
+<br>
+<img src="../../../../images/curves/mirror_curve-3.gif" border="1"><br>
+<i>The virtual mirror curve has been highlighted in green for visualization only.</i><br>
+<br>
+</li>
+
+<li>Due to the tangency mirror constraint, when the control points are further moved, the tangency is till maintained with its virtual mirror.<br>
+<br>
+<img src="../../../../images/curves/mirror_curve-4.gif" border="1"></li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+If the mirror constraint cannot be applied under the prevailing conditions, then the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../../images/general/warnings_on.gif" align="absmiddle">) button is available in the selection list. On selecting it, a warning will be displayed to inform you about the blocking issue.</td>
+</tr>
+</table>
+
+<p>In the following situation the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+157">Smooth curvature</span> continuity has been applied as a result of which the (grey) curvature plot is G1 continuous with its virtual mirror. A comparison is shown with the (yellow) curvature plot for <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+22">Tangent</span> continuity.<br><br>
+<img src="../../../../images/curves/mirror_curve-6.gif" border="1"><br>
+Grey plot - Curvature continuity, Yellow plot - Tangent continuity</p>
+
+<hr color="silver">
+</body>
+</html>
+

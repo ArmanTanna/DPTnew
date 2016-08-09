@@ -1,0 +1,90 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+<meta name="Revisor" content="Chitti Sowjanya">
+<meta name="T_2009t1" content="translate">
+<title>An overview on Organize Formats and Organize Styles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft {margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body onload="viaMk();" >
+
+<h1><a name="top"></a>An overview on Organize Formats and Organize Styles</h1>
+
+<p><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7310">Formats</span> is a collection of attributes that enables you to create a custom format and use it readily. The purpose of using this is to speed up the design process, by avoiding repetitive work. 
+<span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span> is a collection of attributes, on a much bigger scale, that helps you to create custom style or use any of the Pre-defined standard styles like <b>ANSI</b>, <b>ISO</b>, <b>GB</b>, <b>JIS</b>, and <b>KS</b>. This helps the design people to save reasonable amount of time, wasted in defining dimension and text entities.</p>
+
+<p><a href="../FWfile/T_FW_OrganizeFormats.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7310">Formats</span></a> helps you to create two format classes that help you to set some of dimension and general entity parameters. The two formats are:</p>
+
+<ul class="noleft">
+<li class="ver9"><span class="UI_OPTION" id="idd_formats.msg+idd_formats+3">Dimension</span></li>
+<li class="ver9"><span class="UI_OPTION" id="idd_formats.msg+idd_formats+39">General</span></li>
+</ul>
+
+<p>When you create a new format it will be started from the values of the previous current format. Now you can easily edit your new format according to your needs (see <a href="#edit_format">Edit a Format</a> for more details on how edit a format).<br>
+Once you have created and customized all your formats you can close the dialog by selecting <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+101">Balloon</span> button. All your new formats are now stored on your system and can be used at any time.</p>
+
+<p><a href="../FWfile/T_FW_ed_23.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span></a> helps you to create two set of styles, where you can set all dimension and text parameters. The two styles are:</p>
+
+<ul class="noleft">
+<li class="ver9"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span></li>
+<li class="ver9"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1057">Text</span></li>
+</ul>
+
+<p><b>Formats</b> are generally used to incorporate some specific changes in the <span class="UI_OPTION" id="idd_formats.msg+idd_formats+3">Dimension</span> or <span class="UI_OPTION" id="idd_formats.msg+idd_formats+39">General</span> entities parameters, that are defined in the current style. This is clearly explained using an illustration below.</p>
+
+<p>For example: Suppose you want to draw a rectangle and create a dimension, using a custom style, <b>T3</b>, where you have set all dimension parameters. After this you want to create other dimension using a custom format, <b>format1</b>, proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>First set <b>T3</b> as the current style in the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span> dialog box.</td>
+</tr>
+
+<tr valign="top"><td><b>2</b></td>
+<td>Now draw a rectangle and create a dimension, using the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4607">Smart</span> command. This dimension will have parameters defined, as per in style <b>T3</b>.<br>
+
+<br>
+<img src="../images/ov2.gif" border="1"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Now, run the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4607">Smart</span> command and choose <b>format1</b> as the current <b>Format</b>, from the selection list. Now, if you try to create a dimension, it will be created with the parameters defined, as per in <b>format1</b>.<br>
+<br>
+<img src="../images/ov1.gif" border="1"><br>
+</td>
+</tr>
+</table>
+
+<p>By now, the above illustration would have helped you understand how <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7310">Formats</span> helps you make few specific changes that are already defined in 
+<span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+4526">Styles</span>.</p>
+
+<h3><a name="edit_format"></a>Edit a Format</h3>
+
+<p>To edit a format you need to set the format current first.<br>
+The format in bold is the one that is <i>current</i>. To set a format as current you can select its name and select <span class="UI_CONTEXT" id="ContextMenu_Style.msg+ContextMenu_Style+7332">Set as Current</span> button (<img border="0" src="../../../images/icons/ops/scurrent.gif">) (also available from the context menu) or simply double-click on its name. Preview always represents the current format.<br>
+Every parameter has a check box. Only the checked parameters will be part of the format.<br>
+When the check box is off, the default system value is assigned to the reference parameter and applied to the current format.</p>
+
+<hr color="silver">
+</body>
+</html>
+

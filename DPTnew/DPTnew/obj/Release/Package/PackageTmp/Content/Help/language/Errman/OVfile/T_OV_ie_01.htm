@@ -1,0 +1,320 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9157,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="Revisor" content="Chitti Sowjanya">
+<meta name="T_2009t1" content="translate">
+<title>Recovering Files on Internal Errors</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body onload="viaMk();" >
+<h1><a name="top">Recovering Files on Internal Errors</a></h1>
+
+<p>In order to prevent your work from accidentally spoiling and to enable you to save anything you have done during a session, an automatic saving mechanism is available (<i>see</i> the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_GENERAL.htm"><b>AutoSave</b></a> area in the <b>General</b> category of the <b>System Options</b>): if you have not saved your changes by the time a specified time period has elapsed, the program automatically saves the current models in each active window.<br>
+<br>
+A situation in which you might need to save your work, if you have not done so yet, is when an Internal Error should occur.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" cellpadding="30%" align="center" width="80%">
+<tr>
+<td bordercolor="#ffffe1" style=";">
+<div align="center" style="font-size: larger;color:red;font-weight:bold"><b>WARNING</b></div>
+
+<br>
+<b>Though this document will show you how to recover files from Internal Errors, please be aware that any file recovered after an Internal Error has occurred, whatever the way you recovered it, is potentially unsafe: you can use it at your own risk.</b><br>
+<br>
+<b>Be aware there is a possibility that using such files can cause unexpected damage to your work.</b> </td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td bordercolor="#ffffe1"><a name="logo"></a>&nbsp;<b>Possible causes of Internal Errors</b><br>
+<br>
+<table border="1" bordercolor="#ffffe1" bgcolor="#ffffe1">
+<tr>
+<td bordercolor="white">
+<p>Internal errors may have several causes, but the most frequent are of the following two types:</p>
+
+<ul class="noleft">
+<li><b>Internal errors due to corrupted data</b><br>
+When you load a file which contains corrupted data, you will probably get some "Internal error" messages even if you are performing very simple operations. <b>The only thing to do is <i>not</i> to create, use, or "propagate" files containing corrupted data.</b> There are some risky situations which make the probability to create and or use corrupted files grow. Files saved after an "Internal error" occurred may contain corrupted data. Great caution is to be used while dealing with these files.<br>
+Files created loading different format files (IGES, VDA, STEP, DWG and DXF created with other CAD systems) may sometimes contain corrupted data. After any translation from a format different from the one of the product, you would better check the imported entities.<br>
+&nbsp;</li>
+
+<li><b>Internal errors due to the hardware resources</b><br>
+The application needs proper RAM quantities to handle big models. Memory shortage or wrong memory release operations by the Operating System may generate "Internal error" messages with no apparent reason, even if the file contains no corrupted data. The RAM quantity must be at least twice the file dimension you have to handle. Both for the RAM quantity and the graphics card, it is recommended to adhere to the suggested "<a href="mk:@MSITStore:tdein.chm::/language/tdein/SystemRequirements.htm#Minimum">Minimum System Requirements</a>".<br>
+<br>
+ Please note that in all the situations in which the application may require large amounts of memory&nbsp;&#151;&nbsp;for instance when working with large assemblies&nbsp;&#151;&nbsp;you can exploit Microsoft&reg; Windows additional memory addressing capabilities to highly improve your performance and dramatically reduce the probability of error as described in "<a href="mk:@MSITStore:tdein.chm::/language/tdein/System_enhancements.htm">Large Memory Support</a>".<br>
+<br>
+<div style="font-size: smaller;"><b>Low Memory Warning Management</b><br>
+Furthermore, please note that you can set up the application so as to properly warn you when it is risking to run out of memory.<br>
+To activate low memory warnings, open the I/O window and type in the following:<br>
+<b>ekpar EP_VM_CHECK 1</b><br>
+To deactivate low memory warnings, instead, type in the following:<br>
+<b>ekpar EP_VM_CHECK 0</b><br>
+Finally, take into account you can define the threshold memory value in MB below which warnings will be issued if they are enabled by typing in:<br>
+<b>EP_VM_MBLIMIT</b> <i>Threshold_Value_In_MB</i><br>
+where:<br>
+<i>Threshold_Value_In_MB</i> is the value in MB below which warning messages will be displayed. Default is 100 MB.<br>
+When the warning are activated, whenever the threshold value is going to be exceeded, a message similar to the following will be displayed:<br>
+</div>
+
+<tt style="font-family: 'Courier New', Courier, monospace; font-size: 11px;">This application may run out of memory.<br>
+Total memory: 2047 MB.<br>
+Free memory: 100 MB.</tt></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td bordercolor="#ffffe1"><a name="avoid"></a>&nbsp;<b>Avoiding data corruption</b> <br>
+<br>
+<table border="1" bordercolor="#ffffe1" bgcolor="#ffffe1">
+<tr>
+<td>In order to avoid data losses and corruption and to incrementally save the changes you make to documents, a very simple method is to <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_06.htm">save</a> your models/drawings to different files during a work session.<br>
+<br>
+For example, you might save your "sample" document first to "sample_01" and then to "sample_02", "sample_03", and so on. If a crash or an Internal Error occurs, even in the case the recovery files automatically generated by the program should be corrupted, you wouldn't have lost all of your work, but only the last changes you made after you last saved.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>Although Internal Errors very seldom occur, you have better know what to do in such cases. This document describes how to behave when an Internal Error occurs in two different situations:</p>
+
+<ul class="noleft">
+<li><a href="#notenabled">Recovering from an Internal Error when a file has not yet been saved by the Autosave function</a></li>
+
+<li><a href="#enabled">Recovering from an Internal Error when a file has already been saved by the Autosave function</a></li>
+</ul>
+
+<br>
+ 
+
+<h2><a name="notenabled"></a>Recovering from an Internal Error when a file has not yet been saved by the AutoSave function</h2>
+
+<p>The following steps describe what to do in order to recover the models/drawings you are working on in the rare possibility an Internal Error should occur before the <b>AutoSave</b> time period is elapsed, so that no automatic copy of your open models/drawings has been made by the program yet.<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="25"><b>1</b></td>
+<td>When an internal occurs, the following message box is displayed:<br>
+<br>
+<img src="../images/IE01.gif"><br>
+<br>
+Select <b>Yes</b> to save your last changes before the application is terminated. When you click <b>Yes</b>, a copy of each modified model/drawing is made to a file and the <b>think<font color="#FF0F00">3</font></b> application is terminated.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Start the application again. A dialog box similar to the following will be displayed, informing you that the files that were automatically saved might be corrupted (to avoid data corruption, <i>see</i> <b><a href="#avoid">Avoiding data losses</a></b>):<br>
+<br>
+<img src="../images/IE02.gif"><br>
+<br>
+The following options are available: 
+
+<ul class="noleft">
+<li><b>Saved when the error occurred</b>&nbsp;&mdash;&nbsp;to load the files that were automatically saved <i>when</i> the Internal Error occurred.</li>
+
+<li><b>None</b>&nbsp;&mdash;&nbsp;to start the application loading no document.</li>
+</ul>
+
+<p>Select <b>OK</b>.<br>
+<br>
+</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>If you load the recovery documents, a dialog box similar to the following will be displayed.<br>
+<br>
+<img src="../images/IE03.gif"><br>
+<br>
+It displays a list of all recovery documents that were automatically saved when the Internal error occurred, it warns you that the <b>AutoSave</b> mechanism will not be enabled during this session and prompts you to: 
+
+<ol>
+<li>Check each of the documents</li>
+
+<li>If they are not corrupted, save them</li>
+
+<li>Stop the application.</li>
+</ol>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1" cellpadding="10">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Checking the document integrity</b> 
+
+<ul class="noleft">
+<li>For detailed information about how to check a document, see <b><a href="T_OV_solution-874.htm">How to check documents</a></b></li>
+
+<li>If the recovery document contains corrupted data, refer to <b><a href="mk:@MSITStore:help.chm::/language/file/HWfile/T_HW_fi_02_01.htm">Opening files including entities with corrupted data</a></b></li>
+
+<li>For further details on errors due to corrupted data, see <b><a href="T_OV_solution-873.htm#corrupteddata">Error management: Unexpected errors due to corrupted data</a></b></li>
+
+<li>For information about corrective actions that can be performed, see <b><a href="T_OV_solution-874.htm#A4">How to check documents: corrective actions</a></b>.</li>
+</ul>
+
+<br>
+<br>
+</td>
+</tr>
+</table>
+
+<p><br>
+</p>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h2><a name="enabled"></a>Recovering from an Internal Error when a file has already been saved by the AutoSave function</h2>
+
+<p>The following steps describe what to do in order to recover the models/drawings you are working on in the rare possibility an Internal Error should occur after the <b>AutoSave</b> time period is elapsed, so that one automatic copy of your open models/drawings has already been made.<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="25"><b>1</b></td>
+<td>When an internal error occurs, the following message box is displayed:<br>
+<br>
+<img src="../images/IE04.gif"><br>
+<br>
+Select <b>Yes</b> to save your last changes before the application is terminated. When you click <b>Yes</b>, a copy of each modified model/drawing is made to a file and the application is terminated.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Start the application again. A dialog box similar to the following will be displayed, informing you that the files that were automatically saved might be corrupted (to avoid data corruption, <i>see</i> <b><a href="#avoid">Avoiding data losses</a></b>), but also that an autosaved copy of each file is available:<br>
+<br>
+<img src="../images/IE05.gif"><br>
+<br>
+The following options are available: 
+
+<ul class="noleft">
+<li><b>Saved before the error occurred</b>&nbsp;&mdash;&nbsp;to load the files that were automatically saved by the autosave mechanism before the Internal Error occurred; these files will not contain the last changes you made after the files were last saved by the <b>AutoSave</b> mechanism</li>
+
+<li><b>Saved when the error occurred</b>&nbsp;&mdash;&nbsp;to load the files that were automatically saved when the Internal Error occurred (see step 1)</li>
+
+<li><b>None</b>&nbsp;&mdash;&nbsp;to start the application loading no document</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>The behavior is different depending on which option you select: 
+
+<ul class="noleft">
+<li>If you select <b>Saved before the error occurred</b>, a dialog box like the following, containing a list of all the files that were automatically saved by the <b>AutoSave</b> mechanism is displayed.<br>
+<br>
+<img src="../images/IE06.gif"><br>
+<br>
+<ol>
+<li>Select the files you want to recover (if any)</li>
+
+<li>Select <b>Recover</b> to load them or <b>Discard</b> not to recover any of them.</li>
+</ol>
+
+<p>The selected files will be loaded.<br>
+&nbsp;</p>
+</li>
+
+<li>If you select <b>Saved when the error occurred</b>, all recovery documents saved when the Internal Error occurred are loaded; a dialog box similar to the following is displayed:<br>
+<br>
+<img src="../images/IE03.gif"><br>
+<br>
+It displays a list of all recovery documents, it warns you that the <b>AutoSave</b> mechanism will not be enabled during this session and prompts you to: 
+
+<ol>
+<li>Check each of the documents</li>
+
+<li>If they are not corrupted, save them</li>
+
+<li>Stop the application.</li>
+</ol>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1" cellpadding="10">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Checking the document integrity</b> 
+
+<ul class="noleft">
+<li>For detailed information about how to check a document, see <b><a href="T_OV_solution-874.htm">How to check documents</a></b></li>
+
+<li>If the recovery document contains corrupted data, refer to <b><a href="mk:@MSITStore:help.chm::/language/file/HWfile/T_HW_fi_02_01.htm">Opening files including entities with corrupted data</a></b></li>
+
+<li>For further details on errors due to corrupted data, see <b><a href="T_OV_solution-873.htm#corrupteddata">Error management: Unexpected errors due to corrupted data</a></b></li>
+
+<li>For information about corrective actions that can be performed, see <b><a href="T_OV_solution-874.htm#A4">How to check documents: corrective actions</a></b>.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+ </td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>If, in step 3, you selected <b>Saved when the error occurred</b>, checked your file, and saved, when you stop the application, a dialog box similar to the following will be displayed:<br>
+<br>
+<img src="../images/IE07.gif"><br>
+<br>
+If the recovery files automatically saved when the Internal Error occurred are correct, select <b>Yes</b> to delete the files automatically saved before the error. On the contrary, if the recovery files saved when the error occurred are corrupted, select <b>No</b> to stop the application keeping the files automatically saved before.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft" style="margin-top:0">
+<li><a href="T_OV_solution-873.htm"><b>Error Management</b></a></li>
+
+<li><a href="mk:@MSITStore:chelp.chm::/language/help/OVfile/T_OV_Error_Reporting.htm"><b>Automatic Traceback Management</b></a></li>
+
+<li><a href="T_OV_solution-874.htm"><b>How to check documents</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

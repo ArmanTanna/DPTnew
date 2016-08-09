@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2013t1" content="translate">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>Large memory support (32-bit)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h2>Large memory support (32-bit)</h2>
+
+<h5>Windows<sup>&reg;</sup> 7 / Windows<sup>&reg;</sup> 8</h5>
+
+<p style="margin-top:0;margin-bottom:0;margin-left:22;">If your operating system is Windows 7 (32-bit) or Windows 8 (32-bit), you can increase your virtual memory space for a single application as follows.</p>
+
+<ul style="margin-top:0;margin-bottom:0;margin-left:44;">
+<li>Open an <i>elevated command prompt</i><a href="#elevated">(*)</a>.</li>
+
+<li>Type:<br>
+<font face="Courier"><b>BCDEdit/set increaseuserva 3072</b></font><br>
+and select <b>ENTER</b>.</li>
+</ul>
+
+<p style="margin-top:0;margin-bottom:0;margin-left:22;">You can check the obtained result by simply typing <font face="Courier"><b>BCDEdit</b></font> and clicking <b>ENTER</b>. You should get something like the following:<br>
+<br>
+<img alt="" src="../../images/tdein/bcd.gif"><br>
+<br>
+</p>
+
+<p style="margin-top:0;margin-bottom:0;margin-left:22;">The <font face="Courier"><b>increaseuserva</b></font> variable specifies the amount of memory, in megabytes, for user-mode virtual address space. This variable can have any value between 2048 (2 GB) and 3072 (3 GB) megabytes in decimal notation. Windows uses the remaining address space (4 GB minus the specified amount) as its kernel-mode address space.</p>
+
+<p style="margin-top:0;margin-bottom:0;margin-left:22;">For further details, see the MSDN knowledge base:</p>
+
+<ul style="margin-left:44;margin-top:0;">
+<li>"BCDEdit /set" (when this article is being written, at <a href=" http://msdn2.microsoft.com/en-us/library/aa906211.aspx">http://msdn2.microsoft.com/en-us/library/aa906211.aspx</a>)</li>
+
+<li>"Changing Boot Parameters" (when this article is being written, at <a href="http://msdn2.microsoft.com/en-us/library/ms791518.aspx">http://msdn2.microsoft.com/en-us/library/ms791518.aspx</a>)</li>
+</ul>
+
+
+
+<hr color="silver">
+<p style="margin-bottom: 0; margin-top: 0; font-size: 8pt;"><a name="elevated"></a>(*) An <i>Elevated Command Prompt</i> is a command prompt obtained as follows:</p>
+
+<ul class="noleft" style="margin-top: 0; margin-bottom: 0; font-size: 8pt;">
+<li style="font-size: 8pt;">If the User Account Control is not enabled, login as an administrator and open any command prompt.</li>
+
+<li style="font-size: 8pt;">If the User Account Control is enabled, open a command prompt by right-clicking and by selecting <b>Run as administrator</b>.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

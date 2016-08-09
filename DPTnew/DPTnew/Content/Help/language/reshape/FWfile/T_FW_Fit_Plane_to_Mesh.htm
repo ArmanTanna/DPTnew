@@ -1,0 +1,343 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10114,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t1" content="translate">
+<title>Insert Plane on Mesh</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();ResizeIFrame1();ResizeIFrame2();ResizeIFrame3();ResizeIFrame4();ResizeIFrame5();ResizeIFrame6();ResizeIFrame7();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+18">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+16">Plane on Mesh</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="thinkreshapeButton.msg+thinkreshapeButton+28">Plane on Mesh</span> command enables you to create reference planes, unconstrained planes characterized by its normal direction and root point.</p>
+
+<p>In <b>Reshape</b> a plane can be created with no constraints or with a <b>Parallel to plane</b> constraint. In the latter case, the reference plane can be determined in several different ways.</p>
+
+<h2>Insert a Plane on Mesh without constraints</h2>
+
+<ol class="noleft">
+<li>Select the mesh to insert a plane.<br>
+<br>
+To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
+<br>
+</li>
+
+<li>Select two or more points the plane should pass through. Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+6">Selection through</span> check box to select all the nodes in the selection window, by default only the visible nodes will be selected.<br>
+<br>
+</li>
+
+<li>Under the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+103">Results</span> node in the selection list, the fitting results shows how accurate the plane creation has been with the inserted values:<br>
+<br>
+<img src="../images/insert-plane-on-mesh-1.gif" border="1"><br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+104">Mean distance</span></td>
+<td>represents the average deviation from the mesh surface</td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+105">Max. distance</span></td>
+<td>represents the maximum deviation from the mesh surface</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;">Click the <b>OK</b> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation and exit the procedure, or the <b>Apply</b> button <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to apply the operation, or the <b>Cancel</b> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.<br>
+<br>
+</li>
+</ol>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/plane-on-mesh_pick-points.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Insert a plane defined by picking points - no constraints</td>
+</tr>
+</table>
+
+<h2>Insert a Plane on Mesh with a <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+52">Parallel to plane</span> constraint</h2>
+
+<p>The <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+52">Parallel to plane</span> constraint as selected in <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> can be defined in several ways:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><a href="#3P"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></a></td>
+<td>Use 3 points on the mesh to build the reference plane</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#plane"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span></a></td>
+<td>Use another plane as a reference plane</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#perp"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></a></td>
+<td>Select an axis and a point to build the reference plane</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#thru"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></a></td>
+<td>Select an axis and a point to build the reference plane</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#face"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></a></td>
+<td>Select a face to use as a reference plane</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#coeff"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></a></td>
+<td>Select a point and define the passing plane equation</td>
+</tr>
+
+<tr valign="top">
+<td><a href="#bounded"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span></a></td>
+<td>Select a series chain of curves to use as boundary of the reference plane</td>
+</tr>
+</table>
+
+<h3><a name="3P"></a>3 Points definition of reference plane</h3>
+
+<img src="../images/reference-plane-3-points.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select 3 points on the mesh that defines the plane.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span> check box to to enter the plane's angle in degree.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe2" name="MyIframe2" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame2()" scrolling="no"></iframe></li>
+</ol>
+
+<h3><a name="plane"></a>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span></h3>
+
+<img src="../images/reference-plane-plane.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select the plane you would like to use as a reference for the plane creation.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span> check box to to enter the plane's angle in degree.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe3" name="MyIframe3" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame3()" scrolling="no"></iframe></li>
+</ol>
+
+<h3><a name="perp"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></h3>
+
+<img src="../images/reference-plane-perpendicular-1.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Make additional selections for:<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> - <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> </td>
+<td>This kind of selection implies choosing a construction vector from the model for building the reference plane.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> - <b>2 Points</b> </td>
+<td>This kind of selection implies picking 2 points that defines the guiding line for building the reference plane.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> - <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+38">X</span>, <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+39">Y</span>, <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+40">Z</span> </td>
+<td>Choosing one of the principal axes will use X, Y or Z axis to build the reference plane.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span></td>
+<td>The passing point of the reference plane to be created.</td>
+</tr>
+
+<tr valign="top">
+<td>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span></td>
+<td>Check this box to enter the plane's angle in degree.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe4" name="MyIframe4" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame4()" scrolling="no"></iframe>
+</ol>
+
+<h3><a name="thru"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></h3>
+
+<img src="../images/reference-plane-axis-point.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Make additional selections for:<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> - <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> </td>
+<td>This kind of selection implies choosing a construction vector from the model for building the reference plane.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> - <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span> </td>
+<td>This kind of selection implies picking 2 points that defines the guiding line for building the reference plane.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Point</b></td>
+<td>The passing point of the reference plane to be created.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span></td>
+<td>Check this box to enter the plane's angle in degree.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe5" name="MyIframe5" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame5()" scrolling="no"></iframe>
+</ol>
+
+<h3><a name="face"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span> </h3>
+
+<img src="../images/reference-plane-on-face.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select a face in the model to use as a reference plane.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span> check box to to enter the plane's angle in degree.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe6" name="MyIframe6" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame6()" scrolling="no"></iframe>
+</ol>
+
+<h3><a name="coeff"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></h3>
+
+<img src="../images/reference-plane-coefficients.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select a point for creating the reference plane; coefficient values are displayed.<br>
+<br>
+<img src="../images/reference-plane-coefficients-menu.gif" border="1"><br>
+<br>
+Insert the coefficient values in order to create the plane, the coefficients govern the mathematic equation Ax+By+Cz+D = 0<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span> check box to enter the plane's angle in degree.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe7" name="MyIframe7" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame7()" scrolling="no"></iframe><br><br></li>
+</ol>
+
+<h3><a name="bounded"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span></h3>
+
+<img src="../images/reference-plane-boundaries.gif" border="1"><br>
+<br>
+<ol class="noleft">
+<li>Select the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span> option in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+116">Reference plane</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select a chain of curves to create the reference plane.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+117">Angle</span> check box to enter the plane's angle in degree.<br>
+<br>
+</li>
+
+<li style="vertical-align: top;"><iframe id="MyIframe8" name="MyIframe8" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 100%; border: none; margin: 0px;" src="../jsoptions/OkApplyCancel.htm" onresize="ResizeIFrame8()" scrolling="no"></iframe><br><br></li>
+</ol>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/reshape/plane-on-mesh_parallel-to-plane.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Insert a plane defined by a parallel plane and points picked</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+</body>
+</html>
+

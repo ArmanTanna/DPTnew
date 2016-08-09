@@ -1,0 +1,157 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Inserting curve on surface boundaries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.OLD{font-weight: bold;}</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Inserting curves on surface boundaries</h4>
+
+<p style="margin-bottom:0;">After starting the <a href="../curves/FWfile/T_FW_cv_11.htm"><b>Boundary Curve</b></a> command, proceed as follows.</p>
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <b>Boundaries</b> drop-down list, select the method to be used to create the boundary curves: 
+
+<table>
+<tr valign="top">
+<td><b>All</b></td>
+<td>to create all the boundary curves of the surfaces you will select</td>
+</tr>
+
+<tr valign="top">
+<td><b>Select</b></td>
+<td>To create only the curves corresponding to the boundaries you will select.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+183">Free Boundary</span></td>
+
+
+
+<td>(<i>Applies to solids only</i>) To create the curves corresponding to the <i>free</i> boundaries of the selected faces belonging to the same solid: free boundaries are the ones that are not common to more than one of the selected faces. The resulting curves will be the free boundaries of the selected set of faces.
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Further selections depend on the method you chose: 
+
+<ul class="noleft">
+<li>If you chose the <b>All</b> method, click on the surfaces whose boundary curves you want to create:<br>
+<br>
+<img border="1" src="../../images/curves/boundary01.gif"><br>
+<br>
+To change the selected surfaces, right-click on <b>Surfaces</b>, select <b>Reset</b> in the context menu and perform selection again.</li>
+
+<li>If you chose the <b>Select</b> method, click on the boundaries you want to create curves on:<br>
+<br>
+<img border="1" src="../../images/curves/boundary03.gif"><br>
+<br>
+To change the selected boundaries, right-click on the <b>Boundaries</b> selector item, choose <b>Reset</b> in the context menu and perform selection again.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>3</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif"> or <img src="../../images/general/APPLYbutton.gif"> to confirm your selections and create the boundary curves.<br>
+&nbsp; 
+
+<table border="1" bordercolor="white" bgcolor="white">
+<tr valign="top">
+<td><i>Method: <b>All</b></i></td>
+<td><i>Method: <b>Select</b></i></td>
+</tr>
+
+<tr valign="top">
+<td bordercolor="black" bgcolor="#c8c8c8"><img src="../../images/curves/boundary02.gif"></td>
+<td bordercolor="black" bgcolor="#c8c8c8"><img src="../../images/curves/boundary04.gif"></td>
+</tr>
+</table>
+
+<br>
+Click <img src="../../images/general/CANCELbutton.gif"> to discard your selections.<br>&nbsp;</td>
+</tr>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Curves On Surfaces</b>
+<br>
+The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box controls the type of the resulting curves, enabling you to create curves of the &quot;Curve on Surface&quot; type (See &quot;
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves on Surfaces</a>&quot; for details).
+
+
+
+<ul class="noleft">
+<li>When it is selected, the resulting curves will be of the Curve on Surface type. In this case, if the surface is modified, the curves will follow the change.</li>
+
+<li>When it is cleared, the resulting curves will be NURBS and they will not follow any surface change. In this case, an additional option is available under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>: 
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>. 
+
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curves will be <a  href="../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a  href="../MathConc/T_MC_ContinuityClassification.htm#G4">G4 continuous</a> and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+</li>
+</ul>
+<table>
+<tr valign="top">
+<td><img border=1 src="../../images/curves/BC-COS-YES.gif"></td>
+<td><img border=1 src="../../images/curves/BC-COS-NO.gif"></td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> checked</td>
+
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> cleared</td>
+
+</tr>
+</table>
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Colors and Materials (3D) - Add a new material</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Add a new material to the list of predefined materials</h3>
+
+<p>Each color set (<i>see</i> <a href="T_HW_to_06_08_01_05.htm">Set and save a color set</a>) has its own list of predefined colors. In order to add a new material to the list, proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td width=20><b>1</b></td>
+<td>
+<P>When you select the command, the program displays the <B>Colors and Materials</B> dialog box.<br>
+This dialog box shows the color set associated with the current document. The color set consists of both the entity colors (a maximum of 63) and the environment colors (the background color and colors used for highlighting entities).</p><p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>
+<p>Using any text editor program (for example Microsoft&reg; WordPad), edit the <i>color set file</i> you will find in the "<tt>files/colorsets</tt>" subfolder of your <b>think<font color="#FF0F00">3</font></b> application root installation folder. The name of the color set file is the same as the one of the color set displayed in the <b>Set</b> box. <a href="example.htm">This example</a> is a color set file named "example".</p><p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>The file is structured in blocks: each block describes one color and is identified by the word <tt>DOCUMENTCOLOR</tt> followed by the color number. At the end of the block, the word <tt>MATERIAL</tt> identifies the material associated with that color:<br>
+<pre>DENSITY 1.000000
+DOCUMENTCOLOR 14:
+WIREFRAME:
+152 0 0
+DIFFUSIVE:
+212 181 181
+SPECULAR:
+0 0 0
+TRANSPARENCY 0.000000
+SHININESS 1.000000
+DEPENDENCY 1
+WIDTH 0.000000
+<font color="red">MATERIAL</font>:
+</pre></td><p></p>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the next line, type the name of the material:
+<pre>...
+MATERIAL:
+PINK MARBLE
+</pre>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Save and close the file.</td><p></p>
+</tr>
+</table>
+
+<p>To see your changes, start the program (if it was active while you were making the change you will have to stop it and run it again) and check the color set.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+The procedure displayed above can also be used to create new color sets.</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

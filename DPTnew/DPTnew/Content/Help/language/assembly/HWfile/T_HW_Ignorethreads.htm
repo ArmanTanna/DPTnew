@@ -1,0 +1,45 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Ignore threads during Collision detection</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3>Ignore threads during Collision detection</i></H3>
+
+<p>In the Collision detection mode, you can choose to ignore threads when computing the collision between parts. <br>
+You can enable/disable the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_OLE.htm"><b>Ignore threaded surfaces</b></a> option in the <b>Options/Properties</b> dialog box.<br><br>
+
+A simple illustration of a <b>Plate</b> with threaded hole and a threaded <b>Screw</b> is shown below.
+</font>
+<br><br><img src="../../../images/assembly/Igr_thread01.gif" border="1"><br><br>
+Checking the <b>Ignore threaded surfaces</b> option and setting the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_OLE.htm"><b>Feedback</b></a> mode to <b>Highlight colliding faces</b>, you will be able to move the <b>Screw</b> inside the hole of the plate. The movement is free as the threaded faces are ignored for collision.<br><br>
+
+<img src="../../../images/assembly/Igr_thread02.gif" border="1"><br><br>
+Unchecking the <b>Ignore threaded surfaces</b> option, you will be able to view the colliding faces highlighted as you move the <b>Screw</b> into the hole.<br><br>
+<img src="../../../images/assembly/Igr_thread03.gif" border="1"><br><br>
+The information you gather here is dynamic and on the fly.<br><br>
+Suppose the parameter <b>Stop on collision</b> is set for <b>Feedback</b>, you will be able to move the <b>Screw</b> only upto the start face of the thread on the <b>plate</b>. The <b>thread</b> faces are identified for collision and the movement is stopped once it is found.<br><br>
+<img src="../../../images/assembly/Igr_thread04.gif" border="1"></p>
+
+<hr color="silver">
+</body>
+</html>

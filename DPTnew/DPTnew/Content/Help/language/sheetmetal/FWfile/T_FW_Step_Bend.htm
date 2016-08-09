@@ -1,0 +1,102 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(390,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2012t1" content="translate">
+<meta name="Revisor" content="Donella Geminiani">
+<title>Step Bend</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7779">Step Bend</span> command enables you to replace an existing <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_09_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4594">Fillet</span></a> or <a href="T_FW_Bend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6991">Bend</span></a> with a step bend of which you can define:</p>
+
+<ul class="no left">
+<li>The Number of bends or the Chordal Error</li>
+
+<li>The Radius</li>
+
+<li>The Allowance values</li>
+</ul>
+
+<p>The fillets or bends you selected will be replaced with a step bend with the number of bends you specify or as calculated from the chordal error value you specified.</p>
+
+<p>After starting the command you will have to choose an existing fillet or bend and specify the number of bend needed in the step bend. You can also choose to keep all the bend angles of the step bend constant or make them vary.</p>
+
+<p>You can assign specific values to the related Sheet Metal parameters (different from the general ones defined in the <a href="../HWfile/IDP_SET_SHEET_METAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span></a> category of the <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span>) by selecting <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> and proceeding as described in <a href="../OVfile/T_OV_LocalData.htm"><b>Local Properties and the Lock Marker</b></a>.</p>
+
+<p>You are able to create steps on a <i>twisted bend surface</i>, as shown in the images below.</p>
+
+<table style="margin-left:0" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td align="center"><img src="../../../images/sheetmetal/Twist_surface_1.gif" border="1"></td>
+<td align="center"><img src="../../../images/general/Arrow_To_Right.gif"></td>
+<td align="center"><img src="../../../images/sheetmetal/Twist_surface_2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Twisted bend surface</b></td>
+<td></td>
+<td align="center"><b>Step bends created</b></td>
+</tr>
+</table>
+
+<p>A message is displayed in case the specified relief diameter is greater or lesser than the required relief diameter.</p>
+
+<p>You need to set the <b>Circular</b> option in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+468">Type:</span> drop-down list of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span>-<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span>-<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL_RELIEF_CORNER.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+465">Corner Reliefs</span></a> category before applying the <a href="mk:@MSITStore:shm.chm::/language/sheetmetal/Fwfile/T_FW_Step_Bend.htm"><span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7777">Step Bend</span></a> command on the <i>twisted bend surface</i>.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Editing the number of steps</b>
+<br>The command shows the number of steps as a driving dimension. This enables you to edit the number of steps without redefining the feature, for instance by the usual <span class="UI_OPTION" id="idd_chdrd.msg+idd_chdrd+1">Edit Driving Dimension</span> dialog box, entering a different number of steps in the <b>Value</b> box of the dialog box. It also enables you to assign a variable to the number of steps.
+</td></tr></table><br>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Step_Bend.htm"><b>Add a step bend to a solid</b></a></li>
+<li><a href="../HWfile/T_HW_Step_Number.htm"><b>Change the number of steps of a sheet metal solid</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_SheetMetal.htm"><b>Sheet Metal Workflow</b></a></li>
+
+<li><a href="../OVfile/T_OV_BT00.htm"><b>The Bend Table</b></a></li>
+
+<li><a href="../OVfile/T_OV_LocalData.htm"><b>Local Properties and the Lock Marker</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

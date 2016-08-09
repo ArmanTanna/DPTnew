@@ -1,0 +1,151 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t3" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<title>New Part Properties Functionalities and Improvements</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<!-- <link href="../JSandSTYLES/txt4chinese.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="../JSandSTYLES/DoNotDisplayInChinese.css"rel="stylesheet" type="text/css"> -->
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+<a name="top"></a> 
+
+<h1>New Part Properties Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.3 introduces the following enhancements and improvements to the Part Properties functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P703">Improvement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> customization</a></li>
+
+<li><a href="#P703_DF">User interface enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span> command</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- #################################################################################### -->
+<!--PRJ: P0000703 -  OWN: SUJO -->
+<h2><a name="P703"></a>Improvement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> customization</h2>
+
+<p>The following significant improvements have been made in the Part List customization to offer the capability of adapting to different needs.</p>
+
+<ul>
+<li><a href="#PL_1">New sub-column functionality</a></li>
+
+<li><a href="#PL_2">Column title in vertical direction</a></li>
+
+<li><a href="#PL_3">Customization of text style and color</a></li>
+
+<li class="NoChinese"><a href="#PL_4">Configuration of anchor points on a Drawing Frame</a><br>
+<br>
+</li>
+</ul>
+
+<p><img src="../dftb/images/PL_Table.gif"></p>
+
+<h3><a name="PL_1"></a>New sub-column functionality</h3>
+
+<p>You can now have more than one sub-column under a column header (point <b>1</b>, as shown in the image above). To implement this enhancement, the new <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+21">Merge titles</span> text box has been introduced in the <span class="UI_OPTION" id="eklib.msg+eklib+586">New Column</span> and <span class="UI_COMMAND" id="eklib.msg+eklib+581">Edit Column</span> dialog boxes. <a name="Add_Edit"></a>These dialog boxes are available on selecting the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+650">New Column</span> or <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+652">Edit Column</span> buttons respectively from the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+574">Columns</span> category in the <b>Part List Options</b> dialog box.<br>
+<br>
+The columns with the same content in the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+21">Merge titles</span> text box will be collected together as merged column, having a common title and individual column titles.<br>
+<br>
+The following steps explain the functioning of this feature:</p>
+
+<ol>
+<li>Activate the <b>Part List Options</b> dialog box.</li>
+
+<li>Expand the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> node and select the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+574">Columns</span> category.</li>
+
+<li>Create two new columns, <i>Wt</i> and <i>Vol</i>, using the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+1">New Column</span> button. While creating the new columns, enter <i>Measure</i> in the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+21">Merge titles</span> text box and select <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+19">OK</span>.<br>
+Note that while editing or adding a new column, the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+19">OK</span> button is enabled only if requisite data is specified in the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+4">Title:</span> or <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+2">Name:</span> text boxes. <!-- If the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+3">Property:</span> field is empty, <tt>$E{Empty}</tt> will be assigned. -->
+</li>
+
+<li>From the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+574">Columns</span> category, arrange the <i>Wt</i> and <i>Vol</i> columns in sequence under the <span class="UI_OPTION" id="IDD_OPTS_DATAEXCHANGE.msg+idd_opts_dataexchange+577">Used</span> list by using the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+580">Up</span> or <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+581">Down</span> buttons.</li>
+
+<li>Insert the part list by using the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span> command. The Part List, as shown in the image above, will be inserted in the drawing.<br>
+<br>
+</li>
+</ol>
+
+<h3><a name="PL_2"></a>Column title in vertical direction</h3>
+
+<p>It is now possible to have column title text in vertical direction (point <b>2</b>, as shown in the image above). To implement this enhancement, the <a href="#effect"><span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+24">Effect</span></a> button has been introduced in the new <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+23">Column title</span> tab under the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+11">Text font</span> area in the <span class="UI_OPTION" id="eklib.msg+eklib+586">New Column</span> and <span class="UI_OPTION" id="eklib.msg+eklib+581">Edit Column</span> <a href="#Add_Edit">dialog boxes</a>.</p>
+
+<h3><a name="PL_3"></a>Customization of text style and color</h3>
+
+<p>In this version, it is also possible to perform text font customization for the row items and the column titles, along with the individual columns, as shown in the image above.<br>
+<br>
+To implement this enhancement, the new <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+22">Rows</span> and <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+23">Column title</span> tabs have been introduced in the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+11">Text font</span> area of the <span class="UI_OPTION" id="eklib.msg+eklib+586">New Column</span> and <span class="UI_OPTION" id="eklib.msg+eklib+581">Edit Column</span> <a href="#Add_Edit">dialog boxes</a>. The following new button is present in the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+23">Column title</span> tab:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="top">
+<td width="8%"><a name="effect"></a><span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+24">Effect</span></td>
+<td>Enables you to insert the column title text in the vertical direction.<br>
+Note that this is a toggle button, which is active only when the <span class="UI_OPTION" id="idd_add_coloumn.msg+idd_add_coloumn+12">Use table text style</span> check box is cleared.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p><a name="Color"></a>To implement the color management of title, header, and row items, the new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+566">Table color</span> area with the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+684">Header/footer and column title</span> and <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+685">Rows</span> options have been introduced in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category in the <b>Part List Options</b> dialog box.</p>
+
+<h3 class="NoChinese"><a name="PL_4"></a>Configuration of anchor points on a Drawing Frame</h3>
+
+<p class="NoChinese">It is now possible to configure an anchor point on a Drawing Frame to position a Part List. To implement this enhancement, <a name="Anchor_node"></a>the new <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+82">Part List Anchor Point</span> node with the following four options has been introduced in the new <a href="#Save_DF"><span class="UI_OPTION" id="idd_drw_save_as_frame.msg+idd_drw_save_as_frame+1">Save as Drawing Frame</span></a> selection list.</p>
+
+<ul class="NoChinese">
+<li class="NoChinese"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_PROMPT_+6">Select top left anchor point</span></li>
+
+<li class="NoChinese"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_PROMPT_+7">Select top right anchor point</span></li>
+
+<li class="NoChinese"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_PROMPT_+8">Select bottom left anchor point</span></li>
+
+<li class="NoChinese"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_PROMPT_+9">Select bottom right anchor point</span><br>
+<br>
+</li>
+</ul>
+
+<p class="NoChinese">These options enable you to specify an anchor point at respective corner positions.<br>
+<br>
+On redefining a Drawing Frame with a Part List placed on an anchor point (using the <a href="mk:@MSITStore:dftb.chm::/language/DFTB/FWfile/T_FW_DFaTB.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_FrameTBlock.msg+MenuBar_Document_Insert_FrameTBlock+6286">Drawing Frame and Title Block</span></a> command), the Part List will retain its attachment to the anchor point with the new Drawing Frame too.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ <!--PRJ: P0000703 -  OWN: SUJO -->
+<h2><a name="P703_DF"></a>User interface enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+924">Save as Drawing Frame</span> command</h2>
+
+<p><a name="Save_DF"></a>In this version, the old <span class="OLD">Save as Drawing Frame</span> dialog box has been replaced with the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+75">Save as Drawing Frame</span> selection list. The selection list includes all the options available in the old dialog box, along with the new <a href="#Anchor_node"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+82">Part List Anchor Point</span></a> node.</p>
+
+<!-- 
+<br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b>
+<br>
+It is mandatory to specify the name and description to save a drawing frame. The <span class="UI_OPTION" id="GUIService.msg+_GUISERVICE_TOOLTIP_+1">OK</span> and 
+<span class="UI_OPTION" id="GUIService.msg+_GUISERVICE_TOOLTIP_+3">Apply</span> buttons are enabled only if data is entered in both the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+76">Name</span> and 
+<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+77">Description</span> text boxes.
+</td>
+</tr>
+</table> -->
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Bending a solid using a limiting curve</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+<h3>Bending a solid using a limiting curve</h3>
+<p>In the following step-by-step example you will use the <b>Use limiting curve</b> option of the <a  href="../FWfile/T_FW_GMBend.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span></a> command to bend a portion of a solid limited by a curve.</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Load file "GB_LimitingCurve.e3".<br><br>
+<img src="../../../images/globalshape/GBLC00.gif" border="1"><br><br>
+Start the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+21">GSM Bend</span> command and select the solid.
+<br><br><img src="../../../images/globalshape/GBLC01.gif" border="1">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Under <b>More Options</b>, select the <b>Copy</b> check box.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the bend line.
+<br><br><img src="../../../images/globalshape/GBLC02.gif" border="1">
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Under <b>More Options</b>, select the <b>Use limiting curve</b> check box. Then select the red curve as in the following illustration.
+<br><br><img src="../../../images/globalshape/GBLC03.gif" border="1"><br><br>
+The handles show up.
+<br><br><img src="../images/GBLC04.gif" border="1">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td>Drag the <b>Length</b> handle to the desired position or type in the corresponding value.
+<br><br><img src="../images/GBLC05.gif" border="1"><p></p>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections modify the shape of the object.<br><br><img src="../../../images/globalshape/GBLC06.gif" border="1"><br><br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+<br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><a name="ABE"></a><b>Restricting the domain of the controlled modification by using a limiting curve</b>
+<br>By selecting the <b>Use limiting curve</b> check box under <b>More Options</b>, you can restrict the domain of the controlled modification to the zone limited by the curve selected as the <b>Limiting curve</b>.<br>You can choose whether the cutting line must also be affected by the limiting curve or not. If you select the <b>At both endpoints</b> check box, the shape of the cutting line will follow the one of the limiting curve (thus becoming a cutting curve). If you leave the box unchecked the cutting line will be a line, not being affected by the limiting curve shape. See the following example.
+<br><br><img src="../images/ABE01.gif" border="1"><br><br>
+<b>1</b>&nbsp;&#151;&nbsp;is the bend line<br>
+<b>2</b>&nbsp;&#151;&nbsp;is the limiting curve<br>
+<b>3</b>&nbsp;&#151;&nbsp;is the cutting line.<br>
+And here is what happens when you bend the object. See the different result depending on the status of the <b>At both endpoints</b> check box.<br>
+
+<br><i>NOT SELECTED</i>: the cutting line is a line
+<br><br><img src="../images/ABE03.gif" border="1"><br><br>
+<i>SELECTED</i>: the cutting line is a curve following the shape of the limiting curve.
+<br><br><img src="../images/ABE02.gif" border="1">
+</td></tr></table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMbend02.htm"><b>Applying constraints along the cutting lines</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

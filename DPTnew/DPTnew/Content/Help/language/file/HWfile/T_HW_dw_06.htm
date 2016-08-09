@@ -1,0 +1,138 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t2" content="translate">
+<title>Job: Creating a Drawing from Current Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Creating a <span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+5890">Drawing from Current Model</span></h2>
+
+
+<table>
+<tr valign="top">
+<td><b>1</b>&nbsp;</td>
+<td>On starting the command, the <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+297">Layout Configuration</span> dialog box is displayed.<br>
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the template you wish to use from the <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+2">Layout configurations</span> list. Each template defines the type and arrangement of views to be included in the drawing. <b>think<font color="#FF0F00">3</font></b> ships with three predefined layout templates for creating layouts conforming to the ANSI, ISO, JIS, GB, and KS standards. Within the Drawing environment, you can also 
+<a href="mk:@MSITStore:dw.chm::/language/drawing/OVfile/T_OV_dw_99.htm#Custom">create your own custom layouts</a> . Custom layouts also appear in the list of predefined layout templates. As soon as you select a template, the adjacent preview updates to show you how the views will be placed on the drawing sheet. You can use the template as is, or <a href="T_HW_ChangeViewOrientation.htm">change the orientation of the views</a>.<br>
+
+ <br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Determining primary and derived views</b> 
+
+<p>You can move the cursor over a predefined view in the graphic preview area to determine whether a particular view is a primary view or is derived from another view. A dashed rectangle appears along with a label indicating the type of view. If the selected view is a derived view, the program also displays a dashed line extending from the center of the selected view to the center of the view from which it is derived.</p>
+</td>
+</tr>
+</table>
+
+<br>
+ </td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>To include a Drawing Frame and Title Block in the new drawing, select the <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+6">AutoLoad</span> check box. When this check box is selected, you can click the 
+<span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+4">Settings</span> button to <a href="T_HW_DefineDetails.htm">specify the paper size and orientation and control the Title Block</a>.<br>
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td><a name="redefine"></a>To change the orientation of one of more predefined views, do one of the following: 
+
+<ul class="noleft">
+<li>Click the <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+8">Change View Orientation</span> button within the dialog box, and then select the view.</li>
+
+
+<li>Click in the preview area to select the view you want to redefine, and then click the <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+8">Change View Orientation</span> button within the dialog box.</li>
+
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><img alt="" src="../../../images/general/warning3.gif"> &nbsp;<b>Changing the orientation of a derived view</b></p>
+
+<p>If the view that you choose to reorient is a derived view, a dialog box is displayed alerting you that any change you make will also influence the primary view from which it was derived.</p>
+</td>
+</tr>
+</table>
+
+<p>The selected view is immediately displayed in a new dialog box which enables you to <a href="T_HW_ChangeViewOrientation.htm">change the view orientation of the model</a>. After changing the orientation of the view, click <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+27">OK</span> to return to the 
+<span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+297">Layout Configuration</span> dialog box, which updates to reflect the new view orientation.</p>
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td><a name="views"></a>When you are ready to generate the new drawing, click <span class="UI_OPTION" id="idd_drw_template.msg+idd_drw_template+27">OK</span>. A dialog box, 
+<span class="UI_OPTION" id="tdesign.msg+_LAYOUT_UI_WARNTTIP_+1">Generating all views</span>, appears indicating the views generated. If the model is a complex one and if it takes lot of time to generate the views, you can break the process by pressing the 
+<span class="UI_OPTION" id="idd_delete.msg+idd_delete+3">Cancel</span> button in the dialog box. This action shows only views that are completely generated and also helps you to save considerable amounts of time.<br>
+
+ <br>
+The image below shows the <span class="UI_OPTION" id="tdesign.msg+_LAYOUT_UI_WARNTTIP_+1">Generating all views</span> dialog box:<br>
+
+ <br>
+<img alt="" src="../images/gene-view.gif"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Providing document data for the Title Block</b> <br>
+<br>
+ 
+
+<p>If you included a Drawing Frame and Title Block and selected the <span class="UI_OPTION" id="idd_drw_templ_format.msg+idd_drw_templ_format+9">Ask for document data for title block</span> option, the program displays the 
+<a href="mk:@MSITStore:DFTB.chm::/language/dftb/OVfile/T_OV_SY_DocProp.htm"><b>Document Properties</b></a> dialog box so that you can enter the document name, description, and comments.</p>
+
+
+<p><b>Note:</b> This information appears in the Title Block and is also associated to the drawing itself, that is the 2D document including the complete layout and the Title Block.</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_ChangeViewOrientation.htm"><b>Change View Orientation</b></a></li>
+
+<li><a href="T_HW_DefineDetails.htm"><b>Define Drawing template format details</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

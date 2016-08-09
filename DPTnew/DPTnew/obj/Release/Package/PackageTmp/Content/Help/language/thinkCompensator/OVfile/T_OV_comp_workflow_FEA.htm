@@ -1,0 +1,57 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9167,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Compensator workflow for FEA Data</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{
+margin-left:22;
+margin-top:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Compensator workflow for FEA Data</h2>
+
+<p>The <i>Compensator</i> process is the following:</p>
+
+<ul class="noleft">
+<li>First of all, the mesh files obtained from the Finite Element Analysis tool that computed the spring back compensation are converted to two ".pt" files (one for the original and one for the compensated part), containing the X, Y, Z coordinates of the ordered nodes of the mesh files. This task is accomplished through the <a href="../FWfile/T_FW_extractpoints.htm"><span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+10">Extract Points</span></a> command.<br><br>
+Note that the initial and target sets of points need to have "one-to-one" corresponding, that is same cardinality and order.<br><br>
+</li>
+
+<li>The quality of the extracted points needs to be checked, which can be done through the <a href="../FWfile/T_FW_displaydisplacementfield.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+49">Show Displacement Field</span></a> command. The vector joining the point in the original part with the corresponding point in the compensated part is displayed. Inconsistencies across the part are also searched for.<br><br></li>
+
+<li>If any inconsistencies are detected, the <i>bad</i> points can be filtered out using the <a href="../FWfile/T_FW_cleandisplacementfield.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+35">Clean Displacement Field</span></a> command.<br><br></li>
+
+<li>The global field identification is calculated with a specified tolerance. A small GSM surface is created, which will "contain" the computed transformation. The <a href="../FWfile/T_FW_globalfieldidentification.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span></a> is used to accomplish this task.<br><br></li>
+
+<li>Finally the modification is applied to the entire model by using the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMR.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+180">GSM Replicate</span></a>, that also enables you to apply only certain percentages of the transformation. Quality checks can be performed at any given percentage, so as to make sure the part does not contain any undercuts, which might turn up during the full transformation.<br><br><img src="../images/WF.gif"></li>
+</ul>
+
+<p>An example is available in "<a href="../HWfile/T_HW_UNO.htm">Applying a shape compensation using Compensator</a>".</p>
+
+<hr color="silver">
+<h5>Related topics...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_thinkcompensation.htm">An Overview of Compensator</a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

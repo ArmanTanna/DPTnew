@@ -1,0 +1,58 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<TITLE>Replace Component</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22}</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Modify<img src="../../../images/general/litarr.gif">Component<img src="../../../images/general/litarr.gif">Replace</p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <B>Replace</B> command enables you to replace a component with another one selected from a file selection box, that is inserted as X-Reference.
+When you try to replace a component with multiple instances, you are asked if you want to replace only the selected instance or all of them. When in a model you have some patterns of a component and some instances of the same component not belonging to any of the patterns, what happens is the following.
+<ul class="noleft">
+<li>If there is just one pattern, then you will also be asked if you want to replace only the selected instance or all the ones belonging to the pattern
+<li>If there are more than one pattern, you will be asked to confirm changing all the instances, including the ones not belonging to any pattern.</ul></p>
+
+<p>When you replace a component involved in one or more mating constraints (no matter whether it is the moving or the reference object), the program asks you if the mating event(s) must be kept or removed. If the event(s) is/are kept, depending on the replacing component, the mating constraints may have to be redefined, unless you used components including the same Symbolic Reference. In this case, the program tries and looks for equivalent Symbolic References in the new component, updating the constraints whenever equivalent references are found. When more than one Symbolic Reference exists, the program chooses one, then you can solve ambiguities possibly arising by the <a href="mk:@MSITStore:help.chm::/language/SymbRefs/FWfile/T_FW_SymbRefsSolveAmbiguity.htm"><b>Solve Ambiguities</b></a> command.</p>
+
+
+<h5><hr color="silver">Try to ...</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_as_10.htm"><b>Replace a component</b></a>
+<li><A href="../HWfile/T_HW_ReplaceCompSymbRefs.htm"><b>Replace a component with Symbolic References</b></a></ul>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/SymbRefs/OVfile/T_OV_SymbRefs.htm"><b>An Overview on Symbolic References</b></a>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>

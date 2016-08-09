@@ -1,0 +1,181 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Applying a controlled modification to a symmetric model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Applying a controlled modification to a symmetric model</h3>
+<p>In the following step-by-step example you will use the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> option of the <a href="../FWfile/T_FW_GMtadvanced.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command to modify the shape of a solid with a symmetry plane by applying constraints to just one half of it and mirroring them to the other half using the Symmetry option.</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Load file "GLM_Symmetry.e3"<br>
+<p style="font-family: Verdana; font-size: 11; margin-top: 2;"><i>(Courtesy of STS&nbsp;&#151;&nbsp;<a href="http://www.vercarmodel.com">www.vercarmodel.com</a>&nbsp;&#151;&nbsp;Gruppo Vercarmodel Via I&deg; Maggio 2/4 10043 Orbassano (TO) - ITALY)</i></p>
+
+<img src="../../../images/globalshape/GSY01.gif" border="1"><br>
+<br>
+Start the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command and select the solid.<br>
+
+<br>
+<img src="../../../images/globalshape/GSY02.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>, select the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> check box.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Under <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+123">Matching</span>, select 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span> in the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+123">Matching</span> drop-down list.<br>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Under <b>Group 1</b>, click on <b>Initial Curves</b> and select the edge of the fender on the right, as in the following illustration:<br>
+<br>
+<img src="../../../images/globalshape/GSY03.gif" border="1"> <br>
+<br>
+Then click on <b>Target Curves</b> and select the blue curves:<br>
+<br>
+<img src="../../../images/globalshape/GSY04.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In order to apply the same controlled modification also to the fender on the right, select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> box under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. In the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list select 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+47">Datum plane</span> and click on the yellow plane.<br>
+
+<br>
+<img src="../images/GSY05.gif" border="1"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="SymmetryPlaneGSM"></a><b>Defining the symmetry plane</b> <br>
+The <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+18">Reference Plane</span> drop-down list enables you to choose the selection method for the symmetry plane: 
+
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></td>
+
+<td>A face of a solid to be selected (<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+29">Face</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></td>
+
+<td>The plane univocally identified by three points to be specified (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+47">Datum plane</span></td>
+
+<td>An existing datum plane to be selected (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></td>
+
+<td>A plane through an axis to be selected (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>, see "
+<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>") and a point (
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>), both to be specified.</td>
+
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></td>
+
+<td>A plane orthogonal to an axis (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>, see "
+<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>") and through a point (
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>), both to be specified.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></td>
+
+<td>A plane defined through the coefficient values of its cartesian equation (<b>A</b><i>x</i>+<b>B</b><i>y</i>+<b>C</b><i>z</i>+<b>D</b>=0), to be specified in the respective mini-dialog boxes (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+84">Coeff. A</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+85">Coeff. B</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+86">Coeff. C</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+87">Coeff. D</span>), and through a point to indicate ( 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>).</td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) to display a preview of the result: the modification has been applied also to the fender on the right.<br>
+
+<br>
+<img src="../../../images/globalshape/GSY06.gif" border="1"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections modify the shape of the object.<br><br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

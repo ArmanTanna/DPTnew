@@ -1,0 +1,123 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<title>Make Flexible Option</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h2>Make Flexible Option</h2>
+
+<p>The <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span> option is used when an assembly is created with subassemblies. In such an assembly, the degrees of freedom available in the subassemblies (which have been inserted as X-Reference or as a local subassembly) cannot be exploited from the main assembly.</p>
+
+
+
+<p>As a result, the complete subassembly always behaves like a single rigid component, even if some degrees of freedom were still free inside it. Due to this, it is not possible to move a particular part inside the subassembly even when it is necessitated by the mating constraint.</p>
+
+<p>This situation is illustrated in the following example.<br>
+<br>
+ <img src="../images/flex1.gif" border="1"><br>
+<br>
+ The assembly contains two subassemblies.</p>
+
+<ul>
+<li><b>Wheel-asy</b>: The <b><i>Wheel</i></b> (pink in color) is mounted on its <b><i>Stand</i></b> (brown in color). The <i>Wheel</i> is free to rotate on the mounting.</li>
+
+<li><b>Slider-asy</b>: The <b><i>Slider</i></b> (blue in color) is mounted on its <b><i>Stand</i></b> (brown in color). The <i>Slider</i> is free to slide along the guide way.</li>
+</ul>
+
+<p>A <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint is already applied between the hole in the <b><i>Link Rod</i></b> (gray in color) and the pin on the <i>Wheel</i>. For the assembly to be complete, the <i>Link Rod</i> should also be mated with the <i>Slider</i>.</p>
+
+
+
+<p>To make the mating possible another <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint between the other hole in the <i>Link Rod</i> and the pin on the <i>Slider</i> has to be applied. Applying this constraint is not possible because the flexibility of the <i>Slider</i> cannot be exploited as the subassembly behaves as a rigid component.</p>
+
+
+
+<p>For applying this <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint the subassembly has to be made flexible using the 
+
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span> option. This option is invoked by right-clicking on the subassembly in the Model Structure or in the Graphics Area and selecting 
+
+<span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span> from the context menu. After the subassembly has been made flexible, at the time of mating the software automatically finds the exact position of the movable parts to successfully apply the constraint.</p>
+
+
+
+<p>In the Model Structure, the flexible component will be denoted by the <img src="../../../images/assembly/flex-comp.gif" align="absmiddle"> icon while the flexible subassembly will be denoted by the <img src="../../../images/assembly/flex-sub.gif" align="absmiddle"> icon.</p>
+
+<p>Flexibility can also be exploited through <i>drag & drop</i>. In the above example, the overall movement of the mechanism can be viewed by dragging the <i>Link Rod</i> after the mating constraints are applied. It should be ensured that all the subassemblies involved in the kinematics chain be in the flexible state.</p>
+
+<p>The <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_COMP.htm">component properties</a> also reflect the flexibility state of the component and can be used to enable or disable the component flexibility.<br>
+
+</p>
+
+<table border="1" cellpadding="10%" bordercolor="#000080" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7828">Make Flexible</span> option is not available for: 
+
+
+
+<ul class="noleft">
+<li>Components those are present in the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+6970">Light Representations</span>.</li>
+
+
+
+<li>Unloaded components.</li>
+
+<li>Local copy X-References (or X-Reference components that have been set as local copy by using the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+521">Local copy</span> check box in the 
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+6">Edit Properties</span> - 
+<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_COMP.htm">
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+513">Component</span></a> dialog box)</li>
+
+
+</ul>
+
+Also, if the component is in the flexible state then it cannot be represented in the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+6970">Light Representations</span> or set as a 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+521">Local copy</span>.</td>
+
+
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul>
+<li><a href="T_OV_mating.htm"><b>Mating</b></a></li>
+<li><a href="../HWfile/T_HW_flexible.htm"><b>Applying Mating in a Flexible Subassembly</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

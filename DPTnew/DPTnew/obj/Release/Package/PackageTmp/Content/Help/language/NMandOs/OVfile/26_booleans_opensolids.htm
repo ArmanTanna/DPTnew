@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Combining surfaces and solids with Booleans</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Combining surfaces and solids with Booleans</h3>
+
+<p>You can use Booleans on solids. You can create solids from surfaces and combine surfaces using Booleans as they were solids. This allows you to work easily on complex shapes by means of solids.</p>
+
+<p>Let's see an example:</p>
+<br><img SRC="../../../images/solids/NMandOS/dm-normal.gif"><br>
+
+<p>This open solid is made of one surface, the material is below it.</p>
+<br><img SRC="../../../images/solids/NMandOS/dm-twosol.gif"><br>
+
+<p>Here is instead a closed solid.</p>
+
+<p>No matter if the solid is closed or open, you can always combine solids together; what is really important is where the material is.</p>
+
+<p>Let's see what we obtain combining the two solids shown above by means of Boolean operations:</p>
+<br><img SRC="../../../images/solids/NMandOS/dm-add.gif"><br>
+Boolean <b><a href="../../solids/FWfile/T_FW_Union.htm">Union</a></b> (Open Solid).
+
+
+<p><img SRC="../../../images/solids/NMandOS/dm-intersection.gif"></p>
+Boolean <b><a href="../../solids/FWfile/T_FW_Intersection.htm">Intersection</a></b> (Closed Solid).
+
+
+<p><img SRC="../../../images/solids/NMandOS/dm-diff2.gif"></p>
+Boolean <b><a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> A-B (Closed Solid).
+
+
+<p><img SRC="../../../images/solids/NMandOS/dm-diff1.gif"></p>
+Boolean <b><a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> B-A (Open Solid)
+
+
+<p>Given that, let's analyze what happens working in the two open solids.
+<p>In this case the two open solids are combined to create a more complex shape (a stadium chair). This operation is very similar to trimming surfaces.</p>
+
+<p>You could use the standard commands such as <b><a href="../../solids/FWfile/T_FW_Union.htm">Union</a></b>, <b>
+<a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> or <b>
+<a href="../../solids/FWfile/T_FW_Intersection.htm">Intersection</a></b>, but you also have a tool that combines these functions and gives you a preview of the selected function. It is therefore more appropriate to combine open solids using this useful tool made available in the Customer Care download area.</p>
+
+<br><img SRC="../../../images/solids/NMandOS/solid_from_srfs_17.gif"><br>
+
+<p>These are two open solids, a gray solid and a brown solid.</p>
+<br><img SRC="../../../images/solids/NMandOS/solid_from_srfs_18.gif"><br>
+<br><img SRC="../../../images/solids/NMandOS/solid_from_srfs_19.gif"><br>
+<br><img SRC="../../../images/solids/NMandOS/solid_from_srfs_20.gif"><br>
+<br><img SRC="../../../images/solids/NMandOS/solid_from_srfs_21.gif"><br>
+
+<p>Combining the two open solids you can obtain the four shapes shown above. Also the resulting shape can be an open solid.</p>
+</ul>
+
+<hr color="silver">
+</body>
+</HTML>

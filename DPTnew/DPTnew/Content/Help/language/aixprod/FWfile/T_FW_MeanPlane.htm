@@ -1,0 +1,98 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(379,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Mean Plane</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:3;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7394">Design Aids</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7397">Mean Plane</span> </p>
+<hr color="#63a9d8">
+
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_DesignAids.msg+ButtonToolbar_DesignAids+7622">Design Aids Mean Plane</span> command enables you to create a plane (surface) considering the mean location of user selected entities, which can be points, curves or meshes, as shown in the following images. The generated mean plane can thereafter be used as a reference for creating other entities.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center" valign="top">
+<td><img src="../../../images/aixprod/mean_plane_curve.gif" border="1"></td>
+<td><img src="../../../images/aixprod/mean_plane_point.gif" border="1"></td>
+</tr>
+
+<tr align="center" valign="top">
+<td><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+154">Curves</span></td>
+<td><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+153">Points</span></td>
+</tr>
+
+<tr align="center" valign="top">
+<td colspan="2"><img src="../../../images/aixprod/mean_plane_mesh.gif" border="1"></td>
+</tr>
+
+<tr align="center" valign="top">
+<td colspan="2"><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+155">Meshes</span></td>
+</tr>
+</table>
+
+<p><a name="from"></a>After starting the command, in the <span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+152">From</span> drop-down list, select the type of entities for which you want to generate the mean plane. You can choose between <span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+153">Points</span>, <span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+154">Curves</span> and <span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+155">Meshes</span>. The corresponding selector is displayed in the selection list.</p>
+
+<p><a name="selectors"></a>Select the entities for the available selector. The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button gets activated; select it to see preview of the mean plane at the location it will be generated. To redo the entity selection, right-click on the selector, select <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu and re-select the entities.</p>
+
+<p style="margin-bottom:0;">The position of the mean plane is calculated based on the location of points (in the Absolute Reference System) as per the following table:</p>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr align="center">
+<td><b><u>Entity</u></b></td>
+<td><b><u>Reference</u></b></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+153">Points</span></td>
+<td>Coordinates of the points</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+154">Curves</span></td>
+<td>Coordinates of sampling points generated over the curve</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+155">Meshes</span></td>
+<td>Coordinates of the mesh nodes</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;"><a name="use_tangent"></a>The <span class="UI_OPTION" id="DesignAids.msg+_DESIGNAIDS_LABEL_+156">Use Tangent</span> check box is available when generating the mean plane on curves.</p>
+
+<ul class="noleft">
+<li>When the check box is selected, tangent vectors of the curves at the sampling points are used to calculate the mean plane position.</li>
+
+<li>When the check box is cleared, only the positions of the curves are used to calculate the mean plane position.</li>
+</ul>
+
+<p>The size of the mean plane is such that it encloses all points in the local axis system (formed by the UV of the plane and its normal). At the same time, the center point of the mean plane is placed at the barycenter of the points which have been used for the computation.<br>
+<b><i>Definition:</i></b> Barycenter is the point representing the mean position of the particles (points).</p>
+
+<hr color="silver">
+</body>
+</html>
+

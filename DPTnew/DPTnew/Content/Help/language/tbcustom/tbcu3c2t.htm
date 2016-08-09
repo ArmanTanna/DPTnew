@@ -1,0 +1,107 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Inserting an Image into a Button</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css"> .noleft{margin-left: 22;margin-top: 0;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3><a name="inserire_immagine_in_pulsante">Inserting an Image into a Button</a></h3>
+
+<p>When you create a new button to be added to a customized toolbar, you can change the default image of the button to any image of your own choice, provided you have saved it to a bitmap file (Windows Bitmap format, extension ".bmp") conforming to the following rules governing sizes and colors.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><u><b>Image size</b></u> <br>
+The size of images depends on the selected button <span class="UI_OPTION" id="IDP_CUST_VISTB.msg+idp_cust_vistb+5422">Size:</span>: 
+
+<table bgcolor="#ffffe1">
+<tr valign="top">
+<td class="ver9" width="120"><span class="UI_OPTION" id="eklib.msg+eklib+505">Small</span></td>
+<td class="ver9"><b>16 x 16</b></td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="eklib.msg+eklib+506">Medium</span></td>
+<td class="ver9"><b>24 x 24</b></td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="eklib.msg+eklib+507">Large</span></td>
+<td class="ver9"><b>32 x 32</b></td>
+</tr>
+</table>
+
+No other size is allowed.<br>
+<br>
+<u><b>Image background color</b></u><br>
+The image background color must be the following: 
+
+<table bgcolor="#ffffe1">
+<tr valign="top">
+<td class="ver9" width="120"><b>Hexadecimal</b></td>
+<td class="ver9"><b>0xd6d6d6</b></td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><b>RGB</b></td>
+<td class="ver9"><b>214</b>, <b>214</b>, <b>214</b></td>
+</tr>
+</table>
+
+<br>
+<u><b>Transparency</b></u><br>
+The color used for the topmost-left pixel of the button is the one used for transparency in that bitmap. All pixels of that color will be transparent once the image has been assigned to the button.<br>
+<br>
+<u><b>Image format</b></u><br>
+Images must be saved to ".bmp" files in the 24 bpp (Bits-Per-Pixel) format.</td>
+</tr>
+</table>
+
+<p>To insert an image previously saved to a ".bmp" file into a button, proceed as follows.</p>
+
+<ol class="noleft">
+<li>Select <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1716">Customize</span> from the menu bar to open the <span class="UI_COMMAND" id="Sheet.msg+Sheet+5542">Customize</span> dialog box.</li>
+
+<li>Right-click on the newly inserted button to which you want to assign the image and then select <span class="UI_OPTION" id="ContextMenu_Customize.msg+ContextMenu_Customize+3979">Change Button Icon</span>.</li>
+
+<li>In the <span class="UI_COMMAND" id="idd_tb_icon.msg+idd_tb_icon+3985">Customize Button</span> dialog box, select <span class="UI_OPTION" id="idd_tb_icon.msg+idd_tb_icon+3989">Browse</span>.</li>
+
+<li>In the file selection box, select the file containing the desired bitmap.</li>
+
+<li>Select <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+1">OK</span>.</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Tip</b> <br>
+Create two bitmap files and name them according to image size with the number of pixels at the end, separated from the rest of the name by the underline ('_') character (for example, jack_16.bmp and jack_24.bmp). In this way, you can assign both bitmap sizes to the button by selecting just one of the two.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+</body>
+</html>
+

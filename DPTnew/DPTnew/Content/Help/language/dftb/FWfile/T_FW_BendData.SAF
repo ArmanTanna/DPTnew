@@ -1,0 +1,70 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Bend Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkteam.msg+MenuBar_Document_Insert_thinkteam+4626">Drawing Details</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_thinkteam.msg+MenuBar_Document_Insert_thinkteam+7892">Bend Table</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkteam.msg+MenuBar_Document_Insert_thinkteam+7892">Bend Table</span> command inserts a bend table in the flat pattern view, with all the details of bends present in the sheet metal model.</p>
+
+<p><a name="benddata"></a> The <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkteam.msg+MenuBar_Document_Insert_thinkteam+7892">Bend Table</span> command has the following two selectors in its selection list:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="SMBendChartUI.msg+_SMBENDCHARTUI_LABEL_+2">Flat Pattern View</span> - Enables to select the flat pattern view whose bend table is to be generated</li>
+
+<li><span class="UI_OPTION" id="SMBendChartUI.msg+_SMBENDCHARTUI_LABEL_+3">Position</span> - Enables to specify the position of the bend table by clicking at the desired location in the Graphics Area.</li>
+</ul>
+
+<p>On starting the command, only a flat pattern view can be selected so as to generate its bend table and also specify the location to place it.</p>
+
+<h5>Common behavior of the command:</h5>
+
+<ul>
+<li>All the data for the chart are taken from the reference model itself.</li>
+
+<li>The "<b>Material</b>" column in the bend table will only be filled if the user uses the same material from the bend table to create all the bends in the model; else it will be empty.</li>
+
+<li>Furthermore, when the bend table is created, the text on top of the bend lines in the flat pattern view will be replaced by the index numbers of the corresponding row of data in the bend table.</li>
+
+<li>Once the bend table is deleted a warning is prompted to ask for the flat pattern view regeneration to restore the text on top of bend line &mdash; that is the numbers will again be replaced by the original text.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The value set in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1074">Size:</span> text box in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1071">Font</span> area of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1057">Text</span> - <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_FONT.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1069">Font &amp; Frame</span></a> category of <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> defines the text height for the data in the bend table. Also, the table size gets adjusted automatically to perfectly enclose the text within it.</td>
+</tr>
+</table>
+
+<p>It is not possible to redefine the command once the bend table has been created. However, when the user makes some changes in the sheet metal model and regenerates its flat pattern view, the bend table will be updated accordingly.</p>
+
+<p>This group's properties can be changed after the bend table creation by using the options available in the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+519">Edit Properties</span> categories or from the Model Structure.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_BendData.htm"><b>Generate a bend table</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

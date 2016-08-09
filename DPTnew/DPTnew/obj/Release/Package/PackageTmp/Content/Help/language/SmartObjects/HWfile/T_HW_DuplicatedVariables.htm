@@ -1,0 +1,48 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup"> 
+<title>Job: Managing Duplicated Variables when Inserting Smart Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+  
+<a name="top"></a>
+
+<h4>Managing Duplicated Variables when Inserting Smart Objects</h4>
+<p>When <a href="T_HW_sobj_Insert.htm">inserting</a> a Smart Object into a model, the Smart Object and the model might contain variables with the same names. <b>think<font color="#FF0F00">3</font></b>'s behavior in such situations is controlled by the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE.htm"><b>Keep variable name by inserting smart objects</b></a> check box in the <B>Construction</B> category of the <b>System Options</b> dialog box.<br>
+
+
+<ul class="noleft">
+<li class="ver9">If the <b>Keep variable name by inserting smart objects</b> check box is selected <i>all</i> Smart Object variables associated with exposed parameters are automatically imported into the Spreadsheet with their own names. In the case of a variable with the same name already existing in the model, one more occurency will be added to the <b>Used</b> field in the Spreadsheet. While inserting a Smart Object, each mini-dialog box corresponding to a variable:
+<ul class="noleft">
+<li class="ver9">is not editable, if the variable already exists in the Spreadsheet
+<li class="ver9">is editable, if the variable does <i>not</i> exist in the Spreadsheet<br>
+</ul>
+<li class="ver9">If the <b>Keep variable name by inserting smart objects</b> check box is <i>not</i> selected, all variables associated with exposed parameters are automatically imported and renamed as described below and any mini-dialog box is editable.
+<br>A prefix is automatically added to the Smart Object variables, so that they're not confused with the ones of the model. The prefix consists of:
+<ul class="noleft">
+<li>the letter "<b>N</b>"
+<li>a sequence number 
+<li>the "<b>_</b>" character.</ul> 
+For example, if the original variable was "<b>A</b>", the duplicated one might be "<b>N1_A</b>". If you insert the same Smart Object again, you'll get the variable "<b>N2_A</b>", and so on.
+</ul>
+
+<hr color="silver">
+</body>
+</html>

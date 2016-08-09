@@ -1,0 +1,268 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Controlling the curve continuity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+
+<h3>Controlling the curve continuity</h3>
+
+<p>When editing control points with the <a href="../FWfile/T_FW_mc_01.htm"><b>Curve through Control Points</b></a> command, you can:</p>
+
+<ul class="noleft">
+<li><a href="#curves">Set the continuity conditions of the selected curve with other curves</a></li>
+
+<SPAN id="TWOD"><li><a href="#surfaces">Set the continuity conditions of the selected curve with surfaces or with a free point</a></li></SPAN>
+
+<li><a href="#close">Close the curve</a></li>
+</ul>
+<br>
+
+
+<h4><a name="curves"></a>Set the continuity conditions of the selected curve with other curves</h4>
+<table>
+<tr valign="top">
+<td width="25"><b>1</b></td>
+<td>After selecting the curve, select the <b>Continuity constraints</b> check box under <b>Constraints</b>. The <b>Start Reference</b> and <b>End Reference</b> selectors will be displayed in the selection list.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>Start Reference</b>.<br>
+<br>
+<img border="1" src="../../../../images/curves/MPC_C01.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the control point(s) controlling the portion of the curve you want to apply the continuity conditions to.<br>
+<br>
+<img border="1" src="../../../../images/curves/MPC_C02.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <b>Start continuity</b> drop-down list, select the type of continuity you want to apply (continuity conditions will be enforced by moving individual control points the minimum distance required): 
+
+<table>
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G0"><b>Position</b></a></td>
+<td>specifies that only geometric continuity is required at the endpoints.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G1"><b>Tangent</b></a></td>
+<td>specifies that the resulting curve must share the same tangent line as the start curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G2"><b>Curvature</b></a></td>
+<td>specifies that the resulting curve must have the same value of curvature as the start curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G3"><b>Torsion</b></a></td>
+<td>specifies that the resulting curve must have the same value of torsion as the start curve at the given end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G3.5"><b>Smooth curvature</b></a></td>
+<td>specifies that the start curve's curvature plot and the resulting curve's curvature plot must be tangent continuous at the specified end.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="../../../Mathconc/T_MC_ContinuityClassification.htm#G4"><b>Curvature plot curvature</b></a></td>
+<td>specifies that the start curve's curvature plot and the resulting curve's curvature plot must be curvature continuous at the specified end.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Perpendicular</b></td>
+<td>specifies that the tangent vectors of the two curves in the common point must be perpendicular.<br>
+<br>
+</td>
+</tr>
+</table>
+
+In the example above, the choice was <b>Tangent</b>, and the following was the result:<br>
+<br>
+<img border="1" src="../../../../images/curves/MPC_C03.gif"><br>
+<br>
+If necessary, you can invert the direction of the start curve by selecting the <b>Invert</b> box. 
+
+<SPAN id="TWOD"><p>By selecting the <a href="../../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><b>Curve Curvature</b></a> command, you can also display a curvature plot which will help you check the shape and the smoothness of the resulting curve.<br>
+<br>
+<img border="1" src="../../../../images/curves/MPC_C04.gif"><br><br>
+You can proceed similarly for the end curve (<b>End Reference</b>).</SPAN> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Double-click to confirm the changes you made.</td>
+</tr>
+</table>
+
+<SPAN id="TWOD"><h4><a name="surfaces"></a>Set the continuity conditions of the selected curve with surfaces or with a free point</h4>
+
+<p>In addition to the possibility of having end points coincide with the end points of other curves used as references, additional options are available to enable constraining end points to:</p>
+
+<ul class="noleft">
+<li><i>A point on a surface</i><br>
+You can constrain an end point of the curve to coincide with a selected point on a surface.<br>
+After selecting the curve, in order to constrain the first end point, under <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+50">Constraints</span>-
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+41">Continuity constraints</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+133">Start Reference</span> and then click on the surface you want to set continuity conditions with. You can redefine the length of the tangent vector (forced to move in the tangent plane of the surface) in the point of connection between the curve to be modified and the surface to be connected (through the appropriate <b>1st Tangent Length</b> handle/mini-dialog box pair).
+
+
+ <b><br>
+<br>
+<img border="1" src="../images/FIX00.gif"><br>
+<br>
+</b>Higher order derivative information from the surface in this direction can be set using the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+100">Start Continuity</span> drop-down list options to further smooth that transition from the curve to the surface. Further refinement of the point or direction or orientation of the cutting plane will be possible until the desired shape is achieved.<br>
+
+
+You can do the same at the second end point by selecting <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+134">End Reference</span>.<br>
+
+
+<br>
+<img border="1" src="../images/FIX01.gif"><br>
+<br>
+</li>
+
+<li><i>A free point</i><br>
+You can constrain an end point of the curve to the position of a free point.<br>
+After selecting the curve, in order to constrain the first end point, under <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+50">Constraints</span>-
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+41">Continuity constraints</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+133">Start Reference</span> and then click on the point you want to set continuity conditions with.<br>
+
+
+<br>
+<img src="../images/CU2_image008.gif"><br>
+<br>
+You can do the same at the second end point by clicking <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+134">End Reference</span>.<br>
+
+
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restricting selection to curves and surface boundaries only</b><br>
+Please note that you can enable the command to select points, curves and surfaces or restrict selection to curves and surface boundaries only. A context menu is available when right-clicking on <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+133">Start Reference</span> or 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+134">End Reference</span>:<br>
+
+
+<br>
+<img border="1" src="../images/MPCContext.gif"><br>
+<br>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+343">Curves Only</span><br>
+
+
+restricts selection to curves and surface boundaries.<br>
+&nbsp;</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+344">Points - Curves - Surfaces</span><br>
+
+
+allows selection of points, curves and surfaces, but <i>does not</i> allow selection of surface boundaries.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</SPAN>
+<h4><a name="#close"></a>Close the curve</h4>
+
+<p>The options of the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+115">Close Curve</span> node under 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+50">Constraints</span>-
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+41">Continuity constraints</span> enable you to <i>close</i> a curve by moving its first end point onto the second one or vice-versa and setting continuity conditions on the new common end point.</p>
+
+
+
+<ul class="noleft">
+<li>If you select <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+116">Start point matches end point</span>, the first end point will be moved onto the second one.<br>
+
+
+<br>
+<img border="1" src="../images/CloseCurve_01.gif"><br>
+<br>
+</li>
+
+<li>If you select <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+117">End point matches start point</span>, the second end point will be moved onto the first one.<br>
+
+
+<br>
+<img border="1" src="../images/CloseCurve_02.gif"><br>
+<br>
+</li>
+</ul>
+
+<p>The curve will be closed. To obtain an open curve, though keeping the endpoints overlapping, click <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+129">Open Curve</span>.</p>
+
+
+
+<p style="margin-bottom:0">Use the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+27">Continuity</span> drop-down list to set the appropriate continuity constraint (
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+21">Position</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+22">Tangent</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+23">Curvature</span>).</p>
+
+<ul class="noleft" style="margin-top:0">
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+116">Start point matches end point</span> case, the start of the curve will be constrained to match the continuity conditions at the end of the curve to the level specified.</li>
+
+
+
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+117">End point matches start point</span> case, the end of the curve will be constrained to match the continuity conditions at the start of the curve to the level specified.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

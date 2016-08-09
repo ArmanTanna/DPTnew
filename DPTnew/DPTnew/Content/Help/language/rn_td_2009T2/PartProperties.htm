@@ -1,0 +1,196 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t2" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<title>New Part Properties Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<link href="../JSandSTYLES/txt4chinese.css" rel="stylesheet" type="text/css">
+
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+<a name="top"></a> 
+
+<h1>New Part Properties Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.2 introduces the following enhancements and improvements to the Part Properties functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P609">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> command</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- #################################################################################### -->
+<!--PRJ: P0000609 -  OWN: SUJO -->
+<h2><a name="P609">Enhancements in the <span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> command</a></h2>
+
+<p>Significant enhancements have been made in the <span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> commands, which are:</p>
+
+<ul>
+<li><a href="#config">Part List page configuration</a></li>
+
+<li><a href="#ui">User interface enhancements</a></li>
+
+<li><a href="#redefine">Part List redefinition</a></li>
+
+<li style="list-style: none"><br>
+</li>
+</ul>
+
+<h3><a name="config"></a>Part List page configuration</h3>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span> command has been enhanced with the new <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+72">Pages</span> category in the <b>Part List Options</b> dialog box. <a name="page"></a>It enables you to divide the complete Part List table into many parts (called <i>pages</i>) to insert them within the drawing frame for better visibility.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="top">
+<td><a name="row"></a><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+678">First row number</span></td>
+<td>Enables you to specify the row number with respect to the complete Part List, which will be the first row of the currently configured page.
+
+</td>
+</tr>
+
+<tr valign="top">
+<td width="120"><a name="offset"></a><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+679">Vertical displacement</span></td>
+<td>Enables you to specify the vertical offset to be used for the current page with respect to the previous page.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="add"></a><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+680">Add</span></td>
+<td>Enables you to load the selected <i>first row number</i> and <i>vertical displacement</i> values to the configuration list to create multiple pages.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="remove"></a><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+681">Remove</span></td>
+<td>Enables you to remove the <i>first row number</i> and <i>vertical displacement</i> values from the configuration list.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="load"></a><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+354">Load</span></td>
+<td>Lists all the loaded page configurations.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>All the settings made in the <b>Part List Options</b> dialog box are saved to the main configuration file and are used while inserting a Part List in a drawing.</p>
+
+<h3><a name="ui"></a>User interface enhancements</h3>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="MenuBar_Document_Tools_PartProperties.msg+MenuBar_Document_Tools_PartProperties+1">Part List</span> command has been improved with new options and the integration with the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7672">Part List</span> command. The user interface has been significantly refined with the following enhancements to facilitate the new capabilities.</p>
+
+<ul>
+<li class="HideThis">The new <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+37">Position</span> drop-down list contains five options (<span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+32">By selection</span>, <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+38">Top left</span>, <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+40">Top right</span>, <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+44">Bottom left</span>, and <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+46">Bottom right</span>) enabling you to align the Part List origin marker with respect to a predefined point in a drawing frame. It is available only when a customized drawing frame contains predefined points (minimum of 1 and maximum of 4) inserted using the <b>Drawing initialization</b> command.
+<br>
+</li>
+
+<li>To offer easy accessibility, the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+648">Extend to</span> option available in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+347">Advanced</span> category in the <b>Part List Options</b> dialog box is now also available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <span class="UI_COMMAND" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+4">Part List</span> selection list.</li>
+</ul>
+
+<br>
+<br>
+ 
+
+<p>In the <span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img align="absmiddle" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+2">Part List</span><img align="absmiddle" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+4">Redefine</span> command, the selection list has been enhanced with the following new options.</p>
+
+<ul>
+<li>The new <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+72">Pages</span> node with the <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+74">Row</span> option enables you to redefine a Part List page. Select a row at which you prefer to break the Part List page.
+</li>
+
+<li>The new <span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+73">Offset</span> option enables you to redefine the vertical offset distance to be used for the current page with respect to the previous page.
+</li>
+</ul>
+
+<h3><a name="redefine"></a>Part List redefinition</h3>
+
+<p>In the redefine mode of a Part List, you have the possibility to edit a Part List page by using the following new options available in the context menu.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td align="left">When the last row in a page is selected</td>
+<td align="left">When a middle row in a page is selected</td>
+<td align="left">When the first row in the first page or the last row in the last page is selected</td>
+<td align="left">When the first row of neither the first nor the last page is selected</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+71">Move to Next Page</span></li>
+
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+70">Remove Page Break</span></li>
+
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+67">Remove All Page Breaks</span></li>
+</ul>
+</td>
+<td>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+69">Split Page Here</span></li>
+
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+67">Remove All Page Breaks</span></li>
+</ul>
+</td>
+<td>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+67">Remove All Page Breaks</span></li>
+</ul>
+</td>
+<td>
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+68">Move to Previous Page</span></li>
+
+<li><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+67">Remove All Page Breaks</span></li>
+</ul>
+</td>
+</tr>
+</table>
+<br>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr valign="top">
+<td width="170"><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+71">Move to Next Page</span></td>
+<td>The selected row will be the first row of the next page.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+70">Remove Page Break</span></td>
+<td>The next page will be merged with the current page.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+67">Remove All Page Breaks</span></td>
+<td>The complete part list will be a drawn into a single Part List table until maximum number of rows (999) is reached. The rows beyond the maximum limit are included in the second table.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+69">Split Page Here</span></td>
+<td>The current page will be divided into 2 pages. The selected row will be the first row of the next page.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDrwDetails.msg+_TDDrwDetails_LABEL_+68">Move to Previous Page</span></td>
+<td>The selected row will become the last row of the previous page.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

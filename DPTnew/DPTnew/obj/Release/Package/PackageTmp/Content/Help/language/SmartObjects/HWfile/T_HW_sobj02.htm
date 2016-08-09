@@ -1,0 +1,167 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<title>Job: Define Smart Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a>
+
+<h4>Defining Smart Objects</h4>
+
+<p class="littop">When the <a  href="../FWfile/T_FW_sobj_Define.htm"><b>Define Smart Object</b></a> command is selected the Smart Object definition dialog box is displayed. To define a Smart Object you will have to:</p>
+<ol class="litleft">
+<li><a href="#Select">Select its component elements</a>
+<li>Check and/or modify its <a href="#Properties"><b>Properties</b></a>
+<li>Check and/or modify its <a href="#Options"><b>Options</b></a>
+<li>Check and/or modify its <a href="#Parameters"><b>Parameters</b></a>
+<li>Check and/or modify its geometric <a href="#References"><b>References</b></a>
+<li>Optionally check and/or modify its <a href="#Configurations"><b>Configurations</b></a>
+</ol>
+
+<p>Proceed as follows:</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td><a name="Select"></a>Select the component elements, which can be: Profiles, Solids, Features, Components and X-Components, Boolean Operations, Mating constraints. To select an object:
+<ul class="littop">
+<li>Simply click on it in the model</ul>
+<i>or</i> 
+<ul class="littop">
+<li>Right-click on the corresponding icon in the <b>Model Structure</b> and select <b>Add</b> in the context menu.</ul><br>
+As soon as an element is selected, a "lightening" symbol will be displayed on the element icon in the <b>Model Structure</b>.</p>
+<p>To change the current selection, click <b>Select</b> under <b>Selections</b> in the <b>Properties</b> tab and perform selection again.<p></p>
+</td></tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td><a name="Properties"></a>Set the Smart Object <b>Properties</b>
+<TABLE>
+<tr valign="top">
+<td width="15"><b>a</b></td><td>Define the <b>Name</b> of the Smart Object. <br>You can also associate a short <b>Description</b> with it, just to explain what the Smart object should be used for. The description can be viewed in the <a href="../HWfile/T_HW_sobj03.htm"><b>Palette</b></a> before inserting the Smart Object.</td></tr>
+<tr valign="top">
+<td><b>b</b></td><td>Define its <b>Anchor point</b>, when it isn't uniquely identified. To change the current anchor point, click <b>Select</b> and select a new anchor point.<p></p></td></tr>
+<tr valign="top"></td>
+</tr>
+</table>
+</td></tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td><a name="Options"></a>Set the Smart Object <b>Options</b>
+
+<table>
+<tr valign="top">
+<td width="15"><b>a</b></td>
+<td>Set the <b>Automatic break</b> flag value, to define whether the Smart Object has to be exploded into its component elements or not at insertion time.</td></tr>
+
+<tr valign="top">
+<td><b>b</b></td>
+<td>Set the <b>Read-only</b> flag value: 
+<ul class="noleft">
+<li>When the check box is NOT selected, the Smart Object can be redefined using the <a  href="../FWfile/T_FW_sobj_Redefine.htm"><b>Redesign Smart Object</b></a> command</li>
+<li>When the check box is selected, the Smart Object cannot be redefined.</li>
+</ul><p></p>
+</td>
+</tr>
+</table>
+
+
+</td>
+</tr>
+
+
+
+
+<tr valign="table">
+<td><b>4</b></td><td><a name="Parameters"></a>
+Set the Smart Object <b>Parameters</b>. As soon as an object is selected, the <b>Parameters</b> tab displays the Smart Object parameters. Change the default prompt for each parameter (optional) and define whether it has to be <b>Exposed</b> (i.e.: explicitly requested when instancing) or not.
+
+<table>
+<tr valign="top">
+<tr valign="top">
+<td width="5"></td>
+<td width="15"><b>a</b></td><td>Boxes in the <b>Message</b> column can be edited to change the prompt to be displayed as a request for the parameter when inserting the Smart Object into the model. If you are to use the messages in more than one language, you can localize them using the <b>Message File</b> commands of the <a href="T_HW_sobj03.htm">palette</a>.</td>
+</tr>
+<tr valign="top">
+<tr valign="top">
+<td ></td>
+<td width="15"><b>b</b></td><td>Boxes in the <b>Name</b> column can be edited to change the parameter name</td>
+</tr>
+<tr valign="top">
+<tr valign="top">
+<td ></td>
+<td ><b>c</b></td><td>Boxes in the <b>Expression</b> column can be edited to assign the parameter an expression</td>
+</tr>
+<tr valign="top">
+<tr valign="top">
+<td ></td>
+<td ><b>d</b></td><td>Boxes in the <b>Value</b> column can be edited to change the parameter value</td>
+</tr>
+<tr valign="top">
+<tr valign="top">
+<td ></td>
+<td><b>e</b></td><td>Check the <b>Exposed</b> box to have the parameter value explicitly requested at insertion time. Check the <b>Show only exposed</b> check box to hide all the not exposed parameters in the table.</td>
+</tr>
+
+
+</table>
+If an assembly component has been selected, the <b>Component parameters</b> will be checked and you will be enabled to add their dimensions to the parameter table by using the <b>Select</b> button and clicking on them.
+<p></p></td></tr>
+<tr valign="top">
+<td><b>5</b></td><td><a name="References"></a>Define the mandatory geometric references to be requested at insertion time (position point, profile, face, ...)
+
+<table>
+<tr valign="top">
+<tr valign="top">
+<td width="5"></td>
+<td width="15"><b>a</b></td><td>Boxes in the <b>Message</b> column can be edited to change the prompt to be displayed as a request for the reference to be selected at insertion time.  After writing the prompt you can add a ";" character and write the label to be displayed on the corresponding item in the Selection List. <br>If you are to use the messages in more than one language, you can localize them using the <b>Message File</b> commands of the <a href="T_HW_sobj03.htm">palette</a></td>
+</tr>
+<tr valign="top">
+<td width="5"></td>
+<td width="15"><b>b</b></td><td>Boxes in the <b>Type</b> column can be edited to change the type of entity to be selected as a reference at insertion time</td>
+</tr>
+</table>
+
+<p></p></td></tr>
+<tr valign="top">
+<td><b>6</b></td><td><a name="Configurations"></a>Optionally define a set of <b>Configurations</b>: predefined values corresponding to all the exposed parameters. You can modify the ones that are automatically propose by the <b>think<font color="#FF0F00">3</font></b> application and/or add your own.
+<table>
+<tr valign="top">
+
+<tr valign="top">
+<td width="5"></td>
+<td width="15"><b>a</b></td><td>Boxes in the <b>Conf. Name</b> column can be edited to change/define the name of the configuration</td>
+</tr>
+<tr valign="top">
+<td width="5"></td>
+<td width="15"><b>b</b></td><td>
+The <b>Clear Conf.</b> and <b>Clear table</b> buttons can be used to delete respectively one or all the defined configurations.<p></p>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr valign="top">
+<td><b>7</b></td>
+<td>Select <b>OK</b> or <b>Apply</b>. The Smart Object will be defined and its icon will be displayed in the <b>Model Structure</b>. To see the component elements in the <b>Model Structure</b>, click the "+" sign adjacent to the Smart Object icon.</td>
+</tr>
+</table>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

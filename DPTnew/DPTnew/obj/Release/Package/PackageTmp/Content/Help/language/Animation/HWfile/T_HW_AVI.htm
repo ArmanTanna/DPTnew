@@ -1,0 +1,155 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<head>
+
+<meta name="T_2010t1" content="translate">
+<title>Job: Creating an AVI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating an AVI</h3>
+
+<p>The following illustration explains the procedure to create an AVI of an animation. The AVI can be effectively used in a demonstration to show how the machine works and how the assembly should be assembled/disassembled.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1.</b></td>
+<td><a href="T_HW_Animation.htm">Create the animation</a> prior to generating the AVI.
+<br><br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2.</b></td>
+<td>Click the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+5">AVI settings</span> button to display the AVI settings parameters.
+
+<br><br>
+<img src="../images/animate13.gif">
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>3.</b></td>
+<td>Select the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+26">Create movie</span> check box; the 
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_TOOLTIP_+7">Play</span> button will get replaced by the 
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_TOOLTIP_+8">Create AVI</span> button.
+
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>4.</b></td>
+<td>Set the value of number of frames to be captured per second to create the AVI in the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+14">Frames per second</span> drop-down list. Higher the value, better will be the motion continuity of the animation. However, the AVI file size will become large and it will take more time to create the AVI.
+
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>5.</b></td>
+<td>Choose the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+110">Browse</span> button; the 
+<span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+22">Browse for AVI file</span> dialog box is displayed. Specify the folder and the file name for the AVI file and choose the <b>Save</b> button. The complete path is displayed in the 
+<span class="UI_OPTION" id="idd_animate.msg+idd_animate+15">File name:</span> text box of the 
+<span class="UI_OPTION" id="idd_animate.msg+idd_animate+1">Animation</span> dialog box.
+
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>6.</b></td>
+<td>Using the <span class="UI_OPTION" id="idd_animate.msg+idd_animate+32">Resolution (pixels):</span> drop-down list, you can set the resolution for the AVI. Following are three options in the drop-down list:
+
+
+<table>
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="idd_animate.msg+idd_animate+33">Graphics area</span></td>
+
+<td width="20"><b>-</b></td>
+<td>The AVI will be created with the resolution as that of the Graphics Area. </td>
+</tr>
+
+<tr valign="top">
+<td><b>Default</b></td>
+<td><b>-</b></td>
+<td>The AVI will be created with the default resolution value.
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>Custom</b></td>
+<td><b>-</b></td>
+<td>The AVI will be created with the user defined resolution value, which can be specified in the edit boxes.<br><br>
+</td>
+</tr>
+</table>
+</tr>
+
+<tr valign="top">
+<td><b>7.</b></td>
+<td>Choose the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_TOOLTIP_+8">Create AVI</span> button to start capturing the animation in the AVI file.
+
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>8.</b></td>
+<td>After the animation playback is complete, the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+20">Create AVI</span> dialog box will be displayed. The progress bar in it displays the AVI completion status.
+
+<br><br>
+<img src="../images/animate14.gif">
+<br><br></td>
+</tr>
+
+<tr valign="top">
+<td><b>9.</b></td>
+<td>Once the statusbar reaches 100%, the AVI is created at the specified location. The AVI file can be opened and viewed in a suitable player.
+<br><br></td>
+</tr>
+</table>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<p>When the AVI creation starts, the program performs a check to verify that sufficient space is available on the disk that contains the system temporary folder. If not, a message warns the user about the possibility that the AVI creation will be interrupted.</p>
+
+<p>The user can either abort the AVI creation or choose to start it while he removes the unused files to get more available space in the drive. If the AVI creation proceeds and no more space is available to save the temporary bitmaps, the AVI creation is aborted and the user is appropriately warned.</p>
+</td></tr></table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_AnmUI.htm"><b>Animation User Interface</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

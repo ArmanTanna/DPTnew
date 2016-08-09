@@ -1,0 +1,223 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating Linear Sweep surfaces with a Draft Angle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating Linear Sweep surfaces with a Draft Angle</h3>
+
+<p class="notop">The following step-by-step example describes how to use the <a href="../FWfile/T_FW_sr_02.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+38">Linear Surface</span></a> command to create linear sweep surfaces with a draft angle. Once you have selected the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+38">Linear Surface</span> command, proceed as follows:</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>To obtain an <i>associative</i> surface, that is an open solid&nbsp;&#151;&nbsp;a <i>Skin</i>&nbsp;&#151;&nbsp; retaining a link to its base curves, so that if you modify such curves the surface will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> box. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr align="left" valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the base curves.<br>
+<br>
+<img border="1" src="../../../images/rn_500/sri01_24.gif"><br>
+<br>
+<br>
+As soon as a curve is selected, the preview of the corresponding surface is displayed<br>
+<br>
+<img border="1" src="../images/LinearSweep-01.gif"> <br>
+<br>
+Each time you modify a parameter, the preview is also updated.<br>
+To change the selected curves, right-click on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+1">Curves</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr align="left" valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+50">Draft</span> drop-down list select 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+8">Angle</span>. In the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+8">Angle</span> mini-dialog box, now displayed on the model, type the value of the draft angle to be applied to the resulting surfaces (alternatively, you can drag the corresponding handle, circled in red in the illustration below):<br>
+
+
+<br>
+<img border="1" src="../images/LinearSweep-02.gif"> <img border="1" src="../images/LinearSweep-03.gif">.<br>
+&nbsp;</td>
+</tr>
+
+<tr align="left" valign="top">
+<td><b>4</b></td>
+<td>Under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+60">Direction</span>, select the sweep direction type from the drop-down list. For details, see &quot;<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>&quot;.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr align="left" valign="top">
+<td><b>5</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+46">Extent</span> drop-down list, select the way the extension of the sweep path has to be specified:<br>
+
+
+<br>
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+44">Length</span></td>
+
+
+<td>Applies a constant length along the sweep direction.<br>
+In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+44">Length</span> mini-dialog box, type the length of the path, or drag the two circular handles at the end points of the path to interactively set the path length.<br>
+
+
+<br>
+<img border="1" src="../images/LinearSweep-04.gif"><br>
+<br>
+See &quot;<a href="../../Notes/T_ContinuityAtTransitions.htm">Continuity at transitions</a>&quot; for further details on what happens when using the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+44">Length</span> mode if some base curves are not planar.<br>&nbsp;</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span></td>
+
+
+<td>The height of the path along the sweep direction. When the base curves are not plane, the height value is computed starting from an "average plane".<br>
+In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> mini-dialog box, type the height of the path, or drag the two circular handles at the end points of the path to interactively set the path height.<br>
+
+
+If the base curves are plane the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> and the <b>Length</b> options work exactly the same way. To better appreciate the different behaviors of the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> and 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+44">Length</span> options, see &quot;<a href="T_HW_Comparison.htm">Comparison between the Length and the Height mode</a>&quot;.<br>
+
+
+<br>
+ </td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+45">From-To</span></td>
+
+
+<td>To define the path through an initial and a final surface. Click <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+47">From</span> and select the surfaces you want to start from (if the base curves are planar, their plane is the default starting surface), then click 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+48">To</span> and select the surfaces you want to end at.<br>
+
+
+To avoid undesired results when you select the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+45">From-To</span> option, make sure that the projection of the base curves onto the ending surface in the sweep direction is "contained" in the surface itself.<br>
+
+
+<br>
+ </td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Clicking on the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> item in the selection list, you will be enabled to: 
+
+
+
+<ul class="noleftop">
+<li><a href="T_HW_ManagingTransitions.htm">Define how to manage <i>transitions</i></a>&nbsp;&mdash;&nbsp;that is: edges between adjacent curves in the base curve set</li>
+
+<li><a href="T_HW_Endcaps.htm">Choose whether to create the base surfaces (endcaps)</a> (only if the base curve is closed)</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<table>
+<tr valign="baseline">
+<td width="15"><b>7</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the surfaces.<br>
+<br>
+<img border="1" src="../images/LinearSweep-05.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Self intersections</b> 
+
+<blockquote>When the draft angle and the height are such that the resulting sweep surface would have self intersections, the self intersections are automatically trimmed and no error occurs. See an example in &quot;<a href="../../Notes/T_SelfIntersections.htm">Self intersection management when the draft angle is not zero</a>&quot;.</blockquote>
+
+<p><b>Warnings about troublesome situations when the draft angle is not zero</b></p>
+
+<blockquote>If some problems are detected when creating the surfaces, a special warning icon is displayed in the graphics area:<br>
+<img src="../../../images/general/warnings_on_new.gif"><br>
+And a specific label indicating the type of issue is displayed on the model in the position where the problem occurs. You can hide the label by clicking on the previous icon, that will turn to:<br>
+<img src="../../../images/general/WARNINGS_off.gif"><br>
+See an example in &quot;<a href="T_HW_LinearSweepWarnings.htm">Managing Warnings</a>&quot;.</blockquote>
+</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_Endcaps.htm"><b>Creating Endcaps</b></a></li>
+<li><a href="T_HW_ManagingTransitions.htm"><b>Managing Transitions</b></a></li>
+<li><b><a href="../../Notes/T_ContinuityAtTransitions.htm">Continuity at transitions</a></b></li>
+<li><b><a href="../../Notes/T_SelfIntersections.htm">Self intersection management when the draft angle is not zero</a></b></li>
+<li><a href="T_HW_LinearSweepWarnings.htm"><b>Managing Warnings</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><b><a href="T_HW_sr_02Vertex.htm">Creating Linear Sweep surfaces with a Vertex</a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

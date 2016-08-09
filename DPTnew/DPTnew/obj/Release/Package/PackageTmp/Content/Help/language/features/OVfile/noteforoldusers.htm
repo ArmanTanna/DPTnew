@@ -1,0 +1,51 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="2009t2" content="translate">
+<title>Holes and threads: note for old users (before 2013.1)</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h1>Holes and threads: note for old users (before 2013.1)</h1>
+<p>In versions of <b>ThinkDesign</b> before 2013.1, when after selecting a <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+15">Simple</span> hole created with the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box cleared you run the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command, after the completion of the command you add the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> feature to the hole. The <b>Model Structure</b> changes as you can see in the following image.</p>
+<br>
+<div align="center"><img border="0" src="../images/Hole2012.gif"></div>
+<br><br>
+<p>In v. 2013.1 instead, in the same situation, the program  executes the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span> command on the hole and automatically  checks the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> option and selects <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+49">Threaded</span> in the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+44">Hole type:</span> drop-down list. This behavior enables you to ensure the creation of standard threaded holes. <br>
+<br>
+<div align="center"><img border="0" src="../images/Hole2013.gif"></div>
+<br><br>
+<p>In case of <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+15">Simple</span> hole created with the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box cleared and <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+14">Blind</span> as <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+7">Extension</span> and the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+13">End angle</span> option checked, the behavior of the program is the same of the previous version.</p>
+<!-- STFO 28 May  -->
+<p></p>
+<!--  -->
+<p>In order to allow the same kind of threads available in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command, the  <b>Mode</b> drop-down list has been added to the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span> command. 
+You can choose among <b>Full</b>, <b>Depth</b> and <b>Double</b>. The <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+14">Blind</span> value as <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+7">Extension</span> is available only when <b>Mode</b> is set to <b>Full</b> or <b>Double</b>.</p>
+<br>
+<p style="margin-bottom:0;">If you intentionally want to create a non standard threaded hole (the hole diameter and thread values are not a standard combination), you have to create the hole by using the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6700">Linear Slot</span> command and then apply the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1587">Thread</span> command.</p>
+
+
+<hr color="silver">
+</body>
+</html>

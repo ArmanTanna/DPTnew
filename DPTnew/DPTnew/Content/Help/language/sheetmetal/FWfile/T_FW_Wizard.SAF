@@ -1,0 +1,163 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Sheet Metal Wizard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+7780">Wizard</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command enables you to create multiple sheet metal components starting from a single solid (with or without sheet metal attributes). The sheet metal property can be separately specified for each component that is being created.</p>
+
+<p>The process of converting a single solid into a sheet metal component involves primarily three steps:</p>
+
+<ol class="noleft">
+<li>Creating a <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_12.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+435">Solid Shell</span></a> so that the component gets a uniform wall thickness.</li>
+
+<li>Applying <a href="T_FW_Bend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6991">Bend</span></a> to the edges where the component's walls are folded.</li>
+
+<li>Applying <a href="T_FW_Rip.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6995">Edge Rip</span></a> so that the component can be unbend (and flattened).</li>
+</ol>
+
+<p>The <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command single handedly takes care of all the three operations. The command's selection list has various options and selectors to execute the required operations. The command execution process is composed primarily of the following steps (same has been graphically explained in the succeeding images).</p>
+
+<ol class="noleft">
+<li><a name="remove_faces"></a>For the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+158">Remove Face</span> selector, select the faces that have to be removed from the solid (highlighted in Orange)</li>
+
+<li><a name="bend_group"></a>Under the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+153">Bend Group</span>, for the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+9">Sharp Edge/Fillet</span>, select the edges or existing fillets on which bends have to be created (highlighted in Purple).</li>
+
+<li><a name="rip_group"></a>Under the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+154">Rip Group</span>, in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+128">Rip by</span> drop-down list, select the mode to specify the location of the rip. 
+
+<ul>
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+53">Edge</span> - Select the edges (highlighted in Red) to create the rip on them</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+125">Profile</span> - Select the profile to create the rip at the same location and then select the face on which the rip will be created for the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+38">Face</span> selector.</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+129">2 points</span> - Select two points (highlighted by Black circles) between which the rip will be created and then select the face on which the rip will be created for the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+38">Face</span> selector.</li>
+</ul>
+</li>
+
+<li>Obtain the resulting (two) components with sheet metal attributes</li>
+</ol>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../../images/sheetmetal/SMW-face.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/sheetmetal/SMW-bend.gif" border="1"></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td align="center"><img src="../../../images/general/arrow-down.gif"></td>
+</tr>
+
+<tr>
+<td><img src="../../../images/sheetmetal/SMW-component.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-left.gif"></td>
+<td><img src="../../../images/sheetmetal/SMW-rip_point.gif" border="1"></td>
+</tr>
+</table>
+
+<p><a name="group"></a>The selection of edges for creating bends or rips is done in groups and for each group you can assign independent local properties. By right-clicking on a group (either <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+153">Bend Group</span> or <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+154">Rip Group</span>), the following options are displayed:<br>
+<br>
+<img src="../images/smw_group.gif" border="1"></p>
+
+<ul>
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+149">New Group</span> - A new group will be created and the selections made thereafter will be part of the new group. 
+
+<ul>
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+150">Default</span> - The default sheet metal properties will be applied to the new group</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+151">Copy Local Data</span> - The setting made in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> for the current group will be applied to the new group</li>
+</ul>
+</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+152">Delete Group</span> - The group will be deleted</li>
+</ul>
+
+<p><a name="navigation"></a>Once multiple groups are created, the group navigation buttons <img src="../../../images/sheetmetal/smw_nav.gif" align="absmiddle"> get activated. They are used for:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_TOOLTIP_+22">Previous Group</span> - The previous group is set as the current group</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_TOOLTIP_+23">Next Group</span> - The next group is set as the current group</li>
+
+<li><span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+159">Find Edge</span> - Click on an edge, the group to which the selected edge belongs to is set as the current group</li>
+</ul>
+
+<p><a name="resulting_comp"></a>Once all the selections are made, the preview of the components can be viewed by selecting the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_TOOLTIP_+18">Show Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button. At this stage the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+155">Resulting Components</span> options is also displayed in the selecting list. In case the selection of rip locations is such that two or more resulting parts are being created, you can specify the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> for each part using this option. Use the navigation buttons <img src="../../../images/sheetmetal/smw_nav_comp.gif" align="absmiddle"> to set a particular component as current. The preview of the current component is highlighted by a grid over it. This makes it easy to notice the current component in the Graphics Area.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td valign="top" class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<br>
+To navigate between multiple groups or components you can either use the navigation buttons or select the corresponding group/component number directly from the drop-down list.</td>
+<td bordercolor="#ffffe1"><img src="../images/smw_list.gif" border="1"></td>
+</tr>
+</table>
+
+<p>Additional settings can be made in the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_SHEETMETAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span></a> category of <span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span>. The options present here control the visualization of various selections that are made for the selectors of the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+148">Sheet Metal Wizard</span> selection list and the resulting sheet metal components.</p>
+
+<p>On failure of the <span class="UI_COMMAND" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command, a warning message gets displayed. The <span class="UI_COMMAND" id="idd_errors.msg+idd_errors+2">More Details</span> button is available in this warning message. On selecting this button, the warning message expands and displays the sheet metal wizard component number that is causing the failure. Also, in some situations it displays the reason of failure of this command.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+To redefine the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command, right-click on one of the sheet metal components created by the command in the Model Structure and select Sheet Metal Wizard - <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span> from the context menu.<br>
+ <br>
+To delete the components created by the <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> command, right-click on one of the created sheet metal components in the Model Structure and select Sheet Metal Wizard - <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+3974">Delete</span> from the context menu.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Wizard.htm"><b>Use <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span> to create sheet metal components</b></a></li>
+
+<li><a href="../HWfile/T_HW_Wizard_Group.htm"><b>Define multiple bend groups to created sheet metal components by using <span class="UI_OPTION" id="ButtonToolbar_SheetMetal.msg+ButtonToolbar_SheetMetal+7779">Sheet Metal Wizard</span></b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_SheetMetal.htm"><b>Sheet Metal Workflow</b></a></li>
+
+<li><a href="../OVfile/T_OV_BT00.htm"><b>The Bend Table</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

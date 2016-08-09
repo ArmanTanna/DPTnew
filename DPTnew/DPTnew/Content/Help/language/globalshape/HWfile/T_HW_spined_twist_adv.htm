@@ -1,0 +1,90 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a Spined Twist Surface (Advanced)</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 4;
+}
+</style>
+
+</head>
+<body onload="viaMk();" >
+
+<h3>Creating a Spined Twist Surface (Advanced)</h3>
+
+<p>In this tutorial you will apply a GSM spined twist to a surface after reorienting the <i>section planes</i>. Open the <i>Spined_Twist_Adv.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_SpinedTwist.htm"><span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+1">GSM Spined Twist</span></a> command and select the green curve for the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span> selector.<br>
+<br>
+</li>
+
+<li>Expand the <span class="UI_SELECTOR" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node and select <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span>; the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> dialog box is displayed. Set the default values by selecting the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5532">Default</span> button. Select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5531">Show preview</span> check box and finally select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5526">Update Now</span> button. Select <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1490">Yes</span> for the displayed warning to proceed.<br>
+<br>
+</li>
+
+<li>Press the <b>F8</b> key to set the Work Plane parallel to the view. The model and the section planes will appear as shown in the image below.<br>
+<br>
+<img src="../images/sp_twist_adv_1.gif" border="1"><br>
+<br>
+</li>
+
+<li>As the punch would be moving vertically down to stamp this part, set the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> = <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+40">Z</span> in the drop-down list. The <i>section planes</i> get reoriented such that their X-direction is aligned to the Z-axis of the Work Plane. Therefore, the <i>section planes</i> appear as straight lines.<br>
+<br>
+</li>
+
+<li>Right-click on the handle of the 2nd <i>section plane</i> from the right. Select <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5556">Remove Section</span> from the context menu. Repeat the same with the 4th <i>section plane</i> from the right.<br>
+<br>
+</li>
+
+<li>Right-click on the handle of the 2nd <i>section plane</i> from the left and select <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5558">Enable Drive Section</span> from the context menu. Repeat the same with the 4th <i>section plane</i> from the right. Now you are enabled to set the <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5552">Angle</span> for this section too. This way you will remove two <i>section planes</i> from the part.<br>
+<br>
+</li>
+
+<li>Set the angle values in the <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5552">Angle</span> mini-dialog boxes, as shown in the image below.<br>
+<br>
+<img src="../images/sp_twist_adv_2.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select all the surfaces of the model for the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+2">Surfaces to Be Sectioned</span> selector. Ensure that the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+4">Include surfaces to be sectioned</span> check box under the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span> node is selected. This will ensure that the twist is applied to all the selected surfaces.<br>
+<br>
+</li>
+
+<li>Clear the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span> and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> check boxes under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> and <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command. The original and the twisted surface are shown below.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/globalshape/sp_twist_adv_original.gif" border="1"></td>
+<td><img src="../../../images/globalshape/sp_twist_adv_final.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td>Original surface</td>
+<td>GSM spined twist surface</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10004,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Applying symbolic constraints to a screw</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Applying symbolic constraints to a screw</h4>
+
+<A name="top"></A> 
+
+<p>In this example of the usage of the <a href="../FWfile/T_FW_SymbolicMating.htm"><b>Symbolic Mating</b></a> command, you have a screws catalog and you need to define the constraints to correctly mount the part in an assembly.</p>
+<br><IMG border=1 SRC="../../../images/thinkparts/v5_tpi02_2000.gif"><br>
+
+<p>These are the steps necessary to define a shoulder constraint: </p>
+
+<ol>
+	<li>Select the <b>Ougoing</b> option under <b>Direction</b>
+	<li>In the <b>Order</b> box, type 0
+	<li>In the <b>Name</b> box, select <b>SHOULDER</b>
+	<li>In the <b>Description</b> box, select <b>Select the shoulder</b>
+	<li>Select the <b>Coincident Antialigned</b> constraint <BR><BR><IMG SRC="../images/v5_tpl02_2000.gif"><BR>&nbsp;
+	<li>Click on the bottom surface of the screw head:
+<BR><BR><IMG border=1 SRC="../../../images/thinkparts/v5_tpi01_2000.gif"><BR><BR>
+the constraint will be marked by the plane surface displayed in the illustration.
+	<li>Select <b>OK</b>.</li>
+</ol>
+
+<p>Next, you'll define an outgoing and incoming Concentric constraint for the screw axis.
+</p>
+
+<ol>
+	<li>Select the <b>Both</b> option under <b>Direction</b>
+	<li>In the <b>Order</b> box, type 1
+	<li>In the <b>Name</b> box, select <b>AXIS</b>
+	<li>In the <b>Description</b> box, select <b>Select the hole</b>
+	<li>Select the <b>Concentric</b> constraint <BR><BR><IMG SRC="../images/v5_tpl03_2000.gif"><BR>&nbsp;
+	<li>Click on the cylindric surface of the screw (in the following illustration the component is displayed both shaded and wireframe, so that you can see both the selected surface and the axis of revolution):<BR><BR><IMG border=1 SRC="../../../images/thinkparts/v5_tpi03_2000.gif"><BR><BR>
+	<li>Select <b>OK</b>.</li>
+</ol>
+
+<HR color="silver">
+</BODY>
+</HTML>

@@ -1,0 +1,97 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Twisting a simple set of objects</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Twisting a simple set of objects</h3>
+<p>You'll twist a parallelepiped made of six surfaces with just one simple operation.
+<p></p>
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>In the <b>Entities</b> drop-down list (under <b>Entities to be modified</b>) select <b>Surfaces</b>.
+<BR><br><IMG border=1 SRC="../images/v7twist01.gif">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>Press the left button to start a window selection and hold it down. Indicate a window large enough to contain all the surfaces.  When the window is large enough, release the mouse button.<BR><BR><IMG border=1 SRC="../images/bend01.gif"><p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>Axis of Twist</b> drop-down list, choose <b>Line</b>. Select the line which defines the direction to be twisted. 
+<br><br><IMG border=1 src="../../../images/surfaces/v60_sri602_01.gif">
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Cutting lines</b><br>
+Mind that the line length defines the portion of the object that will be modified. All the portions of the objects not covered by the line will not be affected by the operation, while the resulting surfaces will be separate along a direction passing through the first end point of the indicated line (a "cutting line").</td></tr></table><br>A handle is displayed, together with the twisting angle and another one enabling you to modify the length of the axis.
+<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set the value</font></a> of the <b>Angle</b> or drag the handle to the position corresponding to the required twisting. <BR><BR><IMG border=1 SRC="../images/twist01.gif"><BR><BR>You can also modify the length of the portion to be modified, by setting the <b>Length</b> value or dragging the corresponding handle.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Self intersection detection</b><br>
+When a self intersection is detected, the program displays the surfaces delimiting the area within which self intersections occur.
+<br>If the modified entities are inside that area, self intersections will occur; no self intersection will occur if the modified entities are outside that area.<br>
+If you click the on <b>Show Warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ), the corresponding warning will also be displayed.
+</td></tr></table>
+
+
+<p></p>
+</td>
+</tr>
+
+
+<tr valign="baseline">
+<td><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections modify the shape of the object. 
+<BR><BR><IMG border=1 SRC="../images/twist02.gif"><BR><BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Applying the changes to the original entities or to copies</b>
+<ul class="noleft">
+<li>If you selected the <b>Copy</b> check box under <b>More Options</b>, your original entities will still be there.The new ones which originated the new shape are surfaces of the type "GSM Twist". <br>
+<li>If you deselected the <b>Copy</b> check box, the original entities will be modified.
+</ul>
+<br><b>Hiding the original entities when using the command</b><br>
+While you are using the command, you can select the <b>Hide</b> check box to temporarily hide the original entities, in order to better appreciate the changes you are making. The entities will be hidden only as long as the command is being executed.
+</td></tr></table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMbend02.htm"><b>Applying constraints along the cutting lines</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

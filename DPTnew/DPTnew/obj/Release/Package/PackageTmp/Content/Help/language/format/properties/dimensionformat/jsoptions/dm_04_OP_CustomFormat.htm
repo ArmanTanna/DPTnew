@@ -1,0 +1,216 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<TITLE>Customized format</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../../../JSandSTYLES/OPTIONS.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;margin-bottom:4;}
+blockquote{margin-left:22;margin-top:4;margin-bottom:4;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#FFFFE1">
+
+
+<p>Enables you to achieve full and detailed control on the whole dimension text, that is on all of the parts displayed in the following illustration, plus the dual measure, if any.<br>&nbsp;</p>
+<p><img border=1 src="../../../../../images/format/DimensionTokens2.gif"><br>&nbsp;</p>
+
+<table border=1 bordercolor="navy" cellpadding="5%" cellspacing="0%" bgcolor="white">
+<tr valign="top" border=1 bgcolor="#E0E0D8">
+<td><b></b></td>
+<td><b>Property</b></td>
+<td><b>Property Control Name</b></td>
+<td><b>Property Category it Belongs to</b></td>
+</tr>
+<tr valign="top">
+<td><b>1</b></td>
+<td><i>Prefix</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+892">Prefix</span>-
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+893">Text:</span></td>
+
+
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+890">Measure</span></td>
+
+
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td><i>Dimension measure</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+901">Automatic calculation</span><br>
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+902">Measure:</span>
+
+
+
+</td>
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+890">Measure</span></td>
+
+
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td><i>Unit of measure</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+841">Unit:</span></td>
+
+
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+837">Unit</span></td>
+
+
+</tr>
+<tr valign="top">
+<td><b>4</b></td>
+<td><i>Tolerance</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+917">Label:</span></td>
+
+
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+906">Tolerance</span></td>
+
+
+</tr>
+<tr valign="top">
+<td><b>5</b></td>
+<td><i>Tolerance Deviations</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+913">Representation:</span></td>
+
+
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+906">Tolerance</span></td>
+
+
+</tr>
+<tr valign="top">
+<td><b>6</b></td>
+<td><i>Suffix</i></td>
+<td><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+896">Suffix</span>-
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+897">Text:</span></td>
+
+
+<td><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span>-
+
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+890">Measure</span></td>
+
+
+</tr>
+</table>
+<br>
+
+
+
+<p style="margin-bottom:0;">Inside <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+905">Customized format</span> two very useful tools can be used:</p>
+
+
+
+<ul class="noleft">
+<li>The <a href="mk:@MSITStore:draft.chm::/language/geometry/OVfile/T_OV_TML.htm">TML</a> coding (<b>think<font color="#FF0F00">3</font></b> Text Markup Language)</li>
+
+
+<li>Some specifically created symbolic notations&nbsp;&#151;&nbsp;along with all the already existing ones&nbsp;&#151;&nbsp;enabling the inclusion of text portions implicitly expanded according to the current property settings.<br><br>
+<img border=1 src="../../../../../images/format/DimensionTokens.gif">
+<br><br>
+They are: 
+
+<table>
+<tr valign="top">
+<td><b>&lt;MM&gt;</b></td>
+<td>The complete dimension according to all current properties (that is: the TML notation emulating the whole dimension as if it were created with no custom format)</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;DM&gt;</b></td>
+<td>The dual measure according to current dual measure properties</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;M&gt;</b></td>
+<td>The ordinary dimension measure according to current properties</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;T&gt;</b></td>
+<td>The ordinary dimension tolerance representation according to current properties</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;S&gt;</b></td>
+<td>The fit tolerance symbol</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;ST&gt;</b></td>
+<td>Fit symbol and tolerances</td>
+</tr>
+
+<tr valign="top">
+<td><b>&lt;U&gt;</b></td>
+<td>The symbol of the unit of measure for the ordinary dimension measure.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<p style="margin-top:0;">All the above mentioned notations can be automatically applied on selecting the corresponding options available in the drop-down list. Depending on the actual content of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+905">Customized format</span> box, then, some properties will be grayed out or not in order to very clearly display which properties are giving their contribution to the visualized dimension text and which are not.</p>
+
+
+<p style="margin-top:20px;"><b>Some Examples</b></p>
+
+<ul class="noleft">
+<li>To display the unit of measure after the measure and the tolerances, separated by some additional space (take into account the tolerance values and the dimension unit have to be entered as ordinary properties), the following code can be used:<br>
+<br>
+<b>&lt;M&gt;&ltT&gt;&lt;SP/&gt;&lt;U&gt;</b><br>
+<br>
+<img border="1" src="../../../../../images/format/CustForm01.gif"><br>
+<br>
+</li>
+
+<li>Some ready-to-use notes spreading across more than one line lines can also be used:<br>
+<br>
+<b>2&lt;X&gt;&lt;SP/&gt;&lt;FDIA&gt;&lt;M&gt;&lt;BR/&gt; &lt;CNB&gt;&lt;SP/&gt;&lt;FDIA&gt;1.5&lt;BR/&gt;&lt;DEP&gt;.062</b><br>
+<br>
+<img border="1" src="../../../../../images/format/CustForm02.gif"><br>
+<br>
+</li>
+
+<li>Customizable ways to write tolerances are also available:<br>
+<br>
+<b>52&lt;VALIGN type="center"&gt;&lt;STACK scale="0.60" separator="none"&gt;<br>
+&lt;SR&gt; H7(&lt;STACK scale="0.40" separator="none"&gt;<br>
+&lt;SR&gt;+0.03&lt;/SR&gt;&lt;SR&gt;&lt;SP/&gt;0&lt;/SR&gt;&lt;/STACK&gt;)&lt;/SR&gt;<br>
+&lt;SR&gt; g6(&lt;STACK scale="0.40" separator="none"&gt;<br>
+&lt;SR&gt;-0.01&lt;/SR&gt;&lt;SR&gt;-0.029&lt;/SR&gt;&lt;/STACK&gt;)&lt;/SR&gt;</b><br>
+<br>
+<img border="1" src="../../../../../images/format/CustForm03.gif"></li>
+</ul>
+
+<hr color="navy">
+<table align="center">
+<td><a href="../../../properties/IDPP_ATT_DIMENSION_MEASURE.htm"><img border="0" src="../../../../../images/general/FromPopupToMain.gif" alt="Up to Category Page"></a></td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Setting constraints on Control Points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"></head>
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+
+
+<h3>Setting constraints on Control Points</h3>
+
+<p>This document explains how to set constraints on the control points of a selected curve, if you are using the <b><a href="../mc_01/FWfile/T_FW_mc_01.htm">Curve through Control Points</a></b> command, or on the curve you are about to create if you are using the <a href="../FWfile/T_FW_cv_07.htm"><b>Connect Curve</b></a> command.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Expand the <b>Constraints</b> node in the selection list.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>First of all, <i>define</i> the constraints you want to apply. To do this, in the <b>Mode</b> drop-down list, select <b>Define constraints</b>.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Defining constraints on control points and applying them</b> <br>
+Note that at this stage you will just <i>define</i> the constraints you need to apply and <i>select the control points</i> you want to apply them to.<br>
+When you're done with the definition of constraints, you will change the <b>Mode</b> to <b>Move control points</b> and you will see that the curve control points will be enabled to move only according to the constraints you have set.<br>
+ Please note the two options in the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list of the <b><a href="../mc_01/FWfile/T_FW_mc_01.htm">Curve through Control Points</a></b> command:<br>
+
+<br>
+<img border="1" src="../images/MCP_Cmode.gif"><br>
+<br>
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+72">Move control points</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+73">Define constraints</span> options <i>are mutually exclusive</i>.<br>
+
+For this reason, the Selection List of the curve<SPAN id="TWOD"> or surface</SPAN> is hidden when the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+73">Define constraints</span> mode is set, while constraint options are hidden when the set option is 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+72">Move control points</span>.</td>
+
+</tr>
+</table>
+
+<br>
+For details on how to control the <i>distribution</i> of motion for control points, see <a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a>.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>Type</b> drop-down list, choose the constraint you want to apply.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Reference entity management</b> <br>
+When defining constraints, you will typically use reference objects, such as lines<SPAN id="TWOD">, planes, curves or surfaces</SPAN><SPAN id="HIDETD"> or curves</SPAN>. If the object you use as a reference is an <i>active</i> object (i.e.: an object selected among the ones to be edited), the <b>Static</b> check box will show up. If you check it, the shape of the reference object (from now on: the <i>shadow</i>) to be used is the one it had at the time it was selected. If the <b>Static</b> box is not checked, on the contrary, the reference object will be updated based on its current shape.<br>
+So the meaning of static is to use a static representation of the object during the editing operations.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td width="120"><b>Parallel to axis</b></td>
+<td>The selected <b>Points</b> will be constrained to move in a direction parallel to that of a selected <b>Axis</b> (see <a href="../../HWfile/T_HW_AxisLine.htm"><b>How to define an axis or line</b></a>).</td>
+<td><img border="1" src="../../../images/curves/CTP-01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>On to axis</b></td>
+<td>The selected <b>Points</b> will be constrained to move on a selected <b>Axis</b>.</td>
+<td><img border="1" src="../../../images/curves/CTP-02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><SPAN id="TWOD"><b>Parallel to plane</b></SPAN></td>
+<td><SPAN id="TWOD">The selected <b>Points</b> will be constrained to move on a plane parallel to the one you can specify as: 
+
+<ul class="noleft">
+<li><b>On face</b>&nbsp;&#151;&nbsp;by selecting a <b>Face</b> of a solid.</li>
+
+<li><b>3 points</b>&nbsp;&#151;&nbsp;by specifying three points.</li>
+
+<li><b>Plane</b>&nbsp;&#151;&nbsp;by selecting an existing <b>Plane</b>.</li>
+
+<li><b>Through axis &amp; point;</b>&nbsp;&#151;&nbsp;by selecting a line and a point not lying on that line.</li>
+
+<li><b>Perpendicular to axis &amp; through point;</b>&nbsp;&#151;&nbsp;by selecting a line the plane must be perpendicular to and a point not lying on that line.</li>
+</ul></SPAN>
+</td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CPT-03.gif"></SPAN></td>
+</tr>
+
+<tr valign="top">
+<td><SPAN id="TWOD"><b>On to plane</b></SPAN></td>
+<td><SPAN id="TWOD">The selected <b>Points</b> will be constrained to move on the selected plane (which can be specified as described for the <b>Parallel to plane</b> option).</SPAN></td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CPT-04.gif"></SPAN></td>
+</tr>
+
+<tr>
+<td><SPAN id="TWOD"><b>Orthogonal to plane</b></SPAN></td>
+<td>T<SPAN id="TWOD">he selected <b>Points</b> will be constrained to move on a plane orthogonal to the selected one (which can be specified as described for the <b>Parallel to plane</b> option).</SPAN></td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CPT-05.gif"></SPAN></td>
+</tr>
+
+<tr valign="top">
+<td><b>Parallel to curve</b></td>
+<td>The selected <b>Points</b> will be constrained to move keeping parallel to a selected curve.</td>
+<td><img border="1" src="../../../images/curves/CTP-06.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>On to curve</b></td>
+<td>The selected <b>Points</b> will be constrained to move on a selected curve.</td>
+<td><img border="1" src="../../../images/curves/CTP-07.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Orthogonal to curve</b></td>
+<td>The selected <b>Points</b> will be constrained to move orthogonally to a selected curve.</td>
+<td><img border="1" src="../../../images/curves/CTP-08.gif"></td>
+</tr>
+
+<tr>
+<td><SPAN id="TWOD"><b>Parallel to surface</b></SPAN></td>
+<td><SPAN id="TWOD">The selected <b>Points</b> will be constrained to move keeping parallel to a selected surface.</SPAN></td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CTP-09.gif"></SPAN></td>
+</tr>
+
+<tr valign="top">
+<td><SPAN id="TWOD"><b>On to surface</b></SPAN></td>
+<td><SPAN id="TWOD">The selected <b>Points</b> will be constrained to move on a selected surface.</SPAN></td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CTP-10.gif"></SPAN></td>
+</tr>
+
+<tr valign="top">
+<td><SPAN id="TWOD"><b>Orthogonal to surface</b></SPAN></td>
+<td><SPAN id="TWOD">The selected <b>Points</b> will be constrained to move orthogonally to a selected surface.</SPAN></td>
+<td><SPAN id="TWOD"><img border="1" src="../../../images/curves/CTP-11.gif"></SPAN></td>
+</tr>
+
+<tr valign="top">
+<td><b>Radial to point</b></td>
+<td>The selected <b>Points</b> will be constrained to move radially about a selected <b>Radial origin</b>.</td>
+<td><img border="1" src="../../../images/curves/CTP-12.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Radial to axis</b></td>
+<td>The selected <b>Points</b> will be constrained to move radially about a selected <b>Axis</b>.</td>
+<td><img border="1" src="../../../images/curves/CTP-13.gif"></td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Constraint groups</b><br>
+Any time you complete the definition of constraints for the selected control points, a further <b>Constraint group</b> shows up in the selection list to enable you to select another set of control points to which you can apply different constraints.</td>
+</tr>
+</table>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>When you're done with setting the constraints, set the <b>Mode</b> drop-down list to <b>Move control points</b> and move the control points.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Snap to Markers</b> <br>
+When the <b>Snap to Markers</b> check box under <b>More Options</b> is selected, you will be enabled to move a control point snapping it exactly to another one, which is not possible when the check box is not selected.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Visibility of cursor, markers and curve "shadows"</b> <br>
+The check boxes available by expanding the <b>Drag Display</b> node under <b>More Options</b> enable you to control the visibility of the cursor, control point markers and shadows during mouse drag operations. Turning visibility off can be useful when the involved entities are complex, to better visualize the shape and the location of the curve during the operation. 
+
+<table>
+<tr valign="top">
+<td><b>Cursor</b></td>
+<td>When selected, the cursor is visible during mouse drag operations. When not selected, the cursor is not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Markers</b></td>
+<td>When selected, control points markers are visible during mouse drag operations. When not selected, control points markers are not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Shadow</b></td>
+<td>When selected, shadows of the reference entities are visible during mouse drag operations. When not selected, shadows are not visible.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

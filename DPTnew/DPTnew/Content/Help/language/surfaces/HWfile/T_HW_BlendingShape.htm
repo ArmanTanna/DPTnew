@@ -1,0 +1,648 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a blending shape between two contours</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.notop{;margin-top:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a blending shape between two contours</h3>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_BlendingShape.htm"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+1">Blending Shapes</span></a> command, you can proceed as follows (please note that you can follow this step-by-step example by loading file: "BlendingShape.e3").</p>
+
+
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the curves/surface boundaries identifying the first contour<br>
+<br>
+<img border="1" src="../../../images/surfaces/BSMJ-01.gif"><br>
+<br>
+and end selection by right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu (to change the selected contour, right-click, select 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+164">Reset Current Selection</span> and select a different contour).<br>
+
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the curves/surface boundaries identifying the second contour<br>
+<br>
+<img border="1" src="../../../images/surfaces/BSMJ-02.gif"><br>
+<br>
+and end selection by right-clicking and selecting <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu (to change the selected contour, right-click, select 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+164">Reset Current Selection</span> and select a different contour).<br>
+
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>How to profitably use the command</b><br>
+<i>Please note the order of the following steps is not important. The command is designed so as to enable you to change the values of the numerous settings as you like and to interactively assess the possible results using the preview mode.</i> </td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Click the preview button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ) on top of the selection list to display a preview of the blending surfaces.<br>
+<br>
+<img border="1" src="../images/BSMJ-03.gif"><br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Displaying or hiding mini-dialog boxes</b><br>
+The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+43">Hide minidialogs</span> check box is available under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to control the visibility of the mini-dialog boxes displayed by the command.<br>
+
+
+
+When selected, mini-dialog boxes are not visible.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BSMJ-04a.gif"><br>
+<br>
+ When not selected. mini-dialog boxes are displayed.<br>
+Hiding mini-dialog boxes can be very useful especially when working with complex models to simplify visualization.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>To ensure the same continuity conditions are applied along both contours, the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+36">Same continuity</span> check box must be selected and then select the continuity condition you want to apply in the 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+10">Continuity</span> drop-down list (for example, select 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+8">Tangent</span>) in the selection list. If you uncheck 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+36">Same continuity</span>, a separate 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+10">Continuity</span> drop-down list will show up at each contour, enabling you to set different continuity conditions along the two contours.<br>
+
+
+
+<br>
+A global numeric value&nbsp;&#151;&nbsp;the <i>weight&nbsp;&#151;&nbsp;</i> is assigned to each contour to be connected (<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+4">First Weight</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+5">Second Weight</span>). The higher the weight, the higher the influence of the tangent and curvature fields of the corresponding contour on the shape of the resulting surface. A square handle is associated with the weight so as to enable you change it interactively.<br>
+
+
+
+<br>
+<img border="1" src="../images/BSMJ-Weights.gif"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Updating the preview</b> <br>
+The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+26">Update preview at end drag</span> check box enables you to control the preview update mode. When selected, the preview is updated only when drag operations are over (which can be very useful to speed up operations, especially in case of complex models). When not selected, the preview is updated continually during drag operations.</td>
+
+
+
+</tr>
+</table>
+
+<br>
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>You can change the position of the endpoints of both contours by entering the desired values in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+17">First T0</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+18">First T1</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+19">Second T0</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+20">Second T1</span> boxes or by dragging the corresponding handles:<br>
+
+
+
+<br>
+<img border="1" src="../images/BSMJ-04.gif"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Displaying the tangency law and the control points</b><br>
+
+Two check boxes under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enable you to set some visualization options: 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+163">Show tangency law</span> and 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+160">Show control points</span>. 
+
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+163">Show tangency law</span> 
+
+
+
+
+<ul class="noleft">
+<li>When selected, the curves representing the tangency law for the selected point are displayed.</li>
+
+<li>When not selected, the curves are not displayed.<br>
+&nbsp;</li>
+</ul>
+</li>
+
+<li style="list-style: none">
+<table border="1" cellspacing="0" cellpadding="2%" bgcolor="white">
+<tr>
+<td bgcolor="#F7F7F7"><img width="233" height="259" src="../../../images/surfaces/SU4_image001.gif"></td>
+<td bgcolor="#F7F7F7"><img width="230" height="257" src="../../../images/surfaces/SU4_image002.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+163">Show tangency law</span> <i>NOT</i> selected<br>
+
+
+
+<br>
+ </td>
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+163">Show tangency law</span> selected<br>
+
+
+
+<br>
+ </td>
+</tr>
+</table>
+
+<br>
+When the model is a complex one, it can be very useful to be capable of turning the visualization on and off as you like, so as to interactively assess both the tangency law and the resulting shape in the preview.<br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+160">Show control points</span> 
+
+
+
+
+<ul class="noleft">
+<li>When selected, the control points of the resulting shapes are displayed.</li>
+
+<li>When not selected, the control points are not displayed.<br>
+<br>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<p style="margin-bottom:0;"><b>Controlling the tangency section</b></p>
+
+<p style="margin-bottom:0;margin-top:0;">Appropriate options provide control on the "tangency section" so as to get a better shape along the two contours. As a matter of fact, tangency weights controlling the final shapes are computed along the contours. A set of values is computed along each of the two contours. The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+60">Tangent Length Law</span> drop-down list under 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to choose how the tangency laws are generated from these values:</p>
+
+
+
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+62">Fit</span></td>
+
+
+
+<td class="ver9">The given contour values are smoothed using the least square method.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+63">Fixed endpoints &amp; fit</span></td>
+
+
+
+<td class="ver9">The contour values corresponding to the parameter values of 0 and 1 will be retained and kept fixed, while the least square method will be applied to all the remaining contour values.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+64">S-Shape &amp; fit</span></td>
+
+
+
+<td class="ver9">The contour values corresponding to the parameter values of 0 and 1 will be retained and kept fixed, the derivative value is set to 0, while the least square method will be applied to all the remaining contour values.</td>
+</tr>
+</table>
+
+<p style="margin-top:0;">The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+61">Degree</span> box enables you to choose the polynomial fitting method that best matches your need: 1 is linear, 2 parabolic, 3 cubic and so on.</p>
+
+
+
+
+
+<b>Management of closure points</b><br>
+ An additional handle (<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+161">First Closure</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+162">Second Closure</span>) is provided when one of the contours is closed, so as to interactively enable you to change the location of the closure point on the contour itself, thus resulting in a further modification of the shape. See the following example for details.<br>
+
+
+
+<br>
+ 
+
+<table border="1" bgcolor="white" cellspacing="0" cellpadding="0%">
+<tr>
+<td bgcolor="#F7F7F7"><img src="../images/SU4_image003.gif"></td>
+<td bgcolor="#F7F7F7"><img src="../images/SU4_image004.gif"></td>
+</tr>
+
+<tr>
+<td>Initially, the closure point is located at the position corresponding to the value 0.5 of the parameter on the contour.</td>
+<td>By dragging the point, you can modify the shape.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> ( <img src="../../../images/general/InternalUndo.gif" align="absmiddle"> ) to undo the previous changes.<br>
+
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>You can drag the corresponding handles also to modify the length of the tangent vectors at the endpoints, or specify the desired values in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+21">Tangent First T0</span> 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+22">Tangent First T1</span> 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+23">Tangent Second T0</span> 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+24">Tangent Second T1</span> 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span> boxes:<br>
+
+
+
+<br>
+<img border="1" src="../images/BSMJ-05.gif"><br>
+<br>
+ <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Null tangency field warning</b><br>
+ If you modify the length of the tangent vectors along a contour (no matter whether at the end points or at the additional internal points), if all the lengths are null, then the tangency field is null. In this case, a new warning message is displayed.<br>
+<br>
+ 
+
+<table border="1" cellspacing="0" cellpadding="0%">
+<tr>
+<td bgcolor="#F7F7F7"><img src="../../../images/surfaces/SU4_image011.gif"></td>
+<td bgcolor="#F7F7F7"><img src="../../../images/surfaces/SU4_image012.gif"></td>
+<td bgcolor="#F7F7F7"><img src="../images/SU4_image013.gif"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+ </td>
+</tr>
+</table>
+
+<br>
+<p>Unless the geometric conditions prevent you from doing so, you can also modify the direction of the tangent vectors. To do this you can rotate the vector while holding the selection button of the mouse down on an intermediate point of the handle between its own endpoints:</p>
+
+<br>
+<img border="1" src="../images/BS-ITG.gif"> <br>
+<br>
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Defining the direction of tangent vectors as predefined directions</b> <br>
+Proper options are available in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+24">Tangent Second T1</span> node under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to control the direction of the tangent vectors in each contour endpoint, as described in &quot;
+<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>&quot;.<br>
+
+
+
+In the illustration below, we have set the direction of the tangent vector in the first endpoint of the first contour parallel to the Z axis.<br>
+<br>
+<img border="1" src="../images/BSMJ-Vectors01.gif"><br>
+<br>
+Using the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+27">Fit handles to view</span> check box you can control the size of tangent vector handles:<br>
+
+
+
+When checked, handles representing tangents and weights are automatically resized so as to fit to the current view size.<br>
+<br>
+<img border="1" src="../images/BSMJ-Vectors02.gif"><br>
+<br>
+When not selected, the handle display size depends on the current <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+16">Handle scale</span> value.<br>
+
+
+
+<br>
+<img border="1" src="../images/BSMJ-Vectors03.gif"> <br>
+<br>
+<b>Defining the alignment of the tangent vectors</b><br>
+
+Tangent vectors (either on end points or on additional internal points) are initially perpendicular to the contour.<br>
+Several options are available to control the alignment of tangent vectors. To access them: 
+
+<ol style="margin-top:0">
+<li>Expand the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+37">Vectors</span> node under 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span></li>
+
+
+
+
+<li>Right-click on the selector corresponding to tangent vector you need to modify the direction of. Choose one of the options in the context menu that shows up.<br>
+<br>
+ <img border="1" src="../images/SU4_image005.gif"><br>
+<br>
+ 
+
+<ul class="noleft" style='margin-top:0in' type="disc">
+<li><span class="UI_CONTEXT" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+181">Align with Perpendicular</span><br>
+
+
+
+ The tangent vectors are perpendicular to the contour<br>
+ <b><br>
+ <img src="../images/SU4_image006.gif"><br>
+<br>
+<br>
+</b></li>
+
+<li><span class="UI_CONTEXT" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+179">Align with Perpendicular Iso Curve</span><br>
+
+
+
+ The tangent vectors are oriented along one isoparametric curve of the surface: the one which is closest to the perpendicular direction.<br>
+<br>
+ <img src="../images/SU4_image007.gif"><br>
+<br>
+<br>
+</li>
+
+<li class="ver9"><span class="UI_CONTEXT" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+180">Align with Other Iso Curve</span><br>
+
+
+
+ The tangent vectors are oriented along the <i>other</i> isoparametric curve (with respect to the one used in the <span class="UI_CONTEXT" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+181">Align with Perpendicular</span> option)<br>
+
+
+
+<br>
+ <img src="../images/SU4_image008.gif"><br>
+<br>
+<br>
+</li>
+
+<li class="ver9"><span class="UI_CONTEXT" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+182">Align with Boundary</span><br>
+
+
+
+ The tangent vectors are oriented along the direction of the border. If there is no border, the option is not available.<br>
+<br>
+ <img src="../images/SU4_image009.gif"></li>
+</ul>
+</li>
+</ol>
+
+<p class="rn_desc">Please note that you can also select the same options for <i>all</i> the tangent vectors of a given contour in the global context menu (which shows up if you right-click in the graphics area).<br>
+<br>
+<img border="1" src="../images/SU4_image010.gif"></p>
+
+
+<br>
+<br>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Adding intermediate handles to contours</b> <br>
+You can also add handles to any point of each contour, so as to locally control both the weight and the direction. To add a handle to a point of a contour, right-click on the point (if you right-click outside the contour the point will be projected onto it) and select <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+28">Add Control to First Curves</span> or 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+29">Add Control to Second Curves</span>, depending on which contour you want to add the handle to.<br>
+
+
+
+<br>
+<img border="1" src="../images/AddHandle.gif"><br>
+<br>
+Length and direction of tangents in the additional points can be managed exactly as in the case of endpoints.<br>
+<br>
+<img border="1" src="../images/AddHandle2.gif"><br>
+<br>
+Additional handles can be removed by right-clicking and selecting <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+30">Remove Control from First Curves</span> / 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+31">Remove Control from Second Curves</span>.</td>
+
+
+
+</tr>
+</table>
+
+<br>
+<p>&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td><b>8</b></td>
+<td>In order to get to know how to control the shape and the smoothness of the resulting blending surfaces, see "<a href="T_HW_Discontinuities.htm">Managing contour discontinuities</a>". For example, you might set <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+12">Matching type</span> under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to 
+
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+15">Ordered discontinuity</span>, so as to establish a correspondence between the discontinuity points on the two contours. 
+
+
+
+
+<p>&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>9</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0" alignment="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" alignment="absmiddle"> to confirm your selections and create the surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BSMJ-07.gif"><br>
+<br>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0" alignment="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+38">Precision</span><br>
+
+
+
+The items available when you expand the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+38">Precision</span> node under 
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enable you to define the tolerance values to be used in the computation process.<br>
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+39">Position</span></td>
+
+
+
+<td>Enables you to set the tolerance value to be used in case of positional continuity, in millimeters or inches, depending on the current unit of measure. It is the difference between the real positional continuity and the one you can obtain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+40">Tangent</span></td>
+
+
+
+<td>Enables you to set the tolerance value to be used in case of tangency continuity, in degrees. It is the difference between the real tangency and the one you can obtain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+41">Curvature</span></td>
+
+
+
+<td>Enables you to set the tolerance value to be used in case of curvature continuity, as a percentage of the maximum curvature.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+61">Degree</span></td>
+
+
+
+<td>Enables you to define the tolerance for the degree. It is the difference between the real degree and the one you can obtain for the resulting shape.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+71">Max. No. of Arcs</span></td>
+
+
+
+<td>Enables you to define the maximum number of arcs for the resulting shapes.<br>
+In the following example, the resulting shape is improved by changing the number of arcs.<br>
+<br>
+ 
+
+<table style="margin-left:30">
+<tr valign="top">
+<td class="ver9">With just one arc, the required precision values are not reached.</td>
+<td class="ver9"><img border="1" src="../images/BS01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td class="ver9">By setting the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+71">Max. No. of Arcs</span> to 2, the precision values relative to position, tangency and curvature are smaller then the expected ones.</td>
+
+
+
+<td class="ver9"><img border="1" src="../images/BS02.gif"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

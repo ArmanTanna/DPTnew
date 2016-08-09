@@ -1,0 +1,394 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Customizing context menus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+font-family: Verdana;
+font-size: 9pt; 
+}
+
+ .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+font-family: Verdana;
+font-size: 9pt; 
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h1>Customizing context menus</h1>
+
+<p>You can <i>customize</i> context menus by adding or removing commands to/from them.<br>
+Once you have added a command to a context menu, whenever you open that particular context menu (that is, whenever you are in the same situation&nbsp;&#151;&nbsp;context&nbsp;&#151;&nbsp;and right-click), the command you added will be available in the context menu, until you decide to remove it.<br>
+Very similarly, once you have removed a command from a certain context menu, whenever you open that menu the command will <i>not</i> be available anymore, as long as you don't add it again or restore the menu to its default.</p>
+
+<p>Context menus depend on GUI profiles.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">If you change the current GUI profile, any context menu customization you had made when the current GUI profile was a different one will <i>not</i> be available.</td>
+</tr>
+</table>
+
+<p>Customizations are stored among the user data and can be easily shared with other users through the Configuration Manager (see the <span class="UI_OPTION" id="installation.msg+confmgr+35">Customized Context Menus</span> component under <span class="UI_OPTION" id="installation.msg+confmgr+15">GUI Customization</span> in the <span class="UI_OPTION" id="idd_cm_settings.msg+idd_cm_settings+1">Configuration Options</span>).</p>
+
+<ul class="noleft">
+<li><a href="#CM01"><b>How to add commands to a context menu</b></a></li>
+<li><a href="#CM02"><b>How to control the applicability of context menus</b></a></li>
+<li><a href="#CM03"><b>How to remove commands from a context menu</b></a></li>
+<li><a href="#CM04"><b>Other customization commands</b></a></li>
+</ul>
+
+<h4><a name="CM01"></a>How to add commands to a context menu</h4>
+
+<p>To add commands to a context menu, proceed as follows:</p>
+
+<ol class="litleft">
+<li>Right-click to display the context menu and select <span class="UI_CONTEXT" id="ContextMenu_GraphicArea_Empty.msg+ContextMenu_GraphicArea_Empty+588">Customize</span>:<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu01.gif"><br>
+<br>
+
+The <span class="UI_OPTION" id="Sheet.msg+Sheet+5542">Customize</span> dialog box shows up adjacent to the context menu. Select the <span class="UI_OPTION" id="idp_cust_commands.msg+idp_cust_commands+5263">Commands</span> tab.<br>
+
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu02.gif"><br>
+&nbsp;</li>
+
+<li>Select the icon of the command you want to add to the context menu and drag it onto it.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu03.gif"><br>
+&nbsp;</li>
+
+<li>Drop the command icon onto the context menu.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu04.gif"><br>
+&nbsp;</li>
+
+<li>Select <span class="UI_OPTION" id="eklib.msg+eklib+120">Close</span>. The new command has now been added to the context menu.<br>
+
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Adding drop-down buttons to a context menu</b><br>
+Please note that also drop-down buttons can be added to context menus.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/DDCM01.gif"><br>
+<br>
+An appropriate sub-menu will be added to the customized context menu.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/DDCM02.gif"> </td>
+</tr>
+</table>
+</li>
+</ol>
+
+<h4><a name="CM02"></a>How to control the applicability of context menus</h4>
+
+<p style="margin-top:4px;margin-bottom:0;">If you have added a command to a context menu in a certain situation, you may want to extend its <i>applicability</i> to different situations.<br>
+For example, if you added the command to a context menu when no entity was selected, you might want to get the same command also when one or more entities are selected. In these cases, once you have added an item to your customized context menu, you can right-click on the newly added item and select <span class="UI_OPTION" id="ContextMenu_Customize.msg+ContextMenu_Customize+7744">Set Conditions</span>, which will enable you to:</p>
+
+
+
+
+<ul class="noleft">
+<li>Control the <i>number</i> of selected entities. If you have selected just one entity, you might want the command to show up also in case you selected <i>any</i> or a specified number of entities.</li>
+
+<li>Control the <i>type</i> of entities it applies to (for example, if you selected a line, you might want the command to show up also when you select a curve; if you selected no entities, you might want the command to be available also when an entity of some or all types is selected).<br>
+You will also be enabled to distinguish between associative and non-associative entities (suppose you selected an associative surface: you might want the newly added command to be displayed also when you click on a non-associative surface, or vice versa).</li>
+
+<li>In case of surface selection, to extend the applicability from <i>trimmed</i> to <i>non trimmed</i> surfaces and vice versa.</li>
+</ul>
+
+<p style="margin-top:4px;margin-bottom:0;">Suppose you have added a command to a context menu. To change the applicability context for the newly added command, before closing <span class="UI_OPTION" id="Sheet.msg+Sheet+5542">Customize</span> dialog box, proceed as follows:<br>
+
+
+
+&nbsp;</p>
+
+<ol class="litleft">
+<li>Right-click on the newly added command and select <span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7744">Set Conditions</span>.<br>
+
+
+
+<br>
+<img border="1" src="../../../rn_2005T1/images/APPL01.gif"><br>
+<br>
+The <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+1">Set Conditions</span> dialog box is displayed.<br>
+
+
+
+<br>
+<img src="../../../rn_2005T1/images/APPL01BIS.gif"><br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+2">Number of entities</span> drop-down list, select to how many entities the selected command must apply:<br>
+
+
+
+<br>
+<img src="../../../rn_2005T1/images/APPL02.gif"><br>
+<br>
+<table>
+<tr valign="top">
+<td><span class="UI_DROPDOWNITEM" id="idd_ccm_conditions.msg+idd_ccm_conditions+3+1">Any</span></td>
+
+
+
+<td>The command will apply to any number of selected entities (&ge;0).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_DROPDOWNITEM" id="idd_ccm_conditions.msg+idd_ccm_conditions+3+2">Greater/equal than</span></td>
+
+
+
+<td>The command will apply to any number of selected entities equal or greater than the one you can specify in the adjacent box on the right.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_DROPDOWNITEM" id="idd_ccm_conditions.msg+idd_ccm_conditions+3+3">Equal</span></td>
+
+
+
+<td>The command will apply only to a number of selected entities that is the same as the one you can specify in the adjacent box on the right.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_DROPDOWNITEM" id="idd_ccm_conditions.msg+idd_ccm_conditions+3+4">Less/equal than</span></td>
+
+
+
+<td>The command will apply to any number of selected entities equal or smaller than the one you can specify in the adjacent box on the right.</td>
+</tr>
+</table>
+
+Note that the initial value displayed in the box is the number of entities you actually selected when you started the customization of the context menu.<br>
+&nbsp;</li>
+
+<li>Unless the <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+2">Number of entities</span> reads 
+
+
+<span class="UI_DROPDOWNITEM" id="idd_ccm_conditions.msg+idd_ccm_conditions+3+2">Greater/equal than</span> 0 (in which case the area below is grayed out), you will be enabled to choose the entity types the command must apply to by properly setting the controls of the 
+
+
+<span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+4">Entities</span> area.<br>
+
+
+
+For example, if you check the <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+5">All</span> box, the command will be displayed for any type of entity you may select.<br>
+
+
+
+<br>
+<img src="../../../rn_2005T1/images/APPL03.gif"><br>
+<br>
+If the box is cleared, three different drop-down lists are available for you to choose three different types of entities (the same types available with the <span class="UI_OPTION" id="ButtonToolbar_Selection.msg+ButtonToolbar_Selection+219">Selection Filter</span> command).<br>
+
+
+
+<br>
+<img src="../../../rn_2005T1/images/APPL04.gif"><br>
+<br>
+If the type you select is curve or surface, you will also be enabled to select the sub-type in the <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+7">Subtypes</span> drop down list.<br>
+
+
+
+Specific warnings will be displayed if you select the same sub-type more than once.<br>
+&nbsp;</li>
+
+<li>If the type you selected is either curves or surfaces, the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+10">Associative</span> and 
+
+
+<span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+11">Non-associative</span> are available to further filter the applicability of the newly added command. 
+
+
+
+
+<ul class="noleft">
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+10">Associative</span> check box is selected, the command will be available when the selected entities are associative.</li>
+
+
+
+
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+10">Associative</span> check box is cleared, the command will not be available when the selected entities are associative.</li>
+
+
+
+</ul>
+
+<ul class="noleft">
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+11">Non-associative</span> check box is selected, the command will be available when the selected entities are non-associative.</li>
+
+
+
+
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+11">Non-associative</span> check box is cleared, the command will not be available when the selected entities are non-associative.<br>
+
+
+
+&nbsp;</li>
+</ul>
+</li>
+
+<li>Finally, if the selected entity type is surfaces, then you can further filter the applicability of the newly added command to trimmed or non-trimmed surfaces. 
+
+<ul class="noleft">
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+13">Trimmed</span> check box is selected, the command will be available when the selected surfaces are trimmed.</li>
+
+
+
+
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+13">Trimmed</span> check box is cleared, the command will not be available when the selected surfaces are trimmed.</li>
+
+
+
+
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+14">Not trimmed</span> check box is selected, the command will be available when the selected surfaces are non-trimmed.</li>
+
+
+
+
+<li>When the <span class="UI_OPTION" id="IDD_CCM_CONDITIONS.msg+idd_ccm_conditions+14">Not trimmed</span> check box is cleared, the command will not be available when the selected surfaces are non-trimmed.<br>
+
+
+
+&nbsp;</li>
+</ul>
+</li>
+
+<li>Click <span class="UI_OPTION" id="idd_ccm_conditions.msg+idd_ccm_conditions+15">OK</span> to apply your changes and close the dialog box.</li>
+
+
+
+</ol>
+
+<h4><a name="CM03"></a>How to remove commands from a context menu</h4>
+
+<p style="margin-top:4px;margin-bottom:8px;">To remove commands from a context menu, proceed as follows:</p>
+
+<ol class="litleft">
+<li>Right-click to display the context menu and select <span class="UI_CONTEXT" id="ContextMenu_GraphicArea_Empty.msg+ContextMenu_GraphicArea_Empty+588">Customize</span>. The 
+
+
+<span class="UI_OPTION" id="Sheet.msg+Sheet+5542">Customize</span> dialog box shows up adjacent to the context menu.<br>
+
+
+
+&nbsp;</li>
+
+<li>Select the icon of the command to be removed from the context menu and drag it outside the menu, then drop it.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu05.gif"><br>
+<br>
+The command will be removed from the menu.<br>
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu06.gif"><br>
+&nbsp;</li>
+
+<li>Select <span class="UI_OPTION" id="eklib.msg+eklib+120">Close</span>. The new command has now been removed from the context menu.</li>
+
+
+
+</ol>
+
+<h4><a name="CM04"></a>Other customization commands</h4>
+
+<p style="margin-top:4px;">If you right-click on the context menu to be customized after selecting the <span class="UI_CONTEXT" id="ContextMenu_GraphicArea_Empty.msg+ContextMenu_GraphicArea_Empty+588">Customize</span> command, a context menu is displayed.<br>
+
+
+
+<br>
+<img border="1" src="../../../rn_2005T1/images/ContextMenu07.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7605">New Item</span></td>
+
+
+
+<td>Enables you to add a new command to the selected context menu just on top of the selected item. Once the new item has been added, you can edit its properties using the <span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7609">Properties</span> command (see below), thus creating macro commands with their own contents, labels and parameters.</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7606">Add Separator</span></td>
+
+
+
+<td>Enables you to add a separator line to the context menu just on top of the selected item.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7607">Delete</span></td>
+
+
+
+<td>Enables you to remove the selected item from the context menu.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7608">Restore</span></td>
+
+
+
+<td>Displays a dialog box on which you can choose to: 
+
+<ul class="noleft" style="margin-bottom:0">
+<li>Restore the selected context menu to its original version</li>
+
+<li>Restore all customized context menus to their original version.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_CONTEXT" id="ContextMenu_Customize.msg+ContextMenu_Customize+7609">Properties</span></td>
+
+
+
+<td>Displays a dialog box enabling you to change the properties of a selected item in the context menu in terms of functional contents, label and parameters.</td>
+</tr>
+</table>
+
+<p>Select <span class="UI_OPTION" id="eklib.msg+eklib+120">Close</span> to apply your changes and close the 
+
+
+<span class="UI_OPTION" id="Sheet.msg+Sheet+5542">Customize</span> dialog box.</p>
+
+<hr color="silver">
+</body>
+</html>
+

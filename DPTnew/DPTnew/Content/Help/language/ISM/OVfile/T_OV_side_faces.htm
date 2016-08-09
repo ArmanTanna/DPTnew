@@ -1,0 +1,96 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2009t3" content="translate">
+<title>Job: Creating Side Faces During Face Transformation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h3>Creating Side Faces During Face Transformation</h3>
+
+<p>While moving a face by using the <a href="../FWfile/T_FW_move_face.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7898">Move Faces</span></a> or <a href="../FWfile/T_FW_offset_face.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7900">Offset Faces</span></a> commands, at times there is a necessity to create additional side faces without extending the existing ones. This situation has been illustrated below:
+<br><br><img src="../../../images/ISM/ISM-move_face-1.gif" border="1"><br><br>
+
+The highlighted face is to be moved upwards, without altering the position of the fillet. This is not possible until an additional side face is created at the fillet edge. To facilitate this, the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+21">Side Faces</span> drop-down list is available in both the 
+<span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7898">Move Faces</span> and 
+<span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7900">Offset Faces</span> command's selection list.<br><br>
+
+<a name="side_face"></a>The following options are present in the <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+21">Side Faces</span> drop-down list:</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+22">None</span> - No additional side faces are created while moving the face.</li>
+<li><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+23">Tangent only</span> - Additional side faces are created on the boundary edges that bear a tangential extension with the selected faces.</li>
+<li><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+24">All</span> - Additional side faces are created on all boundary edges of the selected faces.</li>
+</ul>
+
+<p>The result of the selection has been shown below.</p>
+
+<table border="1" cellspacing="2" cellpadding="2" bordercolor="#000000" style="margin-left:30;">
+<tr>
+<td width="150" align="center" valign="middle"><b><i>Command cannot execute for the given situation</i></b></td>
+<td><img src="../../../images/ISM/ISM-move_face-2.gif" border="1"></td>
+<td><img src="../../../images/ISM/ISM-move_face-3.gif"></td>
+</tr>
+<tr>
+<td align="center"><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+22">None</span></td>
+<td align="center"><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+23">Tangent only</span></td>
+<td align="center"><span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+24">All</span></td>
+</tr>
+</table>
+<br>
+
+<p>The command can be effectively applied to a set of faces, and the side faces are created on the boundaries of the selected set of faces. Due to this capability, the option can be effectively used as a modeling tool; see the example shown below.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td colspan="2" align="center"><img src="../../../images/ISM/ISM-move_face-4.gif" border="1" align="middle"></td>
+</tr>
+<tr>
+<td align="center"><img src="../../../images/ISM/arrow-south-west.gif"></td>
+<td align="center"><img src="../../../images/ISM/arrow-south-east.gif"></td>
+</tr>
+<tr>
+<td><img src="../../../images/ISM/ISM-move_face-5.gif" border="1"></td>
+<td><img src="../../../images/ISM/ISM-move_face-6.gif" border="1"></td>
+</tr>
+<tr>
+<td align="center"><b><a href="../HWfile/T_HW_move_face.htm">Simple translation</a></b></td>
+<td align="center"><b><a href="../HWfile/T_HW_scale_copy.htm">Translation with scaling</a></b></td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_OV_Prop_Limits.htm"><b>Making face selection using Propagation Limits</b></a></li>
+<li><a href="T_OV_ISM.htm"><b>Making face selection using Overview on Interactive Modeling</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../tocpages/EL_ISM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../tocpages/EL_ISM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Interactive Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>

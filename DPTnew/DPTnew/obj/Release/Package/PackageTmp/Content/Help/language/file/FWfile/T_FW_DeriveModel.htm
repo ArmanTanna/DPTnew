@@ -1,0 +1,96 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(6,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="internally">
+<title>New - Model Derived from Current</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left: 22;margin-top: 0;}
+</style>
+<style type="text/css">.menu{font-size: 10pt; font-family: Arial;}</style>
+
+</head>
+
+<body onload="viaMk();"   bgcolor="white">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">File<img src="../../../images/general/litarr.gif">New<img src="../../../images/general/litarr.gif">Model Derived from Current</p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Model Derived from Current</b></i>
+</td>
+ --></tr></table>
+<br>&nbsp;<br>
+
+<p>The <b>Model Derived from Current</b> command enables you to create a new model <i>deriving</i> it from the current one. The derived model retains a link to the original model, so that when the latter changes, the former is updated accordingly. This way, you can create different objects deriving from a base one, which can be very useful in many situations.<br>
+For example, you can create both the semi-manufactured product or the final product starting from the same raw object you are designing. Both the derived models retain links to the raw object, but they can also have their own independent life.<br>
+Depending on the <b>Mode</b> you select, you can create the derived model using different methods.<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="80"><b>As current</b></td>
+<td>to obtain a derived model exactly like the original.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Scale</b></td>
+<td>to homogeneously scale the derived model, or to perform mono-directional scaling (stretching) along one direction. A set of handles is displayed to help you easily scale the derived model, as described for the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Scale.htm"><b>Scale Entities</b></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Mirror</b></td>
+<td>to mirror the derived model about a symmetry plane, as described for the <a href="mk:@MSITStore:transf.chm::/language/transform/FWfile/T_FW_Mirror.htm"><b>Mirror Entities</b></a> command.</td>
+</tr>
+</table>
+
+<p>Once you've chosen the creation mode and operated the scaling/mirror as you like (if any), select <b>OK</b> ( <img align="middle" border="0" src="../../../images/general/OKbutton.gif"> ). An additional document window is opened, displaying the derived model. You can save it using <a href="T_FW_fi_06.htm"><b>Save as</b></a> or even <a href="T_FW_fi_05.htm"><b>Save</b></a>, as the derived model is automatically given a default name.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>File path</b> <br>
+The derived model refers to the original model through its pathname. If the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_ASSEMBLY_ADVANCED.htm"><b>Keep absolute file path</b></a> check box is selected, the original model is referred using the absolute file path. When the box is not checked, the original model is referred using a relative file path.</td>
+</tr>
+</table>
+
+<br>
+<p>Some tips about derived models:</p>
+
+<ul class="noleft">
+<li>Within an assembly, the derived model can be created starting from an X-Reference component: you only need to <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_04.htm">set it as current</a>, before applying the command.</li>
+
+<li>When you create one or more derived models, their <b>Model Structure</b> includes the<br>
+<img src="../images/DerivedFrom.gif" align="baseline"><br>
+ event as the first event.</li>
+
+<li>The history of the original model cannot be edited from within the derived model.</li>
+
+<li>At any time the derived model can be updated or unlinked from the original model, by selecting the specific command&nbsp;&#151;&nbsp;<b>Reload</b> or <b>Unlink</b>&nbsp;&#151;&nbsp; in the context menu displayed by right-clicking on<br>
+<img src="../images/DerivedFrom.gif" align="baseline"><br>
+in the <b>Model Structure</b>. Updating can be confirmed also when you load the derived model.</li>
+
+<li>If you have scaled or mirrored the model when deriving it, you can respectively redefine the scale factor and the symmetry plane by right-clicking on the<br>
+<img src="../images/DerivedFrom.gif" align="baseline"><br>
+in the <b>Model Structure</b> and selecting <a href="../../history/FWfile/T_FW_ht_06.htm"><b>Redefine</b></a> in the context menu.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,79 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t3" content="internally">
+<TITLE>Mass Properties</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+</head>
+
+<body onload="viaMk();"   bgcolor="white">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Tools<img src="../../../../images/general/litarr.gif">Info<img src="../../../../images/general/litarr.gif">Analysis<img src="../../../../images/general/litarr.gif">Mass Properties</p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Mass Properties</b></i>
+</td>
+ --></tr>
+</table>
+<br>&nbsp;<br>
+
+<p>The <B>Mass Properties</B> command calculates and displays the mass properties of one or more selected solids and/or surfaces.
+The centers of mass and volume are displayed in the model.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+Tolerance used when calculating areas and volumes is defined by the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_GENERAL_ADVANCED.htm"><b>Tolerance</b></a> option in the <b>General - Advanced</b> category of the <b>Document Properties</b>.
+
+<p>By increasing this tolerance value you reduce execution time but also execution precision. By reducing tolerance you improve execution precision but increase execution time.
+<td></tr></table>
+
+<p>The command also enables you to do the following:
+<UL class="noleft">
+<LI>set the units of measurement for length and weight individually for both the model and for output
+<LI>save the calculated data to a file</LI></p>
+</UL>
+
+<p>When you start the command, the program prompts you to select an entity. Click on each solid or surface whose mass properties you want to calculate, and then end selection.</p>
+
+<p>The program calculates the mass properties and then displays the <B>Mass Properties</B> dialog box, in which the following data is displayed:</p>
+<UL class="noleft">
+<LI>the number of solids selected
+<LI>the number and name (if any) of the material (only if a single solid was selected)
+<LI>density (only if a single solid was selected)
+<LI>volume
+<LI>weight
+<LI>total surface area
+<LI>coordinates of center of mass
+<LI>coordinates of center of volume
+<LI>moments and principal products of inertia</LI>
+</UL>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_to_06_07.htm"><b>Choose units of measurements</b></a>
+<li><a href="../HWfile/T_HW_to_06_07_01.htm"><b>Save the mass property data</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

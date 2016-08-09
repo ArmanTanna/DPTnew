@@ -1,0 +1,232 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a capping surface starting from an existing surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+{
+margin-left: 26;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a capping surface starting from an existing surface</h3>
+
+<p>In this job you will use the <a href="../FWfile/T_FW_Capping.htm"><b>Capping</b></a> command to create a surface based on an existing one.</p>
+
+<p>Open file "CappingExistingSurface.e3".<br>
+<br>
+<img border="1" src="../../../images/surfaces/PBO-01.gif"><br>
+<br>
+You need to create a filling surface along the two side surfaces (a and b) and the two curves (a' and b') and through the red curves, maintaining tangency continuity along the two surface boundaries.<br>
+As you can see, curvature varies strongly in both directions. Therefore, if you try to use the <b>Capping</b> command directly, it will not be easy to find a suitable initial shape among the predefined ones (<b>Flat</b>, <b>Double curvature</b>, <b>Single curvature</b>). In this case, in fact, it will be much better to create a proper reference surface and then use the <b>Existing surface</b> option of the <b>Capping</b> command.</p>
+
+<h5>Creating the reference surface</h5>
+
+<hr color="silver">
+<p>To create a filling surface among surface boundaries a and b and curves a' and b', adding tangency constraints along a and b, you can use the <a href="../FWfile/T_FW_Lofted.htm"><b>Lofted Surface</b></a> command.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <b>Lofted Surface</b> command. In the <b>Type</b> drop-down list under <b>More Options</b>, select <b>Stretched</b>.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>As <b>Boundary set A</b>, select the two surface boundaries a and b, as in the following illustration (the selection order is free). In the <b>Continuity</b> drop-down lists, select the <b>Tangent</b> option, in order to apply tangency constraints along a and b:<br>
+<br>
+<img border="1" src="../images/CAP2004-01.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select the two curves a' and b' as <b>Boundary Set B</b>.<br>
+<br>
+<img border="1" src="../images/CAP2004-02.gif"><br>
+&nbsp;<br>
+<br>
+If you click the <b>Show Warnings</b> button, the following message shows up:<br>
+<br>
+<img border="1" src="../images/CAP2004-03.gif"> <br>
+<br>
+Check the <b>Clean Curves</b> box under <b>More Options - Surface Type Options</b> to get a nicer resulting surface (see "<a href="T_HW_CleanCurves.htm">Cleaning a curve before creating a lofted surface</a>" for details).<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> to create the surface:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CAP2004-last.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<h5>Creating the capping surface</h5>
+
+<hr color="silver">
+<p>The reference surface is ready, and it already fulfills the required boundary constraints. Now you are ready to create the final capping surface. So, start the <b>Capping</b> command.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <b>Generic Shape</b> drop-down list under <b>More Options</b>, select <b>Existing surface</b> and click on the green surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/PBO-03.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Projection type</b> drop-down list, select <b>Single curvature</b>, to use a cylindrical projection.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <b>Axis</b> drop-down list select <b>Line</b>. Click on the blue axis as in the following illustration.<br>
+<br>
+<img border="1" src="../../../images/surfaces/PBO-04.gif"> <br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Alternatively ...</b><br>
+You could also set the <b>Projection type</b> to <b>Flat</b> and select the violet line as direction of projection. But, in this case, you get better results by using the cylindrical projection, as you will see further on in this task.</td>
+</tr>
+</table>
+
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the four boundaries as <b>Constraint Boundary Curves</b>: 
+
+<ul class="noleft">
+<li>Select boundary a as <b>Group 1</b> and set the <b>Constraint</b> to <b>Position + tangent</b></li>
+
+<li>Select curve b' as <b>Group 2</b> and set the <b>Constraint</b> to <b>Position</b></li>
+
+<li>Select boundary b as <b>Group 3</b> and set the <b>Constraint</b> to <b>Position + tangent</b></li>
+
+<li>Select curve a' as <b>Group 4</b> and set the <b>Constraint</b> to <b>Position</b></li>
+</ul>
+
+<br>
+<br>
+<img border="1" src="../images/PBO-UNO.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the two curves as <b>Constraint Internal curves</b> as in the following illustration, and set the <b>Constraint</b> to <b>Position</b>.<br>
+<br>
+<img border="1" src="../images/PBO-92.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>To achieve a good precision value, set the <b>Loops</b> to 2 in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMChecking.htm#Precision"><b>Precision</b></a> dialog box, opened by clicking <b>Precision</b> under <b>More Options</b>.<br>
+
+<br>
+<img src="../images/PBO-loops2.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>To assess the quality of the surface you are going to obtain, you can use <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm#ISOP">zebra lines</a>. Click 
+<a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm"><b>Quality Checks</b></a> under <b>More Options</b>.<br>
+
+&nbsp; 
+
+<ol class="litleft">
+<li>Select the <b>Enable</b> and the <b>Zebra</b> check boxes</li>
+
+<li>In the <b>Number of lines</b> box, type 20<br>
+<br>
+<img src="../images/PBO-QC.gif"><br>
+&nbsp;</li>
+
+<li>Click the preview button ( <img src="../../../images/general/preview.gif"> ).</li>
+</ol>
+
+<br>
+&nbsp; You will get the following:<br>
+<br>
+<img border="1" src="../../../images/surfaces/cylindrical.gif"><br>
+<br>
+Please note that if you had chosen the <b>Flat</b> projection type using the violet line as the direction of projection, you would have obtained the following:<br>
+<br>
+<img border="1" src="../../../images/surfaces/flat.gif"><br>
+<br>
+As you can see, the result obtained in the case of the <b>Single curvature</b> option is smoother.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> to create the surface:<br>
+<br>
+<img border="1" src="../../../images/surfaces/PBO-last.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_CappingWarnings.htm"><b>Warnings of the Capping command related to incompatibilities</b></a></li>
+<li><a href="T_HW_CappingShape.htm"><b>Defining the shape of the initial surface</b></a></li>
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_GMChecking.htm"><b>Checking your results</b></a></li>
+
+</ul>
+
+
+<hr color="silver">
+</body>
+</html>
+

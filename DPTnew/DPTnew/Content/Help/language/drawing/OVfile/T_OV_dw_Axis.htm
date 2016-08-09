@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Chitti Sowjanya">
+<meta name="2009t3" content="translate">
+<title>An Overview on Axes</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- Document End - Page Bottom -->
+<h4>An Overview on Axes</h4>
+
+<p>The application offers the below listed axes types for holes and shafts (in 3D and 2D environments):</p>
+
+<table>
+<tr valign="top">
+<td width="15%"><b>Feature Axis</b></td>
+<td>Displayed when the <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span> option is selected from the <span class="UI_OPTION" id="TDHole.msg+_TDHOLE_LABEL_+1">Hole</span> selection list while creating holes or rotational slots.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Datum Axis</b></td>
+<td>Created using the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_09/fwfile/T_FW_Sl_02_09.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Datum.msg+MenuBar_Document_Insert_Datum+1544">Line</span></a> command. The <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> will display the icon of the datum axis.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Profile Reference</b></td>
+<td>In case of rotational slots, the reference line created in Profile mode is considered as an axis.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Centerlines</b></td>
+<td>Created using the <a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_04_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Drafting.msg+ButtonToolbar_Drafting+6370">Centerlines</span></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Font4 Axis</b></td>
+<td>The line (with font size <i>4</i>) created in Model mode is considered as an axis.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Bisector</b></td>
+<td>An axis for a cylindrical surface can be created using the <a href="mk:@MSITStore:draft.chm::/language/geometry/gm_01/FWfile/T_FW_gm_06_01.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+6351">Bisector</span></a> command.</td>
+</tr>
+</table>
+
+<p>The axes can be made visible (in 2D environment) by selecting their corresponding options from the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DVPS_VIEW_VISIBILITY.htm"><span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+623">Visibility</span></a> category of a particular view. To visualize the axes types, consider the following model:<br>
+<br>
+<img src="../images/Axes_model.gif" border="1"><br>
+<br>
+<i>Each hole description is shown in the Model Structure in the image above.</i></p>
+
+<table>
+<tr valign="top">
+<td>Selecting the <b><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+634">Profile references</span></b> option shows the axis of a feature in the drawing view.</td>
+<td><img src="../../../images/drawing/Axes_ProfileReferences.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td>Selecting the <b><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+632">Datum axes</span></b> option transforms datum lines, created as axes in a model, to drawing (based on the geometry computation).</td>
+<td><img src="../../../images/drawing/Axes_Datum.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td>Selecting the <b><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+633">Centerline curves</span></b> option displays centerlines and font4 axes in the drawing view.</td>
+<td><img src="../../../images/drawing/Axes_Centerlines.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td>Selecting the <b><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+635">Add axes to holes and rotational slots</span></b> option automatically draws axes on each circle representing a hole or a rotational slot when the circle is completely visible and the holes/slots are perpendicular to the view direction. <i>This option is available only while editing the old drawings using it; in such a case the geometry representation item will be presented as <b>Hidden Lines (ver. &lt; 2008.1-SP1)</b></i>.<br>
+<br>
+When you open a drawing file created in version older than 2008.1 Service Pack 1 and in it:<br>
+<ul>
+<li>if the <span class="OLD">Add axes to holes and rotational slots</span> option is selected, the geometry representation <b>Hidden Lines (ver. &lt; 2008.1-SP1)</b> will be available in the drop-down list.</li>
+
+<li>if the <span class="OLD">Add axes to holes and rotational slots</span> option is not selected, the <b>Hidden Lines (ver. &lt; 2008.1-SP1)</b> option will not be available in the interface.</li>
+
+<li>if the user unchecks the <span class="OLD">Add axes to holes and rotational slots</span> option, the program automatically switches the geometry representation to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span> mode and the <b>Hidden Lines (ver. &lt; 2008.1-SP1)</b> option will no more be available.</li>
+</ul>
+</td>
+<td><img src="../../../images/drawing/Axes_Rotationalslots.gif" border="1"></td>
+</tr>
+
+<tr valign="top">
+<td>Selecting the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1709">Add axes to rotational surfaces</span> option automatically draws the axes while creating a drawing from the current model or custom views. <i>This option gets activated only on setting the geometry representation to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span>.</i> Activating this option disables all the other axes types creation (Datum axes, Profile references, Centerline curves).</td>
+<td><img src="../../../images/drawing/Axes_Rotationalslots.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The application provides automatic creation of axes in layout environment based on geometry computation (that is when a drawing is created from the current model, irrespective of the presence of axes in the model). You can also create axes for both the front and top views (axis perpendicular or parallel to the views). To have the axes while creating a drawing from the current model or custom views, select the relevant options from the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_dm_29.htm#visibility"><span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+623">Visibility</span></a> category. All such automatically created axes exhibit the following characteristics:</p>
+
+<ul>
+<li>They are <a href="T_OV_associativity.htm#adrawing and a model">associative</a>.</li>
+
+<li>They will be created as hidden entities if not visible because of the view geometry.</li>
+
+<li>They can be merged, that is the axes present in model and the ones created automatically in the drawing will be merged to have one unique axis.</li>
+
+<li>They can be hidden by applying the <a href="../FWfile/T_FW_dw_15.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+6137">Hide Dimensions Axes Edges</span></a> command.</li>
+
+<li>They are extendable.</li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on the Drawing Environment</b></a></p>
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Layout</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

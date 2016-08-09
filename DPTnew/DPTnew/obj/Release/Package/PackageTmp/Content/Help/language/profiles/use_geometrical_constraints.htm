@@ -1,0 +1,67 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Use geometrical constraints rather than dimensional constraints when possible to constrain your model easier and faster</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+  
+<h3>Use geometrical constraints rather than dimensional constraints when possible to constrain your model easier and faster</h3>
+
+<p>When you create your geometry from within the profile environment, the 2D entities, many times, form the relationships you desire to constrain as they are constructed.</p>
+
+<p>Geometrical constraints applied after initial constructions are still faster to apply and are often more meaningful to the overall design goals than dimensional constraints. See <a href="../sketcher/OVfile/T_OV_sk_00_05.htm"><b>Geometrical and dimensional constraints</b></a> for further details.</p>
+
+<p>An application of this idea would be: if two lines must be perpendicular, then use a
+<a  href="../sketcher/FWfile/T_FW_sk_07.htm"><b>Perpendicular Constraint</b></a>. Do not use a dimension constraint (90&ordm; between two lines). On the other hand, if you want control over that angle for potential changes, "down the road", then use a <b>Fixed Angle Constraint</b> (see 
+<a  href="../sketcher/FWfile/T_FW_sk_06.htm"><b>Orientation Constraint</b></a>).  Another condition would be if two endpoints should be coincident. Use a 
+<a  href="../sketcher/FWfile/T_FW_sk_08.htm"><b>Coincident Constraint</b></a> instead of a dimension (zero value).</p> 
+
+<p>Another example could be to constrain a circle to the center of a rectangle. Constructing the center point with reference lines along with a <a  href="../sketcher/FWfile/T_FW_sk_33.htm"><b>Point on Curve Constraint</b></a> allows easy control over the position of the circle.</p> 
+
+<p>In the following example a <b>Point on Curve Constraint</b> has been used for both the reference lines and the opposite vertex.</p>
+
+<p align="center"><IMG border=1 src="images/profiles_29.gif"></p>
+
+<p>To do the same task with dimensional constraints would require the use of the <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_02.htm"><b>Spreadsheet</b></a> command and a series of dependant variables - which, while not best in this situation, is not wrong and would work.</p>
+
+
+<p align="center"><IMG  border=1 src="images/profiles_30.gif"></p>
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" >
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+You cannot add constraints to <b>Mid Point</b> entities, even though you can snap to <a href="mk:@MSITStore:selsna.chm::/language/snap/FWfile/T_FW_to_04_15.htm"><b>Mid Point</b></a>. <br>However, this method is very useful in many different situations.
+
+</td></tr></table>
+</p>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

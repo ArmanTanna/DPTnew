@@ -1,0 +1,136 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2010t1" content="translate">
+<TITLE>How to Build Assemblies</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>	#docframe  
+{
+ 		width : 400;
+		height : 500;
+}
+</style>
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+  
+<h3>How to Build Assemblies</h3>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos and documents</i> on Assemblies and Mating has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8"><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational documents on Assemblies and Mating here: <a href="../../tocpages/EL_Assemblies.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Assemblies and Mating</b></a>.<br> Enjoy your lessons!</td></tr></table><br><br>
+<p>
+The following section describes how this software manages assemblies, which elements make up an assembly and how they can be put together. Examples are also provided to clarify this important design technique.
+</p>
+<p><b>What you need to know</b></p>
+<ul class="noleft">
+<li><a href="T_OV_components.htm">What is a Component?</a>
+</ul>
+
+<p><ul class="noleft">
+<li><a href="#Assembly">What is an assembly? What elements are the components of an assembly?</a>
+<li><a href="#Structures">Two possible assembly structures</a>
+<li><a href="#Methods">Two methods for creating top-down and bottom-up assemblies</a>
+<li><a href="#Elements">How to define relationships among components</a>
+<li><a href="#Organizing">Organizing and managing an assembly</a></ul>
+<p>
+<HR width="100%">
+<h4><a Name="Assembly"></a>What is an assembly? What elements are the components of an assembly?</h4>
+<p>
+Traditional CAD products use the word "Assembly" to describe a collection of components; each component is identified by its own file and is external to the assembly itself. Furthermore, such components can usually contain only a solid entity (or other components, in other words, sub-assemblies).
+<p>
+This software offers a  more generic use of the word assembly: an assembly is simply a collection of elements.
+<p>
+You can not only include in the assembly all the geometrical elements made available by the program, but also aggregated entities. It is therefore possible to define an assembly including elements such as wireframe, surfaces, solids, components and groups of components.<p>
+This approach enables you to work in a single 3D design environment, where you are not forced to decide in advance what you are going to design. You can start with a single object and go on adding other elements without having to switch to a different working environment.
+<p>
+<HR width="100%">
+<h4><a Name="Structures"></a>Two possible assembly structures</h4>
+Two different structures can be used, either a hierarchy structure or a flat structure.
+<p>
+<h5>Hierarchy structure</h5>
+The assembly can be organized hierarchically using components.
+For example, you can import or create inside an assembly one or more solids, a group of surfaces and another assembly as a component: this last assembly will be considered as a sub-assembly of the current assembly.
+<!-- For more details, advantages and disadvantages, see: hierarchy structure vs. flat structure -->
+<p>
+<h5>Flat structure</h5>
+This software does not force you to define a hierarchical structure. The assembly can be created using a set of basic geometrical elements such as wireframe, solids and surfaces (even obtained from other CAD applications) without having to group them. Building an assembly is therefore much easier. No structure definition is required and you can work freely, although changes and replacements can be time consuming.</p>
+
+<p>
+In this software, you are enabled to modify the structure of an existing assembly any time, either <i>breaking</i> a component into the entities it is composed of, or creating a new component by collecting several existing objects. In this way, a hierarchical structure can be converted to a flat one and vice versa.
+</p>
+
+<p>
+<HR width="100%">
+<h4><a Name="Methods"></a>Two methods for creating top-down and bottom-up assemblies</h4>
+Both in the case of hierarchy and flat structures, an assembly can be created using two different methods:<p>
+<b>Top-Down Approach</b>: This method is particularly useful when designing new components. The component is created straight into the assembly in which it is used. First of all you create the single entities that make up the assembly, then you select the entities and combine them to create the new component.
+This approach makes the creation of building entities extremely easy, since the component is created exactly where it is used (design in place). The interaction between entities and components and/or the entities which surround them and with which they are to be connected is therefore continuously and immediately kept under control.
+
+
+<p>
+<b>Bottom-Up Approach</b>: Using this method the components of the assembly are designed individually and saved in a set of files. These separate files are then imported as components and positioned inside the assembly as desired. 
+This method is particularly useful when you want to assemble parts previously created or imported from other sources. <p>
+If a system only supports this approach, it will only be able to verify that the components designed individually are correctly grouped in the assembly. This is a simulation of the assembly of an already defined model rather than the real design of a brand new assembly.
+<p>
+The program does not require you to decide which approach to take to build the assembly. You are free to decide which components to build directly into the assembly and which other components to design in individual files to be then imported as components into the assembly. You will find convenient to design special parts inside the assembly so that possible interactions with other components can be controlled (checked) during the modeling phase. All other objects, which have a more standard definition, can on the contrary be designed in separate files and then added to the assembly.
+<p>
+
+<HR width="100%">
+<h4><a Name="Elements"></a>How to define relationships among components</h4>
+
+<p>
+In practical cases, you need to create parametric relationships among the components of an assembly.</p>
+
+<p>
+Essentially, you get two kinds of relationships:</p>
+
+<ul class="noleft">
+<li><b>Mating constraints</b>: define the rules to position a component with respect to other components in the assembly.
+Mating constraints affect only the position of the component and not its geometry.
+
+<li><b>Profile constraints</b>: enable you to constrain the geometry of a profile within a component with respect to geometric entities already existing in other parts of the assembly. In this case, the constraints modify the geometry of the component.
+</ul>
+
+<p>
+It's worth remarking that mating constraints handle components as <i>black boxes</i> and don't imply any dependency between a component and the assembly where it is positioned. On the contrary, inserting profile constraints that refer entities outside a component creates a dependency between the component and the assembly where the constraints were designed. This might imply some limitations in reusing the component in other assemblies.</p>
+
+<p>
+<HR width="100%">
+<h4><a Name="Organizing"></a>Organizing and managing an assembly</h4>
+
+This software offers instruments such as <span class="UI_COMMAND" id="MenuBar_AssemblyAnalyzer_Tools.msg+MenuBar_AssemblyAnalyzer_Tools+6444">Assembly Analyzer</span> to manage assemblies:
+<p>
+The <span class="UI_COMMAND" id="MenuBar_AssemblyAnalyzer_Tools.msg+MenuBar_AssemblyAnalyzer_Tools+6444">Assembly Analyzer</span> enables you to manage information on the various components and on the assembly. This instrument makes all operations of assignment and modification of the information much easier; furthermore, it also gives you a more immediate view of the elements which make up the assembly.
+<p>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+
+</body>
+</html>

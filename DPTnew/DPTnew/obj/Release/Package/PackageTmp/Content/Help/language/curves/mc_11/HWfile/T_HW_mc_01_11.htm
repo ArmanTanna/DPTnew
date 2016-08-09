@@ -1,0 +1,193 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<title>Job: Applying geometric transformations to selected interpolation points</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;margin-top:2;margin-bottom:0}</style>
+
+<style>.notop{margin-top:0;}</style>
+
+<style>.litleft{margin-left:26; margin-top:0;margin-bottom:0;}</style>
+
+<style>
+.myyellowcursor{"background:"#ffffe1";cursor:s-resize;border-width:1px;border-color:#000000"}
+</style>
+
+<style>
+h5 {border-bottom : thin solid Silver;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Applying geometric transformations to selected interpolation points</h2>
+
+<p class="notop">The <b>Transform</b> item under <b>Tools</b> in the selection list of the <b><A href="../FWfile/T_FW_mc_11.htm">Curve Interpolation Points</A></b> command enables you to apply a transformation to the currently selected points. <br>
+The curve shape will be updated dynamically while the transformation is being applied.
+<p>
+After selecting one or more interpolation points,
+click on <b>Transform</b> under <b>Tools</b> in the selection list. The <b>Transform</b> dialog box will be displayed.<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="120"><A href="#Translate"><b>Translate</b></A></td>
+<td>translates selected points</td>
+</tr>
+<tr valign="top">
+<td><A href="#Rotate"><b>Rotate</b></A></td>
+<td>rotates selected points</td>
+</tr>
+<tr valign="top">
+<td><A href="#Roto-translate"><b>Roto-translate</b></A></td>
+<td>rotates selected points about an axis and translates the axis at the same time </td>
+</tr>
+<tr valign="top">
+<td><A href="#Mirror"><b>Mirror</b></A></td>
+<td>mirrors selected points about a plane of symmetry</td>
+</tr>
+<tr valign="top">
+<td><A href="#Stretch"><b>Stretch</b></A></td>
+<td>stretches selected points</td>
+</tr>
+<tr valign="top">
+<td><A href="#Multi-stretch"><b>Multi-axis stretch</b></a></td>
+<td>stretches the parts of the curve defined by the 
+  selected points with respect to two or three axes</td>
+</tr>
+</table>
+
+<h5><a name="Translate"></a>Translate</h5>
+<br>
+<p class="notop">The <b>Translate</b> option of the <b>Transform</b> dialog box enables you to translate selected points. <BR><BR><img border=1 src="../../../../images/modcur/mc_11/mci101_11.gif"><BR><BR>
+You can define a translation by defining the translation vector. Select <b>Vector</b> and click on the two positions corresponding to the endpoints of the translation vector, or enter the vector components into the <b>X</b>, <b>Y</b>, <b>Z</b> adjacent boxes. To redefine the origin of the translation, select <b>Origin</b> and click in the desired position or enter the origin coordinates into the <b>X</b>, <b>Y</b>, <b>Z</b> adjacent boxes.
+
+<h5><a name="Rotate"></a>Rotate</b></h5>
+<br>
+<p class="notop">The <b>Rotate</b> option of the <b>Transform</b> dialog box enables you to rotate selected entities.<br><br>
+<img border=1 src="../../../../images/modcur/mc_11/mci102_11.gif">
+<br><br>
+A rotation is a transformation which rotates selected entities by a specified angle about an axis called the axis of rotation.<BR>
+You can define a rotation by:
+<ul class="noleft">
+<li>Defining the <b>Axis</b> (select an item in the drop-down list. It can be one of the coordinate axes, an existing line or a line defined by indicating two points)
+<li>Entering the rotation value into the <b>Angle</b> box
+<li>Defining the the origin of the rotation, by selecting <b>Origin</b> and clicking in the desired position or entering the coordinates into the <b>X</b>, <b>Y</b>, <b>Z</b> adjacent boxes.
+</ul>
+
+<h5><a name="Roto-translate"></a>Roto-translate</h5>
+<br>
+<p class="notop">The <b>Roto-translate</b> option of the <b>Transform</b> dialog box enables you to rotate selected entities about an axis and translate the axis at the same time. <br><br>
+<img border=1 src="../../../../images/modcur/mc_11/mci103_11.gif">
+<br>
+<BR>You can define a roto-translation proceeding as follows:
+<ol class="litleft">
+<li>Under <B>Roto-translate</B>, click the <B>First reference</B> button, and then specify three points in the model which identify a reference system to be roto-translated, as follows:
+<UL class="noleft">
+<LI>Origin point
+<LI>X-direction
+<LI>Through-point for XY-plane (positive Y) &#151; the axis from the origin to this point is the Y-axis
+</ul>
+<li>Click the <B>Second reference</B> button, and then specify three points in the model which identify the roto-translated reference system, as follows:
+<UL class="noleft">
+<LI>Origin position: the starting point of the resulting reference system
+<LI>X-direction &#151; the axis from the origin to this point is the X-axis
+<LI>Through-point for XY-plane (positive Y) &#151; the axis from the origin to this point is the Y-axis
+</UL>
+</ol>
+
+<h5><a name="Mirror"></a>Mirror</h5>
+<br>
+<p class="notop">The <b>Mirror</b> option of the <b>Transform</b> dialog box enables you to mirror selected entities about a plane of symmetry.<br>
+A mirror is a 
+transformation which corresponds a general point P to a point P' lying on a 
+perpendicular line through P on a pre-set plane known as the plane of symmetry 
+and at a distance from this plane equal to that of P. A reflection is completely 
+defined when the plane of symmetry is identified.
+<br>You can define a mirroring transformation as follows:
+<ul class="noleft">
+<li>Specify the plane by selecting one of the options of the <b>Plane</b> drop-down list (it can be either a plane defined as normal to one of the coordinate axes or to a line, or an existing plane)
+<li>Click the <B>Origin</B> button and then indicate the point in the model to be used as origin or type the origin coordinates into the <B>X</B>, <B>Y</B> and <B>Z</B> boxes.
+</ul>
+<br><br>
+<img border=1 src="../../../../images/modcur/mc_11/mci104_11.gif">
+
+<h5><a name="Stretch"></a>Stretch</h5>
+<br>
+<p class="notop">The <B>Stretch</B> option of the <B>Transform</B> dialog box enables you to stretch selected entities.<br>
+A stretch is a transformation which deforms the 
+selected entities by stretching them in the specified direction, with respect to 
+a specified origin and in the proportion determined by a user-specified scale 
+factor.
+<br>You can define a stretch transforamtion as follows:
+<ol class="litleft">
+<li>Type the scale factor value for the stretch in the <b>Scale</b> box.
+<li>Click the <b>Origin</b> button and then indicate the point in the model to be used as origin for the stretch or type the stretch origin coordinates in the <b>X</b>, <b>Y</b> and<b> Z</b> boxes
+<li>Specify the stretch axis by selecting one of the following options in the <b>Axis</b> drop-down list (It can be one of the coordinate axes, an existing line or a line defined by indicating two points).
+</ol>
+<br><br>
+<img border=1 src="../../../../images/modcur/mc_11/mci105_11.gif">
+
+<h5><a name="Multi-stretch"></a>Multi-axis stretch</h5>
+<br>
+<p class="notop">The <b>Multi-axis stretch</b> option of the <b>Transform</b> dialog box stretches the 
+parts of the curves defined by the selected points with respect to two or three 
+axes. <br>You can define a multi-axis stretch transformation as follows:
+<ol class="litleft">
+<li>Set the reference system for the the stretch axes by selecting the corresponding item in the <b>Reference</b> drop-down list
+<table>
+<tr valign="top">
+<td width="100"><b>Work Plane</b></td>
+<td>The Work Plane reference system</td>
+</tr>
+<tr valign="top">
+<td><b>User defined</b></td>
+<td>A user defined reference system. To define it, do the following:
+<ol type=a class="litleft">
+<li>Click <b>Define reference</b>
+<li>Enter the system origin position
+<li>Enter a point defining the X axis direction (i.e.: from the specified origin to this point)
+<li>Enter a through point for the XY plane, defining the positive direction for the Y axis.
+</ol>
+</td>
+</tr>
+</table>
+<li>Define the axes for the multi-axis stretch operation by selecting the corresponding item in the <b>Axes</b> drop-down list:
+<table>
+<tr valign="top">
+<td><b>XY</b></td>
+<td>axes X and Y of the selected reference system</td>
+</tr>
+<tr valign="top">
+<td><b>XZ</b></td>
+<td>axes X and Z of the selected reference system</td>
+</tr>
+<tr valign="top">
+<td><b>YZ</b></td>
+<td>axes Y and Z of the selected reference system</td>
+</tr>
+<tr valign="top">
+<td><b>XYZ</b></td>
+<td>axes X, Y and Z of the selected reference system</td>
+</tr>
+</table>
+<li>Type the scale factor value for the stretch in the <b>Scale</b> box.
+<li>Click the <b>Origin</b> button and then indicate the point in the model to be used as origin for the stretch or type the stretch origin coordinates in the <b>X</b>, <b>Y</b> and <b>Z</b> boxes.
+</ol>
+<p></p>
+<p>Whichever the transformation you selected, double-click to apply it.</p>
+
+<hr color="silver">
+</body>
+</html>

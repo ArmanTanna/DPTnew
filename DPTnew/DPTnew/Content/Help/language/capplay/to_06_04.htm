@@ -1,0 +1,366 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2013t1" content="translate">
+<meta name="Revisor" content="Mahesh Kiran">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<title>Capture and Playback - Options and Tools</title>
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<h2>Capture &amp; Playback - Options and Tools</h2>
+
+<p>The <b>Options and Tools</b> <img src="../../images/capplay/tob12_06.gif" alt="" border="0" align="absmiddle"> button displays the <span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+1">CP - Options and Tools</span> dialog box, in which you can set the options which control the way the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+4414">Capture &amp; Playback</span> functionality is performed.</p>
+
+<p><img src="images/tod_06_03.gif"></p>
+
+<p>The <span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+1">CP - Options and Tools</span> dialog box is organized into four tabs, which organize the options into the following categories:</p>
+
+<ul class="noleft">
+<li><a href="#captureoptions"><span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+14">Capture Options</span></a> &#151; contains all options related to capture operations</li>
+
+<li><a href="#playbackoptions"><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+2">Playback Options</span></a> &#151; contains all options related to play back operations</li>
+
+<li><a href="#optionsonerror"><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+4">Error Options</span></a> &#151; contains all options for handling errors</li>
+
+<li><a href="#optionstools"><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+8">Tools</span></a> &#151; contains tools for editing or archiving the current log file</li>
+</ul>
+
+<h4><a name="captureoptions"></a><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+14">Capture Options</span></h4>
+
+<p>The <span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+14">Capture Options</span> tab contains options related to capture operations.</p>
+
+<p><img src="images/v51_tod_06_07.gif"></p>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The term "CPBag" is used to denote the distributable for a capture. The CPBag, like a "bag", is a collection of files that are needed for the playback of the capture at a target machine. The main file is the *.cp3 file, which in turn requires the other elements in the "bag". So the bag has a folder structure, where at the root of the folder, you find the *.cp3 file and then sub folders such as <b>ReferenceFiles</b>, <b>RelatedFiles</b> and so on. The name of the CPBag folder is same as that of the *.cp3 file.</td>
+</tr>
+</table>
+
+<br>
+<table border="0">
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+27">Force preview on playback</span></td>
+<td>
+<p>When this check box is selected, the Playback session will always display the geometrical preview, independently of the <a href="#Enable_preview"><b>Enable preview</b></a> option is set in <span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+2">Playback Options</span>.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+19">Create reference documents</span></td>
+<td>
+<p>When this check box is selected, at the end of a Capture session, the program creates a <b>ReferenceFiles</b> folder within the folder created to store the log file, and saves a copy of each active document created during the Capture session. Each of these documents is saved with a "reference_" suffix.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+20">Create ref. database (Document Browser)</span> </td>
+<td>
+<p>When this check box is selected, at the end of the Capture session,&nbsp;the program saves a copy of the current database into the ReferenceFiles folder.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+29">Enable handle intermediate steps</span> </td>
+<td>
+<p>When selected enables the application to execute the intermediate steps efficiently.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+30">Capture customized context menus</span> </td>
+<td>
+<p>When the check box is selected, any customized context menu involved in the session will be recorded. It is advisable to select this check box while running a capture session.<br>
+When the check box is not selected then the customized context menu's are not captured in the session.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+31">Capture customized components</span></td>
+<td>When this check box is selected, any customizations, like the GPL custom procedures or external plug-ins that don't belong to standard software installation, (only if they are used) in the local machine will be copied to a folder named <b>Custom</b>, in the CPBag folder structure. All custom components that are saved into CPBag are registered (if required) during playback to restore the same environment of the recorded session. Any customized components registered and loaded during the playback, are unregistered and unloaded at the end of the playback to restore the previous environment.<br>
+<br>
+ 
+
+<p>However, one can choose to exclude the customizations in the CPBag. This is required by users, who may not be comfortable in sharing their customizations with others. To exclude the customized components in the CPBag, you have to clear this check box.</p>
+
+<p>Note that by default, this option is unchecked.</p>
+</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<h4><a name="playbackoptions"></a><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+2">Playback Options</span></h4>
+
+<p>The <span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+2">Playback Options</span> tab contains all options related to play back operations.</p>
+
+<p><img src="images/tod_06_08.gif"></p>
+
+<a name="Enable_preview"></a> 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+28">Enable preview</span></td>
+<td>
+<p>When this check box is selected, the geometrical preview will be displayed during the Playback session. This preview doesn't include the one attached to mouse movement, that can be viewed when performing drawing commands <span id="TWOD">(such as line and rectangle creation and sketching in 2D)</span>, but the one displayed when you create<span id="TWOD">, for instance, solid features,</span> curves <span id="TWOD">and surfaces</span>.<br>
+The default behavior is not to display this preview during the Playback session, since its calculation and displaying affect performances. However, you may need to display it for some specific reasons such as debugging.<br>
+<a name="dump_preview"></a> Note that you can save the geometrical preview to a file: a new shortcut function (performed by clicking the CTRL and F12 keys simultaneously) enables you to create a <em>dump preview</em> file, named Preview<em>xxx_c(p)</em>.xgl, including the graphical preview currently displayed. These files are generated in the newly created Capture and Playback package subfolder, named PreviewFiles. During the Capture session, every time you click the CTRL and F12 keys, a new file per screenshot is generated, with a "_c" postfix. When you run the Playback session, the same number of files, with a "_p" postfix, is automatically generated in the same folder.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+3">Show trace</span></td>
+<td>
+<p>When this check box is selected, the program displays the trace of the log file in the I/O window when performing a Playback session using the Playback function. Each statement is preceded by the corresponding line number. The resulting playback takes longer than when this check box is not selected. If the box is not selected, no trace is printed to the I/O window.<br>
+Note that <b>Step-by-Step</b> and <b>Play to line</b> Playback commands always display the trace of the log file in the I/O window and are therefore not affected by this check box.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+15">Create user actions file</span></td>
+<td>
+<p>When this check box is selected, the program creates a context tag file during the Playback session (a file with a ".ctr" extension created in a directory having the same name as the log file).<br>
+Note that this context tag file is separate from the tag file which is always created during a Capture session (and which has a ".ctx" file extension).</p>
+
+<div id="Out1111d"><br>
+ 
+
+<table bgcolor="#ffffe1" border="1" bordercolor="navy" id="F2DNOTVISIBLE">
+<tr>
+<td bordercolor="#ffffe1">
+<p id="HIDEP"><b>Context Tags and the Context Tag File</b><br>
+<br>
+A <i>context tag</i> is an identifier of the context which you are working in; context tags can be very useful to develop quality assurance procedures and future statistics.<br>
+For example, if you select the <b>New Document</b> command, the context tag is the following:<br>
+<br>
+<b><font face="courier">"New Document"</font></b><br>
+<br>
+If, after selecting <b>New Document</b> you choose <b>Model</b>, you'll have the following context tag:<br>
+<br>
+<b><font face="courier">"New Document""Model"</font></b><br>
+<br>
+as the <b>Model</b> command is a <i>second level</i> command.&nbsp;<br>
+<br>
+A <i>context tag file</i> is an ASCII text file you can open and read with any text editor program (for example Microsoft&reg; WordPad). A context tag (a file with a ".ctx" extension created in a directory having the same name as the log file) is automatically generated whenever you perform a Capture session.</p>
+
+<table border="0">
+<tr>
+<td>For example, to build the solid on the right you had to: 
+
+<ol>
+<li>Open a new model document</li>
+
+<li>Create a rectangle</li>
+
+<li>Sweep the rectangle to build the box on the right</li>
+
+<li>Move the Work Plane onto the front face of the box</li>
+
+<li>Create a circle on the front face of the box</li>
+
+<li>Sweep the circle to build the cylinder.</li>
+</ol>
+
+<p><br>
+<br>
+</p>
+</td>
+<td><img src="../../images/capplay/cpi01_01.gif"> </td>
+</tr>
+</table>
+
+<p>and this is the context file you will automatically get if you capture the whole session:</p>
+
+<pre>
+[Head]
+
+Test name             : CandPsample
+Description           : 
+Comments              : 
+Created with build    : 4.0.0.25
+Valid till build      : 
+Generated by          : 
+Company               : 
+Support Center        : 
+Class                 : 
+Origin                : 
+CPU Type              : Pentium-II Model 3 Stepping 3
+Performance indicator : 680
+Real Memory size      : 128 MB
+CPU Time              : 7s
+Elapsed time          : 1m 22s
+Peak Memory Usage     : 42136 KByte
+Page Faults           : 2791
+Page File Size        : 55572 KByte
+
+Level 1               : 0;0
+Level 2               : 0;0
+
+
+[Summary]
+
+Weight   No.   Context used
+     0;     1; "Feature" "Linear Sweep" "Protrusion" 
+     0;     1; "Arc" "Center" 
+     0;     1; "Work Plane" "Set on Face" 
+     0;     1; "Feature" "Linear Sweep" "New Solid" 
+     0;     1; "Rectangles &amp; Polygons" "Rectangle" 
+     0;     1; "New Document" "Model" 
+
+
+[Details]
+
+Line:299       "New Document" "Model" 
+Line:306       "Rectangles &amp; Polygons" "Rectangle" 
+Line:315       "Feature" "Linear Sweep" "New Solid" 
+Line:348       "Work Plane" "Set on Face" 
+Line:351       "Arc" "Center" 
+Line:365       "Feature" "Linear Sweep" "Protrusion" 
+</pre>
+
+<p>The <b>[Head]</b> section contains information about the hardware and software environment and customer data fields you can fill in if you need to send a Capture &amp; Playback package to your Support Center.<br>
+<br>
+The <b>[Summary]</b> section contains all the context tags that were used during the session, ordered by their occurrence number (<b>No.</b>) and with the additional <b>Weight</b> information that will be useful to the Support Center.<br>
+<br>
+The <b>[Details]</b> section contains a list of all the context tags in the same order they were used during the session, preceded by the line number of the log file they were saved to.<br>
+<br>
+When the <b>Create user actions file</b> check box in the <b>Playback Options</b> area is selected, another context tag file is generated when the Playback session is performed (a file with a ".ctr" extension created in a directory having the same name as the log file). The ".ctr" file has exactly the same structure as the ".ctx". A comparison between the ".ctx" and the ".ctr" files can be useful when debugging error situations.</p>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</div>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+19">Create reference documents</span></td>
+<td>
+<p>If this check box is selected, at the end of a Playback session the program creates a ReferenceFiles folder within the folder created to store the log file, and saves to it a copy of each active document created during the Playback session. Each of these documents is saved with a "reference_" suffix.<br>
+Note that since this folder is normally created during a Capture session, if you create reference documents during Playback, the program displays an alert dialog box telling you that the ReferenceFiles folder already exists and asking whether you want to delete it.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+20">Create ref. database (Document Browser)</span></td>
+<td>
+<p>If this check box is selected, at the end of the Playback session, the program saves the current database.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+25">Keep current window size</span></td>
+<td>
+<p>If this check box is selected, the program maintains the current window size on your computer throughout the Playback session. This prevents the window from being resized during Playback, and can be very useful when playing back a Capture session that was made on another system at a different display resolution.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+26">Enable printing</span></td>
+<td>
+<p>When the box is selected, any printing commands recorded during the Capture session will be performed also during the Playback session. If the box is not selected, printing commands will not be performed, but the Playback session will not be interrupted.</p>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<h4><a name="optionsonerror"></a><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+4">Error Options</span></h4>
+
+<p>The <span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+4">Error Options</span> tab contains all options for handling errors.</p>
+
+<p><img src="images/tod_06_09.gif"></p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+18">Print warnings</span></td>
+<td>When this check box is selected, printing of any kind of error messages is enabled, even for errors and warnings which are not severe.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+5">Stop on open question</span></td>
+<td>If this check box is selected, the program stops the execution of the Playback session if an unexpected question to be answered interactively occurs. If this check box is not selected, Playback execution is not stopped. The <b>Ignore open</b> questions check box then determines how the program responds to unexpected questions.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+6">Ignore open questions</span></td>
+<td>When this check box is selected, the program assumes the default value if an unexpected question to be answered interactively occurs. When this check box is not selected, the program pauses so that the user can respond to the question. Note that the option is unavailable if the <b>Stop on open question</b> check box is selected.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+10">Error output on file</span></td>
+<td>If this check box is selected, all warning and error messages are written to an "errors.txt" file in a folder having the same name as the log file. If this check box is not selected, warnings and error messages are printed to the I/O window.</td>
+</tr>
+</table>
+
+
+<br>
+<h4><a name="optionstools"></a><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+8">Tools</span></h4>
+
+<p><img src="images/tod_06_03.gif"></p>
+
+<table>
+<tr valign="top">
+<td><img src="../../images/capplay/tob15_06.gif"></td>
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+22">Edit current file</span></td>
+<td>
+<p>Opens the current log file using the text editor program currently associated with ".txt" files.</p>
+
+<p><b>Note:</b> Editing the log file may introduce errors which prevent the log from subsequently being played back.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../images/capplay/tob16_06.gif"></td>
+<td><span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+23">Zip current file</span></td>
+<td>Creates a compressed file containing all of the following files generated during a Capture or Playback session: 
+
+<ul class="noleft">
+<li>The current log file</li>
+
+<li>Any copy of the documents <span id="TWOD">(".e3" and/or ".e2")</span> opened during the session (<i>see</i> <a href="to_01_06.htm#Behavior">Behavior of commands used to load documents</a>)</li>
+
+<li>Any index/auxiliary file (<i>see</i> <a href="to_01_06.htm#Behavior">Behavior of commands used to load documents</a>) created during the Capture session</li>
+
+<li>Any <a href="#dump_preview">dump preview file</a> that may have been created during the sessions</li>
+
+<li>Any context tag files created during the Capture or Playback session</li>
+
+<li id="HIDELI">Any copy of the <b>thinkPLM</b> database found in the auxiliary folder</li>
+
+<li>The current ReferenceFiles auxiliary folder</li>
+</ul>
+
+<p>The <span class="UI_OPTION" id="idd_capplay_opt.msg+idd_capplay_opt+23">Zip current file</span> command can be used either after a Capture or a Playback session.</p>
+
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

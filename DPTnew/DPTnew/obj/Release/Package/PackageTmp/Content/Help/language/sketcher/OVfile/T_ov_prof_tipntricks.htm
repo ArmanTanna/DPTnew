@@ -1,0 +1,163 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Sketcher environment basics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Profile environment: Tips and Tricks</h3>
+
+<h4>Selection sequence</h4>
+
+<p>In many commands of the profile environment, you will come across an option to select the <span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+42">Sequence</span> inside the selection list for the command.</p>
+
+
+<img src="../images/sequence.GIF" border="1"> <br>
+<br>
+<p>In such situations, you can select <span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+17">Single</span> or 
+<span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+16">Multiple</span> based on the 
+<span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+42">Sequence</span> that you require the command to apply on.<br>
+
+<span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+16">Multiple</span>&nbsp;&#151;&nbsp;the command acts upon the first two entities that you specify, and then continues with the same action for the successive entities that you specify, using the previous entity as the start point. This sequence continues until you end the command.<br>
+
+<span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+17">Single</span>&nbsp;&#151;&nbsp;the command acts upon any first two entities that you specify. You can then make the command act upon another pair by specifying another pair of entities.<br>
+
+<br>
+For example, consider the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4584">Parallelism</span> constraint:</p>
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+17">Single</span> <br>
+
+When this option is selected, the lines are made parallel to each other in pairs:<br>
+<br>
+ <img src="../../../images/rn_2006T1/sektch_par_ori_sing.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="tdesign.msg+_SKETCHERUI_LABEL_+16">Multiple</span> <br>
+
+When this option is selected, all the successive lines that are selected are made parallel to the first selected line.<br>
+You can even use window selection for Multiple sequence selections.<br>
+<br>
+<img src="../../../images/rn_2006T1/sektch_par_ori_multi.gif"> <br>
+<br>
+</td>
+</tr>
+</table>
+
+<br>
+<h4>Constraint highlighting</h4>
+
+<p>Each constraint has its own unique identifier, which is displayed near the constrained entity. For example, the <b>Ta</b> identifier placed adjacent to a point of tangency. Placing the mouse cursor on the identifiers will highlight the related constrained entities. Also a tool tip is shown, describing the constraints and the type of entities involved. For example, consider the following image, which describes the situation when a circle is constrained to a line using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4583">Tangency</span> constraint.<br>
+
+<br>
+<img src="../images/tang-line.gif" border="1"><br>
+<br>
+<!--From T_OV_sk_00_09.htm-->
+Note that the tool tip is displayed only when the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_INPUT.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+66">Enable graphic area tooltips</span></a> check box is selected in the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+57">Input</span> category of the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>. If you want to know more, the program provides the following commands for displaying information about a profile:</p>
+
+
+<ul>
+<li>To display information about a constraint, use the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_01_07.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span></a> command.</li>
+
+
+<li>To check for under constrained, over constrained, and inconsistent profiles, use the <a href="../FWfile/T_FW_sk_27.htm"><span class="UI_COMMAND" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+12">Check Profile</span></a> command.</li>
+
+
+<li>To check the degrees of freedom for all the under constrained profiles in the model, use the <a href="../FWfile/T_FW_ExtendedCheck.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7155">Underconstrained Profiles</span></a> command.</li>
+
+
+<li>To display external entities used to constrain the profile, use the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_41.htm">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1319">Show External Entities</span></a> command.</li>
+
+
+<li>To display information about <a href="T_OV_sk_dangle.htm">dangling references</a> inside the profile, use the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_01_07.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1653">Single Entity</span></a> command.</li>
+
+</ul>
+
+<!--From T_OV_sk_00_09.htm END-->
+<h4>External entity management</h4>
+
+<p>Inside the profile environment you can always reference external entities, if required. If such references to external entities are over constrained but consistent, an appropriate warning is displayed. You can then decide to proceed either by correcting the over defined profile or proceed with the warning.<br>
+Note that if constraints are over defined and <i>not</i> consistent, the profile evaluation will fail. The behavior for the over defined profiles inside the profile environment can be decided based on <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> as any one of 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1496+1">Forbidden</span>, 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1496+2">Ask user</span>, or 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1496+3">Allowed</span>, as described 
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_PROFILE.htm">here</a>.<br>
+
+Consider the following example:</p>
+
+
+<ol class="noleft">
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment create a rectangle and exit from the profile mode. Click anywhere on the graphic area to cancel the selection of the rectangle. We will keep this as our external reference (if you wish, you can also extrude the rectangle to solid, for better understanding).</li>
+
+
+<li>Again go to the profile mode and create another rectangle. Note that some constraints like horizontal and vertical to the sides of the rectangle are automatically applied. Our aim is to constrain this rectangle to the external entity&nbsp;&#151; the rectangle&nbsp;&#151; created in the step 1.</li>
+
+<li>Constrain a side of the second profile to be parallel to the first profile by adding the appropriate parallel constraint. Note that this will create an over defined situation. The reason being the fact that the sides are automatically applied the horizontal and vertical constraints. So the parallel constraint to the external rectangle will create an over constrained situation.</li>
+
+<li>A warning button with caption <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+261">2D Profile: it could become overdefined</span> is created at the top right corner of the graphic area. When you click this button, the inconsistent element is highlighted. Note that this button acts as a toggle&nbsp;&#151; clicking it again hides the warnings.</li>
+
+
+<li>You can exit from the profile environment with this warning on. The over constrained profile will be marked with a warning symbol in the Model Structure.<br>
+ <br>
+ <img src="../images/error_icon_model.gif" border="1"> <br>
+ <br>
+ This will help you to come back to this profile later on and fix the over constrained issue.</li>
+
+</ol>
+
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_sk_00.htm"><b>Profiles</b></a></li>
+
+<li><a href="T_OV_sk_00_02.htm"><b>Rules for building a profile</b></a></li>
+
+<li><a href="T_OV_sk_00_01.htm"><b>How to create a profile</b></a></li>
+
+<li><a href="T_OV_sk_00_03.htm"><b>What are reference curves</b></a></li>
+
+<li><a href="T_OV_sk_00_04.htm"><b>What are external entities</b></a></li>
+
+<li><a href="T_OV_sk_dangle.htm"><b>Dangling references</b></a></li>
+
+<li><a href="T_OV_sk_00_05.htm"><b>Dimensional and geometrical constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

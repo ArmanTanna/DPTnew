@@ -1,0 +1,62 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Job: Trimming a curve at its virtual intersection with another one</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY bgcolor="white">
+
+<H4>Trimming a curve at its virtual intersection with another one</H4>
+The <a  href="../FWfile/T_FW_ed_TrimExtend.htm"><b>Trim/Extend Curves</b></a> command can trim two curves also when they are not lying on the same plane (unless they do not intersect in any plane or view direction). When a <i>virtual</i> intersection is detected, a proper message is displayed. Upon confirmation, the trimming operation is performed along the current view direction.
+<p>The two curves in the following illustration, for example, clearly have a virtual intersection:
+<BR><BR><IMG border=1 SRC="../../../images/edit/TEC01.gif"><BR><BR>
+though they are not lying on the same plane:
+<BR><BR><IMG border=1 SRC="../../../images/edit/TEC02.gif"><BR><BR>
+</p>
+<p>To accomplish the following task on your own, load file "TEC.e3", then start the <b>Trim/Extend Curves</b> command.</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <b>Mode</b> drop-down list select <b>First</b>, so as to cut only the first of the two curves.<BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the first curve close to the virtual intersection point.<BR><BR><IMG border=1 SRC="../../../images/edit/TEC03.gif"><BR>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>As soon as you move the cursor onto the second curve, a preview of the result is displayed.
+<BR><BR><IMG border=1 SRC="../../../images/edit/TEC04.gif"><BR><br>
+When you click to select the second curve, a message is displayed to warn you a virtual intersection along the current view direction has been detected. Confirm to go on and cut the curve.
+<BR><BR><IMG border=1 SRC="../../../images/edit/TEC06.gif"><BR></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+
+
+
+
+

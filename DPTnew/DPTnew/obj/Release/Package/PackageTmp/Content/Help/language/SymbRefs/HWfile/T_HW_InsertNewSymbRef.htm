@@ -1,0 +1,216 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Inserting/Redefining a Symbolic Reference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+<style>blockquote
+	{margin-top:0; margin-left:22;
+	margin-bottom:0; margin-right:0;}
+</style>
+<style>	.jjj
+	{
+		text-align : justify;
+	}
+</style>
+<style>.subtitle
+	{font-family: Verdana; 
+	font-size: 10.5pt; 
+	font-weight: bold;
+	margin-bottom:0; }
+</style>
+<style>.littop
+{margin-top:5;
+margin-bottom:5}
+</style>
+<style>.smallerfont
+	{font-family: Verdana; 
+	font-size: 8.5pt; }
+</style>
+<style>.h1like
+	{font-family: Verdana; 
+	font-size: 16pt;
+	font-weight: bold; }
+</style>
+<style> .nobot
+{
+margin-bottom: 0;
+}
+</style>
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+<style> .smaller
+{
+font-family:Verdana;
+font-size:9pt;
+}
+</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+  
+<a name="top"></a>
+
+<h4 class="nobot">Inserting/Redefining a Symbolic Reference</h4>
+
+<p class="notop">
+Suppose you are handling a ballpoint pen,<br><br><img border=1 src="../../../images/SymbRefs/MSTRPEN.gif"><br><br> composed of a tip, an ink barrel, a transparent body and a rear end cap.</p>
+
+<p>You are in charge of inserting the adequate Symbolic References in the different component parts, in order to facilitate mating and, particularly, component replacing.</p>
+
+<p>The goal of this example is assigning the same Symbolic References to the rear end cap</span><br><br><img border=1 src="../../../images/SymbRefs/rear_end_cap.gif"><br><br> and to the body</span>.<br><br><img border=1 src="../../../images/SymbRefs/stilo.gif"><br><br></p>
+
+<p>See also <a href="mk:@MSITStore:ttc.chm::/language/Configurator/HWfile/T_HW_MasterModel.htm">Creating a master model</a> for details on how to create the assembly of the ballpoint pen components with the Symbolic References necessary to mount them correctly, by using 
+<a href="mk:@MSITStore:ttc.chm::/language/Configurator/OVfile/T_OV_Configurator.htm"><b>thinkconfigure</b></a>.</p>
+
+
+<p>Models related to this job are <i>rear end cap.e3</i> and <i>stilo.e3</i>, available in the <i>samples</i> folder.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">Note that the procedure described below also applies to the <a  href="../FWfile/T_FW_RedefineSymbRefs.htm"><b>Redefine</b></a> command. In actual fact, the <b>Redefine</b> command displays the same selection list and enables you to modify an existing Symbolic Reference. The only difference you get in the selection list is the <img src="../../../images/icons/general/rebuild_icon.gif" border="0"> (<a  href="../../history/FWfile/T_FW_ht_08.htm"><b>Rebuild</b></a>) icon, in the place of the <img src="../../../images/general/APPLYbutton.gif" border="0"> (<b>Apply</b>) one, enabling you to update and rebuild the model including the modified Symbolic References.
+</td></tr></table>
+
+<p>After starting the <b>think<font color="#FF0F00">3</font></b> application, proceed as follows.</p>
+ 
+<p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Load the <i>rear end cap.e3</i> model and select the bottom face that will be placed on the top face of the transparent body and you will name &quot;CapShoulder&quot;.</p>
+<p><IMG border=1 SRC="../../../images/SymbRefs/rear_end_cap_SymbRef.gif"></p>
+
+<p></p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">As usual, you can select the face to which you are going to assign a Symbolic Reference <i>before</i> or <i>after</i> starting the command.
+</td></tr></table>
+<p></p>
+
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>Insert <img src="../../../images/general/litarr.gif">Symbolic Reference<img src="../../../images/general/litarr.gif"> <a  href="../FWfile/T_FW_SymbRefs.htm">New</b></a> command. The following selection list is displayed in the graphics area:</p>
+<p><IMG border=1 SRC="../images/SymbRef_selection_list.gif"></p>
+
+<p>
+The <b>Entities or Points</b> item in the selection list shows the green marker, since you already selected the entity that you are declaring to be a Symbolic Reference.
+</p>
+
+<p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">You can attach a Symbolic Reference to any of the following parametric entities:
+
+<ul>
+<li>solid/component faces, datum planes
+<li>solid/component edges, datum axes
+<li>solid/component vertices, datum points
+<li>profile curves and vertices
+</ul>
+</td></tr></table>
+</p>
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the mini-dialog box, type in the name of the Symbolic Reference you chose:</p>
+<p><IMG border=1 SRC="../images/SymbRef_minidialog.gif"></p>
+
+<p></p>
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click <img src="../../../images/general/APPLYbutton.gif" border="0"> (<b>Apply</b>) to confirm your selection and select the following entity (the external cylindrical surface of the cap, that will mate the internal cylindrical surface of the body):</p>
+<p><IMG border=1 SRC="../images/SymbRef_minidialog01.gif"></p>
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the mini-dialog box, type in the name of the new Symbolic Reference, &quot;CapHole&quot;:</p>
+<p><IMG border=1 SRC="../images/SymbRef_minidialog03.gif"></p>
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> (<b>OK</b>)to confirm your selections and create the Symbolic References, as you can see in the <b>Model Structure</b>.
+
+<p><IMG border=1 SRC="../images/history.gif"></p>Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.
+
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Repeat the same steps for the transparent body. Load the <i>stilo.e3</i> model and attach the Symbolic Reference &quot;CapShoulder&quot; to the top face of the body solid:</p>
+<p><IMG border=1 SRC="../images/SymbRef_minidialog07.gif"></p>
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Now attribute the Symbolic Reference &quot;CapHole&quot; to the internal hole  of the body solid:</p>
+<p><IMG border=1 SRC="../images/SymbRef_minidialog09.gif"></p>
+
+<p></p>
+</td>
+</tr>
+</table>
+</p>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:as.chm::/language/assembly/HWfile/T_HW_ReplaceCompSymbRefs.htm"><b>Replacing  a component with Symbolic References</b></a>
+
+</ul>
+
+
+<hr color="silver">
+</body>
+</html>

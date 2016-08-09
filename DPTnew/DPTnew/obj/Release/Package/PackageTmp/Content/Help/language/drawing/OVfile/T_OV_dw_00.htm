@@ -1,0 +1,91 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+<meta name="BelongsTo" content="TDD">
+<meta name="T_2009t2" content="translate">
+<title>Introduction to the Drawing Environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<h3>Introduction to the Drawing Environment</h3>
+
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos</i> on drawing and layout has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8"><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational videos on drawing and layout here: <a href="../../tocpages/EL_2D.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Drawing Environment</b></a> and <a href="../../tocpages/EL_Layout.htm"><b>Layout</b></a>.<br> Enjoy your lessons!</td></tr></table><br>
+
+<br>
+
+
+<h4><a name="What is a Drawing"></a> What is a Drawing?</h4>
+
+<p>A drawing is a two-dimensional representation of a 3D object. In our application, you can create drawings two different ways:</p>
+
+<ul class="noleft">
+<li><a href="#Associated with a 3D model"><b>Associated with a 3D model constructed in the Model environment</b></a></li>
+
+<li><a href="#Not associated with a 3D model"><b>Not associated with any ThinkDesign 3D model</b></a></li>
+</ul>
+
+<p></p>
+
+<p>You can also associate project information with the drawing in different ways. The methods available depend on whether the drawing is associated with a 3D model. <a name="Associated with a 3D model"></a></p>
+
+<br>
+ 
+
+<h4>Drawings associated with 3D models</h4>
+
+<p></p>
+
+<p>The program can automatically create two-dimensional drawings from a 3D model. For example, if you currently have a 3D model opened in the application, when you begin to create a new document, the program asks whether you want to create a new model, a new drawing, or a new drawing from the current model. If you create a new drawing from the current model, the program displays the <span class="UI_COMMAND" id="tdesign.msg+_EK_DRF_+297">Layout Configuration</span> dialog box, in which you can select an existing configuration and use it to automatically create the two-dimensional drawings of the model.</p>
+
+<p>You can also create a new drawing or open an existing drawing and then automatically create two-dimensional views from any existing 3D model by specifying the reference model. If you open an existing drawing, you can automatically open its reference model by using the <a href="../FWfile/T_FW_OpenReferenceModel.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7209">Open Reference Model</span></a> command.<br>
+When you create two-dimensional drawings in this way, you can create a single <a href="../FWfile/T_FW_dw_01_01.htm">predefined view</a>, a <a href="../FWfile/T_FW_dw_01_02.htm">custom view</a>, or all of the views defined in the current layout configuration.</p>
+
+<p>For example, from the three-dimensional model shown below<br>
+<img src="../../../images/drawing/dw_01_00.gif"><br>
+you can create the following top, front, side, and section views.<br>
+<img src="../../../images/drawing/dw_02_00.gif"><br>
+</p>
+
+<p>You can also create views based on a Visual Bookmark defined in the referenced model (using the <a href="../FWfile/T_FW_dw_VB.htm"><span class="UI_COMMAND" id="ButtonToolbar_DrawingViews.msg+ButtonToolbar_DrawingViews+6982">Custom Visual Bookmark</span></a> command).</p>
+
+<p>You can easily save your current view arrangement as a configuration (by using the <a href="../FWfile/fi_22.htm"><span class="UI_COMMAND" id="ButtonToolbar_DrawingViews.msg+ButtonToolbar_DrawingViews+6098">Save Layout Configuration</span></a> command). You can then apply that configuration (by using the <a href="../FWfile/fi_21.htm"><span class="UI_COMMAND" id="ButtonToolbar_DrawingViews.msg+ButtonToolbar_DrawingViews+6097">Load Layout Configuration</span></a> command) to create a drawing of a different three-dimensional model consisting of the same arrangement of views.</p>
+
+With the reference information added to your drawing, you can automatically produce a part list or bill of materials (by using the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:DFTB.chm::/language/dftb/FWfile/T_FW_PartList.htm"><span class="UI_COMMAND" id="installation.msg+confmgr+39">Part Lists</span></a> command), similar to the one shown in the following illustration.</p>
+
+<img src="../images/dw_04_00.gif"> <br>
+ 
+
+<h4><a name="Not associated with a 3D model"></a>Drawing not associated with any 3D model</h4>
+
+<p></p>
+
+<p>All the tools which are available in the program's Model environment&#151;except those that don't make sense when working in a two-dimensional environment&#151;are also available in the Drawing environment. You can use those tools to create two-dimensional drawings that are not connected to any model. For example, you can easily insert curves, points, text, lines, arcs, and so on to draw 2D objects.</p>
+
+<p>When you draw directly in the Drawing environment, you can use <a href="mk:@MSITStore:Groups.chm::/language/tocpages/T_TOC_group.htm"><span class="UI_COMMAND" id="gbplo.msg+_APPL3_+4246">Groups</span></a> to assign project data using the same methods used as when you assign data to the components of an assembly. You can therefore add parts lists and ballooned item references to 2D drawings that you create the same as when working with drawings associated with a 3D model.</p>
+
+<p>When you create a drawing not associated with a model, you can use groups to organize your drawing into a similar hierarchical structure.</p>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_2D.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on the Drawing Environment</b></a></p>
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Layout.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Layout</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

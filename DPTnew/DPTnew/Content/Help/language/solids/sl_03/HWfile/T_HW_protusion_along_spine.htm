@@ -1,0 +1,130 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>Job: Sweep a boundary profile along a spine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating a Generic Protrusion by Sweeping a Boundary Profile along a Spine</h3>
+
+<p>The <a href="../FWfile/T_FW_sl_01_03.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4592">Generic Protrusion</span></a> command enables you to create a generic protrusion on an existing solid by sweeping a boundary profile along a spine path.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/sl_01_03_05.gif"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../../images/solids/sl_03/protru_sweep_1.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Profile and drive curve</b> </td>
+<td></td>
+<td align="center"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4592">Generic Protrusion</span></td>
+</tr>
+</table>
+
+<br>
+<p>To obtain the above result, you need to open the <i>Generic_Protursion.e3</i> file available in the <i>samples</i> folder of your installation folder and follow the steps given below.<br>
+<br>
+</p>
+
+<ol indent="noleft">
+<li>Start the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4592">Generic Protrusion</span> command to display the selection list and you will be prompted to select the spine (drive curve) for path transition.<br>
+<br>
+</li>
+
+<li>Select the drive curve for the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+14">Spine</span> selector, as shown in the image below. In this case the spine is consisting of three entities.
+
+<br>
+<br>
+<img border="1" src="../../../../images/solids/sl_03/sl_01_03_06.gif"><br>
+<br>
+
+</li>
+<li>Now, click on the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+12">Boundaries</span> selector in the selection list and select the profile you want to sweep from the Graphic Area, as shown the image below.<br>
+<br>
+<img border="1" src="../../../../images/solids/sl_03/sl_01_03_07.gif"><br>
+<br>
+</li>
+
+<li>Next click on the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+15">Solid</span> selector from the selection list and select the solid from the Graphic Area.<br>
+<br>
+</li>
+
+<li>Next, select the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+15">Along one plane</span> option from the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list, if it is not already selected.<br>
+<br>
+</li>
+
+<li>To create a shelled solid with a specified thickness, select the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to display the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+10">1st Thickness</span> mini-dialog check box. Select the check box to extend the edit box and enter <b>5</b> in the edit box.<br>
+<br>
+</li>
+
+<li>To create a solid sweep feature you need clear the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+10">1st Thickness</span> check box.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the solid/shelled feature, as shown in the image below.<br>
+<br>
+
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/protru_sweep_1.gif"></td>
+<td></td>
+<td><img border="1" src="../../../../images/solids/sl_03/sl_01_03_08.gif"></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+10">1st Thickness</span> check box cleared</td>
+<td></td>
+<td><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+10">1st Thickness</span> check box selected</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<p>Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.<br>
+<br>
+</p>
+
+<p>See "<a href="../../../glossary/T_Spine.htm">Using Spines</a>" for details on how to use spine profiles.</p>
+
+<hr color="silver">
+<h5>Also try to ...</h5>
+
+<ul class="noindent">
+<li><a href="../HWfile/T_HW_protrusion_connecting_two.htm"><b>Create a protrusion by connecting three boundary profiles</b></a></li>
+
+<li><a href="../HWfile/T_HW_protrusion_multi-spine.htm"><b>Create a protrusion by connecting two or more boundary profiles along a spine</b></a></li>
+
+<li><a href="../HWfile/T_HW_protrusion_multi_nospine.htm"><b>Creating a generic protrusion by using surface based motion mode</b></a></li>
+<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

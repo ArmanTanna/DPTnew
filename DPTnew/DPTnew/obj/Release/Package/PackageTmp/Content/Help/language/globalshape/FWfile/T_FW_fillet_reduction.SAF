@@ -1,0 +1,240 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(527,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>GSM Fillet Reduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7886">Fillet Reduction</span></p>
+<hr color="#63a9d8">
+
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7743">GSM Fillet Reduction</span> command enables you to modify a set of selected fillet surfaces by changing their curvature, while retaining the desired continuity along borders. For example, it can be used to modify some high curvature areas to let the material fill properly during stamping operation. Refer to the image of reduced fillet as shown below; <i>the effect is exaggerated for better comprehension</i>.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td rowspan="2"><img src="../../../images/globalshape/fillet-reduc-eg.gif" border="1"></td>
+<td><b>1</b> - Normal situation</td>
+</tr>
+
+<tr>
+<td><b>2</b> - Fillet reduction</td>
+</tr>
+</table>
+
+<p><a name="plot"></a>The fillet modification is done as a percentage of the continuous distance between the theoretical fillet center and its projection on the fillet surface. In order to achieve the required modification of curvature, <i>GSM Preserving</i> constraints are applied to maintain the specified continuity along the fillet borders, while <i>GSM Matching</i> constraints are built automatically to get the specified reduction ratio. A graphical explanation is provided in the image below.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td rowspan="7"><img src="../../../images/globalshape/fillet-reduc-diagram.gif" border="1"></td>
+<td><b>1</b> - Fillet center</td>
+</tr>
+
+<tr>
+<td><b>2</b> - Original Fillet</td>
+</tr>
+
+<tr>
+<td><b>3</b> - Projection length (<b>L</b>)</td>
+</tr>
+
+<tr>
+<td><b>4</b> - Reduction ratio (+ve) x <b>L</b></td>
+</tr>
+
+<tr>
+<td><b>5</b> - Reduced fillet</td>
+</tr>
+
+<tr>
+<td><b>6</b> - GSM Matching location</td>
+</tr>
+
+<tr>
+<td><b>7</b> - GSM Preserving location</td>
+</tr>
+</table>
+
+<p><a name="fillet_surface"></a>After starting the command make selection for <b>Fillet Surfaces</b> to apply fillet reduction on them. In case you select a surface on which fillet reduction cannot be computed, a suitable warning is displayed at the time of preview.</p>
+
+<p><a name="ratio"></a>The <i>fillet</i> modification is based on the value specified as the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+3">Reduction Ratio</span> (which can vary between 0 to +1).</p>
+
+<p>Additional options are available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.</p>
+
+<p style="margin-bottom:0;"><a name="hide"></a>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span> check box enables you to hide the original entities:</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the original entities are made hidden.</li>
+
+<li>When the check box is cleared, the original entities remain visible.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="copy"></a>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> check box enables you to make a copy of the modified entities while preserving the original ones:</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the command will create a copy of the selected entities and apply the changes to the copies, without affecting the original ones. In this case, the selected surfaces can be associative or belonging to solids/skins.</li>
+
+<li>When the check box is cleared, the command will be applied on the original entities. In this case, the selected surfaces must be <i>independent</i>, and should neither be associative nor belong to solids/skins.</li>
+</ul>
+
+<p>The standard GSM options like <a href="../HWfile/T_HW_QualityChecks.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span></a>, <a href="../HWfile/T_HW_GMbend03.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span></a>, <a href="../HWfile/T_HW_GMChecking.htm#Precision"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span></a> and <a href="../HWfile/T_HW_GMChecking.htm#Shape"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+40">Shape Control</span></a> are also available.</p>
+
+<p style="margin-bottom:0;"><a name="preserve"></a>The options under the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+9">Preserving parameters</span> node enable you to define the continuity that will be preserved at the borders for the fillet.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+121">Type</span> - Select the type of continuity required at the borders: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+1">Free</span> - No continuity is maintained</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+75">Position</span> - G0 continuity is maintained</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+76">Tangency</span> - G1 continuity is maintained</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+77">Curvature</span> - G2 continuity is maintained</li>
+</ul>
+
+See <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm">Continuity Types</a> for further details on continuity.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+71">Roundness:</span> - Specify the precision value to be achieved for roundness</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+75">Position</span> - Specify the precision value to be achieved for positional continuity</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+76">Tangency</span> - Specify the precision value to be achieved for tangency continuity</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+77">Curvature</span> - Specify the precision value to be achieved for curvature continuity</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+42">Default</span> - Resets all the parameters to the default values.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="match"></a>The options under the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+10">Matching parameters</span> node enable you to define the values within which matching will be achieved to reach the specified reduction ratio.</p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+71">Roundness:</span> - Specify the precision value to be achieved for roundness</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+75">Position</span> - Specify the precision value to be achieved for the final position of the fillet surface</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+42">Default</span> - Resets all the parameters to the default values.</li>
+</ul>
+
+<p><a name="VV"></a>The options under the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span> node enables you to manage situations where two curves <i>cross</i> each other without necessarily having a real intersection at the fillet face junction.<br>
+<br>
+<img src="../../../images/globalshape/virtual_vertex.gif" border="1"></p>
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+121">Type</span> - Select the type of constraint to be applied at virtual vertices to avoid <i>preserving constraint</i> incompatibilities.<br>
+Refer to the <a href="mk:@MSITStore:help.chm::/language/surfaces/HWfile/T_HW_Capping_VV.htm#Capping_CAPCROSSOPT">Using the Virtual vertices option of the Capping command</a> document for details.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+126">Tolerance</span> - The threshold value for which the virtual intersection between the two curves is searched. When you enter a higher value, the probability to find an intersection is also higher.</li>
+</ul>
+
+<p><a name="adv"></a>Advanced options for applying fillet reduction are available under the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+12">Advanced Options</span> node:</p>
+
+<ul>
+<li><a name="edge"></a><span class="UI_SELECTOR" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+17">Free Boundaries</span> selector - you can optionally select those edges on which you don't want any <i>preserving</i> constraints to be applied.<br>
+<br>
+</li>
+
+<li><a name="surf"></a><span class="UI_SELECTOR" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+18">Surfaces without Matching Constraints</span> selector - you can optionally select those surfaces on which you don't want any <i>matching</i> constraints to be applied.<br>
+<br>
+</li>
+
+<li><a name="clearance"></a><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+4">Side clearance</span> - It is the distance from the junction of two surfaces where no fillet reduction calculations are made. It helps treating cases of not well connected surfaces, or surface with different fillet shapes that would result in incompatible <i>GSM Matching</i> constraints.<br>
+<br>
+</li>
+
+<li><a name="Continuity"></a><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+5">Continuity tolerance</span> - It is the maximum acceptable gap between two fillet surfaces for them to be considered for fillet reduction calculations.<br>
+<br>
+</li>
+
+<li><a name="threshold"></a><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+13">Fillet boundary continuity threshold</span> - It is the maximum acceptable angle between two edges of the same fillet to be treated as a single edge for fillet reduction calculations.<br>
+<br>
+</li>
+
+<li><a name="transition"></a>The <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+11">Transitions at Ends</span> check box enables you to define the variation of the deformation at the extremities from specified reduction ratio to 0. 
+
+<ul class="noleft">
+<li>When the check box is selected, the transition is applied if the fillet branch length is greater than the <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+14">Min. transition length</span> and it will last till the end of the branch or <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+15">Max. transition length</span>, which ever is reached earlier. If the fillet branch length is greater than specified <span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+15">Max. transition length</span> value, the reduction ratio will become constant beyond the transition.</li>
+
+<li>When the check box is cleared, no transition is applied.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li style="list-style: none"><img src="../../../images/globalshape/transition.gif" border="1"><br>
+<b>1</b> - Without transition; <b>2</b> - With transition; <b>3</b> - Comparative illustration<br><br></li>
+
+<li><a name="preview"></a>The following options enable you to display (preview) the computed preservings, matching & virtual vertices to have a feedback on the effect of various related parameters.
+<table cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr valign="top">
+<td><b>1</b></td>
+<td>-</td>
+<td width="200"><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+8">Show Matching Curves</span></td>
+<td>:</td>
+<td>Enables you to see the preview of curves where matching is applied.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>-</td>
+<td><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+16">Show Virtual Vertex Location</span></td>
+<td>:</td>
+<td>Enables you to see the locations where virtual vertices are present.</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>-</td>
+<td><span class="UI_OPTION" id="FilletReductionUI.msg+_FILLETREDUCTIONUI_LABEL_+7">Show Preserving Boundaries</span></td>
+<td>:</td>
+<td>Enables you to see the preview of boundaries that are being preserved.</td>
+</tr>
+</table>
+
+<img src="../../../images/globalshape/preview.gif" border="1">
+<!-- image provided by developer: model not available. -->
+</li></ul>
+
+<p>After making all the settings, select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../../images/general/preview.gif" align="absmiddle">) button. The application will make the calculations (that may take some time) and display the preview of the modified surfaces. In case of issues, suitable warnings will be displayed on selecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../../images/general/warnings_on.gif" align="absmiddle">) button. If satisfied with the preview, you can apply the command.</p>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_GMadvanced.htm"><b>The benefits of GSM</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Global Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,272 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally"> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Job: Creating an Animation</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<link href="../../JSandSTYLES/txteffects.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+ .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating an Animation</h3>
+
+<p>The process of animating a model is composed of multiple individual activities. If we consider the animation to be a complete wall, the individual activities form its bricks. There is no specific position of the bricks in the wall. However, it is necessary to keep in mind that the wall has to be constructed bottom-up. The illustration given below demonstrates the procedure to animate a Robotic Arm. Follow the links in this document to understand the individual activities that are involved in creating the animation.</p>
+
+<p>Open the <i>robot.e3</i> file from the <i>samples</i> folder of your installation and then follow the steps given below to create the animation. Note that this file already contains an animation with the name <i>Sample</i>. It has been provided only for your reference.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1.</b></td>
+<td>Start the <a href="../FWfile/T_FW_Animation.htm"><b><span class="UI_OPTION" id="MenuBar_Document_Tools_Solid.msg+MenuBar_Document_Tools_Solid+1552">Animation</span></b></a> command from the 
+
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span> menu; the <a href="../OVfile/T_OV_AnmUI.htm"><b>
+
+<span class="UI_OPTION" id="idd_animate.msg+idd_animate+1">Animation</span> dialog box</b></a> is displayed. By default, this dialog box is docked at the bottom of the Graphics Area. To make it a floating one, drag the control bars of the dialog box, which are displayed on its left, and drop it on to the Graphics Area.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2.</b></td>
+<td>The <span class="UI_OPTION" id="idd_animate.msg+idd_animate+10">List of Animations</span> is initially empty. Create a new animation with the name <b>Animation 1</b> by referring to the document <a href="T_HW_Anm-List.htm"><b>Managing the Animation List</b></a>. Only after the first animation is created the buttons in the 
+
+<span class="UI_OPTION" id="idd_animate.msg+idd_animate+1">Animation</span> dialog box become active.<br>
+<br>
+<img src="../images/animate-MJ-01.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3.</b></td>
+<td>Make the settings for the animation as per the following figure by referring the to <a href="../OVfile/T_OV_Anm-Settings.htm"><b><span class="UI_OPTION" id="idd_animate.msg+idd_animate+4">Animation settings</span></b></a> document.<br>
+<br>
+<img src="../images/animate06.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4.</b></td>
+<td>Adjust the display of the graphical area by using the view control buttons such that the complete animation scale is visible in it. Refer to the <a href="../OVfile/T_OV_GA_Controls.htm"><b>Graphical Area View Controls</b></a> document to execute this step.<br>
+<br>
+<img src="../images/animate-MJ-02.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5.</b></td>
+<td>Add the <b>ExtAng</b> variable as the first evolution by referring to the <a href="T_HW_Evolution.htm"><b>Adding Evolution for Animation</b></a> document.<br>
+<br>
+<img src="../images/animate-MJ-03.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6.</b></td>
+<td>Rename the <b>ExtAng</b> variable as <b>Extender_Ang</b> by referring to the <a href="T_HW_Evolution-Management.htm"><b>Managing the Evolutions</b></a> document.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7.</b></td>
+<td>Create the first variation by referring to the <a href="T_HW_Variaton.htm"><b>Creating Variations</b></a> document. Its parameters will be:<br>
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 0, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 4, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = 65, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = 40<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8.</b></td>
+<td>Repeat step <b>6</b> and <b>7</b> to create evolutions and variations for other variables as per the following data. 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+6">Variable</span> = Grip_Ang, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 4, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 8, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = -50, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = -10</li>
+
+
+
+<li><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+6">Variable</span> = Twist, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 8, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 12, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = 0, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = 270</li>
+
+
+
+<li><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+6">Variable</span> = Bend, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 12, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 16, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = 30, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = 0</li>
+
+
+
+<li><span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+6">Variable</span> = Base_Ang, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 16, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 20, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = -45, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = 90</li>
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9.</b></td>
+<td>Refer to the <a href="T_HW_Evolution.htm"><b>Adding Evolution for Animation</b></a> document and add the next evolution as <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+7">Dimension</span> by selecting the length as shown in the following figure.<br>
+
+
+<br>
+<img src="../images/animate15.gif" border="1"> <br>
+<br>
+Set its variation parameters as:<br>
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 20, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 24, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+6">Start value</span> = 20, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+7">End value</span> = 40<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>10.</b></td>
+<td>Add the next evolution as <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+10">Free movement</span> of the <b>Base</b> <span class="HideThis">(<b>Base</b>)</span> by rotating it 90 degree in clockwise direction. Refer to the <a href="T_HW_Evolution.htm"><b>Adding Evolution for Animation</b></a> and <a href="T_HW_Variaton.htm"><b>Creating Variations</b></a> documents to execute this step. Set its variation parameters as:<br>
+
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 24, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 30,<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>11.</b></td>
+<td>Add the <span class="UI_OPTION" id="TDAnimationCmd.msg+_TDANIMATIONCMD_LABEL_+9">Visibility</span> evolution to <b>Link1</b> and <b>Link3</b> <span class="HideThis">(<b>Link1</b> and <b>Link3</b>)</span> by referring the <a href="T_HW_Evolution.htm"><b>Adding Evolution for Animation</b></a> and <a href="T_HW_Variaton.htm"><b>Creating Variations</b></a> documents. Set its variation parameters as:<br>
+
+
+1st variation - <span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 0, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 20<br>
+
+
+2nd variation - <span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+4">Start time</span> = 24, 
+
+<span class="UI_OPTION" id="idd_animate_mod_interv.msg+idd_animate_mod_interv+5">End time</span> = 30<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>12.</b></td>
+<td>All the evolutions needed for the animation have been created. You can create more evolutions if need be. The graphical area will appear as shown in the following figure.<br>
+<br>
+<img src="../images/animate-MJ-04.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>13.</b></td>
+<td>Now play the animation by referring to the <a href="../OVfile/T_OV_Playback.htm"><b>Animation Playback</b></a> document.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>14.</b></td>
+<td>Save the animation in an AVI file by referring to the <a href="T_HW_AVI.htm"><b>Creating an AVI</b></a> document.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>15.</b></td>
+<td>The created animation can also be used to check for collision between the components during their movement. Refer to the <a href="T_HW_Collision.htm"><b>Collision Detection</b></a> document to learn more.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Note that the animation created in this tutorial is sequential. Which means that at any given time only one component is being moved. However, you can create animations in which the timeframe of the variations overlap thus resulting in an animation in which multiple movements take place simultaneously.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,174 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2010t1" content="internally">
+<title>Job: Replacing  a component with Symbolic References</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>blockquote
+	{margin-top:0; margin-left:22;
+	margin-bottom:0; margin-right:0;}
+</style>
+<style>	.jjj
+	{
+		text-align : justify;
+	}
+</style>
+<style>.subtitle
+	{font-family: Verdana; 
+	font-size: 10.5pt; 
+	font-weight: bold;
+	margin-bottom:0; }
+</style>
+<style>.littop
+{margin-top:5;
+margin-bottom:5}
+</style>
+<style>.smallerfont
+	{font-family: Verdana; 
+	font-size: 8.5pt; }
+</style>
+<style>.h1like
+	{font-family: Verdana; 
+	font-size: 16pt;
+	font-weight: bold; }
+</style>
+<style> .nobot
+{
+margin-bottom: 0;
+}
+</style>
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+<style> .smaller
+{
+font-family:Verdana;
+font-size:9pt;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4 class="nobot">Replacing  a component with Symbolic References</h4>
+
+<p class="notop">
+Suppose you've mated a rear end cap 
+<br><br><img border=1 src="../../../images/SymbRefs/rear_end_cap.gif"><br><br>
+and a transparent body of a ballpoint pen,
+<br><br><img border=1 src="../../../images/SymbRefs/stilo.gif"><br><br>
+ by using the same Symbolic References for the mating, as shown in the following illustration:</p>
+<p><IMG border=1 SRC="../images/MatingSymbRef02.gif">
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">Note that the Symbolic References used in the mating don't require to have the same name. The rear end cap "CapShoulder" face can mate a "whatever" face on the body. This was made mainly for the designer's convenience, in order to remind that the "CapHole" cylindrical surface of the rear end cap lays on the "CapHole" cylindrical internal surface of the body, and the same for two "CapHole" faces.
+</td></tr></table>
+<p></p>
+
+<p>
+Now you need to replace the body with another one of a different material, where you placed the same Symbolic References.</p>
+<p><IMG border=1 SRC="../images/MatingSymbRef03.gif"></p>
+
+<p>
+The goal of this example is replacing the transparent body of the first model with the new one, keeping the mating constraints.
+</p>
+
+<p>
+Models related to this job are <i>rear end cap+body.e3</i>, <i>stilo_blue.e3</i> and <i>stilo_blue_double.e3</i>, available in the <i>samples</i> folder.</p>
+
+<p>
+After starting the application, proceed as follows.</p>
+ 
+<p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Load the <i>rear end cap+body.e3</i> model and select the <i>body</i> component.</p>
+
+<p></p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">As usual, you can select the component that you are going to replace <i>before</i> or <i>after</i> starting the command.
+</td></tr></table>
+<p></p>
+
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the <b>Modify <img src="../../../images/general/litarr.gif">Component<img src="../../../images/general/litarr.gif"> <a  href="../FWfile/T_FW_as_10.htm">Replace</b></a> command.</p>
+<p>
+Since you're replacing a component involved in one or more mating constraints, the program asks you if the mating event(s) must be kept or removed, by displaying the <b>Replace Component</b> dialog box.</p>
+<p><IMG SRC="../images/ReplaceComponent.gif"></p>
+
+
+<p></p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">When you replace a component involved in one or more mating constraints (no matter whether it is the moving or the reference object), the program asks you if the mating event(s) must be kept or removed. If the event(s) is/are kept, depending on the replacing component, the mating constraints may have to be redefined, unless you used components including the same Symbolic Reference. In this case, the program tries and looks for equivalent Symbolic References in the new component, updating the constraints whenever equivalent references are found. When more than one Symbolic Reference exists, the program chooses one, then you can solve ambiguities possibly arising by the <b>Solve Ambiguities</b> command.
+</td></tr></table>
+<p></p>
+
+
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Choose to keep the mating events and confirm by <b>OK</b>.
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the file selection box that is displayed, when you select the model of the new body that is going to replace the transparent one and click <b>Open</b> for confirmation, you get the following two possibilities:</p>
+
+
+<ul>
+<li><a  href="T_HW_NoAmbiguities.htm"><b>No ambiguities occurring</b></a>: the Symbolic References in the new model were placed with the same modalities as the ones in the original component. the program looks for equivalent Symbolic References in the new component and updates the constraints, as equivalent references are found. Therefore the new body fits in totally with the rear end cap and you get no warning message about ambiguities occurring.</p>
+<li><a  href="T_HW_SomeAmbiguities.htm"><b>Some ambiguities occurring</b></a>: when the program tries and looks for equivalent Symbolic References in the new component and more than one Symbolic Reference exists, the program chooses one. You can solve ambiguities possibly arising by the <a href="mk:@MSITStore:help.chm::/language/SymbRefs/FWfile/T_FW_SymbRefsSolveAmbiguity.htm"><b>Solve Ambiguities</b></a> command. 
+
+</ul></p>
+<p></p>
+</td>
+</tr>
+</table>
+</p>
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+
+<li><a href="mk:@MSITStore:help.chm::/language/SymbRefs/HWfile/T_HW_InsertNewSymbRef.htm"><b>Inserting/Redefining a Symbolic Reference</b></a>
+
+</ul>
+
+<hr color="silver">
+</body>
+</html>

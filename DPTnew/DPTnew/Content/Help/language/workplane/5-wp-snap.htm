@@ -1,0 +1,77 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Snapping the Work Plane to points with history</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Snapping the Work Plane to points with history</h3>
+
+<p>The Work Plane can be placed on points with or without history. The points that are considered "with history" will pass this property to the Work Plane, which will "follow" those points. Let's carefully analyze which points, if snapped by the Work Plane, will move and modify the Work Plane itself.<br>
+</p>
+
+<table bordercolor="white" border="1">
+<tr valign="top">
+<td><b>Profile endpoints</b></td>
+<td bordercolor="black"><img src="../../images/workplane/WP-P01.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Profile midpoints</b></td>
+<td bordercolor="black"><img src="../../images/workplane/WP-P02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Solid edges or datum line endpoints</b></td>
+<td bordercolor="black" align="center"><img src="../../images/workplane/WP-P03.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Solid edges or datum line midpoints</b></td>
+<td bordercolor="black" align="center"><img src="../../images/workplane/WP-P04.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Centers of arcs and circles in profiles or solid edges</b></td>
+<td bordercolor="black" align="center"><img src="../workplane/images/WP-P05.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Planar faces of solids and datum planes</b></td>
+<td bordercolor="black" align="center"><img src="../../images/workplane/WP-P06.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Non planar faces of solids</b></td>
+<td bordercolor="black" align="center"><img src="../../images/workplane/WP-P07.gif"></td>
+</tr>
+</table>
+
+<p>Please note that placing the Work Plane on a face, doesn't ensure that it will be positioned on the real center of that face. The program will place it on the "center" of the surface that geometrically describes that face. This "center" point might not be a meaningful point for your particular design. When the placement of the origin of the Work Plane is critical for any reason, it is strongly recommended that you place the Work Plane by snapping it to a point "with history".</p>
+
+<p>Even if the placement of the origin of the Work Plane is not critical, it is suggested that you determine an alignment for the Work Plane using the <a href="../edit/wp/FWfile/T_FW_wp_10.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1611">Align X-Axis</span></a> command, picking a preferred direction (as an example the edge of a solid, if appropriate):</p>
+
+<p>In this case the edge direction will always be driving the Work Plane <i>X-axis</i> alignment.<br>
+<br>
+<img border="1" src="../../images/workplane/WP-P08.gif"></p>
+
+<hr color="silver">
+</body>
+</html>
+

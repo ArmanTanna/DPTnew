@@ -1,0 +1,175 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="2009t1" content="translate">
+<title>Associative Transformations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4><a name="#001"></a>Associative Transformations</h4>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application provides an enhanced set of commands enabling you to apply associative transformations to entities only in the <span id="TWOD">model</span>.<br>
+</p>
+
+<ul>
+<li><a href="../FWfile/T_FW_MoveCopy.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span></a><br>
+
+to perform <a href="#tran"><i>translations</i></a>, <a href="#rot"><i>rotations</i></a> and <a href="#rototran"><i>rototranslations</i></a><br>
+&nbsp;</li>
+
+<li><a href="../FWfile/T_FW_Scale.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span></a><br>
+
+to perform <a href="#scale"><i>scaling</i></a> and <i>stretching</i><br>
+&nbsp;</li>
+</ul>
+
+<br>
+ 
+
+<p>Associativity is a characteristic which can be assigned to a entity so that it will retain a link to the reference entities it derives from. Therefore in associative transformations, if you modify the reference entities, the transformed entities will also get modified accordingly.</p>
+
+<p><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+4387">Move/Copy Entities</span>:<br>
+
+</p>
+
+<ul>
+<li><a name="tran"></a>In case of translation, for example:</li>
+
+<li style="list-style: none">
+<ul>
+<li>If the translation is defined by picking two parametric points, in case the points should be subsequently moved, the translated entities will move accordingly.</li>
+
+<li>If the translation is defined through coordinates obtained with the Adaptive Measure method, should the reference entities used within the latter change, the transformed entities will be changed accordingly.<br>
+
+<p>
+The associative translation (defined by picking two parametric points) has been graphically shown in the succeeding images.
+<br><br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/transform/Assoc01.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/transform/Assoc02.gif" border="1"></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td align="center"><img src="../../../images/general/arrow-down.gif"></td>
+</tr>
+
+<tr>
+<td><img src="../../../images/transform/Assoc04.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-left.gif"></td>
+<td><img src="../images/Assoc03.gif" border="1"><br>
+<br>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+
+<li><a name="rot"></a>In case of rotation, for example:</li>
+
+<li style="list-style: none">
+<ul>
+<li>If the selected axis of rotation is parametric, in case it should be subsequently moved, the rotated entities will be changed accordingly.</li>
+
+<li>If the angle of rotation is defined through the Adaptive Measure mechanism and the reference entities are subsequently moved, the rotated entities will be moved accordingly.</li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><a name="rototran"></a><b>Parametric Entities as Results of Rototranslations</b><br>
+Note that any copy of a parametric entity obtained by applying a rototranslation to the original one is a parametric entity as well.</td>
+</tr>
+</table>
+</li>
+</ul>
+</p>
+
+ 
+
+<p><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+5711">Scale Entities</span>:<br>
+
+</p>
+
+<ul>
+<li><a name="scale"></a>In case of scaling, for example:</li>
+
+<li style="list-style: none">
+<ul>
+<li>If the scale is isotropic and is defined through a variable or through the Adaptive Measure mechanism, if the reference entities change, the scaled entities will be changed accordingly.</li>
+
+<li>If the scale is anisotropic and the selected axis is parametric, in case the latter should change, the scaled entities will be changed accordingly.<br>
+This behaviour has been graphically shown in the succeeding images.
+<br><br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/transform/Step1.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../images/Step2.gif" border="1"></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td align="center"><img src="../../../images/general/arrow-down.gif"></td>
+</tr>
+
+
+<tr>
+<td><img src="../../../images/transform/Step4.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-left.gif"></td>
+<td><img src="../images/Step3.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><img src="../../../images/general/arrow-down.gif"></td>
+</tr>
+
+<tr>
+<td><img src="../images/Step5.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/transform/Step6.gif" border="1"><br>
+</tr>
+
+</table>
+</p>
+
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr color="silver">
+</body>
+</html>
+

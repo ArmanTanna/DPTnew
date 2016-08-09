@@ -1,0 +1,163 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+
+<title>Job: Making a solid with different conditions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h3>Making a solid with different conditions</h3>
+
+<p>To accomplish this task, open the <i>make_solid_conditions.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_sl_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command; it enables you to create solids from selected surfaces, which become the faces of the resulting solid.<br>
+<br>
+</li>
+
+<li>On starting the command, you are prompted to select the surfaces or solids. You can perform a window selection as shown in the figure below.<br>
+<br>
+<img border="1" src="../../../images/solids/makesolid_cond_1.gif"><br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections and create the solid. As our model is not closed, the following warning is displayed.<br>
+<br>
+<img src="../images/makesolid_2.gif"><br>
+<br>
+If you select <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+5">Continue</span>, an open solid will be created. On selecting the <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+6">Show pointers to open boundaries</span> check box, the open boundaries will be highlighted in the model as shown in the figure below.<br>
+<br>
+<img border="1" src="../../../images/solids/makesolid_cond_2.gif"><br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+7">Check</span> button in the warning window; the problem causing conditions are displayed.<br>
+<br>
+<img src="../images/makesolid_cond_3.gif"><br>
+<br>
+<a name="def_layer"></a>You can isolate the wrong entities by moving them to a different layer and then turning the layer OFF. To do so, select the <i>type of issue</i> in the drop-down list besides the <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+8">Move and Exit</span> button. The entities causing the specified issue will be moved to the layer specified by the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+274">Default layer</span> check box and its drop-down list. 
+
+<ul>
+<li>When the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+274">Default layer</span> check box is selected, the wrong entities will be moved to a new layer with a default name (for example "AutoLayer_ MakeSolid_Small", where <i>AutoLayer_ MakeSolid_</i> is prefixed to the nature of the error).</li>
+
+<li>When this check box is cleared, the edit box and drop-down list are enabled. You can either select an existing layer from the drop-down list or enter the name of a new layer in the edit box to move the wrong entities onto it.</li>
+</ul>
+
+<br>
+</li>
+
+<li>Select <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+258">Sliver</span> from the drop-down list, clear the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+274">Default layer</span> check box and select <b>Layer 3</b> in the next drop-down list as shown in following figure.<br>
+<br>
+<img border="1" src="../images/makesolid_cond_4.gif"><br>
+<br>
+Click <span class="UI_OPTION" id="idd_makesolid_failure.msg+idd_makesolid_failure+8">Move and Exit</span> to move the surface with <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+258">Sliver</span> problem to Layer 3.<br>
+<br>
+</li>
+
+<li>Now turn OFF the Layer 3 to stop its output.<br>
+<br>
+<img border="1" src="../images/makesolid_cond_5.gif"><br>
+<br>
+</li>
+
+<li>Repeat the steps from 1 to 3. As the surface with <i>Sliver</i> problem has been moved to Layer 3 (which is OFF), only the remaining conditions are displayed in the warning window.<br>
+<br>
+<img src="../images/makesolid_cond_6.gif"><br>
+<br>
+ Repeat the steps from 5 and 6 so that you can the isolate the surface with other problems and solve them separately to make a closed solid.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Problems and when they occur</b><br>
+<br>
+<table>
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+257">Small</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the area is greater than the squared surface tolerance</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+258">Sliver</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the 2* area / perimeter is lesser than the surface tolerance</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+259">With small boundary curves</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the length is lesser than the surface tolerance</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+260">With undefined normals</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the surface has undefined normals</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+261">With trimming problems</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the surface has violated invariants of trimming loops</td>
+</tr>
+
+<tr valign="top">
+<td>
+<ul class="noindent">
+<li type="disc"><span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+262">With other problems</span></li>
+</ul>
+</td>
+<td>&nbsp;&#151;&nbsp;</td>
+<td>When the surface has problems other than the ones listed above</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

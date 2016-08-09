@@ -1,0 +1,158 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Revisor" content="Vicky Raina">
+<meta name="2009t1" content="translate">
+<title>Customization of the Standard Hole Parameters by using XML Editor</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Customization of the Standard Hole Parameters by using XML Editor</h3>
+
+<p>The <b><a href="XMLEditor.htm">XML Editor</a></b> tool enables you to tailor the existing parameters of the standard hole in the system files. Also, you will be able to add new thread forms as per your requirement. Before understanding the usage of the <b>XML Editor</b> for customization of the standard hole parameters, you should be acquitted of the <a href="XMLEditor.htm#config"><b>configuration</b></a> concept.<br>
+<br>
+ <a href="XMLEditor.htm#Utility">On starting the tool</a>, the <b>XMLEditor</b> dialog box is displayed with multiple commands. The <b>Hole STD Table</b> command enables you to add new thread forms and customize the parameters of the standard thread forms. Select the <b>Hole STD Table</b> command from the menu bar to display the <b>XMLEditor - [Hole STD Table]</b> dialog box. The dialog box consists of six columns, as follows:</p>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr valign="top">
+<td><b>Visibility - Family name</b></td>
+<td>Enlists standard thread forms.</td>
+</tr>
+
+<tr valign="top">
+<td><b>File Name</b></td>
+<td>Enlists the file names with respective to each type of thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Number of Designations</b></td>
+<td>Displays the total numbers of default designations associated with each thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Unit of Measure</b></td>
+<td>Displays the unit of measurement of each thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Draft Angle</b></td>
+<td>Displays the draft angle of each thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Section</b></td>
+<td>Displays <b>System</b> for all the standard thread forms and <b>User</b> for the new or modified thread forms.</td>
+</tr>
+</table>
+
+<br>
+<img src="../XMLEditor/images/STD_Table.gif" border="0"> 
+
+<p>On right clicking the thread form row to be modified; the context menu is displayed with three options. In case of already modified thread form four options will be available, as shown in the image above:</p>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr valign="top">
+<td><b>Add</b></td>
+<td>On selecting this option, the <b>XMLEditor</b> dialog box is displayed. You need to enter the name of the new thread form in the <b>Name</b> edit box and click <b>OK</b>. The new thread form will be added in the list but without any data in it. You need to add data by using the <b>Edit family</b> dialog box.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Duplicate</b></td>
+<td>On selecting this option the <b>XMLEditor</b> dialog box is displayed. You need to enter the name of the thread form in the <b>Name</b> edit box and click <b>OK</b>. It duplicates all the data of the existing thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="Standard_Hole_XML_Editor.htm#EDIT"><b>Edit</b></a></td>
+<td>Enables you to modify the parameters of the existing thread forms.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Remove overriding</b></td>
+<td>Enables you to remove the selected user item and restore the system item. <i>The command is available only on modified system items</i>.</td>
+</tr>
+</table>
+
+<p><a name="EDIT"></a>On selecting the <b>Edit</b> option, the <b>Edit family</b> dialog box is displayed, as shown in the image below. The options in the <b>Edit family</b> dialog box are as following:<br>
+<br>
+<img src="../XMLEditor/images/EDITFAMILY.gif" border="0"></p>
+
+<ul class="noleft">
+<li><b>Family Properties</b>: The options under this area are as follows:<br>
+<table cellspacing="2" cellpadding="2" border="1">
+<tr valign="top">
+<td><b>Name</b></td>
+<td>Displays the thread form name that has to be modified. You cannot change the name of the default standard thread forms.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Unit</b></td>
+<td>Enables you to select the unit to be applied for the new or modified thread form.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Draft</b></td>
+<td>Enables you to specify the draft angle for the selected thread form.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>You need to select the designation type from the <b>Visibility - Designations Name</b> area to modify the associated parameters of the thread form. The parameters associated with the designation are displayed in the right pane of the <b>Edit family</b> dialog box. You can sort the parameters in the alphabetic order by using the <b>Alphabetical</b> (<img align="absmiddle" src="../../images/XMLEditor/ALPHA.gif">) button and select the <b>Categorized</b> (<img align="absmiddle" src="../../images/XMLEditor/CATEO.gif">) to classify the parameters in categorized form. The parameter you select from their respective node will get display in the bottom area of the right pane of the <b>Edit family</b> dialog box.<br>
+<br>
+</li>
+
+<li>During modification of parameters you have to pay attention on the <b>Data</b> values. If <b>Visibility</b> is <b>Yes</b> and the <b>screw</b> option is selected in the <b>Designation State</b> drop-down list, then only you will be able to use the designation on <b>ThinkDesign</b> feature, as shown in the image below.<br>
+<br>
+<img src="images/XML_ATTRI.gif" border="1"><br>
+<br>
+It is necessary to set value greater than zero for the <b>Hole diameter</b>, <b>Minor diameter</b>, <b>Nominal diameter</b>, and <b>Pitch</b> under the <b>Data</b> node; otherwise a validation error will be raised and the thread form will not be loaded in <b>ThinkDesign</b> application.<br>
+<br>
+</li>
+
+<li>The <b>System</b> and <b>User</b> fields under the <b>File name</b> area of the <b>Edit family</b> displays the path of the corresponding system and user files. This is displayed only for your reference and hence, cannot be modified. Select the <b>OK</b> button from the <b>Edit family</b> dialog box to confirm your modifications.<br>
+<br>
+The modified thread form highlights in the <b>XMLEditor</b> dialog box.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:solids.chm::/language/features/HWfile/Customise_STDhole_EDITOR.htm"><b>Customization of Metric Coarse Pitch Thread Form by using XML Editor</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics...</h5>
+
+<ul class="noleft">
+<li><b><a href="XMLEditor.htm">XML Editor</a></b></li>
+
+<li><a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm"><b>Hole</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

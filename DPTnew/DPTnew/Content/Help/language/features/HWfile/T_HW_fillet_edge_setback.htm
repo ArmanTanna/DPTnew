@@ -1,0 +1,76 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="2009t1" content="translate">
+
+<title>Job: Creating fillet with setback</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Creating Fillet with Setback</h3>
+
+<p>In the <a href="../FWfile/T_FW_ft_09_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6307">Edge Fillet</span></a> command, it is possible to add set backs to fillets created on three or more merging edges. Setback is the distance from the vertex up to which a capping face of a fillet will extend on a filleted edge. It smoothly blend the overlapped surfaces generated from the edges to the fillet vertex.<br>
+<br>
+</p>
+
+<ol class="noleft">
+<li>To create the setback fillet you need to create the rectangular block of size <b>50*100</b> and extrude it to <b>25</b> units. Next, start the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6307">Edge Fillet</span> command and select the merging edges to be filleted and specify the fillet radius values.<br><br>
+ <img src="../../features/images/set-back1.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="setback"></a>Click on <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+34">More Options</span> to expand it from the selection list. Now, click on the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+40">Vertices</span> selector under <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+39">Setback</span> option and select the vertex of the merging edges which are to be filleted.<br>
+<br>
+ <img src="../../features/images/set-back.gif" border="1"><br>
+<br>
+</li>
+
+<li><a name="diff_dist"></a>To specify individual set back values for each edge, select the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+41">Different distances</span> check box and enter the values in the corresponding <span class="UI_MINIDIALOG" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+42">Distance</span> mini dialogs.<br>
+<br>
+ <img src="../../features/images/set-back2.gif" border="1"><br>
+<br>
+ If the <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+41">Different distances</span> check box is not selected; a single set back distance will be applied to all the selected edges.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" alt="" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" alt="" border="0" align="absmiddle"> to confirm your selections and fillet the selected edge.<br>
+<br>
+ <img border="1" src="../../../images/features/set-back_result.gif"></li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note:</b><br>
+The <span class="UI_OPTION" id="TDFilletChamfer.msg+_TDFILLETCHAMFER_LABEL_+39">Setback</span> option is not available either for the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6309">Face Fillet</span> or <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+6311">Solid Fillet</span> commands.<br>
+<br>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topic</h5>
+<ul class="noleft">
+<li><a href="../OVfile/An_overview_on_fillets.htm"><b>An Overview of Fillets</b></a></li>
+</ul>
+<hr color="Silver">
+</body>
+</html>
+

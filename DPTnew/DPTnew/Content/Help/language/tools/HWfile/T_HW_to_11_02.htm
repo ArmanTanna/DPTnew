@@ -1,0 +1,62 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Spreadsheet - Assigning variables to features/datum entities and checking the items that have variables assigned to them</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h4>Spreadsheet - Assigning variables to features/datum entities and checking the items that have variables assigned to them</h4>
+
+<p>To accomplish this task, open the file "to_90_02.e3".<p></p>
+<OL class="litleft">
+<LI>After starting the <a  href="../FWfile/T_FW_to_02.htm"><b>Spreadsheet</b></a> command, define a new variable named <B>HL</B>, and assign it a value of 1.
+
+<LI>Define a new variable named <B>SL</B> and assign it a value of 0.
+
+
+<LI>Assign the variable <B>HL</B> to the hole (please note that this example refers to a feature, but can be applied also to a datum entity):<BR>
+<UL class="noleft">
+
+<LI>Select the variable <B>HL</B> (click number box &#151; line <B>1</B> &#151; adjacent to the variable).
+<li>In the <b>Assign</b> drop-down list, select <b>Dimension/Feature/Component</b>.
+<LI>Click on the hole as shown.
+<BR><BR><IMG border=1 SRC="../../../images/tools/toi51_02.gif"><BR>&nbsp;
+
+</LI></ul>
+
+<LI>Repeat step 4 to assign the variable <B>SL</B> to the pin feature.
+<BR>Notice that when you assign a variable, the value in the <B>Used</B> column is automatically filled in, indicating that the variable has been assigned.
+
+
+<LI>Click the <b>Rebuild</b> button.
+<BR>Notice that the pin feature immediately disappears. If the value assigned to the feature is greater than 0, the feature is active. If the value is 0, however, the feature is deactivated, and therefore disappears.
+<BR><BR><IMG border=1 SRC="../../../images/tools/tol54_02.gif"><BR>&nbsp;
+
+</LI></ol>
+
+<P>To highlight the feature to which you assigned the variable <B>HL</B>:<p></p>
+<UL class="noleft">
+<LI>Right click the line number (line <B>1</B>) corresponding to variable <B>HL</B>.
+<LI>Select <b>Show Dimensions/Features</b>.
+<BR>The hole is immediately highlighted.
+<BR><BR><IMG border=1 SRC="../../../images/tools/toi52_02.gif">
+</LI>
+</ul>
+
+<hr color="silver">
+</body>
+</HTML>

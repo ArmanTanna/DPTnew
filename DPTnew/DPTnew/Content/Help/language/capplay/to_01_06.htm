@@ -1,0 +1,258 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<meta name="Revisor" content="Mahesh Kiran">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+<title>Capture</title>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+<h2>Capture</h2>
+
+<p>The capture environment enables you to record a session in a log file and save it in a specified location in your local machine. The two Capture commands (highlighted in the image below) enable you to record to a log file all the actions performed during the application's working session, until you select the <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+6">Stop</span> <img src="../../images/capplay/tob05_06.gif" alt="" border="0" align="absmiddle">&nbsp;button (read <a href="to_06_doc.htm#CPGUI">Overview of the Capture &amp; Playback interface</a>).</p>
+
+<p><img src="images/tod_06_10.gif"><br>
+</p>
+
+<table border="0">
+<tr valign="top">
+<td><img src="../../images/capplay/tob02_06.gif"></td>
+<td><b><a href="#to_hw_06"><span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+2">Record</span></a></b></td>
+<td>
+<p>Starts a Capture session. The program displays a dialog box in which you should specify the name and location of the new log file to be saved. Now all the actions you perform are recorded to the log file, until you select the <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+6">Stop</span> command.</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../images/capplay/tob03_06.gif"></td>
+<td><b><a href="#append"><span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+3">Append Record</span></a></b></td>
+<td>
+<p>Starts a Capture session in <i>append</i> mode. All the actions you perform are appended to the existing log file, until you select the <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+6">Stop</span> command. Before starting the recording session, an automatic Playback of the current log file is performed, so that the recording session starts at the end of the current log file.</p>
+</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><b><a name="Behavior"></a>Behavior of commands used to load documents</b><br>
+<br>
+Commands used to load documents (such as <b>Open</b><span id="TWOD">, <b>Insert from File</b> or <b>X-Ref Component</b></span> <span id="HIDETD">or <b>Insert from File</b></span>) are stored to the log file during the recording session and will then be performed in the Playback session whether the original pathnames of files exist or not. In fact, when recording, the program creates an auxiliary folder with the same name as the current log file and in its same directory. Within this folder, a RelatedFiles folder is created, containing a copy of any file opened in the recording session using the mentioned commands. An index file ("index.txt") is also created, in order to keep relations between the original and the copied files.</p>
+</td>
+</tr>
+</table>
+
+<p>A <i>context tag file</i> (a file with a ".ctx" extension created in a directory having&nbsp;the same name as the log file) is automatically generated containing all the <a name="context_tag"></a>context tags used during a <b>Capture</b> session.</p>
+
+<br>
+ <span id="TWOD">
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td bordercolor="#ffffe1">
+<p><b>Context Tags and the Context Tag File</b><br>
+<br>
+A <i>context tag</i> is an identifier of the context which you are working in; context tags can be very useful to develop quality assurance procedures and future statistics.<br>
+For example, if you select the <b>New Document</b> command, the context tag is the following:<br>
+<br>
+<b><font face="courier">"New Document"</font></b><br>
+<br>
+ If, after selecting <b>New Document</b> you choose <b>Model,</b> <b>Drawing,</b> you'll have the following context tag:<br>
+<br>
+<b><font face="courier">"New Document""Model"</font><font face="courier">"New Document""Drawing"</font></b><br>
+<br>
+as the <b>Model</b><b>Drawing</b> command is a <i>second level</i> command.&nbsp;<br>
+<br>
+ A <i>context tag file</i> is an ASCII text file you can open and read with any text editor program (for example Microsoft&reg; WordPad). A context tag (a file with a ".ctx" extension created in a directory having&nbsp;the same name as the log file) is automatically generated whenever you perform a Capture session.</p>
+
+<table border="0">
+<tr>
+<td>For example, to build the solid on the right you had to: 
+
+<ol>
+<li>Open a new model document</li>
+
+<li>Create a rectangle</li>
+
+<li>Sweep the rectangle to build the box on the right</li>
+
+<li>Move the Work Plane onto the front face of the box</li>
+
+<li>Create a circle on the front face of the box</li>
+
+<li>Sweep the circle to build the cylinder.</li>
+</ol>
+
+<p><br>
+<br>
+</p>
+</td>
+<td><img src="../../images/capplay/cpi01_01.gif"> </td>
+</tr>
+</table>
+
+<p>and this is the context file you will automatically get if you capture the whole session:</p>
+
+<pre>
+[Head]
+
+Test name             : 17Feb2009_1918
+Description           : 
+Comments              : 
+Created with build    : 2009.1.108.490
+Valid till build      : 
+Generated by          : 
+Company               : 
+Support Center        : 
+Class                 : 
+Origin                : 
+CPU Type              : pentium Model 2 Stepping 9
+Performance indicator : 1290
+Real Memory size      : 2047 MB
+CPU Time              : 13s
+Elapsed time          : 47s
+Peak Memory Usage     : 206380 KByte
+Page Faults           : 9521
+Page File Size        : 194608 KByte
+
+Level 1               : 0;0
+Level 2               : 0;0
+
+
+[Summary]
+
+Weight   No.   Context used
+     0;     1; "Feature" "Linear Sweep" "Protrusion" 
+     0;     1; "Arc" "Center" 
+     0;     1; "Work Plane" "Set on Face" 
+     0;     1; "Feature" "Linear Sweep" "New Solid" 
+     0;     1; "Rectangles &amp; Polygons" "Rectangle" 
+     0;     1; "New Document" "Model" 
+
+
+[Details]
+
+Line:299       "New Document" "Model" 
+Line:306       "Rectangles &amp; Polygons" "Rectangle" 
+Line:315       "Feature" "Linear Sweep" "New Solid" 
+Line:348       "Work Plane" "Set on Face" 
+Line:351       "Arc" "Center" 
+Line:365       "Feature" "Linear Sweep" "Protrusion" 
+</pre>
+
+The <b>[Head]</b> section contains information about the hardware and software environment and customer data fields you can fill in if you need to send a Capture &amp; Playback package to your Support Center.<br>
+<br>
+The <b>[Summary]</b> section contains all the context tags that were used during the session, ordered by their occurrence number (<b>No.</b>) and with the additional <b>Weight</b> information that will be useful to the Support Center.<br>
+<br>
+The <b>[Details]</b> section contains a list of all the context tags in the same order they were used during the session, preceded by the line number of the log file they were saved to.<br>
+<br>
+When the <b>Create context tag file</b> check box in the <b>Playback options</b> area is selected, another context tag file is generated when the Playback session is performed (a file with a ".ctr" extension created in a directory having the same name as the log file). The ".ctr" file has exactly the same structure as the ".ctx". A comparison between the ".ctx" and the ".ctr" files can be useful when debugging error situations.</td>
+</tr>
+</table>
+</span>
+
+<h4><a name="to_hw_06"></a>Record</h4>
+
+<p>To record a session, do the following:<br>
+<br>
+</p>
+
+<ol class="noleft">
+<li>Select <span class="UI_COMMAND" id="idd_capplay.msg+idd_capplay+2">Record</span> <img src="../../images/capplay/tob02_06.gif"> button. The <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+1">Capture &amp; Playback</span> dialog box is displayed, in which you can specify the log file name and location.<br>
+<br>
+<img src="images/v51_tod_06_13.gif"><br>
+<br>
+<br>
+</li>
+
+<li>In the <b>Save in</b> list box, choose the folder in which you want to save the log file.<br>
+<br>
+</li>
+
+<li>Specify the log file name in the <b>File name</b> text box.<br>
+<br>
+</li>
+
+<li>Select the <b>Save</b> button to save the log file.<br>
+<br>
+</li>
+
+<li>The following warning message is displayed, <i>"All documents will be closed. This will cause the loss of changes. Are you sure you want to start capture on file 'C:\Models\logfile1.cp3'?"</i><br>
+<br>
+
+
+If you click <b>No</b> the recording session will not start.<br>
+<br>
+</li>
+
+<li>Make sure you have saved all the documents that might be open before proceeding, because once the recording session starts, all open files will be closed. After you've saved the files, click <b>Yes</b> to start the recording session. All the actions you perform hereafter are recorded to the log file.<br>
+<br>
+</li>
+
+<li style="list-style: none">
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+If you attempt to perform an action that is not allowed by the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+4414">Capture &amp; Playback</span> functionality, the message <b>Action displayed if Capture & Playback is active</b> will be displayed. Click <b>OK</b> to continue.</td>
+</tr>
+</table>
+</li>
+
+<li>When you want to stop the recording session select <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+6">Stop</span> <img src="../../images/capplay/tob05_06.gif" alt="" border="0" align="absmiddle"><br>
+<br>
+</li>
+
+<li>The current log file is immediately closed. All the actions you performed (except those not allowed by the Capture &amp; Playback functionality) are stored in the log file.</li>
+</ol>
+
+<h4><a name="append"><span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+3">Append Record</span></a></h4>
+
+<p>To append a new session to an existing log file follow the steps<br>
+</p>
+
+<ol class="noleft">
+<li>Select <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+3">Append Record</span> <img src="../../images/capplay/tob03_06.gif" alt="" border="0" align="absmiddle"> button.
+Before starting the recording session, an automatic Playback of the current log file is performed, so that the recording session starts at the end of the current log file.<br>
+<br>
+</li>
+
+<li>All the actions you perform hereafter are recorded to the log file.<br>
+<br>
+</li>
+
+<li>When you want to stop the recording session, click <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+6">Stop</span> <img src="../../images/capplay/tob05_06.gif" alt="" border="0" align="middle"> button.<br>
+<br>
+</li>
+</ol>
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="to_06_doc.htm">Capture &amp; Playback</a></li>
+
+<li><a href="to_02_06.htm">Playback</a></li>
+</ul>
+</body>
+</html>
+

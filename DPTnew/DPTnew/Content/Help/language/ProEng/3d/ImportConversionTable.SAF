@@ -1,0 +1,210 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Pro/ENGINEER to think3 conversion table</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<STYLE type="text/css">.noleft{margin-left:22;}</STYLE>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+<H2>Pro/ENGINEER to think3 conversion table</H2>
+
+<P>Here is a general conversion table showing how Pro/ENGINEER entities are mapped to the ones of <b>think<font color="#FF0F00">3</font></b> when converting a Pro/ENGINEER model to the <b>think<font color="#FF0F00">3</font></b> format.</P>
+
+<TABLE border="1" bordercolor="white" summary="">
+<THEAD>
+<TR>
+<TD bordercolor="navy" bgcolor="#DCDCDC"><B>Pro/ENGINEER entity</B></TD>
+<TD bordercolor="navy" bgcolor="#DCDCDC"><B>thin3 entity to which it is converted</B></TD>
+</TR>
+</THEAD>
+
+<TR>
+<TD bordercolor="navy">POINT</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">GEOM_COMPOSITE_CURVE</TD>
+<TD bordercolor="navy"><B>NURBS curve</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">BSPLINE_CURVE</TD>
+<TD bordercolor="navy"><B>NURBS curve</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">ELLIPSE</TD>
+<TD bordercolor="navy"><B>3D Ellipse</B> or <B>NURBS Curve</B>, if the relevant <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">CIRCLE</TD>
+<TD bordercolor="navy"><B>3D Arc</B> or <B>NURBS Curve</B>, if the relevant <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">LINE</TD>
+<TD bordercolor="navy"><B>3D Line</B> or <B>NURBS Curve</B>, if the relevant <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">PARABOLA</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">HYPERBOLA</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">INTERSECTION_CURVE</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">OFFSET_CURVE</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">COMPOSITE CURVE</TD>
+<TD bordercolor="navy"><B>Set of independent curves</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">GEOM_PLANE</TD>
+<TD bordercolor="navy"><B>Plane</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">CYLINDER</TD>
+<TD bordercolor="navy"><B>Cylinder</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">BSPLINE_SURFACE</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">SURF_OF_EXTRUSION</TD>
+<TD bordercolor="navy"><B>NURBS Curve</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">SURF_OF_REVOLUTION</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">OFFSET_SURFACE</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">CONE</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">SPHERE</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">TORUS</TD>
+<TD bordercolor="navy"><B>NURBS surface</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">SURF_FROM_CURVES</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">RULED_SURFACE</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">MANIFOLD_SOLID_BREP</TD>
+<TD bordercolor="navy"><B>Solid</B></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">INSTANCE</TD>
+<TD bordercolor="navy"><B>Instance component</B>, if the <B>Convert Hierarchy</B> <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">PART (.prt)</TD>
+<TD bordercolor="navy"><B>X-Reference component</B>, if the <B>Convert Hierarchy</B> <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">NAME</TD>
+<TD bordercolor="navy"><B>Component Name</B>, if the <B>Convert Hierarchy</B> <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">HIDDEN COMPONENT</TD>
+<TD bordercolor="navy"><B>Hidden component</B>, if the <B>Convert Hierarchy</B> <A href="../options.htm">option</A> is checked</TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">SUPPRESSED ASSEMBLY FEATURE</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">MISSING COMPONENT</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">COLOR</TD>
+<TD bordercolor="navy"><I>Converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">LAYER</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">FONT STYLE</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">WIDTH</TD>
+<TD bordercolor="navy"><I>Not converted</I></TD>
+</TR>
+
+<TR>
+<TD bordercolor="navy">BLANK</TD>
+<TD bordercolor="navy"><B>Hidden component</B></TD>
+</TR>
+</TABLE>
+
+<HR color="silver">
+</BODY>
+</HTML>
+

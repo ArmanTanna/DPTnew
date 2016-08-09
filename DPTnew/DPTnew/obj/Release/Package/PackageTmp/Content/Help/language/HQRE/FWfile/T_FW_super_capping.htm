@@ -1,0 +1,80 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(345,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2009t1" content="translate">
+<title>Super Capping</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td width="40"><img src="../../../images/HQRE/supper_capping.gif"><td align="left"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span> command enables you to generate <i>High Quality</i> capping surfaces by adhering to a set of input constraints. These constraints provide the reference for the shape of the surface. During the surface generation, high priority is given to get <i>Class A</i> surfaces which preserve the mood of the input data and at the same time satisfy the input constraints <i>as much as possible</i>.</p>
+
+<p>Being a reverse engineering tool, the source of input for constraints is usually a <i>mesh data</i> or <i>point cloud data</i> over which the surface is to be generated. Additionally, it is also possible to fill <i>islands</i> or <i>holes</i> present in an existing surface, or to create surfaces <i>through curves</i>. An example would be covering a wireframe structure with surfaces.</p>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span> drop-down list in the selection list is used to specify the type of input data to be used for the surface generation. Using the available options, you can specify boundary constraints (that define the boundary shape of the surface) and internal constraints (that define the form of the surface). Depending on selection made for <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+136">Constraint</span>, more options will be available in the selection list to provide input for the source data.</p>
+
+<p>It is possible to define the inherent form of the surface by making the required selection from the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+137">Generic Shape</span> drop-down list under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+221">Bezier surface</span> and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+148">Saddle curvature</span> are among the various possible selections you can make to define the generic shape.</p>
+
+<p style="margin-bottom:0;">Optionally, you can select the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+18">Smart Domain</span> check box to define the surface domain that will complement the form of the generic shape.</p>
+
+<ul class="noleft">
+<li>When selected, the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+53">Type</span> drop-down list is displayed in which you can select the untrimmed form of the capping surface.</li>
+
+<li>When cleared, no specific form is applied.</li>
+</ul>
+
+<p>The use of <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+10">No. of Steps</span> is recommended when the progressive approach is applied to reach the result. It takes longer time but generally provides a higher quality results.</p>
+
+<p>While generating the surface it is not always practical to fully satisfy all the requested constraints as it might result in waviness in the surface (for example, in cases where excess noise is present in the <i>point cloud data</i>). In such a case, it is necessary to provide a tolerance value greater than the noise to get a smooth surface. The various tolerance values can be specified in the <span class="UI_OPTION" id="idd_dialog_gm_tol2.msg+idd_dialog_gm_tol2+1">Precision</span> dialog box displayed by selecting the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span> option in the selection list.</p>
+
+<p>The surface generated by <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span> is not bounded to have a limited number of edges. Hence, once you have identified a mesh-area that should be covered by a single surface, there is no need to be concerned about the number of edges the surface will generate.</p>
+
+<p>The other <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span> commands help you in analyzing and preprocessing the source data to be used for <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7745">Super Capping</span>.</p>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><b><a href="../HWfile/T_HW_super_capping.htm">Create a Super Capping Surface</a></b></li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_HQRE.htm">Overview on <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span></a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

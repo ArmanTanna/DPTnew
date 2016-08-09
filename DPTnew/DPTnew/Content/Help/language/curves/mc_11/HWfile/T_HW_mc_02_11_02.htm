@@ -1,0 +1,168 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Modifying the tangency conditions at the endpoints (curve interpolation points)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Modifying the tangency conditions at the endpoints</h4>
+
+<p class="notop">To modify the tangency condition at the end points when editing a curve with the <a href="../FWfile/T_FW_mc_11.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+80">Curve through Interpolation Points</span></a> command, you can proceed in one of the following ways:</p>
+
+<ul class="noleft">
+<li><b>To move the end point leaving the tangency condition as it is</b>:<br>
+Click on the tangent vector in a position close to the end point. Drag the end point to the new position and release the mouse button.<br>
+<br>
+<img border="1" src="../../../../images/modcur/mc_11/v5_free.gif"><br>
+<br>
+</li>
+
+<li><b>To modify the tangent vector applying the current</b> <b>Rule</b>: 
+
+<ul class="noleft">
+<li>Set the current rule: 
+
+<ul class="noleft">
+<li>Click <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span></li>
+
+
+<li>Select the desired option in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+101">Rule</span> drop-down list</li>
+
+</ul>
+</li>
+
+<li>Right-click on the tangent vector and select <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1617">Apply End Condition Rule</span><br>
+
+<i>or</i></li>
+
+<li>Click on the tangent vector middle way between the selected end point and its middle point. The current <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+101">Rule</span> will be applied: 
+
+
+<ul class="noleft">
+<li><b>Natural</b>&nbsp;&#151;&nbsp;the section of the curve near the end point has null curvature: it coincides with the tangent to the spline at the end point<br>
+<br>
+<img border="1" src="../../../../images/modcur/mc_11/v5_applycurrentrule.gif"><br>
+<br>
+</li>
+
+<li><b>Circular</b>&nbsp;&#151;&nbsp;the section of the curve near the end point coincides with a circle passing through the three interpolation points nearest to the end point</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+469">Quadratic</span>&nbsp;&mdash;&nbsp;the section of the curve near the end point coincides with the curve of degree 2 through the three interpolation points nearest to the end point.</li>
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+104">Cubic</span>&nbsp;&mdash;&nbsp;the section of the curve near the end point has the shape of the cubic curve through the four interpolation points nearest to the end point.</li>
+
+</ul>
+</li>
+</ul>
+</li>
+
+<li><b>To modify the tangent vector direction, while keeping its magnitude unchanged</b>:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li>Right-click on the tangent vector and select <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1615">Set Tan Direction</span><br>
+
+<i>or</i></li>
+
+<li>Click on the tangent vector close to its middle point. The tangent vector starts moving along as you move the mouse. Click in the position defining the new desired direction for the tangent vector.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci13_11.gif"></li>
+</ul>
+
+<br>
+&nbsp;</li>
+
+<li><b>To modify the tangent vector magnitude, while keeping its direction unchanged</b>:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li>Right-click on the tangent vector and select <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1616">Set Tan Magnitude</span> <i>or</i></li>
+
+
+<li>Click on the tangent vector middle way between its middle point and its far end point. The tangent vector extension changes as you move the mouse. Click in the position defining the new desired length.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci14_11.gif"></li>
+</ul>
+
+<br>
+&nbsp;</li>
+
+<li><b>To modify both direction and magnitude of the tangent vector</b>:<br>
+&nbsp; 
+
+<ul class="noleft">
+<li>Right-click on the tangent vector and select <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1614">Set Tangent</span><br>
+
+<i>or</i></li>
+
+<li>Click on the tangent vector close to its far end point. The tangent vector starts moving along as you move the mouse. Click in the position defining the new desired direction and magnitude for the tangent vector.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci15_11.gif"></li>
+</ul>
+
+<br>
+&nbsp;</li>
+</ul>
+
+<p>You can modify the tangent vectors of more than one curve contemporarily, so that they become either parallel or with the same magnitude or even both parallel and with the same magnitude.<br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="25"><b>1</b></td>
+<td>Select the two curves and apply the <a href="../FWfile/T_FW_mc_11.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+80">Curve through Interpolation Points</span></a> command.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Select the first and the second vector (holding down the <b>SHIFT</b> key)</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Click: 
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>Middle way between the end point and the middle point to apply the current <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+101">Rule</span> (shortcut menu: 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1617">Apply End Condition Rule</span>).</li>
+
+
+<li>Close to the middle point of the second vector to change the magnitude of the first vector to the one of the second (shortcut menu: <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1616">Set Tan Magnitude</span>).</li>
+
+
+<li>Middle way between the middle point and the far end point of the second vector to change the direction of the first vector to the one of the second (shortcut menu: <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1615">Set Tan Direction</span>).</li>
+
+
+<li>Close to the far end point of the second vector to change both the direction and the magnitude of the second vector to the ones of the first (shortcut menu: <span class="UI_COMMAND" id="tdesign.msg+_EK_ALL_+1614">Set Tangent</span>).</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

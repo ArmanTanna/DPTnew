@@ -1,0 +1,162 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(499,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Curve Tension</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1109">Curve</span><img src="../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+7890">Tension</span> </p>
+<hr color="#63a9d8">
+</table>
+
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+1">Curve Tension</span> command enables you to modify a contour&nbsp;&#151;&nbsp;that is: a chain of consecutive curves&nbsp;&#151;&nbsp;by changing its <i>tension</i> value.</p>
+
+
+<p style="margin-bottom:0;margin-top:0;"><i>Tension</i> is a characteristic of a curve related to curvature and controlled through a real value, in our system varying from -1 to +1:</p>
+
+<ul class="noleft">
+<li class="prel">The higher the tension value in a certain region, the lower the curvature (and obviously the higher the radius of curvature).</li>
+
+<li class="prel">The lower the tension value in the same region, the higher the curvature (and the higher the radius of curvature).</li>
+</ul>
+
+<p>To modify the tension of a contour, you can proceed as follows.</p>
+
+<ol style="margin-left:28;margin-top:0;margin-bottom:0;">
+<li><a name="Curves"></a>Select the set of curves of the contour (<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+5">Curves</span>).</li>
+
+
+<li><a name="SameContinuity"></a>To set the same continuity conditions at both ends of the curve check the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+37">Same Continuity</span> box. Uncheck it to differentiate it, in which case you will have to specify the 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+28">Start Continuity</span> and the 
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+29">End Continuity</span> values.</li>
+
+
+<li>Select the continuity conditions you want to set, which can be: <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+31">Position</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+32">Tangency</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+33">Curvature</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+34">Torsion</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+35">Smooth curvature</span>, 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+36">Curvature plot curvature</span>. See "
+<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm">Continuity Types</a>" for details.</li>
+
+
+<li>Select the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+6">Projection Plane</span> (see "
+<a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>" for details). Take into account the modification will be performed according to the following scheme: 
+
+
+<ul class="noleft">
+<li>The set of selected curves is first projected onto the selected plane.</li>
+
+<li>The tension modification is applied to the projected contour.</li>
+
+<li>The curves thus obtained are then re-projected onto a temporary support surface based on the selected original contour so as to get the final 3D contour.<br>
+</li>
+</ul>
+</li>
+
+<li><a name="ZoneParameters"></a>Under the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+83">Zone Parameters</span> node, you can define the tension parameters for a 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+10">Start Zone</span> and/or for an 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+11">End Zone</span>.<br>
+
+ In both cases, first of all you can define the part of the curve to be affected either by dragging a specific handle or by supplying the corresponding curve parameter value in the associated mini-dialog box (<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+20">Start u</span> and 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+21">End u</span> respectively).<br>
+
+<br>
+<img border="1" src="../images/ModTens01.gif"><br>
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+10">Start Zone</span>/ 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+11">End Zone</span> drop-down lists, select: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+14">None</span></td>
+
+<td>No start zone is defined</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+15">Preserved</span></td>
+
+<td>To prevent that part of the curve from being affected by the modification.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+16">Controlled</span></td>
+
+<td>To apply the modification to that part of the curve.<br>
+Please note that all the remaining parts of the curve (the ones not included in the start/end zone), will be affected by the modification but without being controlled.</td>
+</tr>
+</table>
+</li>
+
+<li><a name="StartTension"></a>Define the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+25">Start Tension Value</span>/ 
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+26">End Tension Value</span>. This value is a real number which can vary from -1 to +1: use negative values to decrease the tension (thus increasing the curvature) or positive values to increase tension (thus decreasing curvature).</li>
+
+
+<li><a name="Preview"></a>In order to assess the result before confirming it, select the preview button ( <img src="../../../images/sl_new/b_sl_preview.bmp" align="absmiddle"> )<br>
+<br>
+<img border="1" src="../images/ModTens02.gif"><br>
+<br>
+The result you obtained can be better assessed if you display the curvature plot:<br>
+<br>
+<img border="1" src="../images/ModTens03.gif"><br>
+<br>
+The execution is optimized, so as to get the best result possible, thus, sometimes, requiring some time to complete. Because of this optimization, though, take also into account the actual results you obtain might differ from the ones you expected.<br>
+<a name="Optimization"></a>Anyway, you can change the optimization parameters by setting, under the specific <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+80">Optimization Parameters</span> node, the following: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+75">Max. No. of loops</span></td>
+
+<td>The maximum number of iterations. Decrease the number to reduce the execution time (but the result will generally be worse)</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+76">Flexibility</span></td>
+
+<td>Increase this number to better optimize the result.</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

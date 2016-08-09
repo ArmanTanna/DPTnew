@@ -1,0 +1,110 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Use external entities as references in the creation of your 2D profile geometry</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE>.noleft{margin-left:22; margin-top:0;}</STYLE>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Use external entities as references in the creation of your 2D profile geometry</h3>
+
+<p>Referencing entities that are external to your profile is a very common and important action when creating profiles.</p> 
+
+<p>There are three ways to reference external entities:</p> 
+<ol class="litleft">
+<li><b><a href="#a">Project points onto the Work Plane (i.e. your sketching plane)</a></b>
+<li><b><a href="#b">Add constraints to external entities</a></b>
+<li><b><a href="#c">Project solid edge using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7147">Curve on Edge</span> command</a></b>
+
+</ol>
+
+<br>
+<h4><a name="a"></a>Project points onto the Work Plane (i.e. your sketching plane)</h4>
+
+<p>To be able to select 2D or 3D entities not on the Work Plane and have those reference positions projected onto the Work Plane, you must have the mouse input set to <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7657">Projected onto Work Plane</span> (select the corresponding button, you can also set it in the 
+<span class="UI_OPTION" id="\idd_preferences.msg+idd_preferences+68">Mouse Input</span> area of the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_INPUT.htm">
+<span class="UI_OPTION" id="\idd_preferences.msg+idd_preferences+57">Input</span></a> category of the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>).
+
+<br>
+<br>
+<IMG border=1 SRC="images/Projected.gif"></p>
+
+<p>These reference points will be projected perpendicularly to the Work Plane as you create your profile geometry but will not be locked to these points.</p>
+
+<p>In the case below you could project points onto the Work Plane from the base of a tapered solid.</p>
+
+<ul class="noleft">
+<li>Snapping to this point will result in projecting that point onto the current Work Plane.
+<P><IMG border=1 src="images/profiles_10.gif"></P>
+<li>Snapping to four "external vertices" will create a new profile. Coincident constraints are automatically added.
+<P><IMG border=1 src="images/profiles_11.gif"></P>
+</ul>
+
+<br>
+<h4><a name="B"></a>Add constraints to external entities</h4>
+
+<p>To select external reference points, after the initial profile has been created, you can use constraints like<a  href="../sketcher/FWfile/T_FW_sk_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4587">Coincidence</span></a>,
+
+<a  href="../sketcher/FWfile/T_FW_sk_04.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4583">Tangency</span></a> and so on. The 
+
+<span class="UI_OPTION" id="\idd_preferences.msg+idd_preferences+68">Mouse Input</span> setting (shown above) does not affect these commands.</p>
+
+
+<p>In the case below, a rectangle is freehand sketched first and then two coincident constraints are added.</p>
+
+<ul class="noleft">
+<li>Freehand sketch.
+<P><IMG border=1 src="images/profiles_12.gif"></P>
+<li>Coincident constraints added.
+<P><IMG border=1 src="images/profiles_13.gif"></P>
+</ul>
+
+<br>
+<h4><a name="C"></a>Project solid edge using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7147">Curve on Edge</span> command</h4>
+
+
+<p>In addition, you can project external entities onto the profile plane when you use, in the profile environment, the <a  href="../sketcher/FWfile/T_FW_UseEdge.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7147">Curve on Edge</span></a> command.</p>
+
+
+<ul class="noleft">
+<li>Projecting the circular edge with the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7147">Curve on Edge</span> command creates a circle.
+
+<P><IMG border=1 src="images/profiles_14.gif"></P>
+</ul>
+
+<p>When projecting external entities onto the Work Plane, you must be careful of the relative angle of the external entity. Remember that external geometry is projected perpendicularly to the Work Plane!</p>
+
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></A></LI>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

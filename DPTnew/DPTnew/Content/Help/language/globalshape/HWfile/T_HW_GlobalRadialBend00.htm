@@ -1,0 +1,152 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Using the GSM Radial Bend command and its different methods</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Using the GSM Radial Bend command and its different methods</h3>
+<p>This article will provide an explanation about the two methods of the <a  href="../FWfile/T_FW_GlobalRadialBend.htm"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+193">GSM Radial Bend</span></a> command. All the images refer to a simple model you can find in file "GRB_Explain.e3"
+<BR><BR><img src="../../../images/globalshape/GRB-EXP-00a.gif" border="1"><BR><BR>
+<ul class="noleft">
+<li><a href="#Introduction"><b>Goal of this article</b></a></li>
+<li><a href="#Axis"><b>Axis of revolution and bend line</b></a></li>
+<li><a href="#Two"><b>The two available methods</b></a></li>
+<li><a href="#Domain"><b>Domain of the controlled modification</b></a></li>
+<li><a href="#Tips"><b>Tips on the use of the command: conditions at the cutting lines</b></a></li>
+</ul>
+
+
+<h4><a name="Introduction"></a>Goal of this article</h4>
+<p style="margin-top:0;">As the goal of this article is to give a general explanation on the command methods, it will not go into details as to the step-by-step actions you will have to do. For such details see:
+<ul class="noleft">
+<li><a  href="T_HW_GlobalRadialBend03.htm">"Applying a radial bending to a solid - 1"</a>
+<li><a  href="T_HW_GlobalRadialBend01.htm">"Apply a radial bending to a solid - 2"</a>
+<li><a  href="T_HW_GlobalRadialBend02.htm">"Get acquainted with the GSM Radial Bend command".</a>
+</ul>
+<p>Anyway, just as a quick summary the command behavior, when applying a radial bending to a set of entities you will generally have to:
+<ol class="litleft">
+<li><div style="font-weight: normal">Select the entities to be modified</div></li>
+<li><div style="font-weight: normal">Define the <b>Axis of revolution</b> (an existing <b>Line</b> to be selected or <b>2 Points</b> to be specified)</div></li>
+<li><div style="font-weight: normal">Define the <b>Bend line</b> (an existing <b>Line</b> to be selected or <b>2 Points</b> to be specified)</div></li>
+<li><div style="font-weight: normal">Select the method to apply. In the <b>Perpendicular</b> drop-down list under <b>More Options</b>, choose <b>Axis of revolution</b> or <b>Bend line</b></div></li>
+<li><div style="font-weight: normal">Define the controlled modification values (<b>Length</b>, <b>Angle</b>, <b>2nd Length</b>).</div></li>
+</ol>
+
+<h4><a name="AXis"></a>Axis of revolution and bend line</h4>
+<p style="margin-top:0;">As you have already seen, in order to apply the controlled modification to the selected entities you will have to specify an <b>Axis of revolution</b> (1) and a <b>Bend line</b> (2).<BR><BR><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-01.gif"><br><br>
+The bending controlled modification will be propagated around the chosen axis of revolution (1), while the <i>domain</i> of the controlled modification&nbsp;&#151;&nbsp;i.e.: <i>the portion of the selected entities which will actually be affected by the controlled modification</i>&nbsp;&#151;&nbsp;will be defined by the bend line (2).
+<br>
+As shown in the illustration below, if the bend line (2) is not coplanar to the axis of revolution (1), what the command will actually use is its projection onto the plane defined by the axis of revolution and the first end point of the bend line (3).
+<BR><BR><img src="../../../images/globalshape/GRB-EXP-00.gif" border="1"><BR><BR>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Some conditions</b>
+<br>The axis of revolution and the bend line must satisfy the following conditions.
+<ul class="noleft">
+<li>The bend line must not intersect the direction of the axis of revolution.</li>
+<li>The bend line must not be perpendicular to the plane identified by the axis of revolution and the firts end point of the bend line.</li>
+<li>When the <b>Perpendicular</b> option is set to <b>Axis of revolution</b>, the Bend line must not be perpendicular to the Axis of revolution.</li>
+</ul>
+If one of the above mentioned situations occurs, the <b>Show Warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif" align="absmiddle"> ) shows up and a proper message is displayed if you click on the button.
+</td></tr></table>
+<h4><a name="Two"></a>The two available methods</h4>
+<p style="margin-top:0;">There two different methods you can make the command work according to. You can select the method in the <b>Perpendicular</b> drop-down list under <b>More Options</b>, you can determine whether to apply the controlled modification in such a way that:
+<ul class="noleft">
+<li>Choose <b>Axis of revolution</b> if you want all the entities that are perpendicular to the direction selected as the axis of revolution to remain perpendicular to it after applying the controlled modification</li>
+<li>Choose <b>Bend line</b> if you want all the entities that are perpendicular to the direction selected as the bend line to remain perpendicular to it after applying the controlled modification.
+</ul>
+Before focusing on how to actually use the command (as described in "<a href="#Tips">Tips on the use of the command: conditions at the cutting lines</a>"), it is necessary to see something about the domain of the controlled modification.<br>&nbsp;</p>
+
+<h4><a name="Domain"></a>Domain of the controlled modification</h4>
+<p style="margin-top:0;">Choosing a certain method rather the other one also affects the domain of the controlled modification, that is a closed area rotated about the axis of revolution. As you can see in the illustration below:<br>&nbsp;
+<ul class="noleft">
+<li>When the <b>Axis of revolution</b> method is selected, the area is delimited by the lines perpendicular to the axis of revolution which are through each of the bend line end points.<br>&nbsp;
+<li>When the <b>Bend line method is selected</b>, the area is delimited by the perpendicular lines to the bend line itself and through its end points (see the illustration below).</ul><br>
+<Table>
+<tr valign="top">
+<td width="200"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-AXIS.gif"></td>
+<td width="200"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-BEND.gif"></td>
+</tr>
+<tr valign="top">
+<td><b>Perpendicular</b> to:<br> <b>Axis of revolution</b></td>
+<td><b>Perpendicular</b> to:<br> <b>Bend line</b></td>
+</tr>
+</table>
+<p>Depending on the chosen method (i.e.: on the different domain), there will also be differences in the ways the selected entities are split. In addition the parts of them that are outside the domain will be modified or not depending on the <b>Status</b> options selected at the <b>First</b> and <b>Second</b> cutting lines, as described in <a  href="T_HW_GMbend02.htm">"Apply constraints along the cutting lines"</a>.</p>
+<p>If the bend line is parallel to the axis:
+<br><br><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-PAR.gif"><br><br>
+then the domain of the controlled modification will be the same whichever of the two methods you select.
+<br><br><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-PAR_2D.gif"><br>&nbsp;
+<h4><a name="Tips"></a>Tips on the use of the command: conditions at the cutting lines</h4>
+<p style="margin-top:0;">Now suppose the bend line is parallel to the axis of revolution (which should be the most common real-world situation). As already seen, in this case the domain is always the same, no matter which method you may have chosen.
+<br>Now, suppose you have set the <b>Status</b> constraint to <b>Rotation</b> both at the <b>First</b> and at the <b>Second</b> cutting line, as in the following illustration:<br>&nbsp;
+<Table>
+<tr valign="top">
+<td width="225"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-AXIS-ROT.gif"></td>
+<td width="225"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-BEND-ROT.gif"></td>
+</tr>
+<tr valign="top">
+<td class="smallfont"><b>Perpendicular</b> to: <b>Axis of revolution</b><br>
+<b>Status</b> = <b>Rotation</b> at both cutting lines
+</td>
+<td class="smallfont"><b>Perpendicular</b> to: <b>Bend line</b>
+<br>
+<b>Status</b> = <b>Rotation</b> at both cutting lines</td>
+</tr>
+</table><br>
+Then suppose you have set the constraints to <b>Fixed</b> at the <b>First</b> and to <b>Free</b> at the second cutting line:<br>&nbsp;
+<Table>
+<tr valign="top">
+<td width="200"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-AXIS-F.gif"></td>
+<td width="200"><IMG border=1 SRC="../../../images/globalshape/GRB-EXP-BEND-F.gif"></td>
+</tr>
+<tr valign="top">
+<td class="smallfont"><b>Perpendicular</b> to: <b>Axis of revolution</b><br>
+<b>Status</b> = <b>Fixed</b> at <b>First</b> cutting line, <br><b>Free</b> at <b>Second</b> cutting line
+</td>
+<td class="smallfont"><b>Perpendicular</b> to: <b>Bend line</b>
+<br>
+<b>Status</b> = <b>Fixed</b> at <b>First</b> cutting line, <br><b>Free</b> at <b>Second</b> cutting line</td>
+</tr>
+</table>
+<p>When the method is <b>Perpendicular</b> to <b>Axis of revolution</b>, since any entity that was perpendicular to the axis is still like that after the controlled modification, the borders of the pipe (plane surface) are still perpendicular to the axis of revolution.
+<br>In this method, the ratio between the distance from the original bend line and its bent version is maintained. This means that if a point was in the middle between the axis and the line, it will be in the middle in the result as well. As a consequence, in the example you can see the thickness along the pipe will vary: it will be thinner in the middle because the result line (in red) comes closer to the axis.
+</p>
+<p>On the other hand, when the method is <b>Perpendicular</b> to <b>Bend line</b>, everything that was perpendicular to the bend line is still like that after the controlled modification. This is why, as you can see in the example, the section of the border is still perpendicular to the bend line.<br>You can also notice the thickness is uniform, but this is also partly because the bending line was parallel to the pipe. This method maintains the distance between the bending line and any point along the whole section.<br> This is the reason why an <b>Axis clearance</b> option is available with this method: the points on the axis belong to all sections, so there would be a problem when trying to move them. The <b>Axis clearance</b> enables you to set a proper distance value to avoid this problem.</p>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="T_HW_GMbend02.htm"><b>Applying constraints along the cutting lines</b></a>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

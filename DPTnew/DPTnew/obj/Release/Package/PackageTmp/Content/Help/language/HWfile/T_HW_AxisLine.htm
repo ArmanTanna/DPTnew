@@ -1,0 +1,168 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Job: How to Define an Axis or a Line</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.ver8{
+font-family: Verdana;
+font-size: 8pt;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+
+
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+<a name="top"></a> 
+
+<h3>How to Define an Axis or a Line</h3>
+
+<p>Several different methods are available to define a line, an axis or a <i>direction</i>:</p>
+
+<table>
+<tr valign="top">
+<td width="70"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span></td>
+
+<td>To define the direction as the one of an existing line to be selected just by clicking on it.<br>
+<span id="TWOD">A 
+<a href="mk:@MSITStore:forcus.chm::/language/options/inputoutput/jsoptions/UseXYZ.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1761">Set direction/axes using X, Y, Z</span></a>check box is available in the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_INPUT.htm">
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+57">Input</span></a> category of the 
+<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span> so as to enable you to choose how to define direction/lines as parallel to one of the axes of the Work Plane.</span> 
+
+
+<ul class="noleft">
+<li id="HIDELI">When the check box is not selected you can define the direction as parallel to one of the axes of the Work Plane just by choosing the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> option and by clicking on one of them as displayed in the image below.<br>
+
+<br>
+<img border="1" src="../HWfile/images/WPSelectAxis.gif"><br>
+<br>
+In this case by default the actual line will be the one through the origin of the system. However, you can change the origin by resetting the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span> selector and by specifying another point the line must be through, though retaining its direction.<br>
+
+In this case the drop-down list will not include the X,Y,Z choices. Yet, once a Work Plane direction has been selected, the corresponding letter <b>(X)</b>,<b>(Y)</b>,<b>(Z)</b> will be displayed adjacent to <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span>.</li>
+
+
+<li id="HIDELI">When the check box is selected you will still be able to use the interactive direction described above, but the direction/axis definition drop-down list will include: 
+
+<table style="margin-bottom:0;">
+<tr valign="top">
+<td width="225"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+94">Parallel to X and through point</span></td>
+
+<td>To define the direction as parallel to the X axis of the Work Plane and through a point to be specified.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+95">Parallel to Y and through point</span></td>
+
+<td>To define the direction as parallel to the Y axis of the Work Plane <span id="HIDETD">and through a point to be specified.</span></td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+96">Parallel to Z and through point</span></td>
+
+<td>To define the direction as parallel to the Z axis of the Work Plane and through a point to be specified.</td>
+</tr>
+</table>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span></td>
+
+<td>To define the direction as the one identified by two points to be selected.</td>
+</tr>
+</table>
+
+<p>When appropriate, all or some of the following options will also be available.</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+168">Tangent to curve</span></td>
+
+<td>To define the direction as the one of the tangent to the selected curve in the point used to select it <span id="TWOD">(<a href="#Frenet">*</a>)</SPAN>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+169">Normal to curve</span></td>
+
+<td>To define the direction as the one of the normal to the selected curve in the point used to select it <span id="TWOD">(<a href="#Frenet">*</a>)</SPAN>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+170">Binormal to curve</span></td>
+
+<td>To define the direction as the one of the binormal to the selected curve in the point used to select it <span id="TWOD">(<a href="#Frenet">*</a>)</SPAN>.</td>
+
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+171">Normal to surface</span></td>
+
+<td>To define the direction as the one of the normal to the selected surface in the point used to select it.</td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+172">First tangent to surface</span></td>
+
+<td>To define the direction as the one of the first tangent (U parametric direction) to the selected surface in the point used to select it.</td>
+</tr>
+
+<tr valign="top" id="HIDETR">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+173">Second tangent to surface</span></td>
+
+<td>To define the direction as the one of the second tangent (V parametric direction) to the selected surface in the point used to select it.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<p class="ver8" style="margin-bottom:0;margin-top:0;" id="HIDEP"><a name="Frenet"></a>(*) Let <font face="Symbol" size="+1">g</font>=<font face="Symbol" size="+1">g</font>(<i>u</i>) be a 3D curve. The trihedron known as Frenet frame (or reference) is the one identified by (<b>t</b>(<i>u</i>), <b>n</b>(<i>u</i>), <b>b</b>(<i>u</i>)) where:<br>
+<img src="../../images/general/FRENET001.gif" align="absmiddle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is the unit tangent<br>
+<img src="../../images/general/FRENET002.gif" align="absmiddle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is the unit normal<br>
+<img src="../../images/general/FRENET003.gif" align="absmiddle">&nbsp; is the unit binormal.<br>
+<br>
+These definitions do not depend on the specific parameterization. The three vectors identify three planes at each point of the curve:</p>
+
+<ul class="noleft">
+<li class="ver8" id="HIDELI">The <i>osculating plane</i> is the plane spanned by <b>t</b> and <b>n</b></li>
+
+<li class="ver8" id="HIDELI">The <i>normal plane</i> is the plane spanned by <b>n</b> and <b>b</b></li>
+
+<li class="ver8" id="HIDELI">The <i>rectifying plane</i> is the plane spanned by <b>t</b> and <b>b</b>.</li>
+</ul>
+
+<hr color="silver" id="HIDEHR">
+</body>
+</html>
+

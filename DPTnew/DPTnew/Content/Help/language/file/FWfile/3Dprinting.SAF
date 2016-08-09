@@ -1,0 +1,133 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(22,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="XXXXXX">
+<meta name="2008t1" content="translate">
+<title>3D Printing</title>
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="file.msg+GRP-ID+messagenumber">File</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="file.msg+GRP-ID+messagenumber">3D Printing</span></p>
+<hr color="#63a9d8">
+
+</table>
+
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note on the Operating System</b>
+<br>
+If the OS version is anterior to Windows 8.1, the following message appears when entering the command.
+<br><br><img src="3Dprinting/OS_message.jpg"><br><br>
+The <a href="#3DP"><b>3D Print</b></a> <b>Mode</b> (<a href="#3DP">see below</a>) of this command cannot be used on OS versions older than Windows 8.1.
+</td></tr></table>
+<p>If a 3D printer is installed on your computer, the <b>3D Printing</b> command enables you to print an object directly from ThinkDesign using the 3D printing support in Windows 8.1.
+</p>
+<p>After starting the command, select the solids or meshes you want to print. The preview of the meshed entities is displayed.<br><br>
+<img border=1 src="3Dprinting/meshed_entity.jpg">
+</p>
+<p>In the <b>Mode</b> drop-down list, select the type of printing you want to perform:</p>
+<table>
+<tr valign="top">
+<td valign="top"><a name="3DP"></a><b>3D Print</b></td>
+<td valign="top">This mode is available only if the OS is Windows 8.1 or later. The entities are directly sent to the 3D printer.</td>
+</tr>
+<tr valign="top">
+<td valign="top"><b>Print to file</b></td>
+<td valign="top">The entities are saved in a file of type STL (ASCII or binary), AMF or 3MF depending 		on your choice.</td>
+</tr>
+<tr valign="top">
+<td valign="top"><b>Create mesh</b></td>
+<td valign="top">The entities are converted to meshes that are created as ThinkDesign mesh 			entities.</td>
+</tr>
+</table>
+<p>If the check-box <b>Layer for supports</b> is checked, the entities lying in the selected layer are considered as supports by the 3D printer or in the AMF/3MF saved file.
+</p>
+<p>When the <b>Mode</b> is <b>3D Print</b>, the Build volume can be displayed in the graphics area. It can be positioned onto the origin or so that the entity to print is XY centered and on the plate.
+A message warns you if the entity to print is partially or completely out of the build volume.
+
+The <b>Properties</b> button enables you to change the settings of the 3D printer.
+<br><br><img border=1 src="3Dprinting/build_volume.jpg"><br><br>
+</p>
+<p>You are enabled to navigate forward and backward among the selected entities using the arrows (<img src="3dprinting/arrows.jpg" align="absmiddle">) of the common ThinkDesign navigator.
+</p>
+<p>Once positioned on the listed entity:
+</p>
+<ul class="noleft">
+<li>An automatic zoom is done on it.</li>
+<li>Under <b>Statistics</b>, the numbers of nodes and triangles of the current meshed entity are displayed.
+</li>
+</ul>
+<p style="margin-bottom:0;">The <b>Printability checks</b>:</p>
+<table>
+<tr valign="top">
+<td valign="top"><b>Manifold</b></td>
+<td valign="top">The meshed entity must be manifold to be printed. If it is not, the non-manifold edges are highlighted in pink on the mesh preview.
+<br><br><img border=1 src="3dprinting/manifold.jpg"></td>
+</tr>
+<tr valign="top">
+<td valign="top"><b>Open</b></td>
+<td valign="top">The meshed entity must be watertight to be printed. If it is not, the open edges are 	highlighted in green on the mesh preview.
+<br><br><img border=1 src="3dprinting/open.jpg"><br><br>&nbsp;</td>
+</td>
+</tr>
+</table>
+<p>Under <b>Options</b>, it is possible to:</p>
+<ul class="noleft">
+<li>Specify that the current entity is a support even if it is not in the layer dedicated to supports.
+</li>
+<li>Show/Hide the current selected entity.
+</li>
+<li>Show/Hide the mesh preview of the current selected entity.
+</li>
+</ul>
+<p>Under <b>More Options</b>, change the tessellation parameters used to mesh the selected entities.
+If <b>Use current tessellation</b> is checked, the selected entity will be meshed using its tessellation parameters. Otherwise the user can tune the following parameters:
+</p>
+<table>
+<tr valign="top">
+<td valign="top"><b>Tolerance</b> of tessellation.
+</td>
+</tr>
+<tr valign="top">
+<td valign="top"><b>Show discontinuities</b> (the tessellation to create the mesh takes into account the cusps on the solid).
+</td>
+
+</tr>
+<tr valign="top">
+<td valign="top"><b>Maximum edge length</b> of the tessellation</td>
+
+</tr>
+<tr valign="top">
+<td valign="top"><b>Skip planar surfaces</b> (to apply the maximum edge length only on curved surfaces and not on the planar ones).
+</td>
+</table>
+<p>When a tessellation parameter has been changed, <b>Update Mesh</b> using the button (<img src="3dprinting/Update.jpg" align="absmiddle">) on top of the selection list.
+</p>
+<hr color="silver">
+</body>
+</html>

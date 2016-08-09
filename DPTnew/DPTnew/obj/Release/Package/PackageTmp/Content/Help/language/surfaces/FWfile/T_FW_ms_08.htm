@@ -1,0 +1,138 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(502,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Surface through Control Points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/Frames.js">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1175">Control Points</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Modify Surface through Control Points</b></i> </td>
+ --></tr>
+</table>
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span> command provides an environment within which you can modify surfaces by governing their <a href="../../Notes/T_gencpt-03.htm">control points</a>.</p>
+
+<p style="margin-bottom:0;"><a name="CTX_Mode_SRF"></a>In the <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list you can select the type of action to perform.</p>
+
+<table style="margin-bottom:0;">
+<tr valign="top">
+<td width="140"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+57">Edit control points</span></td>
+<td>Enables you to modify existing surfaces by handling their control points. There are a number of actions which can be easily performed on selected surfaces. 
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li><a href="../HWfile/T_HW_ms_02_08.htm">Interactively modify position and weight</a></li>
+
+<li><a href="../HWfile/T_HW_Constraints.htm">Set constraints on selected control points</a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_08_Continuity.htm">Control the surface continuity</a></li>
+
+<li><a href="../HWfile/T_HW_ms_01_08.htm">Apply geometric transformations to selected control points</a>.</li>
+
+<li><a href="../HWfile/T_HW_ms_02_Scale.htm">Apply a scale factor to a set of control points</a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_Flexibility.htm">Control the surface flexibility, in terms of degrees and continuity values</a></li>
+
+<li><a href="../HWfile/T_HW_ms_03_08.htm">Delete selected control points</a></li>
+
+<li><a href="../HWfile/T_HW_mirror_mode.htm">Applying mirror constraints to surface with respect to its virtual mirror</a></li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="140"><a href="../HWfile/T_HW_ms_04_08.htm"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+58">Add control points</span></a></td>
+<td>Enables you to add control points to existing surfaces, thus making the surfaces more flexible.</td>
+</tr>
+</table>
+
+<p><a name="CTX_MCP_SRF_SURFACES"></a>You need to select the surfaces to be modified for the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+30">Surfaces</span> selector.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Internal Undo/Redo</b><br>
+Every time you move a control point, it is considered as an achieved position of the curve. An internal <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button ( <img src="../../../images/general/InternalUndo.gif" border="0" align="absmiddle"> ) is available on top of the selection list to undo the change (up to 10 times).<br>
+
+As soon as you click the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button, your changes will be undone and the 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> button ( <img src="../../../images/general/InternalRedo.gif" border="0" align="absmiddle"> ) will show up on top of the selection list. If you click it, your former changes will be applied again.
+<br>
+<b>Virtual mirroring in previews</b><br>
+When the virtual mirroring mode is enabled (<a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_VIEW_PROPERTIES_ADVANCED.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+221">Enable</span></a> check box selected in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+382">View</span>- <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+245">Document Properties</span>), the <i>preview</i> of the resulting curves/surfaces will be displayed as mirrored. The control points will not be mirrored, because only the true objects can be modified and/or constrained.<br>
+ <br>
+<b>Deselection</b><br>
+It is not possible to deselect a single surface; within the editor the active objects are displayed as <i>previews</i> and thus not selectable. This is why you can only reset the entire selection and not the single &ldquo;elements&rdquo;.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>If the selected surface is not a NURBS, and the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box is selected, then you will be asked to convert it into a NURBS before applying the command. The conversion precision is controlled by the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+52">Tolerance:</span></a> parameter.</p>
+
+<p style="margin-bottom:0;">A set of <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+46">Quality checks</span></a> is also available, enabling you to study the shape of the resulting surface.</p>
+
+<br>
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ms_01_08.htm"><b>Apply geometric transformations to selected control points</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_Scale.htm"><b>Apply a scale factor to a set of control points</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_08.htm"><b>Edit Control Points</b></a></li>
+
+<li><a href="../HWfile/T_HW_KD.htm"><b>Use the Distribution law options</b></a></li>
+
+<li><a href="../HWfile/T_HW_Constraints.htm"><b>Set constraints on Control Points</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_Flexibility.htm"><b>Change the flexibility of a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_03_08.htm"><b>Remove Control Points</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_04_08.htm"><b>Add Control Points</b></a></li>
+
+<li><a href="../HWfile/T_HW_mirror_mode.htm"><b>Apply mirror constraints while surface editing</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Lasso.htm"><b>The Lasso selection method</b></a></li>
+
+<li><a href="../HWfile/T_HW_ms_02_08_Continuity.htm"><b>Controlling Surface Continuity</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

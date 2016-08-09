@@ -1,0 +1,274 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Virtual Mirroring</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel=stylesheet type="text/css">
+
+
+<style>.noleft{
+margin-left:22;
+margin-top:0;
+}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+  
+<h1>Virtual Mirroring</h1>
+
+<p>When working on a model with a symmetry plane, viewing the complete object may be useful to check the whole result but, if the model is a complex one, may as well result in slowing down performances since half of the geometry is not necessary to provide a correct representation of the model. For example, if you are designing a car, you might prefer to work on just half of it and to have a tool enabled to mirror the shaded image at no geometry cost. The virtual mirroring mechanism enables you to mirror a scene about a symmetry plane, thus displaying a "fake" image of the portion which is not actually there. Virtual mirroring can be enabled separately on each view, so that you can have different symmetry planes in different views.</p>
+<p style="margin-bottom:0;">To activate or deactivate the the virtual mirroring mechanism in the current view, you can:</p>
+<ul class="noleft">
+<li>Right-click on an empty zone of the graphics area with nothing selected and choose <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img  width="19" height="16" src="../../images/general/litarr.gif">
+
+
+
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7549">Virtual Mirror</span> or 
+
+
+
+<span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img  width="19" height="16" src="../../images/general/litarr.gif">
+
+
+
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7550">No Mirror</span> in the context menu.</li>
+
+
+
+
+<li>Select or clear the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1299">Enable</span> check box in the 
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+382">View</span>-
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the 
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+245">Document Properties</span>.</li>
+
+
+
+
+</ul>
+
+<p>A set of appropriate options is also available in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1298">Virtual mirror</span> area of the 
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+382">View</span>-
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the 
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+245">Document Properties</span>.<br>
+
+
+
+
+
+</p>
+
+<p><img  border=1 src="../images/ViewAdvanced.gif"><br>
+</p>
+
+<ul class="noleft" style='margin-top:0in' type="disc">
+<li>The above mentioned <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1299">Enable</span> check box enables you to turn the virtual mirroring mechanism on and off alternatively:</li>
+
+
+
+
+
+<ul class="noleft" style='margin-top:0in' type="circle">
+<li>When the check box is selected the virtual mirroring mechanism is enabled</li>
+<li>When the check box is not selected, the mechanism is disabled.</li>
+</ul>
+</li>
+</ul>
+
+
+<ul class="noleft">
+<li>In the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+384">Representation</span> drop-down list you can choose four different rendering modes for the mirrored entities, so as to enable you to differentiate the visualization of the mirrored part from the real one and easily distinguish which is which. 
+
+
+
+
+
+<table border="1" cellspacing="0" cellpadding="0" bordercolor="white" style="margin-top:4;"width="100%">
+<tr valign="top">
+<td>
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1300+1">Same as original</span>
+
+
+
+
+</td>
+<td width="218" valign="top" style='width:163.8pt;padding:0in 5.4pt 0in 5.4pt'>
+The mirrored entities will be displayed using the same rendering mode as the real ones
+</td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<p><img  width="144" height="106" src="../../../images/view/GRA525_image002.gif"></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1300+2">Dim wireframe</span>
+
+
+
+
+</td>
+<td width="218" valign="top" style='width:163.8pt;padding:0in 5.4pt 0in 5.4pt'>
+The mirrored entities will be displayed in wireframe mode with dim edges
+</td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<img  width="144" height="106" src="../../../images/view/GRA525_image003.gif">
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1300+3">Shaded view and dim wireframe</span>
+
+
+
+
+</td>
+<td width="218" valign="top" style='width:163.8pt;padding:0in 5.4pt 0in 5.4pt'>
+The mirrored entities will be displayed using the same rendering mode as the real ones, but with dim edges
+</td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<img  width="144" height="106" src="../../../images/view/GRA525_image004.gif">
+</td>
+</tr>
+
+<tr valign="top">
+<td>
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+1300+4">Shaded pattern and dim boundaries</span>
+
+
+
+
+</td>
+<td width="218" valign="top" style='width:163.8pt;padding:0in 5.4pt 0in 5.4pt'>
+The mirrored entities will be displayed using a shaded pattern and dim edges
+</td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<img  width="144" height="105" src="../../../images/view/GRA525_image005.gif">
+</td>
+</tr>
+</table>
+By selecting the <b>Color</b> button, a color palette is displayed, on which you can choose the color to use for the dim wireframe representation of the mirrored entities.<br>&nbsp;
+</li>
+
+<li>The <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1302">Show</span> check box enables you to control the visualization of the Virtual Mirror Plane:
+
+
+
+
+ 
+
+<table border="1" bordercolor="white" cellspacing="0" cellpadding="0" style="margin-top:4" width="100%">
+<tr valign="top">
+<td>When the check box is selected, the Virtual Mirror Plane is displayed
+ </td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<img  width="144" height="105" src="../../../images/view/GRA525_image005.gif">
+</td>
+</tr>
+
+<tr valign="top">
+<td>When the check box is not selected, the Virtual Mirror Plane is hidden.
+ </td>
+<td width="158" valign="top" style='width:1.65in;padding:0in 5.4pt 0in 5.4pt'>
+<img  width="146" height="95" src="../../../images/view/GRA525_image006.gif">
+</td>
+</tr>
+</table>
+</li>
+
+<li>In the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+386">Position</span> drop-down list you can choose the Virtual Mirror Plane: 
+
+
+
+
+
+<ul class="noleft">
+<li><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+1">XZ</span>, 
+
+
+
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+2">XY</span>, 
+
+
+
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+3">ZY</span><br>
+
+
+
+
+to define the Virtual Mirror Plane as one of the planes of the World reference system.</li>
+
+<li><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+4">Custom</span><br>
+
+
+
+
+When selected for the first time, the 
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+4">Custom</span> option sets the Virtual Mirror Plane to the Work Plane. Starting from the very moment you initialize the Virtual Mirror Plane to the Work Plane, switching back and forth from 
+
+
+
+<span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+387+4">Custom</span> does not alter the custom Virtual Mirror Plane. If you change the position of the Work Plane, you can update the position of the Virtual Mirror Plane by clicking 
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1303">As Work Plane</span>.<br>
+
+
+
+
+<br>
+</li>
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">When the virtual mirroring mechanism is enabled, the mirroring about the chosen plane will be displayed also in <i>previews</i> inside Curve, Surface and GSM commands.</p>
+
+<ul class="noleft" style='margin-top:0in' type="disc">
+<li><a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm">
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span></a> will also be mirrored accordingly.</li>
+
+
+<li>In the <a href="../../curves/mc_01/FWfile/T_FW_mc_01.htm">
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+178">Curve through Control Points</span></a> and 
+<a href="../../surfaces/FWfile/T_FW_ms_08.htm">
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> commands, only the control net will be mirrored, not the control points markers.</li></ul>
+
+
+<hr color="navy">
+</body>
+</html>

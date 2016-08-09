@@ -1,0 +1,72 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating Surfaces along a Drive Contour and Tangent to Some Surface Drives</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h2>Creating Surfaces along a Drive Contour and Tangent to Some Surface Drives</h2>
+
+<p style="margin-top:9px;">In this example you will use the <a href="../FWfile/T_FW_Drafter.htm"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span></a> command to create surfaces along a drive contour and tangent to some other surfaces used as drives. It can be used to add a draft angle to casting and forging parts. You can load file "Drafter.e3":<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA01.gif"><br>
+&nbsp;</p>
+
+<p>You need to add a draft angle along the Y axis. The drafting surfaces will be created along the red contour laying on the Parting plane and tangent to the fillet surface.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA01b.gif"><br>
+<br>
+And here is the result the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command will enable you to obtain:<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA02.gif"><br>
+<br>
+In the end, you can obviously integrate the resulting surfaces in the original model, so as to actually reach your initial goal.<br>
+&nbsp;</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+270">Drafter</span> command.</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the drive contour (<span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+271">First Drive Curves</span>). This is the contour the drafting surfaces are to be through. Note that the contour has to contain only one chain of curves: any number of at least positionally continuous (G0) curves. You can right-click and use the <span class="UI_SELECTOR" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../images/general/litarr.gif"><span class="UI_SELECTOR" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4688">Chain from This</span> command from the context menu to select the whole contour with just one click.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA03.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Then select the drive surfaces (<span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+272">Second Drive Surfaces</span>), that is a set of surfaces with which the resulting drafting surfaces will be tangent.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td><a name="YAXIS"></a>Finally, select the drafting direction (<span class="UI_SELECTOR" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+274">Direction</span>&nbsp;&#151;&nbsp;for details on the definition of a direction, see "How to define an axis or a line" in the online documentation). In this case, select the direction of the Y axis of the Work Plane (choose <span class="UI_SELECTOR" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> in the drop-down list and then click on the symbol of the Y axis of the Work Plane in the model). And here is what you get when you ask for the preview (&nbsp;<img src="../../../images/general/preview.gif" align="absmiddle">&nbsp;).<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/DRA05.gif"></td>
+</tr>
+</table>
+
+<p>Repeat the steps above for the lower chain of drive surfaces to obtain the result shown in the image on top of this document.</p>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>New Compensator Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Compensator Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2010.1 introduces the following enhancements to the Compensator commands.</p>
+
+<ul class="noleft">
+<li><a href="#PXXX">New compensator concept</a></li>
+
+<li><a href="#P773">Compensator commands in new toolbars and menu bar</a></li>
+
+<li><a href="#adapt">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span> command</a></li>
+
+<li><a href="#IMD">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span> command</a></li>
+
+<li><a href="#P771">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span> command</a></li>
+
+<li><a href="#OffsetMesh">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+11">Offset Mesh</span> command</a></li>
+
+<li><a href="#P769">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span> commands</a></li>
+</ul>
+
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P123 - OWN: Jacques Goussard -->
+<h2><a name="PXXX"></a>New compensator concept</h2>
+
+<p>Currently, designers predict the springback deformation by using FEM (Finite Element Analysis) tools. However, it requires considerable time and effort in integrating the FEM results into the modification of the tool design. Hence, the FEM tools are not always used and a measurement process is applied instead.</p>
+
+<p>In this version, a new concept has been introduced in the compensator solution. A new set of tools have been developed to realize Compensation (or Adaptation) based on Measured Data. These new tools are available in the new <span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+1">Compensator MD</span> toolbar.</p>
+
+<h5 style="margin-bottom:0;" style="margin-left:30;">Adaptation on measured data</h5>
+
+<p>It is possible to apply deformation to adapt the original surfaces of the model. It is done by identifying the deformation from the physical model (obtained by scanning) as compared to the initial digital model. Then the deformation is applied to the digital model. Hence, it resolves the problem of creating a digital model that is identical to the physical tool.</p>
+
+<h5 style="margin-bottom:0;" style="margin-left:30;">Compensation on measured data</h5>
+
+<p>It is possible to compensate the part based on the measured data rather than on FEM data. The reverse deformation data from the physical model are applied to the digital model employing an inverse law. Minor design changes can be applied even without an additional FEM calculation.</p>
+
+<p>These new functionalities make it possible to maintain quality throughout the design process, considerably reducing time and cost. It becomes easier to make complex components that maintain the original design intent, with the possibility of handling design changes in a very effective way.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P773 - OWN: Jacques Goussard -->
+<h2><a name="P773"></a>Compensator commands in new toolbars and menu bar</h2>
+
+<p>Compensator commands are now available in the following two new toolbars.</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+1">Compensator FE</span></td>
+<td>Contains the commands previously available under the <span class="OLD">Compensator</span> toolbar that make use of FEM results.</td>
+</tr>
+
+<tr valign="top">
+<td width="130"><span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+1">Compensator MD</span></td>
+<td>Contains the new commands that make use of Measured Data.</td>
+</tr>
+</table>
+
+<p>All Compensator commands are now available under <span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span> in the menu bar.</p>
+
+<p>The Adaptation command is available under <span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+1">Adaptation</span> in the menu bar.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P123 - OWN: Jacques Goussard -->
+<h2><a name="adapt"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span> command</h2>
+
+<p>The <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_AMD.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Adaptation.msg+MenuBar_Document_Modify_Adaptation+2">Adapt on Measured Data</span></a> command enables you to find the correspondence between an <i>Initial Mesh</i> (corresponding to a base geometry) and a <i>Measured Mesh</i> (corresponding to a modification of the base geometry). At the same time, the command will identify a deformation representing the correspondence.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P123 - OWN: Jacques Goussard -->
+<h2><a name="IMD"></a>The new <span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span> command</h2>
+
+<p>The <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_IMD.htm"><span class="UI_COMMAND" id="ButtonToolbar_Compensator_MD.msg+ButtonToolbar_Compensator_MD+2">Identify Measured Data</span></a> command enables you to find the correspondence between an <i>Initial</i> and a <i>Measured</i> mesh, but will identify the deformation corresponding to the compensation to be applied on the <i>Initial Mesh</i>. Here, the <i>Measured Mesh</i> corresponds to the shape obtained as a result of the manufacturing process using the <i>Initial Mesh</i> geometry.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P771 - OWN: Patrick Bosinco -->
+<h2><a name="P771"></a>The new <span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span> command</h2>
+
+<p>The <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_blankholder.htm"><span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span></a> command enables you to modify the die environment based on the result obtained by the adaptation/compensation process.</p>
+
+<p>This command is intended to solve a common problem related to the die design and the springback compensation. During the design process, the user must have completed one or more process compensation obtaining some <i>deformed surfaces</i>. These deformations compensate only the <i>Part</i> areas of the die. The <span class="UI_COMMAND" id="ButtonToolbar_Compensator_FE.msg+ButtonToolbar_Compensator_FE+16">Blank-Holder Addendum and Part</span> command enables you to change other portions of the die to accommodate the compensation result.</p>
+
+<p>While applying this command, you need to make the following inputs in the form of solid skins:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:10;">
+<tr valign="top">
+<td width="130"><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+303">Addendum</span></td>
+<td>It is the portion of the die that has to change to accommodate the compensated parts.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+302">Blank-Holder</span></td>
+<td>It is the area that connects the Addendum to the die sides.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+301">Deformed Surface</span></td>
+<td>It is the modified surface obtained after applying the process compensation.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+304">Part</span></td>
+<td>It is the part on which compensation has been applied.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GMDecim.msg+_GMDECIM_LABEL_+306">Closing Faces</span></td>
+<td>It represents the holes (open areas) of the part.</td>
+</tr>
+</table>
+
+<p>You can use some <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+305">GSM Parameters</span> and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span> while applying this command.</p>
+
+<p>The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+307">Fix compensated part</span> check box enables you to define whether the compensated part remains fixed or not while applying this command.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P123 - OWN: abcd -->
+<h2><a name="OffsetMesh"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+11">Offset Mesh</span> command</h2>
+
+<p>The new <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_OffsetMesh.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+11">Offset Mesh</span></a> command enables you to offset a selected mesh by a specified offset value to be entered in the <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+312">Offset Size</span> text box. Select the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> (<img src="../../images/general/preview.gif" align="absmiddle">) button to see the preview of the offset mesh. In case the offset mesh is self-intersecting, a warning is displayed on selecting the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+186">Show Warnings</span> (<img src="../../images/general/warnings_on.gif" align="absmiddle">) button. Also, the location of self-intersection is highlighted on the mesh.</p>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="GMDecim.msg+_GMDECIM_LABEL_+313">Always recalculate normals</span> check box enables you to manage the normals of the mesh being offset.</p>
+<ul>
+<li>When the check box is selected, the normals on mesh are always calculated and reoriented, even if they already exist on the mesh.</li>
+<li>When the check box is cleared, the normals on mesh are calculated and reoriented only if they do not exist on the mesh.</li>
+</ul>
+
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!-- PRJ: P769 - OWN: Patrick Bosinco -->
+<h2><a name="P769"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span> commands</h2>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span> commands enable you to manage alignment of two entities (mainly Meshes) that represent the similar shapes. The source of these entities can be a mesh measured on a <i>physical model</i> and that of a <i>digital model</i>. The physical model could have been modified, so that its measure could be used to make compensation on the digital model. Hence, first you need to align the two meshes using the same reference. The various <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7884">Alignment</span> commands are:</p>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;" style="margin-bottom:9;">
+<tr valign="top">
+<td><a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_Pre-Alignment.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7755">Pre-Alignment</span></a></td>
+<td>Enables you to align two distant meshes by using 4 user-defined point couples.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_Optimize.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7757">Optimize Alignment</span></a></td>
+<td>Enables you to further optimize the alignment of the meshes that are brought close to each other. Also, it supports the alignment of multi-zones and hence, you can define a set of corresponding zones on the two meshes to align.</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_Contour.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7759">Optimize Contour Alignment</span></a></td>
+<td>Enables you to optimize the alignment along curves and hence, can be useful in cases where the correspondence is about boundaries.</td>
+</tr>
+
+<tr valign="top">
+<td><a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_Replicate.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7761">Replicate Alignment</span></a></td>
+<td>Enables you to replicate the transformation generated by the previous commands to other entities.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+</body>
+</html>
+

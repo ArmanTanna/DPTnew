@@ -1,0 +1,148 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="T_2010t1" content="translate">
+<title>Modifying the Mold Base</title>
+
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- 
+<hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Modifying the Mold Base</h2>
+
+<p>The mold base assembly mainly contains the guide elements and plates. The guide elements are linked with the <b>thinkparts</b> catalog whereas the plates are unlinked.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Linked standard parts cannot be redefined. Only unlinked parts can be redefined.</td>
+</tr>
+</table>
+
+<br>
+<p>There are several operations which can be performed on the mold base. You can replace the guide elements and modify the plates as per your requirement. The following operations can be performed on the mold base.</p>
+
+<ul class="noleft">
+<li><a href="#replace">Replacing the standard parts</a></li>
+
+<li><a href="#plates">Modifying the thickness of plates</a></li>
+
+<li><a href="#delete">Deleting the plates</a></li>
+
+<li><a href="#move">Moving the Mold Base</a></li>
+</ul>
+
+<br>
+<h3><a name="#replace"></a>Replacing the standard parts</h3>
+
+<p>Follow the steps to replace the standard parts such as guide elements.</p>
+
+<ul>
+<li>Right-click on the standard part in the Graphics Area or on the corresponding part name in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> and select 
+<a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_ReplacePart.htm">
+<span class="UI_OPTION" id="tmmctxtpl.msg+tmmctxtpl+2">Replace Standard Part</span></a> option from the context menu.</li>
+
+
+<li>The <b>thinkparts</b> catalog dialog box opens with the list of standard parts with various parametric specifications. Select the required part and click <b>OK</b>.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+Select the <b>Show the codified parts only</b> check box. This saves time and lists the parts related to the selected standard part.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>The part will be automatically updated in the assembly.</li>
+</ul>
+ 
+
+<h3><a name="#plates"></a>Modifying the thickness of Plates</h3>
+
+<p>You can modify the thickness of any plate in the mold base assembly by the following steps.
+
+<ul>
+<li>Right-click on the plate and select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4720">Set Current</span> from the context menu.</li>
+
+
+<li>Open the <a href="mk:@MSITStore:HELP.CHM::/language/tools/FWfile/T_FW_to_02.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1671">Spreadsheet</span></a> dialog box; specify the values in the corresponding text box.</li>
+
+
+<li>Click on the <span class="UI_OPTION" id="idd_spreadsheet2.msg+idd_spreadsheet2+1839">Rebuild</span> button and the plate is updated to new specification.</li>
+
+</ul>
+</p>
+
+<h3><a name="#delete"></a>Deleting the Plates</h3>
+
+<p>There may be situations when some of the plates need to be deleted from the mold base. Follow the steps to delete a plate:
+
+<ul>
+<li>Right-click on the plate or on the corresponding plate name in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> and select 
+<span class="UI_OPTION" id="ContextMenu_Customize.msg+ContextMenu_Customize+3974">Delete</span> from the context menu.</li>
+
+
+<li>Open the spreadsheet and make the thickness of the deleted plate as zero.</li>
+
+<li>Click the <span class="UI_OPTION" id="idd_spreadsheet2.msg+idd_spreadsheet2+1839">Rebuild</span> button to get the updated assembly.</li>
+
+</ul>
+</p>
+
+<h3><a name="#move"></a>Moving the Mold Base</h3>
+
+<p>The mold base can be moved to a new position in the Graphics Area by moving the work plane coordinate system. On rebuilding the assembly moves to the new position.<br>
+<br>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The Work Plane coordinate system is taken as reference to create the mold base.</td>
+</tr>
+</table>
+
+<br>
+Also the whole mold base can be deleted (variables in the spreadsheed should also be deleted) and reconfigured to a new specification.</p>
+
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+<h5>Also Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_create_mold_base.htm"><b>Create a Mold Base</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

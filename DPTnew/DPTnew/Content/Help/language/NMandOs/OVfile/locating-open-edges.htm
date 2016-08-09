@@ -1,0 +1,68 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Locating open (disconnected) edges</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Locating open (disconnected) edges</h3>
+
+<p>When dealing with open solids, sometimes it is important to precisely locate the edges in which the solid is open. Let's see how to do that.</p> 
+
+<p>What you need to know:</p> 
+<UL class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open solids</b></A> 
+<LI><A href="non-manifold.htm"><b>Non-manifold solids</b></A>
+</LI></UL>
+
+<P>You can locate these open edges using <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_10_12.htm"><b>Check Manifold</b></a></b>.</p>
+
+
+<P>If you are creating a solid, and it is not manifold, the "<i>Not a closed object</i>" warning menu lets you highlight disconnected edges.</p>
+
+<P>However, there are some tips that help in locating exactly where those edges are, especially when models are 
+complex:</p>
+<ul class="noleft">
+<li>Use the right combination of active color&nbsp;and background to highlight properly open edges (<a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_to_06_08.htm"><b>Colors and Materials</b></a>).
+
+<li>Use thick line to better highlight where problems are. 
+<li>Moreover, there's a useful add-on found on the think3 download site that 
+creates boundary curves on all open edges of the selected open or non-manifold 
+solid. Once downloaded and installed, you have to turn on the Open Edges toolbar 
+to use the command.
+</li></ul>
+
+<BR><IMG height=266 src="../../../images/solids/NMandOS/disconn-nonmainfold-4.gif" width=335 border=0><BR>
+
+<p>This is the result. Thick red curves have been inserted to disconnected edges (gaps) and edges that make the solid non-manifold. <BR>Note that not only the disconnected edges are accounted for. This is useful in tracking all the possible problem in a solid.</p> 
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<UL class="noleft">
+<LI><A href="open-nmt.htm"><b>Open vs non-manifold</b></A> 
+<LI><A href="work-with-nmt.htm"><b>How to work with non-manifold solids</b></A> 
+</LI></UL>
+
+<hr color="silver">
+</body>
+</html>
+

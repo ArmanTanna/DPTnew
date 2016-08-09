@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>IGES Format: Initial Graphics Exchange Specification</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4>IGES Format: Initial Graphics Exchange Specification</h4>
+
+<p style="margin-top:0;margin-bottom:0">
+The Initial Graphics Exchange Specification (IGES) is an American national standard defining a neutral format for the exchange of digital information among CAD systems. 
+<H5>The IGES Domain</H5>
+<p style="margin-top:0;margin-bottom:0">
+"This Specification establishes information structures to be used for the 
+digital representation and communication of product definition data.
+<p style="margin-top:3;margin-bottom:0">
+The file format defined by this Specification treats the product 
+definition as a file of entities. Each entity is represented in an 
+application-independent format, to and from which the native 
+representation of a specific CAD/CAM system can be mapped. The entity 
+representations provided in this Specification include forms common to 
+the CAD/CAM systems currently available and forms which support the 
+system technologies currently emerging.
+<p style="margin-top:3;margin-bottom:0">
+In Chapters 3 and 4, the product is described in terms of geometric and 
+non-geometric information, with non-geometric information being divided 
+into annotation, definition, and organization. The geometry category 
+consists of elements such as points, curves, surfaces, and solids that 
+model the product. The annotation category consists of those elements 
+which are used to clarify or enhance the geometry, including dimensions, 
+drafting notation, and text. The definition category identifies groupings 
+of elements from geometric, annotation, or property data which are to be 
+evaluated and manipulated as single items."
+<P>Quoted from <I>Initial Graphics Exchange 
+Specification (IGES) Version 4.0</I>, NBSIR 88-3813, June 1988, pages 1-2.
+<H5>IGES File Structure Overview</H5>
+<p style="margin-top:0;margin-bottom:0">
+"The fundamental unit of data in the file is the entity. Entities are 
+categorized as geometry and non-geometry. Geometry entities represent 
+the definition of the physical shape and include points, curves, surfaces, 
+solids, and relations which are collections of similarly structured 
+entities. Non-geometry entities typically serve to enrich the model by 
+providing a viewing perspective in which a planar drawing may be composed 
+and by providing annotation and dimensioning appropriate to the drawing. 
+Non-geometry entities further serve to provide specific attributes or 
+characteristics for individual or groups of entities and to provide 
+definitions and instances for groupings of entities. The definitions of 
+these groupings may reside in another file. Typical non-geometry entities 
+for drawing definition, annotation, and dimensioning are the view, drawing, 
+general note, witness line, and leader. Typical non-geometry entities for 
+attributes and groupings are the property and associativity entities.
+<p style="margin-top:3;margin-bottom:0">
+A file consists of 5 ... sections, Start, Global, Directory Entry, 
+Parameter Data, and Terminate. A file may include any number of entities 
+of any type as required to represent the product definition. Each entity 
+occurrence consists of a directory entry and a parameter data entry. The 
+directory entry provides an index and includes descriptive attributes 
+about the data. The parameter data provides the specific entity definition. 
+The directory data are organized in fixed fields and are consistent for all 
+entities to provide simple access to frequently used descriptive data. The 
+parameter data are entity-specific and are variable in length and format. 
+The directory data and parameter data for all entities in the file are 
+organized into separate sections, with pointers providing bi-directional 
+links between the directory entry and parameter data for each entity. The 
+Specification provides for groupings whose definitions will be found in a 
+file other than the one in which they are used."
+<P>
+Quoted from <I>Initial Graphics Exchange 
+Specification (IGES) Version 4.0</I>, NBSIR 88-3813, June 1988, page 3. </FONT>
+
+<HR color="silver">
+</body>
+</html>

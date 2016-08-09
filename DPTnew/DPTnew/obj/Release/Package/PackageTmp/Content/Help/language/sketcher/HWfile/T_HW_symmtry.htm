@@ -1,0 +1,140 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Using the Symmetric constraint</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint</h3>
+
+<p>The following steps give a quick introduction to the <a href="../FWfile/T_FW_symmtry.htm"><span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7756">Symmetry Constraint</span></a> command:</p>
+
+<ol class="noleft">
+<li>In the <a href="../FWfile/T_FW_sk_01.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span></a> environment create 3 lines in any random order. Do not pre-select any line.<br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7756">Symmetry Constraint</span> command&nbsp;&#151;&nbsp; <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+6826">Profile</span> <img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span>.<br>
+<br>
+</li>
+
+<li>From the selection list of the command, click the selector <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+69">First Group</span>. Now, click on any one line to select it.<br>
+<br>
+</li>
+
+<li>Now, from the selection list, click the selector <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+70">Second Group</span> and click on any other line to select it.<br>
+<br>
+</li>
+
+<li>Now in the selection list a third selector&nbsp;&#151; <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+68">Axis Line</span>&nbsp;&#151;&nbsp; will appear. Click on it and click the third line you have created to select it.<br>
+<br>
+</li>
+
+<li>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint is now applied. The program adds the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+249">Sy</span> identifier for symmetric entities. You can now try to change any of these three lines and they will get modified while maintaining the symmetry with respect to the symmetry axis line.</li>
+</ol>
+
+<p><a name="sense"></a>The following steps describe the meaning of "sense" in the <a href="../FWfile/T_FW_symmtry.htm"><span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7756">Symmetry Constraint</span></a> command.</p>
+
+<ol class="noleft">
+<li>In the profile mode create 2 lines in any random order. Make sure, you create them with the direction from the top to the bottom of the screen. Let their end points be on a same level. Now create a third line between these 2 lines, again with the direction from the top to the bottom of the screen.<br>
+<br>
+</li>
+
+<li>Using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4589">Ground</span> constraint, ground the lower points of lines at the extreme ends. You may get a profile as shown:<br>
+<br>
+<img src="../../../images/sketcher/symm_group_grnd.gif" border="1"><br>
+<br>
+</li>
+
+<li>Do not pre-select any line. Start the <span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7756">Symmetry Constraint</span> command&nbsp;&#151;&nbsp; <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span> <img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+6826">Profile</span> <img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span>.<br>
+<br>
+</li>
+
+<li>To select the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+69">First Group</span> of entities, click on the line on the left to select it. Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end the selection of the first group of entities.<br>
+<br>
+</li>
+
+<li>To select the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+70">Second Group</span> of entities, click on the line on the right to select it. Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end the selection of the second group of entities.<br>
+<br>
+</li>
+
+<li>Now in the selection list a third selector&nbsp;&#151; <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+68">Axis Line</span>&nbsp;&#151;&nbsp; will appear. Click the third line you have created to select it.<br>
+<br>
+<img src="../../../images/sketcher/symm_with_sense_1.gif" border="1"><br>
+<br>
+</li>
+
+<li>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint is now applied. The program adds the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+249">Sy</span> identifier for symmetric entities.<br>
+<br>
+<img src="../images/symm_no_flip_2.gif" border="1"><br>
+<br>
+Note the relative position of the 2 lines with respect to each other and the axis line.<br>
+<br>
+</li>
+
+<li>Now we will try to change the sense of the symmetry. Undo your last operation, the <a href="../FWfile/T_FW_symmtry.htm"><span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7756">Symmetry Constraint</span></a> command.<br>
+<br>
+</li>
+
+<li>Repeat the steps from <b>3</b> to <b>5</b>. After selecting the second group, invert the direction of the line by double-clicking on its arrowhead. Select the axis line as in the previous case.<br>
+<br>
+<img src="../../../images/sketcher/symm_with_sense_2.gif" border="1"><br>
+<br>
+</li>
+
+<li>The <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7751">Symmetry</span> constraint is now applied. The program adds the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+249">Sy</span> identifier for symmetric entities.<br>
+<br>
+<img src="../images/symm_no_flip_1.gif" border="1"><br>
+<br>
+Note the relative position of the 2 lines with respect to each other and the axis line.</li>
+</ol>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_symmtry.htm"><b>Symmetry constraint</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00.htm"><b>Profiles</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_02.htm"><b>Rules for building a profile</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_01.htm"><b>How to create a profile</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_03.htm"><b>What are reference curves</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_04.htm"><b>What are external entities</b></a></li>
+
+<li><a href="../OVfile/T_OV_sk_00_05.htm"><b>Dimensional and geometrical constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_ov_prof_tipntricks.htm"><b>Profile environment: Tips and Tricks</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

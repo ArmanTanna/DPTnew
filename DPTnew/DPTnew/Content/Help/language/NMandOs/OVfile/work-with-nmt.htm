@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>How to work with non-manifold solids</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h3>How to work with non-manifold solids</h3>
+
+<p>You have a non-manifold solid for whatever reason. Regardless of what caused this situation, in many cases&nbsp;you can ignore this problem and go ahead using the solid as is. In fact, non-manifold solids can even be used as a powerful feature of the <b>think<font color="#FF0F00">3</font></b> application.</p>
+
+<p>What you need to know:</p>
+<UL class="noleft">
+<LI><A href="non-manifold.htm"><b>Non-manifold solids</b></A>
+<LI><A href="26.htm"><b>About Booleans</b></A>
+</LI></UL>
+
+<p>Non-manifold solids are a representation of solids that are not "real solids" as real workpieces. They may at times be a result of a incorrect modeling step, or an unexpected result in turning legacy surfaces into a solid.</p>
+
+<p>When you can&nbsp;usually ignore this problem and proceed:</p>
+<UL class="noleft">
+<LI><A href="#Performing Booleans with open solids"><b>Performing Booleans with open solids</b></A>
+<LI><A href="#Applying features to a non-manifold object"><b>Applying features to a non-manifold object</b></A>
+<LI><A href="#Creating a 2D drawing from a non-manifold object"><b>Creating a 2D drawing from a non-manifold object</b></A>
+</LI></UL>
+
+<H3><A name="Performing Booleans with open solids"></A><B>Performing Booleans with open solids</B></H3>
+
+<p>Typically open solids are used to cut other solids, or between them, as a pure trimming tool. Here is a typical example of how an open solid can cut a true solid:</p>
+<br><IMG height=372 src="../../../images/solids/NMandOS/solid_from_srfs_13.gif" width=494 border=0><br> 
+<br><IMG height=359 src="../../../images/solids/NMandOS/solid_from_srfs_14.gif" width=475><br>
+
+<p>All these of cuts are done using the command Insert-Solid-Boolean. The possible results are always four (A+B, A-B, B-A, AintersectsB), but, working with open-solids it's sometimes difficult to predict what final result you'll get. The theory is the following:</p> 
+<br><IMG height=325 src="../../../images/solids/NMandOS/solid_from_srfs_15.gif" width=444><br>
+<br><IMG height=351 src="../../../images/solids/NMandOS/solid_from_srfs_16.gif" width=435><br>
+
+<p>If the normals of the open solid are pointing "up", it means that the open solid can be considered as one with infinite thickness in the opposite direction. Given that, the boolean operation that was used in the previous example is an "intersection" between the open solid and the cube.</p>
+
+<p>Notice that two open solids, or an open solid and a true, manifold solid, can be combined using a boolean ONLY if the open solid has the "right" topology in the area that intersects. <BR>An <B><I>example</I></B> might help:</p>
+<br><IMG height=414 src="../../../images/solids/NMandOS/solid_from_srfs_22.gif" width=533><br>
+
+<p>The open solid (modified from the previous one) has incorrect topology. See the highlighted "strip." Now, if the strip does not touch the intersecting area, you'll get a new open solid with the same <I>fault</I>.</p> 
+<br><IMG height=295 src="../../../images/solids/NMandOS/solid_from_srfs_23.gif" width=320><br>
+
+<p>But, if the strip of the open solid "touches" the intersection area (notice that the cube has been 
+reduced along the X axis so that it will intersect the strip of the open solid).</p> 
+<br><IMG height=334 src="../../../images/solids/NMandOS/solid_from_srfs_24.gif" width=435><br>
+
+<p>The resulting object will be an unusable non-manifold solid.</p> 
+<br><IMG height=289 src="../../../images/solids/NMandOS/solid_from_srfs_25.gif" width=223><br>
+
+<p>Given that, let's analyze what happens working with two open solids. Actually it becomes difficult to predict what kind of object you'll get making a boolean operation between them. See example below:</p>
+<br><IMG height=375 src="../../../images/solids/NMandOS/solid_from_srfs_17.gif" width=660><br>
+
+<p>Two open solids, the grey one and the brown one. Note that the two solids are really "open."</p> 
+<br><IMG height=259 src="../../../images/solids/NMandOS/solid_from_srfs_18.gif" width=264><br>
+<br><IMG height=234 src="../../../images/solids/NMandOS/solid_from_srfs_19.gif" width=232><br>
+<br><IMG height=215 src="../../../images/solids/NMandOS/solid_from_srfs_20.gif" width=217><br>
+<br><IMG height=243 src="../../../images/solids/NMandOS/solid_from_srfs_21.gif" width=257><br>
+
+<p>So, combining the two open solids, you could get these four resulting shapes (notice also that the result can also be an open solid). <BR>Again, since it's difficult to predict which result you will get,a tool is available that will help you determining which boolean you need. Download it from think3 download 
+area.</p>
+ 
+<H3><A name="Applying features to a non-manifold object"></A> Applying features to a non-manifold object</H3>
+<P>There are two main cases:</P>
+<P>- applying features to an open solid</P>
+<P>- applying features to a "generic" non-manifold solid.</P>
+<P><B>Applying features to an open solid</B> <BR>This will follow the same scenario of Booleans with open solids (above). In other words, you can't apply features (such as fillets, hole, pins) on an open solid if the feature will "touch" an existing strip. See example below:</p>
+<br><IMG height=424 src="../../../images/solids/NMandOS/solid_from_srfs_26.gif" width=616><br>
+
+<p>On the above solid ...</p>
+<br><IMG height=348 src="../../../images/solids/NMandOS/solid_from_srfs_27.gif" width=462><br>
+
+<p>we added a pin, a hole, then a fillet ...</p>
+<br><IMG height=259 src="../../../images/solids/NMandOS/solid_from_srfs_28.gif" width=351><br>
+
+<p>but since the solid has a strip on it:</p> 
+<br><IMG height=443 src="../../../images/solids/NMandOS/solid_from_srfs_29.gif" width=616><br>
+
+<p>we can't add any features that are crossing that strip (or, you can, but the resulting object will have problems down the road). <BR>If you need to add a features on that strip, you have to fix it before applying the feature. Search the Knowledgebase for real world cases.</p>
+
+<p><B>Applying features to a "generic" non-manifold solid</B> <BR>A generic "non-manifold" solid is a solid where you got the warning "non-manifold" object, but you can't easily determine what kind of problem it might have. Usually, it's a problem of vertexes, sometimes it might be a problem of overlapped or partially overlapped surfaces. See <B><A href="non-manifold.htm">non-manifold solids</A></B>.</p>
+
+<p>If you don't take the time to check and fix the issues described above, and decide to continue using&nbsp; features, everything may work, until you apply a feature on an overlapped face or on incorrect vertex. The feature will fail or it won't be even possible to apply in it that area.</p>
+
+<H3><A name="Creating a 2D drawing from a non-manifold object"></A>Creating a 2D drawing from a non-manifold object</H3>
+<p>Actually a "generic" non-manifold object or even a open solid can be used to get a 2d drawing. See examples:</p> 
+<br><IMG height=374 src="../../../images/solids/NMandOS/solid_from_srfs_30.gif" width=496><br>
+
+<p>You can get a 2D drawing of an open solid. actually you can also make 2D sections but, obviously, 
+the section won't have a thickness.</p>
+<br><IMG height=425 src="../../../images/solids/NMandOS/solid_from_srfs_31.gif" width=416><br>
+
+<p>Or, working in a "almost closed" model (see the strip on the top)...</p> 
+<br><IMG height=421 src="../../../images/solids/NMandOS/solid_from_srfs_32.gif" width=474><br>
+
+<p>It will be possible to get a valid 2D section + capping, if the section won't touch the open edge (the strip).</p>
+<br><IMG height=334 src="../../../images/solids/NMandOS/solid_from_srfs_33.gif" width=414><br>
+
+<p>See for instance sect BB. It gives an empty section. Note that the program just warns you if you try to get a section from a non-manifold object. It doesn't mean that you can't!</p>
+
+<hr color="silver">
+</body>
+</html>
+

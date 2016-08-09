@@ -1,0 +1,59 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Delete - Delete an entity related to another</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY onload="viaMk()" BGCOLOR="white">
+
+
+<h4>Delete an entity related to another</h4>
+
+<p>If you try to delete an entity related to other entities such as, for example (but many other situations may occur): <p>
+
+<ul class="noleft">
+<li>A solid after on which you created a Datum Plane using the On face option 
+<li>A solid related to another through a <a href="mk:@MSITStore:dimensio.chm::/language/dimensio/dm_15/FWfile/T_FW_dm_15.htm">dimension</a>
+
+<li>A solid/component related to another through a <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_mating.htm">Mating</a> constraint. 
+
+</ul>
+
+<p>The <b>Model Structure</b> will mark the constraint that is causing this behavior with a red arrow.<p>
+The <b>Delete</b> dialog box will be displayed offering the following options: <p>
+
+<table cellspacing="3" border="0">
+<tr>
+    <td VALIGN=top><b>Delete related entity too</B></td>
+    <td>If you use the <b>OK</b> button and the entity you selected has more than one relation, the dialog box will de displayed as many times as the number of relations.<br> To delete all related entities with just one click, select <b>All</b>. <br>If the <b>Delete related entity too</b> option is not selected, the <b>All</b> button is grayed out.</td>
+</tr>
+<tr>
+ <td VALIGN=top><b>Unlink reference</B></td>
+    <td>If you use the <b>OK</b> button, related entities will be unlinked one at a time. <br>To unlink all related entities with just one click, select <b>All</b>. In this case, if for any reason one related entity cannot be unlinked, the dialog box will be displayed again.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

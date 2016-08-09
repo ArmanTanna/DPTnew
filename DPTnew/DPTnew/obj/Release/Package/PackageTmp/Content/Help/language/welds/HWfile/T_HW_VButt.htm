@@ -1,0 +1,164 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Job: Inserting a V-Butt welding bead</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<!-- Error handler removed 03 June 2014 -->
+
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+<h2>Inserting a V-Butt welding bead</h2>
+
+<p class="notopbot">In this task you will use the <a href="../FWfile/T_FW_OrganizeWeldings.htm"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7664">Weldings</span></a> command to add the section of a V-Butt (or V-Groove) weld to a drawing and the relevant welding bead. To follow this step-by-step example, load the <i>Weld_Vbutt.e2</i> drawing.</p>
+
+
+
+<p>Before you start, check that the welding standard set in the <span class="UI_COMMAND" id="idd_weld_org.msg+idd_weld_org+1">Organize Weldings</span> dialog box suits your needs, then familiarize with the scenario: you have two parts to weld together with a V-Butt weld:</p>
+
+
+
+<img alt="" src="../../../images/welds/V-Butt01.gif" border="1"> 
+
+<table summary="">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Use the <a href="../FWfile/T_FW_Section.htm"><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+3">Welding Section</span></a> command to create the section of the weld with the following options: 
+
+
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+37">Basic Symbol</span>: <i>
+
+<span class="UI_COMMAND_NOBOLD" id="TDWelding.msg+_TDWelding_LABEL_+19">Single-V butt</span></i></li>
+
+
+
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+9">Format</span>: <i>
+
+<span class="UI_COMMAND_NOBOLD" id="TDWelding.msg+_TDWelding_LABEL_+5">Single</span></i></li>
+
+
+
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+86">Metal Thickness</span>: <i>Checked</i></li>
+
+
+</ul>
+
+<br>
+Select the origin (1) and initial depth (2) of the weld in the from view:<br>
+<br>
+<img alt="" src="../../../images/welds/V-Butt02.gif" border="1"> <br>
+<br>
+Enter the following values: 
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+86">Metal Thickness</span>: <i>10</i></li>
+
+
+
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+82">Different sides</span>: <i>15</i></li>
+
+
+</ul>
+
+<br>
+Finally, click the <img alt="" src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> to create the weld:<br>
+<br>
+<img alt="" src="../../../images/welds/V-Butt03.gif" border="1"><br>
+<br>
+Look for more information on this subject in <a href="T_HW_Fillet.htm">Inserting a fillet welding section</a>.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" summary="">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Before you move to the next step, <a href="mk:@MSITStore:groups.chm::/language/group/FWfile/T_FW_gp_03.htm">open</a> the front view so you will be able to select the welding section you just created.</td>
+
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Start the <span class="UI_COMMAND" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+7807">Welding Bead</span> command and select the three curves in the top view:<br>
+
+
+<br>
+<img src="../../../images/welds/V-Butt_bead01.gif" alt="" border="1"><br>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Click <span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+77">Data from Welding</span> and select the welding section you previously created. Note how the program reads from the existing weld the 
+
+<span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+37">Basic Symbol</span> and the 
+
+<span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+82">Different sides</span>.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Set the following options:<br>
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+94">Intermittent bead</span>: <i>Checked</i></li>
+
+
+
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+59">Segment length</span>: <i>30</i></li>
+
+
+
+<li><span class="UI_COMMAND" id="TDWelding.msg+_TDWelding_LABEL_+60">Spacing</span>: <i>20</i></li>
+
+
+</ul>
+
+<br>
+<img alt="" src="../../../images/welds/V-Butt_bead02.gif" border="1"> </td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>5</b></td>
+<td>Click the <img alt="" src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> to create the welding bead.<br>
+<br>
+<img alt="" src="../../../images/welds/V-Butt_bead03.gif" border="1"></td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

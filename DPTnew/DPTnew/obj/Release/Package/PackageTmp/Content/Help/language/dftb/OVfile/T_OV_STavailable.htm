@@ -1,0 +1,161 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Available Symbolic Expression Identifiers</TITLE>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+<STYLE>.noleft{margin-left:22}</STYLE>
+
+<STYLE> .menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+<style> .formula{font-size: 11pt; font-family: Verdana,Arial;}</style>
+
+<style> .HEADER{font-size: 9pt; font-family: Verdana,Arial;}</style>
+
+<style> .smallformula{font-size: 10pt; font-family: Verdana,Arial; font-weight: bold; color: navy}</style>
+
+</HEAD>
+
+
+<body onload="viaMk();"  bgcolor="#ffffff" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+<h4><a name="Identifiers"></a>Available Symbolic Expression Identifiers</h4>
+<p id="HIDEP">Here is the list of the available symbolic texts (for conciseness, only the <i>name</i> argument is displayed in the list):
+
+<ul class="noleft">
+<li id="HIDELI"><A href="#model">In Models</a>
+<li id="HIDELI"><A href="#drawing">In Drawings</a></li>
+</ul>
+
+
+<h5 id="HIDEH5"><a name="model"></a>Symbolic texts available in the Model environment<hr color="silver"></h5>
+
+<table>
+<tr valign="top" id="HIDETR">
+<td  width=120><b>$M{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, displays the
+value of the property called <i>name</i> associated to the overall
+model.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$E{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text or in a
+dimension, displays
+the value of the property called <i>name</i> which will be
+subsequently associated to the text or the dimension.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$Q{</b><i>name</i><b>}</b></td>
+<td>if inserted in a dimension or in a
+label,
+displays the value of the property called <i>name</i> associated to the
+entity  - not solid - to which the label (or dimension) refers.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$QS{</b><i>name</i><b>}</b></td>
+<td>if inserted in a dimension or in a
+label,
+displays the value of the property called <i>name</i> associated to the
+solid containing the entity to which the label (or dimension) refers.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$V{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, displays the
+value of the spreadsheet variable called <i>name</i>. In a
+drawing, shows the name (or the expression, if the name is not
+defined) or the value depending on the
+current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VE{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, displays the name (or the expression, if the name is not defined) instead of the value of the spreadsheet variable called <i>name</i>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VV{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, shows the
+value of the spreadsheet variable called <i>name</i>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VQ{</b><i>name</i><b>}</b></td>
+<td>if inserted in a dimension or a label,
+shows the value of the spreadsheet variable called <i>name
+</i>.<br>
+In a drawing, it displays the name (or the 
+      expression, if the name is not defined) or the value depending on the 
+      current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>. 
+      <P></P></td></tr></table>
+
+<h5 id="HIDEH5"><a name="drawing"></a>Symbolic texts available in the Drawing environment<hr color="silver"></h5>
+
+<table>
+<tr valign="top">
+<td  width=120><b>$M{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, displays the
+value of the property called <i>name</i> associated to the drawing.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td width=120><b>$MM{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, the
+drawing displays the
+value of the property called <i>name</i>
+associated to the overall model.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VM{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, the drawing
+displays
+the value of the spreadsheet variable called
+<i>name</i> associated to a model dimension or the name (or the
+expression, if the name is not defined) depending on the
+current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><p><b>$VQM{</b><i>name</i><b>}</b></p></td>
+<td>if inserted in a dimension, displays
+the value of the spreadsheet variable called <i>name</i>
+associated to a model dimension or the name (or the
+expression, if the name is not defined) depending on the
+current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VEM{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, always displays
+the name (or the
+expression, if the name is not defined) of the spreadsheet variable
+called <i>name</i> associated to a model
+dimension, regardless of the current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>.</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>$VVM{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, always displays
+the value of the spreadsheet variable called <i>name</i>
+associated to a model dimension, regardless of the current value of the <b>Show variables as ... (in dimensions)</b> parameter in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b>.</td>
+</tr>
+<tr valign="top">
+<td><b>$G{</b><i>name</i><b>}</b></td>
+<td>if inserted in a text, displays the name of the property called <i>name</i> which is assigned to the parent entity of the dimension or text (for example, in a group, the <i>name</i> property of the group).</td>
+</tr>
+<tr valign="top" id="HIDETR">
+<td><b>QSM{</b><i>name</i><b>}</b></td>
+<td>if inserted in the text of a dimension of an entity representing a solid or a component in a drawing view, displays the <i>name</i> property of the solid/component.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

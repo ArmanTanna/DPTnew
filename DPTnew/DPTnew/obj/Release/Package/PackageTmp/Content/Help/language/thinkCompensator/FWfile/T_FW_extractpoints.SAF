@@ -1,0 +1,67 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Extract Points</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td align="left"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+1">Compensator</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Compensator.msg+MenuBar_Document_Modify_Compensator+8">Extract Points</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+10">Extract Points</span> command enables you to create ASCII point files ".pt" from Finite Element Analysis files containing meshes.<br>
+ In the <span class="UI_COMMAND_NOBOLD" id="GMDecimCmd.msg+_GMDECIM_LABEL_+127">Points</span> drop-down list you can select:</p>
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+166">FEM File</span></td>
+<td>To select a FEM file using the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+90">Browse for FEM File</span> option which displays a specific file selection box, just like in former version.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+9">Mesh nodes</span></td>
+<td>To select a mesh in the model (<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+118">Mesh</span>). In this case, the coordinates of the mesh nodes will be saved to the ".pt" file according to the usual behavior of the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+110">Extract Points</span> command.</td>
+</tr>
+</table>
+
+<p>Once extracted using this command, point sets can be used as input files for the <a href="T_FW_globalfieldidentification.htm"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span></a> command.</p>
+
+<p style="margin-bottom:0;">The supported FEM file formats are the following:</p>
+
+<ul class="noleft">
+<li>Nastran<sup><font size="-1">TM</font></sup> (".nas")</li>
+
+<li>Autoform (".af")</li>
+
+<li>Forming Technologies (".fpi").</li>
+</ul>
+
+<p>After you have supplied the command with a file in one of the above said formats by choosing it in a specific file selection box automatically activated by the command itself, click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to create an ASCII ".pt" file. A new file selection box will be displayed so as to enable you to define the path and the name of the file to be saved. The default name is the same as the one of the input file, with extension ".pt".</p>
+
+<hr color="silver">
+<h5>Try to...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_UNO.htm"><b>Apply a shape compensation using Compensator</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,973 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Plot: Working modes - Part 1</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A name="top"></A> 
+
+<H1>
+<A NAME="4"></A>Working modes<hr color="navy"></H1>
+
+<P>The following is a list of the main topics described in the "Working modes" 
+section.</P>
+<ul>
+<li><A href="c02.htm#2.1">Run modes</A>
+<ul>
+<li><A href="./c02.htm#2.1.1">Directives and options</A>
+<li><A href="c02.htm#a">Run string options</A>
+<li><A href="c02.htm#b">Initialization file directives</A></li>
+</ul>
+<li><A href="c02.htm#2.2">Instructions necessary to run GBPLO</A>
+<li><A href="c02.htm#2.3">Other instructions for running the program</A>
+<ul>
+<li><A href="c02.htm#2.3.1">Typical initialization instructions</A></li>
+</ul>
+<li><A href="c02.htm#2.4">Instructions for graphics management</A>
+<li><A href="c02.htm#2.5">Instructions relative to special formats</A>
+<ul>
+<li><A href="c02.htm#2.5.1">HP-GL and HP-GL/2 formats</A>
+<li><A href="c02.htm#2.5.2">BGL Format</A>
+<li><A href="c02.htm#2.5.3">PostScript format</A>
+<li><A href="c02.htm#2.5.4">CALCOMP format</A>
+<li><A href="c02.htm#2.5.5">Raster format</A></li></ul>
+<li><A href="c02.htm#2.6">Printing drawings generated in think3
+environment</A>
+<li><A href="c03.htm#2.7">Run string</A>
+<li><A href="c03.htm#2.8">Initialization file</A>
+<li><A href="c03.htm#2.8.1">Structure of the initialization file</A>
+<li><A href="c03.htm#2.9">Summary table</A>
+<li><A href="c03.htm#2.10">Interactive mode</A>
+<ul>
+<li><A href="c03.htm#2.10.1">General</A>
+<li><A href="c03.htm#2.10.2">Interrupting interactive mode</A>
+<li><A href="c03.htm#2.10.3">Batch mode</A></li></ul></li>
+</ul>
+
+<blockquote><i>Any product names mentioned in this document are trademarks used for 
+identification purposes only.</i></blockquote>
+
+<H3>
+<A NAME="2.1"></A>Run modes<hr color="silver"></h3>
+The printing&nbsp;&#8212;&nbsp;that is to say, the use of GBPLO&nbsp;&#8212;&nbsp;is controlled, as described
+in  <A href="c01.htm#1.3">General methods for use</A>, by the following:
+<UL>
+<LI>
+The run string 
+  
+
+<LI>
+The initialization file 
+  
+
+<LI>
+Direct "question-answer" interaction with the program.</LI>
+</UL>
+Whatever the mode, the final output depends on the methods you set, which
+may be roughly categorized as follows:
+<UL>
+<LI>
+Modes and parameters essential to running the program: the minimum subset
+of instructions absolutely necessary to GBPLO in order to complete printing
+(<i>see section</i> <A href="c02.htm#2.2">Instructions necessary to run GBPLO</A>) 
+  
+
+<LI>
+Modes and parameters for program management:all instructions (not amongst
+those categorized as essential) which manage the functioning of the program,
+even relative to hardware devices or devices which do not directly interact
+with the content of the drawing from a graphic-geometrical viewpoint(<i>see section</i>
+<A href="c02.htm#2.3">Other instructions for running the program</A>) 
+  
+
+<LI>
+Modes and parameters for drawing graphics management:all instructions which
+manage the final appearance of the drawing by acting directly upon its
+parameters or managing the creation of the graphic entities contained in
+it (<i>see section</i> <A href="c02.htm#2.4">Instructions for graphics management</A>) 
+  
+
+<LI>
+Special modes and parameters specific to some output formats: all instructions
+which relate to special formats (<i>see section</i> <A href="c02.htm#2.5">Instructions relative to special formats</A>) 
+  
+
+<LI>
+Specific parameters for printing drawings generated in the <b>think<font color="#FF0F00">3</font></b>
+environment (<i>see section</i> <A href="c02.htm#2.6">Printing drawings generated 
+  in think3 environment</A>).</LI>
+</UL>
+Each of the modes for the four above-mentioned categories is described
+in this chapter.
+
+<blockquote><table border=1 bordercolor="navy" bgcolor=#FFFFE1>
+<tr>
+<td class=noteme>
+<img src="../../images/general/handstop.gif">&nbsp;<B>Note on this section</B>: 
+<br><br>This is a general source of information, intended to illustrate
+the potential and operating standards; the documentation for the individual
+modes does not, therefore, provide syntactic details: for these, refer
+to the description of the directives and corresponding options (the latter
+are specified so as to facilitate reference).</td></tr></table></blockquote>
+
+<P>To complete the overview of the use of GBPLO, the end of this chapter
+describes:
+<UL>
+<LI>
+How to construct a run string and run GBPLO (<i>see section</i> <A href="c03.htm#2.7">Run string</A>) 
+  
+
+<LI>
+How to draw up and structure an initialization file (<i>see section</i> <A href="c03.htm#2.8">Initialization file</A>).</LI>
+</UL>
+
+
+<H4>
+<A NAME="2.1.1"></A> Directives and options</H4>
+For clarity, as already indicated in the <A href="c01.htm#1">Overview</A>,
+the terms <I>"initialization file directive"</I> and <I>"run string option"</I>
+are used.
+<BR>
+
+<H4>
+<A NAME="a"></A>Run string options</H4>
+<P>
+The term <I>"run string option"</I> refers to the set constituted by <I>a
+key preceded by the minus sign and followed by the parameters which specify
+its behavior in the appropriate syntax</I>:</P> 
+  
+
+
+<P><FONT FACE="Courier"><FONT SIZE=+1><B>KEY </B><I>parameters</I></FONT></FONT>
+
+<P>The run string options available are described in the <A href="c04.htm#3">Run
+options</A> section.</P>
+
+
+<H4>
+<A NAME="b"></A>Initialization file directives</H4>
+<P>
+The term <I>"initialization file directives" </I>refers to an <I>initialization
+key followed by the parameters which specify its behavior in the appropriate
+syntax</I>:</P> 
+  
+
+
+<P><FONT FACE="Courier"><B>KEY </B><I>parameters</I></FONT>
+
+<P>The directives which can be used in the initialization file are described
+in section <A href="c05.htm#4">Initialization file directives</A>.</P>
+
+
+<H3>
+<A NAME="2.2"></A>Instructions necessary to run GBPLO<hr color="silver"></h3>
+As said in <A href="c02.htm#2.1">Run modes</A>, some instructions are
+essential to the functioning of the program and to guarantee its completion.
+<BR>If these instructions are not specified either in the initialization
+file or in the run string, GBPLO interactively requests that you enter
+them. The methods and parameters are the following.
+
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.02 [en] (WinNT; I) [Netscape]">
+   <TITLE>c02 User's guide - Chap 2 Part 1</TITLE>
+   <LINK href="hmg.css" rel="stylesheet" type="text/css">
+<SCRIPT src="runner.js"></SCRIPT>
+<SCRIPT src="expander.js"></SCRIPT>
+<STYLE>.menu{font-size: 10pt; font-family: Arial;}</STYLE>
+<style>.</style>
+</HEAD>
+<BODY BGCOLOR="#ffffff"> -->
+<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Message file </i></b></td><td>Enables you to specify the pathname of a file
+used in GBPLO: the "message file". If you do not specify the directory,
+that specified with DRO is assumed.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>MSG </B><I>pathname</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-ME </B><I>pathname</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Ini file </i></b></td><td>Enables you to specify the pathname of the initialization
+file in the run string. The default initialization file is "/cad/gp60/gbp.ini".
+If you do not specify the directory, that specified with DRO is assumed.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-I </B><I>pathname</I></td></tr>
+</table></td></tr>
+<tr valign="top"><td width="160"><b><i>Size</i></b></td><td>Specifies of the dimensions of the sheet along the
+x-axis and y-axis, which you can also specify by indicating one of the
+standard sizes A0, A1, A2, A3, A4, A5 (horizontal or vertical).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>DIM </B><I>size</I>
+<BR>or, alternatively
+<BR><B>GRA FORMD </B><I>size</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-D </B><I>size</I>
+<BR>or, alternatively
+<BR><B>-GRA FORMD </B><I>size</I>
+</td></tr>
+<P><I><B>Input file</B> </I>Specifies the pathname of the input file, containing
+the drawing to be printed.
+
+<P>Obviously, you cannot indicate this in the initialization file, but
+only in the run string or interactively.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-F </B><I>filename</I></td></tr>
+</table></td></tr></table>
+<P><I>The following instructions (layers to be plotted, unit of measure,
+scale, window dimensions, pens for dimensioning), have this characteristic:
+if you supply even one of them in the initialization file or run string,
+the others are not requested interactively, since the corresponding values
+stored in the drawing are used.</I><br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Layers</i></b></td><td>Specifies the layers of the drawing to be printed.
+<BR>The drawing is normally distributed over a number of overlapping "layers",
+that is to say, layers upon which parts of the same diagram which are .
+usually . logically different lie.
+
+<P>GBPLO enables you to print one or more layers separately, as well as
+to print the complete drawing.
+<BR>You can use this option in the run string and interactively, but you
+cannot indicate it in the initialization file.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-L </B><I>layer_code</I></td></tr></table>
+
+<tr valign="top"><td width="160"><b><i>Window </i></b></td><td>Specifies the rectangular portion of the drawing
+to be plotted.
+<BR>You can define a rectangular area of the drawing and limit printing
+to the said area.
+
+<P>In other words, use this method to print <I>a detail </I>of the drawing
+(without altering the original drawing).
+
+<P>You can use this option in the run string and interactively, but you
+cannot indicate it in the initialization file.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-W </B><I>window</I></td></tr>
+</table></td></tr>
+<tr valign="top"><td width="160"><b><i>Unit of measure</i></b></td><td> Specifies the unit of measure to be used
+for the drawing. Select metric-decimal or imperial.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>MIS </B><I>unit_of_measure_code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-U </B><I>unit_of_measure_code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Pens for dimensioning</i></b></td><td> Specifies the pen (for plotting)
+or color (for printer or file) to be used to draw the dimensions.
+
+<P>In this way, you can differentiate the dimensions from the other parts
+of the drawing, also differentiating the individual items: the text, arrowheads
+and tolerances of the dimensions.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>QUO</B><I> pen_text </I>[<I>pen_arrows </I>[<I>pen_tol</I>]]</td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-QPE </B><I>pen_text </I>[<I>pen_arrows</I>[<I>pen_tol</I>]]</td></tr></table></td></tr>
+
+
+<tr valign="top"><td width="160"><b><i>Scale</i></b></td><td> Specifies the scale factor to be used when printing
+the drawing.
+
+<P>You can use this option in the run string and interactively, but you
+cannot indicate it in the initialization file.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-S </B><I>scale</I></td></tr>
+</table><BR>
+
+</td></tr></table><H3>
+<A NAME="2.3"></A>Other instructions for running the program<hr color="silver"></h3>
+Other modes and parameters are available, their indication not being essential
+for program functioning, but necessary to modify its default behavior.
+These are listed below.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Output format</i></b></td><td> Specifies the format in which the output
+file must be generated.
+<BR>The default format is HP-GL/2.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ODVT </B><I>output_type</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ODVT </B><I>output_type</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Output device or file</i></b></td><td> Specifies the name of the output
+file or device. The name you enter is interpreted as follows (<i>see also</i> 
+<A href="c01.htm#1.4">Output to file and output to print device</A>): if there is an output device (printer
+or plotter) with that name, printing is effected on the said device; if
+there is no device with that name, a file with the specified name is created
+(and the format set with GRA ODVT).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>ODEV </B><I>name</I>
+<BR>or:
+<BR><B>GRA ODVN </B><I>name</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-O </B><I>name</I>
+<BR>or:
+<BR><B>-GRA ODVN </B><I>name</I>
+</td></tr></table><P>GBPLO contains default names which depend upon the host system (MIcrosoft&reg; Windows Systems: COM1).</td></tr></table>
+
+<table>
+<tr valign="top"><td width="160"><b><i>Output device limits </i></b></td><td>Defines the active area of the output
+device, i.e.: the area upon which you intend to draw.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ODVL </B><I>limits</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ODVL</B><I> limits</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Mode</i></b></td><td> Intended to constrain the interactive mode or the
+batch mode, in the coding described relative to the directive and the corresponding
+key.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>MOD </B><I>mode_code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-MOD </B><I>mode_code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Number of copies</i></b></td><td> Specifies the number of copies of the
+current drawing to be printed (only for output devices).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>NCO </B><I>number_of_copies</I>
+<BR>or:
+<BR><B>GRA NCOP </B><I>number_of_copies</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-NCO </B><I>number_of_copies</I>
+<BR>or:
+<BR><B>-GRA NCOP </B><I>number_of_copies</I>
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Merging drawings</i></b></td><td> Enables you to print more than one drawing
+on a single sheet. This procedure is also known as <I>nesting</I> drawings
+(<i>see</i> <A href="c08.htm#5.3">Merging or nesting drawings</A>).
+<BR>The corresponding key has a special code which requires that you indicate
+a file containing the GBPLO run strings relative to the files to be merged.
+<BR>Obviously, you can indicate this option only in the run string.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-COM </B><I>run_string_file</I><br>The merging of the drawings at printing is completed by the possibility
+of indicating a rotation by a multiple of 90 degrees for each (the following
+options must be combined with -COM):</td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-ALF </B><I>angle</I></td></tr><P>and a position relative to the sheet:</td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-DXY </B><I>xorigin yorigin</I></td></tr>
+</table></td></tr>
+<tr valign="top"><td width="160"><b><i>Initializing the device</i></b></td><td> Enables you to send a suitable
+initialization string to the print device, if necessary.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>PRC </B><I>initialization_string</I>
+<BR>or:
+<BR><B>GRA ODVSI </B><I>initialization_string</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-P </B><I>initialization_string</I>
+<BR>or:
+<BR><B>GRA ODVSI </B><I>initialization_string</I>
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Closing the device</i></b></td><td> Enables you to send a suitable closing
+string to the print device, if necessary.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ODVSC </B><I>closing_string</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ODVSC </B><I>closing_string</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Paper feed</i></b></td><td> Enables you to control paper feed at the end
+of the drawing (no feed, half page, whole page).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>AVA </B><I>feed_flag</I>
+<BR>or:
+<BR><B>GRA ADVANCE </B><I>feed_flag</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-A </B><I>feed_flag</I>
+<BR>or:
+<BR><B>-GRA ADVANCE </B><I>feed_flag</I>
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Stops for pen change</i></b></td><td> Instruction to stop the pen-plotter
+at some of the pens specified, to allow their substitution.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>BRE </B><I>pens</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-B </B><I>pens</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Pens on line</i></b></td><td> Specifies the pens which the plotter must
+use for the current plotting session.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>NPE </B><I>pens</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-N </B><I>pens</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Resolution</i></b></td><td> Specifies the resolution, for plotters which
+can have different resolutions.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>RPL </B><I>resolution </I>(in unit/cm)
+<BR>or:
+<BR><B>GRA ODVR </B><I>resolution </I>(in unit/mm)
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-RP </B><I>resolution </I>(in unit/cm)
+<BR>or:
+<BR><B>-GRA ODVR </B><I>resolution </I>(in unit/mm)
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Device data </i></b></td><td>Enables you to read the main data of the output
+device used.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA SHDEV</B></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA SHDEV</B></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Pen position at end of plotting</i></b></td><td> Defines those points of
+the drawing at which the pen must be positioned at the end of plotting
+(bottom left-hand corner, bottom right-hand corner, top left-hand corner,
+top right-hand corner).
+<BR>This option is useful when you print more than one drawing on the same
+sheet, as an alternative to the mode obtained by the -COM option.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>PPE </B><I>position_code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-PP </B><I>position_code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Relocating the origin</i></b></td><td> Instruction for repositioning the
+pen at the start of plotting, for example, to plot more than one drawing
+on a single sheet of paper, as an alternative to the mode obtained with
+the -COM option.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>ROR </B><I>x_origin y_origin</I>
+<BR>or:
+<BR><B>GRA RORIG </B><I>x_origin y_origin</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-RO </B><I>x_origin y_origin</I>
+<BR>or:
+<BR><B>-GRA RORIG </B><I>x_origin y_origin</I>
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Alphanumeric echo</i></b></td><td> Enables you to switch the program alphanumeric
+echo, i.e.: display of messages on-screen, On or Off.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-E</B><I> echo_flag</I></td></tr>
+</table></td></tr>
+<tr valign="top"><td width="160"><b><i>Error file</i></b></td><td> Specifies the pathname of the file in which
+you intend to store the error indications and warnings relative to running
+GBPLO.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>FER </B><I>error_file</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-FER </B><I>error_file</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Serial port configuration </i></b></td><td>Enables you to configure the
+serial port, automatically or by redefining the appropriate parameters.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ODVC </B><I>flag</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ODVC </B><I>flag</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Logical and physical colors </i></b></td><td>Enables you to redefine the
+match between the logical . pens . colors of the drawing and those physical
+available on the output device.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA COLCH </B><I>logical_col physical_col</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA COLCH </B><I>logical_col physical_col</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Maximum number of colors</i></b></td><td> Enables you to define the maximum
+number of colors to be used from those available on the output device.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA NCOLS</B><I> max_num</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA NCOLS</B><I> max_num</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Connection to device </i></b></td><td>Enables you to define the type of
+connection used to dialog with the output device, in terms of the line
+(serial or parallel) and the protocol.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA INTERF</B><I> type</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA INTERF</B><I> type</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Leading blank </i></b></td><td>Enables the insertion of a blank at the head
+of each output record for the devices which use the first character as
+a control character.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA LEADBL </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA LEADBL </B><I>option</I>
+<BR>
+
+</td></tr></table></td></tr></table>
+<H4>
+<A NAME="2.3.1"></A><B>Typical initialization instructions</B></H4>
+Some program management modes enable you to define parameters and values
+typical of the initialization phase. They are listed below.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Language </i></b></td><td>Enables you to select the language (I=Italian,
+default; E=English, F=French) in which the program input requests and output
+messages will be displayed.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>LAN </B><I>language</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-LAB</B><I> language</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Root directory</i></b></td><td> Enables you to specify the installation
+root directory, used by GBPLO to construct the name of several files indicated
+with the relative mode (MSG). This does not affect files and directories
+indicated with GRA keys. If you do not specify the root directory, the
+run directory is assumed.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>DRO </B><I>root_directory</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-DRO </B><I>root_directory</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Drawing directory</i></b></td><td> Enables you to specify the resident directory
+for the drawings, in which the input files (-F) and the symbol library
+(-LSI) are searched for if you do not specify the complete pathname. The
+default directory is "/disegni" (drawings).
+
+<P><i>directive: </i><B>DRC </B>drawing_directory
+
+<tr valign="top"><td width="160"><b><i>Font directory </i></b></td><td>Enables you to specify the resident directory
+for the user fonts.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>DRF </B><I>font_directory</I>
+<BR>or, alternatively
+<BR><B>GRA DIRF </B><I>font_directory</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA DIRF </B><I>font_directory</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Defining symbolic names</i></b></td><td> Enables you to define the symbolic
+names which can be used in the initialization file. Can be used only in
+the said file.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>DEF</B><I> symbolic_name actual_name</I></td></tr>
+</table><BR>
+
+</td></tr></table><H3>
+<A NAME="2.4"></A>Instructions for graphics management<hr color="silver"></h3>
+The modes and parameters described below control the rendering of the drawing,
+that is to say, its final graphic appearance.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Printing pens</i></b></td><td> Enables you to print only those entities in
+the drawing whose pen attribute you specified with this option (when using
+a plotter the numbers indicated correspond to the device. s pens;
+in other case, they indicate the corresponding colors).
+<BR>You can use this option in the run string and interactively, but you
+cannot indicate it in the initialization file.
+
+<table><tr valign="top"><td width="90"><i>run option: </i></td><td><B>-DP </B><I>pens</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Unit of measure for angle dimensions</i></b></td><td> Specifies the unit
+of measure for the angle dimensions.
+<BR>This may be:&nbsp; degrees/minutes/seconds, grads, decimal degrees,
+radians, in the coding described relative to the directive and the corresponding
+key.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>FQU </B><I>ang_unit</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-FQ </B><I>ang_unit</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Symbol library</i></b></td><td> Specifies the pathname of the symbol library
+. If you do not specify the complete pathname, entering only the file name,
+the search is carried out in the drawing directory (DRC).
+<BR>The possibility of changing the current symbol library may be very
+useful when printing files containing symbols which, although of the same
+name, have a different graphic appearance in different contexts.
+
+<P>For example, the same drawing may contain symbols to be printed in accordance
+with European or American standards: this option enables you to print the
+two versions of the drawing by simply specifying the two different libraries,
+without modifying the drawing file
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>LSI </B><I>library</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-LS </B><I>library</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Defining Parameters</i></b></td><td> Defines the values of the main parameters
+of the drawing.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>PAR </B><I>parameter_value</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-PAR </B><I>parameter_value</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Alternative formats</i></b></td><td> Enables you to enable printing of alternative
+formats for the dimensions.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>QAL </B><I>alternative_code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-QAL </B><I>alternative_code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Displaying texts</i></b></td><td> Enables you to define the mode for drawing
+texts according to their quality attributes.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>QTE </B><I>text_quality_code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-QT </B><I>text_quality_code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Distance for leader</i></b></td><td> Defines the distance from the dimension
+text at which a leader must be drawn, for dimensions not connected to the
+measuring line.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>QDT </B><I>distance</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-QTX </B><I>distance</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Decimal separator</i></b></td><td> Specifies the type of decimal separator
+for the dimensions (point, comma, with or without display of insignificant
+zeros).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>QVP </B><I>separator</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-QVP </B><I>separator</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Tolerance parameters</i></b></td><td> Enables you to define the tolerance
+parameters (distance between the centre lines, character height, distance
+between tolerances), in the coding of the corresponding directive.
+<BR>You can set this option only in the initialization file with the appropriate
+directive:
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>TOL </B><I>cenline_dist char_height tol_dist</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>UNI tables</i></b></td><td> Specifies the pathname of the file containing
+the UNI tables.
+<BR>You can set this option only in the initialization file with the approriate
+directive:
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>UNI </B><I>file</I></td></tr>
+</table></td></tr>
+<tr valign="top"><td width="160"><b><i>Arc drawing modes </i></b></td><td>Enables you to set the circular arc drawing
+mode: according to the output device modes, according to the GBPLO modes
+or with a polyline.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ARCM </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ARCM </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Discretizing arcs </i></b></td><td>Enables you to set the discretization
+value to be used when drawing arcs.
+
+<P><B>Note</B>: if you select a hardware mode, any arc discretization value
+set may have no effect on some output formats.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ARCD </B><I>discretization</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ARCD </B><I>discretization</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Dashed line drawing modes </i></b></td><td>Enables you to decide whether
+or not the dashed lines on the drawing must be drawn according to the output
+hardware device modes or the software modes. You can redefine the step
+of the dashed lines at any time (GRA LTRP) and, if you select a software
+mode, you can also redefine the entire pattern (GRA DLPAT).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA LTRM </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA LTRM </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Dashed line step </i></b></td><td>Enables you to modify the length of the
+dashed line step. Enter a multiplication factor which will be applied to
+the entire pattern and is completely independent of the resolution.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA LTRP </B><I>factor</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA LTRP </B><I>factor</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Line pattern </i></b></td><td>Enables you to define the pattern to be associated
+to the types of dashed lines, in terms of the length of the dashes to be
+drawn and the spaces, when you set a software type dashed line drawing
+mode with GRA LTRM.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA DLPAT </B><I>line pattern</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA DLPAT </B><I>line pattern</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Alternative fonts </i></b></td><td>Enables you to substitute the default
+font otherwise used to display texts of quality 3 (QTE).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA FLOAD </B><I>font</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA FLOAD </B><I>font</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Thickness management modes </i></b></td><td>Enables you to activate and
+manage line thickness (<i>line width</i> or <i>line weight</i>) defined with GRA PWIDTH). If activated, the thickness
+can be expressed in output device units, in proportion to the current scale,
+in millimeters or inches.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA MWIDTH </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA MWIDTH </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Thickness </i></b></td><td>Enables you to associate a particular thickness
+to a pen (<i>line width</i> or <i>line weight</i>), also defining its size (in mm, cm or inches).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA PWIDTH </B><I>pen thickness unit</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA PWIDTH </B><I>pen thickness unit</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Point entity drawing modes </i></b></td><td>Enables you to define the point
+entity drawing modes: output hardware device mode or software mode (in
+the latter case, you must also define the graphic symbol and its size).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA PNTM </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA PNTM </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Rotation </i></b></td><td>Enables you to rotate the drawing through a preset
+angle, to adapt it to the size used.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ROTATE </B><I>angle</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ROTATE </B><I>angle</I>
+<BR>
+
+</td></tr></table></td></tr></table>
+<H3><A NAME="2.5"></A>Instructions relative to special formats<hr color="silver"></h3>
+The instructions described below relate to the specified formats and apply
+for these only.
+<BR>
+
+<H4>
+<A NAME="2.5.1"></A>HP-GL and HP-GL/2 formats</H4>
+The following special parameters and modes relate to the HP-GL and HP-GL/2
+formats.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Defining the color map </i></b></td><td>Enables you to define the content
+of the elements of the color map in terms of the RGB components and taking
+into account the limits set with the GRA COLCH and GRA NCOLS directives.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA CMAP </B><I>numcol red green blue</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA CMAP </B><I>numcol red green blue</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>HW drawing merging </i></b></td><td>Enables you to merge more than two drawings
+on the same sheet in hardware mode, i.e.: so that merging is effected by
+the output device rather than GBPLO (-COM mode).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA MERGE </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA MERGE </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Defining reference points </i></b></td><td>Enables you to redefine the plotter
+reference points (which you can inspect with GRA SHP1P2) which determine
+the working dimensions of the sheet and the framing (FRA) step.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA P1P2 </B><I>x<SUB>1</SUB> y<SUB>1</SUB> x<SUB>2</SUB> y<SUB>2</SUB></I></td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA P1P2 </B><I>x<SUB>1</SUB> y<SUB>1</SUB> x<SUB>2</SUB> y<SUB>2</SUB></I></td></tr></table></td></tr>
+
+
+<tr valign="top"><td width="160"><b><i>Displaying reference points </i></b></td><td>Enables you to inspect reference
+point coordinates (these can be defined using GRA P1P2) which define the
+plotting area.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA SHP1P2</B></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA SHP1P2</B></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Framing</i></b></td><td> Enables you to manage the printing of large drawings:
+the plotter effects printing in frames. This occurs without requiring user
+confirmation.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>FRA </B><I>framing_flag</I>
+<BR>or:
+<BR><B>GRA FRAM </B><I>framing_flag</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-FR </B><I>framing_flag</I>
+<BR>or:
+<BR><B>-GRA FRAM </B><I>framing_flag</I>
+</td></tr></table></td></tr></table><BR>
+
+<H4>
+<A NAME="2.5.2"></A>BGL Format</H4>
+The following special modes and parameters relate to the BGL format.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Framing</i></b></td><td> Enables you to manage the printing of large drawings:
+the plotter effects printing in frames. This occurs without requiring user
+confirmation.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>FRA </B><I>framing_flag</I>
+<BR>or:
+<BR><B>GRA FRAM </B><I>framing_flag</I>
+td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-FR </B><I>framing_flag</I>
+<BR>or:
+<BR><B>-GRA FRAM </B><I>framing_flag</I>
+</td></tr></table></td></tr>
+<tr valign="top"><td width="160"><b><i>Correcting character width</i></b></td><td> Indication of the character
+width correction factor necessary to obtain correct text plotting.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA FOFFS</B><I> factor</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA FOFFS</B><I> factor</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Defining reference points </i></b></td><td>Enables you to redefine the plotter
+reference points (you can inspect these with GRA SHP1P2) which determine
+the working dimensions of the sheet and the framing (FRA) step.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA P1P2 </B><I>x<SUB>1</SUB> y<SUB>1</SUB> x<SUB>2</SUB> y<SUB>2</SUB></I></td></tr>
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA P1P2 </B><I>x<SUB>1</SUB> y<SUB>1</SUB> x<SUB>2</SUB> y<SUB>2</SUB></I></td></tr></table></td></tr>
+
+
+<tr valign="top"><td width="160"><b><i>Displaying reference points </i></b></td><td>Enables you to inspect the
+coordinates of the reference points (these can be defined with GRA P1P2)
+which define the plotting area.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA SHP1P2</B></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA SHP1P2</B>
+<BR>
+
+</td></tr></table></td></tr></table>
+<H4>
+<A NAME="2.5.3"></A>PostScript format</H4>
+You can use the following parameters for the PostScript format.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Defining the color map </i></b></td><td>Enables you to define the content
+of the elements of the color map in terms of the RGB components and taking
+into account the limits set by the GRA COLCH and GRA NCOLS directives.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA CMAP </B><I>numcol red green blue</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA CMAP </B><I>numcol red green blue</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Maximum number of instructions per path </i></b></td><td>Specifies the
+maximum number of graphic instructions per path (temporary graphics buffer).
+Enables you to optimize performance depending on the hardware used.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA NPBUF </B><I>max_num</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA NPBUF </B><I>max_num</I>
+<BR>
+
+</td></tr></table></td></tr></table><H4>
+<A NAME="2.5.4"></A>CALCOMP format</H4>
+You can define the following modes for the CALCOMP format.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Plotter intelligence </i></b></td><td>Enables you to define the degree of
+intelligence of the plotter, to manage the use of the plotter character
+generator and the special functions. In particular, allows you to enable
+the CDCL directives, which are otherwise inhibited.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA INTPL</B><I> code</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA INTPL</B><I> code</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Defining the color map </i></b></td><td>(<I>CALCOMP - CDCL only) </I>Enables
+you to define the content of the elements of the color map in terms of
+the RGB components and taking into account the limits set with the GRA
+COLCH and GRA NCOLS directives, when the "plotter degree of intelligence"
+(GRA INTPL) is suitable.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA CMAP </B><I>numcol red green blue</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA CMAP </B><I>numcol red green blue</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Thickness management modes </i></b></td><td>(<I>CALCOMP - CDCL only) </I>Enables
+you to activate and manage line thickness (<i>line width</i> or <i>line weight</i> to be defined with GRA PWIDTH),
+when the "plotter degree of intelligence" (GRA INTPL) is suitable. If activated,
+thickness can be expressed in units of the output device, in proportion
+to the current scale or in millimeters.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA MWIDTH </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA MWIDTH </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Thickness </i></b></td><td>(<I>CALCOMP - CDCL only) </I>Enables you to associate
+a particular thickness to a pen (<i>line width</i> or <i>line weight</i>), also defining its entity (in mm, cm or
+inches), when the "plotter degree of intelligence" (GRA INTPL) is suitable.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA PWIDTH </B><I>pen thickness unit</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA PWIDTH </B><I>pen thickness unit</I>
+<BR>
+
+</td></tr></table></td></tr></table>
+<H4>
+<A NAME="2.5.5"></A>Raster format</H4>
+The following modes relate to the printing of files in the raster format.
+
+<P><B><U>N.B.:</U></B>
+
+<P>Remember that with GBPLO the printing of <U>vector drawings</U> in raster
+format is always enabled. <U>Only GBG Raster users can print hybrid files
+with GBPLO, that is to say, files whose content is part vector and part
+raster, or pure raster files. In general:</U>
+<UL>
+<LI>
+<U>whatever the output raster format, the color is not supported</U>
+
+<LI>
+<U>the TIFF format can never be directly produced in output on the device
+(device file: serial port, parallel port, etc.)</U></LI>
+</UL><br>
+<table><tr valign="top"><td width="160">
+<B><I>Compression modes </I></B></td><td>Enables you to set the mode for compression
+of the output raster files.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA COMP </B><I>mode</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA COMP </B><I>mode</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Merging HW drawings </i></b></td><td>Applicable only to the HP-RTL format
+which enables you to use the hardware mode, i.e.: so that the merging of
+more than two drawings on the same sheet is effected by the output device
+rather than GBPLO (-COM mode).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA MERGE </B><I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA MERGE </B><I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Leading and trailing blanks </i></b></td><td>Enables the removal of any
+blank lines . <I>scanlines</I> . , when the window entered (-W) is larger
+than that actually occupied by the drawing.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA STRIP</B> <I>option</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA STRIP</B> <I>option</I></td></tr></table></td></tr>
+
+<tr valign="top"><td width="160"><b><i>Number of lines per block </i></b></td><td>Enables you to define, for output
+in the TIFF format, the number of lines (<I>scanlines</I>) which constitute
+each block (<I>strip</I>).
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>GRA ROPS </B><I>line_num</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-GRA ROPS </B><I>line_num</I>
+<BR>
+
+</td></tr></table></td></tr></table>
+<H3>
+<A NAME="2.6"></A>Printing drawings generated in think3 environment<hr color="silver"></h3>
+The following options and directives relate to the printing of drawings
+generated in the <b>think<font color="#FF0F00">3</font></b> environment.<br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>Root directory </i></b></td><td>Enables you to tell GBPLO the root directory
+of the <b>think<font color="#FF0F00">3</font></b> application installation, within which the "fonts" directory containing
+the fonts to be used in the drawing is searched for. If you do not specify
+the root directory, the GBPLO installation root directory is assumed as
+the default.
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>DRE </B><I>pathname</I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-DRE </B><I>pathname</I></td></tr></table></td></tr></table>
+
+<P><I>Moreover, when printing a model file, you can define the reference
+system associated to the view (by means of the y and z unit vectors).</I><br>&nbsp;<br>
+<table>
+<tr valign="top"><td width="160"><b><i>View reference unit vectors </i></b></td><td>Enables you to define the y
+and z unit vectors of the reference system associated to the view containing
+the entities to be printed, when printing model files ".e3".
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>VUP </B><I>up<SUB>x </SUB>up<SUB>y </SUB>up<SUB>z</SUB></I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-VUP </B><I>up<SUB>x</SUB> up<SUB>y</SUB>up<SUB>z</SUB></I></td></tr>
+
+<table><tr valign="top"><td width="90"><i>directive: </i></td><td><B>VNO </B><I>no<SUB>x</SUB> no<SUB>y</SUB>no<SUB>z</SUB></I></td></tr>
+
+<tr valign="top"><td width="90"><i>run option: </i></td><td><B>-VNO </B><I>no<SUB>x</SUB> no<SUB>y</SUB>no<SUB>z</SUB></I></td></tr></table></td></tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

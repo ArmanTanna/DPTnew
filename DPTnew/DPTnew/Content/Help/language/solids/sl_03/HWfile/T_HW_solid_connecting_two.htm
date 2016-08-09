@@ -1,0 +1,120 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a solid by connecting two boundary profiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Creating a Solid by Connecting two Boundary Profiles</h3>
+
+<p>The <a href="../FWfile/T_FW_sl_01_03_solid.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span></a> command enables you to create a solid by sweeping two boundary profiles by using the <a href="../FWfile/T_FW_sl_01_03_solid.htm#RUL"><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+96">Ruled</span></a> option from the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list, as shown in the image below.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/sl080103.gif"></td>
+<td><img src="../../../../images/general/arrow-right.gif"></td>
+<td><img border="1" src="../../../../images/solids/sl_03/sl_01_03_12.gif"></td>
+</tr>
+</table>
+
+<p>To obtain the above result, you need to open the <i>solid_ruled.e3</i> file available in the samples folder of your installation folder and follow the steps given below.</p>
+
+<ol indent="noleft">
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span> command to display the selection list.<br>
+<br>
+</li>
+
+<li>Next, select the <a href="../FWfile/T_FW_sl_01_03_solid.htm#RUL"><span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+96">Ruled</span></a> option from the <span class="UI_COMMAND" id="tdesign.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list of the selection list.<br>
+<br>
+</li>
+
+<li>You are prompted to select entities. Select the two profiles for the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+12">Boundaries</span> selector, as shown in the image below.<br>
+<br>
+<img border="1" src="../../../../images/solids/sl_03/sl050103.gif"><br>
+<br>
+To reselect the profiles, right-click on <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+12">Boundaries</span> in the selection list, choose <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span>, and then select the profiles.<br>
+<br>
+</li>
+
+<li>In case you get the <span class="UI_COMMAND" id="TDSweep.msg+_TDSWEEP_WARNTTIP_+12">Self-Intersection</span> warning or to avoid twisting select <b>Reset</b> from the <span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+13">Start Points</span> selector in the selection list, and then select a new starting point on each boundary profile.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/sl090103.gif"></td>
+<td></td>
+</tr>
+
+<tr>
+<td align="center"><b>Highlighted starting points</b></td>
+<td></td>
+</tr>
+</table>
+</li>
+
+<li>If required to create a shelled solid, click <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to display the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+10">1st Thickness</span> and <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+11">2nd Thickness</span> check boxes. Select the check boxes to extend their respective edit boxes.<br>
+<br>
+</li>
+
+<li>Enter <b>10</b> in both edit boxes to specify the shell thickness of the boundaries.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the solid/shelled feature, as shown in the images below.<br>
+<br>
+</li>
+
+<li style="list-style: none">
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img border="1" src="../../../../images/solids/sl_03/sl_01_03_12.gif"></td>
+<td><img border="1" src="../../../../images/solids/sl_03/sl070103.gif"><br>
+</td>
+</tr>
+
+<tr>
+<td><b>Transition</b> check boxes cleared</td>
+<td><b>Transition</b> check boxes selected</td>
+</tr>
+</table>
+</li>
+</ol>
+
+<p>Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.<br>
+<br>
+</p>
+
+<hr color="silver">
+<h5>Also try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_solid_protusion_along_spine.htm"><b>Create a solid by sweeping a boundary profile along a spine path</b></a></li>
+
+<li><a href="../HWfile/T_HW_solid_multi_spine.htm"><b>Create a solid by connecting two or more boundary profiles along a spine</b></a></li>
+
+<li><a href="../HWfile/T_HW_solid_multi_nospine.htm"><b>Sweep a solid by selecting the edge of the surface as the drive curve</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

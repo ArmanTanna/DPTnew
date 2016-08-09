@@ -1,0 +1,329 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Fitting a curve to an existing curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h4>Fit a curve to an existing curve</h4>
+
+<p>After starting the <a href="../FWfile/T_FW_cv_02.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+31">Fit Curve</span></a> command, proceed as follows.</p>
+
+
+
+<table border="0">
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+98">From</span> drop-down list, select <b>Curves</b>.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b>&nbsp;</td>
+<td>Select the curve you want to fit. To change the selected curve, right-click on <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>You can now specify the tangency conditions at the end points. As soon as you selected the curve, the the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+102">Tangency constraints</span> drop-down list showed up in the Selection List.<br>
+
+
+ <br>
+<img border="1" src="../images/CU5_image001.gif"><br>
+<br>
+ 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+10">None</span><br>
+
+
+ to set no tangency constraints at the end points.</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+103">First</span><br>
+
+
+ to set a tangency constraint at the first end point.</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+105">Both</span><br>
+
+
+ to set a tangency constraint at each end point.</li>
+
+<li><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+104">Second</span><br>
+
+
+ to set a tangency constraint at the second end point.<br>
+<br>
+</li>
+</ul>
+
+<p>By default, the tangency constraints at the end points will be such as to ensure coincidence between the fitting curve tangents at the end points and the ones of the original curve.<br>
+<br>
+</p>
+
+<p>As soon as one of the above options (other than <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+10">None</span>) is selected, handles are displayed at the fitting curve end points and the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+341">Start Tangent Vector</span> and 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+342">End Tangent Vector</span> drop-down lists show up in the Selection List.<br>
+
+
+<br>
+</p>
+
+<p><img border="1" src="../images/CU5_image002.gif"><br>
+<br>
+</p>
+
+<p>You can drag the handles in order to interactively rotate the corresponding tangent, or click on them to display the <span class="UI_MINIDIALOG" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span> mini-dialog box in which to type the value of the angle of rotation.<br>
+
+
+<br>
+<img border="1" src="../images/CU5_image003.gif"><br>
+<br>
+</p>
+
+<p>Alternatively, you can choose an option inside the above said <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+341">Start Tangent Vector</span> and 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+342">End Tangent Vector</span> drop-down lists so as to align the tangents in one of the available modes (see "
+<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>" for details).<br>
+
+
+&nbsp;</p>
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+108">No. of points to fit</span> box type the number of points of the selected curve you want to use for the fitting process.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="Begin_here"></a><b>5</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+100">No. of arcs</span> box type the number of arcs you want the fitted curve to be composed of (Note that if the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+161">Approximation</span> drop-down list under 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is set to 
+
+<span class="UI_OPTIONS" id="CurveUI.msg+_CURVE_UI_LABEL_+160">Select arc joints</span>, rather than the arc number, you must indicate the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+145">Arc joints</span> by clicking on the points where you want to place them).<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+128">Degree</span> box type the degree to be assigned to the curve (the maximum allowed value is 7). In the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+149">Continuity</span> box type the continuity value to be assigned to the curve (the maximum allowed value is <i>degree - 1</i>). <i>Remember the values you enter must comply with the <a href="../../MathConc/T_MC_cv_01.htm">fundamental relationship</a> between control points, degree, continuity and number of arcs for a NURBS</i>.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+119">Quality Checks</span> to access a set of tools enabling you to better evaluate the curve you are creating. 
+
+
+
+<ul class="noleft">
+<li>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+153">Maximum distance</span> box displays the distance of the point furthest away from the resulting curve.</li>
+
+
+
+<li>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+154">Mean square error</span> box displays the value of the mean square error of the curve<br>
+
+
+<img src="../../../images/curves/cvi04_02.gif"><br>
+ where <i>d<sub>i</sub></i> are the distances of the points to fit.</li>
+
+<li>Select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+114">Control points</span> check box to display the control points of the resulting fitting curve.</li>
+
+
+
+<li>Select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+115">Inflection points</span> check box to display a black square marker on each inflection point of the resulting fitting curve.</li>
+
+
+
+<li>Select the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span></a> command to display a dynamic plot of the curvature of the resulting fitting curve.</li>
+
+
+
+<li>Select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+117">Most distant point</span> to display a black square marker on the point that is furthest away from the resulting fitting curve.</li>
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>The settings under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enable you to control the quality of the resulting curve. 
+
+
+
+<ul class="noleft">
+<li>In order to recalculate the curve by iterative refinement of the solution, you can: 
+
+<ul class="noleft">
+<li>Choose the type of accuracy the refinement process must achieve in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+162">Quality</span> drop-down list. Three levels are available (
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+163">Low</span>, 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+164">Medium</span>, 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+165">High</span>): the less accurate the level, the quicker the process.</li>
+
+
+
+<li>Repeatedly Select <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+118">Iterate</span>. The 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+154">Mean square error</span> is reduced. You can repeat this process until its value is stationary.</li>
+
+
+</ul>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+158">Ignore some</span> option in the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+156">Fit points</span> drop-down list and then select some points, among the already selected ones, to be ignored when calculating the fitting curve.</li>
+
+
+
+<li>Choose the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+168">Parameterization</span> to be used for the resulting curve: 
+
+
+
+<table>
+<tr valign="top">
+<td width="90"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+170">Refined arc length</span></td>
+
+
+<td>the sample points are spaced as equal arc-length along the curve</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+169">Current</span></td>
+
+
+<td>the same parameterization as the one of the curve to be fitted</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+171">Uniform</span></td>
+
+
+<td>the sample points are equally spaced in the domain of the curve.</td>
+</tr>
+</table>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>Under the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+177">Advanced Options</span> you can find the settings through which you can define the tolerances used to determine the sample points: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+174">Max. sampled chord error</span></td>
+
+
+<td>The maximum distance between the chord (between two adjacent sample points) and the curve. Default is the ratio: <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+176">Max. sampled arc length</span> / 20.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+175">Max. sampled torsion error</span></td>
+
+
+<td>The maximum angle between the normals at two adjacent sample points. Default is 5 degrees.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+176">Max. sampled arc length</span></td>
+
+
+<td>The maximum value for the length of the chord between two adjacent sample points. Default is the length of the curve divided by the number of sample points specified.</td>
+</tr>
+</table>
+
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>10</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the curve.<br>
+Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_FitSuggestions.htm"><b>Fitting Curves: Suggestions and Tips</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

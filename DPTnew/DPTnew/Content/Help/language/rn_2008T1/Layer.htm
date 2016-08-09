@@ -1,0 +1,296 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<meta name="Revisor" content="Sanjib Sahu">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Layer Management</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\rn_2007T1 -->
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="P0000261">New Layer Management</a></h1>
+
+<p class="noindent">Version 2008.1 introduces a new management of the layers.</p>
+
+<ul class="noleft">
+<li><a href="#ov">Overview</a></li>
+
+<li><a href="#newui">New user interface</a></li>
+
+<li><a href="#newcom">New commands</a></li>
+
+<li><a href="#filter">Layer filtering methods</a></li>
+
+<li><a href="#toolbar">New Layer toolbar</a></li>
+
+<li><a href="#bylayer">By layer and selection</a></li>
+
+<li><a href="#vb">Visual Bookmarks</a></li>
+
+<li><a href="#conv">Data Exchange (Converters)</a></li>
+
+<li><a href="#cvd">Custom view integration</a></li>
+
+<li><a href="#misc">Impact on other commands</a></li>
+</ul>
+
+<br>
+ 
+
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000261 - OWN: FERO -->
+<h2><a name="ov">Overview</a></h2>
+
+<p>In this version, the application layer management has been completely renewed. The main features of the brand new layer environment are:</p>
+
+<ul>
+<li>User interface visibility and availability</li>
+
+<li>Better look and representation</li>
+
+<li>Possibility to do quick and effective changes</li>
+
+<li>Possibility to filter the layers list</li>
+
+<li>Possibility to select entities by layer</li>
+
+<li>Possibility to filter entity selection</li>
+
+<li>Possibility to lock a layer and to assign properties such as Color, Line Type and Width</li>
+
+<li>Possibility to protect a layer with password</li>
+
+<li>Possibility to move all entities from a layer to another one or to exchange the layer content</li>
+
+<li>Possibility to identify the layer by using an alphanumeric value (string)<br>
+<br>
+</li>
+</ul>
+
+<p>In former versions each model/drawing contained 1024 layers, no matter whether empty or not. Starting from this version, only layer 0 is there by default.<br>
+ When an old model/drawing is loaded into the new version, the actual layers automatically defined in the document will be:</p>
+
+<ul>
+<li>Default layer 0, which is always there</li>
+
+<li>All layers which at least one entity is laying on</li>
+
+<li>Layers with an associated description, no matter whether empty or not</li>
+
+<li>Current layer.<br>
+<br>
+</li>
+</ul>
+<p>The new option <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1770">Show default prefix in new layer names</span> under <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1769">Layers</span> in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+4">General</span>-<span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span> enables you to add the prefix <i>Layer</i> to the name of the new layer.<br>
+<br>
+When importing the content of a document through the <span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_File_Import.msg+MenuBar_Document_Insert_File_Import+4624">From File</span> command, all the defined layers will be imported, regardless of the fact there may be entities laying on them or not.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;margin-top:10;margin-bottom:10;">
+<tr>
+<td bordercolor="#ffffe1"><b>Compatibility</b><br>
+All the customized layers older than version 2008.1 are no more compatible with the current layer management. The renewed layer customization can be applied only to newly created documents.</td>
+</tr>
+</table>
+
+<p>For complete detail on the compatibility of layers, see in the command description of the online help.<br>
+<br>
+</p>
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="newui">New user interface</a></h2>
+
+<p>In former versions, only limited functionalities (<span class="OLD">All On</span>, <span class="OLD">All Off</span>, <span class="OLD">Show All Layers</span>, <span class="OLD">Relevant Layers</span>) were permitted on the layers. In this version several new and improved functionalities have been developed, which allow the user to manage the layers in the layer list:</p>
+
+<ul>
+<li><a href="#edit">Layer Editing</a> to modify the layer list.</li>
+
+<li><a href="#filter">Layer Filter</a> to display the layers that match the filter criteria.</li>
+
+<li><a href="#select">Layer Selection</a> to select the layers.</li>
+
+<li>Layer Entity Selection to select the entities on a layer. See "Layers: Entity Selection" in the online help for further details</li>
+
+<li>Layer Entity Change to change the entities from one layer to another. See "Layers: Entity Change" in the online help for details.</li>
+
+<li>Layer Protection to protect the layer with a password. For further details, see "Layer Protection" in the online documentation.</li>
+
+<li><a href="#sel_filter">Entity selection filter</a> to select the entities with the common properties on a layer.<br>
+<br>
+</li>
+</ul>
+
+<p><a name="tab"></a>To achieve the goals listed above, a brand new user interface, the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab, has been made available on the left pane of the drawing/model document. It consists of several controls enabling you to operate on layers, without starting the layers commands from the menu bar. For further details, see "Layers" in the online documentation. The new interface can be activated using the <a href="#tab"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span></a> tab.</p>
+
+<h3><a name="prop"></a>Layer Properties</h3>
+
+<p>The layer properties are arranged in form of the columns, which can be customized to make them visible by right-clicking and selecting the check box of the required property from the available list. For further details on column customization, complete description of the property columns of an individual layer, and generic information about the <a name="list"></a>layer list, see "Layers" in the online documentation.</p>
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="newcom">New commands</a></h2>
+
+<p>The label of the existing layer command has been standardized to make it more appropriate. As a result, the command <span class="OLD">Input Layers</span> has been renamed as <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6441">Current Layer</span>. Also, from now onwards the old <span class="OLD">Output Layers</span> command has been removed from the <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span> menu as it is meant to switch to the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab, which is no more useful. As a consequence, the old <span class="old">Layers</span> dialog box has also been removed.</p>
+
+<br>
+ 
+
+<p>The new layer commands can be reached using the:</p>
+
+<ul>
+<li>Buttons: <a name="edit"></a><a name="button"></a>Layer editing is possible using the five buttons &mdash; <a name="nl"></a><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+15">New Layer</span>, <a name="scl"></a><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+16">Set Current Layer</span>, <a name="dl"></a><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+18">Delete Layer</span>, <a href="#filter"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+19">Filter Layers</span></a>, <a href="#select"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+25">Select Layers</span></a>. For further details, see "Layers" in the online help.<br>
+<br>
+</li>
+
+<li>Context menu: <a name="cm"></a>See "Layers: Context menu commands" in the online help for further details on the commands accessible from the context menu.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="filter"></a>Layer filtering methods</h2>
+
+<p>Filters can be defined in order to limit the display of the current layer list. For more details on the selective display of layers, see "Layers: Filtering and Selection Methods" in the online help.</p>
+
+<h3><a name="sel_filter"></a>Entity Selection Filter</h3>
+
+<p>A new <span class="UI_COMMAND" id="idd_filters.msg+idd_filters+27">Attributes</span> area has been added to the <span class="UI_COMMAND" id="idd_filters.msg+idd_filters+1">Selection Filter</span> dialog box (available on right-clicking on the Graphics Area and selecting <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span> - <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+1107">Filter </span> in the context menu) to provide a filter for the entity selection based on the layer properties.<br>
+<br>
+ <img src="images/layer_selectionfilter.gif"><br>
+<br>
+ For example, when a selection filter is set as follows:<br>
+ <span class="UI_OPTION" id="idd_filters.msg+idd_filters+29">Color</span>: <span class="UI_OPTION" id="idd_type_color.msg+idd_type_color+3">By layer</span><br>
+ Layer: <b>0</b><br>
+you can select only those entities that belong to layer <b>0</b> and the color attribute of which is set to <span class="UI_OPTION" id="idd_type_color.msg+idd_type_color+3">By layer</span> (in this example, it is Green).</p>
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="toolbar">New Layer toolbar</a></h2>
+
+<p>A new <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+1">Layers</span> toolbar (<img src="../../images/rn_2008T1/layer_toolbar.gif" align="absmiddle"><!--  / <img src="../../images/icons/icons_medium/idr_layer.bmp" align="absmiddle"> -->) has been made available for easy management of layers. See "Working with Layers" in the online help for further details.</p>
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="bylayer"></a>By layer and selection</h2>
+
+<p>A new value called <span class="UI_COMMAND" id="idd_type_color.msg+idd_type_color+3">By layer</span> (denote an associated property of a current layer) has been added to the layer properties such as <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+408">Color</span>, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+409">Line type</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+410">Width</span> at the following locations:</p>
+
+<ul>
+<li>Statusbar</li>
+
+<li><a href="OPS.htm#gen"><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+4">General</span></a> category</li>
+
+<li><a href="#sel_filter"><span class="UI_COMMAND" id="idd_filters.msg+idd_filters+1">Selection Filter</span></a> dialog box &mdash; only <span class="UI_OPTION" id="idd_filters.msg+idd_filters+29">Color</span> and <span class="UI_OPTION" id="idd_filters.msg+idd_filters+30">Line</span> properties have this new value<br>
+<br>
+</li>
+</ul>
+
+<p>To change the property values associated to a layer, left-click on its corresponding icon and then make the new selection from the available list. The layer property affects only the entities on a layer whose value is set to <span class="UI_COMMAND" id="idd_type_color.msg+idd_type_color+3">By layer</span>.<br>
+<br>
+ <a name="select"></a>For further details on the layer selection, see "Layers: Filter and Selection Methods" in the online documentation.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="vb"></a>Visual Bookmarks</h2>
+
+<p>While applying the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+1">New Visual Bookmark</span> command, it is now possible to define the visibility status of all layers that are created after the current Visual Bookmark has been generated. This status can be defined using the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+30">Layers</span> drop-down list present under the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+40">New Entities</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+32">More Options</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+24">Capture Settings</span> branch of the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+1">New Visual Bookmark</span> selection list.</p>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="conv"></a>Data Exchange (Converters)</h2>
+
+<p>During the data exchange <i>to/from</i> <b>think<font color="#FF0F00">3</font></b> to other formats, the layer information has to be correctly converted. Hence, the enhancements in the Layer Management do impact the data conversion functionality. Refer to the following topics for details:</p>
+
+<ul>
+<li><a href="DataExchange.htm#IGES_layers">New <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category for IGES converter</a></li>
+
+<li><a href="DataExchange.htm#step_layers">New <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category for STEP converter</a></li>
+</ul>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="cvd"></a>Custom view integration</h2>
+
+<p>In the <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+292">Custom View Definition</span> dialog box the old <span class="OLD">Filter Display by Layer</span> button has been removed, while the new Layers tab structure has been added. The new interface is shown in the image below:<br>
+<br>
+<img src="images/layers_custview.gif" border="1"><br>
+<br>
+ See "Managing Views" in the online help for further details on the new Layers tab structure.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="misc"></a>Impact on other commands</h2>
+
+<p>In several previous version commands you could specify a layer by typing the corresponding number in a box. All those boxes have been replaced with an editable drop-down list in which you can either choose an existing layer or type in the name of a new one to create it. This enhancement has an impact on the following <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> categories and commands:</p>
+
+<ul>
+<li><a href="OPS.htm#gen"><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+4">General</span></a> category</li>
+
+<li><a href="OPS.htm#ViewAtt"><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+545">Drawing</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+662">View Attributes</span></a> category</li>
+
+<li><a href="OPS.htm#DocViewAtt"><span class="UI_COMMAND" id="eklib.msg+optsmsg+1">Document Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+545">Drawing</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+662">View Attributes</span></a> category</li>
+
+<li><a href="Drafting.htm#OF"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7310">Formats</span></a></li>
+
+<li><a href="Feature.htm##P261"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a></li>
+
+<li><a href="General.htm#CCB6553"><span class="UI_COMMAND" id="ButtonToolbar_File.msg+ButtonToolbar_File+1055">Print Setup</span></a> and <a href="General.htm#CCB6553"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1057">Print</span></a></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1430">Break Solid</span></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1153">Surface</span><img src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7324">Split with Silhouette</span></li>
+</ul>
+
+<br>
+<br>
+<p>Also in <b>thinkprint</b>, the identification of layers to be printed have been changed accordingly. For further details, click <SPAN OnClick="OpenHelp('/rn_tp_2008T1/General.htm#Layers','','','thinkprint','rn_tp_2008T1.chm')" style="CURSOR:hand"><font color="blue"><u>here</u></font></span>.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+

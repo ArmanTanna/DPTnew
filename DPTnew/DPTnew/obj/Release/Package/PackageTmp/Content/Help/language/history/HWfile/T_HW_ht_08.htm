@@ -1,0 +1,102 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Job: Recovering errors when rebuilding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Recovering errors when rebuilding</h2>
+
+<p>Whenever the <span class="UI_OPTION" id="GUIService.msg+_GUISERVICE_TOOLTIP_+4">Rebuild</span> button appears active on the Standard toolbar, the model needs to be updated in order to see changes. In some situations, the 
+<span class="UI_OPTION" id="GUIService.msg+_GUISERVICE_TOOLTIP_+4">Rebuild</span> command may fail to update the model. When this happens, the 
+<span class="UI_OPTION" id="tdesign.msg+_CP_ERROR+22">Warning</span> dialog box is displayed, which enables you to proceed by selecting the appropriate operation.</p>
+
+
+<img src="../images/Warning.gif"><br>
+ 
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> will display a red arrow pointing at the feature, which failed during the rebuild operation.</p>
+
+
+<img src="../images/RebuildError.gif" border="1"><br>
+<br>
+<p>The dialog box, in addition to the usual options, displays a frame with the error description. The various options in the <span class="UI_OPTION" id="tdesign.msg+_CP_ERROR+22">Warning</span> dialog box are explained below.</p>
+
+
+<table>
+<tr valign="top">
+<td width="160"><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+111">Continue and Ignore</span></td>
+
+<td>Enables you to defer the update for the time being and ignore any additional failures. Select this option when the update failure is not important or when you want to continue working and update the model later.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+110">Continue</span></td>
+
+<td>Enables you to continue updating until the end or until the next update failure.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+112">Quit</span></td>
+
+<td>Stops the update and shows the model as it appears at the time of the failure. The operations that have still not been updated are not cancelled from the history and are available after subsequent updating. This option allows you to intervene in the operations already updated to change the parameters or settings. It is useful after incorrect dimensional changes.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+113">Redefine</span></td>
+
+<td>Enables you to redefine the failing feature.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+142">Remove</span></td>
+
+<td>Enables you to remove the failed operation.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+115">Deactivate</span></td>
+
+<td>Enables you to temporarily disable the failed operation.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<table border="0">
+<tr>
+<td width="170"><img src="../../Errman/images/874-15.gif" border="1"> </td>
+<td>If an event fails when rebuilding the model, a red arrow is displayed on the left of its icon in the model structure. If you continue with modeling process without rectifying the cause of the failure, a persistent icon <img src="../../../images/Errman/874-14.gif" align="absmiddle"> will be displayed on the failing events. It will be visible there after saving, closing and re-opening the model. This is extremely helpful in locating the events on which rebuilding failed, especially in complex models having a long model structure with a lot of events. The error icon disappears after the failure cause has been rectified.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,176 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>Overview on Region Analysis</title>
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h1>Overview on Region Analysis</h1>
+
+<p>The <a href="../FWfile/T_FW_region_analysis.htm"><span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span></a> command enables you to analyze a mold part. This analysis provides the base for alternate method for creating the core and cavity in the <b>MoldDesign</b> module. You can identify and classify the faces as regions of the mold part as core, cavity or slider. This process minimizes the effort in identifying the core and cavity faces and gives you more control on the mold part. The faces can be converted to skin using this command. The skins will be used in creating the core and cavity using the <span class="UI_OPTION" id="MoldDesignUI.msg+_MoldDesignUI_LABEL_+40">Region based</span> option in the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+3">Split Mold</span> command. The following are the functionalities of the <span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span> options in the selection list.</p>
+
+<h3><a name="dir"></a>Direction</h3>
+
+<p>The direction is one of the most important criteria for analysis. The direction of the extraction of the mold part will determine the result of the analysis. You can have multiple region analysis by selecting different extraction directions.</p>
+
+<p>On starting the <span class="UI_COMMAND" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+16">Region Analysis</span> command, the mold part is selected for the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+8">Solid</span> selector in the selection list. Under the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+2">Directions</span> node, you can enter a name in the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+2">Directions</span> text box, else the application itself names each analysis as Direction 1, Direction 2 etc. The analysis is based on the selection of the extraction direction. Each direction analysis can be named as per your requirement using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+2">Directions</span> text box. Then select the extraction direction using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+21">Direction</span> drop-down list.<br>
+<br>
+ Once the analysis of the mold part has been done by selecting a specific direction, then two buttons are available for selection.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td><a name="new"></a><img src="../../../images/icons/thinkreal/Light_new.gif" border="0" align="middle"></td>
+<td><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+6">New Direction</span></td>
+<td>Each click on the button enables you to select another direction of extraction, based on which the analysis will be computed.</td>
+</tr>
+
+<tr>
+<td><a name="del"></a><img src="../../../images/icons/thinkreal/Light_delete.gif" alt="" border="0" align="middle"></td>
+<td><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+7">Delete Direction</span></td>
+<td>Each click on the button enables you to delete the analysis of the direction selected in the corresponding drop-down list.</td>
+</tr>
+</table>
+
+<p>Using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+6">New Direction</span> button, you can analyze the mold part based on a new direction of extraction. This multiple direction analysis can be done in a single working session of the command.</p>
+
+<h3><a name="local"></a>Local</h3>
+
+<p>The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+24">Local</span> check box enables you to view a basic or detailed analysis of the mold part. The analysis results in the faces classified with different regions represented by specific colors.</p>
+
+<ul>
+<li><a name="local1"></a>When the check box is selected, then a basic analysis of the Mold Part is displayed. This only gives a general classification of the mold part and you have no control over the classified faces. When selected, the mold part is classified as <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+9">Visible points</span>, <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+10">Underdraft points</span>, <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+35">Covered points</span>, and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+14">Unknown</span> represented by a specific color as shown in the image below.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/mold/region_local.gif" border="1"></td>
+<td>
+<ol>
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+9">Visible points</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+35">Covered points</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+10">Underdraft points</span></li>
+</ol>
+</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><a name="local2"></a>When cleared, the complete analysis of the mold part is displayed in more detail. You have more options that give you more control over the analysis of the mold part. The faces of the mold part are highlighted as <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span>, <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+34">Under draft</span>, <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+19">Partially covered</span>, <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+17">Covered</span>, and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+20">Unknown</span>. Each classification is represented by a color, which is displayed corresponding to the option and on the model face. Each face classification is prefixed with a <img src="../../../images/general/lamp_new.gif" alt="" border="0" align="absmiddle"> button. You can toggle the button to on or off to see the selected classified surfaces. The following is an example of detailed analysis.<br>
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/mold/region_detail.gif" border="1"></td>
+<td>
+<ol>
+<li><span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span></li>
+
+<li><span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+34">Under draft</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+17">Covered</span></li>
+
+<li><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+19">Partially covered</span></li>
+</ol>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+44">Outside box</span> and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+45">Outside box (partially)</span> is displayed only when you select the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+36">Inside box</span> check box and define a box area for analysis on the mold part.</td>
+</tr>
+</table>
+
+<br>
+<p>The color displayed on the faces can be customized by clicking on the <span class="UI_OPTION" id="tdesign.msg+_INTEL_TOOLTIP_+112">Color</span> button. The color of your choice can be selected from the color palette.</p>
+
+ 
+
+<h3><a name="face"></a>Face Classification</h3>
+
+<p>The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+31">Check face classification</span> and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+26">Manual face classification</span> check boxes enable you to view the different faces grouped and you can manually change the classification of the faces as per your requirement.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+These face classification check boxes are available only when the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+24">Local</span> check box is not selected.</td>
+</tr>
+</table>
+
+<h4><a name="face1"></a><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+31">Check face classification</span> check box</h4>
+
+<p>When selected, the corresponding drop-down list is activated listing all the face classification. The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+33">Face</span> selector with the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+4">Previous</span> and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+5">Next</span> buttons are available to view each face one by one.<br>
+<br>
+ For Example: In the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+31">Check face classification</span> drop-down list, select <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span>. Then the first face of the visible faces will be highlighted on the mold part. Then click on the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+5">Next</span> button to view the next face. If necessary, you can also click the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+4">Previous</span> button to view the previous face. Using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+33">Face</span> selector, you can select the face on the mold part and then view the next faces by clicking the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+5">Next</span> and <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+4">Previous</span> buttons.</p>
+
+
+<h4><a name="face2"></a><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+26">Manual face classification</span> check box</h4>
+
+<p>When selected, then the corresponding drop-down list with the all the face classification is displayed. You can also manually classify the faces using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+28">Additional faces</span> selector.<br>
+<br>
+ For Example: The <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span> is selected in the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+26">Manual face classification</span> drop-down list. Select the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+28">Additional faces</span> selector and select a face which does not indicate the <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span> faces. On selecting that face, it is classified as <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span>, which is indicated by the change in color.</p>
+
+<h4><a name="face3"></a><span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+50">Check multishell skin</span> check box</h4>
+
+<p>This enables you view the faces of a region that is not a continous. When selected, you can view the different regions in using the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+5">Next</span> <img src="../../../images/general/navigate.gif" alt="" border="0" align="middle"> <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_TOOLTIP_+4">Previous</span> buttons. The number of multishells present in the current analysis is displayed in numarical corresponding to the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+50">Check multishell skin</span> check box.</p>
+
+<h4><a name="region"></a>Regions</h4>
+
+<p>The regions provide the list of regions analyzed in the mold part. The list is the names given in the <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+2">Directions</span> drop-down list. This only highlights the faces under the <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span>, with the option to change the color representation using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_TOOLTIP_+112">Color</span> dialog box. The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+47">No. faces out of regions</span> displays the number of faces that is not classified as <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span>. Also the numerical figure of the faces under classification is displayed.<br>
+<br>
+ <a name="region1"></a>The <span class="UI_OPTION" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+42">Create skins</span> check box is used to create the skin of the <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span> region.</p>
+
+<ul>
+<li>When selected, it creates skins of the <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span> faces.</li>
+
+<li>When cleared, skins are not created.</li>
+</ul>
+
+<p>The following is an example of the skin created of the <span class="UI_COMMAND" id="RegionAnalysisUI.msg+_RegionAnalysisUI_LABEL_+15">Visible (mold part)</span> faces.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/mold/region_skin.gif" border="1"></td>
+<td><img src="../../../images/general/Arrow_To_Right.gif" border="0"></td>
+<td><img src="../../../images/mold/region_skin1.gif" border="1"></td>
+</tr>
+</table>
+
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,324 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Loading models/drawings including a local component/shared group with the same name and different geometry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4>Loading models/drawings including a local component/shared group with the same name and different geometry</h4>
+
+<p>Suppose you created a model, <i>a+b.e3</i></p>
+
+<p><img src="../../../images/assembly/share_comp1.gif" border="1"></p>
+
+<p>and another model, <i>a+c.e3</i>, both available in the <i>samples</i> folder</p>
+
+<p><img src="../../../images/assembly/share_comp3.gif" border="1"></p>
+
+<p>Both models include a local component, <i>a</i>, with the same name and different geometry.</p>
+
+<p>When you open <i>a+b</i> and load, for instance by selecting the <a href="../FWfile/T_FW_fi_03.htm"><span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+4299">Insert from File</span></a> command and confirming the import conditions by 
+
+
+
+
+
+
+<span class="UI_OPTION" id="idd_import_file.msg+idd_import_file+16">OK</span>, <i>a+c</i></p>
+
+
+
+
+
+
+
+
+<p><img src="../../../images/assembly/share_comp6.gif" border="1"></p>
+
+<p>The program detects the conflicting situation of the component and points it out as follows:</p>
+
+<ul>
+<li>In the Model Structure the components with identical name are displayed in bold type, an "equal" symbol is added to both components and the information that the component is being renamed is associated to the last one positioned.<br>
+<br>
+ 
+
+<p><img src="../../assembly/images/share_comp5.gif" border="1"></p>
+</li>
+
+<li>The <span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+1">Duplicated Name Resolution</span> dialog box is displayed, warning you that the model includes components with the same name and enabling you to rename the component or share the local version.<br>
+
+
+
+
+
+
+
+<br>
+ 
+
+<p><img src="../../assembly/images/DuplicatedNameResolution.gif"></p>
+</li>
+</ul>
+
+<p>The same situation would occur with two drawings including shared groups with the same name and different geometry, when the first one is opened and you load the second one.</p>
+
+<p>The dialog box includes the following information:</p>
+
+<table width="100%">
+<tr valign="top">
+<td width="90"><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+9">Old name:</span> </td>
+
+
+
+
+
+
+
+<td>Displays the old name of the component/shared group</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+5">New name:</span> </td>
+
+
+
+
+
+
+
+<td>Proposes the new name of the component/shared group. The name depends on the options set for assemblies and shared groups, but you can also change it on-line.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+12">Search</span></td>
+
+
+
+
+
+
+
+<td>On choosing this button, the <a href="../../model_structure/FWfile/T_FW_ms_search.htm">
+<span class="UI_OPTION" id="idd_ms_search.msg+idd_ms_search+1">Search in Model Structure</span></a> dialog box appears to show immediately the result of a search operation done on the name that is causing the problem. The result List Box appears as open so as to immediately understand how many components are involved in the duplication.</td>
+
+
+
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+11">Options</span> </td>
+
+
+
+
+
+
+
+<td>Displays the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_ASSEMBLY.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+217">Assembly/Shared Group</span></a> category of the 
+
+
+
+
+
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>, from which you set the options controlling the names proposed by the <b>think<font color="#FF0F00">3</font></b> application when you load models/drawings including components/shared groups with the same name and different geometry</td>
+
+
+
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+2">Rename</span> </td>
+
+
+
+
+
+
+
+<td>Enables you to rename the single item (or, by selecting <span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7264">Rename All</span>, all items) with the new name. Click the arrow button to select 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7264">Rename All</span>.</td>
+
+
+
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+7">Share</span> </td>
+
+
+
+
+
+
+
+<td>Enables you to share the single item (or, by selecting <span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7266">Share All</span>, all items) with the old name. Click the arrow button to select 
+
+
+
+
+
+
+<span class="UI_OPTION" id="ArrowButton_General.msg+ArrowButton_General+7266">Share All</span>.</td>
+
+
+
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+3">Cancel</span> </td>
+
+
+
+
+
+
+
+<td>Discard your changes and quit the command</td>
+</tr>
+</table>
+
+
+<p>Wishing to rename the component, you can keep the name proposed by the dialog box, type a new one in the <span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+5">New name:</span> box, act on the name proposed by the <b>think<font color="#FF0F00">3</font></b> application by setting the specific options by clicking the 
+
+
+
+
+
+
+<span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+11">Options</span> button and finally you click the 
+
+
+
+
+
+
+<span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+2">Rename</span> button.</p>
+
+
+
+
+
+
+
+
+<p>By clicking it, the <span class="UI_OPTION" id="tdesign.msg+_ASSYREPORT_LABEL_+2">Renaming Report</span> dialog box, showing the information on your action, is displayed.</p>
+
+
+
+
+
+
+
+
+<p><img src="../../assembly/images/RenamingReport01.gif" border="1"></p>
+
+<p>You can save this report to a <em>.txt</em> file and/or close the dialog box.</p>
+
+<p>When you close the dialog box, the Model Structure is updated as shown in the following illustration</p>
+
+<blockquote><img src="../../assembly/images/rename_comp.gif" border="1"></blockquote>
+
+<p>and the model includes the two components, now with different names and geometry.</p>
+
+<p>Wishing to share the component, click the <span class="UI_OPTION" id="idd_assy_name_dupl.msg+idd_assy_name_dupl+7">Share</span> button. The 
+
+
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_ASSYREPORT_LABEL_+2">Renaming Report</span> dialog box, showing the information on your action, is displayed.</p>
+
+
+
+
+
+
+
+
+<p><img src="../../assembly/images/RenamingReport02.gif" border="1"></p>
+
+<p>You can save this report to a <em>.txt</em> file and/or close the dialog box.</p>
+
+<p>Once you've closed the dialog box, the <img src="../../../images/icons/icons_new/ID_REBUILD.BMP" align="absmiddle"> (<span class="UI_OPTION" id="ButtonToolbar_History.msg+ButtonToolbar_History+233">Rebuild Model</span>) button becomes active, as the model need an updating (note that this wouldn't be required in case of drawing): click it to <a href="../../history/FWfile/T_FW_ht_08.htm">rebuild</a> the model.</p>
+
+
+
+
+
+
+
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> includes now two <i>a</i> components and the model results as shown in the following illustration.</p>
+
+
+
+
+
+
+
+
+<p><img src="../../../images/assembly/share_comp7.gif" border="1"></p>
+
+<p>As a general rule, in the cases described above, saving and closing the file wouldn't present any further conflict by opening the file again, but it might if you loaded the second model by the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4309">Component Cross Reference</span></a> command (or the 
+<a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_InsertSharedGroup.htm">
+
+<span class="UI_OPTION" id="ButtonToolbar_Group.msg+ButtonToolbar_Group+6900">Group Cross Reference</span></a> command for shared groups) and chose the share option. In this case, saving and closing the file wouldn't solve the conflict when you open the file again and the only way to definitely solve the question would be renaming the component, that is creating two different components or making it an X-Reference (Component).</p>
+
+
+
+
+
+
+
+
+<p>Note that by loading the second model by the <span class="UI_OPTION" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+4309">Component Cross Reference</span> command and saving and closing the file, you'd get a different behavior, that is typical when you save an X-Reference (Component) that has been modified. In fact you'd be warned that one or more components had been changed and you'd be asked to save the changes. These changes, of course, would be saved in the original model.</p>
+
+
+
+<hr color="silver">
+</body>
+</html>
+

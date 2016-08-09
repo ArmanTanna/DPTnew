@@ -1,0 +1,127 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Managing contour discontinuities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h2>Managing contour discontinuities</h2>
+
+<p class="notop">The <a href="../FWfile/T_FW_BlendingShape.htm"><b>Blending Shapes</b></a> command enables you to control the creation of blending surfaces even in the case the selected contours have tangency or curvature discontinuity points (from now on, in this document, we will use "discontinuity" in the sense of "tangency or curvature discontinuity", as positional discontinuities are obviously not allowed).</p>
+
+<p>First of all you will be able to set the <i>discontinuity order</i> to be taken into account, that is to decide whether to consider as "discontinuities" only tangency discontinuities or also curvature discontinuities.</p>
+
+<p>The resulting shape will be composed of as many surfaces as the number of parts into which the selected contours are divided by discontinuity points. You will be able to control continuity&nbsp;&#151;&nbsp;called <i>transversal continuity</i>&nbsp;&#151;&nbsp;along the common borders of the said surfaces.</p>
+
+<p>Furthermore, you'll be able to choose the <i>matching type</i> between the two contours, that is the way to establish the correspondence between them, which heavily affects the final shape of the resulting surfaces.</p>
+
+<ul class="noleft">
+<li><a href="#TC"><b>Defining Transversal continuity</b></a></li>
+
+<li><a href="#MT"><b>Selecting the Matching type</b></a></li>
+
+<li><a href="#DO"><b>Setting the Discontinuity order</b></a></li>
+</ul>
+
+<br>
+<p>All of the options mentioned in this document can be found under <b>More Options</b>.</p>
+
+ 
+
+<h5><a name="TC"></a>Defining Transversal continuity</h5>
+
+<hr color="silver">
+<p class="notop">First of all you will have to consider <i>transversal continuity</i>, which is continuity between the resulting surfaces along their common borders at the discontinuity points.<br>
+When there is at least one discontinuity in one of the contours, the natural way to build the blending shape would lead to "holes":<br>
+<br>
+<img border="1" src="../../../images/surfaces/BS-Free.gif"><br>
+<br>
+To avoid the creation of holes, change the value of the <b>Transversal continuity</b> drop-down list under <b>More Options</b> from <b>Free</b> to <b>Position</b>, which will apply positional continuity along the common borders at the discontinuity points.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BS-Position.gif"><br>
+<br>
+</p>
+
+<h5><a name="MT"></a>Selecting the Matching type</h5>
+
+<hr color="silver">
+<p class="notop">There can be different ways to establish the correspondence between the two contours, depending on the situations. The <b>Matching type</b> drop-down list enables you to select three different methods to establish the correspondence:<br>
+&nbsp;<br>
+</p>
+
+<table>
+<tr valign="top">
+<td><b>Curvilinear</b></td>
+<td>The point on the other contour which corresponds to a discontinuity point is the one that has the same normalized arc length.<br>
+<br>
+<img border="1" src="../../../images/surfaces/BS-Curvilinear.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>Ordered discontinuity</b></td>
+<td>Active only if the two contours have the same number of discontinuity points, this option joins discontinuity points on the two contours according to their order (the first with the first, the second with the second, and so on).<br>
+<br>
+<img border="1" src="../../../images/surfaces/BS-OrderedDiscontinuity.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+
+<h5><a name="DO"></a>Setting the Discontinuity order</h5>
+
+<hr color="silver">
+<p class="notop">The way discontinuities are detected on contours&nbsp;&#151;&nbsp;whether to take into account only tangency discontinuities or also curvature discontinuities&nbsp;&#151;&nbsp;is controlled by the <b>Discontinuity order</b> drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td><b>Tangent</b></td>
+<td>To take into account only tangency discontinuity points.</td>
+</tr>
+
+<tr valign="top">
+<td><b>Curvature</b></td>
+<td>To take into account tangency discontinuity and curvature discontinuity points.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

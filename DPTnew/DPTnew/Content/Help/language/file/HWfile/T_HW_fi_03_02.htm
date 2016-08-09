@@ -1,0 +1,309 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Inserting a file from the local file system into a drawing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.subtitle
+    {font-family: Verdana; 
+    font-size: 10.5pt; 
+    font-weight: bold;
+    margin-bottom:0; }
+</style>
+
+<style type="text/css">
+.littop
+{margin-top:5;
+margin-bottom:5}
+</style>
+
+<style type="text/css">
+.smallerfont
+    {font-family: Verdana; 
+    font-size: 8.5pt; }
+</style>
+
+<style type="text/css">
+.h1like
+    {font-family: Verdana; 
+    font-size: 16pt;
+    font-weight: bold; }
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .lileft
+{
+margin-left: 26;
+}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+
+
+<h4>Inserting a file from the local file system into a drawing</h4>
+
+<p>On selecting the <span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+4299">Insert from File</span> command, the <span class="UI_OPTION" id="eklib.msg+eklib+2">Insert from File</span> dialog box is displayed. To insert a file from the local file system into a drawing, you will have to:<br>
+
+<br>
+</p>
+
+<ol class="litleft">
+<li><a href="#Select">Select the document</a> to open.</li>
+<li>Choose whether to <a href="#Choose">import the entire document or just some entities</a>.</li>
+<li><a href="#Origin">Define the origin</a> to position the document in your drawing.</li>
+<li><a href="#Define">Define parameters to be applied</a> on the imported entities.</li>
+</ol>
+
+<p>Proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td width="15"><a name="Select"></a><b>1</b></td>
+<td>Select the document. 
+
+<table>
+<tr valign="top">
+<td width="15"><b>a</b></td>
+<td>Under <b>Files of type</b>, select the type of document you want to open in the list of <a href="../OVfile/T_OV_fi_99.htm">formats supported</a> by <b>think<font color="#FF0F00">3</font></b>.</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>b</b></td>
+<td>In the <b>Look in</b> selection box, select the folder containing the document to open (initially, the drawing directory chosen when installing the <b>think<font color="#FF0F00">3</font></b> application is proposed). You can navigate through your file system like in any <b>Exploring</b> window of the Microsoft&reg; Windows operating system.<br>
+A list of all documents of the specified type located in the selected folder will be displayed in the box below.<br>
+<br>
+<i>Please note steps <b>a</b> and <b>b</b> can be performed in reversed order.</i><br>
+&nbsp;<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>c</b></td>
+<td>Click on the document you want to open. The document name will be displayed in the <b>File name</b> box. If the document type is <SPAN id="TWOD">".e3" or </SPAN>".e2" (and when the selected document was saved the proper options were set in the <span class="UI_OPTION" id="idd_sf_preview.msg+idd_sf_preview+1">Preview</span> tab of the 
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img src="../../../images/general/litarr.gif">
+
+
+
+<span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> dialog box), a preview image of the file contents will be displayed in the frame on the right.</td>
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="15"><b>d</b></td>
+<td>Click <b>Open</b> to open the document.<br>
+<br>
+<SPAN id="TWOD"><table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<br>
+If you select a drawing document (".e2") including views of a model, a warning will be displayed, informing you that all the references to the model from which the views were derived will be lost, that is any changes made to the model won't be applied to the views.</td>
+</tr>
+</table></SPAN>
+
+The <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+295">Import File</span> dialog box is displayed.<br>
+
+
+
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>2</b></td>
+<td><a name="Choose"></a>Choose whether to import the entire document (typically, a two-dimensional drawing) or just some entities.<br>
+ <br>
+<SPAN id="TWOD"><table border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+<br>
+Only the entities lying on XY plane will be imported.<br>
+Selecting <span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+121">All</span> option in the 
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+295">Import File</span> dialog box, you will also be able to import profiles from ".e3" files.</td>
+
+
+
+
+</tr>
+</table></SPAN>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td><a name="Origin"></a> You can define the point that will be used to position your drawing in two ways: 
+
+<ul class="noindent">
+<li>Type the entity coordinates in the <span class="UI_OPTION" id="idd_lay_import_new.msg+idd_lay_import_new+5">X</span> and 
+
+
+
+<span class="UI_OPTION" id="idd_lay_import_new.msg+idd_lay_import_new+6">Y</span> boxes</li>
+
+
+
+
+
+<li style="list-style: none">or</li>
+
+<li>Click <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+48">Change</span> button and select directly a point on the drawing</li>
+
+
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td><a name="Modify"></a>Click <span class="UI_OPTION" id="idd_file_import_new.msg+idd_file_import_new+8">OK</span>. The selected entities or the whole drawing (depending on which you chose) will be displayed: drag them to the position where you want to position them and click the mouse on that position.</td>
+
+
+
+
+</tr>
+</table>
+
+<table>
+<tr valign="top">
+<td width="15"><b>5</b></td>
+<td><a name="Define"></a>Now you can define various parameters to be applied on the imported entities using the selection list:<br>
+(The path of the file from which the entities are imported is displayed in the selection list under <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+36">File name</span>) 
+
+
+
+
+
+<table>
+<tr valign="top">
+<td width="15"><b>a</b></td>
+<td>Select <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+7">Origin</span> selector to specify the origin for the entities to be imported into the drawing.</td>
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="15"><b>b</b></td>
+<td>Type the scale value in the <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+37">Scale</span> box, in order to scale the imported entities in the drawing.</td>
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="15"><b>c</b></td>
+<td>Type the angle in <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+38">Angle</span> box. You can rotate the imported entities counter-clockwise starting from the X-axis; negative values are also allowed i.e. -360 deg to 360 deg.</td>
+
+
+
+
+</tr>
+
+<tr valign="top">
+<td width="15"><b>d</b></td>
+<td>Mirroring can be enabled by selecting the <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+41">Mirror mode</span> options from the drop-down list:<br>
+
+
+
+
+<ul>
+<li>If entities are not to be mirrored, select <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+19">None</span> option</li>
+
+
+
+
+
+<li>If entities are to be mirrored about X-axis, select <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+40">On X</span> option</li>
+
+
+
+
+
+<li>If entities are to be mirrored about Y-axis, select <span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+39">On Y</span> option</li>
+
+
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>e</b></td>
+<td><span class="UI_OPTION" id="tdesign.msg+_DRAWING_UI_LABEL_+42">Keep Attributes</span> check box under 
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> controls the attributes of the imported entities: 
+
+
+
+
+
+<ul>
+<li>If selected, copies of objects retain the attributes (such as color, line type, and layer) of the original. If not selected, copies assume the corresponding current property values.</li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Now drag the defined entities to the place you wish and click the mouse at that position.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+
+<meta name="T_2010t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<meta name="Revisor" content="Mahesh Kiran">
+<title>Playback</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src='../../JSandSTYLES/Frames.js'>
+</script>
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0()">
+
+<h2><span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+4">Playback</span></h2>
+
+<a name="playback"></a> 
+
+<p>The <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+4">Playback</span> <img src="../../images/capplay/tob04_06.gif" alt="" border="0" align="absmiddle"> command enables you to play back the actions previously recorded to the current log file or Play list (a list of log files with a ".lst" file extension).</p>
+
+<p>To playback select the log file or play list file:</p>
+
+<ol class="noleft">
+<li>Select <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+8">Open</span> <img src="../../images/capplay/tob01_06.gif" alt="" border="0" align="absmiddle"> to display the <span class="UI_OPTION" id="eklib.msg+eklib+323">Capture &amp; Playback file</span> dialog box.<br>
+<br>
+<img src="images/v51_tod_06_12.gif"><br>
+<br>
+</li>
+
+<li>Select the log file, and then click <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+8">Open</span>.<br><br></li>
+
+<li>Once the log file is opened, then all the options in the <span class="UI_OPTION" id="idd_capplay.msg+idd_capplay+1">Capture &amp; Playback</span> dialog box becomes active. The following are the different options available for selection.</li>
+</ol>
+
+
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="to_06_03.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe><br><br>
+
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Behavior of commands used to save documents during a Playback session</b><br>
+<br>
+Commands used to save documents (such as <b>Save</b>, <b>Save As</b>, <b>Partial Save</b> or <b>Make X-Ref</b>) during a Playback session don't save documents to the original folder (the one the document was saved to during the Capture session), but rather to an auxiliary folder, which is automatically removed during Playback.
+
+<p>This behavior:
+
+<ul class="noleft">
+<li>Enables the program to play back the log file on a work station where the directory structure is different from the one used when capturing (or even on the same work station, if the original directory structure was modified).</li>
+
+<li>Prevents the program from accidentally overwriting documents when performing a Playback session.</li>
+</ul>
+</td>
+</tr>
+</table>
+</p>
+<p>The behavior of the Playback function depends on the status of the various Playback options. For a detailed description of these options, read <a href="to_06_04.htm#playbackoptions"><span class="UI_COMMAND" id="idd_capplay_opt.msg+idd_capplay_opt+1">CP - Options and Tools</span></a>.</p>
+
+<p>Note that if a document is open when you start any of the Playback commands, the following warning message is displayed <i>"All documents will be closed. This will cause the loss of changes. Are you sure you want to start playback on file 'C:\Models\logfile1.cp3'?"
+</i><br>
+
+<br>
+ Make sure you have saved all the documents that might be open before proceeding, because once the Playback session starts, all open files will be closed. After you've saved the files, click <b>Yes</b> to start the Playback session.</p>
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="to_06_doc.htm">Capture &amp; Playback</a></li>
+
+<li><a href="to_01_06.htm">Capture</a></li>
+</ul>
+<hr color="silver">
+</body>
+</html>
+

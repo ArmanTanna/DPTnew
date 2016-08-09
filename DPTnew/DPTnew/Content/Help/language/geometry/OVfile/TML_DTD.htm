@@ -1,0 +1,63 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<HTML>
+<HEAD>
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+  <TITLE>TML DTD</TITLE>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<tt>
+&lt;?xml&nbsp;version="1.0"&nbsp;encoding="UTF-8"?&gt;<br>
+&lt;!DOCTYPE&nbsp;TEXT&nbsp;[<br>
+<br>
+&lt;!ENTITY&nbsp;%&nbsp;allMainTypes<br>
+&nbsp;&nbsp;"#PCDATA|I|SLANT|B|LINE|FONT|COLOR|SIZE|SIZEX|STRETCH|STRETCHX|EXTRASPACE|SP|STACK|BR|NOWRAP"&nbsp;&gt;<br>
+&lt;!ENTITY&nbsp;%&nbsp;noLineBreakTypes<br>
+&nbsp;&nbsp;"#PCDATA|I|SLANT|B|LINE|FONT|COLOR|SIZE|STRETCH|EXTRASPACE|SP|STACK"&nbsp;&gt;<br>
+<br>
+&lt;!ELEMENT&nbsp;I&nbsp;($allMainTypes;)*&gt;<br>
+&lt;!ELEMENT&nbsp;SLANT&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;SLANT&nbsp;angle&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;B&nbsp;($allMainTypes;)*&gt;<br>
+&lt;!ELEMENT&nbsp;LINE&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;LINE&nbsp;over&nbsp;(y|n)&nbsp;"n"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;LINE&nbsp;under&nbsp;(y|n)&nbsp;"y"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;LINE&nbsp;strikeout&nbsp;(y|n)&nbsp;"n"&gt;<br>
+&lt;!ELEMENT&nbsp;FONT&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;FONT&nbsp;face&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;FONT&nbsp;quality&nbsp;(truetype|stroke)&nbsp;"truetype"&gt;<br>
+&lt;!ELEMENT&nbsp;COLOR&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;COLOR&nbsp;index&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;SIZE&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;SIZE&nbsp;value&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;SIZEX&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;SIZEX&nbsp;factor&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;STRETCH&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;STRETCH&nbsp;xscale&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;STRETCHX&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;STRETCHX&nbsp;xscale&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;EXTRASPACE&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;EXTRASPACE&nbsp;value&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+&lt;!ELEMENT&nbsp;BR&nbsp;EMPTY&gt;<br>
+&lt;!ELEMENT&nbsp;SP&nbsp;EMPTY&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;SP&nbsp;size&nbsp;CDATA&nbsp;"1"&gt;<br>
+&lt;!ELEMENT&nbsp;NOWRAP&nbsp;($noLineBreakTypes;)*&gt;<br>
+&lt;!ELEMENT&nbsp;STACK&nbsp;(SR+)&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;STACK&nbsp;separator&nbsp;(none|line|slash)&nbsp;"none"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;STACK&nbsp;scale&nbsp;CDATA&nbsp;"0.6"&gt;<br>
+&lt;!ELEMENT&nbsp;SR&nbsp;($noLineBreakTypes;)*&gt;<br>
+&lt;!ELEMENT&nbsp;VALIGN&nbsp;($allMainTypes;)*&gt;<br>
+&lt;!ATTLIST&nbsp;VALIGN&nbsp;type&nbsp;(top|center|bottom)&nbsp;"center"&gt;<br>
+&lt;!ELEMENT&nbsp;TEXT&nbsp;($allMainTypes;)*&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!ATTLIST&nbsp;TEXT&nbsp;version&nbsp;CDATA&nbsp;#REQUIRED&gt;<br>
+]&gt;&nbsp;<br>
+</tt>
+</body>
+</html>

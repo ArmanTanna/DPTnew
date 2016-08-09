@@ -1,0 +1,796 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Plot: Working modes - Part 2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="hmg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="runner.js"></script>
+<script type="text/javascript" src="expander.js"></script>
+
+<style type="text/css">
+.menu{font-size: 10pt; font-family: Arial;}
+</style>
+
+<style type="text/css">
+.ProgramOutput{font-size: 10pt; font-family: Courier New;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h3><a name="2.7"></a>Run string<hr color="silver"></h3>
+
+
+<p>The <b>gbplo.exe</b> program resides in the "thinkdesign\bin" subfolder of the root installation folder. You can start it one of the following ways:</p>
+
+<ol>
+<li>Typing the run string in any <b>Command Prompt</b> window, from the "thinkdesign\bin" folder: 
+
+<ul>
+<li>Select <b>Start<img src="../../images/general/litarr.gif">Programs<img src="../../images/general/litarr.gif">Command Prompt</b></li>
+
+<li>At the command prompt, type: 
+
+<blockquote><tt><b>cd</b> <i>root_installation_folder</i><b>\thinkdesign\bin</b></tt><br>
+and hit the <b>ENTER</b> key</blockquote>
+</li>
+
+<li>Finally, type the run string (see below for details): 
+
+<blockquote><tt><b>gbplo -lan e</b> <i>options</i></tt><br>
+and hit the <b>ENTER</b> key</blockquote>
+</li>
+</ul>
+</li>
+
+<li>Typing the run string in the <b>Run</b> dialog box: 
+
+<ul>
+<li>Select <b>Start<img src="../../images/general/litarr.gif">Run</b></li>
+
+<li>In the <b>Open</b> box of the <b>Run</b> dialog box type: 
+
+<blockquote><tt><i>root_installation_folder</i><b>\thinkdesign\bin\gbplo -lan e</b> <i>options</i></tt><br>
+and hit the <b>ENTER</b> key or select <b>OK</b></blockquote>
+</li>
+</ul>
+</li>
+
+<li>Creating a batch file (<i>file</i>.bat) inside which you can type any run string you like, and then run the batch file.</li>
+</ol>
+
+<p>So, the run string has the following syntax:</p>
+
+<p><b>gbplo -lan e</b>&nbsp;<i>options</i></p>
+
+<p>where <i>options</i> indicates all options which can be supplied in the run string and which are listed in the previous sections (the <i>-lan e</i> option starts GBPLO in English. <i>See also</i> <b><a href="c07.htm#LAN">LAN</a></b>).</p>
+
+<blockquote>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme"><b>Note</b> (<i>see als</i>o <a href="c02.htm#2.1.1">Directives and options</a>): 
+
+<ul>
+<li>Each option must be preceded by the minus sign and separated from its own parameter by the "blank" (space) separator 
+
+<blockquote><b><font face="Courier"><font size="+1">-KEY</font></font></b> <i>parameter</i><br>
+</blockquote>
+</li>
+
+<li>For options which require more than one parameter, these must also be separated from one another by a blank 
+
+<blockquote><b><font face="Courier"><font size="+1">-KEY</font></font></b> <i>parameter1 parameter2</i></blockquote>
+</li>
+
+<li>Options must be separated by a blank 
+
+<blockquote><font face="Courier"><font size="+1"><b>-KEY1</b></font></font> <i>param1 param2</i> <font face="Courier"><b>-KEY2</b></font> <i>param1 param2</i></blockquote>
+</li>
+
+<li>You can enter options in any order&nbsp;</li>
+
+<li>The run string may be of any length.</li>
+</ul>
+</td>
+</tr>
+</table>
+</blockquote>
+
+<br>
+<br>
+<hr color="#0092ff" align="left" width="300">
+<b>Example</b> 
+
+<p>Below is an example of a run string: in this case GBPLO does not present interactive requests, since all of the necessary parameters are included in the run string:</p>
+
+<pre>
+gbplo -F test.d -GRA ODVT HPGL2 -O /dev/plotter1 -D A4 -L 1 5 -U 0 -QPE 1 3 7 -W ott -S
+ott -i ./gbplo.ini
+</pre>
+
+<h3><a name="2.8"></a>Initialization file</h3>
+
+<hr color="silver">
+<p>The default initialization file for standard installations is "thinkdesign\bin\gbplo.ini" in the root installation folder. To set GBPLO so that it reads the directives contained in a file other than the default file, include the following option in the run string:</p>
+
+<p><b>-I</b>&nbsp;<i>pathname_of_initialization_file</i></p>
+
+<p>indicating the file absolute or relative pathname. If you do not specify the directory, that specified with DRO is assumed.</p>
+
+<p>Always remember that, as indicated in <a href="c01.htm#1.3">General methods for use</a>, if you specify the same method both as a directive in the initialization file and as an option in the run string, the latter always applies. Moreover, if you enter more than one directive with the same name in the initialization file, the last applies (the order being from top to bottom).<br>
+</p>
+
+<h4><a name="2.8.1"></a>Structure of the initialization file</h4>
+
+<p>The initialization file is an ASCII file, which you can edit with a normal editing program. Its structure is very simple.</p>
+
+<ul>
+<li>The first line must be: 
+
+<p><b><font face="Courier"><font size="+1">THINKDESIGN V7.0</font></font></b></p>
+</li>
+
+<li>Lines with an asterisk (*) in the first column are considered to be comments and are, therefore, ignored by GBPLO 
+
+<p><b><font face="Courier"><font size="+1">* comments</font></font></b></p>
+</li>
+
+<li>Lines without comments cannot contain more than one directive.</li>
+
+<li>You can enter comments at the end of any line, provided that they are preceded by an exclamation mark (!): 
+
+<p><b><font face="Courier"><font size="+1">directive ! comment</font></font></b></p>
+</li>
+
+<li>you can define directives in any order.</li>
+
+<li>Each directive (<em>see</em> <a href="c02.htm#2.1.1">Directives and options</a>) consists of a key and one or more parameters separated by a blank.</li>
+</ul>
+
+<hr color="#0092ff" align="left" width="300">
+<b>Example</b> 
+
+<blockquote>
+<pre>
+THINKDESIGN V7.0
+*
+ MSG "C:\Program Files\think3\rel7\thinkdesign\lfiles\gbplo.msg"   ! message file
+ TOL  0  0.6  0.2 
+ QVP  1
+ UNI "C:\Program Files\think3\rel7\thinkdesign\files\uni.tab"      ! UNI table
+*
+ PRO GBPLO
+ GRA DIRF "C:\Program Files\think3\rel7\thinkdesign\font"          ! font folder
+ END
+</pre>
+</blockquote>
+
+<h3><a name="2.9"></a> Summary table</h3>
+
+<hr color="silver">
+<p>The following is a summary list of the modes and corresponding directives and options.<br>
+&nbsp;</p>
+
+<table border="1" bordercolor="navy">
+<tr bgcolor="#0092ff">
+<td width="402"><b><font color="white">Function</font></b></td>
+<td width="189"><b><font color="white">Run Option</font>&nbsp;</b> </td>
+<td width="165"><font color="white"><b>Directive</b></font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>Instructions necessary to run GBPLO</i></b>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Sheet size</td>
+<td width="189"><font size="-1">-D&nbsp;</font> <br>
+<font size="-1">-GRA FORMD</font>&nbsp;</td>
+<td width="165"><font size="-1">DIM</font> <br>
+<font size="-1">GRA FORMD</font></td>
+</tr>
+
+<tr>
+<td width="402">Input file name</td>
+<td width="189"><font size="-1">-F</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Initialization file</td>
+<td width="189"><font size="-1">-I</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Layers</td>
+<td width="189"><font size="-1">-L</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Message file&nbsp;</td>
+<td width="189"><font size="-1">-ME</font>&nbsp;</td>
+<td width="165"><font size="-1">MSG</font></td>
+</tr>
+
+<tr>
+<td width="402">Pens for drawing dimensions&nbsp;</td>
+<td width="189"><font size="-1">-QPE</font>&nbsp;</td>
+<td width="165"><font size="-1">QUO</font></td>
+</tr>
+
+<tr>
+<td width="402">Scale</td>
+<td width="189"><font size="-1">-S</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Unit of measure&nbsp;</td>
+<td width="189"><font size="-1">-U</font>&nbsp;</td>
+<td width="165"><font size="-1">MIS</font></td>
+</tr>
+
+<tr>
+<td width="402">Window</td>
+<td width="189"><font size="-1">-W</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>Other instructions</i></b></td>
+</tr>
+
+<tr>
+<td width="402">Paper feed&nbsp;</td>
+<td width="189"><font size="-1">-A&nbsp;</font> <br>
+<font size="-1">-GRA ADVANCE</font>&nbsp;</td>
+<td width="165"><font size="-1">AVA&nbsp;</font> <br>
+<font size="-1">GRA ADVANCE</font></td>
+</tr>
+
+<tr>
+<td width="402">Stops for pen change&nbsp;</td>
+<td width="189"><font size="-1">-B</font>&nbsp;</td>
+<td width="165"><font size="-1">BRE</font></td>
+</tr>
+
+<tr>
+<td width="402">Merging drawings</td>
+<td width="189"><font size="-1">-COM</font> <br>
+<font size="-1">-ALF</font> <br>
+<font size="-1">-DXY</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Alphanumeric echo</td>
+<td width="189"><font size="-1">-E</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Error file&nbsp;</td>
+<td width="189"><font size="-1">-FER</font>&nbsp;</td>
+<td width="165"><font size="-1">FER</font></td>
+</tr>
+
+<tr>
+<td width="402">Logical and physical colors</td>
+<td width="189"><font size="-1">-GRA COLCH</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA COLCH</font></td>
+</tr>
+
+<tr>
+<td width="402">Connection to the output device</td>
+<td width="189"><font size="-1">-GRA INTERF</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA INTERF</font></td>
+</tr>
+
+<tr>
+<td width="402">Leading blank</td>
+<td width="189"><font size="-1">-GRA LEADBL</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA LEADBL</font></td>
+</tr>
+
+<tr>
+<td width="402">Max. No. of colors</td>
+<td width="189"><font size="-1">-GRA NCOLS</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA NCOLS</font></td>
+</tr>
+
+<tr>
+<td width="402">Serial port configuration</td>
+<td width="189"><font size="-1">-GRA ODVC</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ODVC</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining output device limits</td>
+<td width="189"><font size="-1">-GRA ODVL</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ODVL</font></td>
+</tr>
+
+<tr>
+<td width="402">Closing the output device</td>
+<td width="189"><font size="-1">-GRA ODVSC</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ODVSC</font></td>
+</tr>
+
+<tr>
+<td width="402">Output format</td>
+<td width="189"><font size="-1">-GRA ODVT</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ODVT</font></td>
+</tr>
+
+<tr>
+<td width="402">Device data</td>
+<td width="189"><font size="-1">-GRA SHDEV</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA SHDEV</font></td>
+</tr>
+
+<tr>
+<td width="402">Run mode&nbsp;</td>
+<td width="189"><font size="-1">-MOD</font>&nbsp;</td>
+<td width="165"><font size="-1">MOD</font></td>
+</tr>
+
+<tr>
+<td width="402">Pens on line&nbsp;</td>
+<td width="189"><font size="-1">-N</font>&nbsp;</td>
+<td width="165"><font size="-1">NPE</font></td>
+</tr>
+
+<tr>
+<td width="402">Number of copies&nbsp;</td>
+<td width="189"><font size="-1">-NCO&nbsp;</font> <br>
+<font size="-1">-GRA NCOP</font>&nbsp;</td>
+<td width="165"><font size="-1">NCO</font> <br>
+<font size="-1">GRA NCOP</font></td>
+</tr>
+
+<tr>
+<td width="402">Output device or file&nbsp;</td>
+<td width="189"><font size="-1">-O</font> <br>
+<font size="-1">-GRA ODVN</font>&nbsp;</td>
+<td width="165"><font size="-1">ODEV</font> <br>
+<font size="-1">GRA ODVN</font></td>
+</tr>
+
+<tr>
+<td width="402">Initializing the output device&nbsp;</td>
+<td width="189"><font size="-1">-P</font> <br>
+<font size="-1">-GRA ODVSI</font>&nbsp;</td>
+<td width="165"><font size="-1">PRC</font> <br>
+<font size="-1">GRA ODVSI</font></td>
+</tr>
+
+<tr>
+<td width="402">Pen position at end of plotting&nbsp;</td>
+<td width="189"><font size="-1">-PP</font>&nbsp;</td>
+<td width="165"><font size="-1">PPE</font></td>
+</tr>
+
+<tr>
+<td width="402">Relocating the origin&nbsp;</td>
+<td width="189"><font size="-1">-RO</font> <br>
+<font size="-1">-GRA RORIG</font>&nbsp;</td>
+<td width="165"><font size="-1">ROR</font> <br>
+<font size="-1">GRA RORIG</font></td>
+</tr>
+
+<tr>
+<td width="402">Resolution&nbsp;</td>
+<td width="189"><font size="-1">-RP</font>&nbsp;</td>
+<td width="165"><font size="-1">RPL</font> <br>
+<font size="-1">GRA ODVR</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756">
+<p><b><i>Initialization instructions</i></b>&nbsp;</p>
+</td>
+</tr>
+
+<tr>
+<td width="402">I/O message language</td>
+<td width="189"><font size="-1">-LAN</font>&nbsp;</td>
+<td width="165"><font size="-1">LAN</font></td>
+</tr>
+
+<tr>
+<td width="402">Installation root directory&nbsp;</td>
+<td width="189"><font size="-1">-DRO</font>&nbsp;</td>
+<td width="165"><font size="-1">DRO</font></td>
+</tr>
+
+<tr>
+<td width="402">User font directory&nbsp;</td>
+<td width="189"><font size="-1">-GRA DIRF</font>&nbsp;</td>
+<td width="165"><font size="-1">DRF&nbsp;</font> <br>
+<font size="-1">GRA DIRF</font></td>
+</tr>
+
+<tr>
+<td width="402">Drawing directory</td>
+<td width="189">&nbsp;</td>
+<td width="165"><font size="-1">DRC</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Defining symbolic names</td>
+<td width="189">&nbsp;</td>
+<td width="165"><font size="-1">DEF</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>Instructions for graphics management</i></b>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Pens printing</td>
+<td width="189"><font size="-1">-DP</font>&nbsp;</td>
+<td width="165" bgcolor="gray">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Unit of measure for angle dimensions</td>
+<td width="189"><font size="-1">-FQ</font>&nbsp;</td>
+<td width="165"><font size="-1">FQU</font></td>
+</tr>
+
+<tr>
+<td width="402">Arc discretization</td>
+<td width="189"><font size="-1">-GRA ARCD</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ARCM</font></td>
+</tr>
+
+<tr>
+<td width="402">Arc drawing modes</td>
+<td width="189"><font size="-1">-GRA ARCM</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ARCM</font></td>
+</tr>
+
+<tr>
+<td width="402">Pattern of dashed lines</td>
+<td width="189"><font size="-1">-GRA DLPAT</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA DLPAT</font></td>
+</tr>
+
+<tr>
+<td width="402">Alternative font</td>
+<td width="189"><font size="-1">-GRA FLOAD</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA FLOAD</font></td>
+</tr>
+
+<tr>
+<td width="402">Dashed line drawing modes</td>
+<td width="189"><font size="-1">-GRA LTRM</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA LTRM</font></td>
+</tr>
+
+<tr>
+<td width="402">Dashed line step</td>
+<td width="189"><font size="-1">-GRA LTRP</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA LTRP</font></td>
+</tr>
+
+<tr>
+<td width="402">Thickness management (<i>line weight</i> or <i>line width</i>)</td>
+<td width="189"><font size="-1">-GRA MWIDTH</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA MWIDTH</font></td>
+</tr>
+
+<tr>
+<td width="402">Point entity drawing modes</td>
+<td width="189"><font size="-1">-GRA PNTM</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA PNTM</font></td>
+</tr>
+
+<tr>
+<td width="402">Thickness (<i>line weight</i> or <i>line width</i>)</td>
+<td width="189"><font size="-1">-GRA PWIDTH</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA PWIDTH</font></td>
+</tr>
+
+<tr>
+<td width="402">Rotation</td>
+<td width="189"><font size="-1">-GRA ROTATE</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ROTATE</font></td>
+</tr>
+
+<tr>
+<td width="402">Symbol library&nbsp;</td>
+<td width="189"><font size="-1">-LS</font>&nbsp;</td>
+<td width="165"><font size="-1">LSI</font></td>
+</tr>
+
+<tr>
+<td width="402">Dimensions alternative format</td>
+<td width="189"><font size="-1">-QAL</font>&nbsp;</td>
+<td width="165"><font size="-1">QAL</font></td>
+</tr>
+
+<tr>
+<td width="402">Displaying text&nbsp;</td>
+<td width="189"><font size="-1">-QT</font>&nbsp;</td>
+<td width="165"><font size="-1">QTE</font></td>
+</tr>
+
+<tr>
+<td width="402">Distance for leader&nbsp;</td>
+<td width="189"><font size="-1">-QTX</font>&nbsp;</td>
+<td width="165"><font size="-1">QDT</font></td>
+</tr>
+
+<tr>
+<td width="402">Decimal separator&nbsp;</td>
+<td width="189"><font size="-1">-QVP</font>&nbsp;</td>
+<td width="165"><font size="-1">QVP</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining parameters</td>
+<td width="189">&nbsp;</td>
+<td width="165"><font size="-1">PAR</font></td>
+</tr>
+
+<tr>
+<td width="402">Tolerance parameters</td>
+<td width="189">&nbsp;</td>
+<td width="165"><font size="-1">TOL</font></td>
+</tr>
+
+<tr>
+<td width="402">UNI tables</td>
+<td width="189">&nbsp;</td>
+<td width="165"><font size="-1">UNI</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>HP-GL and HP-GL/2 formats</i></b>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Activating framing mode</td>
+<td width="189"><font size="-1">-FR&nbsp;</font> <br>
+<font size="-1">-GRA FRAM</font>&nbsp;</td>
+<td width="165"><font size="-1">FRA</font> <br>
+<font size="-1">GRA FRAM</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining the elements of the color map</td>
+<td width="189"><font size="-1">-GRA CMAP</font></td>
+<td width="165"><font size="-1">GRA CMAP</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Merging drawings in hardware mode</td>
+<td width="189"><font size="-1">-GRA MERGE</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA MERGE</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining reference points</td>
+<td width="189"><font size="-1">-GRA P1P2</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA P1P2</font></td>
+</tr>
+
+<tr>
+<td width="402">Displaying reference points</td>
+<td width="189"><font size="-1">-GRA SHP1P2</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA SHP1P2</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>BGL format</i></b></td>
+</tr>
+
+<tr>
+<td width="402">Activating framing mode</td>
+<td width="189"><font size="-1">-FR&nbsp;</font> <br>
+<font size="-1">-GRA FRAM</font>&nbsp;</td>
+<td width="165"><font size="-1">FRA</font> <br>
+<font size="-1">GRA FRAM</font></td>
+</tr>
+
+<tr>
+<td width="402">Character width correction factor</td>
+<td width="189"><font size="-1">-GRA FOFFS</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA FOFFS</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining reference points</td>
+<td width="189"><font size="-1">-GRA P1P2</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA P1P2</font></td>
+</tr>
+
+<tr>
+<td width="402">Displaying reference points</td>
+<td width="189"><font size="-1">-GRA SHP1P2</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA SHP1P2</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>PostScript format</i></b></td>
+</tr>
+
+<tr>
+<td width="402">Defining the elements of the color map</td>
+<td width="189"><font size="-1">-GRA CMAP</font></td>
+<td width="165"><font size="-1">GRA CMAP</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Max. No. of instructions per path</td>
+<td width="189"><font size="-1">-GRA NPBUF</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA NPBUF</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>CALCOMP format</i></b></td>
+</tr>
+
+<tr>
+<td width="402">Defining the elements of the color map</td>
+<td width="189"><font size="-1">-GRA CMAP</font></td>
+<td width="165"><font size="-1">GRA CMAP</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Defining the plotter degree of intelligence&nbsp;</td>
+<td width="189"><font size="-1">-GRA INTPL</font></td>
+<td width="165"><font size="-1">GRA INTPL</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Thickness management modes (<i>line weight</i> or <i>line width</i>)</td>
+<td width="189"><font size="-1">-GRA MWIDTH</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA MWIDTH</font></td>
+</tr>
+
+<tr>
+<td width="402">Thickness (<i>line weight</i> or <i>line width</i>)</td>
+<td width="189"><font size="-1">-GRA PWIDTH</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA PWIDTH</font></td>
+</tr>
+
+<tr>
+<td colspan="3" width="756"><b><i>Raster format</i></b></td>
+</tr>
+
+<tr>
+<td width="402">Data compression modes</td>
+<td width="189"><font size="-1">-GRA COMP</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA COMP</font></td>
+</tr>
+
+<tr>
+<td width="402">Merging drawings in hardware mode</td>
+<td width="189"><font size="-1">-GRA MERGE</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA MERGE</font></td>
+</tr>
+
+<tr>
+<td width="402">No. of lines per block (TIFF)</td>
+<td width="189"><font size="-1">-GRA ROPS</font>&nbsp;</td>
+<td width="165"><font size="-1">GRA ROPS</font></td>
+</tr>
+
+<tr>
+<td width="402">Leading and trailing blanks management</td>
+<td width="189"><font size="-1">-GRA STRIP</font></td>
+<td width="165"><font size="-1">GRA STRIP</font>&nbsp;</td>
+</tr>
+
+<TD WIDTH="402">Activating part-raster drawing&nbsp;</TD>
+
+<TD WIDTH="189"><FONT SIZE=-1>-RAS</FONT>&nbsp;</TD>
+
+<TD WIDTH="165"><FONT SIZE=-1>RAS</FONT></TD>
+</TR>-->
+<tr>
+<td colspan="3" width="756"><b><i>Printing drawings generated in the <b>think<font color="#FF0F00">3</font></b> environment</i></b>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Defining the root directory</td>
+<td width="189"><font size="-1">-DRE</font>&nbsp;</td>
+<td width="165"><font size="-1">DRE</font></td>
+</tr>
+
+<tr>
+<td width="402">Defining the unit normal for the xy plane of the reference associated to the view&nbsp;</td>
+<td width="189"><font size="-1">-VNO</font></td>
+<td width="165"><font size="-1">VNO</font>&nbsp;</td>
+</tr>
+
+<tr>
+<td width="402">Defining the unit vector of the direction y of the reference associated to the view&nbsp;</td>
+<td width="189"><font size="-1">-VUP</font></td>
+<td width="165"><font size="-1">VUP</font>&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="2.10"></a> Interactive mode</h3>
+
+<hr color="silver">
+<h3><a name="2.10.1"></a>General</h3>
+
+<hr color="silver">
+<p>If you run GBPLO without having specified any of the main parameters (<i>see</i> <a href="c02.htm#2.2">Instructions necessary to run GBPLO</a>) in the run string (or in the initialization file), the program interactively requests entry of these parameters.</p>
+
+<p>For each GBPLO question, you can use the default value of the corresponding option (with a "carriage return"), or specify the suitable mnemonic symbol or value in the same form as used to indicate it in the run string.<br>
+<br>
+</p>
+
+<hr color="#0092ff" align="left" width="300">
+<b>Example</b> 
+
+<p>The following is an example of some of the messages and questions which appear on-screen if you have not specified the main parameters either in the initialization file or in the run string.</p>
+
+<p class="ProgramOutput"><b>GBPLO Rev. 8.1 - (C) Copyright 1999 think3, Inc.<br>
+<br>
+ Sheet Size (cm) ?</b> <font face="Helvetica"><i>Size</i> (key <b>-D</b>)</font><br>
+<b>Files ?</b><br>
+<font face="Helvetica"><i>File</i> (key <b>-F</b>)</font><br>
+<br>
+<b>Stored Layers 1<br>
+<br>
+ Stored window 0.00 0.00 390.00 290.00<br>
+<br>
+ Stored U.M. 0<br>
+<br>
+ Layers (Mem(Default),T=all,L1 L2 ...) ?</b> <i>Layers</i> <font face="Helvetica">(key <b>-L</b>)</font><br>
+<br>
+<b>Window (Mem(Default),Opt,X1 Y1 X2 Y2)?</b> <i>Window</i> <font face="Helvetica">(key <b>-W</b>)</font><br>
+<br>
+<b>Unit of measure?</b> <i>Unit_of_measure</i> <font face="Helvetica">(key <b>-U</b>)</font><br>
+<br>
+<b>Pens for dimensions (text,arr.,toler.)?</b> <font face="Helvetica"><i>Pens_for_dimensions</i> (key <b>-QPE</b>)</font><br>
+<br>
+<b>Scale 1:1 - Size 29.700 x 21.00 cm.<br>
+<br>
+ Scale ?</b> <i>Scale</i> (key <b>-S</b>)<br>
+<br>
+</p>
+
+<p>If you specify a scale factor, GBPLO first displays the actual dimensions calculated for the drawing in that scale and indicates cases in which it is "off the edges" of the sheet; then it asks you to enter the scale again. You are then asked to confirm the scale: if the scale is correct, you can simply press&nbsp;<strong>ENTER</strong> to confirm: only after this operation does the program start drawing on the plotter.</p>
+
+<p>Instructions relative to the layers (-L) to be plotted, the unit of measure (-U), scale (-S), window dimensions (-W) and dimensioning pens (-QPE), are characterized by the following: if you supply even one of them in the initialization file or run string, the others are not requested interactively, since the suitable default values are assumed: values stored in the drawing (i.e.: contained in the predefined properties associated to the drawing).</p>
+
+<p>As for the other instructions (size, etc.), if you do not specify these, GBPLO requests them interactively.<br>
+</p>
+
+<h3><a name="2.10.2"></a>Interrupting interactive mode</h3>
+
+<hr color="silver">
+<p>If you make a mistake when entering options, you can interrupt them by entering the <b>STOP</b> command from the keyboard in response to any of the interactive questions.<br>
+</p>
+
+<h3><a name="2.10.3"></a> Batch mode</h3>
+
+<hr color="silver">
+<p>You can run GBPLO in <i>batch</i> mode, provided that either in the initialization file or run string you specify at least one of the keys relative to the predefined properties associated with the drawing (layers, unit of measure, window) and all of the remaining keys and disable the alphanumeric echo with the -E key if you do not want to display the program messages on-screen.</p>
+
+<p>You can always constrain the interactive or batch modes, using the MOD key.</p>
+
+<hr color="silver">
+</body>
+</html>

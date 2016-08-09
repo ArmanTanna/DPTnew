@@ -1,0 +1,93 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="Revisor" content="Vicky Raina">
+<meta name="T_2010t1" content="translate">
+<title>Log file (exporting to CATIA)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1>Log file (exporting to CATIA<sup><font size="-1">&reg;</font></sup>)</h1>
+
+<p style="margin-bottom:0;">When you <a href="../FWfile/T_FW_td2CATIA.htm">save a CATIA file</a>, a log file of the conversion is created:</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>in the same directory of the file you opened</li>
+
+<li>with the same name of the file you opened and the ".log" extension.</li>
+</ul>
+
+<h3>The log file structure</h3>
+
+<p>The log file for conversion to CATIA<sup><font size="-1">&reg;</font></sup> lists the conversion parameters and information about the entities converted in the process.</p>
+
+<p>In the log file you find:</p>
+
+<ul class="noleft">
+<li>The tolerance used to convert surfaces to Nurbs.</li>
+
+<li>For each solid, the tolerance at which it is manifold.</li>
+
+<li>The number of entities not processed (if any).</li>
+
+<li>The number of entities processed (if any).</li>
+
+<li>The list of entities in layers higher than 255 moved to a different layer (if any).</li>
+
+<li>The list and count of CATIA entities in the output file</li>
+
+<li>The code page index and data sizes.</li>
+
+<li>The model size</li>
+
+<li>The tolerance within which curves result identical.</li>
+</ul>
+
+<h3>Example of a log file: exporting to CATIA 3D</h3>
+
+<blockquote>
+<pre>
+<font face="Courier New" size="3">Convert Surface to NURBS by using tolerance value: 0.001000
+Conversion successfully completed. The solid #66 is manifold at tolerance 0.010000
+Conversion successfully completed. The solid #314 is manifold at tolerance 0.010000
+Conversion successfully completed. The solid #419 is manifold at tolerance 0.010000
+Conversion successfully completed. The solid #548 is manifold at tolerance 0.010000
+Conversion successfully completed. The solid #653 is manifold at tolerance 0.010000
+Conversion successfully completed. The solid #824 is manifold at tolerance 0.010000
+Number of entities not processed
+All entities have been processed
+Number of entities processed
+ARC     :2
+SOLID   :6
+List of entities moved to a different layer
+No entity in layers higher than 255
+List of CATIA converted entities
+  340 CURVE(S)
+   84 SURFACE(S)
+   84 FACE(S)
+    6 VOLUME(S)
+    2 CIRCLE(S)
+Code Page used : 
+Index size: 28432
+Data size: 202184
+Model Size: 999.999978
+Tolerance for identical curves: 0.010000
+</font>
+</pre>
+</blockquote>
+
+<hr color="navy">
+</body>
+</html>
+

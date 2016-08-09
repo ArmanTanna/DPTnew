@@ -1,0 +1,73 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML><HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Job: Blending on multiple boundaries surfaces</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>
+.notop{margin-top:0;}
+</style>
+
+<style>
+.noleft{margin-left:22;margin-top:3;margin-bottom:0;}
+</style>
+
+<style>
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style>blockquote{margin-left:22;margin-top:2;margin-bottom:0;}</style>
+
+<style>.litleft{margin-left:26; margin-top:0;margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<h3>Blending on multiple boundaries surfaces</h3>
+
+<p class="notop">In the case of more than two boundary curves, you can control the shape of the surfaces which will form the final surface where they meet, that is to say at the boundary curves. 
+<p>Let us see what happens to the model of the following illustration (to try it, load file "spsrf_blending.e3") where the blue curve is the spine, the red profiles are the boundaries and the green curve is the drive.<BR><BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_blending.gif"><BR><BR>
+<p>Select the type of blending to be applied to the surfaces along the boundaries in the <b>Blending</b> drop-down list under <b>More Options</b>:<br>&nbsp;
+<table>
+<tr valign="top">
+<td width="100"><b>Linear</b></td>
+<td>Creates the surfaces applying no tangency constraint. Looking at a section obtained from the placement plane of the spine-profile, you will see that:
+<ul class="noleft">
+<li>The sections of the boundary profiles are lines
+<li>The sections of the surfaces bounding the solid are lines (joining the outer endpoints of the section line of two subsequent boundaries). 
+</ul>
+<BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_blending_linear.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>Hermite</b></td>
+<td>Applies tangency continuity to the surfaces between two subsequent pairs of boundaries (at the shared boundary).<br>
+<BR><IMG border=1 SRC="../../../images/surfaces/spinesrf_blending_hermite.gif"><BR>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>Smooth 1</b></td>
+<td>Interpolates the endpoints of the boundary profiles with a 3D spline <i>in relative coordinates</i>. This means that instead of the endpoints specified in absolute coordinates, the spline interpolates points whose x- and y-coordinates are equal to the coordinates of the projections of the endpoints, each in the plane of the corresponding boundary profile (remember that the profile is orthogonal to the spine profile), while the third coordinate is equal to the value of the parameter of the spine profile at the point where it intersects the corresponding boundary profile. This procedure is equivalent to interpolating the endpoints of the boundary profiles when these are positioned on the spine profile obtained by "rectifying" the real boundary profile.<br>&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td><b>Smooth 2</b></td>
+<td>Interpolates the endpoints of the boundary profiles with a 3D spline. In this case, the lateral surfaces maintain curvature continuity at the boundary profiles. 
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html> 

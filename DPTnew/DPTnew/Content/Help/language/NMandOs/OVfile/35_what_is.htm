@@ -1,0 +1,78 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>What is a Solid, what is an Open Solid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>What is a Solid, what is an Open Solid</h3>
+
+<p>In the <b>think<font color="#FF0F00">3</font></b> application, you can manage both <i>closed solids</i> (i.e: they would hold water inside) and <i>open solids</i> (skins, but behaving like solids). Let's see what it means.</p>
+
+<p>"Traditional" solids are a real representation of workpieces: All their faces surround a closed volume. They would hold water.</p>
+<br><img src="../../../images/solids/NMandOS/cube1.gif" height="196" width="234"><br>
+
+<p>Open solids describe a "skin", they don't surround a close volume:</p>
+<br><img src="../../../images/solids/NMandOS/cube3.gif" border="0" height="229" width="261"><br>
+
+<p>However, they maintain the same behavior of Solids, except for the area in which they are open (disconnected edges, highlighted in red).</p>
+<br><img src="../../../images/solids/NMandOS/cube4.gif" height="221" width="264"><br>
+
+<p>You can even have a solid made of only one or two faces:</p>
+<br><img src="../../../images/solids/NMandOS/angle_solid.gif" height="307" width="323"><br>
+
+<p>The difference between this open solid and two surfaces is that open solids have an infinite amount of material on one side, and no material on the other side. They are a "piece" of a real solid. Therefore, if you add a solid cut feature, you will remove material from the side where the material is.</p>
+<br><img src="../../../images/solids/NMandOS/angle_solid_cut.gif" height="307" width="323"><br>
+
+<p>If the above example were just a surface, the material concept would be missing. That would mean that a solid cut could not be applied to that surface at all. The surface could be trimmed to curves, but that would not begin to describe the depth of the cut.</p>
+
+<p>As I'm sure you're starting to realize, open solids give us the benefit of applying solid features to skins (zero-thickness entities): holes, fillets, parameters, sections and so on,as shown in the next example, where a surface has been turned in to an open solid.</p>
+<br><img src="../../../images/solids/NMandOS/opsol1.gif" height="190" width="294"><br>
+<br><img src="../../../images/solids/NMandOS/opsol2.gif" height="223" width="300"><br>
+
+<p><b>If an open solid looks like a surface, but behaves like a solid, how do we know where the material is?</b></p>
+
+<p>We should think of an open solid as having infinite material on one side, and no material on the other. The face normals tell us which side is which. The <span class="UI_OPTION" id="ButtonToolbar_Tools.msg+ButtonToolbar_Tools+31">Solid Utilities</span> menu has a choice to check the normals of a solid: 
+<a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_13_12.htm">
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+102">Check Normals</span></a>.<br></p>
+
+
+<p>The following illustration shows the surface normal pointing towards the area inside the smaller angle created by the solid. This means that we should consider that area to be void of material, while we should consider material to exist on the other side of the solid.</p>
+<br><img height="307" src="../../../images/solids/NMandOS/normals.gif" width="323"><br>
+
+<p>If we would like the normals to face in the opposite direction, we have the option to either invert all the normals, or simply invert normals of individual faces. To learn more about the <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_12.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Tools.msg+ButtonToolbar_Tools+31">Solid Utilities</span></a>, consult the <b>think<font color="#FF0F00">3</font></b> Help system.</p>
+
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="Open-Solids.htm"><b>Open solids</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

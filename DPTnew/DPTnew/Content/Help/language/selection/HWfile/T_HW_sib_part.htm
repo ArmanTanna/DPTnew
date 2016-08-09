@@ -1,0 +1,181 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a parting plane using siblings selection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a parting plane using siblings selection</h3>
+
+<p>In this job you will apply the <a href="../FWfile/T_FW_sibling.htm">siblings</a> selection command to generate a parting plane for a static solid.<br>
+<i>Please note that you can accomplish this task by loading file "sib_connecting_rod.e3"</i> from the samples folder.
+<br>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+For completing this job, you need to make use of the commands <a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_10.htm">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+38">Isoparametric Curve</span></a> and 
+<a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_23.htm">
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+250">Parting Plane</span></a>. This jobs aims to describe the benefits of using the sibling selection with such commands.</td>
+
+
+</tr></table>
+</p>
+
+<table>
+<tr valign="top">
+<td width="30"><b>1</b></td>
+<td>Open the sample file <i>sib_connecting_rod.e3</i> which is a static solid model of a connecting rod. This model does not have any history associated with it. Note that you can advantageously use the following procedure on similar static solids, not just in .e3 file format, also in IGES (*.igs or *.iges) and Step (*.stp) file formats.</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Start the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+38">Isoparametric Curve</span> Command. Select 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+290">V parameter</span> as the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+61">Type</span> and select the 
+<a href="mk:@MSITStore:help.chm::/language/curves/OVfile/T_OV_curves.htm#Assoc">
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box. Select all the side faces of the connecting rod, except the inner surface of the small end, shown below:<br>
+
+
+<br>
+<img src="../images/sib_1.gif"border="1"><br>
+<br>
+In this example you may use a V value of 0.5<br>
+Note that the inner surface of the small end of the connecting rod is  purposefully not selected.
+Click <img src="../../../images/general/OKbutton.gif" border="0"> to confirm your selections. A curve surrounding the connecting rod will be created. Note that this curve creates 14 resulting curves as shown in the model structure.
+<br>
+<br>
+<img src="../images/sib_2.gif" border="0">
+<br>
+<br>
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Start the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+250">Parting Plane</span> command. If you have pre selected any curve or the isoparametric curve created in the previous step, reset the your selection (right-click on 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+1">Curves</span> from the selection list and select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> from the context menu).
+
+
+<br>
+<br>
+Select the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> check box. Now, right click on the graphic area and select 
+
+<span class="UI_CONTEXT" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span> <img src="../../../images/general/litarr.gif"> 
+
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7868">Siblings</span> and the cursor changes to the following: <img src="../../../images/icons/cursors/Siblings.gif" align="absmiddle">
+
+
+<br>
+<br>
+Select any one of the 14 curves, created in the second step. The entire siblings of the selected curve (all 14 curves) will be automatically selected. Click <img src="../../../images/general/OKbutton.gif" border="0"> to confirm your selections.
+<br>
+<br>
+The parting plane is created as a skin:
+<br>
+<br>
+<img src="../../../images/selection/sib_3.gif" border="1">
+<br>
+<br>
+Note that in the model structure, you can find a one-to-one correspondence between the parting plane and the 
+resulting curves of the isoparametric curve. This is due to the fact that the siblings selection that we employed picked up all siblings of the parent event, i.e; the isoparametric curve.
+<br>
+<br>
+<img src="../images/sib_4.gif" border="0">
+<br>
+<br>
+</td>
+</tr>
+</table>
+<p>
+We have purposefully avoided the inner surface of the small end of the connecting rod in the step 2. Suppose that we want the parting plane on that surface as well. Since we have employed siblings selection for creating the parting plane, all we have to do is:
+<br>
+<table>
+<tr valign="top">
+<td width="30"><b>1</b></td>
+<td>Right-click on Isoparametric curve on the model structure and select <span class="UI_CONTEXT" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span>.</td>
+
+
+</tr>
+<tr valign="top">
+<td width="30"><b>2</b></td>
+<td>Simply select the inner surface of the small end of the connecting rod. Its corresponding isoparametric curve will be created. Click <img src="../../../images/general/rebuild_icon.gif" width="24" height="16" border="0"> to confirm your selection and rebuild the model.</td>
+</tr>
+<tr valign="top">
+<td width="30"><b>3</b></td>
+<td>The resulting model will be as shown:
+<br>
+<br>
+<img src="../../../images/selection/sib_5.gif" border="1">
+<br>
+<br>
+Note that this is possible due to the fact that, when you redefined the isoparametric curve feature, the newly added curve became yet another "sibling" of the parent event, i.e; the isoparametric curve.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:help.chm::/language/curves/FWfile/T_FW_cv_10.htm">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+38">Isoparametric Curve</span></a></li><li>
+<a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_sr_23.htm">
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+250">Parting Plane</span></a></li>
+
+<li><a href="../ovfile/T_OV_basic03.htm"><b>Multiple selection operators</b></a></li>
+<li><a href="../ovfile/T_OV_smart_sel.htm"><b>Smart selection commands</b></a></li>
+<li><a href="../ovfile/T_OV_basic01.htm"><b>Selection and Preselection</b></a></li>
+<li><a href="../ovfile/T_OV_basic02.htm"><b>Clicking on entities</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

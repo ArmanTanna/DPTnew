@@ -1,0 +1,186 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<TITLE>Job: Inserting a Datum Point onto a face of a solid</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Inserting a Datum Point onto a face of a solid</h3>
+
+<p>The <a  href="../FWfile/T_FW_sl_01_09.htm"><b>Datum Point</b></a> command enables you to insert a datum point onto a face of a solid.</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the face you want to locate the datum point on.
+<BR><BR><IMG border=1 SRC="../../../../images/solids/sl_09/onface01.gif"><BR><BR>
+To change the selected face, click on <b>Face</b> in the selection list and select another face.
+<p></p></td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Under <B>Type</B> in the selection list, choose the method you want to use to indicate the point.
+<BR><BR><IMG border=1 SRC="../images/onface02.gif">
+<p></p></td>
+</tr>
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Position the datum point. The values you must specify vary as follows depending on the method you chose to define the point:<p></p>
+<UL>
+<li><B>Point</B> &#151; the datum point is initially positioned in the point you chose when you selected the face.
+<OL type="a">
+<li>To move the datum point, click on <B>Point</B> in the selection list and then click to select a new position. You can also move the point by dragging its handle.
+<BR><BR><IMG border=1 SRC="../images/onfacepoint.gif">
+</OL><p></p>
+<li><B>From 2 lines</B> &#151; the position of the datum point is based on the distances from two (history based) lines which can be:
+<ul class="noleft">
+<li>Edges, even not belonging to the same faces
+ <li>Datum lines
+ <li>Lines belonging to profiles.
+ </ul>
+<OL type="a">
+<li>In the <B>1st Distance</B> mini-dialog, specify the distance from the first line, or drag the datum point center-point handle. To specify a different line as the first one, click on <b>First Line</B> in the selection list and then select the line.
+<li>In the <B>2nd Distance</B> mini-dialog, specify the distance from the second line, or drag the datum point center-point handle. To specify a different line as the second one, click on <B>Second Line</B> in the selection list and then select the line.
+</OL>
+In the selection list the <b>Reference Planar Face</b> is displayed: the selection of a planar face is optional if the face is planar, mandatory if the face is not planar.
+<BR><BR><IMG border=1 SRC="../images/From2Lines.gif"><BR><BR>
+<b>1</b>&nbsp;&#151;&nbsp;the selected <b>Face</b><br>
+<b>2</b>&nbsp;&#151;&nbsp;the <b>First Line</b><br>
+<b>3</b>&nbsp;&#151;&nbsp;the <b>Second Line</b><br>
+<b>4</b>&nbsp;&#151;&nbsp;the <b>Reference Planar Face</b>
+<p></p>
+
+<li><B>From-along edge</B> &#151; the position of the datum point is based on the distance from one boundary edge of the face in which datum point is to be created or on the <b>Reference Planar Face</b> (see below) and the distance along that edge.
+<OL type="a">
+<li>In the first <B>1st Distance</B> mini-dialog, specify the distance along the selected edge to the point, or drag the point handle. To specify a different reference edge, click on <B>Reference Edge</B> in the selection list and then select a new edge.
+<li>In the second <B>2nd Distance</B> mini-dialog, specify the distance perpendicular from the selected edge to the point, or drag the datum point handle.
+<p>In the selection list the <b>Reference Planar Face</b> is displayed: the selection of a planar face is optional if the face is planar, mandatory if the face is not planar.
+<BR><BR><IMG border=1 SRC="../images/fromalong.gif">
+</OL>
+<p></p>
+<li><B>Polar</B> &#151; the position of the datum point is based on its radius distance from a polar origin and the angle from a reference line.
+<OL type="a">
+<li><b>Origin</b>&nbsp;&#151;&nbsp;the origin is a mandatory selection element, whenever possible, the default origin will be automatically selected based on the face selection. You can change the origin by clicking on <b>Origin</b> and specifying another point.
+<li><b>Reference Direction</b>&nbsp;&#151;&nbsp;you will have to specify the reference direction (as an existing line or the one identified by two points to be selected); whenever possible, the default reference direction will be automatically selected based on the face selection. You can change it by clicking on <b>Reference Direction</b> and specifying another direction.
+<li>In the <B>Radius</B> mini-dialog, specify the radius from the origin to the position of the datum point, or drag the datum point handle.
+<li>In the <B>Angle</B> mini-dialog, specify the angle from the reference line to position of the datum point, or drag the datum point handle.<p>
+
+In the selection list the <b>Reference Planar Face</b> is displayed: the selection of a planar face is optional if the face is planar, mandatory if the face is not planar.<br>
+<BR><IMG border=1 SRC="../images/polar.gif">
+</OL><p></p>
+<li><b>Cartesian</b><br>
+the datum point is defined through its X, Y coordinates measured starting from an origin and using a reference X-axis.
+<ul class="noleft">
+<li><b>Origin</b>&nbsp;&#151;&nbsp;the origin is a mandatory selection element, whenever possible, the default origin will be automatically selected based on the face selection. You can change the origin by clicking on <b>Origin</b> and specifying another point.
+<li><b>Reference Direction</b>&nbsp;&#151;&nbsp;you will have to specify the reference direction (as an existing line or the one identified by two points to be selected); whenever possible, the default reference direction will be automatically selected based on the face selection. You can change it by clicking on <b>Reference Direction</b> and specifying another direction.
+<li><b>Reference Planar Face</b>&nbsp;&#151;&nbsp;the selection of a planar face is optional if the face is planar, mandatory if the face is not planar. You can change it by clicking on <b>Reference Planar Face</b> and specifying another face.
+<li><b>Delta X</b> and <b>Delta Y</b>&nbsp;&#151;&nbsp;are the distances (to be specified) of the point from the origin along the selected Reference Direction and in the direction orthogonal to it.
+</ul>
+<BR><BR><IMG border=1 SRC="../images/Cartesian.gif"><BR><BR>
+<b>1</b>&nbsp;&#151;&nbsp;the selected <b>Face</b><br>
+<b>2</b>&nbsp;&#151;&nbsp;the selected <b>Origin</b><br>
+<b>3</b>&nbsp;&#151;&nbsp;the selected <b>Reference Direction</b><br>
+<b>4</b>&nbsp;&#151;&nbsp;the selected <b>Reference Planar Face</b>
+<p></p>
+<li><B>Parameters</B> &#151; the position of the datum point is based on the u and v parameters of the face in which the datum point is to be created.
+<OL type="a">
+<li>In the <B>U</B> mini-dialog, specify the U parameter, or drag the point handle.
+<li>In the <B>V</B> mini-dialog, specify the V parameter, or drag the point handle.
+<BR><br><IMG border=1 SRC="../images/UV.gif">
+</OL><p></p>
+<li><b>Intersection</b> &#151; the position of the datum point is based on the itersection of a selected line and the face on which the datum point is to be created.
+<ol tpye="a">
+<li>In the <b>Axis</b> drop-down list, select one of the following:
+<table>
+<tr valign="top">
+<td><li><B>Line</B></TD>
+<td>&nbsp;&#151;&nbsp;</TD>
+<td>select the line or edge intersecting the selected face in the desired position for the datum point.</TD></TR>
+<tr valign="top">
+<td><li><B>2&nbsp;Points</B></TD>
+<td>&nbsp;&#151;&nbsp;</TD>
+<td>select the two points that define the axis intersecting the selected face in the desired position for the datum point.</TD></TR>
+</TABLE>
+<BR><IMG border=1 SRC="../images/Intersection.gif">
+<br>
+<br>
+</ol>
+<li><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+180">Cylindrical</span></li>
+
+<br>
+Datum points can be inserted on the faces of solids having an axial symmetry (for example, on a cylindrical or conical face) with the <b>Cylindrical coordinates</b> (<img src="../../../rn_2007t1/images/rtz.gif" align="absmiddle">) as their reference.<br>
+<br>
+For a quick introduction to adding a datum point using the Cylindrical coordinates, follow these steps:</p>
+
+<ol>
+<li>Start the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+193">Datum Point</span> command.</li>
+
+
+<li>Set the <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+192">Point On:</span> option to 
+<span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+2">Face</span>.</li>
+
+
+<li>Select a face of any solid with an axial symmetry.</li>
+
+<li>Change the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+23">Type</span> option to 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+180">Cylindrical</span> and you can vary the 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+22">Distance</span> to specify the location of the point.</li>
+
+
+<li>The sub options <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+182">Radial direction</span> and 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+181">Reference to origin</span> specify the direction and location of the point over the face.<br>
+
+</li>
+</ol>
+
+<p><br>
+Consider the following image:<br>
+<br>
+<img src="../../../rn_2007t1/images/datum_2.gif" border="1"><br>
+<br>
+</p>
+
+<p>When you select a cylindrical face (as shown above), the radius <b>r</b> (of the point&rsquo;s cylindrical coordinate) is automatically defined as the radius of that face and cannot be changed. For the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+181">Reference to origin</span> option, select the face whose center is considered as the origin for the cylindrical coordinate system. In the above example, the center of the top face of the cylinder is selected as origin. The 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+182">Radial direction</span> option can be anyone of the 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span>, 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+16">Line</span>, or 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+113">End point</span>. It acts as the reference for measuring the angle (<img src="../../../../images/rn_2007T1/theta.gif" align="absmiddle">) of the point coordinate. Once the radial direction and origin are set, the 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+2">Angle</span> gets defined for the cylindrical coordinate system. The 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+22">Distance</span> defines the depth <b>Z</b> of the coordinate system.<br>
+
+<br>
+Consider another example:<br>
+<br>
+<img src="../../../rn_2007t1/images/datum_cone.gif" border="1"><br>
+<br>
+Here the datum point is added on an axially symmetric conical face and for it all the 3 cylindrical coordinates <img src="../../../rn_2007t1/images/rtz.gif" align="absmiddle"> can be varied. The origin is the vertex of the cone and a line external to the cone defines the radial direction. Note that, the radius changes with a change in the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+22">Distance</span> value(from the vertex to the base of cone), unlike the previous example, in which the radius was a constant.</p>
+
+</UL></td>
+</tr>
+
+<tr valign="baseline">
+<td width="20"><b>4</b></td>
+<td>Click <img src="../../../../images/general/OKbutton.gif" border="0"> or <img src="../../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections. Click <img src="../../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

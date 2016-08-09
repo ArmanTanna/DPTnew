@@ -1,0 +1,93 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(300,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="T_2009t1" content="translate">
+<title>Sampling for Recapping</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><td align="left"><span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7747">Sampling for Recapping</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7747">Sampling for Recapping</span> command enables you to create some sampling points over a set of surfaces or faces that needs to be capped later on. The created points can be used as reference while performing the capping operation.</p>
+
+<p><a name="surface"></a>After starting the command, you need to select the surface for the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span> selector that will be the reference to generate the points.</p>
+
+<p><a name="mode"></a>You have the option to define the mode that will be used for point generation. Make the required selection from the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+31">Sampling Mode</span> drop-down list.</p>
+
+<ul>
+<li><a name="UV"></a><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+32">UV</span>: The point distribution is across the U and V directions of the surface. The amount of points to be generated can be controlled by specifying the required value in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+37">Density</span> edit box.<br>
+<br>
+</li>
+
+<li><a name="grid"></a><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+33">Grid</span>: The point distribution is across a grid. The spacing between the grid lines can be specified in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+38">Step</span> edit box.<br>
+<br>
+</li>
+
+<li><a name="tess"></a><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+34">Tessellation</span>: The point distribution is based on the surface tessellation factor as per the specified <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+39">Tolerance</span> value.<br>
+<br>
+</li>
+
+<li><a name="planes"></a><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+35">Planes</span>: The point distribution is made over two directions which can be defined by using the <span class="UI_SELECTOR" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+40">First Direction</span> and <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+41">Second Direction</span> drop-down lists. Refer to the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to Define an Axis or a Line</a> document for details.<br>
+<br>
+ The density of points in each direction is to be specified in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+42">First Step</span> and <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+43">Second Step</span> edit boxes, respectively.<br>
+<br>
+</li>
+
+<li><a name="radial"></a><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+36">Radial</span>: The point distributions is made radially about a defined <span class="UI_SELECTOR" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+44">Axis</span>. The number of radials is to be specified in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+46">No. of planes</span> edit box. Refer to the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to Define an Axis or a Line</a> document for details. Note that for each plane, two radials will originate from the axis in mutually opposite direction.<br>
+<br>
+ The density of points across the radials is controlled by the entering the required value in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+45">Step on axis</span> box.</li>
+</ul>
+
+<p><a name="excl"></a>You can define an exclusion zone where the points need not be generated. To do so, use the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+47">Exclusion Mode</span> drop-down list.</p>
+
+<ul>
+<li><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+48">None</span>: There will be no exclusion zone<br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+49">All boundaries</span>: The exclusion zone will be around the surface boundaries up to a distance entered in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+51">Radius</span> edit box.<br>
+<br>
+</li>
+
+<li><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+50">Select</span>: The exclusion zone will be around the curve selected for the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span> selector up to a distance entered in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+51">Radius</span> edit box.</li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><b><a href="../OVfile/T_OV_HQRE.htm">Overview on <span class="UI_COMMAND" id="ButtonToolbar_HQRE.msg+ButtonToolbar_HQRE+1">HQ Reverse Engineering</span></a></b></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

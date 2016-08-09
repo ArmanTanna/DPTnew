@@ -1,0 +1,80 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD> 
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Saving a file including modified X-Reference Components</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<STYLE type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</STYLE>
+
+<body onload="viaMk();"  BGCOLOR="white">
+  
+</head>
+
+
+<h3>Saving a file including modified X-Reference Components</h3>
+
+<p>Suppose the <i>xx</i> component:</p>
+<img border=1 src="../../../images/assembly/xx.gif">
+
+<p>Is included as X-Reference (component) in different assemblies (such as <i>xxxx</i> and <i>xx+yy</i>, that you can see in the <i>samples</i> folder):</p>
+<img border=1 src="../../../images/assembly/xxx.gif"> 
+<img border=1 src="../../../images/assembly/xx_yy_History_Tree.gif">
+
+<p>You decide to modify it while working on the <i>xx+yy</i> assembly as follows:</p>
+
+<ul class="noleft">
+<li><a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_04.htm"><b>Set Current</b></a>.</li>
+
+<li>Modify it (for instance, make a simple hole, as shown in <i>this</i> illustration).<br>
+<p><img border=1 src="../../../images/assembly/xx_0.gif"></p>
+</li>
+</ul>
+
+<p>Then double-click on a blank area or select the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_05.htm"><b>Top Level</b></a> command to reset the conditions of the assembly so that there is no longer a current component.</p>
+
+
+<p>You are warned that some objects must be updated and you can notice that the <b>Rebuild Model</b> icon has been switched on in the meanwhile, therefore <a  href="../../history/FWfile/T_FW_ht_08.htm">rebuild</a> the model by clicking the icon.</p>
+
+<p>Now <a  href="../FWfile/T_FW_fi_05.htm">save</a> the assembly file.</p>
+
+<p>Because of your modifications, you get a message warning you that one or more components have been modified and you are asked to save the changes.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1">When you modify some X-Reference component(s) and save the file, be it the whole assembly including the component(s) or just the component set as current, the <b>think<font color="#FF0F00">3</font></b> application checks <i>all</i> the X-Reference component(s) included in the document <i>below</i> the current level. If any of them has been modified since the last saving, you are warned and you are asked to save the changes.</td></tr></table>
+
+<p>Therefore, by choosing to save the changes in your document, the <b>think<font color="#FF0F00">3</font></b> application <i>updates</i> the component you modified in the current assembly. The changes would be propagated to all the X-Reference component sub-components, if any, within the document.</p>
+<img border=1 src="../../../images/assembly/xx_yy_0.gif">
+
+<p>Of course, by opening any other file including the <i>xx</i> component as X-Reference (component) such as the <i>xxxx</i> file, you can see it has been <i>updated</i>, according to the changes you made in the starting assembly.</p>
+<img border=1 src="../../../images/assembly/xxx_0.gif"><br>
+<br>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br>
+When you have two open documents at the same time in your working session and they both include the same X-Reference (component), if you modify the component in one of them, then save the document, you'll need to <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_07.htm">reload</a> the component in the other document, in order to view it updated.
+
+</td></tr></table>
+
+<hr color="silver">
+</body>
+</html>

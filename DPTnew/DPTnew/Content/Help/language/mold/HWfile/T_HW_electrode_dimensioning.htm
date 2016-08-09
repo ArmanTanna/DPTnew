@@ -1,0 +1,90 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<title>Automatic Dimensioning of Electrode from the Work Plane origin</title>
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Automatic Dimensioning of Electrode from the Work Plane origin</h2>
+
+<p>The dimensioning of the electrode with respect to the work plane origin helps in easy manufacturing of the electrode. In the following tutorial you will create an electrode using the <a href="../FWfile/T_FW_electrode_command.htm"><span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+1">Mold Electrode</span></a> command. Also you will automatically generate the dimensions between the reference point in the electrode and the Work Plane origin. Open the <i>electrode.e3</i> file available in the <i>Samples/mold</i> folder present at the installation location and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Move the Work Plane away from the electrode along the X axis by <b>200mm</b> using the <a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_quick_edit.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span></a> command as shown in the image below. This will help in better understanding of the electrode dimensioning.<br>
+<br>
+<img src="../../../images/mold/electrode_wp.gif" border="1"><br>
+<br>
+</li>
+
+<li>Follow the steps from 1 to 6 of the <a href="T_HW_electrode_simple.htm">Creating the Electrode</a> tutorial.<br>
+<br>
+</li>
+
+<li>Under the <span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+10">Head Shape</span> node, select the <span class="UI_OPTION" id="Electrode.msg+_Electrode_LABEL_+16">Show all reference points</span> check box and view all the reference point of the electrode head as shown in the image below.<br>
+<br>
+<img src="../../../images/mold/electrode_ref.gif" border="1"><br>
+<br>
+</li>
+
+<li>Double click on a reference point as highlighted (point in Green) in the above image. A datum point is created at this point.<br>
+<br>
+</li>
+
+<li>Click <img src="../../../images/general/OKbutton.gif" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" align="absmiddle"> to confirm your selections. A message dialog box appears as shown in the image below.<br>
+<br>
+<img src="../../../images/mold/electrode_message.gif" border="1"><br>
+<br>
+ Click <b>OK</b>.<br>
+<br>
+</li>
+
+<li>The electrode file is created at the location of the previously opened file. For this tutorial it will be in the Samples\mold folder with file name as <i>electrode_1.e3</i>.<br>
+<br>
+</li>
+
+<li>Open the <i>electrode_1.e3</i> file and create a drawing from the current model using the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_dw_06.htm"><span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+5890">Drawing from Current Model</span></a> command. The different view of the electrode is as shown in the image below.<br>
+<br>
+ <img src="../../../images/mold/electrode_views.gif" border="1"><br>
+<br>
+</li>
+
+<li>Right-click on the Graphics Area and select the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> options. In the <span class="UI_OPTION" id="eklib.msg+optsmsg+1">Document Properties</span> tab, select the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1851">Enable for electrode origin</span> check box from the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+545">Drawing</span>-<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+686">Dimensions</span> category and enter <b>30</b> in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1853">Axis length</span> text box.<br>
+<br>
+</li>
+
+<li>Right-click on any of the view and select the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+548">Regenerate View</span> option in the context menu. The dimensioning for the selected view is calculated with respect to the Work Plane and displayed as shown in the image below.<br>
+<br>
+ <img src="../../../images/mold/electrode_dimen.gif" border="1"><br>
+<br>
+</li>
+</ol>
+
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

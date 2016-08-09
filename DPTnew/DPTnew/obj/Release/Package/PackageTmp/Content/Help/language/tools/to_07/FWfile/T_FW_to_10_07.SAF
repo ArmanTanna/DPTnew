@@ -1,0 +1,85 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Volume</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Tools<img src="../../../../images/general/litarr.gif">Info<img src="../../../../images/general/litarr.gif">Analysis<img src="../../../../images/general/litarr.gif">Volume</p>
+<hr color="#63a9d8">
+</table>
+<br>&nbsp;<br>
+
+<p>The <b>Volume</b> command under <a href="T_FW_to_04_07.htm"><b>Analysis</b></a> calculates the partial or total volume and the corresponding weight of the finite space delimited by one or more surfaces and/or solids. The resulting values are rounded to the nearest decimal digit defined in the <b>Decimal digits</b> box in the <b>Volume</b> area of the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_SET_UNITS_ADVANCED.htm"><b>Measure Units-Advanced</b></a> category of the <b>Document Properties</b>.</p>
+
+
+<p>Select the type of computation you want to do in the <b>Mode</b> drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td width="70"><b>Full</b></td>
+<td>Calculates and displays the full volume of the finite space delimited by the selected entities. By selecting the <b>Density</b> check box you can also obtain the <b>Weight</b> value.</td>
+</tr>
+<tr valign="top">
+<td><b>Partial</b></td>
+<td>Calculates and displays the partial volume relative to the <i>filling height</i> value <b>H</b> you specify. The maximum and minimum height values of the selected entities are also displayed (<b>Max H</b>, <b>Min H</b>)</td>
+</tr>
+<tr valign="top">
+<td><b>Diagram</b></td>
+<td>Displays a diagram showing the variations in volume as a function of the height of the selected entities.<br>
+You first indicate two points defining the box which will contain the diagram. The two points you specify also indicate the reference view. Note that to make the diagram easier to read, you should specify two points that identify the space actually occupied by the selected objects. The following values are displayed along with the diagram: 
+
+<table>
+<tr valign="top">
+<td width="40"><b>cv0</b></td>
+<td>the volume corresponding to the minimum height</td>
+</tr>
+<tr valign="top">
+<td><b>cv1</b></td>
+<td>the volume corresponding to the maximum height</td>
+</tr>
+<tr valign="top">
+<td><b>ch0</b></td>
+<td>the volume corresponding to the minimum height in the view where the diagram is created</td>
+</tr>
+<tr valign="top">
+<td><b>ch1</b></td>
+<td>the volume corresponding to the maximum height value in the view where the diagram is created.</td>
+</tr>
+</table>
+
+<p>In order to read the diagram so as to obtain the height at an indicated point and the volume corresponding to that height, enter a value in the <b>U</b> mini-dialog box displayed on the diagram curve (from 0 to 1), or drag the handle to the desired position.<br>
+You can also set the <b>Step</b>, which is the interval to be used to calculate the fictitious sections. Smaller interval values yield more realistic results but may take longer to calculate.<br>
+To keep the diagram also after quitting the command, select the <b>Create diagram</b> check box.</p>
+</td>
+</tr>
+</table>
+
+<p>Note that in order to obtain the correct volume value, you must ensure that all the normals face outwards relative to the <i>full</i> volume to be measured. If the normals don't all face outward, the command displays an error message. You can then invert the parameters by using the <a href="../../../surfaces/FWfile/T_FW_InvertSurface.htm"><b>Invert Surface</b></a> command.</p>
+
+<hr color="silver">
+</body>
+</html>
+

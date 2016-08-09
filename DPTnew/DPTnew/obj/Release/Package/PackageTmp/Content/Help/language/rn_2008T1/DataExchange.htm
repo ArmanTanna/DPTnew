@@ -1,0 +1,405 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Data Exchange Functionalities and Improvements</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BMAAA==" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>New Data Exchange Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following Data Exchange enhancements.</p>
+
+<ul class="noleft">
+<li><a href="#dxf">Enhancements in the DXF/DWG Converter</a> 
+
+<ul class="noleft">
+<li><a href="#CCB5536">Entity support for the DXF/DWG format</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#VDA">Enhancements in the VDA Converter</a> 
+
+<ul class="noleft">
+<li><a href="#VDA_category">Reorganized VDA categories</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#proe">Enhancements in the Pro/ENGINEER Converter</a> 
+
+<ul class="noleft">
+<li><a href="#CCB4811">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+93">Save</span> category</a></li>
+
+<li><a href="#WF3.0">Latest version support</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#catia">Enhancement in the CATIA Converter</a> 
+
+<ul class="noleft">
+<li><a href="#V5R17">Latest version support</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#step">Enhancements in the STEP Converter</a> 
+
+<ul class="noleft">
+<li><a href="#STEP_category">Reorganized STEP categories</a></li>
+
+<li><a href="#STEP_entity">Entity Name support for STEP format</a></li>
+
+<li><a href="#step_layers">New <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category</a></li>
+
+<li><a href="#step_load">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+170">Load</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#iges">Enhancement in the IGES Converter</a> 
+
+<ul class="noleft">
+<li><a href="#IGES_category">Reorganized IGES categories</a></li>
+
+<li><a href="#IGES_layers">New <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category</a></li>
+
+<li><a href="#iges_load">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> - <span class="UI_OPTION_NOBOLD" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#e3_e2_load">Enhancements in Model (*.e3)/Drawing (*.e2) loading options</a></li>
+
+<li><a href="#e3_save">Enhancements in Model (*.e3) saving options</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<h2><a name="dxf">Enhancements in the DXF/DWG Converter</a></h2>
+
+<p>The following DXF/DWG converter enhancements have been made in this version.</p>
+
+<!-- PRJ: P0000377 - OWN: PEMU -->
+<h3><a name="CCB5536"></a>Entity support for the DXF/DWG format</h3>
+
+<p>From this version onwards the ability of the <b>think<font color="#FF0F00">3</font></b> application to support AutoCAD<sup>&reg;</sup> entities has been augmented. As a result, the entities listed in the following table are now correctly mapped.</p>
+
+<br>
+ 
+
+<table border="1" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr align="center" valign="top">
+<td><b>AutoCAD<sup>&reg;</sup></b></td>
+<td><b>think<font color="#FF0F00">3</font></b></td>
+<td><b>Conversion</b></td>
+</tr>
+
+<tr valign="top">
+<td>Region</td>
+<td>Group</td>
+<td>Load</td>
+</tr>
+
+<tr valign="top">
+<td>Table</td>
+<td>Group</td>
+<td>Load</td>
+</tr>
+
+<tr valign="top">
+<td>Line Weight</td>
+<td>Line Width</td>
+<td>Load and Save</td>
+</tr>
+
+<tr valign="top">
+<td>External Reference</td>
+<td>X-ref</td>
+<td>Load and Save</td>
+</tr>
+
+<tr valign="top">
+<td>Raster Image reference</td>
+<td>Image</td>
+<td>Load and Save</td>
+</tr>
+
+<tr valign="top">
+<td>Oblique Dimension</td>
+<td>Group</td>
+<td>Load</td>
+</tr>
+
+<tr valign="top">
+<td>Leader Dimension with Spline leader line</td>
+<td>Group</td>
+<td>Load</td>
+</tr>
+</table>
+
+<br>
+<p>Refer to the <b>DXF/DWG to think3 conversion table</b> and <b>think3 to DXF/DWG conversion table</b> in the Online Documentation for details.</p>
+
+<br>
+<!-- END PRJ -->
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="VDA"></a>Enhancements in the VDA Converter</h2>
+
+<p>The following enhancement has been made in this version for the VDA converter.</p>
+
+<!-- PRJ: CCB7444 - OWN: WIMA -->
+<h3><a name="VDA_category"></a>Reorganized VDA categories</h3>
+
+<p>From this version onwards the various categories present in the <b>VDA Options</b> dialog box have been reorganized as shown below.<br>
+<br>
+<img src="images/VDA.gif"><br>
+<br>
+The old <span class="OLD">Settings</span> category has been removed and the <span class="OLD">Convert non-visible entities</span> option previously present in it is now available in the new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+320">General</span> category and has been renamed as <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+266">Convert hidden entities</span>.</p>
+
+<br>
+<!-- END PRJ -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="proe"></a>Enhancements in the Pro/ENGINEER<sup>&reg;</sup> Converter</h2>
+
+<p>The following enhancements have been made in this version for the Pro/ENGINEER<sup>&reg;</sup> converter.</p>
+
+<!-- PRJ: CCB4811 - OWN: UJMA -->
+<h3><a name="CCB4811">Enhancement in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+93">Save</span> category</a></h3>
+
+<p>A new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+537">Convert solid entities to components</span> check box has been added to the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+93">Save</span> category of the <b>ProEngineer Options</b> dialog box.<br>
+<br>
+<img src="images/ProE_CNV.gif"><br>
+<br>
+</p>
+
+<ul>
+<li>When selected, the individual solids in the model will be saved as individual Parts in Pro/ENGINEER<sup>&reg;</sup>.</li>
+
+<li>When cleared, all the solids in the model will be saved as a single Solid in Pro/ENGINEER<sup>&reg;</sup>.</li>
+</ul>
+
+<br>
+ <!-- END PRJ -->
+ 
+
+<hr color="silver" style="margin-left:30;">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CCB6337 - OWN: GUVE -->
+<h3><a name="WF3.0">Latest version support</a></h3>
+
+<p>With the improvements made in this version, <b>TD Direct</b> is now able to open Pro/ENGINEER<sup>&reg;</sup> model files up to version <b>Wildfire 3.0</b>.</p>
+
+<br>
+ <!-- END PRJ -->
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: CCB6337 - OWN: GUVE -->
+ 
+
+<h2><a name="catia">Enhancement in the CATIA Converter</a></h2>
+
+<p>The following enhancement has been made in this version for the CATIA<sup>&reg;</sup> converter.</p>
+
+<h3><a name="V5R17">Latest version support</a></h3>
+
+<p>With the improvements made in this version, <b>TD Direct</b> is now able to open CATIA<sup>&reg;</sup> model files up to version <b>V5 R18</b>.</p>
+
+<br>
+ <!-- END PRJ -->
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="step">Enhancements in the STEP Converter</a></h2>
+
+<p>The following enhancements have been made in this version for the STEP converter.</p>
+
+<!-- PRJ: CCB7444 - OWN: WIMA -->
+<h3><a name="STEP_category"></a>Reorganized STEP categories</h3>
+
+<p>From this version onwards the various categories present in the <b>STEP Options</b> dialog box have been reorganized as shown below.<br>
+<br>
+<img src="images/STEP.gif"><br>
+<br>
+The old <span class="OLD">Settings</span> category has been removed and the two options previously present in it are now available in the new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> category. Note that the old <span class="OLD">Convert non-visible entities</span> option has been renamed as <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+266">Convert hidden entities</span>.</p>
+
+<br>
+<!-- END PRJ -->
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CCB5842 - OWN: UJMA -->
+<h3><a name="STEP_entity"></a>Entity Name support for STEP format</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> applications now support <i>reading and writing</i> entity names <i>to and from</i> the STEP format. To save an entity name to a STEP file, you need to create a User Defined Class (by using the <span class="UI_OPTION" id="MenuBar_Document_Insert_UserDefinedProperties.msg+MenuBar_Document_Insert_UserDefinedProperties+4622">Create UDC</span> command) with its <span class="UI_OPTION" id="idd_pcl_define.msg+idd_pcl_define+3835">Name</span> as <b>TD_ENTITY_NAME</b> and the <span class="UI_OPTION" id="idd_pcl_define.msg+idd_pcl_define+3836">Type</span> set to <span class="UI_DROPDOWNITEM" id="idd_pcl_define.msg+idd_pcl_define+3837+3">Character</span>.<br>
+<br>
+<img src="../IGES/images/iges_UDC.gif"><br>
+<br>
+Refer to "Insert a new class of user defined properties" in the online documentation for details on how to insert a User Defined Class.</p>
+
+<br>
+<p>For the specified class, using the <span class="UI_OPTION" id="MenuBar_Document_Insert_UserDefinedProperties.msg+MenuBar_Document_Insert_UserDefinedProperties+4623">Assign UDP</span> command assign the User Defined Property to any entity (like solid, surfaces or curves) and then set its value as the name to be allocated to the entity for the STEP conversion.<br>
+<br>
+<img src="../IGES/images/iges_UDP.gif"><br>
+<br>
+Refer to "Assign user defined properties to entity" in the online documentation for details on how to specify a value to the User Defined Property.</p>
+
+<br>
+<p>If you save the solid to a STEP file, then the entity will be saved with the name property also applied to it. Similarly, if you try to load a STEP file containing an entity which the name is applied to, the same name will be assigned to the <b>think<font color="#FF0F00">3</font></b> entity as the property value for the <b>TD_ENTITY_NAME</b> class.</p>
+
+<br>
+ <!-- END PRJ -->
+ 
+
+<hr color="silver" style="margin-left:30;">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000261 - OWN: UJMA -->
+<h3><a name="step_layers">New <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category</a></h3>
+
+<p>With the significant enhancements done in the <a href="Layer.htm"><i>Layers</i></a> functionality, <b>think<font color="#FF0F00">3</font></b> applications now support assigning alphanumeric values (strings) as layer names. However, STEP being a neutral format, manages layer names only in numeric format. Therefore, it becomes necessary to correctly map the layer information while converting <i>to and from</i> the <b>think<font color="#FF0F00">3</font></b> format to the STEP format. This mapping process can be controlled by the options of the new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category of the <b>STEP Options</b> dialog box.<br>
+<br>
+<img src="images/STEP_layers.gif"></p>
+
+<br>
+ <!-- END PRJ -->
+<hr color="silver" style="margin-left:30;">
+<!-- CCB: XXX - OWN: UJMA -->
+<h3><a name="step_load">Enhancement in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+170">Load</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category</a></h3>
+
+<p>A new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+632">Split closed faces</span> check box has been added in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+170">Load</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category.<br>
+<br>
+<img src="images/STEP_load_adv.gif"><br>
+<br>
+</p>
+
+<ul>
+<li>When selected, the closed faces of solids (not surfaces) like cylindrical faces and rotational faces will be split before loading in <b>think<font color="#FF0F00">3</font></b>.</li>
+
+<li>When cleared, no splitting of closed faces of solids will take place.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="iges">Enhancement in the IGES Converter</a></h2>
+
+<p>The following enhancement has been made in this version for the IGES converter.</p>
+
+<!-- PRJ: CCB7444 - OWN: WIMA -->
+<h3><a name="IGES_category"></a>Reorganized IGES categories</h3>
+
+<p>From this version onwards the various categories present in the <b>IGES Options</b> dialog box have been reorganized as shown below.<br>
+<br>
+<img src="images/IGES.gif"><br>
+<br>
+The old <span class="OLD">Settings</span> category has been removed and the three options previously present in it are now available in the new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> category. Note that the old <span class="OLD">Convert non-visible entities</span> option has been renamed as <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+266">Convert hidden entities</span>.</p>
+
+<br>
+<!-- END PRJ -->
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000261 - OWN: UJMA -->
+<h3><a name="IGES_layers">New <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+139">General</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span> category</a></h3>
+
+<p><img src="images/IGES_layers.gif"><br>
+<br>
+The function of this new category is the same as that described for the new <a href="#step_layers"><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of <b>Step Options</b> dialog box, however, applicable to IGES conversion.</p>
+
+<br>
+<!-- END PRJ -->
+<hr color="silver" style="margin-left:30;">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- CCB: XXX - OWN: UJMA -->
+<h3><a name="iges_load">Enhancement in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category</a></h3>
+
+<p>A new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+632">Split closed faces</span> check box has been added in the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> category.<br>
+<br>
+<img src="images/IGES_load_adv.gif"><br>
+<br>
+</p>
+
+<ul>
+<li>When selected, the closed faces of solids (not surfaces) like cylindrical faces and rotational faces will be split before loading in <b>think<font color="#FF0F00">3</font></b>.</li>
+
+<li>When cleared, no splitting of closed faces of solids will take place.<br>
+<br>
+</li>
+</ul>
+
+<!-- END PRJ -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000403 - OWN: SISP -->
+ 
+
+<h2><a name="e3_e2_load">Enhancements in Model (*.e3)/Drawing (*.e2) loading options</a></h2>
+
+<p>A new <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+83">Load</span> category in now available for the thinkdesign Model and Drawing file options. Click <a href="General.htm#P0000403">here</a> for details.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ 
+
+<h2><a name="e3_save">Enhancements in Model (*.e3) saving options</a></h2>
+
+<p>New options have been added to the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span> category of <b>thinkdesign Model File Options</b> dialog box. Click <a href="General.htm#P0000305">here</a> for details.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+</body>
+</html>
+

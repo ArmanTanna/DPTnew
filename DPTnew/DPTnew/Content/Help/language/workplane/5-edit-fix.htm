@@ -1,0 +1,180 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>How to fix a parametric model by reassigning the Work Plane position to profiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>How to fix a parametric model by reassigning the Work Plane position to profiles</h3>
+
+<p>Sometimes the "casual" use of the program can generate 3D models that have unexpected behaviors if dimensions are changed or profiles are edited. Sometimes it can even generate unexpected shapes when inserted into assemblies.</p>
+
+<p>The following example shows a mechanical object, which, after simply dragging the profile that drives the initial base solid, is completely distorted.</p>
+
+<table border="1" bordercolor="#FFFFFF">
+<tr>
+<td bgcolor="#FFFFFF" bordercolor="#000000"><img src="../../images/workplane/wp-hh-07.gif"></td>
+<td bordercolor="black"><img src="../../images/workplane/wp-hh-09.gif"></td>
+</tr>
+</table>
+
+<p>This can be due to an incorrect use of the Work Plane, such as, moving it on a face and then unlinking it from that position before sketching the following profile.<br>
+See&nbsp; <a href="5-best-hist.htm">Tips on how to get the most from your Work Plane's history</a>.</p>
+
+<h4>How to fix this problem</h4>
+
+<p>Before beginning, unhide all the profiles. You know that every profile has its own Work Plane (<i>see</i> <a href="5-manage-links.htm">Managing Links between the Work Plane and a Profile</a>).</p>
+
+<p>The best way to fix the Work Plane history is the following:</p>
+
+<ul class="noleft">
+<li>Reset the Work Plane to its world position (using <a href="../edit/wp/FWfile/T_FW_wp_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1595">On Absolute Reference System (World)</span></a>): once it's there, it won't be linked to any previous Work Plane</li>
+
+
+<li><a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_01.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1093">Roll Back</span></a> the history&nbsp; up to the creation of the first profile with problems (in this case the small rectangle)<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-fix-02.gif"></li>
+</ul>
+
+<p>Then, the idea is to reassign a Work Plane to the profile. A typical mistake is to assign a Work Plane that "was born" <i>after</i> the profile by using the <b><a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_12.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4497">Move/Copy to Current Work Plane</span></a></b> command. Doing so, you'll get the warning 
+<span class="UI_COMMAND" id="tdesign.msg+_EK_VG_+118">Loop detected</span> which means that the Work Plane you are trying to assign is dependent on something that was "born" after the profile itself.</p>
+
+
+<p>The best way to avoid the warning is to rollback one more step, until the Profile disappears, and then place the Work Plane on that face.<br>
+<br>
+<img border="1" src="../../images/workplane/wp-fix-03.gif"></p>
+
+<p>Notice that the history of the model is still "alive", though "suspended":<br>
+<br>
+<img border="1" src="images/wp-fix-last.gif"></p>
+
+<p>At this point, you have to <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_02.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1095">Roll Forward</span></a> all the history. At the end you will have to reassign the current Work Plane (the one just placed) to the Profile to be fixed. Using this technique, profile by profile, (if needed), you can rebuild the hidden history of the Work Planes.</p>
+
+
+<p>Next step is to check if the profiles are correctly constrained to the solid itself.</p>
+
+<p>Then everything will be fixed.</p>
+
+<p>Reassuming:</p>
+
+<ol class="litleft">
+<li><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif"> 
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr.gif"> <a href="../edit/wp/FWfile/T_FW_wp_02.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1595">On Absolute Reference System (World)</span></a></li>
+
+
+<li>Apply the <span class="UI_COMMAND" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1093">Roll Back</span> command until the profile to be fixed disappears</li>
+
+
+<li>Place the Work Plane on a linked position</li>
+
+<li>Apply the <span class="UI_COMMAND" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1095">Roll Forward</span> command</li>
+
+
+<li>Re-assign the current Work Plane to the profile to be fixed</li>
+
+<li>Check and fix the constraints of the Profile.</li>
+</ol>
+
+<h4>An alternative approach</h4>
+
+<p>On the other hand, sometimes a model is too complicated to try to fix it with the above method. This can happen especially when editing a model that has been created by someone else. In this case, a quicker solution is the following.</p>
+
+<p>Suppose that, after editing the first solid, we got unexpected modifications of the slots. See the highlighted faces on the right side. They are no longer parallel or perpendicular to the bottom face of the solid.</p>
+
+<table bordercolor="white" border="1">
+<tr>
+<td bordercolor="black" bgcolor="#f7f7f7"><img src="../../images/workplane/wp-Fix-91.gif"></td>
+<td bordercolor="black" bgcolor="#f7f7f7"><img src="../../images/workplane/wp-fix-92.gif"></td>
+</tr>
+</table>
+
+<br>
+<ul class="noleft">
+<li>Simply unhide the profile to be fixed:<br>
+<br>
+<img border="1" src="../../images/workplane/wp-fix-93.gif"><br>
+&nbsp;</li>
+
+<li>Using <a href="../edit/wp/FWfile/T_FW_wp_05.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1601">On Profile</span></a>, move the Work Plane onto the profile to be modified<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-fix-94.gif"><br>
+<br>
+ and <a href="../edit/wp/FWfile/T_FW_wp_16.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+5638">Unlink</span></a> it.<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-fix-95.gif"><br>
+<br>
+If you don't unlink it, it won't be possible to re-assign the Work Plane to the profile. Why? Because it's a loop: the Profile "was born" on a given Work Plane. Now, after several features, we move the Work Plane onto the profile: it will appear "linked" to that position. In other words, we are trying to assign a Work Plane that is "younger" than our profile. 
+
+<p>Since the blind slot appears to not be parallel to the bottom face of the solid, rotate the Work Plane (using <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif"> 
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr.gif"><a href="../edit/wp/FWfile/T_FW_wp_01.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span></a>), before re-assigning it to the Profile using <b>
+<a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_12.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4497">Move/Copy to Current Work Plane</span></a></b> (for this specific case you might also re-define the blind slot direction, but for training purposes we have chosen the Work Plane reassignment).<br>
+
+<br>
+<img border="1" src="../../images/workplane/wp-fix-96.gif"><br>
+</p>
+
+<p>In the same way, you can fix the hole and the pin (actually a revolved cutout), or any other feature that depends on a profile.<br>
+<br>
+<img border="1" src="../../images/workplane/wp-fix-97.gif"><br>
+<br>
+Reassuming, the quick method consists of the following steps:</p>
+
+<ul class="noleft">
+<li>Move the Work Plane onto the Profile to be fixed (<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+1601">On Profile</span>)</li>
+
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+5638">Unlink</span> the Work Plane</li>
+
+
+<li>Move/rotate the Work Plane as the new Work Plane should be (<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4467">Work Plane</span><img src="../../images/general/litarr.gif"><a href="../edit/wp/FWfile/T_FW_wp_01.htm">
+<span class="UI_COMMAND" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+4468">On Entity</span></a> or <a href="../edit/wp/FWfile/T_FW_quick_edit.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span></a>)</li>
+
+
+<li>Re-assign the Work Plane to the Profile (<span class="UI_COMMAND" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4497">Move/Copy to Current Work Plane</span>).</li>
+
+</ul>
+</li>
+</ul>
+
+<p>Please note that this quick method doesn't ensure the same reliability as the first, time consuming, method; because you are not really re-building the Work Plane history, but just jumping from one Work Plane to another, without really linking to entities that were "born" BEFORE the creation of your profile. Anyway, this is a very good method, especially when working on very complex shapes like the one showed in the following example:</p>
+
+<table bordercolor="white" border="1">
+<tr>
+<td bordercolor="black"><img src="images/wp_74.jpg"></td>
+<td bordercolor="black"><img src="images/wp_75.jpg"></td>
+</tr>
+</table>
+
+<p>On the left side is a complex casting part and, on the right side, its profiles. The user didn't take care of Work Plane history and Profile constraints, so, to modify the casting part and get the expected changes, he/she will have to re-assign the Work Planes and the constraints.</p>
+
+<hr color="silver">
+</body>
+</html>
+

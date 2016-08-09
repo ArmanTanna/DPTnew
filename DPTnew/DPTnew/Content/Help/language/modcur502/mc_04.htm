@@ -1,0 +1,237 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Job: Setting Positional Continuity between curves</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+H5
+{
+color: black;
+font-family: Verdana;
+Font-size: 10.5pt;
+Font-style: normal;
+Font-weight: bold;
+Text-align: left;
+margin-bottom: 5;
+border-bottom : thin solid Silver;
+}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+
+
+<h4><a name="Positional_continuity"></a>Setting Positional Continuity between curves</h4>
+
+<p>Once you have started the <a href="../curves/FWfile/T_FW_mc_04.htm"><span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+375">Curve Continuity</span></a> command, proceed as follows.</p>
+
+
+
+<table border="0">
+<tr>
+<td align="left" valign="top" width="20"><b>1</b></td>
+<td align="left" valign="top">In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+128">Degree:</span> drop-down list, select 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+129">Positional</span> to apply positional continuity to the two curves you are going to select, so that they meet at an endpoint.<br>
+
+<br>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><b>2</b></td>
+<td align="left" valign="top">In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+131">Method</span> drop-down list, select the method you want to use to apply the change. 
+
+<table>
+<tr valign="top">
+<td width="125"><a href="#Fit_reference"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+132">Fit reference curve</span></a></td>
+
+<td>to apply positional continuity by modifying only one of the two entities concerned (the one to be selected as <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+142">Curve to Be Modified</span>&nbsp;&#151;&nbsp;the other one, used as a reference
+<span id="TWOD">, can also be a surface boundary)</SPAN>.</td>
+
+</tr>
+<tr valign="top">
+<td><a href="#Adjust_both"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+133">Adjust both</span></a></td>
+
+<td>by modifying both the curves concerned.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h5><a name="Fit_reference"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+132">Fit reference curve</span></h5>
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+132">Fit reference curve</span> method applies positional continuity by modifying only one of the two curves concerned (the one to be selected as 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+142">Curve to Be Modified</span>&#151;&nbsp;the other one
+<span id="TWOD">,</SPAN> used as a reference
+<span id="TWOD">, can also be a surface boundary</SPAN>).</p>
+
+
+
+<table border="0">
+<tr>
+<td valign="top" width="20"><b>3</b></td>
+<td>Click on the curve you want to change at a point close to where you want the two curves to meet.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci04_04.gif"> <br>
+<br>
+If the selected curve is a <a href="../curves/OVfile/T_OV_curves.htm">specialized curve</a> and not a NURBS, you are asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>). If the selected curve is a line, it will not be converted to a NURBS, despite the warning message you have received.<br>
+
+
+ <br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b><i>Tolerance for converting into NURBS</i></b> 
+
+<p>You can control the way the curve is converted by setting a suitable <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+52">Tolerance:</span></a>. The lower the tolerance value, the more accurate the resulting NURBS will be and, hence, the more control points it will have.</p>
+
+
+</td>
+</tr>
+</table>
+
+<br>
+To change the selected curve, right-click on <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+142">Curve to Be Modified</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><b>4</b></td>
+<td align="left" valign="top">Click on the curve you do not want to change at a point close to where you want the two curves to meet.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci03_04.gif"> <br>
+<br>
+<table cellpadding="3" border="1" bordercolor="navy" bgcolor="#ffffe1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Extending a curve to a point</b><br>
+<br>
+Instead of selecting a curve, you can indicate a point: the curve you want to modify will be extended as far as that point.</td>
+</tr>
+</table>
+
+<br>
+To change the selected curve/point, right-click on <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+141">Reference point or curve endpoint</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and modify the curve.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci05_04.gif"><br>
+<br>
+Click <img src="../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<h5><a name="Adjust_both"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+133">Adjust both</span></h5>
+
+
+
+<p>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+133">Adjust both</span> applies positional continuity by modifying both curves.</p>
+
+
+
+<table border="0">
+<tr>
+<td align="left" valign="top" width="20"><b>3</b></td>
+<td align="left" valign="top">Click on each of the two curves at a point close to where you want them to meet.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci01_04.gif"> <br>
+<br>
+If the selected curve is a <a href="../curves/OVfile/T_OV_curves.htm">specialized curve</a> and not a NURBS, you are asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>).<br>
+
+
+ <br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b><i>Tolerance for converting into NURBS</i></b> 
+
+<p>You can control the way the curve is converted by setting a suitable <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+52">Tolerance:</span></a>. The lower the tolerance value, the more accurate the resulting NURBS will be and, hence, the more control points it will have.</p>
+
+
+</td>
+</tr>
+</table>
+
+<br>
+To change the selected curve, right-click on <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+142">Curve to Be Modified</span>, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+ <br>
+</td>
+</tr>
+
+<tr>
+<td align="left" valign="top"><b>4</b></td>
+<td align="left" valign="top">In the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+55">1st Weight</span> and 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+56">2nd Weight</span> mini-dialog boxes, type the values of the weights of the two curves.<br>
+
+
+ <br>
+<img border="1" src="images/CntPosW.gif"><br>
+ <br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Weights</b><br>
+Each curve can be associated with a numeric value&nbsp;&#151;&nbsp;<i>its weight</i>&nbsp;&#151;&nbsp;which indicates how much the curve is to be modified relative to the other. The higher the weight, the less the curve changes. If the weight of a curve is zero, the other curve is not modified at all. The weight of a curve is a value between 0 and 1.</td>
+</tr>
+</table>
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif"> or <img src="../../images/general/APPLYbutton.gif"> to confirm your selections and modify the curve.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci02_04.gif"><br>
+<br>
+Click <img src="../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

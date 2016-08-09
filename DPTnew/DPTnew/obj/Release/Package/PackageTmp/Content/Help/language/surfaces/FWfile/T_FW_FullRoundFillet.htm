@@ -1,0 +1,86 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(361,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Full Round Fillet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1431">Fillet</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1437">Full Round</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+1">Full Round Fillet</span> command enables you to create a fillet tangent to three different surfaces. You can proceed as follows.</p>
+
+<ul class="noleft">
+<li><a name="SelectSurfaces"></a>First, select the side surfaces (<span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+2">Side Surface A</span> and <span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+3">Side Surface B</span>) and the center surface (<span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+4">Central Surface</span>).<br>
+<br>
+<img border="1" src="../../../images/rn_2008t1/FRF01.gif"><br>
+<br>
+The command applies only to surfaces, not inside solids.</li>
+
+<li>The result can be one or more surfaces.<br>
+<br>
+<img border="1" src="../../../images/rn_2008t1/FRF02.gif"></li>
+
+<li><a name="Extension"></a>Trimming and extension options are available under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <span class="UI_COMMAND" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+9">Extension</span> drop-down list. 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+6">Disabled</span></td>
+<td>creates a blend surface whose length is only as long as the length at which the three selected surfaces actually intersect (that is the length of smallest of the three)<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/PMT01.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+7">Full</span></td>
+<td>creates a blend surface whose length extends to the outermost edges of either side surface (which ever is longer) at the point where the two side surfaces intersect<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/PMT02.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDFillet3Tg.msg+_TDFILLET3TG_LABEL_+8">Trimmed</span></td>
+<td>creates a blend surface whose length at the point where it intersects with the selected side surface is extended or trimmed to match the length of the side surface at that intersection. If the <b>Automatic cut</b> check box ( <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span>- <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the <span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span>) is selected, the portions of the selected surfaces extending beyond the new blend surface are automatically eliminated.<br>
+<br>
+<img border="1" src="../../../images/rn_2008T1/PMT03.gif"><br>
+&nbsp;</td>
+</tr>
+</table>
+</li>
+
+<li>If the angle between the two side surfaces is greater/equal than 180 degrees, the resulting fillet will be made of two surfaces rather than just one.</li>
+
+<li>If the selected surfaces have intersections, in general there could be more than one solution. A specific request will be issued to explicitly indicate where the fillet center lies.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

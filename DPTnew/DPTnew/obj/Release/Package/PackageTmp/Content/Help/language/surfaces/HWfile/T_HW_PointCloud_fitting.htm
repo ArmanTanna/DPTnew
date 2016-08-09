@@ -1,0 +1,255 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a Point Cloud surface by fitting a set of points</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a Point Cloud surface by fitting a set of points</h3>
+<p>The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+504">Surface Type</span><img src="../../../images/general/litarr.gif">
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+502">Fit cloud of points</span> option of the <a href="../FWfile/T_FW_PointCloud.htm">
+
+
+<span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+343">Point Cloud</span></a> command enables you to create a surface by fitting a given set of points or an existing surface.
+
+
+
+<br>
+A reference surface is used by the application in order to obtain the final surface. The reference may be either an existing surface of the model, or a stretched virtual one, not actually existing in the model but identified through its boundaries (four or three: in the latter case a segment is considered as the fourth boundary), or through four vertices.<br>
+After starting the command, proceed as follows.
+</p>
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>If not already selected, in the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+504">Surface Type</span> drop-down list select 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+502">Fit cloud of points</span>.<br>
+
+
+
+&nbsp;</td>
+</tr>
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+509">Input Mode</span> drop-down list, select the method to be used:
+
+
+
+<table>
+<tr valign="top">
+<td width="110"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+505">Select</span></td>
+
+
+
+<td>To create a surface by fitting a set of point entities existing in the model.<br>
+When this mode is selected, first of all you will have to select the point entities (by clicking or by using a <a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic03.htm">selection operator</a>). Once the points are selected, the
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+513">Fitting Mode</span> must also be specified, by choosing one of the following:
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+510">Boundary curves</span>
+
+
+
+<br>
+When this option is selected, the reference surface used by the program to compute the fitted surface is a stretched surface with its boundaries coinciding with the curves you will have to select.<br>
+See &quot;<a href="T_HW_PointCloud_BoundaryCurves.htm">Creating a Point Cloud surface by specifying boundary curves</a>&quot; for details.
+</li>
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+511">4 Vertices</span>
+
+
+
+<br>
+When this option is selected, the reference surface used by the program to compute the fitted surface is a stretched surface with its vertices coinciding with the points you will have to select. 
+<br>
+See &quot;<a href="T_HW_PointCloud_Vertices.htm">Creating a Point Cloud surface by specifying four vertices</a>&quot; for details.
+</li>
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+29">Surface based</span>
+
+
+
+<br>
+When this option is selected, the reference surface used by the program to compute the fitted surface is an existing surface you will have to select.
+<br>
+See &quot;<a href="T_HW_PointCloud_SurfaceBased.htm">Creating a Point Cloud surface by specifying a reference surface</a>&quot; for details.
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+506">Import points from ASCII file</span></td>
+
+
+
+<td>To create a surface by fitting a set of point entities contained in ASCII file (extension &quot;.pt&quot;; each line in the file must contain the three world coordinates of a point; each coordinate is separated by the following through a blank character). The coordinates will be read according to the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+472">Units of measurement</span> that you can set.<br>
+
+
+
+
+Once the file containing the point has been loaded, the
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+513">Fitting Mode</span> must also be specified, by choosing one of the methods described for the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+505">Select</span> mode.</td>
+
+
+
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+507">Fit surface</span></td>
+
+
+
+<td>To create a surface by fitting an existing surface to be selected.
+<br>
+See &quot;<a href="T_HW_PointCloud_FitSurface.htm">Creating a Point Cloud surface by fitting an existing surface</a>&quot; for details.</td>
+</tr>
+
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+508">Points from curves</span></td>
+
+
+
+<td>To create a surface by fitting the points lying on some curves to be selected. You can also define the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+521">No. of points per curve</span> to be fitted.<br>&nbsp;</td>
+
+
+
+</tr>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+520">NURBS parameters</span>, you can set the values for the resulting surface. The values you can actually define depend on your former choices. The whole set is the following:
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+198">Deg. U</span></td>
+
+
+
+<td>Degree of the surface along the U parametric direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+196">Cont. U</span></td>
+
+
+
+<td>Continuity value of the surface along the U parametric direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+199">Deg. V</span></td>
+
+
+
+<td>Degree of the surface along the V parametric direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+197">Cont. V</span></td>
+
+
+
+<td>Continuity value of the surface along the v parametric direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+200">Arcs U</span></td>
+
+
+
+<td>Number of arcs of the surface along the U parametric direction.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+201">Arcs V</span></td>
+
+
+
+<td>Number of arcs of the surface along the V parametric direction.</td>
+</tr>
+</table>
+<tr valign="top">
+<td><b>4</b></td>
+<td>Once you have completed the necessary selections and set the parameters as you like, you can click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ). The preview of the resulting surface will be displayed.
+
+
+
+<br>
+The fitting parameters will also be displayed: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+123">Max. distance</span><br>
+
+
+
+the distance of the point that is farthest away from the fitting surface, which you can display by selecting the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+519">Most distant point</span> check box.</li>
+
+
+
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+516">Mean square error</span>
+
+
+
+<br>
+Let <i>d<sub>i</sub></i> be the distance of the point <i>P<sub>i</sub></i> from the fitting surface and <i>n</i> the number of points to be fitted. The mean square error <i>E<sub>qm</sub></i>is the following:<BR><IMG src="../../../images/surfaces/eqm_white.gif"><BR>&nbsp;
+</li>
+</ul>
+
+You can iterate the fitting process by clicking <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+516">Mean square error</span>, thus reducing the above said values. The number of iterations can also be set (in the 
+
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+517">No. of iterations</span> box).
+
+
+
+<br>Finally, You can have a preview of the control points for the resulting surface by checking the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+153">Show Control Points</span> box. 
+
+
+
+<br>
+&nbsp;
+</td>
+</tr>
+<tr valign="top">
+<td width="20"><b>5</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surface, or click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

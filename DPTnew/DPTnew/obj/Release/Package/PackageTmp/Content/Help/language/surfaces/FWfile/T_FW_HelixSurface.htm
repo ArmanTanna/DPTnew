@@ -1,0 +1,292 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(354,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Helix Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1411">Helix</span> </p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Helix Surface</b></i> 
+</td>
+ --></tr>
+</table>
+<br>&nbsp;<br>
+
+<p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+347">Helix Surface</span> command enables you to create helical surfaces by sweeping existing curves (open or closed) along a <i>helical path</i> (see "<a href="../../Mathconc/T_MC_cv_05.htm">Circular Helix</a>" for details on this definition), providing you with different construction modes.<br>
+
+In fact you can specify the pitch and the height, the pitch and the number of revolutions or the height and the number of revolutions.<br>
+The radius and the pitch of the helix surface can be made variable according to a linear or quadratic law, while a start and an end angle with respect to the initial position of the base curves can also be specified.</p>
+
+<p>Associativity is also available (see "<i><a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a></i>" for details). When it is enabled, while you can select one single curve chain, the result will be just one skin solid with as many faces as the number of complete turns of the helix. In non-associative mode, on the contrary, you will obtain as many NURBS surfaces as the number of turns, though there is curvature continuity along each common boundary.<br>
+End caps can be created so as to close the helix, thus obtaining a closed solid in case the associativity mode is enabled.<br>
+Finally, you can create the axis of the helix as a datum axis entity.</p>
+
+<p style="margin-top:6px;">After starting the command, you can proceed as follows:</p>
+
+<ul class="noleft">
+<li><a name="CTX_HelixSurface_BaseCurves"></a>First, select the curves to be swept (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+1">Curves</span>).</li>
+
+
+<li><a name="CTX_HelixSurface_Axis"></a>Select the axis of the helix (several choices are available in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+157">Axis</span> drop-down list&nbsp;&#151;&nbsp;see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>" for details on how to define an axis), which determines the direction of the translational component of the path.</li>
+
+
+<li><a name="CTX_HelixSurface_DefinedBy"></a>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+558">Mode</span> drop-down list you can select the definition mode for the helix settings: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+571">Pitch and height</span>
+
+<td>
+To define the helix through its pitch and its height.<br>
+Provide the values in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+559">Pitch</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red handle displayed on top of the axis.</td>
+<td><img border="1" src="../../rn_2007T1/images/HS_HeightPitch.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+572">Pitch and revolutions</span></td>
+
+<td>To define the helix through its pitch and its number of turns.<br>
+Provide the values in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+559">Pitch</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red arrow displayed when this mode is selected.</td>
+<td><img border="1" src="../../rn_2007T1/images/HS_PitchRevolutions.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+573">Height and revolutions</span><br>
+<td>To define the helix through its height and its number of turns.<br>
+Provide the values in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> boxes respectively, or drag the corresponding handles as desired.<br>
+
+The direction of the helix can be inverted by double-clicking on the red handle displayed on top of the axis.</td>
+<td><img border="1" src="../../rn_2007T1/images/HS_HeightRevolutions.gif"></td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_HelixSurface_Roatation"></a>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+346">Rotation</span> drop-down list you can select the rotation direction: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+344">Clockwise</span><br>
+The helix will be created by sweeping the base curves in a clockwise direction about the selected axis.</td>
+<td><img border="1" src="../../../images/rn_2007T1/HS_Clockwise.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+345">Counter-clockwise</span><br>
+The helix will be created by sweeping the base curves in a counterclockwise direction about the selected axis.</td>
+<td><img border="1" src="../../../images/rn_2007T1/HS_CounterClockwise.gif"></td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_HelixSurface_AssociativeMode"></a>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> check box, enables you to create an <a href="../OVfile/T_OV_sr_00.htm#Associative">associative skin</a>, that is an open solid, which retains a link to the entities it derives from: 
+
+
+<table style="margin-bottom:0;">
+<tr valign="top">
+<td valign="top"><img src="../../../images/general/bullet_white.gif"></td>
+<td valign="top">When the check box is selected, while you can select one single curve chain, the result will be a unique skin with as many faces as the number of the helix turns. It will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting skin will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</td>
+
+<td valign="top"><img border="1" src="../../rn_2007T1/images/HS_ico.gif"> </td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr valign="bottom">
+<td bordercolor="#ffffe1"><b>Selecting non-associative entities</b><br>
+If you select non-associative base curves, a message will be displayed to warn you non-associative entities have been selected and that they will become the root of the structure.</td>
+</tr>
+</table>
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif" align="baseline"></td>
+<td>When the check box is cleared, the resulting surfaces will not be associative: they will retain no link to the curves they derive from. There will be a surface for each turn of the helix though there is curvature continuity along the common borders.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<ul class="noleft">
+<li><a name="CTX_HelixSurface_TaperRatioAngle"></a>As soon as the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is expanded, the 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+343">Taper Ratio Angle</span> check box is displayed on the surface. 
+
+
+<table>
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif"></td>
+<td>When the box is cleared the helix surface will have no taper angle (it will be cylindrical)</td>
+<td><img border="1" src="../../rn_2007T1/images/HS_Cylindrical.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif"></td>
+<td>When the box is checked, you can type the value of the taper angle inside the adjacent box, so as to obtain a conical helix surface.</td>
+<td><img border="1" src="../../rn_2007T1/images/HS_Conical.gif"></td>
+</tr>
+</table>
+</li>
+</ul>
+
+<ul class="noleft">
+<li><a name="CTX_HelixSurface_Endcap"></a>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+23">Endcap</span> drop-down list&nbsp;&#151;&nbsp;available only if the selected curves are a closed chain&nbsp;&#151;&nbsp;you can choose which end caps to create on the resulting shape: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+277">None</span></td>
+
+<td>No end caps will be created.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+13">First</span></td>
+
+<td>Only the initial end cap will be created.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+219">Second</span></td>
+
+<td>Only the final end cap will be created.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+218">Both</span></td>
+
+<td>Both the initial and the final end caps will be created.</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<p>Note that all the mini-dialog boxes displayed on checking the following boxes can be displayed/hidden by expanding/collapsing the corresponding nodes.</p>
+
+<ul class="noleft">
+<li><a name="CTX_HelixSurface_PtichLaw"></a>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+564">Pitch law</span> check box enables you to choose whether to create a fixed pitch helix or a variable pitch one: 
+
+
+<ul class="noleft">
+<li>When the box is cleared, the helix surface will be a fixed pitch one.</li>
+
+<li>When the box is checked, the helix surface will be a variable pitch one. The pitch value will vary from the initial value (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+559">Pitch</span>) to the final one (
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+565">End Pitch</span>) according to a law you can choose in the adjacent drop-down list. The law can be 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+66">Linear</span> or 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+574">Quadratic</span>.</li>
+
+</ul>
+</li>
+
+<li><a name="CTX_HelixSurface_RadiusLaw"></a>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+566">Radius law</span> check box enables you to choose whether to create a fixed radius helix or a variable radius one: 
+
+
+<ul class="noleft">
+<li>When the box is cleared, the helix surface will be a fixed radius one.</li>
+
+<li>When the box is checked, the helix surface will be a variable radius one. The radius value will vary from the initial value (that is the distance of the base curves from the axis) to the final one (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+567">End Radius</span>) according to a law you can choose in the adjacent drop-down list. The law can be 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+66">Linear</span> or 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+574">Quadratic</span>.</li>
+
+</ul>
+</li>
+
+<li><a name="CTX_HelixSurface_EndAngles"></a>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+570">End angles</span> check box enables you to choose whether to specify a start and an end angle with respect to the initial position of the base curves or not. 
+
+
+<ul class="noleft">
+<li>When the box is cleared no start and end angle values are to be specified.</li>
+
+<li>When the box is checked you can type the initial angle in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+568">Start Angle</span> box and the final one in the 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+569">End Angle</span>, both displayed on the surface.</li>
+
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">Finally, if you are creating a skin, you can also create a datum axis entity on the axis of the helix. In fact, the <a name="CTX_HelixSurface_DatumAxis"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+560">Axis</span> check box enables you to choose whether to create a datum axis corresponding to the axis of the helix or not. This option is available only in associative mode (
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> box checked).</p>
+
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the box is cleared no datum is created.</li>
+
+<li>When the box is checked the datum axis will be created.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-top:10px;">
+<tr>
+<td bordercolor="#ffffe1"><b><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> and driving dimensions</b> <br>
+
+Please note that in case you create a skin (by checking the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> box), a driving dimension will be associated to each of the values you used to define the helicoid solid, which is then completely parametric. 
+
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+179">Height</span></li>
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+559">Pitch</span>, and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+565">End Pitch</span> if a variation law has been selected.</li>
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span></li>
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+567">End Radius</span>, if a variation law has been selected.</li>
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+568">Start Angle</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+569">End Angle</span> if you chose to activate the end angles.</li>
+</ul>
+
+You can display the mentioned driving dimensions by using the <a href="../../history/FWFile/T_FW_Show_Driving_Dimensions.htm"><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+7569">Show Driving Dimensions</span></a> command.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Helix01.htm"><b>Create a helix surface given the pitch and the height</b></a></li>
+<li><a href="../HWfile/T_HW_Helix02.htm"><b>Create a helix surface given the pitch and the number of revolutions</b></a></li>
+<li><a href="../HWfile/T_HW_Helix03.htm"><b>Create a helix surface given the height and the number of revolutions</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

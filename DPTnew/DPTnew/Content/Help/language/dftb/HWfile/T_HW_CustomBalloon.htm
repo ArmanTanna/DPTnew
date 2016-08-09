@@ -1,0 +1,120 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<title>Job: How to customize the balloon label</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>How to customize the balloon label</h3>
+
+<p>Balloon label customization is accomplished by defining a series of Balloon formats with the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_OrganizeFormats.htm"><span class="UI_COMMAND" id="idd_formats.msg+idd_formats+1">Organize Formats</span></a> command. You are then enabled to select the custom format when you insert the balloons.</p>
+
+<p>Each balloon format is defined by a name which collects the following properties:</p>
+
+<ul class="noleft" style="margin-bottom: 0px;">
+<li><span class="UI_COMMAND" id="idd_formats.msg+idd_formats+12">Text:</span></li>
+<li><span class="UI_COMMAND" id="idd_formats.msg+idd_formats+115">Frame:</span></li>
+<li><span class="UI_COMMAND" id="idd_formats.msg+idd_formats+116">Arrowhead:</span></li>
+</ul>
+
+<p>While you are enabled to select <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+115">Frame:</span> and <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+116">Arrowhead:</span> from a predefined drop-down list, you have greater freedom when defining the balloon label (<span class="UI_COMMAND" id="idd_formats.msg+idd_formats+12">Text:</span>), which describes the format to be used to display the balloon data. The following table lists the symbolic texts you are allowed to use:</p>
+
+<table border="1" bordercolor="navy" cellspacing="1" cellpadding="5%" summary="">
+<tr valign="top" bgcolor="#FFFFE1">
+<td><b>Label</b></td>
+<td><b>Explanation</b></td>
+</tr>
+
+<tr valign="top">
+<td><b>$Q{RELPOS}</b></td>
+<td>The component reference number. To edit this value, use the <a href="../FWfile/T_FW_ItemPositionProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><b>$Q{RELQTY}</b></td>
+<td>The component quantity. To edit this value, use the <a href="../FWfile/T_FW_QuantityProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+1">Quantity Property</span></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><b>$Q{COMPNAME:f(""#clear(&lt;undef&gt;@)"")=""part name""}</b></td>
+<td>The component name as defined with the Part Properties <a href="../FWfile/T_FW_PartPropEdit.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span></a> command.</td>
+</tr>
+
+<tr valign="top">
+<td><b>$Q{COMPDES=""part description""}</b></td>
+<td>The component description as defined with the Part Properties <a href="../FWfile/T_FW_PartPropEdit.htm"><span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7880">Edit</span></a> command.</td>
+</tr>
+</table>
+
+<p>You are enabled to combine any of the above and add any text you require in the text label.</p>
+
+<p>For the sake of this exercise, we will create a new Balloon format named <b>PosOnly</b> so that, instead of displaying the position, quantity, name and description of the component as the default format does, the balloon displays only the position with a circle around it.</p>
+
+<table summary="">
+<tr valign="top">
+<td class="hea" align="right"><b>1</b></td>
+<td>Start the <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_OrganizeFormats.htm"><span class="UI_COMMAND" id="idd_formats.msg+idd_formats+1">Organize Formats</span></a> command and open the <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+113">Balloon</span>.</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="hea" align="right"><b>2</b></td>
+<td>Click <img src="../../../images/icons/icons_medium/idc_add.bmp" alt="" border="0" align="absmiddle"> <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+41">New Format</span> and enter "PosOnly" when prompted for the new format name.<br>
+Note that the new format becomes the default one. If this is not true, select the new format then click <img src="../../../images/icons/icons_medium/idc_setcurrent.bmp" alt="" border="0" align="absmiddle"> <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+44">Set Format as Current</span>.</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="hea" align="right"><b>3</b></td>
+<td>Open the <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+100">General</span> sub-category and do the following: 
+
+<ul class="noleft" style="margin-bottom: 0px;">
+<li>Edit the <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+114">Text:</span> box and enter the following text: 
+
+<blockquote>$Q{RELQTY}</blockquote>
+</li>
+
+<li>Select one of the circle frames from the <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+115">Frame:</span> drop-down list</li>
+
+<li>Click <b>OK</b> and confirm saving the changes to "PosOnly".</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td class="hea" align="right"><b>4</b></td>
+<td>In order to test your work, start the <a href="../FWfile/T_FW_Balloon.htm"><span class="UI_COMMAND" id="ButtonToolbar_PartProperties.msg+ButtonToolbar_PartProperties+13">Manual Balloon</span></a> command and insert a balloon with the "PosOnly" format.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

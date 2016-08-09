@@ -1,0 +1,145 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="translate">
+<title>Job: Creating a helix surface given the pitch and the number of revolutions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Creating a helix surface given the pitch and the number of revolutions</h2>
+
+<p class="notop">You can follow the easy steps of this example to see how to create a helical skin based on a given value for the pitch and on a given number of revolutions. Before starting, open sample file "HelixSurf.e3".</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_HelixSurface.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+347">Helix Surface</span></a> command.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>Check that the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+346">Rotation</span> drop-down list is set to 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+344">Clockwise</span>. If it isn't, set it to 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+344">Clockwise</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+558">Mode</span> drop-down list, select 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+572">Pitch and revolutions</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> check box, in order to obtain a unique skin (that is a unique open solid rather than a set of surfaces), with as many faces as the number of the helix revolutions. It will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting skin will be added to the 
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Select the curves to swept in order to create the helical surfaces and end selection by right-clicking and choosing <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/HS01.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Set the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+157">Axis</span> drop-down list to 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm"><i>How to define an axis or a line</i></a>). Then select the line.<br>
+
+<br>
+<img border="1" src="../../../images/surfaces/HS02.gif"> <br>
+<br>
+The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+559">Pitch</span> and 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> boxes are displayed.<br>
+
+<br>
+<img border="1" src="../images/HS2_01.gif"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>In the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+342">Revolution</span> box, type the number of turns for the final skin.<br>
+
+<br>
+<img border="1" src="../images/HS2_02.gif"><br>
+<br>
+Note that you can invert the direction of the axis and thus of the resulting skin by double-clicking the red arrow (as displayed by the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_TOOLTIP_+5">Invert</span> tooltip).<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Expand the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node. In the 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+23">Endcap</span> drop-down list, select 
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+218">Both</span>, so as to create both the initial and the final closure cap for the skin.<br>
+
+<br>
+<img border="1" src="../images/HS2_03.gif"><br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>Check the <a name="CTX_HelixSurface_DatumAxis"></a><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+560">Axis</span> box in order to create a datum axis on the helix axis.</td>
+
+</tr>
+
+<tr valign="baseline">
+<td><b>10</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the skin.<br>
+<br>
+<img border="1" src="../../../images/surfaces/HS2_04.gif"><br>
+<br>
+The <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> will display the icons of the skin (solid) and of the datum axis.<br>
+
+<br>
+<img border="1" src="../images/HS2_05.gif"> </td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

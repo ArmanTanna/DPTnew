@@ -1,0 +1,66 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(12,12,12)
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta name="Author" content="Vicky Raina">
+<meta name="2009t2" content="translate">
+<title>Recover/Undo Recover</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align:center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span><br>
+<span class="UI_OPTION_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span></p>
+<hr color="#63a9d8">
+
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span> command enables you to open the backup copies of the <SPAN id="TWOD">Model/</SPAN>Drawing files by browsing through a file selection box. This is useful in case of data corruption or if for any reason there is a need to go back to a previous version of the<SPAN id="TWOD">Model/</SPAN>Drawing file. The mechanism of the <b>ThinkDesign</b> creates a backup copy of <SPAN id="TWOD">Model/</SPAN>Drawing at each save made by you. The first save made by you will not create any backup file. To make the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span> command operational, you need to select the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1796">Enable</span> check box under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1795">AutoBackup</span> area of the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_GENERAL_BACKUPRECOVER.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1793">Backup/Recover</span></a> category.<br>
+<br>
+ To avoid overwriting the backup file with the last version that could be already corrupted, a new backup copy is created for each save performed on a file. The backup files are created as per the settings made in the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_GENERAL_BACKUPRECOVER.htm"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1793">Backup/Recover</span></a> category.<br>
+<br>
+ The <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span> command discards the recover operation and restores the situation as saved in the original file (if there is no data corruption). This <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span> command will not be available in the menu bar till you create the first backup copy of the <SPAN id="TWOD">Model/</SPAN>Drawing file.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note:</b><br>
+ The <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span> command will be active only when the application is in the idle mode (when there is not any <SPAN id="TWOD">Model/</SPAN>Drawing file currently open). Incase any <SPAN id="TWOD">Model/</SPAN>Drawing file is open in the current session; a warning dialog box will get display.</td>
+</tr>
+</table>
+
+<br>
+ <br>
+ 
+
+<hr color="silver">
+</body>
+</html>
+

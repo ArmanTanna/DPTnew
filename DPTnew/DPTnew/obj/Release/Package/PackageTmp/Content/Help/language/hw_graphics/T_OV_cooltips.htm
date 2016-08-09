@@ -1,0 +1,631 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head language="JavaScript">
+  <script type="text/javascript" language="JavaScript">
+
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="T_2008t1" content="english_only">
+  <title>Advanced Graphics Tips</title>
+  <link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet"
+ type="text/css">
+  <style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+  
+  </style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+<a name="top"></a>
+<h1>Graphics Tips</h1>
+<ul>
+  <li><a href="#Performance">Graphics Performances</a></li>
+  <li><a href="#3DStereo">3D Stereo Display</a></li>
+  <li><a href="#DualView">Multi Display, Dual View and Full Screen
+Environments</a></li>
+  <li><a href="#SLI">SLI multi-GPU System</a><br>
+  </li>
+</ul>
+<h4><a name="Performance"></a> Graphics Performances<br>
+</h4>
+<p>Operating System and application profiles by default are configured
+for best quality vs. best performance. The following section includes
+some useful setting to increase performances. Note that each step
+includes a description and the relative image with the item to be
+modified highlighted.<br>
+</p>
+<h5>Instructions</h5>
+<hr color="silver">
+<table summary="">
+  <tbody>
+    <tr valign="top">
+      <td><b>1</b></td>
+      <td>Operating System.<br>
+Choose the best performance profile for your system from Control
+Panel-&gt;System-&gt;Advanced-&gt;Performances Settings, disabling all
+visual and smooth transitions effects.<br>
+Both Microsoft Vista and Microsoft&nbsp; XP support this setup.<br>
+      <br>
+      <table style="text-align: left; width: 901px; height: 579px;"
+ border="1" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: center;">
+            <h4>Microsoft&reg; Windows Vista&#8482;</h4>
+            </td>
+            <td style="vertical-align: top; text-align: center;">
+            <h4>Microsoft&reg; Windows XP&#8482;</h4>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; text-align: center;"><img
+ alt="" src="images/vista_1.jpg" style="width: 377px; height: 539px;"><br>
+            </td>
+            <td style="vertical-align: top; text-align: center;"><img
+ alt="" src="images/Perf_1.gif" style="width: 367px; height: 528px;"><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">2</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Graphics Board.<br>
+      <br>
+Use a professional graphics card having 3D capabilities and updated
+display driver. Graphics card with PCI Express BUS and at least 128
+M-VRAM are recommended. To see the list of recommended graphics
+adapters that can be used for our products: <a href="T_OV_index_1tier.htm">click-here</a>.<br>
+      <br>
+Choose the max refresh rate value that monitor can support:<br>
+      <br>
+      <img alt="" src="images/Perf_2.gif"><br>
+      <br>
+Switch off antialiasing, leaving application control:<br>
+      <br>
+      <img alt="" src="images/Perf_3.gif"><br>
+      <br>
+Switch off vertical sync, leaving application control:<br>
+      <br>
+      <img alt="" src="images/Perf_4.gif"><br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">3</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Application.<br>
+      <p>In general:</p>
+      <ul>
+        <li>Do not open too many documents at the same time; remember
+that every document uses system resources.</li>
+        <li>Enable large assembly profile for huge models:</li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_5.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <ul>
+        <li>Turn-on few light sources.</li>
+        <li>Use light-representation for large assembly.</li>
+        <li>Avoid transparent materials.</li>
+        <li>Choose appropriate tessellation level, curve/surface
+tolerance and the appropriate number of iso-parametric curves (2 is the
+recommended value)</li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_9.gif"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Navigation:<br>
+      <ul>
+        <li>Disable smooth transition effects</li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_13.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Dynamic Visualization<br>
+      <ul>
+        <li>choose the appropriate algorithms that best match your
+needs. you can choose automatic or manual mode settings. In manual mode
+case set an appropriate detail level,.30 % is recommended in a lot of
+cases.<br>
+        </li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_16.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_17.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+Next in Tools-&gt;Options-&gt;System Options-&gt;Dynamic
+Visualization-&gt;Advanced<br>
+      <ul>
+        <li>choose "no boundaries" for dynamic visualization and
+"points" for simplified representation.</li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_18.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Graphics<br>
+      <ul>
+        <li>Enable backface culling.</li>
+        <li>Further it is recommended to avoid the use of "dashed
+hidden line", "black borders", silhouette and antialiasing.<br>
+        </li>
+      </ul>
+      <div style="margin-left: 40px;">&nbsp; <img alt=""
+ src="images/Perf_10.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Graphics-&gt;Advanced:<br>
+      <ul>
+        <li>The use of "single pixel" option is recommended.</li>
+        <li>For preview the use of display mode: wireframe and
+real-time display mode: simplified are recommended.</li>
+      </ul>
+      <div style="margin-left: 40px;">&nbsp; <img alt=""
+ src="images/Perf_11.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Graphics-&gt;HighLight:<br>
+      <ul>
+        <li>Enable highlight "in one view only".</li>
+        <li>Turn off the hidden lines representation.</li>
+        <li>Enable highlight computation when the mouse stops; "with
+delay" option.</li>
+        <li>Disable "line thickness" option.<br>
+        </li>
+      </ul>
+      <div style="margin-left: 40px;">&nbsp; <img alt=""
+ src="images/Perf_12.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+In Tools-&gt;Options-&gt;System Options-&gt;Image:<br>
+      <ul>
+        <li>Choose fast representation for image rendering.</li>
+      </ul>
+      <div style="margin-left: 40px;"><img alt=""
+ src="images/Perf_15.gif" style="width: 563px; height: 444px;"><br>
+      </div>
+      <br>
+      <p>Related parameters (general):</p>
+      <ul>
+        <li>Tunes building hardware display list timeout. Range 0.0 :
+10.0 sec. Default: 1.0 sec.</li>
+      </ul>
+      <p style="margin-left: 36pt;">ekpar EP_HDL_MAX_TIME [0.0:10.0]</p>
+      <ul>
+        <li>pre-highlight modes:</li>
+      </ul>
+      <p style="margin-left: 36pt;">ekpar EP_HILITE_HIDDEN_LINES
+0&nbsp;&nbsp; highlight without hidden lines.<br>
+      </p>
+      <p style="margin-left: 36pt;">ekpar EP_HILITE_HIDDEN_LINES
+3&nbsp;&nbsp; highlight with hidden lines</p>
+      <p style="margin-left: 36pt;">ekpar EP_HILITE_HIDDEN_LINES
+4&nbsp;&nbsp; highlight with component box without hidden lines<br>
+      </p>
+      <p style="margin-left: 36pt;">ekpar EP_HILITE_HIDDEN_LINES
+5&nbsp;&nbsp; highlight with component box and hidden lines </p>
+      <ul>
+        <li>Enable / disable dynamic rendering with intellimouse (mouse
+wheel). Default 1 (enabled).</li>
+      </ul>
+      <div style="margin-left: 40px;">ekpar
+EP_MOUSEWHEEL_DYNAMIC_RENDERING 0 | 1</div>
+      <ul>
+        <li>general optimization factor, allow to skip small entities
+under specified value. Range 1 : 100 pixels. Default 3 pixels.</li>
+      </ul>
+      <div style="margin-left: 40px;">ekpar
+EP_DETAILED_RENDERING_OPT_FACTOR 1 - 100<br>
+      </div>
+      <ul>
+        <li>Enable / disable hardware permanent display list behavior
+(navigation commands retain hardware display list). Default 0
+(disabled) </li>
+      </ul>
+      <p style="margin-left: 36pt;">ekpar EP_HDL_PERMANENT 0 | 1<br>
+      </p>
+HQR parameters:<br>
+      <ul>
+        <li>Enable / disable texture specular color. Default 1
+(enabled).</li>
+      </ul>
+      <p style="margin-left: 36pt;">ekpar EP_TEXTURE_SPECULAR_COL&nbsp;
+0 | 1<br>
+      </p>
+      <ul>
+        <li>Texture antialiased mipmapping algorithm. 0 disable, 4
+enable mipmapping (default).</li>
+        <li
+ style="list-style-type: none; list-style-image: none; list-style-position: outside;"><br>
+ekpar EP_TEXTURE_MIPMAP 0 | 4<br>
+          <br>
+        </li>
+      </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h4><a name="3DStereo"></a>3D Stereo Display<br>
+</h4>
+<p>Stereoscopic vision creates more realistic vision adding a true
+depth to the object model. This is accomplished by the application rendering a unique view to
+each eye, the same way one would view in real life.<br>
+</p>
+<p>3D stereo display needs some special devices and properly graphics
+card configuration to work. The following document includes some common
+setting for 3D stereo display. Note that each step includes a
+description and the relative image with the item to be modified
+highlighted.</p>
+<p>Instructions</p>
+<hr color="silver">
+<table summary="">
+  <tbody>
+    <tr valign="top">
+      <td><b>1</b></td>
+      <td>Minimum requirements:<br>
+Professional graphics card having 3D stereo capabilities, such as
+NVIDIA Quadro FX series.<br>
+3D stereo devices such as shutter glasses, 3D monitors or 3D projectors.<br>
+Updated display drivers i.e. NVIDIA ForceWare versions 84.26 or 71.84.
+For further details see the <a href="T_OV_index_config.htm">Configuration
+Notes</a> which reports a description by graphics adapter that can be
+used for our products.<br>
+MS-Windows XP with Service Pack 2.<br>
+      <br>
+Related documents: <a
+ href="http://www.nvidia.com/object/3d_stereo.html"
+ title="http://www.nvidia.com/object/3d_stereo.html">http://www.nvidia.com/object/3d_stereo.html</a>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>2</b></td>
+      <td>LCD shutter glasses device and equipped IR emitter.<br>
+Plug the IR emitter to the special graphics cards on board 3-pin din
+connector.<br>
+There are also special monitor or 3D projector that drive alone
+polarized glasses.<br>
+      <br>
+      <img alt="" src="images/stereo3D_0.gif"
+ style="width: 310px; height: 205px;"><br>
+      <br>
+      <br>
+Sites of interest:<br>
+      <a title="http://www.nuvision3d.com/products.html"
+ href="http://www.nuvision3d.com/products.html">http://www.nuvision3d.com/products.html</a>
+      <br>
+      <a href="http://www.reald.com/scientific/">http://www.reald.com/scientific/</a>
+      <br>
+      <a href="http://www.stereographics.com/"
+ title="http://www.stereographics.com/">http://www.stereographics.com/</a>
+      <br>
+      <a href="http://www.nuvison.com/" title="http://www.nuvison.com/"></a>
+      <div><a
+ title="http://www.stereographics.com/products/monitor_zscreen/zs-pr.html"
+ href="http://www.stereographics.com/products/monitor_zscreen/zs-pr.html">http://www.stereographics.com/products/monitor_zscreen/zs-pr.html</a></div>
+      <div><a title="http://www.stereographics.com/support/st-mon.htm"
+ href="http://www.stereographics.com/support/st-mon.htm">http://www.stereographics.com/support/st-mon.htm</a></div>
+      <div><a
+ title="http://www.vrlogic.com/html/stereographics/crystaleyes_ws.html"
+ href="http://www.vrlogic.com/html/stereographics/crystaleyes_ws.html">http://www.vrlogic.com/html/stereographics/crystaleyes_ws.html</a></div>
+      <a href="http://www.apex-tokyo.co.jp/work/4d.html">http://www.apex-tokyo.co.jp/work/4d.html</a>
+      <br>
+      <a href="http://www.concordiagraphics.com/"
+ title="http://www.concordiagraphics.com/">http://www.concordiagraphics.com</a>
+      <br>
+      <a href="http://www.nvidia.com/object/3d_stereo.html"
+ title="http://www.nvidia.com/object/3d_stereo.html">http://www.nvidia.com/object/3d_stereo.html</a>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>3</b></td>
+      <td>Enable OpenGL 3D stereo support on the graphics card from
+control panel-&gt;display-&gt;setting-&gt;advanced-&gt;graphics card
+properties. Next choose the properly "stereo display mode". With
+shutter glasses in active stereo configuration select use on-board DIN
+connector or use shutter glasses, with special monitor or 3D projector
+in passive stereo configuration select color interleaved monitor or
+vertical interlace monitor.<br>
+Take care attention, <span style="font-weight: bold;">enable OpenGL
+stereo option only when you really use 3D Stereo Display capabilities</span>.
+This option may impact on performance and display memory.<br>
+      <br>
+      <div><img alt="" src="images/stereo3D_1.gif"
+ style="width: 395px; height: 481px;"> <img alt=""
+ src="images/nvidia_quadrofx4500_4.gif"> <img alt=""
+ src="images/stereo3D_2.gif" style="width: 483px; height: 402px;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">4</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Ensure to use the block transfer
+option for buffer flipping mode and enable the vertical sync.<br>
+      <br>
+      <img alt="" src="images/stereo3D_3.gif"
+ style="width: 395px; height: 481px;"> <img alt=""
+ src="images/nvidia_quadrofx4500_3.gif"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">5</td>
+      <td style="vertical-align: top;">From control
+panel-&gt;display-&gt;settings-&gt;advanced-&gt;monitor select high
+frequency rate for screen refresh rate, in general highest that your
+monitor can support, at least 100 Hz, 120 Hz are recommended. Take care
+attention a lot of&nbsp; monitors don't support higher refresh rate,
+this means that you need a different monitor.<br>
+      <br>
+      <img alt="" src="images/stereo3D_4.gif"
+ style="width: 395px; height: 481px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">6</td>
+      <td style="vertical-align: top;">Setting a realistic
+visualization for the model
+from tools-&gt;options-&gt;document properties-&gt;view defining
+perspective projection with focal length 28 mm., 35 mm or 70 mm.<br>
+      <br>
+      <img alt="" src="images/stereo3D_5.gif"
+ style="width: 551px; height: 441px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">7</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Cpplication short-cut <span style="font-weight: bold;">Shift+F11</span>
+toggle on/off 3D stereo display.<br>
+      Application short-cut <span
+ style="font-weight: bold;">F11</span> toggle on/off full screen mode.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h4><a name="DualView"></a>Multi Display Environment<br>
+</h4>
+<p>Support for multi display has been accomplished by the application and the display driver. The
+following document includes some common setting for multi display. Note
+that each step includes a description and the relative image with the
+item to be modified highlighted.<br>
+</p>
+<h5>Instructions</h5>
+<hr color="silver">
+<table summary="">
+  <tbody>
+    <tr valign="top">
+      <td><b>1</b></td>
+      <td>Minimal requirements:<br>
+Professional graphics card with two monitor adapters, such as NVIDIA
+Quadro FX.<br>
+Two monitors.<br>
+Updated display drivers, i.e. NVIDIA ForceWare versions; 91.85 or
+84.26. For further details the <a href="T_OV_index_config.htm">Configuration
+Notes</a> reports a description by graphics adapter that can be used
+for our products.<br>
+MS-Windows XP with Service Pack 2.</td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>2</b></td>
+      <td>Plug monitors on each graphics card adapter and restart the
+system.<br>
+Next from Control Panel-&gt;Display Properties-&gt;Settings choose the
+primary one.<br>
+      <br>
+      <img alt="" src="images/dualview_1.gif"
+ style="width: 404px; height: 448px;"><img alt=""
+ src="images/dualview_2.gif" style="width: 404px; height: 448px;"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>3</b></td>
+      <td>from Control Panel-&gt;Display
+Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;nView Display
+Settings<br>
+item allowed to choose display mode policy.<br>
+&nbsp;<br>
+      <img alt="" src="images/dualview_3.gif"
+ style="width: 598px; height: 451px;"><br>
+      <br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">4</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Dual view mode creates two
+really desktops.<br>
+With this mode the application full screen mode switches to the primary display.<br>
+      <br>
+      <img alt="" src="images/dualview_4.gif"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">5</td>
+      <td style="vertical-align: top;">Horizontal Span / Vertical Span
+modes create only one big desktop.<br>
+With this mode the application window and full screen mode stretch along both monitors.<br>
+      <br>
+      <img alt="" src="images/dualview_5.gif"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">6</td>
+      <td style="vertical-align: top;">Application short-cut <span style="font-weight: bold;">F11</span>
+toggle on/off full screen display mode to windowed environment.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h4><a name="SLI"></a>NVIDIA SLI multi-GPU system<br>
+</h4>
+<p>Support for SLI multi-GPU has been accomplished with the application by OpenGL graphics pipeline
+and NVIDIA SLI multi-GPU system. The following document includes some
+common setting for SLI multi-GPU system. Note that each step includes a
+description and the relative image with the item to be modified
+highlighted.<br>
+</p>
+<p>For further details about SLI:&nbsp; <a
+ href="http://www.slizone.com/page/home.html">http://www.slizone.com/page/home.html</a></p>
+<h5>Instructions</h5>
+<hr color="silver">
+<table summary="">
+  <tbody>
+    <tr valign="top">
+      <td><b>1</b></td>
+      <td>Minimal requirements:<br>
+SLI system with two or more PCI Express BUS.<br>
+Two or more PCI Express NVIDIA graphics cards with SLI support, such as
+NVIDIA Quadro FX or NVIDIA GeForce 6, NVIDIA GeForce 7.<br>
+Updated display drivers i.e. NVIDIA ForceWare version 84.26. For
+further details <a href="T_OV_index_config.htm">Configuration Notes</a>
+reports a description by graphics adapter that can be used with our products.<br>
+MS-Windows XP with Service Pack 2.</td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>2</b></td>
+      <td>Plug graphics cards for each PCI Express slot, install
+display driver and restart the system.<br>
+      <br>
+      <img src="images/SLI_1.GIF" alt="" border="0"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><b>3</b></td>
+      <td>Enable SLI multi-GPU from Control Panel-&gt;Display
+Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;SLI multi-GPU:<br>
+      <br>
+      <img alt="" src="images/SLI_2.gif"
+ style="width: 645px; height: 491px;"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">4</span>
+      <br>
+      </td>
+      <td style="vertical-align: top;">Select SLI multi-GPU rendering
+to improve the application
+performance balancing rendering along GPUs<br>
+from Control Panel-&gt;Display
+Properties-&gt;Settings-&gt;Advanced-&gt;NVIDIA panel-&gt;Performance
+&amp; Quality Settings-&gt;SLI rendering mode:&nbsp;<br>
+      <br>
+      <img alt="" src="images/SLI_3.gif"
+ style="width: 646px; height: 489px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<hr>
+<table summary="" width="100%">
+  <tbody>
+    <tr>
+      <td align="left"><i>Last update:</i> 12 March 2008</td>
+    </tr>
+  </tbody>
+</table>
+<hr color="silver">
+</body>
+</html>

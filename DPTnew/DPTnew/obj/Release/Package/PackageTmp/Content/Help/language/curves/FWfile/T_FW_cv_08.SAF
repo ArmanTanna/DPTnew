@@ -1,0 +1,81 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Two D To Three D Curve</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1380">3D from 2D Curves</span></p>
+<hr color="#63a9d8">
+</table>
+
+<br>
+</p>
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+36">3D Curve from 2D Curves</span> command creates a 3D curve from two plane curves lying in different planes, based on the projection of the 2D curves.</p>
+
+<p style="margin-top:0;">First of all you will have to select the two curves: <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+90">1st Planar Curve</span> and <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+91">2nd Planar Curve</span>.</p>
+
+<p>If the projection of one of the two curves is a <i>line</i>, it does not identify a single plane. In that case, a warning message is displayed. You must specify the projection direction, using the <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+45">Direction</span> drop-down list that shows up in the selection list.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+When the selected curve is a line, the direction to be selected must be the normal to one of the plane containing the line. If it is not, an appropriate warning is displayed.</td>
+</tr>
+</table>
+
+<p style="margin-bottom:4px;">The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box enables you to create curves which retain a link to the surfaces/curves they derive from.</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting curves will be associative. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.<br>
+ If you select non-associative entities (such as non-associative surface borders or non-associative curves), a message will be displayed to inform you that you have selected non-associative entities, which will become the root of the structure.</li>
+
+<li>When the check box is cleared, the resulting curves will not be associative.</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="HighQualityApproximation"></a>Furthermore, an additional option is now available under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>: <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span>.</p>
+
+<ul style="margin-top:0;">
+<li>When the check box is selected, the resulting curves will be <a href="../../MathConc/T_MC_ContinuityClassification.htm#G3">G3</a> or <a href="../../MathConc/T_MC_ContinuityClassification.htm#G4">G4</a> continuous and will have higher degree.</li>
+
+<li>When the check box is cleared, the resulting curves will have degree 3 and continuity 2.</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../../curves502/cv_08_bis.htm"><b>Create skew curves from pairs of plane curves</b></a></li>
+
+<li><a href="../../curves502/cv_08.htm"><b>Build a 3D curve from a 2D curve and a line</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

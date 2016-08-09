@@ -1,0 +1,131 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Cleaning a curve before creating a lofted surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Cleaning a curve before creating a lofted surface</h3>
+
+<p class="notop">In the following example, some of the curves to be used in the creation of a lofted surface have invisible sharp points. Because of those points, the quality of the resulting surface might be lower than expected.</p>
+
+<p>As you will see, as soon as a curve containing an invisible sharp point is selected, an appropriate message is displayed. By selecting the <b>Clean Curves</b> or <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+249">Curvilinear</span> options in the <b>Parameterization</b> drop-down list under <b>More Options - Surface Type Options</b>, you can create a nicer surface. In fact the command will not use the original curve&nbsp;&#151;&nbsp;which will not be changed&nbsp;&#151;&nbsp;, but a local copy with no sharp points (thanks to a different parameterization).</p>
+
+<p>Once you have started the <a href="../FWfile/T_FW_LoftedGrid.htm"><b>Grid Lofted Surface</b></a> command, you can proceed as described in the following steps (<i>please note that you can follow this step-by-step example by loading file</i>: "CleanCurves.e3").</p>
+
+<p><img border="1" src="../../../images/surfaces/CleanCurves_1.gif"></p>
+
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>In the <b>Select As</b> drop-down list, select the <b>Grid</b> option.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>2<b></td>
+<td>Select the curves of <b>Boundary Set A</b> as in the following illustration and end selection:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CLC01.gif"> <br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3<b></td>
+<td>As the second set of curves select the four curves as in the following illustration:<br>
+<br>
+<img border="1" src="../images/CLC02.gif"><br>
+<br>
+The <b>Show warnings</b> button ( <img src="../../../images/general/warnings_on_new.gif"> ) shows up on top of the selection list. Click it to display the warnings. As you can see, the command detects invisible sharp points, highlighted using a marker, and an appropriate warning is displayed.<br>
+Once you selected all the curves of the second set, end selection. The preview of the resulting surface is the following:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CLC03.gif"><br>
+<br>
+Using the appropriate <b>Parameterization</b> options you can get a better result: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+248">Intrinsic</span><br>
+
+
+The ordinary curve parameterization. Though this type of parameterization can be used in most of the ordinary situations, you might need to use another one in order to get a smoother surface. For example, sharp points, if any, are not detected when using the intrinsic parameterization.</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+238">Clean curves</span><br>
+
+
+When some of the curves to be used in the creation of a lofted surface have invisible sharp points, the quality of the resulting surface might be lower than expected. As soon as a curve containing an invisible sharp point is selected, an appropriate message is displayed. By selecting this item, you can create a nicer surface. The command will not use the original curve, which will not be changed, but a local copy with no sharp points (thanks to a different parameterization).</li>
+
+<li><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+249">Curvilinear</span><br>
+
+
+A normalized arc length parameterization type (which is: the curve parameter varies proportionally to the curve arc length, so that arcs with equal length on the curve correspond to equal variations of the curve parameter).<br>
+Using this option all the input curves are internally re-parameterized based on their arc length and you will generally get surfaces with more regular isoparametric curves.<br>
+Please note that if the selected curves have invisible sharp points, using this option will also result in creating nicer surfaces as in the case of the <span class="UI_OPTION" id="tdesign.msg+_SURFACE_UI_LABEL_+238">Clean curves</span> option.</li>
+
+
+</ul>
+
+<br>
+Now, if you select the <b>Clean Curves</b> option, the preview changes to the following:<br>
+<br>
+<img border="1" src="../../../images/surfaces/CLC04.gif"><br>
+<br>
+
+</td>
+</tr>
+</table>
+
+<p>And here are the three surfaces you can obtain by selecting the three parameterization options:<br>
+</p>
+
+<table>
+<tr valign="top">
+<td><img border="1" src="../../../images/surfaces/CLC05.gif"></td>
+<td><img border="1" src="../../../images/surfaces/CLC06.gif"></td>
+<td><img border="1" src="../../../images/surfaces/CLC07.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><b>Intrinsic</b></td>
+<td><b>Clean Curves</b></td>
+<td><b>Curvilinear</b></td>
+</tr>
+</table>
+
+<p>As you can see, by selecting <b>Clean Curves</b> or <b>Curvilinear</b> the creases of the surface displayed in the first illustration disappear and the resulting surface is nicer and smoother.</p>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,127 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2010t1" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>Integrating the Customized Part into the Mold Standard Part Command</title>
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/whatsnew.htm#Mold">Mold Standard Part Enhancements </a>"</p>
+<hr color="red" size="10"> -->
+<h2>Integrating the Customized Part into the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span> Command</h2>
+
+<p>The following tutorial explains on how to integrate a customized part into the <a href="../FWfile/T_FW_standard_parts.htm"><span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span></a> command. The following are the different steps that need to be followed.</p>
+
+<ul class="noleft">
+<li><a href="#part1">Creating a Part Family</a></li>
+
+<li><a href="#part2">Integrate the Part into the command</a></li>
+</ul>
+
+<h3><a name="part1"></a>Creating the Part Family</h3>
+
+<p>Open the <i>custom_part.e3</i> file available in the <i>Samples/mold</i> folder present at the installation location and follow the steps given below.</p>
+
+<ol>
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7926">Create Part Family</span> command and the <b>Part Family Properties</b> dialog box is displayed.<br>
+<br>
+</li>
+
+<li>Enter the following for the corresponding text boxes. 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td>Name</td>
+<td>Custom_Part</td>
+</tr>
+
+<tr>
+<td>Description</td>
+<td>Custom_Part</td>
+</tr>
+
+<tr>
+<td>Part Description</td>
+<td>Part Family Component:custom_part</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>Click <b>OK</b>. A message for successfully inserting the family part is displayed. Click <b>Close</b> to complete the creation of Part family. You can start the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span> command to view the newly created part family.</li>
+</ol>
+
+<h3><a name="part2"></a>Integrating the Part into the command</h3>
+
+<p>A customized part can be integrated into the Mold Standard Part command and used in the mold Base assembly. Follow the steps given below.</p>
+
+<ol>
+<li>The Index Code of the part family is required to integrate the part into the command. Start the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatManager.htm"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span></a> and right-click on the <b>Part Family</b>. Select the <b>Properties</b> option from the context menu.<br>
+<br>
+</li>
+
+<li>The <b>Edit Index Data</b> dialog box is displayed. In the <b>General</b> tab, check for the <b>Index code</b>. In this tutorial the <b>Index Code</b> for the Part Family is <b>PF</b>.<br>
+<br>
+</li>
+
+<li>Open the <i><img src="../../../images/company/thinkdesignPath.gif" alt="" border="0" align="middle">\files\MoldDesignData\StdPartCatalogIndexMap.xml</i> file in your installation.<br>
+<br>
+</li>
+
+<li>You can integrate the part into any of the existing Mold Base suppliers. For this tutorial, the part will be integrated into the DME catalog.<br>
+<br>
+</li>
+
+<li>In the XML file, under the &lt;Supplier type = "DME"&gt;, add the line as &lt;Catalog type = "Custom"&gt; <i>Index Code</i> &lt;/Catalog&gt;. For this tutorial the <b>Index Code</b> is <b>PF</b>.<br>
+<br>
+</li>
+
+<li>Insert the line in the XML file as highlighted in the image below.<br>
+<br>
+ <img src="../../../images/mold/standard_xml.gif" border="1"><br>
+<br>
+ Save the file and restart the application.<br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="ButtonToolbar_thinkMold.msg+ButtonToolbar_thinkMold+9">Mold Standard Parts</span> command and select <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+75">Customize</span> from the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+33">Part</span> drop-down list.<br>
+<br>
+</li>
+
+<li>Select the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+35">Standards type</span> as DME. Under the <span class="UI_OPTION" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+35">Standards type</span> node the <b>Part Family</b> node appears and the custom part in the drop-down list.<br>
+<br>
+</li>
+
+<li>You can select a point in the graphics area and insert this part.<br>
+<br>
+</li>
+</ol>
+
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

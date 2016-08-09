@@ -1,0 +1,685 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(355,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+
+<title>Rake Sweep</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/Frames.js" type="text/javascript"></script>
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7613">Rake Sweep</span></p>
+<hr color="#63a9d8">
+</table>
+<br><br>
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+140">Rake Sweep</span> command &nbsp;&#151;&nbsp;which simulates the rigid motion of a scraping tool&nbsp;&#151;&nbsp;enables you to create a surface by sweeping one rigid <i>contour</i>&nbsp;&#151;&nbsp;which can be composed of 3D curves (skew)&nbsp;&#151;&nbsp; along two drives, both of which can be <i>contours</i> and fulfilling some contact constraints (it must satisfy the target contact conditions in its initial position). The word <i>contour</i>, in this case, means chain of consecutive curves with the following prerequisites:</p>
+
+
+
+<ul class="noleft">
+<li>They must have at least internal G0 (positional) continuity.</li>
+
+<li>The portions of the contours susceptible to be in contact must have at least internal G1 (tangency) or G2 (curvature) continuity according to the requested <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> cases (see below for details).</li>
+
+
+</ul>
+<p Style="margin-top:0;">But while the first drive must be a contour, the second drive can also be <i>a set of surfaces</i>.</p>
+<p style="margin-bottom:0;">You can proceed as follows.</p>
+
+<ul class="noleft">
+<li><a name="CTX_BiDrivenSweep_FirstDrives"></a>First of all select the curves to be used as the first drive (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+150">First Drive Curves</span>) and end selection.</li>
+
+<li>In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+158">Second Drives</span> drop-down list, you can choose: 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+156">Curves</span> </td>
+
+<td>to select a chain of curves (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+156">Curves</span>) to be used as the second drive.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+157">Surfaces</span> </td>
+
+<td>to select one or more surfaces (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+155">Surfaces</span>) to be used as the second drive (see "<a href="../HWfile/T_HW_Rake_Srf.htm">Using the Rake Sweep Command along a Surface</a>").</td>
+
+</tr>
+</table>
+<br>In this case select
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+156">Curves</span> (The selection of surface boundaries and of solid edges is also allowed, provided they fulfill the said conditions).<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/BD01.gif"><br>
+<br>
+Note that the first drive curves have a particular role: they always drive the motion.</li>
+
+<li><a name="CTX_BiDrivenSweep_SectionCurves"></a>Select the section curves (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+154">Curves</span> under 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+153">Section</span>). The section curves must fulfill the requested 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> (see below for details) in its starting position.<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/BD02.gif"><br>
+&nbsp;</li>
+
+<li><a name="CTX_BiDrivenSweep_Extend"></a>The selected section can be extended using the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+163">Extend</span> check box: 
+
+
+
+<ul class="noleft">
+<li>When the box is cleared, the section will be used as it is, with no extension.</li>
+
+<li>When the box is checked, the section will be extended according to the mode you can selected in the adjacent drop-down list (displayed as soon as the box is checked): 
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+207">Parameter</span></td>
+
+
+<td>When this mode is selected, you can extend the section at its end points according to its parameterization. Two handles and mini-dialog boxes (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+190">Start Parameter</span>, 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+191">End Parameter</span>) are displayed, so as to enable you to obtain the extension either by dragging the handle or by typing in the desired value (&lt;0 for the start parameter, &gt;1 for the end parameter).<br>
+
+
+ <br>
+<img src="../images/BD03.gif" border="1"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+208">Tangent</span></td>
+
+
+<td>When this mode is selected, you can extend the section at its end points along the tangent directions. Two handles and mini-dialog boxes are displayed (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+209">Length</span>), so as to enable you to obtain the extension either by dragging the handle or by typing in the desired value (&gt;0).<br>
+
+
+ <br>
+<img src="../images/BD04.gif" border="1"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+210">Curvature</span></td>
+
+
+<td>When this mode is selected, you can extend the section at its end points maintaining the curve curvature conditions. Two handles and mini-dialog boxes (<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+190">Start Parameter</span>, 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+191">End Parameter</span>) are displayed, so as to enable you to obtain the extension either by dragging the handle or by typing in the desired value (&lt;0 for the start parameter, &gt;1 for the end parameter).<br>
+
+
+ <br>
+<img src="../images/BD05.gif" border="1"><br>
+&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_AutomaticTrim"></a>The resulting surface can be trimmed along the drives by using the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+179">Automatic trim</span> check box. 
+
+
+
+<ul class="noleft">
+<li>When the box is cleared, the resulting surface is not trimmed.</li>
+
+<li>When the box is checked, the resulting surface is trimmed along the drive curves. In such case, the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+192">High quality</span> check box is displayed: 
+
+
+
+<ul class="noleft">
+<li>When the box is cleared the resulting surface will have internal continuity 2 along both parametric directions.</li>
+
+<li>When the box is checked, the internal continuity will be G3 (torsion) or G4 (curvature plot curvature).</li>
+</ul>
+</li>
+</ul><br>
+</li>
+
+<!-- <li style="vertical-align: top;"><iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/Parameterization.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe> -->
+<p>The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+70">Parameterization</span> drop-down list is enabled when only one section group has been selected. You can choose one of the following parameterization types for the section:</p>
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span></td>
+<td>the section curves don't need to form a chain. Chains&nbsp;&#151;&nbsp;one or more&nbsp;&#151;&nbsp;are automatically determined by the program. Each chain results in a separate surface.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+71">Intrinsic</span></td>
+<td>the selected curves are not chained. Each curve is swept independently (thus resulting in a separate surface).</td>
+</tr>
+</table>
+
+<p>When more than one section groups are selected, the section parameterization is <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+72">Curvilinear</span>.</p>
+<br><br>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_Constraint"></a>In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> drop-down list you can choose the type of constraint to be applied along the drives: 
+
+
+
+<table>
+<tr valign="top">
+<td width="60"><b>G0-G0</b></td>
+<td>G0 (positional) continuity will be maintained along both drives.</td>
+</tr>
+
+<tr valign="top">
+<td><b>G1-G0</b></td>
+<td>G1 (tangency) continuity will be maintained along the first drive, GO continuity will be maintained along the second drive.</td>
+</tr>
+
+<tr valign="top">
+<td><b>G0-G1</b></td>
+<td>GO continuity will be maintained along the first drive, G1 continuity will be maintained along the second drive.</td>
+</tr>
+</table>
+
+Please note that G1-G0 and G0-G1 constraints are not equivalent even switching the drives according to the above note about the particular role of the first drive curves.</li>
+</ul>
+
+<p>Several additional options are available under the <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node.</p>
+
+
+
+<ul class="noleft">
+<li><a name="CTX_BiDrivenSweep_Mode"></a>The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+230">Mode</span> drop-down list enables you to select the surface construction mode: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+231">Automatic</span></td>
+
+
+<td>When this item is selected, the construction mode is automatically determined by the program. Specifically: 
+
+<ul class="noleft">
+<li>When the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> is set to <b>G0-G0</b> or <b>G0-G1</b>, the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+231">Automatic</span> choice is equivalent to setting the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+230">Mode</span> to 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+232">Advised</span> and the 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> to 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+15">Along one plane</span> (see below for details).</li>
+
+
+
+<li>When the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> is set to <b>G1-G0</b>, the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+231">Automatic</span> choice is equivalent to setting the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+230">Mode</span> to 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+232">Advised</span> and the 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> to 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+16">Surface based</span> (see below for details).</li>
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="CTX_BiDrivenSweep_MotionMode"></a><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+232">Advised</span></td>
+
+
+<td>This mode allows finding a motion in which the section position along the single drive can be precisely defined; the system must follow it as much as possible when satisfying the positional constraint (G0, G1).
+<br>
+When this item is selected, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+6">Motion Mode</span> drop-down list shows up, enabling you to choose the based motion to be used to sweep the contours along the first drive: 
+
+
+
+<table style="margin-top:0">
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+10">Constant</span></td>
+
+
+<td>The section contour will be swept along the first drive keeping its orientation constant.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+11">Constant axis</span></td>
+
+
+<td>The section contour will be swept along the first drive while keeping an axis constant through all the motion. The axis direction can be chosen in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list.</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+12">Frenet</span></td>
+
+
+<td>The section contour will be swept along the first drive assuming the orientation of the Frenet reference (tangent, normal, binormal) of the latter.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+13">Enhanced Frenet</span></td>
+
+
+<td>The section contour will still be swept along the first drive assuming the orientation of the Frenet reference of the latter as much as possible, with an enhancement enabling the resulting surface to be continuous (G0).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+15">Along one plane</span></td>
+
+
+<td>The section contour will be swept along the first drive assuming the orientation of a plane. An <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+41">Automatic plane</span> check box enables you to control the selection of such plane. 
+
+
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li>If the check box is selected, the plane whose orientation will be used to sweep the section contours along the drives is determined automatically as the mean plane of the drive contour. It will obviously be the plane on which the drive contour lies if the latter is planar.</li>
+
+<li>If the check box is cleared, the plane is to be selected using the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+18">Plane normal</span> drop-down list.</li>
+
+
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+16">Surface based</span></td>
+
+
+<td>The contours will be swept along the first drive keeping an orientation based on the one of the selected surfaces (i.e.: during the motion, the normal will be the one of the surface, while the tangent will be the one of the curve).<br>
+New <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+8">Surface Boundaries</span> can also be selected.<br>
+
+
+ &nbsp;<br>
+</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Precise definition of the motion for the section and a single drive</b><br>
+When the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+232">Advised</span> mode has been selected, for all the motion modes (except 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+16">Surface based</span>), it possible to define more precisely the motion (single drive) that the system must follow. You can select a new drive curve (an additional 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+236">Drive Curves</span> selector is available in this case in the selection list). The following example shows how selecting an advised drive curve can impact on the final result: 
+
+
+
+<table>
+<tr valign="top">
+<td><img border="1" src="../../../images/rn_2007T1/Rake_ADV_noDR.gif"></td>
+<td><img border="1" src="../../../images/rn_2007T1/Rake_ADV.gif"></td>
+</tr>
+
+<tr valign="top">
+<td>Drive curve not selected</td>
+<td>Drive curve selected (green line of previous image highlighted)</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br>&nbsp;
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="CTX_BiDrivenSweep_RotationMode"></a><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+233">Free</span></td>
+
+
+<td>The sweep motion of the section curves along the drives is a combination of a rotation and of a translation. When the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+233">Free</span> item is selected, the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+162">Rotation</span> drop-down list is displayed, enabling you to select the axis of rotation for the rotational component of the sweep motion: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+166">Free</span></td>
+
+
+<td>The axis of rotation is automatically determined by the program so at to be the best possible.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+167">Fixed</span></td>
+
+
+<td>The axis of rotation can be specified by selecting it in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+161">Direction</span> drop-down list (an existing line, a line defined by two points, etc.)</td>
+
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+168">Tangent along first drive</span></td>
+
+
+<td>The axis of rotation will be the tangent along the first drive.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+169">Normal along first drive</span></td>
+
+
+<td>The axis of rotation will be the normal along the first drive.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+170">Binormal along first drive</span></td>
+
+
+<td>The axis of rotation will be the binormal along the first drive.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+171">Tangent along section</span></td>
+
+
+<td>The axis of rotation will be the tangent along the section.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+172">Normal along section</span></td>
+
+
+<td>The axis of rotation will be the normal along the section.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+173">Binormal along section</span></td>
+
+
+<td>The axis of rotation will be the binormal along the section.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+160">None</span></td>
+
+
+<td>The rotation component of the sweep motion will be null (the sweep will be just a translation).</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Side of the motion</b>
+<br>
+You can select one side (or both) where the swept surface will be generated if the section is not located at an end point of the first drive. A specific handle is displayed in such cases:<br>
+<br>
+ <img src="../images/RS01.gif" border="1"><br>
+<br>
+See an example in "<a href="../HWfile/T_HW_Rake_Side.htm">Creating a Sweep Surface by Selecting the Side of the Motion</a>".
+</td>
+</tr></table><br>
+</li>
+
+<li>
+<table align="top">
+<tr valign="top">
+<td><a name="CTX_BiDrivenSweep_TranslationVersusRotation"></a>By specifying a real number varying from 0 to 1 in the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+178">Translation vs. rotation</span> box, or by using the adjacent slider, you can indicate how much the rotation and the translation components will affect the sweep motion: 
+
+
+
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>The system will try to generate a motion by using only a translation. Anyway, if a rotation is mandatory (according to the other conditions) it will be taken into account all the same.</td>
+</tr>
+
+<tr valign="top">
+<td><b>0</b></td>
+<td>The system will try to generate a motion by using only a rotation. Anyway, if a translation is mandatory (according to the other conditions) it will be taken into account all the same.</td>
+</tr>
+</table>
+
+Only in case of the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+233">Free</span> mode with 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+162">Rotation</span> set to none (no rotation), the system will try to satisfy the constraints only with a translation. The 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+178">Translation vs. rotation</span> box is not available in that case.</td>
+
+
+<td>
+<p align="center"><img src="../../../images/rn_2007T1/slider.gif"></p>
+</td>
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_SynchronousDrives"></a>The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+235">Synchronous drives</span> check box&nbsp;&#151;&nbsp;available for each mode&nbsp;&#151;&nbsp;enables you to control the simultaneity of the motion advancement along the two drives: 
+
+
+
+<ul class="noleft">
+<li>When the box is checked the sweep motion will have the same relative advancement on both drives.</li>
+
+<li>When the box is cleared, the motion may not have the same relative advancement on both drives.</li>
+</ul>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_FixedSectionContactOnFirstDrive"></a>The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+176">Fixed section adjacent to first drive</span> check box&nbsp;&#151;&nbsp;available only in case of 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+233">Free</span> mode and if the section is really perpendicular to the first drive in its initial position&nbsp;&#151;&nbsp;enables you to decide whether the initial contact must be kept along the first drive or not: 
+
+
+
+<ul class="noleft">
+<li>If the box is cleared (see the illustration below (a)), contact along the first drive can change along all of its length</li>
+
+<li>If the box is checked, (see the illustration below (b)) the resulting surface will keep the same contact to the first drive along all of its length.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/BD_FixedSectionContactOnFirstDrive.gif"><br>
+<table>
+<tr>
+<td width="255"><b>(a)</b></td>
+<td width="244"><b>(b)</b></td>
+</tr>
+</table>
+
+&nbsp;</li>
+</ul>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_SectionPerpendicularToFirstDrive"></a>The <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+177">Section perpendicular to first drive</span> check box&nbsp;&#151;&nbsp;available only in case of 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+233">Free</span> mode&nbsp;&#151;&nbspenables you to decide whether the section must be swept perpendicularly to the first drive or not: 
+
+
+
+<ul class="noleft">
+<li>If the box is cleared, perpendicularity along the first drive is not guaranteed.</li>
+
+<li>If the box is checked, the section will be swept along the first drive so as to be perpendicular to it along all of its length.</li>
+</ul>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_DiscontinuityOrder"></a>The options under the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+200">Discontinuity order</span> enable you ignore the internal discontinuities of the section and/or of the drive contours. However, the motion is not guaranteed (to pass through with the required continuity) as well as the quality of the generated swept surfaces. 
+
+
+
+<table border="1" bordercolor="white" cellpadding="0%" cellspacing="0%" style="margin-top:6px;">
+<tr valign="top">
+<td bordercolor="black">
+<table border="1" bordercolor="white" style="margin-top:0;" cellpadding="0%">
+<tr valign="top" style="margin-top: 0; padding-top: 0px;">
+<td style="background: Yellow; border: thin solid Silver; font-family: 'MS Sans Serif'; font-size: 8; margin-top: 0;"><span class="UI_OPTION_NOBOLD" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+108">This drive has discontinuous curvature</span></td>
+
+
+</tr>
+</table>
+
+<img src="../../../images/rn_2007T1/BD_DISCO.gif" border="0" style="margin-bottom: 0px;"> </td>
+</tr>
+</table>
+
+The internal section and drives continuity required for the motion depends on the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> and options you have selected: 
+
+
+
+<table>
+<tr valign="top">
+<td width="60"><b>G0-G0</b></td>
+<td>The portion of section and drives susceptible to be in contact should have internal G1 continuity.</td>
+</tr>
+
+<tr valign="top">
+<td><b>G1-G0</b></td>
+<td>The portion of section and first drive susceptible to be in contact should have internal G2 continuity.<br>
+The portion of section and second drive susceptible to be in contact should have internal G1 continuity.</td>
+</tr>
+
+<tr valign="top">
+<td><b>G0-G1</b></td>
+<td>The portion of section and first drive susceptible to be in contact should have internal G1 continuity.<br>
+The portion of section and second drive susceptible to be in contact should have internal G2 continuity.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+177">Section perpendicular to first drive</span></td>
+
+
+<td>When this box is checked, the portion of section susceptible to be in contact with first drive should have internal G2 continuity.</td>
+</tr>
+</table>
+
+<br>
+ In the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+201">First Drive Curves</span>, 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+202">Second Drive Curves</span> and 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+203">Section curves</span>, you can independently choose different values for the section, the first drive and the second drive. 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+204">Position</span></td>
+
+
+<td>To ignore internal tangency and curvature discontinuities.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+205">Tangent</span></td>
+
+
+<td>To ignore internal curvature discontinuities if G1 constraint is requested along one drive.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+206">Curvature</span></td>
+
+
+<td>Available only when you have set the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+152">Constraint</span> to <b>G1-G0</b> or <b>G0-G1</b> or when you have checked the 
+
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+177">Section perpendicular to first drive</span> box.</td>
+
+
+</tr>
+</table>
+</li>
+
+<li><a name="CTX_BiDrivenSweep_Precision"></a>The items available when you expand the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+38">Precision</span> node enable you to define the tolerance values to be used in the computation process.<br>
+
+
+ 
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+39">Position</span></td>
+
+
+<td>Enables you to set the tolerance value to be used in case of positional continuity, in millimeters or inches, depending on the current unit of measure. It is the difference between the real positional continuity and the one you can obtain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+40">Tangent</span></td>
+
+
+<td>Enables you to set the tolerance value to be used in case of tangency continuity, in degrees. It is the difference between the real tangency and the one you can obtain.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+61">Degree</span></td>
+
+
+<td>Enables you to define the tolerance for the degree. It is the difference between the real degree and the one you can obtain for the resulting shape.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+71">Max. No. of Arcs</span></td>
+
+
+<td>Enables you to define the maximum number of arcs for the resulting shapes.<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+224">Default</span></td>
+
+
+<td>Sets all the precision values to their default.<br>&nbsp;
+</td>
+</tr>
+</table>
+<li><a name="ASSOC"></a>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box enables you to create those associative entities called <i>Skins</i>, that is open solids, which retain a link to the surfaces/curves they derive from (see "
+<a href="mk:@MSITStore:help.chm::/language/surfaces/OVfile/T_OV_sr_00.htm#Associative">An Overview of Surfaces: Associative Surfaces (Skins)</a>" for further details):
+
+<ul class="noleft">
+<li>When the check box is selected, the resulting surface will be a skin. It will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting skin will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</li>
+
+
+<li>When the check box is cleared, the resulting surfaces will not be associative: they will retain no link to the entities they derive from.</li>
+</ul>
+
+</li>
+
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Rake_Srf.htm"><b>Use the Rake Sweep Command along a Surface</b></a></li>
+<li><a href="../HWfile/T_HW_Rake_Side.htm"><b>Create a Sweep Surface by Selecting the Side of the Motion</b></a></li>
+</ul>
+</body>
+</html>
+

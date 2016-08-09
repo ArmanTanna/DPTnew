@@ -1,0 +1,76 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Before starting ask Where is the Work Plane?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft {margin-left: 22;margin-top: 0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Before starting ask "Where is the Work Plane?"</h3>
+
+<p>Since our goal in creating 2D geometry is to create a solid shape or feature, you should understand that a profile will always "remember" where it was created. In other words, the placement of the Work Plane will define the location of the profile and so the solid shape or feature to be produced. Therefore, then, where is the profile? Every profile has an orientation based on the position of the Work Plane. When you open a new, empty file, it is located with its origin at the World origin. So, it's very important to place the Work Plane in the correct 3D location for the overall design task as you create profiles.</p>
+
+<p>When you create a profile used to add a feature to a solid (such as a slot, hole, or protrusion), you should first position the Work Plane. If you place the Work Plane on a face that you want to add a feature onto, that profile is constrained to lie on that face. There is one Work Plane, which you can move to different locations to create various 3d solids or features. The Work Plane can be moved using the <a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_wp_01.htm">
+<span class="UI_COMMAND" id="ButtonToolbar_WorkPlane.msg+ButtonToolbar_WorkPlane+7639">Work Plane on Entity</span></a> command or by right-clicking on the border of the Work Plane and access more Work Plane transformation commands. An optional method for positioning the Work Plane is to double-click on an existing planar face. The Work Plane will be moved to a position on the face.</p>
+
+
+<p>Activating the <a href="../sketcher/OVfile/T_OV_sk_00_08.htm">2D Profile environment</a> on a profile to modify it will, also, reposition the Work Plane into the orientation of the 2D Profile you are editing. In other terms, each 2D Profile will remember where the Work Plane was when it was created.</p>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+The Work Plane position does not change if you start editing a 3D Profile as each entity in it might have been created with a different Work Plane orientation. </td></tr></table>
+
+<br>
+<h4>Work Plane and entities with or without History</h4>
+
+<p>When the Work Plane is positioned onto an entity with history, the subsequent profile and 3D shape created on that Work Plane would move with the entity if it were repositioned. If the Work Plane is positioned onto a no history based entity, its position will be unaffected by changing the position of the entity.</p>
+
+<p>See the following illustrations and the description of Illustration 1 and Illustration 2 below:</p>
+
+<p align="center"><img border="1" src="images/profiles_01.gif"></p>
+
+<table>
+<tr>
+<td valign="top" width="120"><b>Illustration 1</b></td>
+<td>The Work Plane can be positioned on an entity with history, like a <b>Datum Plane</b>.<br>
+<br>
+<i>Note that the Datum Plane is in the history but may not show up in your <b>Model Structure</b>. If it is not shown there, right-click in the <b>Model Structure</b>, choose <b>Model Structure Options</b> and select the Datum Plane option in Show Entities</i>.<br>
+<br>
+The linked "lock" icon, next to the axis, shows that profiles drawn on this Work Plane will change position as the <b>Datum Plane</b> changes position. It is linked to the Work Plane.</td>
+</tr>
+
+<tr>
+<td valign="top" width="120"><b>Illustration 2</b></td>
+<td>The Work Plane can be positioned on an entity without history like a 3D curve. Changes on the curve won't affect the Work Plane position.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../tocpages/T_TOC_Profile_Rules.htm"><b>Rules for Profiles and Constraints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,152 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Editing a profile</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Editing a profile</h3>
+
+<p>To edit a profile, thus automatically activating the corresponding <a href="T_OV_sk_00_01.htm">profile environment</a>, you can do any of the following:</p>
+
+<ul class="noleft">
+<li>Double-click on the profile</li>
+
+<li>Select the profile and then select the corresponding <span class="UI_OPTION" id="eklib.msg+eklib+558">2D Profile</span> or 
+<span class="UI_OPTION" id="eklib.msg+eklib+559">3D Profile</span> tab</li>
+
+
+<li>Right-click on the profile and select <a href="../FWfile/T_FW_sk_01.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4715">Edit 2D Profile</span></a> or <a href="../FWfile/T_FW_3D_sk.htm">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7913">Edit 3D Profile</span></a></li>
+
+
+<li>Select the profile and start <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span> <img src="../../../images/general/litarr.gif"> 
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6826">Profile</span> <img src="../../../images/general/litarr.gif"> <a href="../FWfile/T_FW_sk_01.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7762">2D</span></a> or <a href="../FWfile/T_FW_3D_sk.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7763">3D</span></a></li>
+
+</ul>
+
+<p>As soon as you perform one of the actions listed above, the program automatically switches from the <span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span> tab to the corresponding <i>Profile</i> tab. In case of the 2D Profile environment is activated, the orientation of the view changes to "on Work Plane", increasing or decreasing the zoom magnification so that the entire profile fits exactly within the current display.</p>
+
+
+<table align="center">
+<tr valign="top">
+<td><img src="../../../images/sketcher/SKE-01.gif"></td>
+<td valign="center"><img src="../../../images/general/Arrow_To_Right.gif"></td>
+<td><img src="../../../images/sketcher/SKE-02.gif"></td>
+</tr>
+</table>
+
+<p>When a profile is edited, all the solids linked to the profile (parent as well as children) are rolled back to the very same state they were when the profile was created. As a result, it becomes possible to edit already positioned constraints or insert new ones using all the reference geometries that were active at the moment of profile creation.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+After the profile editing is done, on invoking the <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_08.htm">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6842">Rebuild</span></a> command the model will be rebuild with the <i>Profile</i> mode still active. Hence, further editing of the profile can be performed after the rebuild has been executed. In such a case, only the 
+<a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_05_12.htm">
+<span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+140">Rebuild All</span></a> or 
+<a href="mk:@MSITStore:dw.chm::/language/history/FWfile/T_FW_ht_09.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+7876">Rebuild Step by Step</span></a> command will get you back to the 
+<span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span> mode.</td>
+
+</tr>
+</table>
+
+<p>To end the editing session and switch back to the <span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span> mode you can do any of the following:</p>
+
+
+<ul class="noleft">
+<li>Double-click on an empty zone of the Graphics Area</li>
+
+<li>Right-click on an empty area and select <a href="../FWfile/T_FW_switch.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4717">Switch to Model</span></a> in the context menu</li>
+
+
+<li>Select the <span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span> tab</li>
+
+
+<li>Select <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif">
+<span class="UI_COMMAND" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6826">Profile</span><img src="../../../images/general/litarr.gif">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6573">Switch to Model</span>.</li>
+
+</ul>
+
+<p>When you switch back to the model the original view will be restored (unless you have <a href="mk:@MSITStore:help.chm::/language/View/OVfile/T_OV_basic09.htm">dynamically rotated</a> the model).</p>
+
+
+<p>Within the profile environment, you can edit an existing profile by adding, removing, or changing constraints, or by adding, deleting, or even substituting geometry within the profile itself.</p>
+
+<ul class="noleft">
+<li>To add entities to the profile, use the <a href="../FWfile/T_FW_sk_30.htm"><span class="UI_OPTION" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+4489">Add Entities</span></a> command.</li>
+
+
+<li>To remove/substitute entities, use the <a href="../FWfile/T_FW_sk_20.htm"><span class="UI_OPTION" id="MenuBar_Document_Modify_Profile.msg+MenuBar_Document_Modify_Profile+4493">Remove/Substitute Entity</span></a> command.</li>
+
+</ul>
+
+<p>You can also perform some profile editing operations interactively.</p>
+
+<ul class="noleft">
+<li>To move lines, curves, and points, right-click on the entity you want to edit, select <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4711">Modify Entities</span> in the context menu and then move the entity. Note that the entity can only be moved as allowed by the constraints applied to the profile.</li>
+
+</ul>
+
+<p>The program also provides several other commands for editing profiles:</p>
+
+<ul class="noleft">
+<li>To change a dimensional constraint by changing its drive dimension, use the <b><a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_15.htm">
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7753">Edit Dimension</span></a> command (or select the dimension you want to modify and then choose 
+<span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7753">Edit Dimension</span> in the context menu.</li>
+
+</ul>
+
+<table align="center" border="1" bordercolor="navy" bgcolor="#FFFFE1" width="95%" cellpaddin="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>When are changes to profiles used in solids/features actually applied to the solids?</b><br>
+<br>
+ Any editing actions performed on a profile which was used in the creation of a solid or a feature will be automatically applied to the solid only when you deactivate the <i>Profile</i> editing environment in one of the ways listed above (unless you explicitly <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_08.htm">
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+4">Rebuild</span></a> the solid while the <i>Profile</i> environment is still active).</td>
+
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_sk_00.htm"><b>Profiles</b></a></li>
+
+<li><a href="T_OV_sk_00_01.htm"><b>How to create a profil</b>e</a></li>
+
+<li><a href="T_OV_sk_00_02.htm"><b>Rules for building a profile</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Profiles.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Profiles</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

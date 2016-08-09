@@ -1,0 +1,266 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Introduction to Groups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLEs/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0}
+</style>
+<style type="text/css">.notop{margin-top:0;}</style>
+<style type="text/css">.nobottom{margin-bottom:0;}</style>
+
+</head>
+
+<BODY bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideH1();HideH2();HideH3();HideH4();HideH5();">
+
+<a name="top"></a> 
+
+<h1>Introduction to Groups</h1>
+
+<p>This document describes general concepts about groups:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li><a href="#intro">What is a Group?</a></li>
+<li><a href="#classif">Non-Shared Groups and Shared Groups</a></li>
+<li><a href="#XREF">Group X-Reference</a></li>
+<li><a href="#local">Local Shared Groups</a></li>
+<li><a href="#gerarchia">Group Hierarchy</a></li>
+<li><a href="#status">Logical States of Non-Shared Groups</a></li>
+<li><a href="#gcs">Current Group</a></li>
+<li><a href="#disaggrega">Breaking a Group</a></li>
+<li><a href="#posizionamento">Inserting Groups into a Drawing</a></li>
+<li><a href="#modifica">Editing a Group</a></li>
+<SPAN id="TWOD"><li><a href="#differenze">Drawing Views as Groups</a></li></SPAN>
+<li><a href="#display">How Entities Belonging to a Group Are Displayed</a></li>
+<li><a href="#library">Group Libraries</a></li>
+<li><a href="../../tocpages/T_TOC_group_CMD.htm">Group Command List</a></li>
+<li id="HIDELI"><a href="../gp_10.htm">Transforming Views into Groups</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="intro">What is a Group?</a></h4>
+
+<p class="notop">In the 2D environment, it is often useful to be able to treat a set of entities as a single entity but without losing the possibility of deleting, inserting or editing individual entities in the set.</p>
+
+<p>In the <b>think<font color="#FF0F00">3</font></b> application, this facility is provided by <b>Groups</b>. A <b>Group</b> is treated as a single entity identified by a name and a point of origin. It can contain entities of all types supported by the program, including other groups, thus enabling you to create a hierarchical structure.</p>
+
+<p>Typically, groups are entities of two-dimensional drawing environments and have the following advantages:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>They make it easier to manage sets of entities</li>
+<li>They enable you to represent properties common to two or more entities</li>
+<li>They confer modularity on a drawing</li>
+<li>They give a drawing a tree structure.</li>
+</ul>
+
+<p>A frame on the left of the graphics area, called the <a href="../HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a>, displays the group structure.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="classif"></a>Non-Shared Groups and Shared Groups</h4>
+
+<p class="notop">When you create a group (see <a href="../FWfile/T_FW_gp_01.htm"><b>New Group</b></a>) you can decide whether your group will be <i>shared</i> or not. The main differences are the following:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>Once a shared group has been created and set as current (see <a href="../FWfile/T_FW_gp_05.htm"><b>Set Current Group</b></a>), if you edit it and modify it, <i>all</i> the instances of that group will be modified as well, differently from what happens with non-shared groups.</li>
+<li>A non-shared group has no relations with other non-shared groups. Thus, non-shared groups with the same name may consist of different sets of entities. On the contrary, shared groups with the same name consist of the same set of entities.</li>
+</ul>
+
+<p>Now, suppose you created a shared group representing a part in your drawing. You can create an external file for that part (external reference, or <i>X-Reference (groups)</i>) or you can leave it in your drawing as local. Advantages and disadvantages are described in the following section.</p>
+
+<p>A specific tab in the frame on the left of the graphics area displays the list of shared groups (see <a href="../HWfile/T_HW_SharedGroupList.htm"><b>Shared Group List</b></a>).</p>
+
+<p>When applying the <b>Info</b> commands to entities belonging to Shared Groups, specific data are displayed as described in "<a href="T_OV_GroupInfo.htm">Specific output data of the Info commands when applied to entities belonging to shared groups</a>"</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="XREF"></a>Group X-Reference</h4>
+
+<p class="notop">In this case the shared group is a program's 2D file and the drawing contains a link to this file.</p>
+
+<p>The following are the advantages:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>Any changes made to the external file containing the shared group representing the part are automatically reproduced in the drawing and in all the drawings where an X-Reference (groups) to that part is contained.</li>
+<li>Since the drawing only contains a link to an external file and not the entity itself, the size of the file will not be increased. Furthermore, when using the same X-Reference group in several drawing the total size will not be affected, no matter how many times it is used.</li>
+</ul>
+
+<p>And these are the disadvantages:<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>Before making any changes to an external reference group you must verify how many drawings are affected by the changes. The change you are going to make might actually be appropriate for the current drawing, but not for other drawings containing the same X-Reference (groups).</li>
+</ul>
+
+<p>Anyway, you can turn an X-Reference group into a local shared group at any time (see the <a href="../FWfile/T_FW_UnlinkSharedGroup.htm"><b>Unlink Shared Group</b></a> command).</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="local"></a>Local Shared Groups</h4>
+<p class="notop">In this case the shared group and the entities that it contains are stored directly in the drawing.</p>
+
+<p>These are the advantages:</p>
+
+<ul class="noleft">
+<li>You do not need to create a new file for each part.</li>
+<li>You can group one or more shared group in a single <i>local</i> shared group inside the drawing so that a different hierarchy structure is defined. Using the <i>local</i> shared group as an aggregation of shared groups, you can define, for the current drawing only, a particular hierarchy structure in order to reproduce or comply with the final product structure.</li>
+</ul>
+
+<p>These are the disadvantages:</p>
+
+<ul class="noleft">
+<li>In order to modify a part represented as a <i>local</i> shared group you must open the drawing where such shared group is used.</li>
+<li>Entities used inside the <i>local</i> shared group are stored in the drawing itself. This means that the size of the drawing is affected by the size of these entities. If the shared group is used inside several drawings, the size increases accordingly.</li>
+<li>If the same shared group is used as <i>local</i> component in several drawings, individual instances are not connected between themselves and changes made on one of them will have no impact on the others (in some cases this might be considered an advantage).</li>
+</ul>
+
+<p>You should therefore manage as <i>local</i> shared groups all those objects which have been specifically designed for a drawing and that will not be reasonably used in other drawings.</p>
+
+<p>Furthermore, <i>local</i> shared groups should be used to define a local hierarchy structure respecting the nature of the product. Using X-References (groups) would require a set of files for each possible product configuration thus increasing the total number of files.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Local Shared Groups are persistent</b><br>
+Please note that the definition or <i>archetype</i> of a local shared group is still availbale though you may have deleted all of its copies in the drawing. Specific <a href="T_OV_DeleteArchetype.htm"><b>Commands to remove archtypes of local shared groups with no copies in the drawing</b></a> are available.</td>
+</tr>
+</table>
+<br>
+
+<p>You can always turn a <i>local</i> shared group into an X-Reference (groups) by using the <a href="../FWfile/T_FW_MakeXRefGroup.htm"><b>Make X-Reference Group</b></a> command.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="gerarchia">Group Hierarchy</a></h4>
+<p class="notop">The possibility of nesting groups inside one another creates a tree structure.</p>
+
+<p><img border="1" src="../images/gpl_02_01.gif"></p>
+
+<p>The illustration above shows the structure of a group (Parent) containing two other groups (Child #1 and Child #2).</p>
+
+<p>The relationships between the different levels in the structure can be defined as follows:</p>
+
+<ul class="noleft">
+<li><i>PARENT</i>: the parent of a group is the group that is one level higher than it and contains it</li>
+<li><i>CHILD</i>: the child of a group is a group that is one level lower than it and is contained by it</li>
+<li><i>BROTHER</i>: the brother of a group is a group at the same level as it, inside the same parent group.</li>
+</ul>
+
+<p>The drawing as a whole is considered to be a group at the highest level which contains all the others. This corresponds to nesting level 0 because the drawing cannot be contained in another group.</p>
+
+<p>See <a href="../HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a> for further details.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="status">Logical States of Non-Shared Groups</a></h4>
+
+<p class="notop">At any time, every non-shared group has one of the following logical <i>states</i> specifying the type of actions that you can apply to it:</p>
+
+<ul class="noleft">
+<li><i>CLOSED</i>: The group is treated as a single entity. You can therefore delete, move and copy it like any other entity but you cannot act on single entities inside it</li>
+<li><i>OPEN</i>: When a group is open, you can edit or delete single entities inside it. To open a group, you must first open the groups at all the levels higher than it, if any. The drawing, as a group, is always open.</li>
+</ul>
+
+<p>There may be different groups in the open or closed state at the same time.</p>
+
+<p>When you save the entire drawing as a file, any open groups are automatically closed. Immediately after being created, a group is in the closed state; similarly, when you load or insert a drawing, all the groups inside it are in the closed state.<br>
+You can open a group by clicking on the corresponding icon in the tree structure of the drawing:<br>
+<br>
+</p>
+
+<table border="1" cellpadding="5">
+<tr align="LEFT" valign="MIDDLE">
+<td>Closed group</td>
+<td><img src="../images/gpl93_00.gif"></td>
+</tr>
+
+<tr align="LEFT" valign="MIDDLE">
+<td>Open group</td>
+<td><img src="../images/gpl_02_01.gif"></td>
+</tr>
+</table>
+
+<p>About opening and closing non-shared groups, see the <a href="../FWfile/T_FW_gp_03.htm"><b>Open Group</b></a> and <a href="../FWfile/T_FW_gp_04.htm"><b>Close Group</b></a> commands.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="gcs"></a>Current Group</h4>
+
+<p class="notop">To avoid ambiguity and confusion, the program allows you to add new entities only to one group at a time.</p>
+
+<p>The single group to which new entities are added is called the <b>Current Group</b>. You can choose the Current Group at any time (see the <a href="../FWfile/T_FW_gp_05.htm"><b>Set Current Group</b></a> command).</p>
+
+<p>All new entities created are assigned to the Current Group (which may be the drawing as a whole as the parent group at the highest level; see the <a href="../FWfile/T_FW_gp_08.htm"><b>Top Level Group</b></a> command)</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="disaggrega"></a>Breaking a Group</h4>
+
+<p class="notop">You can break a group out into its single component entities. Any child groups remain unchanged as groups but move up one level in the tree structure, that is, they change parent.</p>
+
+<p>To break a group into its component entities, use the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_Break.htm"><b>Break</b></a> command.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="posizionamento"></a> Inserting groups into the drawing</h4>
+
+<p class="notop">The <b>think<font color="#FF0F00">3</font></b> application provides several methods to insert groups into a drawing.<br>
+&nbsp;</p>
+
+<ul class="noleft">
+<li>To insert an X-Reference group, use the <a href="../FWfile/T_FW_InsertSharedGroup.htm"><b>Group Cross Reference</b></a> command</li>
+<li>To add copies of existing shared groups, right-click on the group in the drawing or on the icon in the <a href="../HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a> and select <b>Insert<img src="../../../images/general/litarr.gif"><a href="../FWfile/T_FW_DuplicateSharedGroup.htm">Group Copy</a>. You can also right-click on the icon in the document <a href="../HWfile/T_HW_SharedGroupList.htm"><b>Shared Group</b></a> list tab and select Insert.</b></li>
+<li>To insert any type of group, use the <a href="../HWfile/T_HW_InsertGroup.htm"><b>Insert</b></a> command in the <a href="../FWfile/T_FW_gp_09.htm"><b>Group Library</b></a>.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="modifica">Editing a group</a></h4>
+
+<p class="notop">There are several methods to edit groups.</p>
+
+<ul class="noleft">
+<li>To edit non-shared groups just by modifying and/or removing entities (but <i>not</i> adding), <a href="../FWfile/T_FW_gp_03.htm">open</a> the group and make your changes. If you need to add entities, set the group as current by using <a href="../FWfile/T_FW_gp_05.htm"><b>Set Current Group</b></a> or simply by double-clicking on the group (which also sets the group as the current one).</li>
+<li>To edit shared groups, right-click on the group in the drawing or on the icon in the <a href="../HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a> and select <a href="../FWfile/T_FW_RedefineSharedGroup.htm"><b>Start Local Edit</b></a> in the context menu. You can also right-click on the icon in the document <a href="../HWfile/T_HW_SharedGroupList.htm"><b>Shared Group</b></a> list tab and select <b>Start Local Edit</b>.<br>
+Alternatively, you can set the group as current with the <b>Set Current Group</b> command, which applies also to shared groups.<br>
+You can set the default color mode for shared group editing as described in "<a href="../HWfile/T_HW_GroupColor.htm">Setting the Default Color Mode for Shared Group Editing</a>".</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<SPAN id="TWOD"><h4 class="nobottom"><a name="differenze">Drawing Views as Groups</a></h4>
+
+<p class="notop">Drawing views created automatically from a 3D model are particular non-shared groups. Except from not being enabled to edit the entities that are automatically inserted by the program at creation time, views can be regarded as non-shared groups. You can open and close them, set them as current, add entities to them.</p><p>&nbsp;</p></SPAN>
+
+<h4 class="nobottom"><a name="display"></a>How entities belonging to a group are displayed</h4>
+
+<p class="notop">The colors used by the <b>think<font color="#FF0F00">3</font></b> application to display groups and the entities belonging to groups can be defined in the <b>Group color</b> area of the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_DPS_DRAWING_ADVANCED.htm"><b>Drawing Group-Color</b></a> category of the <b>Document Properties</b>.</p>
+
+<p>&nbsp;</p>
+
+<h4 class="nobottom"><a name="library">Group libraries</a></h4>
+
+<p class="notop">A <i>group library</i> is a collection of groups which you can use to import frequently used groups into your drawing. A Group Library is simply a folder in which each group is contained in a ".e2" file. See the description of the <a href="../FWfile/T_FW_gp_09.htm"><b>Group Library</b></a> command for further details.</p>
+
+<hr color="silver">
+</body>
+</html>

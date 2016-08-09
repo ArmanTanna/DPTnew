@@ -1,0 +1,246 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Editing Interpolation Points (Curves)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:2;margin-bottom:0}
+</style>
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.myyellowcursor{"background:"#ffffe1";cursor:s-resize;border-width:1px;border-color:#000000"}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;font-style: italic;}
+.OLD_NOBOLD{font-weight: bold;font-style: italic;}
+</style>
+
+<style type="text/css">
+.smallnote  {font-family : Verdana;font-size : 9pt;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();">
+
+
+
+<h2>Editing Interpolation Points</h2>
+
+<p class="notop">The <b>Edit Interpolation Points</b> mode of the <b><a href="../FWfile/T_FW_mc_11.htm">Curve through Interpolation Points</a></b> command enables you to modify the position of the selected interpolation points.</p>
+
+<p>Proceed as follows:</p>
+
+<table>
+<tr valign="top">
+<td><b>1</b></td>
+<td>If not already selected, in the <b>Mode</b> drop-down list select <b>Edit Interpolation Points</b>.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the interpolation points. Selected points are marked with a red square.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci03_11.gif"><br>
+<br>
+<ul class="noleft">
+<li>To select all the interpolation points that lie between two of them, hold down the <b>SHIFT</b> key while selecting the interpolation points corresponding to the first and the last point.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci04_11.gif"><br>
+&nbsp;</li>
+
+<li>To deselect a selected point, click on it while holding down the <b>CTRL</b> key.</li>
+</ul>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Move the selected points. You can move interpolation points in one of the following ways: 
+
+<ul class="noleft">
+<li><i>By steps</i>.<br>
+Select <b>Step</b> under <b>Tools</b> to display the <b>Modify Selected Points</b> dialog box. 
+
+<table>
+<tr valign="top">
+<td width="100"><b>Step</b></td>
+<td>This setting specifies the step by which the arrow buttons move the selected interpolation points in the corresponding direction: hence, each time you click one of the arrow buttons, the interpolation point moves in the direction of the arrow by a distance equal to the value of the step.</td>
+</tr>
+
+<tr valign="top">
+<td><b><i>Arrows</i></b></td>
+<td>Click one of the arrow buttons: the interpolation point moves in the direction of the arrow (+x, -x, +y, -y<SPAN id="TWOD">, +z, -z</SPAN>) by a distance equal to <b>Step</b> each time you click.</td>
+</tr>
+
+<tr valign="top">
+<td><b>KD</b></td>
+<td>The distribution factor. It determines the distribution of the movement of the farthest selected points from the <i>last point</i>, which will be marked in green; if you don't get any green marker, no "last point" is defined and the distribution factor will have no effect. <SPAN id="TWOD">Note that there is a "last point" for each curve: if two surfaces are selected, there is a "last point" for each curve which will be the center of the movement from that curve. </SPAN>Proceed as follows: 
+
+<ul class="noleft">
+<li>First set the distribution you want to use (see below)</li>
+
+<li>Then select the points you want to be affected</li>
+
+<li>Now pick any point in the selected set: this point is the one that is being moved directly. All the other points are moved based on the rule</li>
+</ul>
+
+<p>The type of the distribution can be selected in the drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td><b>None</b></td>
+<td>no distribution</td>
+</tr>
+
+<tr valign="top">
+<td><b>Linear</b></td>
+<td>distribution is linear</td>
+</tr>
+
+<tr valign="top">
+<td><b>Quadratic</b></td>
+<td>distribution is quadratic</td>
+</tr>
+
+<tr valign="top">
+<td><b>Cubic</b></td>
+<td>distribution is cubic.</td>
+</tr>
+</table>
+
+<p>The value of the distribution factor varies in the range [0,1]; the lower this value is, the more the shape will correspond to the type of distribution you selected:</p>
+
+<table>
+<tr valign="top">
+<td width="15"><b>1</b></td>
+<td>applies the same movement of all the interpolation points within the range. If this value is set, the type of the distribution is going to be ignored.</td>
+</tr>
+
+<tr valign="top">
+<td><b>0</b></td>
+<td>the movement is applied in inverse proportion to the distance from the central interpolation point. If this value is set, the shape will fully correspond to the type of distribution you selected.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br>
+</li>
+
+<li><i>By dragging the interpolation point</i> to another location using the mouse and then click the mouse button to fix it at the new location. The plane where the point is moved is defined by the current option of the <b>Move</b> drop-down list.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci05_11.gif"><br>
+<br>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Moving points along an axis</b> <br>
+<br>
+Using some keys of the keyboard, you can constrain points to move along the direction of an axis. Proceed as follows: 
+
+<ul class="noleft">
+<li>While dragging the points (<i>after</i> you've pressed the selection button of the mouse), click one of the following keys (no matter whether upper or lower case): 
+
+<table>
+<tr valign="top">
+<td width="30"><b>H</b></td>
+<td>to constrain points to move along the horizontal direction of the screen</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><b>V</b></td>
+<td>to constrain points to move along the vertical direction of the screen</td>
+</tr>
+
+<tr valign="top">
+<td width="30" valign="top"><SPAN id="TWOD"><b>D</b></SPAN></td>
+<td><SPAN id="TWOD">to constrain points to move along the depth direction (the one perpendicular to the plane of the screen). 
+
+<ul class="noleft">
+<li>The distance points will be moved along the depth axis is the same as the one you moved the mouse from the original position along the horizontal axis.</li>
+
+<li>If you move the mouse to right, the points will be moved in the positive depth sense (outward from the screen); if you move the mouse to the left, the points will be moved in the negative sense (inward to the screen).</li>
+</ul></SPAN>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="30"><SPAN id="TWOD"><b>X</b></SPAN></td>
+<td><SPAN id="TWOD">to constrain points to move along the X direction of the Work Plane</SPAN></td>
+</tr>
+
+<tr valign="top">
+<td width="30"><SPAN id="TWOD"><b>Y</b></SPAN></td>
+<td><SPAN id="TWOD">to constrain points to move along the Y direction of the Work Plane</SPAN></td>
+</tr>
+
+<tr>
+<td valign="top" width="30"><SPAN id="TWOD"><b>W</b></SPAN></td>
+<td><SPAN id="TWOD">to constrain points to move along the Z direction of the Work Plane.</SPAN></td>
+</tr>
+</table>
+
+The cursor will be changed accordingly to the chosen constraint.<br>
+&nbsp;</li>
+
+<li>To release the constraint, release the selection button of the mouse. Click another of the above listed keys to change the constraint.</li>
+</ul>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>In order to provide smoother continuity at each interpolation point, it is possible to modify the curve degree so that in stead of an arodinary cubic spline you can obtain quintic or septic curves (degree=5 or 7). This is a great benefit when modifying the curve by editing its control points, as the curvature plots will remain smooth.<br>
+The <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+137">Degree</span> drop-down list under <b>More Options</b> enables you to choose <b>3</b> to modify the dgre so as have an ordinary cubic spline, <b>5</b> to obtain a quintic curve or <b>7</b> to obtain a septic curve when you need smoother continuity at the interpolation points.<br>
+
+</td>
+</tr>
+</table>
+
+<p>As soon as you double-click on an empty position of the graphics area the change is applied.</p>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li id="HIDELI"><a href="../../../surfaces/HWfile/T_HW_Lasso.htm"><b>The Lasso selection method</b></a></li>
+<li><a href="T_HW_mc_02_11_03.htm"><b>Controlling Curve Continuity</b></a></li>
+<li><a href="T_HW_mc_02_11_02.htm"><b>Modifying the tangency conditions at the end points</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

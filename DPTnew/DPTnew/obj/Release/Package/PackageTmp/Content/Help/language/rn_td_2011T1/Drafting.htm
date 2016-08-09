@@ -1,0 +1,139 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2011t1" content="translate">
+<meta name="Author" content="Chitti Sowjanya">
+<meta name="Revisor" content="Donella">
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>New Drafting & Dimension Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTDC();HideTR();">
+<a name="top"></a> 
+
+<h1>New Drafting & Dimension Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2011.1 introduces the following enhancements to the Drafting & Dimension functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#P848">Usability improvements in the drafting commands</a></li>
+
+<li><a href="#P849">Usability improvements in dimension commands</a></li>
+
+<li><a href="#PLIST">New Part List formatting options</a></li>
+</ul>
+
+<hr color="silver">
+<!-- ###########################################Project  SEPARATOR###################### -->
+<!-- PRJ: P0000848- OWN: MARI -->
+<h2><a name="P848"></a>Usability improvements in the drafting commands</h2>
+
+<p>The following usability improvements have been done in the drafting environment:</p>
+
+<ul>
+<li><a href="#Custom">Adding custom format field to dimension format</a></li>
+
+<li><a href="#Label">Double-click on label text to edit it</a></li>
+
+<!-- <li><a href="#Trim">Dimension position update after curve middle trim</a></li> -->
+</ul>
+
+<h5 style="margin-left:60;"><a name="Custom"></a>Adding custom format field to dimension format</h5>
+
+<p style="margin-left:60;">The new <span class="UI_COMMAND" id="idd_formats.msg+idd_formats+121">Customized Text</span> sub-category has been added under the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+833">Dimension</span> category to the <b>Organize Formats</b> dialog box. It contains the new <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+905">Customized text</span> check box. When selected, the customized text (entered in the edit text box) will be displayed as part of the dimension created. The preview area, provided on the right-hand top portion of the dialog box, enables you to have an updated view and also control the effect of the changes made.</p>
+
+<h5 style="margin-left:60;"><a name="Label"></a>Double-click on label text to edit it</h5>
+
+<p style="margin-left:60;">You can now edit labels with a double-click on the entity. The <span class="UI_COMMAND" id="idd_labeltext_edtcont.msg+idd_labeltext_edtcont+4">Label Text</span> dialog box will be displayed when you double-click on a label. You can specify single line text (Up/Down) as well as multiline text in this new dialog box.</p>
+
+<!-- <h5><a name="Trim"></a>Dimension position update after curve middle trim</h5>
+
+<p>.....................</p> -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P000089 - OWN: MARI -->
+<h2><a name="P849"></a>Usability improvements in dimension commands</h2>
+
+<p>Significant usability improvements have been made in the drawing environment. They are:</p>
+
+<ul>
+<li><a href="#Cross">New representation of an unrelated dimension</a></li>
+
+<li><a href="#Redefine">Redefining the missing references</a></li>
+</ul>
+
+<h5 style="margin-left:60;"><a name="Cross">New representation of an unrelated dimension</a></h5>
+
+<p style="margin-left:60;"><a name="new"></a>All the unrelated dimensions are much easily located, even on the printed paper, with a <i>cross</i> along with the existing non-persistent color highlighting. The new representation is supported with the introduction of <a name="Strikeout"></a><a href="OPS.htm#P849"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1875">Cross unrelated dimensions</span></a> option in the <b>Options/Properties</b> dialog box.</p>
+
+<table style="margin-left:60;" border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The new representation of unrelated dimension is visible only after: 
+
+<ul class="noleft">
+<li>activating the <a href="#Strikeout">new</a> option and in event if the option is already activated</li>
+
+<li>starting the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+6825">Highlight Dimensions</span> command, (<b>CTRL+H</b>)</li>
+
+<li>loading a document</li>
+
+<li>regenerating a drawing layout</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<h5 style="margin-left:60;"><a name="Redefine">Redefining the dimension with missing references</a></h5>
+
+<p style="margin-left:60;">It is now possible to recreate the dimension with missing references with the help of the new <span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7926">Reinsert Dimension</span> command in the context menu presented by an unrelated dimension. The dimension type will be explicitly declared in the command title inside the selection list.</p>
+
+<p style="margin-left:60;">Dimensions will be recreated for the following dimension types:</p>
+
+<ul style="margin-left:90;">
+<li>Line length</li>
+
+<li>Arc length</li>
+
+<li>Distance</li>
+
+<li>Half distance</li>
+
+<li>Angle</li>
+
+<li>Diameter</li>
+
+<li>Radius</li>
+</ul>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P000089 - OWN: MARI -->
+<h2><a name="PLIST"></a>New Part List formatting options</h2>
+<p>Two new formatting options have been made available for Part Lists in the <b>Part List Options</b> dialog box.</p>
+<ul>
+<li>The new <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+694">Fit/stretch automatically</span> check box in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+37">Text</span> tab:
+<ul class="noleft">
+<li>When selected, texts will be stretched or extended so as to fit into the cell.</li>
+<li>When cleared, texts will be left as they are and may exceed the length of the cell.</li>
+</ul>
+</li>
+<li>The new <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+693">Row/text height ratio</span> box in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+563">Table Format</span>-<span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+84">Advanced</span> tab enables you to specifiy the row height as a ratio with respect to the text height.</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>

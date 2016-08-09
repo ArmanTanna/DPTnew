@@ -1,0 +1,222 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Job: Extending Curves Controlling the Extension Mode</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSAndSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+H5
+{
+
+color: black;
+font-family: Verdana;
+Font-size: 10.5pt;
+Font-style: normal;
+Font-weight: bold;
+Text-align: left;
+margin-bottom: 5;
+border-bottom : thin solid Silver;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+
+
+<h4>Extending Curves Controlling the Extension Mode</h4>
+
+<table border="0">
+<tr>
+<td align="LEFT" valign="TOP" width="20"><b>1</b></td>
+<td align="LEFT" valign="TOP">After starting the <a href="../curves/FWfile/T_FW_mc_08.htm"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+125">Extend Curve</span></a> command, choose the extension mode in the 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+143">Mode</span> drop-down list:<br>
+
+ &nbsp; 
+
+<table>
+<tr valign="top">
+<td><a href="#Position"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+146">Point</span></a></td>
+
+<td>The part of the curve at the selected endpoint is extended to the point indicated or its projection according to the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> option selected.</td>
+
+</tr>
+
+<tr valign="top">
+<td><a href="#Select"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+126">Boundary</span></a></td>
+
+<td>The part of the curve at the selected endpoint is extended as far as its intersection with another selected entity according to the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> option selected.</td>
+
+</tr>
+
+<tr valign="top">
+<td><a href="#Length"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+147">Length</span></a></td>
+
+<td>The part of the curve at the selected endpoint is extended as far as the specified length, according to the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> option selected.</td>
+
+</tr>
+</table>
+</td>
+<td align="LEFT" valign="TOP"></td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<h5><a name="Position"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+146">Point</span>: extension to a specified position</h5>
+
+
+<table border="0">
+<tr>
+<td valign="TOP" width="20"><b>2</b></td>
+<td valign="TOP">Click on all the curves you want to extend close to the endpoint to be modified (intersections might not be found if the selection point does not identify the endpoint: a warning would be displayed).<br>
+<br>
+<img border="1" src="../../images/modcur502/mci07_08.gif"><br>
+<br>
+If the selected curve is a <a href="../curves/OVfile/T_OV_curves.htm" onclick="return OverWindow()">specialized curve</a> (not a NURBS), you are asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>). End selection by right-clicking and selecting 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr>
+<td valign="TOP"><b>3</b></td>
+<td valign="TOP">Specify the point you want the curve to be extended to (by simply clicking on a position or using a <a href="mk:@MSITStore:selsna.chm::/language/snap/OVfile/T_OV_basic06.htm">snap</a> command).<br>
+
+<br>
+<img border="1" src="../../images/modcur502/mci06_08.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> to 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+130">Tangency</span>.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and extend the curve.<br>
+<br>
+<img src="../../images/modcur502/mci08_08.gif" border="1" align="absmiddle"><br>
+<br>
+Click <img src="../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<br>
+<p>&nbsp;<br>
+</p>
+
+<h5><a name="Select"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+126">Boundary</span>: extension as far as a selected limit entity</h5>
+
+
+<table border="0">
+<tr>
+<td valign="TOP" width="20"><b>2</b></td>
+<td valign="TOP">Click on all the curves you want to extend close to the endpoint to be modified (intersections might not be found if the selection point does not identify the endpoint: a warning would be displayed)<br>
+<br>
+<img border="1" src="../../images/modcur502/mci03_08.gif"><br>
+<br>
+If the selected curve is a <a href="../curves/OVfile/T_OV_curves.htm" onclick="return OverWindow()">specialized curve</a> (not a NURBS), you are asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>). End selection by right-clicking and selecting 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr>
+<td valign="TOP"><b>3</b></td>
+<td valign="TOP">Select the limit entity.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci02_08.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> to 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+130">Tangency</span>.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> to confirm your selections and extend the curve.<br>
+<br>
+<img border="1" src="../../images/modcur502/mci04_08.gif"><br>
+<br>
+Click <img src="../../images/general/CANCELbutton.gif" border="0" align="absmiddle"> to discard your changes.</td>
+</tr>
+</table>
+
+<br>
+<p>&nbsp;<br>
+</p>
+
+<h5><a name="Length"></a><b>Length</b>: extension by a specified length</h5>
+
+<table border="0">
+<tr>
+<td valign="TOP" width="20"><b>2</b></td>
+<td valign="TOP">Click on all the curves you want to extend close to the endpoint to be modified (intersections might not be found if the selection point does not identify the endpoint: a warning would be displayed).<br>
+<br>
+<img border="1" src="../../images/modcur502/ET00.gif"> <br>
+<br>
+If the selected curve is a <a href="../curves/OVfile/T_OV_curves.htm" onclick="return OverWindow()">specialized curve</a> (not a NURBS), you are asked to confirm whether you want to convert it into a NURBS (<i>unless you have deselected the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_MOD_COSTRUZIONE_CURVE.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+51">Ask before converting</span></a> check box</i>). End selection by right-clicking and selecting 
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr>
+<td valign="TOP"><b>3</b></td>
+<td valign="TOP">In the <b>Length</b> mini-dialog box, type the length value of the extension to be applied to the curve. 
+
+<p><img border="1" src="images/ETlength.gif">.&nbsp;<br>
+&nbsp;</p>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Set <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+444">Continuity By:</span> to 
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+130">Tangency</span>.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>Click <img src="../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../images/general/APPLYbutton.gif" border="0" align="absmiddle" align="absmiddle"> to confirm your selections and extend the curve.<br>
+<br>
+<img border="1" src="../../images/modcur502/ET01.gif"><br>
+<br>
+Click <img src="../../images/general/CANCELbutton.gif" border="0"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

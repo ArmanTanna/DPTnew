@@ -1,0 +1,121 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="Revisor" content="Vicky Raina">
+<meta name="T_2010t1" content="translate">
+<title>Log file (importing from CATIA)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;}</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h1>Log file (importing from CATIA<sup><font size="-1">&reg;</font></sup>)</h1>
+
+<p style="margin-bottom:0;">When you <a href="../FWfile/T_FW_CATIA2td.htm">load a CATIA file</a>, a log file of the conversion is created:</p>
+
+<ul class="noleft" style="margin-top:0;">
+<li>in the same directory of the file you opened</li>
+
+<li>with the same name of the file you opened and the ".log" extension.</li>
+</ul>
+
+<h3>The log file structure</h3>
+
+<p>The log file for conversion from CATIA<sup><font size="-1">&reg;</font></sup> lists the conversion parameters and information about the entities converted in the process.</p>
+
+<p>In the log file you find:</p>
+
+<ul class="noleft">
+<li>Information about the CATIA model creation such as date, time and CATIA release.</li>
+
+<li>The tolerance within which curves are considered identical.</li>
+
+<li>The CATIA entity inventory (type and count).</li>
+
+<li>The tolerance at which each solid is manifold.</li>
+
+<li>The number of 2D entities processed (if any).</li>
+
+<li>The number of not processed entities, if any, both visible and hidden.</li>
+
+<li>The list and count of <img src="../../../images/company/ThinkDesign.gif" align="middle"> entities in the output file.</li>
+
+<li>Warnings, if any.</li>
+</ul>
+
+<h3>Example of log file: importing from CATIA 3D</h3>
+
+<blockquote>
+<pre>
+<font face="Courier New" size="3">ble       
+12/12/1995
+08.43.28
+CATIA SOLUTIONS V4      
+RELEASE 1.6 FR 4.1.6    
+CATIA Tolerance for identical curves: 0.100000
+List of entities in CATIA file: Version 2.8
+   61 entities                          POINT (CATIA type:  1 )
+  617 entities                           LINE (CATIA type:  2 )
+    4 entities                          CURVE (CATIA type:  3 )
+ 1078 entities                          PLANE (CATIA type:  4 )
+   11 entities                        SURFACE (CATIA type:  5 )
+    2 entities                           FACE (CATIA type:  6 )
+    5 entities                  3-AXIS System (CATIA type:  8 )
+   46 entities                              9 (CATIA type:  9 )
+    2 entities                          SOLID (CATIA type: 17 )
+  158 entities                         CIRCLE (CATIA type: 20 )
+  256 entities                        ELLIPSE (CATIA type: 21 )
+    2 entities                COMPOSITE CURVE (CATIA type: 24 )
+   16 entities                      DRAW VIEW (CATIA type: 30 )
+   68 entities                      DRAW LINE (CATIA type: 81 )
+   13 entities                    DRAW CIRCLE (CATIA type: 82 )
+   16 entities               DRAW AXIS SYSTEM (CATIA type: 83 )
+    5 entities                          ARROW (CATIA type: 100 )
+    2 entities                     DRAW SHAPE (CATIA type: 102 )
+    1 entities                                (CATIA type: 1002 )
+Warning: Solid is non-manifold (tolerance 0.016000)
+Conversion successfully completed. The solid #155047 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #155318 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #155589 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #155860 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #156131 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #156402 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #156673 is manifold at tolerance 0.011000
+Conversion successfully completed. The solid #156944 is manifold at tolerance 0.011000
+List of 2D converted entities
+List of non-processed entities
+ 1078 entities Type number 4
+    5 entities Type number 8
+   46 entities Type number 9
+List of hidden non-processed entities
+List of <img src="../../../images/company/thinkdesignPath_C.gif" align="middle"> entities
+  412 entities of type: ARC
+   61 entities of type: POINT
+ 1097 entities of type: LINE
+ 6340 entities of type: CURVE-UV
+    4 entities of type: CURVE
+ 1223 entities of type: FACE
+  365 entities of type: SURFACE
+  474 entities of type: REVOLUTION
+    7 entities of type: ELLIPSE
+    8 entities of type: SOLID
+  395 entities of type: PLANE
+10386 <img src="../../../images/company/thinkdesignPath_C.gif" align="middle"> converted entities
+</font>
+</pre>
+</blockquote>
+
+<hr color="navy">
+</body>
+</html>
+

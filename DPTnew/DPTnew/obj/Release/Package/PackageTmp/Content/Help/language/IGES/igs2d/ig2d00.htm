@@ -1,0 +1,68 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9067,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Converting from IGES 2D to think3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h3>Converting from IGES 2D to think3</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application can <a href="../ig_01.htm">load</a> IGES 2D drawings generated with other CAD programs.</p>
+
+<h4>General concepts</h4>
+
+<ul class="noleft">
+<li>Entities are converted according to the <b><a href="ig2d01.htm">IGES 2D to think3 conversion table</a></b>.</li>
+
+<li>Conversion is performed according to the current values of the parameters of the <b>IGES Options</b> dialog box opened by selecting <b>Options</b></li>
+
+<li>Layers are converted as per map table defined in the <a href="../../file/IDPP_IGES2D_LAYERS.htm"><span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+28">2D</span> - <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the IGES Conversion Options. If no mapping is defined, the layer name is preserved as it is.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">
+<p><b>General warning on conversion of 2D IGES drawings to</b> <b>think<font color="#FF0F00">3</font></b><br>
+<br>
+To know exactly which IGES entities are converted to <b>think<font color="#FF0F00">3</font></b> and, if they are, which the corresponding <b>think<font color="#FF0F00">3</font></b> entities are, see the conversion table.<br>
+<br>
+In general, this is what happens:</p>
+
+<ul class="noleft">
+<li>IGES attributes (Level, Line Font Pattern, Color, Line Weight, Font) are converted to their <b>think<font color="#FF0F00">3</font></b> corresponding properties (Layer, Line Type, Color, Line Width, Font). IGES Level 0 can be mapped to <b>think<font color="#FF0F00">3</font></b> Layer 1 using the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+34">Edit layer matching</span> check box (in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+30">General</span> page of the <b>IGES Options</b> dialog box, once you set the <b>2D</b> option)</li>
+
+<li>IGES Dimensions are converted to <b>think<font color="#FF0F00">3</font></b> corresponding dimensions</li>
+
+<li>IGES General Note entities are converted to their component texts. Conversion of IGES texts can be controlled by the parameters of the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+37">Text</span> page of the <b>IGES Options</b> dialog box, once you set the <b>2D</b> option.</li>
+
+<li>Non-visible entities (whose <i>Status Number</i> &#151; columns 65:72 of the first line of the record for the entity in the DIRECTORY ENTRY SECTION&nbsp;&#151;&nbsp; starts with the two characters 01) can be converted or not, according to the status of the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+36">Convert non-visible entities</span> check box (in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+30">General</span> category of the <b>IGES Options</b> dialog box, once you set the <b>2D</b> option)</li>
+
+<li>IGES Sectioned Area entities are controlled by the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+65">Multiplication factor:</span> and <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+67">Hatching slant angle</span> in the <span class="UI_COMMAND" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+59">Geometry</span> page of the <b>IGES Options</b> dialog box, once you set the <b>2D</b> option.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

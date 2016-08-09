@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<title>Using drafting commands when the input mode is On View</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+ {
+ margin-left: 22;
+ margin-top: 0;
+ margin-bottom:0;
+ }
+</style>
+
+<style type="text/css">
+ p{
+   text-align : justify;
+ }
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Using drafting commands when the input mode is On View</h3>
+
+<p>The <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_SET_INPUT.htm"><span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7113">Input on View</span></a> mode, mostly used in styling, can be very useful when, for your input operations with the mouse, you feel more comfortable using the <i>view plane</i>&nbsp;&#151;&nbsp;that is a plane parallel to the one of the screen&nbsp;&#151;&nbsp;than the usual Work Plane.</p>
+
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Edit.msg+ButtonToolbar_Edit+7113">Input on View</span> mode affects the behavior of several drafting commands. Here is a list of some of its most remarkable effects.<br>
+
+</p>
+
+<ul class="noleft">
+<li><a href="../gm_01/FWfile/T_FW_gm_01_01.htm"><b>2 Point Line</b></a> 
+
+<ul class="noleft">
+<li><b>Drawing a line through two points specifying the first end point through a snap command</b><br>
+In this case the first end point (defined using a snap command) defines the depth of the view plane. <i>Horizontal</i> and <i>Vertical</i> in this case mean parallel respectively to the X and Y axes of the view rather than to the ones of the Work Plane.</li>
+
+<li><b>Drawing a line through two points specifying the first end point as a free point</b><br>
+In this case the view plane is through the Work Plane origin.</li>
+</ul>
+</li>
+
+<li><a href="../gm_01/FWfile/T_FW_gm_02_01.htm"><b>Parallel Line</b></a> 
+
+<ul class="noleft">
+<li><b>Defining a parallel line by specifying its distance from a reference one</b><br>
+In this case the view plane is defined as the one of the reference line.</li>
+
+<li><b>Defining a parallel line by specifying a point the new line must be through</b><br>
+In this case the view plane is the one defined by the point the new line is through.</li>
+</ul>
+</li>
+
+<li><a href="../gm_04/FWfile/T_FW_gm_01_04.htm"><b>Rectangle</b></a> 
+
+<ul class="noleft">
+<li><b>Drawing a rectangle by specifying free points</b><br>
+If you don't specify any snap points, the view plane on which the rectangle will be created will be the one through the Work plane origin.</li>
+</ul>
+</li>
+
+<li><a href="../gm_04/FWfile/T_FW_gm_02_04.htm"><b>Polygon</b></a> 
+
+<ul class="noleft">
+<li><b>Drawing a polygon specifying one point through a snap command</b><br>
+In this case the polygon will lie on a view plane that is through the specified snap point.</li>
+</ul>
+</li>
+
+<li><a href="../FWfile/T_FW_gm_02.htm"><b>Polyline</b></a> 
+
+<ul class="noleft">
+<li><b>Drawing a Polyline</b><br>
+In this case, if no snap point is specified, the polyline will lie on the current view plane. On the contrary, if the first point specified is a free point, but some other point is specified using a snap command, the polyline will lie on a view plane that is through the Work Plane origin.</li>
+</ul>
+</li>
+
+<li><a href="../gm_03/FWfile/T_FW_gm_02_03.htm"><b>3 Point Circle</b></a> 
+
+<ul class="noleft">
+<li><b>Drawing arcs/circles through three points</b> 
+
+<ul class="noleft">
+<li>If the three points are specified using snap commands, the resulting entity does not lie on the view plane but on the plane through the specified snap points.</li>
+
+<li>If the first point is a snap point and the other two are free points, the entity will lie on a view plane that is through the first point.</li>
+
+<li>If the first point is a free point, the second is a snap point, and the third is a free point, the last point will lie on the view plane through the second (snap) point.</li>
+
+<li>If the first point is a snap point, the second is free and the third is a snap point, the second point will lie on the same plane as the first one, while the third will lie on the plane through the (third) snap point.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

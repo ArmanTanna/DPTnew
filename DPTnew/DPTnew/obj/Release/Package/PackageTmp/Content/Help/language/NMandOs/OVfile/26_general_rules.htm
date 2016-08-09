@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Useful tips when using Booleans</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">  
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.litleft{margin-left:26;margin-top:0}</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Useful tips when using Booleans</h3>
+
+<p>This article describes a few general rules to make the most of Boolean operations in specific situations.</p>
+
+<p><b>limit the number of Boolean operations</b> as much as you can. You can even decide to  generate Multishell Solids if then with a single <b><a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> operation you can obtain more processing results, thus avoiding several <b>
+<a href="../../solids/FWfile/T_FW_Difference.htm">Difference</a></b> operations to achieve the same result. [<a href="26_mic.htm">See this example</a>]</p>
+
+
+<p>Here is another example:</p>
+<br><img SRC="../../../images/solids/NMandOS/condotti_1.gif"><br>
+
+<p>The model shown below contains several shaped pipes. In this case, you can obtain the best result by creating the profiles of each single pipe and then subtract them from the base solid with a Boolean operation. This is a typical example where you could end up executing a great number of concatenated Boolean operations if you work separately on each pipe. The best solution is in fact a single subtraction operation of the yellow, green, blue and red solids from the base solid.</p>
+<br><img SRC="../../../images/solids/NMandOS/condotti_2.gif"><br>
+
+<p>Using this approach the result is achieved rapidly with a single operation, therefore it will be easily managed. Never be too eager to use Boolean operations if they lead you to generate a long list of useless concatenated Boolean events.</p>
+
+<h4>Use the "Joined copies" option in pattern</h4>
+<p>A very important rule which should be underlined, is the pattern "joined copies" option, when you are going to use a Boolean operation on a pattern. For example, when you create a parametric helix [<a href="26_spring.htm">See an example</a>], you generate a pattern of solids that will be connected with the base solid.</p>
+
+<p>If you do not enable the option "joined copied" when creating the pattern, you will have to unite all the copies of the pattern (one by one) with Boolean <b><a href="../../solids/FWfile/T_FW_Union.htm">Union</a></b> operations. Even worst, if you change the number of copies, the solid will not be correctly updated.</p>
+
+
+<p>Let's see the main steps required:</p>
+<br><img SRC="../../../images/solids/NMandOS/screw1.gif"><br>
+
+<p>Base solid.</p>
+<br><img SRC="../../../images/solids/NMandOS/screw2.gif"><br>
+
+<p>Pattern + Joined Copies.</p>
+<br><img SRC="../../../images/solids/NMandOS/screw7.gif"><br>
+When you modify the number of copies the model is correctly updated.
+
+<h4>Verify that solids do not intersect</h4>
+<p>If the solids you are connecting are intersecting you create a Multishell Object. This happens, for example, when you import 2D elements from a drawing and you create solids to be combined by means of Boolean operations. It may also happen that, profiles created automatically when selecting coplanar curves, are not correctly positioned, thus creating multishell solids. In this case you must edit the solids and correct them by adding constraints.</p>
+
+<p>Avoid, as far as possible, all Boolean operations between solids which <b>share a great number of edges or faces</b>. For example it is better to group two solids which are partially one into the other rather than two solids which share a face. This might sound like an minor rule, but it is a particularly important when dealing with complex models.</p>
+
+<h4>Check Normals</h4>
+<p>When you work with Open Solids you should pay particular attention to normals in order to achieve the desired result. See <a href="26_booleans_opensolids.htm">Combining surfaces and solids with Booleans</a>.</p>
+
+<p>Sometimes, when using external files (e.g. IGES), you might find incorrect <b><i>normals</i></b>.</p>
+<p>In the following example some of the normals of the wireframe are inverted (going in instead of out).</p>
+<br><img SRC="../../../images/solids/NMandOS/booleane_2_1.gif"><br>
+
+<p>Boolean operations would not in this case produce the desired results:</p>
+<br><img SRC="../../../images/solids/NMandOS/booleane_2_2.gif"><br>
+
+<hr color="silver">
+<h5>Related Materials</h5>
+<ul class="noleft">
+<li><a href="26.htm"><b>How to use Booleans</b></a></i>
+</ul>
+
+<hr color="silver">
+</body>
+</HTML>

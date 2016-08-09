@@ -1,0 +1,73 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Large Assemblies - Overview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:4;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1>An Overview on Large Assemblies</h1>
+
+<p>This document outlines the Large Assembly management.</p>
+
+<h3>Basic philosophy</h3>
+
+<p>The goal of the Large Assembly features is to let the users load, visualize and modify large assemblies composed of thousands of parts, many of which might be very complex on their own. That's why this application is designed to manage large assemblies with particular care to performance and provides end-users with two specific features designed to achieve this aim:</p>
+
+<ul>
+<li>Any <b>X-Reference (component)</b> in an assembly can be optionally loaded in a <i>Light Representation</i>. You can define several Light Representations for each <b>X-Reference (component)</b>, providing different balances between simplification and visual quality; some of them can be generated automatically, some require the user's intervention. Within the assembly, you can use different Light Representations for different components, whereas all the occurrences of a specific component are opened and displayed in the same Light Representation. The same component can be loaded in its full representation in an assembly and in any Light Representation in other assemblies. When a component is opened in a Light Representation, you may get some limitations in its manipulation, depending on the kind of representation. In any case, the parametric behavior of the whole assembly is preserved: any existing parametric dependency towards that component (mating, profile references and so on) works properly, regardless of the current component representation.<br>
+<br>
+</li>
+
+<li><a name="#FEATURE"></a>Sometimes multiple instances of a single component are placed in an assembly and you need to create additional features only on some of the instances. However, if the original component is modified, the change will take place in all the instances. In other situations, the same component is placed in multiple assemblies and you need to create additional features on the component only in specific assemblies. To achieve both these goals, the <b>Assembly Feature</b> concept is useful. With this <b>Assembly Feature</b> concept you can add or modify placed features like holes and slots in any specific assembly. The assembly feature will be applied only in the particular assembly without affecting the original component. You will be able to create a feature simultaneously on multiple components of an assembly, as shown in the images below.<br>
+<br>
+ 
+
+<table style="margin-left:30" cellspacing="2" cellpadding="2" border="0" style="margin-bottom:9;">
+<tr>
+<td><img src="../../../images/assembly/AFeatures.gif" border="1"></td>
+<td align="center"><img src="../../../images/general/Arrow_To_Right.gif"></td>
+<td><img src="../../../images/assembly/AFeatures2.gif" border="1"></td>
+</tr>
+</table>
+
+<p>The <span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+163">Assembly Feature</span> option is available in the <span class="UI_COMMAND" id="tdesign.msg+_MATING_LABEL_+22">Type:</span> drop-down list of the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+1">Hole</span>, <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+76">Linear Slot</span>, and <span class="UI_COMMAND" id="tdesign.msg+_SOLID_UI_LABEL_+75">Rotational Slot</span> selection lists. This drop-down list is displayed only when you apply the <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span></a>, <a href="mk:@MSITStore:&lt;a href="><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6700">Linear Slot</span></a>, and <a href="mk:@MSITStore:solids.chm::/language/solids/sl_02/FWfile/T_FW_sl_02_02.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6701">Rotational Slot</span></a> commands on an assembly.</p>
+
+<p>See <a href="mk:@MSITStore:help.chm::/language/LightReps/OVfile/T_OV_LightReps.htm"><b>Light Representations</b></a> for further information.</p>
+</li>
+
+<li>One or more <i>Visual Bookmarks</i> can be defined for any document and, in particular, model, when you consider assemblies. A Visual Bookmark captures the general state of the model (visual appearance, feature activation status, presence or absence of Spreadsheet variables), gathering different sets of parameters which affect the amount of allocated memory and graphics resources. Using Visual Bookmarks, it is possible to specify before loading which <b>X-Reference (component)</b> must be unloaded, what light representation must be used for some of them, which layers are inactive and so on. And once the model is opened, the user can easily load a different Visual Bookmark any time. A Visual Bookmark can also be selected when a model is included as an <b>X-Reference (component)</b> into another assembly. 
+
+<p>See <a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/OVfile/T_OV_visualbookmarks.htm"><b>Visual Bookmarks</b></a> for further information.</p>
+</li>
+
+<li><a name="filter"></a>When trying to create 2D drawings of large assemblies, a huge amount of time is spent for <a href="mk:@MSITStore:help.chm::/language/file/HWfile/T_HW_dw_06.htm#views">generating its views</a>. To override the time lag, you can enable the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/drawing/jsoptions/OP_filter.htm">small entities filter</a> to prevent all the entities that are smaller than a specified value from being displayed in the drawing views. This results in improving the regeneration performance of views of large assemblies containing many components too small to be seen in the drawing view.<br>
+ Another use of this filter could be to initially create a draft of the simplified views quickly. Once the drawing is completed, the filter can be removed from all the views to regenerate the drawing in full detail.<br>
+During the view regeneration the diagonal (d) value of the 2D projections of each solid is compared with the value specified by the user in order to skip small entities. If the diagonal is smaller than the specified value, the solid will not be drawn in the view.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-bottom:10;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+The <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7837">Mark as Work in Progress</span> command is available on the context menu of the component in the history tree. It highlights the component in <font color="#C00000">Red</font> color in the history tree so that those components can be identified easily in the current session. This color representation is especially helpful in large assemblies having multiple components. To disable the color of the component you can select <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7838">Unmark as Work in Progress</span> from the context menu.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

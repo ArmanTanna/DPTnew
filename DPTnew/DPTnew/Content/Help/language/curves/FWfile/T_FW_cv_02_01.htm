@@ -1,0 +1,78 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Fitting the curve to points</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Curves defined by fitting to points</h4>
+
+When you add a curve by fitting it to a set of points there are two different methods you can select in the <b>From</b> drop-down list to specify the points:
+<UL class="noleft">
+<LI><b>Points</b>&nbsp;&#151;&nbsp;Specify points by directly indicating one by one all the points you want the curve to fit</LI>
+<LI><b>ASCII file</b>&nbsp;&#151;&nbsp;Specify points by loading an ASCII file containing the coordinates of the points you want the curve to fit.</LI>
+</UL>
+<br>You can control the following characteristics of the curve (remember the values you enter must comply with the <a  href="../../MathConc/T_MC_cv_01.htm">fundamental relationship</a> between
+control points, degree, continuity and number of arcs for a NURBS):
+<UL class="noleft">
+<li>The curve <b>Degree</b> and <b>Continuity</b>
+<LI>If the <b>Automatic</b> option is selected in the <B>Approximation</B> drop-down list under <b>More Options</b>, you will have to specify the <b>Arc number</b> (the number of arcs that compose the curve)
+<li>If the <b>Select arc joints</b> option is selected in the <b>Approximation</b> drop-down list, you will have to indicate the <b>Arc joints</b>.</LI>
+
+<li>The <b>Parameterization</b> type. Depending on your choice, the resulting curve can have an arc-length parametrization (the sample points are spaced as equal arc-length along the curve), a uniform parameterization (the sample points are equally spaced in the domain of the curve) or an arc-length parameterization based on the chord length between the fitting points.</li>
+</UL>
+In addition, under <b>Advanced Options</b>, further options are available to define the tolerances used to control the sampling:
+<ul class="noleft">
+<li><b>Max. sampled chord error</b>&nbsp;&#151;&nbsp;the maximum distance between the chord (between two adjacent sample points) and the curve.</li>
+<li><b>Max. sampled torsion error</b></li>&nbsp;&#151;&nbsp;the maximum angle between the normals at two adjacent sample points.
+<li><b>Max. sampled arc length</b>&nbsp;&#151;&nbsp;the maximum value for the length of the chord between two adjacent sample points.</li>
+</ul> 
+<p>Notice that the first and last points specified are in fact interpolated and become the start point and end point of the curve, respectively.
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_cv_02_01.htm"><b>Fit a curve to a set of points you indicate one by one</b></a></li>
+<li><a href="../HWfile/T_HW_cv_02_02.htm"><b>Fit a curve to a set of points stored in an ASCII file</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_FitSuggestions.htm"><b>Fitting Curves: Suggestions and Tips</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>General concepts related to this topic</h5>
+<ul class="noleft">
+<li><a href="../../Notes/T_GL_mc_02.htm"><b>Specialized curves and NURBS curves</b></a>
+<li><a  href="../OVfile/T_OV_Curves.htm"><b>An overview on curves</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

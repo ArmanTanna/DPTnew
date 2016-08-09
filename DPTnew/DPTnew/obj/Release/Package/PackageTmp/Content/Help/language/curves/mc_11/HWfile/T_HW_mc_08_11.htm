@@ -1,0 +1,127 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a new curve by indicating its interpolation points</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" language="javascript" src="../../../../JSandSTYLES/TwoDPLUS.js">
+</script>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:0;}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff" onload="viaMk();HideMore();HideThreeD();">
+
+
+<h4>Creating a new curve by indicating its interpolation points</h4>
+
+<p>After starting the <a href="../FWfile/T_FW_mc_08_11.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+80">Curve through Interpolation Points</span></a> command, you can proceed as follows:<br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="25"><b>1</b></td>
+<td>
+<p><a name="CrvEditInterpPoints_RuleType"></a>First, set the curve shape at the endpoints.<br>
+Select an option from the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+101">Rule</span> drop-down list under <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>:</p>
+
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+102">Natural</span>&nbsp;&#151;&nbsp;the section of the curve near the end point has null curvature: it coincides with the tangent to the spline at the end point</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+103">Circular</span>&nbsp;&#151;&nbsp;the section of the curve near the end point coincides with a circle passing through the three interpolation points nearest to the end point</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+469">Quadratic</span>&nbsp;&mdash;&nbsp;the section of the curve near the end point has the shape of the curve of degree 2 through the three interpolation points nearest to the end point.</li>
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+104">Cubic</span>&nbsp;&mdash;&nbsp;the section of the curve near the end point has the shape of the cubic curve through the four interpolation points nearest to the end point.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>The points to be interpolated can be specified either by entering them directly in the document, or by reading them in an ASCII file (extension ".pt"; each line in the file must contain the coordinates of a point <span id="TWOD">in the world coordinate system</span>; each coordinate is separated by the following through a blank character). The input mode can be chosen in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+47">From</span> drop-down list: 
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+82">Points</span></td>
+<td>To enter points by specifying them directly in the document, by clicking or using the snap commands.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+471">ASCII file</span></td>
+<td>To read the points in an ASCII file that can be selected in an ordinary file selection box by clicking <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+110">Browse</span>.</td>
+</tr>
+</table>
+
+In this case, specify the interpolation points one by one (by clicking on them or by using Snap).<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci17_11.gif"><br>
+<br>
+ 
+
+<p>The spline curve is dynamically displayed while you're specifying interpolation points.<br>
+<br>
+<img border="1" src="../../../../images/rn_500/mci18_11.gif"></p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" id="F2DNOTVISIBLE">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b><br>
+If you select the <a href="../../OVfile/T_OV_curves.htm#Assoc"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span></a> check box in the selection list and enter points by snapping to special points of existing entities in the model, an associativity link will be retained between the created point and the special point you snapped to. If the position of the special point changes, the position of the point you created will change as well and the curve shape will be modified accordingly. 
+
+<p>When inserting points in the associative mode, a circle marker is displayed instead of the normal square marker:<br>
+<br>
+<img border="1" src="../../images/Blum01.gif"><br>
+<br>
+The following illustration displays a curve created by snapping its interpolation points to special points of a variational profile. When the profile is modified, the curve is modified accordingly:<br>
+<br>
+<img border="1" src="../../images/Blum02.gif"></p>
+</td>
+</tr>
+</table>
+
+<br>
+All the edit operations, such as select and move for existing points or editing of the tangents are available during the creation process.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>By default the resulting curves are cubic splines. In order to provide smoother continuity at each interpolation point, it is possible to create also quintic and septic curves (degree=5 or 7). This is a great benefit when modifying the curve by editing its control points, as the curvature plots will remain smooth.<br>
+The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+465">Degree</span> drop-down list under <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to choose <b>3</b> to create an ordinary cubic spline, <b>5</b> to create a quintic curve or <b>7</b> to create a septic curve when you need smoother continuity at the interpolation points.<br>
+ &nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Double-click to create the curve.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_mc_08_11_OpenClose.htm"><b>Creating an open or a closed curve</b></a></li>
+
+<li><a href="../HWfile/T_HW_mc_02_11_02.htm"><b>Modifying the tangency conditions at the endpoints</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,606 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<title>Modifying a shape so as to constrain it to be through some other entities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Modifying a shape so as to constrain it to be through some other entities</h3>
+
+<p style="margin-bottom:0;">A most useful set of powerful constraints is available in the <a  href="../FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command, under the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> node in order to enable you to apply a controlled modification to a shape so as to have it through some specified points, curves and surface boundaries or even highlight lines and silhouettes.</p>
+
+
+<p style="text-align: center;"><img border="1" src="../../rn_2005T1/images/ThroughHighlights_TAROC.gif"></p>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> drop-down list enables you to set the following constraints.</p>
+
+
+<ul class="noleft">
+<li><a href="#POINTS"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span>
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span></a></li>
+
+<li><a href="#CURVES"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span></a></li>
+
+<li><a href="#HIGHLIGHTS"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+67">Highlights</span></a></li>
+
+<li><a href="#SECTION"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span></a></li>
+
+<li><a href="#SILHOUETTE"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+<span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+3">Silhouette</span></a></li>
+
+</ul>
+<p>&nbsp;</p>
+
+<h4><a name="Points"></a><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span><br></h4>
+
+
+<p style="margin-top:0;margin-bottom:0;">This option enables you to constrain a shape through one or more points just by specifying the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+208">Projection type</span>:</p>
+
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span></td>
+
+<td>the points will be projected normally onto the surface.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span></td>
+
+<td>the points will be projected onto the surface using a linear projection along a specified direction.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span></td>
+
+
+
+
+
+<td>the points will be projected onto the surface using a cylindrical projection for which you will have to specify the axis.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span></td>
+
+
+
+
+
+<td>the points will be projected onto the surface using a spherical projection for which you will have to specify the center.</td>
+</tr>
+</table>
+
+
+<h4><a name="CURVES"></a><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span></h4>
+
+
+
+
+
+<p style="margin-top:0;margin-bottom:0;">This option enables you to constrain a shape through one or more curves just by specifying the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+208">Projection type</span>:</p>
+
+
+
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span></td>
+
+
+
+
+
+<td>the curve will be projected normally onto the surface.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span></td>
+
+
+
+
+
+<td>the curve will be projected onto the surface using a linear projection along a specified direction.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span></td>
+
+
+
+
+
+<td>the curve will be projected onto the surface using a cylindrical projection for which you will have to specify the axis.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span></td>
+
+
+
+
+
+<td>the curve will be projected onto the surface using a spherical projection for which you will have to specify the center.</td>
+</tr>
+</table>
+
+
+<h4><a name="HIGHLIGHTS"></a><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+67">Highlights</span></h4>
+
+
+
+
+
+<p style="margin-top:0;margin-bottom:0;">This option enables you to constrain a shape through one or more highlight lines. This method can be particularly useful, as it enables you to proceed as follows:</p>
+
+<ul class="noleft">
+<li>Display zebra lines on a shape</li>
+
+<li>Create silhouette curves accordingly</li>
+
+<li>Select the view direction properly, so as to have the biggest part of the silhouette curve displayed in the view (anyway, you can control the view direction using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+205">Projection direction</span> options&nbsp;&#151;&nbsp;see below). Then create smoother curves the said silhouettes (zebra lines) should match to improve the shape.<br>
+
+
+
+
+
+</li>
+
+<li>Use the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+67">Highlights</span> constraint of the 
+
+
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command to apply a controlled modification to the shape so as to have the mentioned silhouettes (
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+421">Initial highlight</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+36">Curve</span>) match the curves you created (
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+422">Target highlight</span>). Please note that unless the curve you select as the 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+421">Initial highlight</span> is of the 
+<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curve on Surface</a> type, you will also have to select the surface on which the curve lies (
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+56">Support Surface</span>).<br>
+
+
+
+
+
+<br>
+<img border="1" src="../../rn_2005T1/images/ThroughHighlights2_TAROC.gif"><br>
+<br>
+Alternatively, instead of using the initial curve, you can set <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+421">Initial highlight</span> to 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> so as to define the direction of the silhouette used to compute the initial highlight.<br>
+
+
+
+
+
+</li>
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+205">Projection direction</span> drop-down list enables you to set the direction to be used for the highlight constraint (that is: the direction the highlight must be through) as the one of an existing 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> to be selected, the one determined by 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span> to be specified, or simply that of one of the coordinate axes <b>X</b>, <b>Y</b> or <b>Z</b> or 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+167">Normal to view</span>.</li>
+
+
+
+
+
+</ul>
+The <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+67">Highlights</span> option in the 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> drop-down list enables you to preserve highlight curves. Furthermore, the 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+205">Projection direction</span> drop-down list enables you to define the direction in which the highlight has to be preserved (an existing 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+16">Line</span> to be selected, the one determined by 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+17">2 points</span> to be specified, or simply that of one of the coordinate axes <b>X</b>, <b>Y</b> or <b>Z</b> or 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+167">Normal to view</span>).
+
+
+
+
+
+<h4><a name="SECTION"></a><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span>
+
+
+
+
+</h4>
+<p style="margin-top:0;">This option enables you to constrain the model, or part of it, through a curve obtained as a section of the model itself&nbsp;&#151;&nbsp;which can be created using the <a href="mk:@MSITStore:interact.chm::/language/interact/FWfile/T_FW_NFHC.htm">
+<span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+2">Insert Free Hand Curve</span></a> command.
+
+
+
+
+<br>
+Please note that with this method the starting curves are automatically selected by the program.
+</p>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td class="ver9" bordercolor="#ffffe1"><b>Design Review</b> <br>
+Using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span> constraint enables you to very quickly accomplish your design review: 
+
+
+
+
+
+
+<ul class="noleft">
+<li>A necessary modification&nbsp;&#151;&nbsp;such as a shape change for the model, so as to have it match a sketched curve&nbsp;&#151;&nbsp;can be very easily specified by using the <span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+2">Insert Free Hand Curve</span> sketching tool, especially by means of the natural methods provided along with the <a href="#WACOM">Wacom&reg;</a> tablet and pen.</li>
+
+
+
+
+
+
+<li>The modification can immediately be applied by using the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+601">Section</span> of the 
+
+
+
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> or 
+
+
+
+
+<span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+7354">Zone Modeling</span> command. The sketched curve will be used as a section which the model will be constrained through.</li>
+
+
+
+
+
+</ul>
+</td>
+</tr>
+</table>
+
+<h4><a name="SILHOUETTE"></a><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+3">Silhouette</span></h4>
+
+
+
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> 
+
+
+
+
+<span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+3">Silhouette</span> option enables you to modify the silhouette of a shape.
+
+
+
+
+
+</p>
+<p>In the following illustration, the orange curve is a part of the silhouette of the model relative to the view along the X axis. The green curve is the target silhouette to be reached (for example, you might have created it using the <a href="mk:@MSITStore:interact.chm::/language/interact/FWfile/T_FW_NFHC.htm">
+<span class="UI_COMMAND" id="idr_I-Interact.msg+idr_I-Interact+2">Insert Free Hand Curve</span></a> sketching tool).
+
+
+
+
+
+<br><br>
+<img border="1" src="../../../images/rn_2006t2/THRS01.gif"><br>&nbsp;
+</p>
+<ul>
+<li>The <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+3">Silhouette</span> item is available in the 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+420">Passing Through</span> drop-down list. After selecting the surfaces to be modified, select the option. Then you can select the initial silhouette. Two methods are available in the 
+
+
+
+
+<span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+5">Silhouette type</span> drop-down list:
+
+
+
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+172">Curve</span><br>
+
+
+
+
+
+Enables you to select only curves of the Curve on Surface type (like the ones you can create using the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span> command in the 
+
+
+
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span> mode) and the selected silhouette will be exactly the one you pick.</li>
+
+
+
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+32">Direction</span><br>
+
+
+
+
+
+Enables you to define the initial silhouette as the one computed following the direction you specify on all the entities to be modified. 
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>Please take into account that if the entities to be modified are a big number, the computation time can grow considerably. In addition, the computed silhouette can have some discontinuities or can be multiple for a single direction.
+</td></tr></table><br>
+The direction of the silhouette can be defined by choosing the corresponding entity in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+2">Silhouette direction</span> drop-down list. The default direction is 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+167">Normal to view</span>, which takes into account both perspective and orthogonal projection modes.
+
+
+
+
+
+</li>
+</ul>
+</li>
+<li>When the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+5">Silhouette type</span> is set to 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+172">Curve</span>, a 
+
+
+
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list is displayed, so as to enable you to define the constraint:
+
+
+
+
+
+<br><br>
+<img border="1" src="../../rn_2006t2/images/THRS02.gif">
+<br><br>
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+1">Target silhouette</span></td>
+
+
+
+
+
+<td>To constrain the initial silhouette to match the selected target one.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+1">Free</span></td>
+
+
+
+
+
+<td>No constraints.</td>
+</tr>
+</table>
+</li>
+<li>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+208">Projection type</span> drop-down list you can choose the method to be used to project the initial silhouette onto the target constraint.
+
+
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+202">Normal</span></td>
+
+
+
+
+
+<td>The initial silhouette will be projected orthogonally onto the target.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+139">Flat</span></td>
+
+
+
+
+
+<td>The initial silhouette will be projected using a linear projection along a specified direction (to be chosen in the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+8">Direction</span> drop-down list below).</td>
+
+
+
+
+
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+140">Double curvature</span></td>
+
+
+
+
+
+<td>The initial silhouette be projected using a spherical projection for which you will have to specify the center.</td>
+</tr>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+145">Single curvature</span></td>
+
+
+<td>The initial silhouette will be projected using a cylindrical projection for which you will have to specify the axis, using the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> drop-down list below.</td>
+
+
+
+
+
+</tr>
+
+
+</table>
+The differences among these types of projection can be best appreciated by looking at the preview of the matching law in the silhouette direction.
+
+<br>
+In the model of the images above, if you add <i>preserving</i> curves on the external boundaries of the shape, so as to avoid too big a deformation, you will get the following result:
+<br><br>
+<img border="1" src="../../../images/rn_2006t2/THRS03.gif">
+<br>&nbsp;
+
+</li>
+</ul>
+<p>The <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+7">Silhouette</span> option has also been added to the 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> drop-down list, so as to enable you to preserve silhouette curves from the modification.
+
+
+<br>Also in the <i>preserving</i> case, two methods are available in the <span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+5">Silhouette type</span> drop-down list:
+
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+172">Curve</span> and 
+<span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+32">Direction</span>, and the meaning is the same.
+
+
+<br>In the following illustration, the silhouette curve to be preserved is the orange curve, the same used in the previous example as the <i>initial</i> silhouette.
+
+<br><br>
+<img border="1" src="../../rn_2006t2/images/THRSP01.gif">
+<br><br>
+and the result is the following.
+<br><br>
+<img border="1" src="../../../images/rn_2006t2/THRSP02.gif">
+<br><br>
+As you can see, the silhouette curve has been preserved successfully.
+</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a  href="../HWfile/T_HW_GMH.htm"><b>Apply a through highlights modification</b></a></li>
+<li><a  href="../HWfile/T_HW_GSMTC.htm"><b>Constrain a surface through a curve</b></a></li>
+<li><a  href="../HWfile/T_HW_GSMTP.htm"><b>Constrain a surface through a set of points</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

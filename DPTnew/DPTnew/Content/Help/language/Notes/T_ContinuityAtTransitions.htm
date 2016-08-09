@@ -1,0 +1,64 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2007t1" content="internally">
+<title>Continuity at transitions - Linear Sweep Surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css">
+
+<style>	#docframe  
+{
+ 		width : 380;
+		height : 480;
+}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="#ffffe1">
+
+<h4><b>Continuity at transitions</b></h4>
+
+<p>When using the <b>Length</b>  option to obtain a drafted surface, if two base curves are not plane, the transition corresponding to their connection on the opposite side of the  sweep surface can have <A href="../MathConc/T_MC_ContinuityClassification.htm">tangency or positional discontinuity</A> depending on whether you respectively had tangency or positional discontinuity in the connection point.
+<br>
+The illustrations below display two cases in which you get discontinuity when using the <b>Length</b> option:<br>
+<table>
+<tr valign="top">
+<td width="200"><IMG border=1 src="../../images/surfaces/v51_sri02_03.gif">&nbsp;&nbsp;</td>
+<td width="200"><IMG border=1 src="../../images/surfaces/v51_sri02_04.gif"></td>
+</tr>
+<tr valign="top">
+<td width="200"><p class="ridotto">A rectangle has 
+                          been sweeped in a direction not perpendicular to the 
+                          plane. You had positional continuity in the base 
+                          contour, but now you have positional discontinuity on 
+                          the "top" contour. <BR>The reason is the faces are 
+                          trimmed around transitions.</p></td>
+<td width="200"><p class="ridotto">A rounded 
+                          rectangle has been sweeped in a direction not 
+                          perpendicular to the plane. You had tangency 
+                          continuity in the base contour, but now you have 
+                          tangency discontinuity on the "top" 
+                     	  contour.</p></td>
+</tr>
+</table>   
+
+<hr color="silver">   
+</body>
+</html> 

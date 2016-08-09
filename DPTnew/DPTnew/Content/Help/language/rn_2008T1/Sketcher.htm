@@ -1,0 +1,319 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>Enhancements in the Profile Environment</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>Enhancements in the Profile Environment</h1>
+
+<p class="noindent">This version introduces a new sketching functionality enabling the user to create 3D profiles. As a result the <b>think<font color="#FF0F00">3</font></b> application now supports both 2D and 3D profile environments.</p>
+
+<br>
+<ul class="noleft">
+<li><a href="#P277">New <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_EK_VG_+299">3D Profile</span> Environment</a> 
+
+<ul class="noleft">
+<li><a href="#PRS">Profile Reference System</a></li>
+
+<li><a href="#Constraints">3D Constraints</a></li>
+
+<li><a href="#MSR">Model Structure representation</a></li>
+
+<li><a href="#autosnap">Enhancement in the <span class="UI_OPTION_NOBOLD" id="idd_pnsnap.msg+idd_pnsnap+3034">Customize AutoSnap</span> settings</a><br>
+<br>
+</li>
+</ul>
+</li>
+
+<li><a href="#2DProfile">Enhancement in the <span class="UI_OPTION_NOBOLD" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment</a> 
+
+<ul class="noleft">
+<li><a href="#P304">The new <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint</a></li>
+</ul>
+</li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <i>"<span class="OLD">Profile</span> environment"</i> present in the previous versions of the <b>think<font color="#FF0F00">3</font></b> application is now termed as the <i>"<span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment"</i>.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P0000277 - OWN: VANA -->
+<h2><a name="P277">New <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> Environment</a></h2>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment enables you to create profiles in three-dimensions. Currently this functionality supports only straight line and point entities. 3D profiles can be very useful for creating the tubing path to be used by the <a href="Tubing.htm">Tubing</a> functionality. Moreover, they can also be used for surface/curve creation and modification (if applicable).</p>
+
+<br>
+<p>You can start the required profile environment by selecting <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif" align="absmiddle"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6826">Profile</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7762">2D</span> or <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7763">3D</span> from the menu bar. Refer to the description of these commands in the Online Documentation to learn about other methods to start the <i>profile</i> environment and then returning back to the <i>model</i> environment.</p>
+
+<br>
+<p>You can control the display of the three tabs (<span class="UI_OPTION" id="eklib.msg+eklib+422">Model</span>, <span class="UI_OPTION" id="eklib.msg+eklib+558">2D Profile</span> and <span class="UI_OPTION" id="eklib.msg+eklib+559">3D Profile</span>) under the Graphics Area by making use of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1767">Show tabs Model, 2D Profile and 3D Profile</span> check box present under the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1766">Next model document</span> area of the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+4">General</span> - <a href="OPS.htm#general_advcanced"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span></a> category in <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span>. These tabs can be used to change the currently active environment.</p>
+
+<br>
+<p>The currently active profile environment is highlighted by the display of the corresponding icons (as shown below) on the top-right corner of the Graphics Area.<br>
+<br>
+<img src="images/2Dprofile.gif" border="1"> <img src="images/3Dprofile.gif" border="1"></p>
+
+<br>
+<p>Those sketcher commands that produce or modify straight line entities can be used in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment. Specific enhancements have been made in the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1346">Polyline</span> command to ease the process of 3D entity creation. The <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+1">Polyline</span> selection list does not contain the <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+5">Mode</span> drop-down list when started in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment as the creation of <i>arcs</i> is not supported here.</p>
+
+<br>
+<p>However, a new <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+101">Work Plane on Last Point</span> check box will be displayed. (This check box is displayed also when the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1346">Polyline</span> command is started from the Model environment.) On selecting this check box, the Work Plane origin will be automatically moved to the last selected point to draw the polyline. Refer to the <b>Creating a 3D Polyline</b> document in the Online Documentation to learn more about the workflow of creating 3D profiles. An example of a 3D profile is shown in the image below.<br>
+<br>
+<img src="../../images/rn_2008T1/profile-3D.gif" border="1"><br>
+</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+All the transformation commands can be used in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment to move the entities.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver" style="margin-left:30;">
+<h3><a name="PRS">Profile Reference System</a></h3>
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_2008T1/prof_ref_sys.gif" border="1"></td>
+<td valign="top">When you enter the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment, apart from the <i>Work Plane</i> and <i>Absolute Reference (World)</i> reference systems, you also have the Profile Reference System to which the 3D profile entities are referenced. It is represented by a <b>P</b> symbol at its origin.<br>
+<br>
+Refer to the <b>Profile Reference System</b> topic of the <b>Reference Systems</b> document in the Online Documentation for details.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver" style="margin-left:30;">
+<h3><a name="Constraints">3D Constraints</a></h3>
+
+<p>The line constraints applied to the 3D Profile entities is always in reference to the Profile Reference System. If the drawn line is parallel to any Profile Coordinate Axis, the parallel (Pa) constraint is automatically added with the letter corresponding to the axis suffixed to it, as shown in the image below.<br>
+<br>
+<img src="../../images/rn_2008T1/3D-Pa_Constraint.gif" border="1"><br>
+<br>
+The other constraints that can be applied to a 3D profile are:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4584">Parallelism</span> - Adds parallelism between lines&ndash;lines and between lines&ndash;external parametric plane</li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4585">Orientation</span> - Adds orientation with Profile Reference System axes or planes.</li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4588">Collinearity</span></li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7764">Coplanarity</span> <font color="#ff0000">(Only for 3D profiles)</font> - Makes a line entity coplanar with a plane</li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4586">Perpendicularity</span> - Adds perpendicularity between lines&ndash;lines and between lines&ndash;external parametric plane</li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4587">Coincidence</span></li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6170">Point on Curve</span></li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7765">Point on Plane</span> <font color="#ff0000">(Only for 3D profiles)</font> - Places a point on a plane</li>
+
+<li><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4589">Ground</span></li>
+</ul>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The visualization of the geometric constraint symbols on the Graphics Area is always parallel to the current view, irrespective to the orientation of the profile (or the model).</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>In the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+299">3D Profile</span> environment, it is possible to apply a dimensional constraint between a <i>point</i> and a <i>plane</i>. Starting the <span class="UI_OPTION" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+4287">Smart Dimension</span> command and selecting a plane and a point will apply the shortest distance dimension between the two entities. Also, all the other existing dimensional constraints apply the shortest distance between the two selected entities.<br>
+<br>
+<img src="../../images/rn_2008T1/dim_const_3D.gif" border="1"></p>
+
+<br>
+ 
+
+<hr color="silver" style="margin-left:30;">
+<h3><a name="MSR">Model Structure representation</a></h3>
+
+<!-- <p>The 3D profiles are represented by a different icon in the Model Structure than the 2D profiles with distinctive UI labels.</p> -->
+<p>In the Model Structure, 3D profiles are represented using an Icon and labels that are different from the ones used for 2D profiles.</p>
+
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td align="center"><b>Icon</b></td>
+<td align="center"><b>Label</b></td>
+</tr>
+
+<tr>
+<td align="center"><img src="../../images/rn_2008T1/2Dprofile-MS_icon.gif" border="0"></td>
+<td>2D Profile</td>
+</tr>
+
+<tr>
+<td align="center"><img src="../../images/rn_2008T1/3Dprofile-MS_icon.gif" border="0"></td>
+<td>3D Profile</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>To edit a profile, you can right click on it in the Model Structure or Graphics Area and select <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+4869">Edit 2D Profile</span> or <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7835">Edit 3D Profile</span> from the context menu. Double clicking on the entities in the Graphics Area will also activate the corresponding profile environment to facilitate their editing.</p>
+
+<br>
+<hr color="silver" style="margin-left:30;">
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<!-- PRJ: XXX - OWN: XXX -->
+<h3><a name="autosnap">Enhancement in the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3034">Customize AutoSnap</span> settings</a></h3>
+
+<p>In the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3034">Customize AutoSnap</span> dialog box, the new <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3051">2D Profiles</span> and <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+5838">3D Profiles</span> check boxes have been added in the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3061">Inside</span> area.<br>
+<br>
+<img src="images/AutoSnap.gif"></p>
+
+<br>
+<ul class="noleft">
+<li style="list-style: none">Selecting the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+3051">2D Profiles</span> check box enables you to extend selection to entities inside 2D profiles.</li>
+
+<li style="list-style: none">Selecting the <span class="UI_OPTION" id="idd_pnsnap.msg+idd_pnsnap+5838">3D Profiles</span> check box enables you to extend selection to entities inside 3D profiles.</li>
+</ul>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+ <!-- PRJ: P0000304 - OWN: JOPA -->
+ 
+
+<h2><a name="2DProfile">Enhancement in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment</a></h2>
+
+<p>The following enhancement has been made in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment.</p>
+
+<h3><a name="#P304">The new <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint</a></h3>
+
+<p>This version introduces the new <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint. This constraint can currently be applied only between lines and arcs. You can use the following two ways to apply the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint.</p>
+
+<ul>
+<li><a href="#plane">Using the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command</a></li>
+
+<li><a href="#offset">Using the new <span class="UI_OPTION_NOBOLD" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7734">Offset Constraint</span> command</a></li>
+</ul>
+
+<h3><a name="plane">Using the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command</a></h3>
+
+<p>In the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment, if the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command is used with the <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> option selected, an offset constraint will be applied between the offset entities.</p>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+In the previous versions, the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+4606">Offset on Plane</span> command was not enabled in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment. However, from this version onwards it is enabled and you can use this command to apply <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraints between curves in the <span class="tdesign.msg+_EK_VG_+298">2D Profile</span> environment. Note that in the <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+425">Transition</span> drop-down list of the <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+421">Offset on Plane</span> selection list, only the <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+120">None</span> and <span class="UI_OPTION" id="tdesign.msg+_CURVE_UI_LABEL_+428">Extend parameter</span> options are present in the <span class="UI_OPTION" id="tdesign.msg+_EK_VG_+298">2D Profile</span> environment.</td>
+</tr>
+</table>
+
+<br>
+<p>On the profile, the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint is represented by the '<span class="UI_OPTION" id="tdesign.msg+_EK_VG_+267">Of</span>' symbol. Moving the mouse over this constraint will display:</p>
+
+<ul>
+<li>a tooltip describing the name of the constraint</li>
+
+<li>the tooltip also describes the geometric entities involved and</li>
+
+<li>highlight the involved geometries</li>
+</ul>
+
+<p><br>
+<img src="images/Offset_1.gif" border="1"><br>
+<br>
+If the orientation of any of the curves involved in an offset constraint is modified, the remaining curves are realigned to maintain the offset distance, as shown in the image below.<br>
+<br>
+<img src="../../images/rn_2008T1/Offset_2.gif" border="1"></p>
+
+<br>
+ 
+
+<hr color="silver" style="margin-left:30;">
+<h3><a name="offset">Using the new <span class="UI_OPTION" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7734">Offset Constraint</span> command</a></h3>
+
+<p>The new <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint can also be applied directly by using the <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6826">Profile</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> command. On invoking this command the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+95">Offset Constraint</span> selection list is displayed.</p>
+
+<br>
+<p>You need to select two groups of entities (for the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+69">First Group</span> and <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+70">Second Group</span> selectors respectively) between which the <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span> constraint is to be applied. The entities selected in the first group and the corresponding selection in the second group should be of the same type, as shown in the images below.</p>
+
+<br>
+<table border="0" cellspacing="2" cellpadding="2" style="margin-left:30;">
+<tr>
+<td align="center"><img src="../../images/rn_2008T1/Offset_3.gif" border="1"></td>
+<td align="center"><img src="../../images/rn_2008T1/Offset_4.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+69">First Group</span></td>
+<td align="center"><span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+70">Second Group</span> </td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"><br>
+<img src="../../images/rn_2008T1/Offset_5.gif" border="1"></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center"><b>Result</b></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+On selecting the <span class="UI_OPTION" id="SketcherEditingUI.msg+_SKETCHEREDITINGUI_LABEL_+96">Add Dimension</span> check box, the offset dimension can be applied between the entities that can be later modified to redefine the offset distance.</td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+</body>
+</html>
+

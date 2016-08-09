@@ -1,0 +1,289 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a Parting Plane</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a Parting Plane</h3>
+
+<p class="notop">Once you have started the <a href="../FWfile/T_FW_sr_23.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+250">Parting Plane</span></a> command, proceed as follows.</p>
+
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Select the curves composing the set of boundaries of the parting plane.<br>
+<br>
+<img border="1" src="../images/PPlane-01.gif"><br>
+<br>
+To change the selected curves, <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+1">Curves</span> in the selection list, select 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu and perform selection again.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>To obtain <i>associative</i> surfaces, that is  open solids&nbsp;&#151;&nbsp; <i>Skins</i>&nbsp;&#151;&nbsp; retaining a link to their base curves, so that if you modify such curves the surfaces will be modified accordingly, check the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+251">Associative Mode</span> box. See "
+<a href="../OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+60">Direction</span> drop-down list, select the direction of ejection (<i>pull direction</i>). For details, see "<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a>". In our example, we selected <b>Y</b>.<br>
+
+
+<br>
+ </td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Once the curves are selected and the direction is set, a preview is displayed:<br>
+<br>
+<img border="1" src="../images/PPlane-02.gif"><br>
+<br>
+Click the preview button ( <img border="0" align="middle" src="../../../images/general/PREVIEW.gif"> ) to get a shaded preview of the parting plane<br>
+<br>
+<img border="1" src="../images/PPlane-03.gif"> <br>
+<br>
+If some problems are detected when creating the parting plane, a special warning icon is displayed on top of the selection list ( <img src="../../../images/general/WARNINGS_ON.gif" align="absmiddle"> ), and a specific label indicating the type of issue is displayed on the model in the position where the problem occurs. You can hide the labels by clicking on the previous icon, that will turn to <img src="../../../images/general/WARNINGS_OFF.gif" align="absmiddle"> .<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+96">Width</span> box, type the width of the main side of the parting plane&nbsp;&mdash;&nbsp;the one external to the parting line. Alternatively, you can set the width interactively by dragging the corresponding anchor:<br>
+
+
+<br>
+<img border="1" src="../images/PPlane-05.gif"><br>
+<br>
+To invert the sign of the supplied value, double-click on the anchor.<br>
+Select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+99">Second Width</span> check box to specify the second side width and type the latter&nbsp;&#151;&nbsp;the internal one&nbsp;&#151;&nbsp;inside the adjacent box.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+97">Target angle</span> box, type the value of the angle between the plane tangent to the parting plane along the parting line and the direction of ejection, in the case you need to have a parting plane not exactly perpendicular to direction of ejection. When the parting plane is computed, an optimization is performed on it:&nbsp;the program tries to keep as close as possible to this value while absorbing tangency discontinuities. Some undulations might turn out in the resulting parting "plane". They can be avoided by setting the target angle free (see the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+171">Free Target Angle</span> check box described below).<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>Optionally, to access other options, click on <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to expand it.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td width="15"><b>8</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+94">Generation</span> drop-down list select the method to be used to generate the parting plane: 
+
+
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+91">Standard</span></td>
+
+
+<td>The parting plane is generated by moving a straight line perpendicularly to the direction of ejection (or <i>pull direction</i>) and to the tangent of the parting line. This mode is generally quicker, but&nbsp;it absorbs fewer parting "line" tangency discontinuities than the other two and doesn't enable you to release the target angle.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+92">Optimized</span></td>
+
+
+<td>The parting "plane is generated by moving a straight line perpendicularly to the direction of ejection and to the tangent of the parting line. It absorbs more parting "line" discontinuity than the standard method, thus resulting a bit slower.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+93">Advanced</span></td>
+
+
+<td>The parting plane is generated by an advanced&nbsp; method that tries to absorb the parting "line" tangency discontinuities (and thus is slower). This mode makes the resulting shape piecewise more NC machinable than the other ones.</td>
+</tr>
+</table>
+
+If you selected the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+92">Optimized</span> or 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+93">Advanced</span> option, the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+171">Free Target Angle</span> check box will be displayed in the selection list. If this check box is selected, the 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+97">Target angle</span> value is still taken into account when computing the parting plane, but more flexibility is given in order to absorb more parting "line" discontinuity.<br>
+
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>9</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+95">Min. fill. width</span> box type the width value for the filling surfaces. In some situations, in order to ensure tangency continuity,&nbsp;a filling surface is automatically generated in the parting plane. A filling surface is a kind of triangular patch. This box enables you to define the minimum width value for the filling surface: this dimension is the&nbsp;length of the external side of the triangle projected&nbsp;onto a plane perpendicular to the direction of ejection and measured at the width&nbsp;distance from the summit of the triangle. 
+
+
+
+<table>
+<tr valign="top">
+<td><b><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+95">Min. fill. width</span>=5</b></td>
+
+
+<td><b><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+95">Min. fill. width</span>=20</b></td>
+
+
+</tr>
+
+<tr valign="top">
+<td><img border="1" src="../../../images/surfaces/sri90_23.gif"></td>
+<td><img border="1" src="../../../images/surfaces/sri91_23.gif"></td>
+</tr>
+</table>
+
+<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>10</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+100">Min. radius</span> box type the minimum curvature value radius allowed for the parting "plane".<br>
+
+
+This value is very important in Numerical Control manufacturing, for example when using a rolling tool. It can be used to determine the biggest tool before gauging or undercutting. A warning is displayed when the curvature radius is smaller than this value.<br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>11</b></td>
+<td>
+<p>As soon as the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> button is selected, The 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+109">Transitions</span> item is displayed in the selection list and a cross marker is displayed on each transition point (connecting points between adjacent curves in the parting line). Initially, all transition points belong to the same group (the <b>Points (Group 1 Default)</b> selector in the selection list).</p>
+
+
+
+<ul class="noleft">
+<li>To define the type of transition for all the points of Group 1, click on <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span> <b>(</b>
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+25">Group</span> <b>1</b> 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+170">Default</span><b>)</b>. The 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+59">Transition</span> drop-down list will be displayed in the model. You can choose the transition type among the following: 
+
+
+
+<table>
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+55">Sharp</span></td>
+
+
+<td>No optimization on a transition of this type. It is the transition you get simply keeping the plane perpendicular to the direction of ejection or satisfying the target angle. Sharp edges may be generated.<br>
+<br>
+<img border="1" src="../../../images/surfaces/sri02_23-sharp.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+54">Tangent</span></td>
+
+
+<td>The system tries to absorb the discontinuity. It may result a filling surface that may have a conic point at the corner.<br>
+<br>
+<img border="1" src="../../../images/surfaces/sri01_23-smooth.gif"><br>
+<br>
+</td>
+</tr>
+</table>
+
+The chosen transition type will be applied to all the transition points belonging to the group.<br>
+<br>
+</li>
+
+<li>To change the transition type for one or more points, you'll have to move it/them to another group: 
+
+<ol class="litleft">
+<li>Click on the next yellow <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span> <b>(</b>
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+25">Group</span> <b><i>n</i>)</b> item in the selection list.</li>
+
+
+
+<li>Click on the point(s) to be moved.</li>
+</ol>
+
+A new <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+59">Transition</span> drop-down list will be displayed, enabling you to choose the transition type you desire for the points of the new group.<br>
+
+
+Note that changing a transition type when the advanced generation is requested may affect the global resulting shape.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="baseline">
+<td><b>12</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the surfaces.<br>
+<br>
+<img border="1" src="../images/PPlane-06.gif"><br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

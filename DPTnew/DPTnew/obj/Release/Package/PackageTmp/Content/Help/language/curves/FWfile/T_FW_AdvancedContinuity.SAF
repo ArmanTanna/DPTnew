@@ -1,0 +1,140 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(492,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Advanced Curve Continuity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../../JSandSTYLES/TwoDPLUS.js"></script>
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style type="text/css">
+.OLD{font-weight: bold;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  onload="viaMk();JavaScript: HideThreeD();HideP();HideLists();HideMore();HideTR();" bgcolor="white">
+
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+1109">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Curve.msg+MenuBar_Document_Modify_Curve+7500">Advanced Continuity</span> </p>
+<hr color="#63a9d8">
+</table>
+
+<p style="margin-bottom:0;">The <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+91">Advanced Curve Continuity</span> command enables you to modify continuity between curves and chains of curves. The result of the command is a new chain of curves matching the chosen continuity conditions (while the original curves will still be there).</p>
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>First, select a chain of curves to modify (the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+121">Curves to Be Modified</span> item in the selection list will turn to green&nbsp;&#151;&nbsp;you can end selection by right-clicking and selecting 
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu or by clicking 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_SPEECH_+120">Reference Curves</span>).</li>
+
+<li>Then, select a chain of curves to be used as a reference (the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_SPEECH_+120">Reference Curves</span> item in the selection list will turn to green; end selection by right-clicking and selecting 
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu).</li>
+
+</ul>
+
+<p style="margin-top:0;">Please take into account that both chains can obviously be reduced to just one curve; from now on, the term <i>contour</i> will be used instead of curve/chain of curves.</p>
+
+<p style="margin-bottom:0;">Once the two contours have been selected:</p>
+
+<ul class="noleft">
+<li>You will be able to set the continuity conditions between the two contours, which can be positional, tangency, curvature, torsion, smooth curvature or curvature continuity between the curvature plots. As to the meaning of continuity types, see <a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a>.</li>
+
+<li>The application automatically detects the two nearest endpoints and shows the solution you would get with positional continuity. In fact, a preview mechanism is available, enabling you to interactively assess the result you are obtaining.</li>
+</ul>
+
+<p>You can also change the position of the endpoint on the reference contour (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+122">Reference U</span>) and of the one on the contour to be modified ( 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+124">Fixed U</span> ). The position of its second endpoint ( 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+123">Modified U</span> ) can be modified as well. The number of curves the command will actually create is the same as the one of the curves belonging to the contour to be modified in the range between the fixed and the modified endpoint.</p>
+
+
+<p>Starting from tangency and up to higher continuity values, a <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+131">Weight</span> value is also available. The weight will enable you to adjust the tangency factor (supplying negative values will cause the tangent to get the opposite direction).</p>
+
+
+<p style="margin-bottom:0;margin-top:10px;" id="HIDEP">The <a href="mk:@MSITStore:help.chm::/language/curves/OVfile/T_OV_curves.htm#Assoc">
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box enables you to create curves which retain a link to the surfaces/curves they derive from.</p>
+
+
+<table id="F2DNOTVISIBLE">
+<tr valign="top">
+<td><img src="../../../images/general/bullet_black.gif" align="bottom"></td>
+<td>When the check box is selected, the resulting curves will be associative. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bullet_black.gif" align="bottom"></td>
+<td>When the check box is cleared, the resulting curves will not be associative.</td>
+</tr>
+</table>
+
+<p>Some particularly advanced options are available under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>.</p>
+
+
+
+<ul class="noleft">
+<li>Using the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+150">Shape factor</span>, which can vary in the range from 0.0 to 1.0, you can control the way the result is computed. When the value is 0.0 the result will be computed only based on a <i>shape similarity</i> criterion with the initial part of the chain. When the value is set to 1.0, the result will be computed only based on the <i>distance</i> from the initial part of the chain. When the value is set to an intermediate value between 0.0 and 1.0, both the said criteria will be taken into account proportionally to the value itself.</li>
+
+<li>Also the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+154">Flexibility</span> of the resulting curve can be chosen, in a set of four values, from 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+155">Minimum</span> to 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+158">Big</span>. The higher the chosen value, the more flexible and complex the resulting curve will be.</li>
+
+</ul>
+
+<p id="HIDEP">Finally, you can use the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_CurveCurvature.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span></a> command to obtain a curvature plot taking into account the modified contour and the part of the reference contour resulting in the most "natural" connecting contour.</p>
+
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img src="../../../images/rn_800/LastTransform.gif" align="absmiddle"> )&nbsp;&#151;&nbsp;enabling you to use the last selections and settings again without having to repeat them all&nbsp;&#151;&nbsp;is available on top of the selection list in the situations described in "<a href="../OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>".</p>
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_AdvancedContinuity.htm"><b>Modify continuity between two chains of curves</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related topics</h5>
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_CmpContinuity.htm"><b>Curve Continuity Commands: a comparison</b></a></li>
+<li><a href="../OVfile/T_OV_RESTORE.htm"><b>Restore Selection modality for selections and settings</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

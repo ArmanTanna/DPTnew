@@ -1,0 +1,186 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Light Representations - Overview</TITLE>
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-left:22;margin-top:4;}</style>
+
+<style>.litleft{margin-left:26;margin-top:4;}</style>
+
+<style>.littop{margin-top:1;}</style>
+
+<style>h3{margin-bottom:0;}</style>
+
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<h1>An Overview on Light Representations</h1>
+<P>This document outlines the Light Representations functionalities in <b>think<font color="#FF0F00">3</font></b>.</P>
+<ul class="noleft">
+<li><a href="#LR_1"><b>Basic concepts</b></a>
+<li><a href="#LR_2"><b>Automatic and user provided Light Representations</b></a>
+<li><a href="#LR_3"><b>Key points</b></a>
+<li><a href="#LR_4"><b>How they work</b></a>
+</ul>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos and documents</i> on Light Representations has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8"><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational documents on Light Representations here: <a href="../../tocpages/EL_LR.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Light Representations</b></a>.<br> Enjoy your lessons!</td></tr></table><br><br>
+<p>&nbsp;</p>
+<h3><a name="#LR_1"></a>Basic concepts</h3>
+
+<P class="littop">When managing assemblies, and large assemblies particularly, you may load, visualize and modify assemblies composed of thousands of parts, many of which may be very complex on their own.
+</p>
+
+<p>
+Therefore, by applying Light Representations to some or all the X-Reference components, the component state requires less memory and graphics resources and the whole assembly becomes lighter and easier to be loaded and visualized.
+</p>
+
+<p>Any X-Reference component in an assembly can be optionally loaded in a Light Representation.</p>
+
+<p>
+You can define several Light Representations for each X-Reference component, providing different balances between simplification and visual quality; some of them are generated automatically, some require the user's intervention.</p>
+
+<p>Within the assembly, you can use different Light Representations for different components, whereas all the occurrences of a specific component are loaded and displayed in the same Light Representation. The same component can be loaded in its full representation in an assembly and in any Light Representation in other assemblies.</p>
+
+<p>When a component is loaded in a Light Representation, you may get some limitations in its manipulation, depending on the kind of representation. In any case, the parametric behavior of the whole assembly is preserved: any existing parametric dependency towards that component (mating, profile references and so on) works properly, regardless of the current component representation.</p>
+
+<p>
+Light Representations can work independently, but, typically, you can specify what Light Representations must be used for the assembly components from within Visual Bookmarks.
+</p>
+
+<p></p><table border=1 bordercolor="navy" bgcolor="#FFFFE1" width="95%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b><br><br>
+
+Note that Light Representations cannot be applied to local components.
+
+</td></tr></table>
+
+
+</p>
+
+<p>&nbsp;</p>
+<h3><a name="#LR_2"></a>Automatic and user provided Light Representations</h3>
+
+<P class="littop">Right-clicking on any <b>X-Reference (component)</b> and selecting the <b>Light Representations</b> command from the context menu, you get the following commands:
+
+<ul class="noleft">
+
+<li>Light Representations that are generated automatically:</p>
+<p>
+<table>
+<tr valign="top">
+<td><b>Full Detail</b></td>
+<td>The ordinary, default X-Reference component representation. Selecting it enables you to go back to it from any Light Representation.</td>
+</tr>
+<tr valign="top">
+<td><b>Flat Tessellation</b></td>
+<td>Automatically generated and quickest to load Light Representation. The <b>Model Structure</b> doesn't display any more the hierarchy of the sub-components and the list of the events.</td>
+</tr>
+<tr valign="top">
+<td><b>Fast Tessellation</b></td>
+<td>Light Representation showing X-Reference components at an intermediate tessellation level. Automatically generated. The <b>Model Structure</b> displays the hierarchy of the sub-components but doesn't show any more the list of the events.</td>
+</tr>
+<tr valign="top">
+<td><b>Full Tessellation</b></td>
+<td>Light Representation showing X-Reference components at the highest tessellation level. Automatically generated. The <b>Model Structure</b> displays the hierarchy of the sub-components but doesn't show any more the list of the events.</td>
+</tr>
+</table>
+</p>
+<li>Light Representations requiring the user's intervention:</p>
+<p>
+<table>
+<tr valign="top">
+<td><i>First user provided Light Representation</i></td>
+<td>Any model you selected to be used in place of the component as a Light Representation. The <b>Model Structure</b> still displays the list of the events</td>
+</tr>
+<tr valign="top">
+<td>...</td>
+<td></td>
+</tr>
+<tr valign="top">
+<td><i>Last user provided Light Representation</i></td>
+<td>Any model you selected to be used in place of the component as a Light Representation. The <b>Model Structure</b> still displays the list of the events</td>
+</tr>
+<tr valign="top">
+<td><b>New<b></b></td>
+<td>Enables you to select a model to be used in place of the component as a Light Representation</td>
+</tr>
+</table>
+</p>
+<br><br>
+<li>And the additional command:</p>
+</p>
+<table>
+<tr valign="top">
+<td><b>Organize</b></td>
+<td>Enables you to arrange the different Light Representations for an X-Reference component</td>
+</tr>
+</table>
+</ul>
+
+<p>&nbsp;</p>
+<h3><a name="#LR_3"></a>Key points</h3>
+<P class="littop">
+
+<ol>
+<li>Light Representations can be applied to X-Reference components only.
+<li>The same Light Representation is applied to all the occurrences of the component in the assembly.
+<li>Attributing a Light Representation to a component is a property of the document where the component is viewed. Therefore, as a consequence, the same components may be displayed in different representations when they are in different documents. 
+<li>If a component included in a sub-assembly is switched to a Light Representation, when you load the sub-assembly in another document, in this document the component is loaded in full representation.
+<li>Before switching among automatically generated Light Representations and/or to the full representation, the component needs to be saved, if modified.
+</ol>
+
+</p>
+
+
+
+
+<p>&nbsp;</p>
+<h3><a name="#LR_4"></a>How they work</h3>
+<P class="littop">
+Light Representations can be activated in the following ways:
+
+<ul>
+<ol>
+<li>from the context menu on any loaded <b>X-Reference (component)</b> 
+<li>when loading an assembly, specifying a <i>rule</i> to be applied to all the X-Reference components within the assembly 
+<li>by means of a Visual Bookmark, that specifies the Light Representation to be used for some of the components belonging to the assembly 
+
+</ol>
+
+</ul>
+
+</P>
+
+<p>For more information, see <a href="T_OV_LightReps_more.htm"><b>Notes on Light Representations</b></a>.</p>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+	<li><a href="mk:@MSITStore:as.chm::/language/assembly/OVfile/T_OV_LargeAssembly.htm"><b>An Overview on Large Assemblies</b></a>
+
+	<li><a href="mk:@MSITStore:vb.chm::/language/visualbookmarks/OVfile/T_OV_visualbookmarks.htm"><b>An Overview on Visual Bookmarks</b></a>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_LR.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_LR.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Light Representations</b></a></p>
+<hr color="silver">
+</body>
+</html>

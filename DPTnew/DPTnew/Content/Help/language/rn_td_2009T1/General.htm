@@ -1,0 +1,456 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t2" content="internally">
+<meta name="Author" content="Vicky Raina">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>General Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>General Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following general utility improvements.</p>
+
+<ul class="noleft">
+<li><a href="#527">Template based creation of new documents</a></li>
+
+<li><a href="#473">Enhancement in <span class="UI_OPTION_NOBOLD" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6424">Query</span> command</a></li>
+
+<li><a href="#534">Possibility of constraints with the origin of Work Plane</a></li>
+
+<li><a href="#417">Improvement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1663">Tessellation</span> mechanism</a></li>
+
+<li><a href="#411">Enhancement in the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+6838">Entity Relations</span> command with respect to Work Plane</a></li>
+
+<li><a href="#606">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span> command</a></li>
+
+<li><a href="#REC">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span> and <span class="UI_COMMAND_BOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span>  commands</a></li>
+
+<li><a href="#408">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_View.msg+MenuBar_Document_View+1291">Section View</span> command</a></li>
+
+<li><a href="#433">Enhancement in the <span class="UI_COMMAND_BOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command (<span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span>)</a></li>
+
+<li><a href="#P559">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7397">Mean Plane</span> command</a></li>
+
+<li><a href="#P470">Improvement in Adaptive Measure selectability</a></li>
+
+<li><a href="#P482">Enhancement in <span class="UI_COMMAND_NOBOLD" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span> and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span></a></li>
+
+<li><a href="#P459">Improvement in color propagation</a></li>
+
+<li><a href="#448">Enhancement in the <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span> command</a></li>
+
+<li><a href="#528">Enhancements in the Automatic Traceback Management</a></li>
+
+<li><a href="#557">New <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_View.msg+MenuBar_Document_View+7886">Hide Inner Entities</span> command</a></li>
+
+<li><a href="#601">Enhancement in High Quality Rendering (HQR)</a></li>
+
+<li><a href="#Misc">Improvement in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7825">Two-Entity Distance Map</span> command</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!--PRJ: P0000527-  OWN: ALCO-->
+<h2><a name="#527">Template based creation of new documents</a></h2>
+
+<p>Starting from this version the creation of any new document is based on <i>templates</i>, which can be standard or customized ones.</p>
+
+<br>
+
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1">A <a href="mk:@MSITStore:help.chm::/language/glossary/T_Templates.htm"><i>template</i></a> is a document, which contains predefined properties, settings and attributes, and some entities. This will be of great help in order to speed up the activities whenever you need to work on models/drawings in a series with the same basic characteristics. See "<a href="mk:@MSITStore:help.chm::/language/glossary/T_Templates.htm">Document Templates</a>" for more details.
+</td>
+</tr>
+</table>
+
+<br>
+<!-- <p>..........................</p> -->
+
+<p>As a consequence of the new templates concept, the word &mdash; <i>Template</i> &mdash; in <i>old</i> commands about templates has been renamed to <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+920">Layout Configuration</span>.</p>
+
+<!-- <p>............................</p>
+
+<p>As a consequence of the new templates concept, the <i>old</i> commands referring to <i>Templates</i> have been renamed as given below.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr bgcolor="#C0C0C0">
+<td><b>Old</b></td>
+<td><b>New</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img src="../../images/general/litarr.gif"><span class="OLD">Template</span> </td>
+<td><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+920">Layout Configuration</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Drawing Template</span></td>
+<td><span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+297">Layout Configuration</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Template</span></td>
+<td><b>Configuration</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DrawingViews.msg+MenuBar_Document_Insert_DrawingViews+4561">Drawing View</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DrawingViews.msg+MenuBar_Document_Insert_DrawingViews+926">Main</span><img src="../../images/general/litarr.gif"><span class="OLD">Default Template</span></td>
+<td><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DrawingViews.msg+MenuBar_Document_Insert_DrawingViews+4561">Drawing View</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DrawingViews.msg+MenuBar_Document_Insert_DrawingViews+926">Main</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DrawingViews.msg+MenuBar_Document_Insert_DrawingViews+4562">Layout Configuration</span></td>
+</tr>
+</table> -->
+
+<p>This version helps you to have a template with all of the required parameters <a href="mk:@MSITStore:help.chm::/language/glossary/T_Templates.htm">pre-set</a>, to enable you to work in an efficient, faster and consistent manner.<br>
+<br>
+ In previous versions, you have already used templates to begin a new document but only with the provided predefined settings and standard dimensioning methods. However, now you are enabled to use either the standard or your own customized template. Note that each standard template file supplied with the product contains standard settings for dimension/text styles and unit of measure values and in this case there is no difference with the previous version.<br>
+<br>
+ The significant enhancements that have been made in the document template management include:</p>
+
+<ul>
+<li><a href="#Saveas">Creating a template</a></li>
+
+<li><a href="#dialog">Choosing a template</a></li>
+
+<li><a href="OPS.htm#general_show">Settings for the ThinkDesign start up dialog box</a></li>
+</ul>
+
+<h3><a name="Saveas"></a>Creating a template</h3>
+
+<p>Use the new <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_SaveasTemplate.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7217">Save as Template</span></a> command to save the current document as a template.<br>
+To create a new template, see "<a href="mk:@MSITStore:help.chm::/language/file/HWfile/T_HW_fi_SaveasTemplate.htm">How to customize a document template</a>" in the online documentation. After creating a new template, it will be available in the list of the <a href="mk:@MSITStore:help.chm::/language/file/jsoptions/Current_Template_01.htm"><span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+2">Current templates</span></a> options, which can be chosen using the <a href="mk:@MSITStore:help.chm::/language/file/jsoptions/ChangeTemplate.htm"><span class="UI_OPTION" id="idd_startup.msg+idd_startup+18">Change</span></a> button.</p>
+
+<h3><a name="dialog"></a>Choosing a template</h3>
+
+<p>Now onwards you can select a different template rather than the default one by using the revised ThinkDesign dialog box (to open, select the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_01.htm"><span class="UI_COMMAND" id="ButtonToolbar_File.msg+ButtonToolbar_File+6318">New File</span></a> <img src="../../images/icons/icons_new/ID_NEW.bmp" border="0" align="absmiddle"> button). It includes the new <a href="mk:@MSITStore:help.chm::/language/file/jsoptions/Current_Template_01.htm"><span class="UI_OPTION" id="idd_startup.msg+idd_startup+15">Current templates</span></a> area and <span class="UI_OPTION" id="idd_startup.msg+idd_startup+18">Change</span> button. When you select the <span class="UI_OPTION" id="idd_startup.msg+idd_startup+18">Change</span> button, a new <span class="UI_COMMAND" id="idd_new_startup_options.msg+idd_new_startup_options+1">Change Templates</span> dialog box is displayed. It enables you to choose between the current template <a href="mk:@MSITStore:help.chm::/language/file/jsoptions/Current_Template.htm ">options</a>: <span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+3">Model</span> and/or <span class="UI_OPTION" id="idd_new_startup_options.msg+idd_new_startup_options+4">Drawing</span>. The templates that are specified here are reflected in the text boxes of the corresponding options in the <span class="UI_OPTION" id="idd_startup.msg+idd_startup+15">Current templates</span> area.</p>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- #################################################################################### -->
+<!--PRJ: P0000473-  OWN: Elvira Donzelli-->
+<h2><a name="473">Enhancement in the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6424">Query</span> command</a></h2>
+
+<p>The <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_300.htm"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6424">Query</span></a> command has been removed from <span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img align="absmiddle" src="../../images/general/litarr.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1099">Select</span> in the menu bar. Now, it is available only in the context menu. On starting the command, instead of the <span class="OLD"><b>Query selection</b></span> dialog box, you will get a window listing all the underneath entities (surfaces, lines, curves etc) of the model. You can toggle and select among the entities from the listing window.<br>
+<br>
+</p>
+
+<p>The alternate way to use the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+6424">Query</span> command is by selecting the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+63">Automatic query selection</span> check box from the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span>- <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+57">Input</span> category. The enhancement displays the <i>number</i> of entities which are underneath the snapped entity (based on depth order). You will be able to toggle among the entities either by using the <b>Tab</b> or <b>Page Up/Page Down</b> keys. Also, this tool has been enhanced to support all types of <a href="mk:@MSITStore:help.chm::/language/view/OVfile/T_OV_basic08.htm">display</a>.<br>
+<br>
+</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000534 - OWN: Luca Cioni -->
+<h2><a name="534">Possibility of constraints with the origin of Work Plane</a></h2>
+
+<p>Now, it is possible to apply geometrical constraints like <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+4587">Coincidence</span></a>, <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_sk_33.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+6170">Point on Curve</span></a> etc. between the origin of the Work Plane and any point of the 2D Profile.</p>
+
+<br>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--PRJ: P0000417 The project has been changed from developers side - OWN: Stefano Pippa-->
+<h2><a name="417"></a>Improvement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1663">Tessellation</span> mechanism</h2>
+
+<p>It is now possible for the tessellation mechanism to maintain better visualization quality and connectivity between surfaces in cases of rough tolerance conditions and different tolerance values applied to surfaces of the same solid/skin. An example is the shape of the holes in the images below.</p>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_td_2009T1/multiple_instance.gif" border="1"></td>
+<td></td>
+<td><img src="../../images/rn_td_2009T1/Tessellation.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Old behavior</b></td>
+<td></td>
+<td align="center"><b>New behavior</b></td>
+</tr>
+</table>
+
+<br>
+<hr color="silver">
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--PRJ: P0000411 - OWN: Marco Botton-->
+<h2><a name="411">Enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+6838">Entity Relations</span> command with respect to Work Plane</a></h2>
+
+<p>Starting from this version, the <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_Entity_Relations.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+6838">Entity Relations</span></a> functionality can also be applied to the Work Plane objects.</p>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--Project: P00000606 own==Marco Lanzoni-->
+<h2><a name="606">Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span> command</a></h2>
+
+<p>Starting from this version, you will be able to search for non-manifold defects in the model. To facilitate this, a new <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_LABEL_+21">Not Manifold</span> 
+category has been introduced in the <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+1">Check Parameters</span> dialog box of the <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_Model_Quality.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span></a> command. The default settings of the <span class="UI_COMMAND" id="idd_healing_settings.msg+idd_healing_settings+1">Check Parameters</span> dialog box have also been changed.<br>
+<br>
+ In addition, a new <span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_TOOLTIP_+139">Show All Defects</span>/<span class="UI_COMMAND" id="TDHealing.msg+_TDHealing_TOOLTIP_+140">Hide All Defects</span> (<img align="absmiddle" src="../../images/general/preview.gif">) button has been introduced in the selection list. It enables/disables the display of the defects on the model in the Graphics Area.</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--Project: P00000 own==-->
+<h2><a name="REC"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span> and <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span> commands</h2>
+
+<p>Backup files are created as per the settings made in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1793">Backup/Recover</span> category. In case of data corruption or if for any reason there is a need to go back to a previous version of the file, the new <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img align="absmiddle" src="../../images/general/litarr.gif" border="0"><a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_Recover_Undo_Recover.htm"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7216">Recover</span></a> command enables you to open these backup copies of the Model/Drawing files by browsing through a file selection box. The new <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img align="absmiddle" src="../../images/general/litarr.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+7218">Undo Recover</span> command discards the recover operation and restores the situation as saved in the original file (if there is no data corruption).<br>
+<br>
+</p>
+
+<hr color="Silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--PRJ: P0000408 - OWN: Rumeet-->
+<h2><a name="#408">Enhancement in the Section View command</a></h2>
+
+<p>The following enhancements have been made in the <span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1291">Section View</span> command.</p>
+
+<ul>
+<li>The location of the command has been changed to <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif" border="0"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4531">Modify</span><img src="../../images/general/litarr.gif" border="0"><a href="mk:@MSITStore:HELP.CHM::/language/view/FWfile/T_FW_vw_22.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7885">Define Section View</span></a> and the <i>XY-plane</i> of the <b>World Coordinate System</b> is set as the default section plane.</li>
+
+<li>Now you can set the color of the capped surface to be the same as that of the sectioned model.</li>
+
+<li>A new <span class="UI_COMMAND" id="SectionView.msg+_SECTIONVIEW_LABEL_+9">Show section edges</span> check box has been introduced in the selection list. 
+
+<ul class="noleft">
+<li>When selected, the section edges are highlighted.</li>
+
+<li>When cleared, the section edges are not highlighted.</li>
+</ul>
+</li>
+
+<li>Henceforth, the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif" border="0"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../images/general/litarr.gif" border="0"><span class="UI_COMMAND" id="MenuBar_Document_View.msg+MenuBar_Document_View+1291">Section View</span> command is used to toggle on\off the section view of the model.</li>
+</ul>
+
+<br>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--PRJ: P0000433 - OWN: Sergio Missori-->
+<h2><a name="433"></a>Enhancement in the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command (<span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span>)</h2>
+
+<p>The <a href="mk:@MSITStore:DFTB.chm::/language/DFTB/FWfile/T_FW_PartPropertiesTab.htm"><span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span></a> tab has been added to the dialog box automatically opened by the <span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+1033">File</span><img border="0" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_File.msg+MenuBar_Document_File+4444">Properties</span> command. It enables you to quickly edit the part data relevant to the top level component described in the document.</p> 
+
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!--PRJ: P0000559 - OWN: Jing Cheng-->
+<h2><a name="#P559">The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7397">Mean Plane</span> command</a></h2>
+
+<p>This version introduces a new <span class="UI_COMMAND" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7394">Design Aids</span> command called <a href="mk:@MSITStore:aixprod.chm::/language/aixprod/FWfile/T_FW_MeanPlane.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_DesignAids.msg+MenuBar_Document_Insert_DesignAids+7397">Mean Plane</span></a>. It enables you to create a plane (surface) considering the mean location of user selected entities, which can be points, curves or meshes.<br>
+<br>
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ <!--PRJ: P0000470 - OWN: Alessandra Angelini-->
+<h2><a name="#P470">Enhancement in Adaptive Measure selectability</a></h2>
+
+<p>With the enhancements made in <a href="mk:@MSITStore:help.chm::/language/tools/OVfile/T_OV_AdaptiveMeasure.htm">Adaptive Measure (AM)</a>, the scope of graphical selections to capture <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+10">Radius</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+34">Diameter</span> AM has increased. It is now possible to graphically select <a href="#canal">Canal surfaces</a> whose radius is varying both in U and V directions. The radius that remains constant along one of the directions will be linked to the adaptive measure. For example, the fillet applied on an edge of the cylinder is a canal surface, and hence, it can be graphically selected to link its radius/diameter value using AM.</p>
+
+<br>
+ 
+
+<p>If you select a non canal surface (for example a variable radius fillet) to apply Adaptive Measure (for capturing Radius or Diameter), a suitable warning will be displayed informing you that your selection is invalid.<br>
+</p>
+
+<br>
+<p><a name="canal"></a><i><b>Canal Surface definition:</b> It is a surface formed as the envelope of a family of spheres whose centers lie on a space curve; for example, a Torus.</i></p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ <!-- PRJ: P482 - OWN: Patrick Bosinco -->
+<h2><a name="#P482">Enhancement in <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+33">Quality Checks</span> and <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span></a></h2>
+
+<p style="margin-bottom:0;">A new <i>Curvature signs</i> functionality has been introduced in the following:</p>
+
+<ul>
+<li>As the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm#CS"><span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span></a> tab in the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm"><span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+1">Quality Checks</span></a> dialog box, which is available for many <i>Surfacing</i> and <i>GSM</i> commands</li>
+
+<li>As the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_CurvatureSign.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7828">Curvature Signs</span></a> command in <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1661">Analysis</span></li>
+
+<li>As the <span class="UI_OPTION" id="tdesign.msg+_ANALYSIS_UI_LABEL_+108">Curvature signs</span> option in the <span class="UI_OPTION" id="tdesign.msg+_ANALYSIS_UI_LABEL_+13">Type</span> drop-down list of the <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_04_07.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7568">Automatic</span></a> analysis command</li>
+</ul>
+
+<br>
+ 
+
+<p>The <span class="UI_COMMAND" id="idd_dialog_rtc.msg+idd_dialog_rtc+13">Curvature signs</span> is a real time computational tool for curvature analysis and the result is displayed as a color map on the preview of the modified surface.<br>
+<br>
+<img src="../../images/globalshape/Curvature_map.gif" border="1"><br>
+<br>
+It enables you to visualize the zones where the sign of curvature changes from concave to convex and vice-versa.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################Project separator################################### -->
+ <!--PRJ: P0000459 - OWN: Alessandra Angelini-->
+<h2><a name="P459">Improvement in color propagation</a></h2>
+
+<p>Improvements have been made in color management to provide better control over the application of colors. Now it is possible to do the following:<br>
+<br>
+</p>
+
+<ul>
+<li>Set the color of a face different from the color of the solid.<br>
+<i>(Enhancement in the <a href="OPS.htm#P564"><span class="UI_COMMAND" id="eklib.msg+optsmsg+6">Edit Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+4">General</span></a> category.)</i><br>
+<br>
+</li>
+
+<li>Assign component color.<br>
+ <i>(New option in the <a href="OPS.htm#gen"><span class="UI_COMMAND" id="eklib.msg+optsmsg+1">Document Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+247">General</span></a> category.)</i><br>
+<br>
+</li>
+
+<li>Inherit component/solid color.<br>
+<i>(New options in the <a href="OPS.htm#P0000459"><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+662">View Attributes</span></a> category.)</i><br>
+<br>
+</li>
+
+<li>Retain the color of the surfaces while using the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span> and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1430">Break Solid</span> commands.<br>
+(<i>New <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm#color"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+593">Color</span></a> option in the command's selection list.)</i><br>
+<br>
+</li>
+
+<li>Define the color of the solid created by a feature.<br>
+<i>(New options in the <a href="OPS.htm#general_const"><span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+32">Construction</span></a> category.)</i><br>
+<br>
+</li>
+
+<li>Retain the face colors while importing/exporting files using 3D converters.</li>
+</ul>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+<!-- PRJ: P0000448 - OWN: ENCI -->
+<h2><a name="#448">Enhancement in the <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span> command</a></h2>
+
+<p>The following enhancements have been made in the <a href="mk:@MSITStore:rendering.chm::/language/render/FWfile/T_FW_environment_command.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7662">Environment</span></a> command.</p>
+
+<ul>
+<li>A new <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+61">Cross</span> option has been introduced in the <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> and <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+20">Reflection</span> drop-down list. 
+
+<ul class="noleft">
+<li>When selected in the <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> drop-down list, a 6-bit map image can be selected and visualized in the background.</li>
+
+<li>When selected in the <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+20">Reflection</span> drop-down list, the selected image is reflected on to the model.<br>
+<br>
+</li>
+</ul>
+</li>
+
+<li>Under the <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> node a new <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+62">Size</span> option enables you to regulate the size of the background. This option is available only when <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+31">Sphere</span>, <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+32">Cube</span> or <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+61">Cross</span> is selected in the <span class="UI_COMMAND" id="EnvironmentMapping.msg+_ENVIRONMENTMAPPING_LABEL_+8">Background</span> drop-down list.<br>
+<br>
+</li>
+</ul>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- #################################################################################### -->
+<!-- PRJ: P0000528 - OWN: ALCO -->
+<h2><a name="#528">Enhancements in the Automatic Traceback Management</a></h2>
+
+<p>In version 2008.1, the automatic error traceback management was introduced as a quality initiative to receive customers' feedback to improve the quality of the product. The same has been significantly improved in this version.<br>
+<br>
+ Previously, the error reporting was managed only when explicitly activated by the user (using the <b>Setting Wizard</b> or from the <span class="UI_COMMAND" id="MenuBar_Document_Help.msg+MenuBar_Document_Help+1727">Help</span> menu commands). From this version it is possible to send the automatic logger information from the user system depending on the settings made in the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> dialog box.</p>
+
+<br>
+<p>Following are some of the significant enhancements that have been made in the Automatic Traceback Management:</p>
+
+<br>
+<ul>
+<li>A new <span class="UI_COMMAND" id="TracebackWebClient.msg+TracebackWebClient_labels+1">Log File Management</span> dialog box has been introduced to send the automatic logger information from your system. This dialog box appears on each application startup only when:<br>
+&mdash; the option <a href="mk:@MSITStore:chelp.chm::/language/help/OVfile/T_OV_Error_Reporting.htm#startup"><span class="UI_OPTION" id="TracebackWebClient.msg+TracebackWebClient_labels+7">Show this dialog box at startup</span></a> is selected<br>
+&mdash; there is an unsent log and/or traceback<br>
+<br>
+</li>
+
+<li>Henceforth, the system requirements include only an internet connection and need not have an email application running to send the tracebacks unlike earlier version.<br>
+<br>
+</li>
+
+<li>The options of the new <a href="OPS.htm#P528"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1788">Log file management</span></a> area in the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+2">System Options</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+4">General</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category enable you to make settings for configuring the Automatic Logger to send information from your system. <!-- Henceforth, <span class="OLD">Error Reporting Program</span> customization has been replaced with <b>Privacy Information</b> in the <b>Setting Wizard</b> dialog box, where you can authorize to send the automatic log files to think3.  -->Also, the <span class="OLD">Error Report</span> commands are no more available from the <span class="UI_COMMAND" id="MenuBar_Document_Help.msg+MenuBar_Document_Help+1727">Help</span> menu.<br>
+<br>
+</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b> <br>
+The automatic logger information includes only the textual data referring to the calling sequence of a command leading up to the error or crash. This can make it easier for the programmer to identify and resolve the application bugs. It is important to note that no customer data is transferred through this improved traceback mechanism.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+ <!-- PRJ: P0000557 - OWN: LUCR -->
+<h2><a name="557">New <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7886">Hide Inner Entities</span> command</a></h2>
+
+<p>The new <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif" border="0"><a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_inner_entities.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7886">Hide Inner Entities</span></a> command enables you to hide the entities inside the model/assembly that are not visible. The command is applied on those parts that are not visible from any of the <a href="mk:@MSITStore:help.chm::/language/tocpages/T_TOC_Orientation_CMD.htm">predefined views</a>. By hiding the entities, the hardware display list is reduced, which results in faster loading of the model with increase in the frame rate, hence faster refreshes.<br>
+You can hide different entities based on the selected level of precision and setting of other options in the selection list.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- #################################################################################### -->
+<!-- PRJ: P0000601 - OWN: ENCI -->
+<h2><a name="601">Enhancement in High Quality Rendering (HQR)</a></h2>
+
+<p>Starting from this version onwards, you can render a model with high quality rendering effects without the need to do any settings. When a model is opened in the application, start the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../images/general/litarr.gif" border="0"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4552">Display</span><img src="../../images/general/litarr.gif" border="0"><a href="mk:@MSITStore:HELP.CHM::/language/view/FWfile/T_FW_vw_HQ1.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+7659">High Quality Shaded</span></a> command to view the model rendered with a predefined environment and lighting settings.<br>
+<br>
+<img src="../../images/rn_td_2009T1/hqr_reflection.gif" border="1"></p>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: Misc - OWN: Patrick Bosinco -->
+<h2><a name="Misc">Improvement in the <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7825">Two-Entity Distance Map</span> command</a></h2>
+
+<p>In this version the <span class="OLD">Max. distance</span> option under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> has been renamed to <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+9">Max. presumed distance</span> in the <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+1">Two-Entity Distance Map</span> selection list.</p>
+
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+ 
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

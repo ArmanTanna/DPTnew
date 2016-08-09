@@ -1,0 +1,211 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2011t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<title>New Part Modeling Functionalities and Improvements</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<meta name="Revisor" content="Donella"> 
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New Part Modeling Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2011.1 introduces the following general enhancements to the Part Modeling functionalities.<br>
+</p>
+
+<ul class="noleft">
+<li><a href="#850">The new External Relations Info command</a></li>
+
+<li><a href="#860">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+413">Hole</span>, <span class="UI_COMMAND_NOBOLD" id="ArrowButton_General.msg+ArrowButton_General+6868">Linear Slot</span>, <span class="UI_COMMAND_NOBOLD" id="ArrowButton_General.msg+ArrowButton_General+6871">Rotational Slot</span>, <span class="UI_COMMAND_NOBOLD" id="ArrowButton_General.msg+ArrowButton_General+6877">Generic Slot</span>, and <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1529">Pipe Slot</span> command</a></li>
+<li><a href="#Subdivision">New Subdivision Commands and Functionalities</a></li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000850- OWN: Paolo -->
+<h2><a name="850">The new External Relations Info command</a></h2>
+
+<p>The new <b>Parent/child relations</b> command has been introduced. It enables you to check all external relations that a solid/component has with the external entities. To do so, right-click the solid/component from the Model Structure or Graphics Area, select the <b>External Relations Info</b> option from the context menu to display the <b>Entity External Relations</b> dialog box. The following two new options have been introduced in the <b>Show relations</b> drop-down list.</p>
+
+<ol>
+<li><b>Events with external parents</b>: Enables you to list the events inside the solid that use reference geometry that is outside the solid itself (external parents). This list must be empty in order to be able to move the solid.<br>
+<br>
+</li>
+
+<li><b>External children</b>: Enables you to the list the events outside the solid that use reference geometry inside the solid.</li>
+</ol>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+<!--=====================   Project Ends===============================================================-->
+<h2><a name="860"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+413">Hole</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6868">Linear Slot</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6871">Rotational Slot</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6877">Generic Slot</span>, and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1529">Pipe Slot</span> commands</h2>
+
+<p>A warning message gets displayed in case of following features - <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+413">Hole</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6868">Linear Slot</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6871">Rotational Slot</span>, <span class="UI_COMMAND" id="ArrowButton_General.msg+ArrowButton_General+6877">Generic Slot</span>, and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1529">Pipe Slot</span> has been added to a solid and the feature is intersecting with the solid.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- PRJ: P0000860- OWN: Valeria Naldu -->
+
+
+
+<!--=====================   Project Ends===============================================================-->
+<h2><a name="Subdivision"></a>New Subdivision Commands and Functionalities</h2>
+<p>Subdivision surfaces (from now on: SUBD) are a new powerful modeling tool available for the control of solids. Similarly to how NURBS are a way to control a surface using points, SUBD are a way to control a solid (closed or not) using points. 
+While in a NURBS the control points forms a rectangular mesh, SUBD have a generic mesh with arbitrary topology. What is really outstanding is that when you move the points the solid will keep connected and the faces will retain their reciprocal tangency and curvature continuity conditions.</p>
+<p>The new commands available are the following:</p>
+<ul>
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1519">Solid</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7528">Convert to Subdivision Solid</span>
+<br>It converts any type of solid or mesh into a Subdivision solid, which can be modified using the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+29">Modify Subdivision Solid</span>. See <a href="#SUBD_CREATE"><i>Creating a New Subdivision Solid</i></a>.
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+4506">Solid</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_Solid.msg+MenuBar_Document_Modify_Solid+7908">Subdivision Solid</span><br>
+It enables you to modify a Subdivision solid in a number of possible manners. See <a href="#SUBD_MODIFY"><i>Modifying a Subdivision Solid</i></a>.
+</li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1519">Solid</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+7529">Extract Subdivision Mesh</span><br>
+It creates the Mesh entity associated with a selected Subdivision solid, so that you can communicate it by outputing it in the ".obj" format. See <a href="#SUBD_MESH"><i>Creating the Mesh Entity Associated with a Subdivision solid</i></a>.</li>
+</ul>
+<br>&nbsp;<br>
+<p><a name="SUBD_CREATE"></a><i><b>Creating a New Subdivision Solid</b></i></p>
+<p>In order to create a Subdivision solid proceed as follows.</p>
+<ol>
+<li>Start the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+28">Convert to Subdivision Solid</span> command.</li>
+<li>Select a mesh or a solid (<span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+26">Subdivision Solid/Mesh</span>).<br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b>
+<br>Please take into account the conversion will be much more effective and accurate if the faces of the selected mesh/solid are as square as possible and contain as few holes as possible.
+</td>
+</tr>
+</table>
+<br><br>
+<img border=1 src="../../images/features/SUBD_01.gif"><br><br>
+A preview of the new Subdivision solid is displayed:
+<br><br>
+<img border=1 src="../../images/features/SUBD_02.gif"><br>&nbsp;
+</li>
+<li>By default, the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+27">Hide Selection</span> check box is selected, so that the original solid will be hidden when you apply the command (uncheck it if you want the selected original solid to remain visible: in any case such solid will be kept in the model, whether visible or not, while the Subdivision solid will be created as a new entity, as you can verify by checking the model tree). Apply the command and the resulting Subdivision solid will be displayed, ready to be modified using the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+29">Modify Subdivision Solid</span> command.<br><br>
+<img border=1 src="../../images/features/SUBD_03.gif"><br>&nbsp;
+</li>
+</ol>
+<br>&nbsp;<br>
+<p><a name="SUBD_MODIFY"></a><i><b>Modifying a Subdivision solid</b></i></p>
+<p>You can interact with a Subdivision solid in all usual ways, that is by creating features on it, moving it, creating drawing layouts of it, and so on. However, there is a new and special way that is modifying it by editing its controlling mesh. To do it proceed as follows.</p>
+<ol>
+<li>Start the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+29">Modify Subdivision Solid</span> command.</li>
+<li>Select the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+1">Subdivision Solid</span>.
+<br><br>
+<img border=1 src="../../images/features/SUBD_04.gif"><br><br>
+The associated mesh is displayed:
+<br><br>
+<img border=1 src="../../images/features/SUBD_07.gif"><br><br>
+</li>
+<li>Select the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+10">Edit Mode</span>:
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+2">Move face</span><br>
+Enables you to perform the modification by selecting one face and moving it with the usual transformation handle, which shows up as soon as the selection is done. Please pay attention when selecting the face: you need to move the cursor onto the inside part of the face in the mesh selection is performed using a ray-cast.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+3">Move edge</span><br>
+Enables you to perform the modification by selecting an edge and moving it with the usual transformation handle, which shows up as soon as the selection is done. Please pay attention when selecting the edge: you need to click very close to in the internal side of the face in the mesh.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+4">Move vertex</span><br>
+Enables you to perform the modification by selecting an edge of a face and moving it with the usual transformation handle, which shows up as soon as the selection is done. Please pay attention when selecting the vertex: you need to click very close to in the internal side of the face in the mesh. In order to select more than one vertex contemporarily, you can use the <span class="UI_COMMAND" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1101">Window</span> and <span class="UI_COMMAND" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+6699">Lasso</span> tools, and also the <b>&lt;SHIFT&gt;</b> and/or <b>&lt;CTRL&gt;</b> keys of the keyboard as described in the <a href="#selesiùn">note below</a>.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+5">Move chain</span><br>
+Enables you to perform the modification by selecting an edge, and all the edges connected to it in a chain will be selected as well.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+6">Subdivide face</span><br>
+Enables you to perform the modification by splitting a selected face. This can be most useful if you need to add details.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+7">Extrude face</span><br>
+Enables you to perform the modification by extruding a selected face. In this case, new faces will be automatically created according to the extrusion.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+8">Remove face</span><br>
+Enables you to perform the modification by removing a selected face. Since there is a one-to-one correspondence between mesh faces and subdivision surfaces, one surface will be deleted and the adjacent surfaces will change their shape accordingly.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+9">Split face</span><br>
+Enables you to perform the modification by splitting a selected face. Please pay attention when the selecting the face: need to pick it near an edge along which the face will be split. The split will be propagated along the neighboring faces.
+</li>
+</ul>
+</li>
+</ol>
+<p>A number of useful options are available so as to make the command more effective.</p>
+<ul>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+14">Symmetric Movements</span><br>
+When you move some vertices, edges or faces and there is some symmetry, then also the symmetric vertices, edges and faces will be moved. The possible symmetry modes are the following:
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+12">Work Plane based</span><br>
+The symmetry is computed with respect to the current Work Plane.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+13">Automatic</span><br>
+The software tries to understand by itself where the symmetry plane is and then behaves accordingly.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+11">None</span><br>
+No symmetry is to be taken into account, and the movement will be extended to <i>no</i> symmetric vertices, edges and faces (even if any).</li>
+</ul>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+20">Edit Reference System</span><br>
+Controls how the transformation handle is set when performing move face/edge/vertex operations. The possible choices are:
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+17">Local</span><br>
+The handle is set using local reference system of the selected element.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+19">Work Plane</span><br>
+The handle is set according to the current Work Plane.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+18">Fixed Z</span><br>
+The handle is set like in <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+17">Local</span> mode but trying to keep the z-axis fixed.
+</li>
+</ul>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+23">Move Mode</span><br>
+Controls the type of movement to be applied to the selected elements.
+<ul class="noleft">
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+21">Roto-translation</span><br>
+The usual transformation handle will be made available.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+22">Scale</span><br>
+The scaling handle will be made available instead.</li>
+</ul>
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+24">Align Current Selection</span><br>
+If you have a set of vertices currently selected, it will move all of them along the line built between the first and the last selected. This mode can also be activated by pressing the <b>&lt;F2&gt;</b> key.</li>
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+25">Align to Surface</span><br>
+If you have a set of vertices currently selected, they can be projected in such a way as to be tangent to a selected surface as much as possible. You can use also the <b>&lt;F3&gt;</b> key to activate this command. This alignment will work only on open edges.
+</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+15">Split in half</span><br>
+When selected, when you split a face, the split is the middle of the face. When not selected, the split is performed at the pick point.</li>
+<li><span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+16">Split propagation</span><br>
+When selected, the split is propagated to the neighboring faces. When not selected, the split is not propagated to neighboring faces. Not propagating usually creates worse shapes.
+</li>
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="margin-left:30;">
+<tr>
+<td bordercolor="#ffffe1"><a name="selesiùn"></a><b>Notes on Selection and Related Movement</b>
+<br>Please take into account that pressing the <b>&lt;SHIFT&gt;</b> or <b>&lt;CTRL&gt;</b> keys will enable you&nbsp;&#151;&nbsp;as it ordinarily is in multiple selection commands of this type&nbsp;&#151;&nbsp;to select/deselect multiple entities respectively in a row/adjacent <i>or</i> freely add/subtract one or more entities to the current selection.
+</td>
+</tr>
+</table>
+<br>&nbsp;<br>
+<p><a name="SUBD_MESH"></a><i><b>Creating the Mesh Entity Associated with a Subdivision solid</b></i></p>
+<p>Once you have created the controlling mesh from a SUBD solid, then you can select the mesh and output it using the ".obj" format (that now works also for generic meshes).<br>
+To create the Mesh entity associated with a Subdivision solid proceed as follows.</p>
+<ol>
+<li>Start the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+30">Extract Subdivision Mesh</span>.</li>
+<li>Select the <span class="UI_COMMAND" id="TDMeshEditor.msg+_TDMESHEDITOR_LABEL_+1">Subdivision Solid</span>.
+<br><br>
+<img border=1 src="../../images/features/SUBD_04.gif"><br><br>
+A preview of the new Mesh entity is displayed:
+<br><br>
+<img border=1 src="../../images/features/SUBD_05.gif"><br>&nbsp;
+</li>
+<li>Apply the command and the Mesh entity will be created.<br><br>
+<img border=1 src="../../images/features/SUBD_06.gif"><br>&nbsp;</li>
+</ol>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+<!--=====================   Project Ends===============================================================-->
+</body>
+</html>
+

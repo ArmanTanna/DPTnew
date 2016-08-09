@@ -1,0 +1,175 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<title>An Overview of Frame</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1>An Overview of Frame</h1>
+
+<p>The Frame functionality is a fully integrated module of ThinkDesign. The principle approach for Frame is an instinctive sketch based method that facilitates the creation of the frame parts. The process of frames involves covering (linear sweeping) the predefined 2D or 3D profile with frame parts consisting of linear beams and nodes.<br>
+<br>
+ You can create frame parts with the option to choose the Line specification and the structural cross section which are stored in the <b>thinkparts</b> catalog. The intersection of one or more frame elements is managed by the <a href="T_OV_node.htm">node functionality</a> which enables you to select and modify the nodes.<br>
+<br>
+ Also, you can modify each frame part by selecting different cross section parameters and alignment using the <span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7836">Modify Frame Part</span> command. All the structural cross sections are managed by <b>thinkparts</b>. Hence the modification or creation of new structural cross sections has to be done by customizing the Frame catalogs using the <b>thinkparts - Catalog Manager</b>.<br>
+<br>
+ A frame structure is composing of frame elements which is as shown in the image below.<br>
+<br>
+ <img src="../../../images/frame/frame_structure.gif" border="1"><br>
+<br>
+<b>1</b> - Frame path or profile<br>
+<b>2</b> - Cross section<br>
+<b>3</b> - Node<br>
+<b>4</b> - Frame Part<br>
+<br>
+ The Frame functionality demands the following work flow:</p>
+
+<ul class="noleft">
+<li><a href="#thinkframe">Availability of thinkparts Frame catalogs</a></li>
+
+<li><a href="#path">Defining the frame path</a></li>
+
+<li><a href="#insertion">Creating Frame structures</a></li>
+
+<li><a href="#custom">Updating Frame database with customized cross sections</a></li>
+</ul>
+
+<h3><a name="thinkframe">Availability of thinkparts Frame catalogs</a></h3>
+
+<p>All the Frame cross sections are saved in the thinkparts Frame catalogs. To view the Frame catalogs, choose <span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span><img src="../../images/general/litarr.gif"><a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatBrowser.htm"><span class="UI_OPTION" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7051">Catalog Browser</span></a> command from the menu bar; the <span class="UI_OPTION" id="IDD_TP_BROWSER.msg+IDD_TP_BROWSER+1">thinkparts - Catalog Browser</span> is displayed, as shown in the image below.<br>
+<br>
+<img src="../images/catalog.gif" border="1"><br>
+<br>
+ In case the Frame catalog is not present, you need to <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Import.htm"><span class="UI_COMMAND" id="IDD_TP_CBR_POPUP.msg+IDD_TP_CBR_POPUP+15">Import</span></a> it. Otherwise, on starting the <span class="UI_OPTION" id="TDFrame.msg+_TDFrame_LABEL_+2">Frame Parts</span> command, a warning will be displayed instructing you to import the catalog.</p>
+
+<p><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7053">thinkparts</span> provides the user with a library of structural cross sections. All the cross sections can be chosen from a specific catalog, which is a library that includes both <i>geometric values</i> and <i>specific attributes</i> for each cross section. The user can update the Frame library with custom made structural cross sections.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <i>Lines</i> index contains the Line Specification, and not frame cross sections. The Line Specification acts as an interface between the library and the cross sections. Each Line Specification is related to a specific catalog containing predefined cross section catalogs associated to it. When you select one of the Line Specifications (during the Frame command's application), only the cross sections associated to it are applied along the selected path.</td>
+</tr>
+</table>
+
+<h3><a name="path">Defining the Frame Path</a></h3>
+
+<p>The Frame path is defined by a profile made only of straight line entities. You can make use of either a <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7762">2D</span> or <span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7763">3D</span> profile to define the frame path. In case you select a non-linear profile as the frame path, the command is applied only along straight lines. The following image shows a typical example of frame path and the resulting frame structure.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/rn_td_2009T1/frame1.gif" alt="" width="198" height="168" border="1"></td>
+<td><img src="../../../images/general/Arrow_To_Right.gif" border="0"></td>
+<td><img src="../../../images/rn_td_2009T1/frame2.gif" border="1"></td>
+</tr>
+</table>
+
+ 
+
+<h3><a name="insertion">Creating Frame structures</a></h3>
+
+<p>You create the Frame Structure by creating the frame parts along the predefined path. The <a href="../FWfile/T_FW_frame_parts.htm"><span class="UI_OPTION" id="ButtonToolbar_Tubing.msg+ButtonToolbar_Tubing+5">Insert Tubing Part</span></a> command enables you to insert frame parts along the selected path to complete the frame structure. Once you select the path, define the Line Specification and select the cross section, the frame part is created by linear sweeping the selected profile. The nodes are managed by the <a href="T_OV_node.htm">node functionality</a>. The following table displays the cross sections available in the catalog:<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td align="center"><b>Cross Section</b></td>
+<td align="center"><b>Image</b></td>
+</tr>
+
+<tr>
+<td>Square Tube</td>
+<td><img src="../../../images/frame/square_tube.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>Square Bar</td>
+<td><img src="../../../images/frame/square_bar.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>Rectangular Tube</td>
+<td><img src="../../../images/frame/rectangle_tube.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>Rectangular Bar</td>
+<td><img src="../../../images/frame/rectangle_bar.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>Circular Tube</td>
+<td><img src="../../../images/frame/circle_tube.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>Circular Bar</td>
+<td><img src="../../../images/frame/circle_bar.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>I section</td>
+<td><img src="../../../images/frame/I_section.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>H section</td>
+<td><img src="../../../images/frame/H_section.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>T section</td>
+<td><img src="../../../images/frame/T_section.gif" border="0"></td>
+</tr>
+
+<tr>
+<td>L section</td>
+<td><img src="../../../images/frame/L_section.gif" border="0"></td>
+</tr>
+</table>
+
+
+<p><a name="line"></a>While executing the Frame commands, you need to specify the Line Specification. It defines the way to group all frame cross sections requested for a specific covering type. This can be done by using the <span class="UI_OPTION" id="TDTubing.msg+_TDTubing_LABEL_+2">Line</span> drop-down list. By default, two Line Specifications are present in the library: <b>Steel - hot rolled - UNI</b> and <b>Steel - hot rolled - inch</b> and you can make a selection between them. As per the selection made, all the cross sections applied along the selected path will only be of the corresponding type.</p>
+
+<p><a name="catalog"></a>As per the selected Line specification, the different cross section options associated to it are displayed in the selection list. By clicking the node symbol (<img src="../../../images/general/node.gif" align="absmiddle">), the corresponding catalog with all its data is displayed in the form of a dialog box. From this catalog, you can make the selection (by double-clicking) of the cross section with the required configuration.</p>
+
+<h3><a name="custom">Updating Frame Database with Customized cross sections</a></h3>
+
+<p>All the catalogs are managed by <b>thinkparts</b>. Hence, the modification or creation of new cross sections has to be done by updating the Frame catalogs. To do so, use the <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatManager.htm"><span class="UI_COMMAND" id="MenuBar_ThinkParts_Tools.msg+MenuBar_ThinkParts_Tools+7052">Catalog Manager</span></a>. Using the Catalog Manager commands you are enabled to customize your library by creating new indexes, new catalogs and modifying the dimensions of the existing frame cross sections.</p>
+
+<p>You can also create and customize the Line specification. When you do so, you have to ensure that there are corresponding cross sections are available in the catalog for the new Line Specification.</p>
+
+<hr color="silver">
+<h5>Related topics ...</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_node.htm"><b>Overview of Node</b></a></li>
+
+<li><a href="../HWfile/T_HW_frame_customise.htm"><b>Creating Customized Frame Catalogs</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

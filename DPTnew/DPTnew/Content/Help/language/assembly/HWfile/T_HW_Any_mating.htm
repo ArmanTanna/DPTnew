@@ -1,0 +1,98 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="T_2010t1" content="translate">
+<title>Using the Any alignment option</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22}
+</style>
+
+<style type="text/css">
+.OLD{
+ font-weight: bold;
+ font-style: italic;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3>Using the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> alignment option</h3>
+
+<p>The following illustration explains a situation where you will use the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> alignment option with the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint for mating two components. This option is very useful when you are not sure of the effects that the present alignment will have on the constraints that you will be introducing later in your model.</p>
+
+<p>Take the example of mating a Base and a Pillar as shown below. The files of these two components are available in the <i>Samples</i> folder of your installation location with the name <i>Base_Any_mating.e3</i> and <i>Pillar_Any_mating.e3</i>.<br>
+<br>
+<img src="../../../images/assembly/mating_any2.gif" border="1"> <b>1</b> = Constraint - Coaxial; Alignment - Any<br>
+<br>
+</p>
+
+<ol class="noleft">
+<li>Start the mating process by applying the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint to the cylindrical surfaces of the Base and Pillar as shown in the above figure. While applying this constraint the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+16">Alignment:</span> will be set to <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span>.</li>
+
+<ul class="noleft">
+<li>Start with a new model file and use the <a href="../FWfile/T_FW_as_02.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Group.msg+MenuBar_Document_Insert_Group+4619">X-Reference</span> <b>(component)</b></a> command to bring in the <i>Base_Any_mating.e3</i> file.</li>
+
+<li>Similarly bring in the <i>Pillar_Any_mating.e3</i> file.</li>
+
+<li>Choose the <a href="../FWfile/T_FW_Mating.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+33">Mating</span></a> command and select the cylindrical surface on the Pillar. Ensure that the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+22">Type:</span> option is set to <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span>.<br>
+<br>
+<img src="../../../images/assembly/mating_any5.gif" border="1"><br>
+<br>
+</li>
+
+<li>Then select the cylindrical surface on the Base. In the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+16">Alignment:</span> drop-down list select <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span>.<br>
+<br>
+<img src="../../../images/assembly/mating_any6.gif" border="1"><br>
+<br>
+</li>
+</ul>
+
+
+<li>After completing step 1, there are two possible ways to apply the second mating constraint. The first possibility is to mate the spherical end of the Pillar with the spherical cavity in the Base.<br>
+<br>
+<img src="../../../images/assembly/mating_any3.gif" border="1"> <b>2</b> = Constraint - Concentric<br>
+<br>
+The second possiblty is to mate the cylindrical head of the Pillar with the cylindrical slot of the Base. To sucessfully carry out this mating it is necessary to reverse the alignment of the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint that we applied in the previous step. The change of alignment will be done automatically by the program, as it was set to <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span>.<br>
+<br>
+</li>
+
+<ul class="no left">
+<li>Select the top face of the Pillar. Ensure that the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+22">Type:</span> option is set to <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+23">Coincidence</span>.<br>
+<br>
+<img src="../../../images/assembly/mating_any7.gif" border="1"><br>
+<br>
+</li>
+
+<li>Select the flat face of the cylindrical slot in the Base. Note that the alignment of the pillar is automatically changed to the appropriate one without any need to redifine the previous constraint.<br>
+<br>
+<img src="../images/mating_any8.gif" border="1"><br>
+<br>
+</li>
+
+<li>Finally select the <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+2">Cancel</span> <img src="../../../images/general/CANCELbutton.gif"> button to terminate the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+33">Mating</span> command.<br>
+<br>
+</li>
+</ul>
+</ol>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_as_02.htm"><b>Insert an X-Reference Component</b></a></li>
+
+<li><a href="../OVfile/T_OV_mating.htm"><b>An Overview on Mating</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

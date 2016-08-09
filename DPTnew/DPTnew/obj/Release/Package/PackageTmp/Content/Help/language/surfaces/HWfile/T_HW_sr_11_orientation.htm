@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="internally">
+<title>Job: Setting the Orientation of a Spined Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:3;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Setting the Orientation of a Spined Surface</h3>
+
+<p>When using the <a href="../FWfile/T_FW_sr_11.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+72">Spined Surface</span></a> command, you can control the way the boundary curve moves along the spine. To do this, a <i>local reference system</i> is attributed to the spine. The local system is initially calculated at the first endpoint of the spine curve and then moved along it. The way the local system is moved along the spine curve depends on the option selected in the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+16">Orientation</span> drop-down list (under 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>).</p>
+
+
+
+<p>Let us see what happens in the model of the following illustration (to try it, load file "spsrf_orientation.e3"), where the blue curve is the spine, the red curve is the boundary and the green curve is the drive.<br>
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_orientation_01.gif"><br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="130"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+30">Automatic</span></td>
+
+
+<td>The X direction of the local system is determined as follows: 
+
+<ul class="noleft">
+<li>If the spine is a plane curve or curve chain, the X direction is the normal to the plane in which the spine lies</li>
+
+<li>If the spine is 3D, the X direction of the local system is calculated in such a way that the plane perpendicular to the plane tangent to the spine and through X follows a straight path</li>
+</ul>
+
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_orientation_automatic.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+31">Defined with curves</span></td>
+
+
+<td>The X direction of the local system is calculated by joining points on the spine to the corresponding points on a selected curve or curve chain (which may also be the same as the drive). Select the curve (you can change the selected curve by right-clicking on <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+11">1st Drive</span> in the selection list and selecting 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> in the context menu).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/spinesrf_orientation_definedwithcurve.gif"><br>
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+32">Intrinsic system</span></td>
+
+
+<td>The reference system is the one defined by the spine curve.</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

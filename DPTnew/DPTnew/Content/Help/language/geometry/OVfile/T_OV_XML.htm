@@ -1,0 +1,154 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>XML tags for custom patterns</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style> .noleft
+ {
+ margin-left: 22;
+ margin-top: 0;
+ margin-bottom:0;
+ }
+</style>
+
+<style> p{
+ 		text-align : justify;
+ }</style>
+ 
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<H3 style="margin-bottom:4px;">XML tags for custom patterns</H3>
+<p style="margin-top:0px;">In the new release, the <b>think<font color="#FF0F00">3</font></b> application offers you the liberty to customise your own xhatch patterns. It would help you to get familiarise with few XML tags that are essential to design customised patterns.</p>
+
+<p style="margin-top:6px"></p>
+Here is the list of the XML tags that are essential for creating the customised xhatch patterns. A description of each tag is available by following the corresponding links.
+<table align="center">
+<tr valign="top">
+<td width="100" ><a href="#xhatch"><b>xhatch</b></a></td>
+<td>Main tag for any Xhatch pattern customization. This tag is mandatory.</td>
+</tr>
+<tr valign="top">
+<td><a href="#Pattern"><b>pattern</b></a></td>
+<td>Tag for specifying the name of the pattern. This tag is mandatory.</td>
+</tr>
+<tr valign="top">
+<td><a href="#sub_pattern"><b>sub_pattern</b></a></td>
+<td>Tag for xhatch pattern data input. It is mandatory to have atleast one sub_pattern.</td>
+</tr>
+<tr valign="top">
+<td><a href="#angle"><b>angle</b></a></td>
+<td>Tag to define the angle to be subtended by the sub_pattern lines with the x-axis. This tag is optional.</td>
+</tr>
+<tr valign="top">
+<td><a href="#origin_x"><b>origin_x</b></a></td>
+<td>Tag to specify the origin for the x-axis.</td>
+</tr>
+<tr valign="top">
+<td><a href="#origin_y"><b>origin_y</b></a></td>
+<td>Tag to specify the origin for the y-axis. It is mandatory to specify the origin for both the X and y-axis.</td>
+</tr>
+<tr valign="top">
+<td><a href="#dist_btw_lines"><b>dist_btw_lines</b></a></td>
+<td>Tag to specify the distance between two lines of a particular sub_pattern. This tag is mandatory.</td>
+</tr>
+<tr valign="top">
+<td><a href="#dist_along_lines"><b>dist_along_lines</b></a></td>
+<td>Tag to specify the distance between two succeding lines of a single sub_pattern. Even this tag is mandatory.</td>
+</tr>
+<tr valign="top">
+<td><a href="#line_type"><b>line_type</b></a></td>
+<td>Tag to specify the desired <strong>Line type</strong> for the sub_pattern. This tag is mandatory.</td>
+</tr>
+</table>
+
+<h5 style="margin-bottom:4px;"><a name="TAGS"></a>XML Tags<hr color="silver"></h5>
+<table width="480">
+<tr valign="top" bgcolor="#c6c6c6"><td width="200"><b>Tag</b></td><td width="280"><b>Description and Notes</b></td></tr>
+
+
+<tr valign="top" bgcolor="#EAF6F6">
+<td valign="top" style="font-size:9pt;"><a name="xhatch"></a>&lt;<b>xhatch</b> ...&gt;</td>
+<td>This tag has to be present on the first line, while creating your own patterns.
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;xhatch xmlns="http://think3.com/2dDraft/pattern"&gt;</tt></td></tr>
+
+<tr valign="top">
+<td valign="top" style="font-size:9pt;"><a name="pattern"></a>&lt;<b>Pattern</b>&gt;</td>
+<td>This tag is used to define a name for the new custom pattern to be created. you can also define the units of measurement in this tag. It contains atleast one sub_pattern.<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;pattern name="Template" unit="mm"&gt;</tt>
+</td></tr>
+
+<tr valign="top" bgcolor="#EAF6F6"><td valign="top" style="font-size:9pt;"><a name="sub_pattern"></a>&lt;<b>sub_pattern</b>&gt;</td>
+<td>Using this tag, you can create any number of custom patterns. It is used as a data input tag. All the attribute tags necessary for creating a custom pattern are included under this tag.. <p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;sub_pattern&gt;<br>
+          &lt;angle&gt;0.0&lt;/angle&gt;<br>
+          &lt;origin_x&gt;0.0&lt;/origin_x&gt;<br>
+          &lt;origin_y&gt;0.0&lt;/origin_y&gt;<br>
+          &lt;dist_btw_lines&gt;1&lt;/dist_btw_lines&gt;<br>
+          &lt;dist_along_lines&gt;0.0&lt;/dist_along_lines&gt;<br>
+          &lt;line_type&gt;2.0 -0.25 0.25 -0.25 0.25 -0.25 &lt;/line_type&gt;<br>
+      &lt;/sub_pattern&gt;
+</td></tr>
+
+<tr valign="top"><td valign="top" style="font-size:9pt;"><a name="angle"></a><b>&lt;angle&gt;</b></td>
+<td>Enables you to define the angle to be subtended by sub_pattern lines with the x-axis. The default angle is 45 degrees for all the patterns
+ <p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;angle&gt;10&lt;/angle&gt;<p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>Now the xhatch will subtend an angle of 55 degrees with the x-axis.</i></p>
+</td></tr>
+
+<tr valign="top" bgcolor="#EAF6F6"><td valign="top" style="font-size:9pt;"><a name="origin_x"></a><b>&lt;origin_x&gt;</b></td>
+<td>Enables you to set the origin for the x-axis.<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;origin_x&gt;0.0&lt;/origin_x&gt;</tt> 
+</td></tr>
+
+<tr valign="top"><td valign="top" style="font-size:9pt;"><a name="origin_y"></a><b>&lt;origin_y&gt;</b></td>
+<td>Enables you to set the origin for the y-axis.<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;origin_y&gt;0.0&lt;/origin_y&gt;</tt> 
+</td></tr>
+
+<tr valign="top" bgcolor="#EAF6F6"><td style="font-size:9pt"><a name="dist_btw_lines"></a><b>&lt;dist_btw_lines&gt;</b></td>
+<td>
+Enables you to specify the distances between two lines of a particular sub_pattern.
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;dist_btw_lines&gt;1&lt;/dist_btw_lines&gt;</tt> 
+</td></tr>
+
+<tr valign="top"><td style="font-size:9pt"><a name="dist_along_lines"></a><b>&lt;dist_along_lines&gt;</b></td>
+<!-- <td></td> -->
+<td>Enables you to specify the distance from which the successive lines of that particular sub_pattern should start.
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>Suppose &lt;origin_x&gt;0.0&lt;/origin_x&gt;<br>&lt;origin_y&gt;0.0&lt;/origin_y&gt; and <br>&lt;dist_along_lines&gt;2.0&lt;/dist_along_lines&gt;</tt><p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>then the successive xhatch lines will start from x+2, y+2 units from the reference xhatch line.</i></p>
+</td></tr>
+
+<tr valign="top"  bgcolor="#EAF6F6"><td style="font-size:9pt"><a name="line_type"></a><b>&lt;line_type&gt;</b></td>
+<td>Enables you to determine the line type for the xhatch lines in that sub_pattern. It is usually denoted by alternate positive and negative values. Positive values denote the actual line(pen-down), negative values denote blank space(pen-up) and 0 denotes a point.
+<p style="margin-top:3px;text-align:left;font-size:9pt;"><b>Example:</b><p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<tt>&lt;line_type&gt;2.0 -0.25 2.0 -0.25 2.0 -0.25&lt;/line_type&gt;</tt> <p style="margin-top:4px; margin-bottom:4px;text-align:left;font-size:9pt;"><i>will be displayed as:</i></p>
+<p style="margin-top:3px;margin-left:15px;text-align:left;font-size:9pt;">
+<IMG SRC="images/linetype.gif" width="100" border="1">
+</td></tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>	

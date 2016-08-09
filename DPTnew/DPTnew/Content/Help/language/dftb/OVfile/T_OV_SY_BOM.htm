@@ -1,0 +1,83 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<title>Symbolic expressions in a standard part list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h3><a name="bom"></a>Symbolic expressions in a standard part list</h3>
+
+<p>Default Part Lists are ordinary ".e2" drawing files located in the "fmt\<i>language</i>" subfolder of the <a href="mk:@MSITStore:forcus.chm::/language/options/IDPP_OPTS_THINKPARTS.htm"><span class="UI_COMMAND" id="IDD_TT_OPTIONS.msg+IDD_TT_OPTIONS+93">User configuration root folder</span></a> (<i>language</i> is the installation language). Each list is described by two files:</p>
+
+<ul class="noleft">
+<li>A file with the prefix "h_" which describes the list header (h_bom.e2)<br>
+<br>
+<img src="../images/mil02_03.gif"><br>
+<br>
+</li>
+
+<li>A file with the prefix "r_" which describes a row of the list (r_bom.e2)<br>
+<br>
+<img src="../images/mil03_03.gif"><br>
+<br>
+</li>
+</ul>
+
+<p>When the list is filled in, the application appropriately positions the graphic symbols and converts all the source <a href="#inbom">symbolic expressions that were used in the standard part list</a> into the corresponding real value.</p>
+
+<br>
+ 
+
+<h4>Symbolic expressions used in standard part lists</h4>
+
+<p>Here follows the description of all the symbolic expressions used in standard part lists. See the previous examples for <i>default descriptions</i> and <i>date formats</i>. For detailed information about the predefined properties used in part lists, see also the lists of <a href="T_OV_SY_DocProp.htm">Document properties</a>, of <a href="T_OV_SY_CmpProp.htm">Part properties</a> and of <a href="T_OV_SY_RelProp.htm">Relation properties</a>.</p>
+
+<table border="1" bordercolor="navy">
+<tr>
+<td><i>As the Part List is a group entity, any of the part properties that have to be displayed inside it have to be inserted in "<b>$G</b>" symbolic expressions.</i> 
+
+<p class="smallformula">$G{RELPOS}</p>
+
+<blockquote><b>Pos</b>: Displays the position number.</blockquote>
+
+<p class="smallformula">$G{COMPNAME:f("#clear(&lt;undef&gt;@)")}</p>
+
+<blockquote><b>Part Number</b>: Displays the part number. If the part number has a "&lt;undef&gt;" prefix, the whole part number will not be displayed.</blockquote>
+
+<p class="smallformula">$G{COMPDES}</p>
+
+<blockquote><b>Description</b>: Displays the part description.</blockquote>
+
+<p class="smallformula">$G{COMPITEM}</p>
+
+<blockquote><b>IT</b>: Displays the item type.</blockquote>
+
+<p class="smallformula">$G{COMPUMIS}</p>
+
+<blockquote><b>Unit</b>: Displays the unit of measure.</blockquote>
+
+<p class="smallformula">$G{COMPQTY}</p>
+
+<blockquote><b>QTY</b>: Displays the quantity.</blockquote>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

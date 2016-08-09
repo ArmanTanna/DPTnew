@@ -1,0 +1,172 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2015t1" content="translate">
+<meta name="Modifier" content="NIBI">
+<title>Job:Editing an Exploded view</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:3px;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<h3>Editing an Exploded view</h3>
+
+<p>The various <i>Group</i> and <i>Step</i> selectors of the <a href="../FWfile/T_FW_vw_43.htm"><span class="UI_COMMAND" id="ButtonToolbar_Assembly.msg+ButtonToolbar_Assembly+7275">Explode Assembly</span></a> command provide useful means to group together movements of parts which have a logical relation. They also make retrieval and editing of the exploded views very simple. You can also name them meaningfully so that it helps in identifying them for editing.<br>
+
+
+<br>
+In the default explosion of the <i>Pump</i> subassembly (<i>exp_view_edit.e3</i> file present in the <i>Pump</i> folder available inside the <i>Samples</i> folder of the <b>think<font color="#FF0F00">3</font></b> installation), positions the base parts (<b>M8 bolt</b> and <b>Sleeve</b>) and their component patterns at different locations. This positioning depends on how the assembly was created. The exploded view has to be edited so that the related parts are grouped together in a meaningful way.<br>
+<br>
+<img src="../../../images/assembly/Edit_exp_assy1.gif" border="1"><br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The following steps show how to edit an exploded assembly and are based on the methods described in the <a href="T_HW_vw_43.htm">Exploding an assembly</a> document.</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<ol class="noleft">
+<li>The existing bookmark can be modified to start the editing operation. Open the <i>exp_view_edit.e3</i> file from the <i>Pump</i> folder available inside the <i>Samples</i> folder of the <b>think<font color="#FF0F00">3</font></b> installation.<br>
+<br>
+</li>
+
+<li>Click on the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+53">Visual Bookmarks</span> tab to access the bookmark tree.<br>
+
+
+<br>
+</li>
+
+<li>Right click on the <i>Pump_Assy1</i> bookmark and select the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_LABEL_+8">Modify</span> option from the context menu. The selection list is displayed enabling you to access all the steps that were involved in the creation of the exploded view.<br>
+
+
+<br>
+</li>
+
+<li>You can set the orientation to <a href="mk:@MSITStore:help.chm::/language/view/acad_views/FWfile/T_FW_av_09.htm">
+<span class="UI_OPTION" id="MenuBar_Document_View_NamedViews.msg+MenuBar_Document_View_NamedViews+5834">Left Front</span></a> for clear visualization of the components.<br>
+
+
+<br>
+</li>
+
+<li>In the <span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+1">Explode Assembly</span> selection list expand all the nodes. Right click on the sleeve and select the 
+
+<span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+18">Reset movement</span> option from the context menu, as shown below.<br>
+The position of the component <b>Sleeve</b> is reset and it is brought back to its original position.<br>
+<br>
+</li>
+
+<li>Now modify the position of the component <b>M8</b> bolt. To do so, right click on <b>37 Mating 215 - M8X80</b> in the selection list and select the <span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+18">Reset movement</span> option from the context menu. The movement of the component <b>M8</b> is reset and it is brought back to its original position.<br>
+
+
+<br>
+</li>
+
+<li>It is now necessary to group together all the <b>M8</b> bolts and specify their displacement. Select all the instances of <b>M8</b> bolts, the translation handle in displayed on one of them. Click on the <b>Y</b> node of the translation handle to get the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+118">Delta Y</span> mini-dialog box. In it, enter the value <b>-200mm</b> for displacement in the negative Y direction.<br>
+
+
+<br>
+<img src="../images/Edit_expassy4.gif" border="1"><br>
+<br>
+At this point you can see that all the parts of the sub assembly are positioned such that the similar components are together and the exploded view is clear.<br>
+<br>
+</li>
+
+<li>Select the <img src="../../../images/general/OKbutton.gif" align="absmiddle"> <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+1">OK</span> button on the top of the selection list to execute the command.<br>
+
+
+<br>
+</li>
+
+<li>To check the visual bookmark that is created, right click on the <i>Pump_Assy1</i> in the visual bookmarks tree and select the <span class="UI_OPTION" id="tdesign.msg+_VBOOKMARK_UI_SPEECH_+67">View Exploded Assembly</span> option from the context menu. The exploded view created is as shown below.<br>
+
+
+<br>
+<img src="../../../images/assembly/Edit_exp_assy5.gif" border="1"><br>
+<br>
+</li>
+</ol>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Key points in modifying an exploded assembly</b> 
+
+<ol>
+<li>Each <i>Step</i> can be edited at any time to add parts, movements and path lines.</li>
+
+<li>It is possible to include one part in more than one <i>Step</i>.</li>
+
+<li>You can give meaningful names to each <i>Group</i> or <i>Step</i> to ease identification.</li>
+</ol>
+
+The context menu for editing the <span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+49">Default Steps</span> provides the following five options. 
+
+
+
+<ul>
+<li><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> - Resets all the selections and movements of the <i>Step</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+18">Reset movement</span> - Resets only the movements of the entities that are part of the <i>Step</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+28">Rename</span> - Enables you to provide an appropriate name for the <i>Step</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+20">Insert</span> - Enables you to insert an additional <i>Step</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+19">Delete</span> - Enables you to delete the <i>Step</i>.</li>
+
+
+</ul>
+
+The context menu for editing a <i>Group</i> provides the following three options. 
+
+<ul>
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+31">Rename</span> - Enables you to provide an appropriate name for the <i>Group</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+33">Insert</span> - Enables you to insert an additional <i>Group</i>.</li>
+
+
+
+<li><span class="UI_OPTION" id="ExplAssyUI.msg+_EXPLASSY_UI_LABEL_+35">Delete</span> - Enables you to delete the <i>Group</i>.</li>
+
+
+</ul>
+</td>
+</tr>
+</table>
+ 
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,377 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Chitti Sowjanya">
+<title>How to check documents</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.noleft{margin-left:22;margin-top:3px;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1><a name="top">How to check documents</a></h1>
+
+<p>Before starting any check action, you are recommended to incrementally save the model/drawing you are working on.</p>
+
+<p>The very first checks you can perform on your document are the ones carried out by the <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_Model_Quality.htm"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span></a> command (<span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+7826">Model Quality</span>), which enables you to check the quality of a model by searching for a number of issues that may be present in the model itself and that can be of topological nature, specific issues on curves, surfaces and points or also geometric problems.</p>
+
+<p>All the other check actions you can perform may require conspicuous amounts of time when performed on a big model/drawing. In order to avoid time wasting, follow the suggestions given in <a href="#A2">Checking an existing model</a>: this way you will also work on files with very reasonable sizes.</p>
+
+<ul class="noleft">
+<li><a href="#A1">Checking a model while you are creating it</a></li>
+
+<li><a href="#A2">Checking an existing model</a></li>
+
+<li><a href="#A3">Sequence of check operations</a></li>
+
+<li><a href="#A4">Corrective actions</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4><a name="A1"></a>Checking a model while you are creating it</h4>
+
+<p>Periodically checking the work you are doing will ensure you to get no corrupted or inconsistent data in the final model/drawing.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Spending some minutes checking the work you are doing will let you spare a lot of time. Errors that can be easily fixed, if discovered in due time, may make you waste a lot of time if disregarded.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4><a name="A2"></a>Checking an existing model</h4>
+
+<p style="margin-bottom:2px;">When you have to check a big model, either created with the application or converted from another format, it is advisable to proceed as follows:</p>
+
+<ul class="noleft" style="margin-top:5px;">
+<li>Split the big model into smaller ones (for example using the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_08.htm"><span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span></a> command)</li>
+
+<li>Check each smaller model separately</li>
+
+<li>When splitting, mind existing relations among objects contained in the file</li>
+
+<li>If the file is an assembly file and it contains <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_02.htm"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Group.msg+MenuBar_Document_Insert_Group+4619">X-Reference</span> component</a>s, load and check each of them separately: this is much more effective than checking them from inside the assembly.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4><a name="A3"></a>Sequence of check operations</h4>
+
+<p>It is advisable to perform the following sequence of operations in order to check your file:<br>
+</p>
+
+<ul class="noleft">
+<li><b>Visual check on geometric entities</b><br>
+This kind of check&nbsp;&#151;&nbsp;to be performed when the current display mode is <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_33.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1239">Wireframe</span></a>&nbsp;&#151;&nbsp;enables you to verify the correctness of non-parametric entities like curves and surfaces: 
+
+<ol class="litleft" style="margin-top:8px;">
+<li><b>Surfaces or curves incorrectly described</b><br>
+ 
+
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-12.gif"></td>
+<td>The surface in the illustration on the left is badly described as it shows some incorrect isoparametric curves (the ones inside the red circles). If not fixed by rebuilding the surface, this situation may cause problems when the surface will be used inside a solid. Features involving the surface may fail with no apparent reason.<br>
+Another typical case of badly described entities is the one of NURBS curves and surfaces with isolated control points exaggeratedly distant from all the others.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Correctness of the trimmed surfaces of the model</b><br>
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-11.gif"></td>
+<td>In the example on the left, a set of surfaces seems correctly trimmed. A more accurate analysis, which you can perform by zooming along a specific area, shows that one of the surfaces is superimposed to the others.<br>
+If you do not fix this geometric error, you may not be able to create a solid from the surfaces using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Sl_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command unless you use too high tolerance values.<br>
+ This error is more frequent in the areas of a model in which several surfaces share an edge or a vertex.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Consistency of the solid tolerance values</b><br>
+<table border="0">
+<tr valign="top">
+<td><img src="../../../images/Errman/874-13.gif"></td>
+<td><br>
+<br>
+A simple visual check enables you to verify whether the solid has been made using a too high tolerance value. In such a case, the isoparametric curves of the surfaces seem to end slightly before or slightly after the surface edges. A solid made in such a way, although correctly managed by the application, may cause some troubles when you try to use a face or an edge in order to create a feature.</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/Errman/LOMA01.gif"></td>
+<td>Another situation that might indicate a too high tolerance value is when the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_TrimExtend.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1223">Trim/Extend Curves</span></a> command does not actually trim the selected curves although they apparently intersect.</td>
+</tr>
+</table>
+</li>
+
+<li><b>Entities too far away from the Work Plane origin</b><br>
+<table border="0">
+<tr valign="top">
+<td><img src="../../../images/Errman/LOMA02.gif">&nbsp;</td>
+<td>If, after a <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_17.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+5681">Fit View</span></a> or a <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_17.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+4536">Work Plane View</span></a> command or a <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_17.htm">dynamic rotation</a>, the model unexpectedly disappears, the reason might be that some entities inside the model&nbsp;&#151;&nbsp;like dimensions, small lines or surfaces, points&nbsp;&#151;&nbsp;are really very far away from the origin. The only solution is to discover and delete them.<br>
+If the model is an assembly, the <i>far</i> entities have to be searched for inside <i>each</i> component, keeping into account that they might also be hidden.<br>
+The same check for far away entities must be performed when some boundaries appear unexpectedly jagged in a <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_45.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+207">Shaded View</span></a>.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+</ol>
+</li>
+
+<li><b>Check of</b> <b>think<font color="#FF0F00">3</font></b> <b>Data Base using the <a href="mk:@MSITStore:help.chm::/language/tools/FWfile/T_FW_to_14.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1675">Compress</span></a> command</b><br>
+ If the database is corrupted, you might get an internal error. The only thing to do in such cases is to load the file and isolate the corrupted entities. In a lot of cases, removing the corrupted entities using the <a href="mk:@MSITStore:help.chm::/language/edit/FWfile/T_FW_ed_24.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1675">Compress</span></a> command solves the problem.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">This way, also entities that are displayed but cannot be selected are recovered.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Check the structure consistency for all the parametric entities&nbsp;</b><br>
+The check is possible using the <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_05_12.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+140">Rebuild All</span></a> command. This command rebuilds all the entities of the model going through all the branches of the Model Structure. If any inconsistencies are detected, a dialog box is displayed, the title of which describes the type of error that was found. <i>See also</i> "<a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_05_12.htm">Recovering errors when rebuilding</a>" for further details. 
+
+<p>Before going on, you <b>must</b> solve the problem. Here are the most common:<br>
+&nbsp;</p>
+
+<ol class="litleft">
+<li><b>Failed attempt to update!</b><br>
+<table border="0">
+<tr>
+<td><img src="../images/874-02.gif"> </td>
+<td>When a feature fails, red arrow in the Model Structure marks it. What you can do depends on the feature. Generally, the failure is due to a sudden variation of the piece geometry. If you recover geometric consistency, the error disappears.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Not a closed object</b><br>
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-03.gif"></td>
+<td>When you modify a parameter or a dimension, one or more faces may disappear. In the case of the illustration on the left, the too high value fillet on the top edge of a hole makes some faces disappear. If you enter a lower radius value, the problem is solved. In the application, an object is defined <i>open</i> only when one face ends on one or more edges.<br>
+<br>
+ </td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Not a manifold object</b><br>
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-04.gif"></td>
+<td>The solid geometrically exists, but it is not possible to build it. In the application an object is defined <i>non-manifold</i> when more than two faces share an edge. In the model of the illustration on the left, a hole is tangent to a face of the plate in which it was created. Three faces share the top edge of the hole: the two plane faces of the plate and the cylindrical face of the hole.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Multishell object!</b><br>
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-05.gif"> </td>
+<td>The solid consists of one or more separate parts. In the example of the illustration on the left, a too big hole splits into three parts the plate in which it was created.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Impossible convergence!</b><br>
+<table border="0">
+<tr>
+<td><img src="../images/874-06.gif"> </td>
+<td>The trouble is in a profile inside a solid or a feature. A red arrow marks the profile in the Model Structure. Generally, you get this warning message when the profile is inconsistent or over constrained.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Error calculating the Work Plane</b><br>
+<table border="0">
+<tr>
+<td><img src="../images/874-08.gif"> </td>
+<td>You created a profile that is related to a parametric entity no more existing after you modified a driving dimension or a geometric parameter. You have to assign the profile a consistent Work Plane. For example, you can use the <span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+113">Redefine</span> button of the dialog box to do so. If you recover the initial values of the modified parameters, the problem is generally solved.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Not consistent normals</b><br>
+<table border="0">
+<tr>
+<td><img src="../../../images/Errman/874-07.gif"> </td>
+<td>This problem may occur when a Boolean union is implicitly created by the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_sl_08.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1538">Make Solid</span></a> command. One or more normals are incorrectly oriented. In the case of the illustration on the left, the incorrect normal is the one on the right side face. In these cases you usually solve the problem by modifying the orientation of the incorrect normal using the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_sl_08.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+102">Check Normals</span></a> command.</td>
+</tr>
+</table>
+
+<p>If the model contains several parametric objects, you can check only the structure branch related to the selected object by using the <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/Sl_03_12.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+80">Rebuild Object</span></a> command. The error messages you get are the same as in the above list.<br>
+ If the file contains components, see the note below: "A stricter check of parametric objects".<br>
+<br>
+An alternative way to check the structure consistency of all parametric entities in a model is to use the <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1093">Roll Back</span></a> and <a href="mk:@MSITStore:help.chm::/language/history/FWfile/T_FW_ht_01.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_History.msg+MenuBar_Document_Edit_History+1095">Roll Forward</span></a> commands. You must always be able to go back and forward inside the Drawing Structure with no troubles.<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+<table border="0">
+<tr>
+<td width="170"><img src="../images/874-15.gif" border="1"> </td>
+<td>If an event fails when rebuilding the model, a red arrow is displayed on the left of its icon in the Model Structure. If you continue with modeling process without rectifying the cause of the failure, a persistent icon <img src="../../../images/Errman/874-14.gif" align="absmiddle"> will be displayed on the failing events. It will be visible there after saving, closing and re-opening the model. This is extremely helpful in locating the events on which rebuilding failed, especially in complex models having a long Model Structure with a lot of events. The error icon disappears after the cause for the failure has been rectified.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+</ol>
+
+<br>
+</li>
+
+<li><a name="GHOST"></a><b>Searching for ghost entities</b><br>
+ After checking <b>think<font color="#FF0F00">3</font></b> Data Base and through the Model Structure, the last step is to verify that the model contains no <i>ghost</i> entities. As this kind of check will destroy your model, you will have to save it before going on.<br>
+ Do the following: 
+
+<ol class="litleft">
+<li>Display all layers using the <a href="mk:@MSITStore:Layers.chm::/language/Layers/FWfile/T_FW_Layers.htm"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6440">Layers</span></a> command.</li>
+
+<li><a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_14.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_DRF_+339">Unhide</span></a> all entities.</li>
+
+<li>Pre-select all entities and remove them using the <span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6440">Layers</span> command. Now, to verify if they really disappeared from the Data Base, display the layer list and check that no entities are present.</li>
+</ol>
+
+<p>If any ghost entities are found, after reloading the original file, you can perform a <span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span> selecting only the entities that are surely correct and have no corrupted data associated. Working on a file containing ghost entities can lead to <a href="T_OV_solution-873.htm">Unexpected Errors</a>. See also "<a href="#CORR">Corrective actions</a>".<br>
+<br>
+</p>
+
+<table border="1" bordercolor="navy" bgcolor="#ffffe1">
+<tr>
+<td bordercolor="#ffffe1"><b>A stricter check of parametric entities</b> <br>
+A stricter check of a Model Structure can be done as follows: 
+
+<ol class="litleft" style="margin-top:4px;">
+<li>Create an empty file using the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_01.htm"><span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span></a> command.</li>
+
+<li>Use the <a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_quick_edit.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span></a> command on the empty file translating and rotating it by random values, like:<br>
+ Translate along X=12.45, Y=-33, Z=15.25 and also rotate about X=10.35 Y=15.15 Z=-5.73</li>
+
+<li>Using the <a href="mk:@MSITStore:help.chm::/language/file/FWfile/T_FW_fi_03.htm"><span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+4299">Insert from File</span></a> command, insert the model to be checked into the current empty model.</li>
+
+<li><a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/Sl_05_12.htm"><span class="UI_OPTION" id="tdesign.msg+_EK_SGC_+140">Rebuild All</span></a>.</li>
+</ol>
+
+This checking method is stricter than the one described above, as it obliges the system to compute a roto-translation of all entities. This method is particularly useful to check components that have to be positioned using the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_Mating.htm"><span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+33">Mating</span></a> command.<br>
+ </td>
+</tr>
+</table>
+</li>
+</ul>
+
+<p>If the model gives no problems after the checking actions listed above, you may reasonably believe your file does not contain corrupted data. If you get <b>Unexpected</b> Errors, it must be due to other reasons. <i>See</i> "<a href="T_OV_solution-873.htm">Error Management</a>"</p>
+
+<p>&nbsp;</p>
+
+<h4><a name="A4"></a>Corrective actions</h4>
+
+<p>As the solution to a problem is usually extremely specific, the following are only general tips.</p>
+
+<ul class="noleft">
+<li><a name="CORR"></a>A good way to clean up your files&nbsp;&#151;&nbsp;especially when the file size seems too big in a comparison with the number of visible entities&nbsp;&#151;&nbsp;is to do the following: 
+
+<ul class="noleft">
+<li>Select all the visible entities using a window selection.</li>
+
+<li>Using the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1235">Hide Entities</span> command, hide all the selected entities.</li>
+
+<li>Select <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1099">Select</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION" id="MenuBar_Document_Edit_Selection.msg+MenuBar_Document_Edit_Selection+1105">All</span>.</li>
+
+<li>Run the <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+1069">Edit</span> command.</li>
+
+<li>Run <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1675">Compress</span>.</li>
+
+<li>Unhide the entities you had previously hidden.<br>
+<br>
+</li>
+</ul>
+
+This procedure removes all unexpected entities and reduces the file size. <i>See also</i> <a href="#GHOST">"Searching for ghost entities"</a>.<br>
+&nbsp;</li>
+
+<li>If, during your visual check, you find out some curves or surfaces with a bad description or incorrectly trimmed, you can simply correct them using the proper commands, such as: <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_SurfaceUntrim.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+249">Untrim Surface</span></a>, <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_SurfaceUntrim.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+247">Trim Surface with Limits</span></a> and <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_SurfaceUntrim.htm"><span class="UI_OPTION" id="ButtonToolbar_Curve.msg+ButtonToolbar_Curve+381">Split Curve</span></a> or <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_SurfaceUntrim.htm"><span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7018">Split Surface</span></a>.<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#ffffe1" stul="margin-bottom:6px;">
+<tr>
+<td class="noteme" bordercolor="#ffffe1">Never disregard these errors, mainly if the surfaces have to be used to make a solid.</td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li>If, when checking, you find out incorrect entities that you cannot recover or correct, the safest thing is to remove them using <span class="UI_OPTION" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7018">Split Surface</span>.<br>
+<br>
+</li>
+
+<li>If problems are due to the Model Structure, you can try to completely or partially recover at least the geometry. You can do this for any file type (<i>*.e2</i>, <i>*.e3</i>), whichever their original format, saving the model/drawing to <b>think<font color="#FF0F00">3</font></b> Neutral Format (<i>*.gkd</i>). If, when you reload the file, some entities are no more there, this means they were corrupted and they are automatically discarded. Another way to do this is to use the <span class="UI_OPTION" id="ButtonToolbar_File.msg+ButtonToolbar_File+4299">Insert from File</span> command setting the <span class="UI_OPTION" id="idd_import_file.msg+idd_import_file+7">Static</span> option (even for components).<br>
+<br>
+</li>
+
+<li>If you try to recover information about the structure, you will have to use the <span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1045">Partial Save</span> command, selecting only the entities you are sure that have no corrupted data associated. The result of this action is less reliable than the one described in previous step.</li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_solution-873.htm"><b>Error Management</b></a></li>
+
+<li><a href="T_OV_ie_01.htm"><b>Recovering Files on Internal Errors</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

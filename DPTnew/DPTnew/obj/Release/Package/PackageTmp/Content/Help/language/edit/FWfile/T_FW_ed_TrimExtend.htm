@@ -1,0 +1,93 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(35,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Trim/Extend Curves</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+.niente{margin-top:0;margin-bottom:0;}
+.spostati{margin-left: 14;margin-top:0;margin-bottom:0;}
+.allinea{text-align: justify;}
+.spal{margin-left: 14;margin-top:0;margin-bottom:0;text-align: justify;}
+.spalT{margin-left: 12;margin-top:0;margin-bottom:0;text-align: justify;}
+</style>
+
+</head>
+
+
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Edit<img src="../../../images/general/litarr.gif">Trim/Extend Curves</p>
+<hr color="#63a9d8">
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><span id="TWOD"><i>Voice: <b>Trim Extend Curves</b></i></SPAN> 
+
+</td>
+ --></tr></table>
+<br>&nbsp;<br>
+
+<p class="niente">The <b>Trim/Extend Curves</b> command trims or extends curves according to the method selected in the <b>Mode</b> drop-down list:</p>
+<br>
+<p class="niente"><b>First</b>
+<table class="spalT">
+<tr valign="top">
+<td class="allinea">Trims or extends the first of two selected curves so that it ends on the second selected curve. </td><td><img border="1" src="../../../images/edit/trimfirst.gif"></td>
+</tr>
+</table>
+<p class="spal">The results depend on the points used to select the curves. If the curves intersect at more than one point, the <b>think<font color="#FF0F00">3</font></b> application considers the one closest to the selection point of the first curve and trims the curve so that it ends at that point. If the curves do not intersect, the program extends them along their existing curvature until they do intersect.</p>
+<br>
+<p class="niente"><b>Both</b>
+<table class="spalT">
+<tr valign="top">
+<td class="allinea">Trims or extends the two selected curves so that they have a shared endpoint.</td>
+<td><img border="1" src="../../../images/edit/trimboth.gif"></td>
+</tr>
+</table>
+<p class="spal"> The results depend on the points used to select the curves. If the curves intersect at more than one point, the <b>think<font color="#FF0F00">3</font></b> application considers the one closest to the selection point of the first curve and trims the curves so that they end at that point. If the curves do not intersect, the program extends them along their existing curvature until they do intersect.</p>
+<br>
+<p class="niente">After selecting the trimming method, select the curves to be trimmed.
+<br>Once the curves have been selected, by checking the <b>Quadrant</b> box you can choose the portions of curves to be kept: the quadrant changes as you move the cursor and the portion of curves which will be kept is highlighted. Click to select the quadrant and apply the command.
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><span id="TWOD"><b>Virtual intersections</b><br>
+
+The command can trim two curves also when they are not lying on the same plane (unless they do not intersect in any plane or view direction). When a <i>virtual</i> intersection is detected, a proper message is displayed. Upon confirmation, the trimming operation is performed along the current view direction.
+
+<br><br></SPAN>
+<b>Applying the command to entities belonging to groups</b><br>The command can be applied to entities belonging to groups by using the <a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_SelectInsideGroup.htm"><b>Select inside Groups</b></a> command.</td></tr></table>
+
+
+<span id="TWOD"><h5><hr color="silver">Try to ...</h5> 
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_ed_TrimExtend.htm"><b>Trim a curve at its virtual intersection with another one</b></a></li>
+</ul></SPAN>
+
+<hr color="silver">
+</body>
+</html>

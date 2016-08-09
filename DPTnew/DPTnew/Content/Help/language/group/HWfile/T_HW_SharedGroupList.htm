@@ -1,0 +1,122 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Shared Group List Tab</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="../../../JSandSTYLEs/t32000vNOHR.css" REL="stylesheet" TYPE="text/css">
+
+
+<style>.noleft{margin-left:22;}</style> 
+
+<style>.noleft2{margin-left:22;margin-top:3;margin-bottom:0;}</style>
+
+<STYLE> .menu{font-size: 10pt; font-family: Arial;}</STYLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h2>Shared Group List Tab</h2>
+When working on a drawing, the document <B>Shared Group</B> list tab is an additional tab of the frame on the left of the graphics area in which the program displays the list of shared groups, both locally defined ( <img border=1 src="../../../images/group/LocalIcon.gif" align="middle"> ) and X-References (groups)( <img border="1" src="../../../images/group/XrefIcon.gif" align="middle"> ). 
+<p>The list displays only <i>one</i> icon with the corresponding group name&nbsp;&#151;&nbsp;the <i>archetype</i>&nbsp;&#151;&nbsp;for each of the currently existing shared groups and X-Reference groups. 
+<a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_UnloadSharedGroup.htm">Unloaded</a> X-References (groups) are also displayed ( <img border=1 src="../../../images/group/UnloadedIcon.gif" align="middle"> ).
+<p>To display the <b>Shared Group</b> list tab, instead of the <a href="mk:@MSITStore:Groups.chm::/language/group/HWfile/T_HW_ht_03.htm"><b>Drawing Structure</b></a>, click the <b>Shared Group</b> icon, as in the following illustration. The document <B>Shared Group</B> list tab will be displayed.<br>&nbsp;
+<table align="center"><tr><td><IMG border=1 SRC="../images/DSL-01.gif"></td></tr></table>
+<ul class="noleft">
+<li>The <b>Name</b> column contains the name of each local shared group and X-Reference group with at least one occurrence in the drawing, or unloaded.
+<li>In the case of X-Reference groups, the file path is also displayed in the <b>Path</b> column.
+<li>The <b><!-- Instances -->Copies</b> column displays the number of copies of the group actually existing in the drawing (you can delete the archetype&nbsp;&#151;&nbsp;of one local shared group or of <i>all</i> the local shared groups with 0 copies&nbsp;&#151;&nbsp;as described in <a href="mk:@MSITStore:Groups.chm::/language/group/OVfile/T_OV_DeleteArchetype.htm"><b>Commands to remove archetypes of local shared groups with no copies in the drawing</b></a>)</li>
+<li>You can click on the column header button to order the list by <b>Name</b> or by <b>Path</b> respectively. When you order the list by <b>Path</b>, local shared groups&nbsp;&#151;&nbsp;which have no path&nbsp;&#151;&nbsp;are displayed on top of the list.
+<li>The list can be restricted only to those groups whose names match the string you type into the <b>Filter</b> box. You can use the following wildcards:
+<ul class="noleft">
+<li>"<b>?</b>"&nbsp;&#151;&nbsp;in the place of one character, whatever it is
+<li>"<b>*</b>"&nbsp;&#151;&nbsp;in the place of any number of characters, whatever they are
+
+</ul>
+<li>Depending on where you right-click within the document <b>Shared Group</b> list tab, different context menus are available.
+<ul class="noleft">
+<li><a href="#empty">Context menu commands available when right-clicking in an empty area</a>
+<li><a href="#icon">Context menu commands available when right-clicking on a group icon</a>.
+</ul>
+</ul>
+<p>&nbsp;</p>
+<h5><a name="empty"></a>Context menu commands available when right-clicking in an empty area<hr color="silver"></h5>
+<p>When you right-click <i>in an empty area</i> of the document <b>Shared Group</b> list frame, the program displays the following context menu.
+<br>&nbsp;
+<table border=1 bordercolor="black">
+<tr valign="top" bordercolor="white">
+<td><IMG border=1 SRC="../images/DSL-02.gif"><br>
+<ul class="noleft">
+<li><b>Refresh</b><br>
+Enables you to update the list after you have added/removed one or more shared groups from the drawing
+<li><b>Only local groups</b><br>
+When selected, only locally defined shared groups are displayed. When not selected, X-Reference groups are displayed as well
+<li><b>Delete Unused Groups</b><br>
+Enables you to delete the archetypes of all local groups with no copies in the drawing (available only if at least one group whose number of copies is 0 exists).
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<h5><a name="icon"></a>Context menu commands available when right-clicking on a group icon<hr color="silver"></h5>
+<p>When you right-click on a group icon, the program displays the following context menus.<br>&nbsp;
+<table border=1 bordercolor="black">
+<tr valign="top" bordercolor="white">
+<td>
+<table border=1 bordercolor="black" cellpadding="1%" width="100%">
+
+<tr valign="top" bordercolor="white">
+<td><b>Local Shared Group</b></td>
+<td><b>X-Reference Group</b></td>
+</tr>
+<tr valign="top">
+<td align="center"><img border=1 src="../images/DSL-04.gif"></td>
+<td align="center"><img border=1 src="../images/DSL-03.gif"></td>
+</tr>
+</table>
+<ul class="noleft">
+<li><a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_DuplicateSharedGroup.htm"><b>Insert Group</b></a><br>Enables you to insert another copy of a shared group (either local or X-Reference (groups)) already existing in the drawing. See the description of <b>Insert<img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_DuplicateSharedGroup.htm">Group Copy</a></b> command in the <b>Drawing Structure</b>. See also <a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_DuplicateSharedGroup.htm"><b>Inserting a copy of a shared group</b></a> for further details.
+<li><a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_RedefineSharedGroup.htm"><b>Start Local Edit</b></a>
+<br>
+Enables you to edit the group <i>not within the drawing</i>, but within its own definition (thus with its original orientation and scale). When the <b>Start Local Edit</b> command is started on a shared group, the background color changes. To quit the command, just double-click on the graphics area, or right-click and select <b>End Local Edit</b>. 
+<!--  --><br><br>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%" width="90%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Starting an editing session on another shared group</b><br>
+After starting an editing session on a shared group, you can automatically end the editing session on the currently selected group and start a new editing session on <i>another</i> shared group group in three alternative ways:
+<ul class="noleft2">
+<li>By right-clicking in an empty zone of the graphics area and selecting <b>Modify Next</b> or <b>Modify Previous</b>, which will respectively move the editing session onto the next or the previous shared group according to the order of the archetype icons displayed in the <b>Shared Group</b> List Tab.</li>
+<li>By using the arrow keys of the keyboard ( <img src="../../../images/general/upblackarrow.gif"> , <img src="../../../images/general/downblackarrow.gif"> ) in the <b>Shared Group</b> List Tab to <i>scroll</i> the list and move the editing session to the next/previous shared group according to the order of the archetype icons displayed in the displayed list.</li>
+<li>By clicking on the archtype icon of a shared group in the <b>Shared Group</b> List Tab, which will move the editing session onto the group whose icon you clicked on.</li>
+</ul>
+<p style="margin-top:3;marign-bottom:0;">In addition, if the shared group you are editing contains other shared groups, while editing the parent group you can right-click on one of the shared groups it contains and select <b>Start Local Edit</b>. This action will automatically end the local editing session on the parent group and start a new one on the child group.</p>
+</td></tr></table><br>
+See also <a href="mk:@MSITStore:Groups.chm::/language/group/HWfile/T_HW_RedefineSharedGroup.htm"><b>Locally editing a shared group</b></a> for further details. If the selected group is an X-Reference (groups), when you close the drawing you will be asked whether you want to save your changes to the shared group file. If your answer is affirmative, the shared group definition will be modified in its own file: next time you load the drawing you will see the group modified according to your changes. On the contrary, if the answer is not affirmative, next time you load the drawing the group will look as it was before you modified it. 
+<li><b>Delete</b><br>
+Enables you to delete the archetype of a local group with no copies in the drawing (available only if the number of copies of the selected group is 0). 
+</li>
+<li><a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_UnloadSharedGroup.htm"><b>Unload</b></a><br>Enables you to remove the selected X-Reference shared group from the memory.
+<li><a href="mk:@MSITStore:Groups.chm::/language/group/FWfile/T_FW_ReloadSharedGroup.htm"><b>Reload</b></a><br>Enables you to update all copies of the selected X-Reference shared group after it has been modified in its external file.
+<li><b>Rename</b><br>Enables you to rename the selected group. As soon as the command is selected, an editing session starts on the group name.<br><br>
+<img border=1 src="../images/DSL-LAST.gif"><br><br>
+Once you have modified the group name as you like, hit the <b>RETURN</b> key to confirm. A warning message is displayed if you typed in the name of a group already existing.
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

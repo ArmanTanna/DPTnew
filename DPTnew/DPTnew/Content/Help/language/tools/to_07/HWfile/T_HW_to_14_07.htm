@@ -1,0 +1,156 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Job: Section analysis - Existent Sections</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style>.noleft{margin-top:0; margin-left:22}</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+
+
+<H3><A NAME="to_hw_14_07"></A>Analyze existing section curves</h3>
+
+<p>To do this exercise, open the file to_14_07.e3.</p>
+<TABLE>
+<TR VALIGN=top>
+<TD><B>1</B>&nbsp;</TD>
+<TD>When you start the command, the program displays the <B>Section analysis</B> dialog box.<BR> Choose <b>Existent sections</b>.<br>
+In order to best understand the results of this command, you should first align the Work Plane with the plane of the existing sections (the <I>internal reference system</I>).
+<br><br><img border=1 src="../../../../images/tools/to_07/toi50_07.gif"><br><br>
+Once you have done so, proceed with next step.<br>&nbsp;
+</TD>
+</TR>
+<TR VALIGN=top>
+<TD><B>2</B>&nbsp;</TD>
+<TD>Indicate the analysis point.
+<br><br><img border=1 src="../../../../images/tools/to_07/toi48_07.gif"><br>&nbsp;</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>3</B></TD>
+<TD>The program displays the <B>Volume</b> dialog box:
+
+<table>
+<tr valign="top">
+<td><b>Tolerance</b></td>
+<td>Enables you to determine the tolerance value to be used in subsequent calculations</td>
+</tr>
+<tr valign="top">
+<td><b>Units</b></td>
+<td>Enables you to determine the unit of measurement for output</td>
+</tr>
+<tr valign="top">
+<td><b>File name</b></td>
+<td>Enables you to determine the name of the file to which you want to save the analysis results. If you omit this value, the results are shown only on screen.<br>&nbsp;</td>
+</tr>
+</table>
+
+
+</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>4</b></TD>
+<TD>Click <B>OK</B> or press the <B>Enter</B> key.<br>&nbsp;</td>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>5</B></TD>
+<TD>The program displays the <B>Existent sections</B> dialog box. Choose the method you want to use to select the sections:
+<p>
+<B>Select the standard sections</B>
+<ul class="noleft">Enables you to select the sections one by one, starting from the one nearest to the analysis point. For each section, select all the component curves, and then end selection. <br>Once you have selected all the sections, end the selection of the sections.</ul>
+<br><img border=1 src="../../../../images/tools/to_07/toi49_07.gif"><br><br>
+<B>Select Layer by Layer</B>
+<UL class="noleft">Enables you to select the sections by specifying the layers on which the component curves lie (each section must consist of curves lying on a single layer, different from that of the other sections).
+<BR>
+After defining the lowest layer and the highest layer, click
+<B>OK</B> or press the <B>Enter</B> key.<br>&nbsp;
+</UL></TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>6</B></TD>
+<TD>The program displays the <B>Volume</B> dialog box. Choose the type of interpolation to be used:
+<p>
+<B>Cubic spline interpolation</B>
+<UL class="noleft">Select this option when the surface is very regular and the cutting planes are not "closely packed".</UL>
+<B>Linear interpolation</B>
+<UL class="noleft">Select this option when the surfaces are very irregular.</UL></TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>7</B></TD>
+<TD>If you have specified a file to which the results are to be
+saved, the program asks whether you also want to view the results on screen.<br>&nbsp;
+</TD>
+</TR>
+
+<TR VALIGN=top>
+<TD><B>8</B></TD>
+<TD>If you answer <B>Yes</B>, you must choose which results you want to view.
+<BR>
+The results saved to the file appear as shown below:
+<BR>&nbsp;
+
+<P><TT>Section analysis</TT>
+<BR>
+
+<P><TT>Total number of sections 10</TT>
+<BR>
+
+<P><TT>Section analysis results 1</TT>
+<P><TT>Distance from analysis point 0</TT>
+<P><TT>Section area 766.812</TT>
+<BR><TT>Analysis point (Workplane)-53.075 -0.710526 </TT>
+<BR><TT>Analysis point (WORLD)-6.26495 71.5695 0</TT>
+<BR><TT>Center of gravity (Workplane)-56.3059 -0.73937 0</TT>
+<BR><TT>Center of gravity (WORLD)-9.49586 71.5406 </TT>
+<BR><TT>External perimeter 197.122</TT>
+<BR><TT>Island perimeter 0</TT>
+<BR><TT>Max. length along X axis 96.6318</TT>
+<BR><TT>Max. length along Y axis 12.0791</TT>
+<BR><TT>Static moment mx -22.1183</TT>
+<BR><TT>Static moment my -2477.5</TT>
+<BR><TT>Trans. in. mom. jxg 6504.83</TT>
+<BR><TT>Long. in. mom. jyg 367635</TT>
+<BR><TT>Mom. of inertia jxx 6505.47</TT>
+<BR><TT>Mom. of inertia jyy 375640</TT>
+<BR><TT>Rotation radius xrg 2.91269</TT>
+<BR><TT>Rotation radius yrg 22.133</TT>
+<BR><TT>Polar radius polrg 22.3239</TT>
+<BR><TT>Polar moment polmi 382145</TT>
+<BR><TT>Prod. of inertia 3856.76</TT>
+<BR><TT>Center of gravity iner. prod.  3785.3</TT>
+<BR><TT>Max. center of gravity mom. 367675</TT>
+<BR><TT>Min. center of gravity mom. 6465.16</TT>
+<BR><TT>Angle of max. mom. of iner. 90.6005</TT></P></TD>
+</TR>
+</TABLE>
+
+<H4>Analyzing existing sections<A NAME="to_ex_01_14_07"></A></h4>
+<p>To do the exercise described in the <A href="#to_hw_14_07">previous example</A>, open the file to_14_07.e3 and follow the <A href="#to_hw_14_07">step-by-step instructions</A>.</p>
+
+<hr color="silver">
+</body>
+</html>
+
+
+
+

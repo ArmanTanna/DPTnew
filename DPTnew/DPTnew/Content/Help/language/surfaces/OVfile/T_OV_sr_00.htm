@@ -1,0 +1,523 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<title>An Overview on Surfaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<a name="top"></a> 
+
+<h1>An Overview on Surfaces</h1>
+
+<p style="margin-bottom:2px;margin-top:3px;">This article describes the main characteristics of <b>think<font color="#FF0F00">3</font></b> surfaces.</p>
+
+<ul class="noleft" style="margin-top:3px;">
+<li><a href="#Specialized"><b>Specialized surfaces and NURBS</b></a></li>
+
+<li><a href="#Characteristics"><b>Characteristics of NURBS surfaces</b></a></li>
+
+<li><a href="#Control"><b>Control points</b></a></li>
+
+<li><a href="#Associative"><b>Associative surfaces (Skins)</b></a></li>
+
+<li><a href="#REDEF"><b>Redefinition of modifications applied to surfaces</b></a></li>
+</ul>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos</i> on surfaces has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8"><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational videos on surfaces here: <a href="../../tocpages/EL_BaseSurfaceModeling.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Base Surface Modeling</b></a> and <a href="../../tocpages/EL_AdvancedSurfaceModeling.htm"><b>Advanced Surface Modeling</b></a>.<br> Enjoy your lessons!</td></tr></table><br>
+<br>
+<p>&nbsp;<br>
+</p>
+
+<h4><a name="Specialized"></a>Specialized surfaces and NURBS</h4>
+
+<p style="margin-bottom:2px;margin-top:3px;"><b>think<font color="#FF0F00">3</font></b> surface entities can be divided into <b>specialized surfaces</b>, namely:</p>
+
+<ul class="noleft" style="margin-top:3px;">
+<li>Planes</li>
+
+<li>Circular cylinders</li>
+
+<li>Tabulated cylinders</li>
+
+<li>Ruled surfaces</li>
+
+<li>Surfaces of revolution</li>
+
+<li>Coons surfaces</li>
+
+<li>Proportional surfaces</li>
+
+<li>Fillet surfaces</li>
+</ul>
+
+<p style="margin-bottom:2px;margin-top:3px;">and NURBS. Entities of the latter type are used to describe all other types of surfaces, namely:</p>
+
+<ul class="noleft" style="margin-top:3px;">
+<li>stretched surfaces (provided they are not defined as Coons surfaces)</li>
+
+<li>Spined surfaces</li>
+
+<li>Fitted surfaces, interpolated surfaces, etc.</li>
+</ul>
+
+<p style="margin-bottom:2px;margin-top:3px;">Each surface has a parametric representation, that is to say, it is expressed as a function of the two parameters <b>u</b> and <b>v</b> which vary within the range [0,1]. The mathematical equations which describe the three coordinates of each point on the surface are equations with degree n<sub>u</sub> in variable u and degree n<sub>v</sub> in variable v and are called the "parametric equations" of the surface.<br>
+&nbsp;</p>
+
+<h4><a name="Characteristics"></a>Characteristics of NURBS surfaces</h4>
+
+<p style="margin-bottom:2px;margin-top:3px;">The considerations made in connection with curves also apply to each of the two surface parameters, considered separately, in regard to the following:</p>
+
+<ul class="noleft" style="margin-top:3px;">
+<li>arcs and joints</li>
+
+<li>degree</li>
+
+<li>continuity.</li>
+</ul>
+
+<p style="margin-bottom:2px;margin-top:3px;">As with curves, increasing the degree also increases the flexibility of a surface, although the latter becomes less smooth.<br>
+Continuity therefore also applies to both position and slope (tangency). In this case the concept of continuity is extended to entire arcs or edges separating different surfaces, which must therefore be considered as the <i>loci</i> of points with positional, slope or curvature continuity. See further details on continuity in the <a href="../../MathConc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a> document.</p>
+
+<p>Each portion of a NURBS surface "controlled" by a single set of control points is called a "<i>patch</i>" of that surface:<br>
+<br>
+<img src="../images/c43ge09.gif"></p>
+
+<p>&nbsp;</p>
+
+<h4><a name="Control"></a>Control points</h4>
+
+<p>Each NURBS surface, like a NURBS curve, has a set of <i>control points</i> which control its shape but which do <i>not</i> necessarily lie on the surface.<br>
+The concepts describing NURBS curves can be extended to a NURBS surface if applied to the isoparametric curves of the surface.<br>
+The broken line joining the control points of a curve is called the <i>control point polyline or polygon or defining polyline</i>.<br>
+<img src="../images/c18ae14.gif"><br>
+A numeric value, called the <i>weight</i>, is associated with each control point. Initially, the value of the weight is 1, but you may change it at any time. If you increase the weight of a control point, the curve moves closer to the control point, if you reduce it, the curve moves away from it. If you move the control points, the shape of the curve changes accordingly.</p>
+
+<p>A square filled marker (the color of the filling depends on your color set, though default is green) is used to display control points <i>when they can be selected</i> like, for example, in the <a href="../FWfile/T_FW_ms_08.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> command.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/GreenCP.gif"><br>
+<br>
+On the contrary, an empty square marker is used to display control points <i>that cannot be selected</i>, like for example, in the preview of the <a href="../FWfile/T_FW_sr_21.htm"><span class="UI_COMMAND" id="tdesign.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span></a> command.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/EmptyCP.gif"><br>
+<br>
+Please note that a cross marker is used to highlight <i>selected</i> control points.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SelectedCP.gif"><br>
+<br>
+</p>
+
+<p class="rn_desc"><b>Selection</b><br>
+The method to be used for the selection of an entire "row" of control points is really simple. In fact, you just need to click on the one of the two dotted "lines" of the polygon mesh along the direction of which you want to select the points. You can proceed as follows:<br>
+ There are two lines of the polygon mesh intersecting just below the position of the cursor. If you click on any position along the line of the polygon mesh above or below the point:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP02.jpg"><br>
+<br>
+all the "vertical" row of control points will be selected:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP03.jpg"><br>
+<br>
+Similarly, if you click on any position along the line on the left or on the right of the point:<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP04.jpg"><br>
+<br>
+all the "horizontal" row will be selected.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SELCP05.jpg"></p>
+
+<br>
+<p>&nbsp;<br>
+</p>
+
+<h4><a name="Associative"></a>Associative surfaces (Skins)</h4>
+
+<p style="margin-bottom:2px;margin-top:3px;">Associativity is a characteristic which can be assigned to a surface so that it will retain a link to the base entities it derives from. Associative surfaces are <i>Skins</i>, that is open solids. Therefore, if you modify the base entities of a skin, it will be modified accordingly; each skin has a history and is displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</p>
+
+
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Managing old version files</b><br>
+Files created with older versions of <b>think<font color="#FF0F00">3</font></b> applications might contain old <i>associative surface</i> entities, which were different from the <i>skins</i> that are currently obtained as results of applying the commands in the associative mode.<br>
+Such files are correctly and thoroughly managed in the current version: they are loaded as they are and the application is capable of rebuilding and redefining them correctly.</td>
+</tr>
+</table>
+
+<br>
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box, available in the selection list of many commands, enables you to create those associative entities called <i>Skins</i>, that is open solids, which retain a link to the surfaces/curves they derive from:</p>
+
+
+
+<table id="F2DNOTVISIBLE">
+<tr valign="top">
+<td valign="top"><img src="../../../images/general/bulldot3.gif"></td>
+<td valign="top">
+<table style="vertical-align: top;">
+<tr valign="top">
+<td valign="top">When the check box is selected, the resulting surface will be a skin. It will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting skin will be added to the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>.</td>
+
+
+<td valign="top"><img src="../images/SKIN00.gif" border="1"></td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" style="vertical-align: bottom;">
+<tr valign="bottom">
+<td bordercolor="#ffffe1"><b>Selecting non-associative entities</b><br>
+If you select non-associative entities (such as <span id="TWOD">non-associative surface borders or</span> non-associative curves), a message will be displayed to warn you non-associative entities have been selected and that they will become the root of the structure.</td>
+
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bulldot3.gif" align="baseline"></td>
+<td>When the check box is cleared, the resulting surfaces will not be associative: they will retain no link to the entities they derive from.</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;">Associativity is available for the following surface <i>creation</i> commands.</p>
+
+<ul class="noleft" style="margin-top:0;margin-bottom:4px">
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_AdvancedPipe.htm">
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+2">Pipe Surface</span></a></li>
+
+
+
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_BlendingShape.htm">
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+1">Blending Shapes</span></a></li>
+
+
+
+<li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+76">Plane Surface</span> defined as <a href="../HWfile/T_HW_sr_01_Bounded.htm">
+
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+82">Bounded</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_Capping.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span></a></li>
+
+
+
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_GlobalSweep.htm">
+<span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+1">Global Sweep</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_HelixSurface.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+347">Helix Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_Lofted.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+105">Lofted Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_sr_02.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+38">Linear Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_Offset.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+122">Offset Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_sr_23.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+250">Parting Plane</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_sr_03.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+34">Rotational Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_sr_11.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+72">Spined Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_sr_06.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+265">Break Solid</span></a></li>
+
+
+</ul>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Skins obtained using <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+265">Break Solid</span></b> <br>
+
+
+ As to the associative surfaces you can obtain using the <a href="../FWfile/T_FW_sr_06.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+265">Break Solid</span></a> command, which enables you to break a solid up into all its component surfaces (by using the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span> option) or extract only some of the component surfaces (by using the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span> option), the following has to be observed. 
+
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>In the case of <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span> break, you can select the 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+25">Associative Mode</span> check box so that the surfaces you obtain are skins, thus linked to the original solid (if you modify the solid, the skins will be modified accordingly).</li>
+
+
+
+<li>If you use the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span> option on a solid you had made using associative surfaces (see 
+<a href="mk:@MSITStore:solids.chm::/language/solids/HWfile/T_HW_make_solid.htm">
+
+<span class="UI_OPTION" id="tdesign.msg+_SOLID_UI_LABEL_+196">Make Solid</span></a>), you will still obtain skins.</li>
+
+
+</ul>
+</td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p style="margin-bottom:0;">Associativity is also available for the following surface <i>editing</i> commands.</p>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_sr_21.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+187">Convert Surface to NURBS</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_ms_01.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+215">Surface Continuity</span></a></li>
+
+
+
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_AdvancedContinuity.htm">
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+90">Advanced Surface Continuity</span></a></li>
+
+
+
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_TrimWithLimits.htm">
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+354">Trim Surface with Limits</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_SurfaceSplit.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+322">Split Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_TrimExtend.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+313">Trim/Extend Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_SurfaceUntrim.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+324">Untrim Surface</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_InvertSurface.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+350">Invert Surface</span></a></li>
+
+
+
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_SplitWithSilhouette.htm">
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+19">Split with Silhouette</span></a></li>
+
+
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><b>Editing a skin in non-associative mode</b> <br>
+In case you apply an editing command to skins, the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> box in the selection list will automatically be checked in the selection list. If you decide to apply the command in <i>non-associative</i> mode, that is to uncheck the 
+
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> box, a warning will be displayed so as to inform you that the command cannot be applied in such a way to the selected skins but only to non-associative copies of the surfaces automatically created by the application.</td>
+
+
+</tr>
+</table>
+
+<p>Associativity can be removed from a surface by using the <a href="mk:@MSITStore:solids.chm::/language/solids/Sl_16.htm">
+<span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+4176">Unlink Solid</span></a> command.<br>
+
+
+ The selected surface will be converted to a surface with its own history in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span> (such an entity is also ordinarily known as a <i>History Graph Genitor</i>), while all of its former associativity links to the parent entities will be removed.</p>
+
+
+
+<p>Finally, take into account associativity can be applied or removed from entities using the <a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_EnableAssociativity.htm">
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7170">Enable Associativity</span></a> and 
+<a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_DisableAssociativity.htm">
+
+<span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7169">Disable Associativity</span></a> commands respectively.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td bordercolor="#ffffe1"><a name="UPDDEP"></a><b>Managing the modification extension to dependant entities (children)</b> 
+
+<p>Entities can have <i>children</i>, which means entities created in relation with them and thus depending from them. Obviously, a modification performed through one of the above listed editing commands applied to the parent entity can affect the children as well. Thus, a specific option&nbsp;&#151;&nbsp;<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span>&nbsp;&#151;&nbsp;is displayed <i>only</i> if at least one of the selected entities has children, so as to enable you to decide whether to extend the modification also to the children or not.</p>
+
+
+
+<p style="margin-bottom:4px;">If <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> is <i>selected</i>:</p>
+
+
+
+<ul class="noleft">
+<li>When the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> box is cleared, the modification is <i>not</i> applied to the children (default).</li>
+
+
+
+<li>When the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> box is checked the modification is applied also to the children (after updating the model through 
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4458">Rebuild Model</span>).</li>
+
+
+</ul>
+
+<p style="margin-bottom:4px;" id="HIDEP">If <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> is <i>cleared</i> there are two cases:</p>
+
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>If the entity is not a <i>History Graph Genitor</i> (that is a generic root skin, displayed in the model structure through a generic <span class="UI_COMMAND" id="tdesign.msg+_EK_GRP_HTREE+256">Skin</span> icon <img src="../images/UPDDEP_BF.gif" align="absmiddle">), the 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> check box is <i>not</i> available.</li>
+
+
+
+<li>If the entity is a <i>History Graph Genitor</i>, the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> check box is available and its behavior is the following: 
+
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li id="HIDELI">When the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> box is checked the modification is applied to the selected entity and to the children (after updating the model through 
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4458">Rebuild Model</span>).</li>
+
+
+
+<li id="HIDELI">When the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> box is cleared, the modification is applied <i>to a copy</i> of the selected entity and <i>not</i> applied to the children.</li>
+
+
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>In the following example some associative isoparametric curves of a surface have been used to create skins. Then the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+313">Trim/Extend Surface</span> command&nbsp;&#151;&nbsp;with the 
+
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> box checked&nbsp;&#151;&nbsp;has been applied to the surface and one of the parameters has been reduced to half of its original value.</p>
+
+
+
+<ul>
+<li>If <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> is cleared, the modification is <i>not</i> applied to the skins:<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/UPD_DEP_00.gif"><br>
+&nbsp;</li>
+
+<li>If <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> is checked, on the contrary, the modification is applied to the skins (after running 
+
+<span class="UI_COMMAND" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4458">Rebuild Model</span>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/UPD_DEP_01.gif"><br>
+&nbsp;</li>
+</ul>
+
+<p>In the same model, if you uncheck the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> box:</p>
+
+
+
+<ul>
+<li>If <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> is cleared, the modification is applied to a copy of the selected entities&nbsp;&#151;&nbsp;a specific confirmation request is issued&nbsp;&#151;&nbsp;and the skins are not updated.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/UPD_DEP_02.gif"><br>
+&nbsp;</li>
+
+<li>If <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> is checked, the modification is actually applied to the selected entity and to the skins as well.<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/UPD_DEP_00.gif"><br>
+&nbsp;</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><a name="SU06"></a><b>Managing multi-face skins</b> <br>
+If the editing command is started in non-associative mode (that is, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> box is <i>cleared</i>), the selection of multiple internal faces of solids is enabled. The command will be performed on <i>copies</i> of the selected faces.<br>
+
+
+ In case the editing command is started in associative mode (that is, the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+43">Associative Mode</span> box is <i>checked</i>), the selection of multiple internal faces of solids will be enabled only in those cases for which it makes sense, that is namely for the following commands: 
+
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li><a href="mk:@MSITStore:surfaces.chm::/language/surfaces/FWfile/T_FW_TrimWithLimits.htm">
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+354">Trim Surface with Limits</span></a></li>
+
+
+
+<li><a href="../FWfile/T_FW_SurfaceSplit.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+322">Split Surface</span></a></li>
+
+
+</ul>
+
+In this case, the modification will be applied to the actually selected faces, rather than to copies.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4><a name="REDEF"></a>Redefinition of modifications applied to surfaces</h4>
+
+<p style="margin-bottom=4px;">When you apply the <a href="../../history/FWfile/T_FW_ht_06.htm"><span class="UI_OPTION" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span></a> command to entities formerly modified using the surface editing commands, take into account the following:</p>
+
+
+
+<ul class="noleft">
+<li>Entities can be added or removed from the ones the modification is applied to, but no replacement is allowed.</li>
+
+<li>The <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+144">Update Dependencies</span> option cannot be redefined.</li>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_BaseSurfaceModeling.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_BaseSurfaceModeling.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Base Surface Modeling</b></a></p>
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/El_AdvancedSurfaceModeling.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/El_AdvancedSurfaceModeling.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Advanced Surface Modeling</b></a></p>
+<hr color="navy">
+</body>
+</html>
+

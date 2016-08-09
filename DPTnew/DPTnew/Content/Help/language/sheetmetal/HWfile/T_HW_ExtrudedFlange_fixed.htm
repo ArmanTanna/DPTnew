@@ -1,0 +1,89 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2007t1" content="internally">
+<TITLE>Job: Adding extruded flanges to coplanar edges of a solid controlling the orientation of the profile</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+<style> .litleft
+{
+margin-left: 26;
+margin-top: 1;
+margin-bottom: 1;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h3>Adding extruded flanges to coplanar edges of a solid controlling the orientation of the profile</h3>
+<p>To accomplish this task, open file "ExtrFla83.e3". 
+<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Fixed_01.gif"><BR><BR>You will create an extruded flange on each of the two edges on the left. As you can see, they are coplanar.
+After starting the <a  href="../FWfile/T_FW_ExtrudedFlange.htm"><B>Extruded Flange</B></a> command, proceed as follows.<br>&nbsp;
+<table>
+<tr valign="top">
+<td width=20><b>1</b></td>
+<td>Select the profile that will be used to define the direction of the flange.<BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Fixed_02.gif"><BR><BR><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=5%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>About the profile</b>
+<br>The profile to be selected must:
+<ul class="noleft" style="margin-bottom:0;">
+<li>Be open
+<li>Contain only lines and arcs
+<li>Have one of its endpoints on an edge of the solid. 
+</ul>
+</td></tr></table><br>To change the selected profile, right-click on <b>Profile</b>, choose <b>Reset</b> in the context menu and select another profile.<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <b>Type</b> drop-down list select <b>Edges</b>.<p></p></td>
+</tr>
+<tr valign="top">
+<td><b>3</b></td>
+<td>Select each of the edges on which the flanges are to be created. <BR><BR><IMG border=1 SRC="../../../images/sheetmetal/Fixed_03.gif"><BR><BR>
+A preview of the corresponding flange is immediately displayed after selecting each edge.
+To change the selected edges, right-click on <b>Edges</b>, choose <b>Reset</b> in the context menu and perform selection again.
+<p>When the selected edges are coplanar, as in the case of this example, the  <b>Keep Orientation</b> check box under <b>More Options</b> is automatically displayed and selected, in order to maintain the angle between the profile and the plane on which the two selected edges lie, rather than the one between the first edge and the corresponding outer surface. If you prefer the latter condition to be applied, deselect the check box.
+
+<br><br><table border=1 bordercolor="navy" bgcolor=#FFFFE1>
+<tr>
+<td  class=noteme bordercolor="#ffffe1"><b>Keep Orientation
+</b>
+<br>When this check box is selected, flanges are created maintaining the angle between the profile and the plane on which all the edges lie. When it is not selected, each flange will form an angle (with the face the corresponding edge belongs to) that is the same as the one between the profile and the face which the first selected edge belongs to.
+</td></tr></table>
+<p></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td valign="baseline" width="20"><b>4</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif" border="0"> or <img src="../../../images/general/APPLYbutton.gif" border="0"> to confirm your selections and create the flanges.<BR>
+Click <img src="../../../images/general/CANCELbutton.gif" border="0"> to discard your changes.
+</td>
+</tr>
+</table>
+
+
+<hr color="silver">
+</body>
+</html>
+

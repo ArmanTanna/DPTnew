@@ -1,0 +1,65 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<HEAD>
+
+<meta name="T_2009t3" content="internally">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Annotations in Assemblies</title>
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+<style> .noleft
+{
+font-family:Verdana;
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+  
+<a name="top"></a>
+<h3>Annotations in Assemblies</h3>
+<p>Annotations can be used profitably to attach information to assemblies. This documents supplies some tips about how to manage annotations within assemblies.<br>&nbsp;
+<ul class="noleft">
+<li><b>The basic rule</b><br>
+The behavior of annotations in assemblies revolves around the following simple rule: Annotations can exist either at the <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_05.htm">top-level</a> of an assembly or within a component.  The assembly level at which an annotation exists is determined by which component is <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_04.htm">set as current</a> at the time of its creation.  If no component is current when the annotation is created, then it will exist at the top-level.  Annotations are visible and accessible only when their container component is set to current. Once you are aware of this basic rule, you can go on reading the document.
+<br>&nbsp;
+
+<li><b>Including annotations when creating a component</b><br>
+When you create a component (see <a href="mk:@MSITStore:as.chm::/language/assembly/FWfile/T_FW_as_01.htm"><b>New Component</b></a>), annotations already existing in the model and which you want to be associated with the component must be selected along with the other objects to be included in the component. If you don't explicitly select the annotations, although their point of interest can belong to an object which will be included in the component, they will not be added to the component and will remain at the top level.<br>&nbsp;
+
+<li><b>Viewing annotations</b>
+<br>When a component is created from a solid and annotations, the latter will not be visible, unless you set the component as current.
+<br><br>
+<table><tr><td><IMG border=1 SRC="../images/AS-01.gif"></td><td align="justify">Component set as current: annotations visible</td></tr></table>
+<table><tr><td><IMG border=1 SRC="../images/AS-02.gif"></td><td align="justify">Component <i>not</i> set as current: annotations not visible</td></tr></table><br>
+In other words, by default only annotations at the top-level of the document are visible. When 
+a component is set as current only those annotations contained in it are displayed.<br>&nbsp;
+<li><b>Inserting annotations</b><br>
+According to the above mentioned basic rule, annotations are generally added to entities at the top-level of the document. If a component is set as current, you can add the annotation to the component specifying a point belonging to an entity within the component as the Point of Interest.<br>&nbsp;
+<li><b>Editing and deleting annotations</b><br>
+Once more, according to the basic rule, you will be enabled to edit/delete all the annotations at the top level, if no component is set as current. You will be able to delete only the annotations belonging to a component, if the latter is et as current.<br>&nbsp;
+<li><b>Annotation Tree Panel</b><br>
+The <a href="T_OV_AnnotationGUI.htm#TreePanel">Annotation Tree Panel</a> will update its contents to show annotations 
+that can currently be accessed. By default, the tree will show all annotations at the top-level. If a component is set as current, the Annotation Tree Panel will update its contents to display only the annotations in the current component. The label of the tree's root node will display the name of the current component or the name of the document (if top-level).
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_AN.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Annotations</b></a></p>
+<hr color="silver">
+</body>
+</html>

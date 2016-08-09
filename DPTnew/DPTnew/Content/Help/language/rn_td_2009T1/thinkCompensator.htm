@@ -1,0 +1,127 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Compensator Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+
+<h1>New <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+1">Compensator</span> Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 introduces the following enhancements in the <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+1">Compensator</span> commands.</p>
+
+<ul class="noleft">
+<li><a href="#P477">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="idr_GMDecim.msg+idr_GMDecim+8">Process Compensator</span> command</a></li>
+
+<li><a href="#CCB-11706">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7749">Extract Zones</span> command</a></li>
+
+<li><a href="#Misc1">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="idr_GMDecim.msg+idr_GMDecim+6">Clean Displacement Field</span> command</a></li>
+
+<li><a href="#Misc2">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="idr_GMDecim.msg+idr_GMDecim+12">Compute Distances</span> command</a></li>
+</ul>
+
+<br>
+<hr color="silver">
+<!-- PRJ: P477 - OWN: Patrick Bosinco -->
+<h2><a name="#P477">Enhancement in the <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+8">Process Compensator</span> command</a></h2>
+
+<p>In this version, the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+223">Iterations with ratio</span> check box has been introduced under <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_compensationhost.htm#More_Options"><span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span></a> in the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span> selection list.</p>
+
+<ul>
+<li>When the check box is selected, you are enabled to specify a scale factor for each stage of the deformation process. For every iteration level, the ratio can be specified in the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+224">Ratio at iteration</span> edit box.</li>
+
+<li>When the check box is cleared, scale factor cannot be specified.</li>
+</ul>
+
+<br>
+<p>If <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+130">Max. No. of Iterations</span> is more than 5, the inputs are split into several ranges. The required range can be selected from the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+225">Iterations</span> drop-down list.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: CCB:11706 - OWN: Nicolas Rejneri -->
+<h2><a name="#CCB-11706">Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7749">Extract Zones</span> command</a></h2>
+
+<p>In the <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_SmallRadius.htm"><span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+183">Extract Zones</span></a> command, for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+6">Mode</span> set as <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+187">Curvature difference %</span>, it is required to select <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+223">First Points</span> and <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+224">Second Points</span> set of inputs between which the difference would be calculated. In this context, the following options have been renamed in this release.<br>
+<br>
+</p>
+
+<table cellspacing="2" cellpadding="2" border="1" style="margin-left:30;">
+<tr>
+<td align="center"><b><u>Old name</u></b></td>
+<td align="center"><b><u>New name</u></b></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Leading Points</span></td>
+<td><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+223">First Points</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Leaded Points</span></td>
+<td><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+224">Second Points</span></td>
+</tr>
+
+<tr>
+<td><span class="OLD">Leading Surfaces</span></td>
+<td><span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+221">First surfaces</span></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>The <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+222">Second surfaces</span> node has been introduced to select the reference surface for the second set of input points. Also, it is mandatory to make selection for <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+221">First surfaces</span> and <span class="UI_SELECTOR" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+222">Second surfaces</span> for <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+170">ASCII file</span> and <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+171">Standalone</span> points as the criterion of computation is based on the differences of the two.</p>
+
+<br>
+<p>Also the <span class="OLD">Max. Supposed Distance</span> option has been renamed to <span class="UI_OPTION" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+201">Max. presumed distance</span>.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: Misc1 - OWN: Patrick Bosinco -->
+<h2><a name="#Misc1">Enhancement in the <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+6">Clean Displacement Field</span> command</a></h2>
+
+<p>In this version, the new <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+78">No. loops</span> option has been introduced in the <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_cleandisplacementfield.htm#loops"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+35">Clean Displacement Field</span></a> selection list. It enables you to run the filtration process a specified number of times, to remove points progressively.</p>
+
+<br>
+<p>When the command is applied for the first time some points are removed according to the chosen criteria. This changes the neighborhood and average computations, so by running the filtration loop again, the program could find again some others points to remove.</p>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+ <!-- PRJ: Misc2 - OWN: Patrick Bosinco -->
+<h2><a name="#Misc2">Enhancement in the <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+12">Compute Distances</span> command</a></h2>
+
+<p>In this version, the new <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+211">Max. presumed distance</span> check box has been introduced in the <a href="mk:@MSITStore:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_computedistances.htm#dist"><span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+111">Compute Distances</span></a> selection list.</p>
+
+<ul>
+<li>When the check box is selected, the system discards the distance-to-shape computation of points that are farther than the specified threshold value. Hence, there is significant reduction in the computation time.</li>
+
+<li>When the check box is cleared, all the points are included in the computation.</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- #################################Project separator################################### -->
+</body>
+</html>
+

@@ -1,0 +1,312 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9155,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>DXF/DWG to think3 conversion table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/TwoDPLUS.js">
+</script>
+
+<style type="text/css">.noleft{margin-left:22;}</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<a name="top"></a> 
+
+<h2>DXF/DWG to think3 conversion table</h2>
+
+<p>Here is a general conversion table showing how DXF&trade;/DWG&trade; entities are mapped to <b>think<font color="#FF0F00">3</font></b> ones.</p>
+
+<table border="1" bordercolor="navy" width="100%" cellpadding="10">
+<tbody>
+<tr valign="top">
+<td><b>DXF entity</b> <br>
+</td>
+<td><b>think<font color="#FF0F00">3</font> entity</b></td>
+<td><b>Notes&nbsp;&mdash; Options controlling conversion</b></td>
+</tr>
+
+<tr>
+<td><b>Point</b></td>
+<td><b>Point</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Line</b></td>
+<td><b>Line</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Arc</b></td>
+<td><b>Circular Arc</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Circle</b></td>
+<td><b>Circular Arc</b> </td>
+<td>Arc angle = 360&deg;</td>
+</tr>
+
+<tr>
+<td><b>Ellipse</b></td>
+<td><b>Ellipse</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>NURBS</b></td>
+<td><b>Spline</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Dimension</b></td>
+<td><b>Dimension</b></td>
+<td>If the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+16">Dimension/label</span> check box under 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+15">Disassemble on loading</span> is selected in the 
+<a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LOAD.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+9">Load</span></a> category of the DXF/DWG Conversion Options, the dimension is exploded into its component entities.</td>
+
+</tr>
+
+<tr>
+<td><b>Oblique Dimension</b></td>
+<td><b>Group</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Leader Dimension with Spline leader line</b></td>
+<td><b>Group</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Leader</b></td>
+<td><b>Label</b></td>
+<td>If the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+16">Dimension/label</span> check box under 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+15">Disassemble on loading</span> is selected in the 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+9">Load</span> category of the 
+<a href="mk:@MSITStore:cnv.chm::/language/dxf/options.htm">DXF/DWG Conversion Options</a>, the dimension is exploded into its component entities.</td>
+
+</tr>
+
+<tr>
+<td><b>Text</b></td>
+<td><b>Text</b></td>
+<td>True type fonts are correctly converted.</td>
+</tr>
+
+<tr>
+<td><b>X-Hatch</b></td>
+<td><b>X-Hatch</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Block</b></td>
+<td><b>Group</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Group</b></td>
+<td>Component entities</td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Mtext</b></td>
+<td><b>Text</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Polyline</b></td>
+<td><b>Group</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Trace<span id="TWOD">/Solid</SPAN></b></td>
+
+<td><b>Lines + X-Hatch</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Shape</b></td>
+<td><b>Group</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Spline</b></td>
+<td><b>Spline</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Xline</b></td>
+<td><b>Line</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Viewport</b></td>
+<td><b>View</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Body</b></td>
+<td>Ignored</td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Mline</b></td>
+<td>Ignored</td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Line Type</b></td>
+<td><b>Line Type</b></td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LINETYPES.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+287">Line Type</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td><b>Line Weight</b></td>
+<td><b>Line Width</b> </td>
+<td>While mapping from AutoCAD<sup>&reg;</sup> to <b>think<font color="#FF0F00">3</font></b>, the nearest possible line width supported by the <b>think<font color="#FF0F00">3</font></b> application will be applied.</td>
+</tr>
+
+<tr>
+<td><b>Attrib</b></td>
+<td><b>UDC/UDP + Texts</b></td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Layers</b></td>
+<td><b>Layers</b></td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LAYERS.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+283">Layers</span></a> category of the DXF/DWG Conversion Options.<br>
+
+If no mapping is defined, the layer name is preserved as it is.</td>
+</tr>
+
+<tr>
+<td><b>Color</b></td>
+<td><b>Color</b> </td>
+<td>Map table defined in the <a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_COLORS.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+3">General</span>-
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+279">Colors</span></a> category of the DXF/DWG Conversion Options.</td>
+
+</tr>
+
+<tr>
+<td><b>Region</b></td>
+<td><b>Group</b> </td>
+<td>In <b>AutoCAD<sup>&reg;</sup></b>, regions are two-dimensional enclosed areas with closed loop that have physical properties such as centroid and area. In <b>think<font color="#FF0F00">3</font></b>, regions will be created by combining curves such as lines, polylines, circles, arcs, ellipses, elliptical arcs and splines.</td>
+</tr>
+
+<tr>
+<td><b>Table</b></td>
+<td><b>Group</b> </td>
+<td>In <b>think<font color="#FF0F00">3</font></b>, it will be translated as basic entities such as closed curves and text.</td>
+</tr>
+
+<tr>
+<td><b>External Reference</b></td>
+<td><b>X-ref</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+
+<tr>
+<td><b>Raster Image reference</b></td>
+<td><b>Image</b> </td>
+<td>
+<p align="center">&mdash;</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p id="HIDEP">For details on the conversion of objects belonging to the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+13">Paper spaces</span> and to the 
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+12">Model space</span>, see the 
+<a href="mk:@MSITStore:cnv.chm::/language/file/IDPP_DE_EKGB_LOAD.htm">
+<span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+9">Load</span></a> category in the DXF/DWG Conversion Options.<br>
+
+</p>
+
+<hr color="silver">
+</body>
+</html>
+

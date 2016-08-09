@@ -1,0 +1,83 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(348,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t2" content="translate">
+<title>Fuzzy Offset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span></p>
+<hr color="#63a9d8">
+
+<tr valign="top" bordercolor="#ffffff">
+<!-- <td><i>Voice: <b>Fuzzy Offset</b></i> </td>
+ --></tr>
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> command enables you to generate an offset surface which is not a precise offset but has a blurry resemblance to the original surface. This type of offset surface is useful for creating the back side of the die/punch head or creating a rough casting part for a complex shape before the milling operation.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+<td><img src="../../../images/surfaces/fuzzy_offset_1.gif" border="1"></td>
+<td><img src="../../../images/general/arrow-right.gif"></td>
+<td><img src="../../../images/surfaces/fuzzy_offset_5.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td><b>The parent skin</b></td>
+<td></td>
+<td><b>The resulting fuzzy offset surface</b></td>
+</tr>
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> is available in the <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> toolbar. To execute the command you need to select a skin whose offset is to be generated. In the process of developing the fuzzy offset surface the program first extracts a set of sampling points from the parent skin. Thereafter, a new surface is generated from the sampling points after applying an offset to them. During the offset surface generations, any overlaps present in the surface are automatically smoothened.</p>
+
+<p><a name="degree"></a>The number of sampling points generated over the parent skin can be controlled by specifying the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+121">U Degree</span> and <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+122">V Degree</span> values under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> in the <span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+101">Fuzzy Offset</span> selection list.<br>
+<a name="iteration"></a>You can specify the number of times the iteration is performed to develop the fuzzy offset surface by entering a value in the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+123">Iterations</span> edit box.</p>
+
+<p><a name="analysis"></a>After generating a preview, you can select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+124">Distance analysis</span> node to display a graph showing the percentage deviation of points from their true offset location. By changing the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+121">U Degree</span>, <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+122">V Degree</span> or <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+123">Iterations</span>, you can modify the point distribution and their deviation to get the required result.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Fuzzy_Offset.htm"><b>Create a Fuzzy Offset surface</b></a></li>
+</ul>
+
+<hr color="silver">
+
+<h5>Use Case</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Fuzzy_Offset-UseCase.htm"><b>Generating the Rear Face of a Punch Head using a Fuzzy Offset Surface</b></a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>
+

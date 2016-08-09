@@ -1,0 +1,118 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2008t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>Job: How to define a plane</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <div align="center" style="{font-size: 10pt;
+ 	font-family: Verdana;
+ 	font-style : italic;
+ 	font-weight : bold;
+	CURSOR:hand;
+    border-style: solid; 
+	border-color: blue; 
+	border-bottom-width: 1px; 
+	border-left-width: 1px; 
+	border-right-width: 1px; 
+	border-top-width: 1px; 
+	border-bottom-color: Blue; 
+	border-right-color: Blue; 
+	border-left-color: Blue; 
+	border-top-color: Blue;
+	background-color: #FFCE00;}" 
+>
+
+
+<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2009T3/General.htm#Coefficent">Click here to see the update to version 2009.3</a>
+
+</div> -->
+<a name="top"></a> 
+
+<h3>How to define a plane</h3>
+
+<p style="margin-bottom:2px;">Several different methods are available to define a <i>plane</i>. When appropriate, all or some of the following options will also be available. Depending upon the option selected, additional <i>selectors</i> will be displayed in the selection list.</p>
+
+<br>
+<table border="1">
+<tr align="center" valign="top">
+<td><b>Method</b></td>
+<td><b>Usage and Selector details</b></td>
+</tr>
+
+<tr valign="top">
+<td><a name="face"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></td>
+<td>Enables you to define the plane as on of the one planar faces of a solid.<br>
+<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+29">Face</span>: Select a face of the solid.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="3points"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></td>
+<td>Enables you to define the plane as the one univocally identified by 3 points.<br>
+<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span>: Select three points to define the plane such that: 
+
+<ul>
+<li>The first point identifies the center of the plane.</li>
+
+<li>The second point identifies (starting from the first) the <i>X-axis</i> of the plane.</li>
+
+<li>The third point is a through point not aligned with the previous two.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="plane"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span></td>
+<td>Enables you to define the plane as an existing one.<br>
+<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span>: Depending upon the feasibility, you are allowed to select a planar face, datum plane or one of the reference planes.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="thru_axis"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></td>
+<td>Enables you to define the plane contained by an axis and a point.<br>
+<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>: Select an axis lying on the plane. Click <a href="T_HW_AxisLine.htm">here</a> for details.<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>: Select a point to define the origin of the plane. By default, a point gets selected upon making the selection of the axis; you can change it. <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>: Select a point through which the plane passes.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="perp_axis"></a><span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></td>
+<td>Enables you to define the plane as perpendicular to a direction (defined by a selected axis) and passing through a point.<br>
+<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>: Select an axis to which the plane will be perpendicular to. Click <a href="T_HW_AxisLine.htm">here</a> for details.<br>
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+42">Origin</span>: Select a point to define the origin of the plane. By default, a point gets selected upon making the selection of the axis; you can change it. <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>: Select a point through which the plane passes.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="coeff"></a><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></td>
+<td>To define the plane through the coefficient values of its cartesian equation (<b>A</b><i>x</i>+<b>B</b><i>y</i>+<b>C</b><i>z</i>+<b>D</b>=0), to be specified in the respective mini-dialog boxes (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+84">Coeff. A</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+85">Coeff. B</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+86">Coeff. C</span><!-- , <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+87">Coeff. D</span> -->), and through a point to indicate ( <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span>).</td>
+</tr>
+</table>
+<br>
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,139 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t3" content="translate">
+<meta name="Author" content="Mahesh Kiran">
+<title>Overview on Lighting</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<h1>Overview on Lighting</h1>
+
+<p>Lighting is one of the most important aspects of rendering. An accurately modeled and textured environment will yield poor result if proper lighting is not set. It requires some level of skill to do effective light setting.<br>
+</p>
+
+<h2>Lighting Fundamentals</h2>
+
+<p>Knowing the lighting fundamentals is important for engineers to set a good lighting for the model. The following example illustrates how the environment illuminates an object.<br>
+<br>
+<img src="../../../images/rendering/light_basics.gif" border="1"><br>
+<br>
+</p>
+
+<ol>
+<li><b>Sun</b> - It is the main source of light</li>
+
+<li><b>Bounced Light</b> - It is the light reflected from various surfaces.</li>
+
+<li><b>Terminator</b> - The darkest area on the illuminated object.</li>
+</ol>
+
+<p>Here the main source of light is the <b>Sun</b>, however some light is also reflecting from the base and the object, which acts as additional source of lighting. The areas of surfaces which are closer to each other receive more of the reflected light than areas that are further apart. Therefore the bottom part of the object is lighter than the centre because it is nearer to the base as it is receiving more of <b>Bounced Light</b><br>
+<b>Terminator</b> is the darkest area in the object. This is the area in the shade which receives least amount of light.</p>
+
+<h2>Light Source</h2>
+
+<p>The Lighting effect primarily depends upon the relative position, intensity and type of light source. Primarily there are three main types of light sources, <b>Directional</b>, <b>Positional</b> and <b>Ambient</b> lights.<br>
+<br>
+</p>
+
+<ul class="noleft">
+<li><b>Directional Lights</b>: These lights are considered to be positioned at an infinite distance from the object. The Sun is the best example for directional light.<br>
+<br>
+ <img src="../../../images/rendering/directional_light.gif" border="1"><br>
+<br>
+</li>
+
+<li><b>Positional Lights</b>: These are lights that are placed at a certain location relative to the object space. Here the light is emitted in all the directions.<br>
+<br>
+<img src="../../../images/rendering/positional_light.gif" border="1"><br>
+<br>
+</li>
+
+<li><b>Ambient Light</b>: These lights are also termed as <i>available</i> or <i>existing</i> light. The ambient light illuminates the object by surrounding it from all directions.<br>
+<br>
+<img src="../../../images/rendering/ambient_light.gif" border="1"><br>
+<br>
+</li>
+</ul>
+
+<p>Specifying the position and intensity of the light source plays an important role in defining the appearance of a model. If a model is rendered with no light source then all the surfaces of the model are rendered black.<br>
+<br>
+</p>
+
+ 
+
+<h3>Light Directions</h3>
+
+<p>The direction of the light source has a very important effect on the perception of the object that will be rendered. The following are the different lights direction and their affect on a spherical model.<br>
+<br>
+</p>
+
+<ul class="noleft">
+<li><b>Front Lighting</b>: The light source is directly behind you and hence the shadow is generated behind the object. As a result most of the shadow remains hidden from the view.<br>
+<br>
+<img src="../../../images/rendering/front_lighting.gif" border="1"><br>
+<br>
+</li>
+
+<li><b>Side Lighting</b>: Side lighting is good for showing form and texture as it lends depth to the 3D aspect of the object. Here the shadows are prominent and contrast can be achieved.<br>
+<br>
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../../../images/rendering/left_lighting.gif" border="1"></td>
+<td><img src="../../../images/rendering/right_lighting.gif" border="1"></td>
+</tr>
+
+<tr>
+<td align="center"><b>Left Lighting</b></td>
+<td align="center"><b>Right Lighting</b></td>
+</tr>
+</table>
+
+<br>
+</li>
+
+<li><b>Top Lighting</b>: The light source is directly above the object.<br>
+<br>
+<img src="../../../images/rendering/top_lighting.gif" border="1"><br>
+<br>
+</li>
+</ul>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="../FWfile/T_FW_Light_command.htm"><b>Lighting Command</b></a></li>
+
+<li><a href="../FWfile/T_FW_Light_tab.htm"><b>Light Studio</b></a></li>
+
+<li><a href="T_OV_orientation_light.htm"><b>Orientation of Lighting</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="http://dpt3.dptcorporate.com/elearning#rendering" TITLE="Go to the e-Learning section of think3 site" style="text-decoration: none;" target="_blank"><font color="#63a9d8"><b>e-Learning</font> video list for rendering</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

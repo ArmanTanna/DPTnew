@@ -1,0 +1,349 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2008t1" content="translate">
+<meta name="Author" content="Sanjib Sahu">
+<title>What's New in Service Pack 1</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BM" aaa="=" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>What's New in Service Pack 1</h1>
+
+<p class="noindent">Version 2008.1 Service Pack 1 introduces the following improvements.</p>
+
+<ul style="margin-left:22;">
+<li><a href="#assprop">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Tools.msg+MenuBar_Document_Modify_Tools+7059">Assign Properties</span> command</a></li>
+
+<li><a href="#P0000323">Improvements in the Axis Generation Mechanism</a></li>
+
+<li><a href="#P0000424">New <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+7813">Chamfer</span> command</a></li>
+
+<li style="list-style: none"><a href="#P0000425">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4608">Surface Textures</span> command</a></li>
+
+<li><a href="#att">Enhancements in the entities' attributes in the drawing view</a></li>
+
+<li><a href="#die">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> module</a> 
+
+<ul class="noleft">
+<li><a href="#fuzzy">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> command</a></li>
+
+<li><a href="#twist">The new <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command</a></li>
+</ul>
+</li>
+</ul>
+
+<br>
+<hr color="silver">
+<h5><a name="wordintegr"></a>Enhancements in the <span class="UI_COMMAND" id="MenuBar_Document_Modify_Tools.msg+MenuBar_Document_Modify_Tools+7059">Assign Properties</span> command</h5>
+
+<p style="margin-top:0;margin-left:22;">The <span class="UI_COMMAND" id="MenuBar_Document_Modify_Tools.msg+MenuBar_Document_Modify_Tools+7059">Assign Properties</span> command has been functionally improved by opening by default the <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar, introduced with this version, instead of the <span class="UI_COMMAND" id="eklib.msg+optsmsg+9">Assign Properties</span> dialog box.</p>
+
+<p style="margin-top:0;margin-left:22;">The command selection list remains unchanged, so that by clicking the <span class="UI_COMMAND" id="tdesign.msg+_DRAWING_UI_LABEL_+17">Properties</span> node, the program displays the <span class="UI_COMMAND" id="eklib.msg+optsmsg+9">Assign Properties</span> dialog box.</p>
+
+<br>
+ 
+
+<p style="margin-top:0;margin-left:22;">The command icon has been updated as follows:</p>
+
+<div align="center">
+<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="">
+<tr valign="top" style="font-variant: small-caps; font-weight: bold;">
+<td>Old icon</td>
+<td>New icon</td>
+</tr>
+
+<tr valign="top">
+<td align="center"><img alt="" src="../../images/icons/icons_big/OLD_ID_ASSIGN_PROPERTIES.bmp" border="0" align="absmiddle"></td>
+<td align="center"><img alt="" src="../../images/rn_2008T1/id_assign_properties.bmp" border="0" align="absmiddle"></td>
+</tr>
+</table>
+</div>
+
+<br>
+ 
+
+<p style="margin-top:0;margin-left:22;">The enhanced behavior of the command, moreover, enables you to first set the properties, and then select the entities to which you wish to assign them (post-selection). Until now, it was only possible to use the <span class="UI_COMMAND" id="ButtonToolbar_DimProperties.msg+ButtonToolbar_DimProperties+24">Dimension Properties</span> toolbar to modify the properties of selected entities (pre-selection).</p>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000323 - OWN: ANSH -->
+<h2><a name="P0000323"></a>Improvements in the Axis Generation Mechanism</h2>
+
+<p>Significant enhancements have been made to improve the axis generation mechanism.</p>
+
+<ul>
+<li>It is now possible to have the axes created automatically when a drawing is created from the current model. Also, all the axes created in the layout environment will be associative.<br>
+<br>
+</li>
+
+<li>The axes belonging to non hidden entities are only visible.<br>
+<br>
+</li>
+
+<li>Axis merging is possible for overlapping or partial-overlapping axes to create unique associative axes.<br>
+<br>
+</li>
+
+<li>It is possible to create axes for both the front and top views (axis perpendicular or parallel to the views).<br>
+<br>
+</li>
+
+<li>To hide the automatically generated axes, you can apply the <span class="UI_COMMAND" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+6137">Hide Dimensions Axes Edges</span> command.<br>
+<br>
+</li>
+
+<li>Axis extension is now allowed, without any of the previous limitations.<br>
+<br>
+</li>
+
+<li>The new option - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1709">Add axes to rotational surfaces</span> - has been introduced in the <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+623">Visibility</span> category replacing the old <span class="OLD">Hidden line+axis</span> together with <span class="OLD">Add axes to holes and rotational slots</span>. The removed options (used to create unassociated axes on a drawing view) are available only when editing old drawing views using them; in such a case the geometry representation item will be presented as <b>Hidden Lines (ver. &lt; 2008T1-SP1)</b>.<br>
+<br>
+When you open a drawing file created in earlier versions and in it:<br>
+<ul>
+<li>if the <span class="OLD">Add axes to holes and rotational slots</span> option is selected, the geometry representation <b>Hidden Lines (ver. &lt; 2008T1-SP1)</b> will be available in the drop-down list.</li>
+
+<li>if the <span class="OLD">Add axes to holes and rotational slots</span> option is not selected, the <b>Hidden Lines (ver. &lt; 2008T1-SP1)</b> option will not be available in the interface.</li>
+
+<li>if the user unchecks the <span class="OLD">Add axes to holes and rotational slots</span> option, the program automatically switches the geometry representation to <span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span> mode and the <b>Hidden Lines (ver. &lt; 2008T1-SP1)</b> option will no more be available.</li>
+</ul>
+
+<br>
+<br>
+</li>
+
+<li>Activating the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1709">Add axes to rotational surfaces</span> option disables all the other axes types creation (Datum axes, Profile references, Centerline curves); before creating the new axes removes the existing ones from the view.</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000424 - OWN: DIPA -->
+<h2><a name="P0000424"></a>New <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+7813">Chamfer</span> command</h2>
+
+<p>The following significant enhancements have been made in the dimensioning of chamfer:</p>
+
+<br>
+<ul>
+<li>Till 2008.1 Service Pack 1, chamfer dimensioning was only possible through <span class="UI_OPTION" id="ButtonToolbar_Dimension.msg+ButtonToolbar_Dimension+4287">Smart Dimension</span> command. Now it is possible to use the new <span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img alt="" src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1445">Dimension</span><img alt="" src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+7813">Chamfer</span> command, which enables you to quickly insert a chamfer dimension by selecting a line representing the chamfer edge. For further details, refer to the online help.<br>
+<br>
+</li>
+
+<li>In order to include 45&deg; chamfer to the chamfer dimension, a new linear dimension type with a specific display list and a parameter set to define its representation is needed. As a consequence, the following style specializations have been introduced in this version:<br>
+<br>
+<ul class="noleft">
+<li>The new dimension type, <span class="UI_DROPDOWNITEM" id="idd_sty_new_spec.msg+idd_sty_new_spec+4+12">45° Chamfer dimension</span>, in the <span class="UI_COMMAND" id="idd_sty_new_spec.msg+idd_sty_new_spec+1">Specialize Style</span> dialog box</li>
+
+<li>The new options, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1075">Aspect</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1237">Symbol</span>, in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1771">45° Chamfer</span> area of the <!-- <a href="OPS_SP1.htm#425_Aspect"> --><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+768">Line and Arrow</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+809">Advanced</span> and <!-- <a href="OPS_SP1.htm#425_Symbol"> --><span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+756">Dimension</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1021">Symbol</span> categories.</li>
+</ul>
+</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000425 - OWN: DIPA -->
+<h2><a name="P0000425"></a>Enhancements in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4608">Surface Textures</span> command</h2>
+
+<p>From this version, the surface texture representation has been updated to the last revision of ISO (1302:2002) standard rules. Also, the management of the Surface Texture has been significantly enhanced.</p>
+
+<br>
+<ul>
+<li>In order to allow the selection of parameters' specifications and working process strings from the predefined strings set using the <span class="UI_COMMAND" id="idd_dim_org_st.msg+idd_dim_org_st+1">Organize Surface Textures</span> dialog box, the user interface of the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+4608">Surface Textures</span> command selection list has been updated accordingly. When the standard is set to ISO 1302:2002, the new selection list appears as shown in the image below:<br>
+<br>
+<img alt="" src="images/ST_newsl.gif" border="1"><br>
+<br>
+For further details on the option descriptions, refer to the online contextual help.<br>
+<br>
+</li>
+
+<li>Users are now allowed to prepare their own commonly used designations. The new representations regarding the position of the surface texture requirements and the designations by which they have to be represented can now be very easily and interactively performable through a dedicated interface that is reachable in the following way:<br>
+<br>
+ 
+
+<ul>
+<li><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img alt="" src="../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span><img alt="" src="../images/general/litarr.gif"><a href="#ST_Org"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7675">Surface Textures</span></a> command<br>
+<br>
+</li>
+</ul>
+
+The <span class="UI_COMMAND" id="idd_dim_org_st.msg+idd_dim_org_st+1">Organize Surface Textures</span> dialog box enables you to customize all the representations and designations involved in the surface texture.<br>
+<br>
+</li>
+
+<li>In order to customize the surface texture parameters, values and process designations, a new <span class="UI_COMMAND" id="idd_dim_org_st.msg+idd_dim_org_st+1">Organize Surface Textures</span> dialog box has been developed, as shown in the image below:<br>
+<br>
+<a name="sto"></a><img alt="" src="images/ST_dialog.gif"><br>
+<br>
+For more information on the options in the <span class="UI_COMMAND" id="idd_dim_org_st.msg+idd_dim_org_st+1">Organize Surface Textures</span> dialog box, refer to the online help.<br>
+<br>
+</li>
+
+<li><a name="ST_Org"></a>A new <span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+6439">Format</span><img alt="" src="../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7673">Organize</span><img alt="" src="../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Format.msg+MenuBar_Document_Format+7675">Surface Textures</span> command has been introduced. When started, the command displays the <span class="UI_COMMAND" id="idd_dim_org_st.msg+idd_dim_org_st+1">Organize Surface Textures</span> dialog box that enables you to define<br>
+&mdash; surface texture reference standard<br>
+&mdash; metal working process designations<br>
+&mdash; surface texture parameters and values<br>
+<br>
+When you open the dialog box for the very first time, it displays the <i>default</i> setting; all subsequent times, it opens with the last saved configuration for the current drawing file.<br>
+<br>
+</li>
+
+<li>The type of standard in use determines the options in the <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7385">Options/Properties</span> dialog box. As a result, a new design has been implemented in the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="MenuBar_Document_Insert_Dimension.msg+MenuBar_Document_Insert_Dimension+1445">Dimension</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1021">Symbol</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1037">Surface Textures</span> category for the ISO 1302:2002 standard. 
+
+<ul>
+<li>The new <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+946">All around</span> check box has been added to this category, which enables you to add a circle to the surface texture symbol when the same surface texture is required on all surfaces.</li>
+
+<li>The new <!-- <img src="../../images/format/lay7.gif">  --><b>Non directional</b> lay direction has been added to the existing lay direction drop-down list.</li>
+</ul>
+</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ:Attr  - OWN: MARI -->
+<h2><a name="att"></a>Enhancements in the entities' attributes in the drawing view</h2>
+
+<p>Till previous version, the profile entities did not have, in 2D environment, their own attributes. Starting from this version, it is possible to manage different attributes for entities belonging to a profile. Also, the width management has been refined.</p>
+
+<br>
+<p>The following improvements have been made to the behavior of the entity attributes management:</p>
+
+<ul>
+<li>The old <span class="OLD">Keep model geometry color and layer</span> option inside <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> - <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+678">View Attributes</span> category, which managed the model entities' attributes when creating a drawing view with wireframe visibility option, has been renamed to <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+685">Keep model attributes</span>.<br>
+<br>
+</li>
+
+<li>If <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+685">Keep model attributes</span> is selected and the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+628">Representation</span> option in <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+532">Drawing View</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+623">Visibility</span> is set to:<br>
+ 
+
+<ul class="noleft">
+<li><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+1">Wireframe</span> &mdash; the model's color, layer, linetype and width will be retained and hence the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+682">Color</span>, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+683">Layer</span>, <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+684">Width</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1572">Line Type</span> options are grayed out. (In earlier versions, these attributes were still enabled.)<br>
+<br>
+</li>
+
+<li><span class="UI_DROPDOWNITEM" id="idd_preferences.msg+idd_preferences+629+2">Hidden lines</span> &mdash; only the model's color and layer attributes will be retained and therefore only the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+684">Width</span> and <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1572">Line Type</span> options are enabled. (In earlier versions, all the attributes were enabled.)</li>
+</ul>
+</li>
+</ul>
+
+<br>
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+ 
+
+<h2><a name="die">The new <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> module</a></h2>
+
+<p>The new <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> module has been introduced in this version that constitutes of following three commands, which have been developed specifically to facilitate Die designing.</p>
+
+<ul>
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img alt="" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img alt="" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+7908">Cutting Line</span> <i>(this command is available from version 2008.1)</i></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img alt="" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img alt="" src="../../images/general/litarr.gif"><a href="#fuzzy"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span></a></li>
+
+<li><span class="UI_COMMAND" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img alt="" src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img alt="" src="../../images/general/litarr.gif"><a href="#twist"><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7885">Spined Twist</span></a></li>
+</ul>
+
+<br>
+<p>All the above three commands are also present in the <span class="UI_COMMAND" id="ButtonToolbar_DieDesign.msg+ButtonToolbar_DieDesign+1">Die Design</span> toolbar.</p>
+
+<!-- PRJ:P0000492  - OWN: JCME -->
+<h3><a name="fuzzy">The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> command</a></h3>
+
+<p>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7618">Fuzzy Offset</span> command generates an offset surface which is not a precise offset but has blurry resemblance to the original surface. This type of offset surface is useful for creating the back side of the die/punch head.</p>
+
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr align="center">
+<td><img alt="" src="../../images/rn_2008T1/Fuzzy_offset_1.gif" border="1"></td>
+<td><img alt="" src="../../images/general/arrow-right.gif"></td>
+<td><img alt="" src="../../images/rn_2008T1/Fuzzy_offset_2.gif" border="1"></td>
+</tr>
+
+<tr align="center">
+<td><b>The parent skin</b></td>
+<td></td>
+<td><b>The resulting fuzzy offset surface</b></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>The program performs the following steps to develop a fuzzy offset surface:</p>
+
+<ol>
+<li>Extract some sampling points from the parent skin</li>
+
+<li>Develop a new surface from these points</li>
+</ol>
+
+<br>
+<p>On starting the command, you need to select a solid skin. The skin represents the actual profile of the die head. Thereafter, specify the offset value and offset direction. When you click the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button, the program generates the offset surface and shows the preview. Now you can perform a distance analysis to see the percentage deviation of points from their true offset location. If satisfactory, you can apply the command; otherwise modify the U and V parameters of the offset surface or the number of iterations to get a better point distribution.</p>
+
+<br>
+<hr color="silver" style="margin-left:30;">
+<!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ:P0000491  - OWN: PABS -->
+<h3><a name="twist">The new <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command</a></h3>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7885">Spined Twist</span> is a new GSM command that can help in compensating those parts in which the spring-back effect generates a twist. Using this command you can provide a twist to a part along a predefined spine. It is also possible to define the degree of twist at various sections of the part.</p>
+
+<br>
+<p>After starting the command you need to select the surfaces to be twisted and a spine curve about which the twist will take place. As an example consider the part below.<br>
+<br>
+<img alt="" src="../../images/rn_2008T1/spined_twist-1.gif" border="1"><br>
+<br>
+Upon making the selections, sections will be displayed over the spine. The command gives you full control over the number and location of the sections and the possibility to specify the twist angle value at each section. You can also control the preview of the sections and define the stamping direction.<br>
+<br>
+<img alt="" src="images/spined_twist-2.gif" border="1"><br>
+<br>
+After visualizing the preview of the twisted surface, and if satisfactory, you can apply the command. The program generates the twist as per an interpolation twist-angle-law based on the angle values specified at various sections. The twisted surface will look like the one shown below.<br>
+<br>
+<img alt="" src="../../images/rn_2008T1/spined_twist-3.gif" border="1"><br>
+<br>
+It is up to the die designer to define the appropriate spine curve and the twist angle values to get the required result.</p>
+
+<br>
+ 
+
+<hr color="silver">
+<a href="#top"><img alt="" border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+

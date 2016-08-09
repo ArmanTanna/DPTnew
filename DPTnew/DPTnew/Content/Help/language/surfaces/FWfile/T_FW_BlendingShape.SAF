@@ -1,0 +1,229 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Blending Shapes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="../../../JSandSTYLES/Frames.js"></script>
+
+
+<style type="text/css">
+.noleft{margin-left:22;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+7325">Blending Shapes</span> </p>
+<hr color="#63a9d8">
+</table>
+
+
+<p>The <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+1">Blending Shapes</span> command enables you to create blending surfaces connecting two <i>contours</i> (i.e.: two chains of consecutive curves and/or surface boundaries: 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+2">First Curves</span> and 
+
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+3">Second Curves</span>) controlling their smoothness and matching required continuity conditions along the selected contours.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><i>The command is designed so as to enable you to change the values of the numerous available settings as you like and to interactively assess the possible results using the preview mode.</i> </td>
+</tr>
+</table>
+
+<p>A proper set of powerful options is available to control the way the resulting blending surfaces are obtained also when the contours contain tangency or curvature discontinuity points (see "<a href="../HWfile/T_HW_Discontinuities.htm">Managing contour discontinuities</a>" for details). The resulting shape will be composed of as many surfaces as the number of parts into which the selected contours are divided by discontinuity points. If the contours have no discontinuities, only one surface will be created.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Managing incompatible shapes</b> <br>
+Please take into account it is also possible to <i>exclude some zones on the contours</i> so as to avoid arc joints on the resulting surfaces relative to such zones. The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+200">Add Exclusion To First Curves</span> and 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+201">Add Exclusion to Second Curves</span> options are available the context menu displayed by right-clicking after selecting the first and second contours. You can have as many exclusion zones as you like on both contours. For each of them you can define the width which is highlighted on the selected contour around the exclusion marker. It has a square shape to differentiate it from the other handles. By moving the exclusion zones over the arc joints of the preview, the same arc joints can be removed (you can either move the exclusion handle or increase its width, or do both). See details in "<a href="../HWfile/T_HW_Incompatible.htm">Management of incompatible shapes</a>".</td>
+
+
+</tr>
+</table>
+
+<br>
+<!-- <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/SideCurves.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe>  -->
+<table style="margin-bottom:0;">
+<tr valign="top">
+<td>
+<a name="CTX_BlendingShapes_Reference"></a>It happens very often that a blending shape must be created between two surfaces while some other surfaces already exist at the start or at the end of the contours to be blended, like in the following example. In it, you have to create the blending shape between the two gray surfaces and, at the same time, the new shape needs to be as close as possible to the boundary of the purple surface on the right.</td>
+<td>
+<img border="1" src="../../../images/rn_2007T1/BS00.gif"><br>
+</td>
+</tr>
+</table>
+<p style="margin-top:0;margin-bottom:0;">Therefore, the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+1">Blending Shapes</span> command can manage <i>side curves</i>, that is curves or surface boundaries already existing at the start or at the end of the contours to be used for the creation of the blending shape. There is no need to adjust the directions and the weights of the tangent vector handles so as to fit the side curves.<br>Thanks to this functionality, it is possible to select sets of side curves on each side of the blending shape. The command, then, will automatically compute the directions and the weights of the tangent vector handles in order to produce the best fitting for the selected side curves, so as to get as close as possible to the side curves, though fulfilling the constraints on the shapes to be blended.</p>
+
+
+<ul style="margin-left:22;margin-top:0;margin-bottom:0;">
+<li>The <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+75">Side Curves</span> node is grayed out and not selectable when the command starts, but it immediately becomes available as soon as the 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+2">First Curves</span> and the 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+3">Second Curves</span> have been selected and the preview has been activated.<br>
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/BS02.gif"><br>
+<br>
+When the <span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+75">Side Curves</span> node is available and open, two markers are displayed on each side of the blending shape ("<b>1</b>" and "<b>2</b>"), so as to clearly show which side is the first and which is the second.</li>
+
+
+<li>For each side (<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+76">First Side</span>, 
+<span class="UI_COMMAND" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+77">Second Side</span>), you can then select a contour (chain of consecutive curves and/or surface boundaries). A warning is displayed when the selected entities do not form a contour.<br>
+
+The preview is computed whenever a side curve selector has changed, while relevant weights and directions are automatically adjusted by the program. In fact, in case of side curve selection, the tangent vector handles are disabled, while you can still move the point position and set the global weights, though they will not affect the values of tangent weights where side curves have been selected.<br>
+A specific warning is issued to display the actually achieved distance between the blending shape boundary and the side curves.</li>
+</ul>
+
+<ps tyle="margin-top:0;margin-bottom:0;">Please take into account the best fitting results depend on the required continuity conditions, that is, if you change those conditions, also the fitting of the side curves will be different.</p>
+<!--  -->
+
+<p style="margin-top:0;">You can set the continuity conditions along the two contours which can be positional, tangency or curvature continuity (as to the meaning of continuity types, see "<a href="mk:@MSITStore:help.chm::/language/Mathconc/T_MC_ContinuityClassification.htm">Continuity Types</a>").</p>
+
+
+<p>Using a proper set of handles (or by explicitly specifying the values in <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+21">Tangent First T0</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+22">Tangent First T1</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+23">Tangent Second T0</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+24">Tangent Second T1</span> 
+
+<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+109">Length</span>, you can set the length of the tangent vectors at both the endpoints of both contours. You can also generally change the direction of the tangent vectors (depending on the geometric conditions) just by rotating them with the mouse.</p>
+
+
+<p style="margin-bottom:0;">Appropriate options provide control on the "tangency section" so as to get a better shape along the two contours. As a matter of fact, tangency weights controlling the final shapes are computed along the contours. A set of values is computed along each of the two contours. The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+60">Tangent Length Law</span> drop-down list under 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to choose how the tangency laws are generated from these values:</p>
+
+
+
+<table style="margin-top:0;">
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+62">Fit</span></td>
+
+
+<td class="ver9">The given contour values are smoothed using the least square method.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+63">Fixed endpoints &amp; fit</span></td>
+
+
+<td class="ver9">The contour values corresponding to the parameter values of 0 and 1 will be retained and kept fixed, while the least square method will be applied to all the remaining contour values.</td>
+</tr>
+
+<tr valign="top">
+<td class="ver9"><span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+64">S-Shape &amp; fit</span></td>
+
+
+<td class="ver9">The contour values corresponding to the parameter values of 0 and 1 will be retained and kept fixed, the derivative value is set to 0, while the least square method will be applied to all the remaining contour values.</td>
+</tr>
+</table>
+
+<p style="margin-bottom:0;margin-top:0;">The <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+61">Degree</span> box enables you to choose the polynomial fitting method that best matches your need: 1 is linear, 2 parabolic, 3 cubic and so on.</p>
+
+
+<p>Proper options are also available in the <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+24">Tangent Second T1</span> node under 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> to assign the tangent vectors predefined directions. Alignment options are available in proper context menus displayed by right-clicking on the items corresponding to the tangent vectors in the Selection List.</p>
+
+
+<p>You can also change the portions of both the selected contours to be actually used as the final blending shape boundaries by supplying the desired initial and final parameter values in normalized arc length (<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+17">First T0</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+18">First T1</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+19">Second T0</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+20">Second T1</span>), or by dragging the corresponding appropriate handles to the desired positions along the contours.</p>
+
+
+
+<p>A global numeric value&nbsp;&#151;&nbsp;the <i>weight&nbsp;&#151;&nbsp;</i> is assigned to each contour to be connected (<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+4">First Weight</span>, 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+5">Second Weight</span>). The higher the weight, the higher the influence of the tangent and curvature fields of the corresponding contour on the shape of the resulting surface. A square handle is also available to change the weight interactively.</p>
+
+
+
+<p>You can also add handles to any point of each contour, so as to locally control both the weight and the direction. To add a handle to a point of a contour, right-click on the point (if you right-click outside the contour the point will be projected onto it) and select <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+28">Add Control to First Curves</span> or 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+29">Add Control to Second Curves</span>, depending on which contour you want to add the handle to. Length and direction of tangents in the additional points can be managed exactly as in the case of endpoints.<br>
+
+
+ Additional handles can be removed by right-clicking and selecting <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+30">Remove Control from First Curves</span> / 
+
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+31">Remove Control from Second Curves</span>.</p>
+
+
+
+<p>If the preview displays unwanted twists in the resulting surfaces, you can right-click and select <span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+25">Invert</span> to remove them.</p>
+
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Associativity</b> <br>
+The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base curves, so that if you modify the base curves the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See "
+<a href="mk:@MSITStore:help.chm::/language/surfaces/OVfile/T_OV_sr_00.htm#Associative">Associative Surfaces (Skins)</a>" for details.</td>
+
+
+</tr>
+
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Restoring selection</b><br>
+When the command is applied to some entities, the parameter settings used in the operation are stored by the program. Next time you start the command, the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+184">Restore Selection</span> button ( <img border="0" src="../../../images/rn_800/LastTransform.gif" align="absmiddle"> ) is displayed on top of the selection list. If you click it, the parameter settings will automatically be restored to the values used last time you used the command and applied to the selected entities when you select <img src="../../../images/general/OKbutton.gif" border="0" align="absmiddle"> or <img src="../../../images/general/APPLYbutton.gif" border="0" align="absmiddle"> . See "<a href="../../curves/OVfile/T_OV_RESTORE.htm">Restore Selection modality for selections and settings</a>" for details.</td>
+
+
+</tr>
+
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Internal Undo/Redo</b><br>
+When you change some setting within the command, the internal <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+7">Undo</span> button ( <img src="../../../images/general/InternalUndo.gif" border="0" align="absmiddle"> ) is available on top of the selection list to undo the changes. As soon as you click it, your changes will be undone and the 
+
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_TOOLTIP_+8">Redo</span> button ( <img src="../../../images/general/InternalRedo.gif" border="0" align="absmiddle"> ) will show up on top of the selection list. If you click it, your former changes will be applied again.</td>
+
+
+</tr>
+</table>
+
+<p>A set of <a href="mk:@MSITStore:gsm.chm::/language/globalshape/HWfile/T_HW_QualityChecks.htm">
+<span class="UI_OPTION" id="BlendShapeUI.msg+_BLENDSHAPEUI_LABEL_+140">Quality Checks</span></a> commands is also available.</p>
+
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_BlendingShape.htm"><b>Create a blending shape between two contours</b></a></li>
+<li><a href="../HWfile/T_HW_Discontinuities.htm"><b>Manage contour discontinuities</b></a></li>
+<li><a href="../HWfile/T_HW_Incompatible.htm"><b>Manage incompatible shapes</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Mahesh Kiran">
+<meta name="2009t1" content="translate">
+<title>Managing the Display List of a Model File</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Managing the Display List of a Model File</h2>
+
+<p>The persistent display list is the visual data associated with a model (*.e3) file. The size of the display list always affects the time required for saving and loading model (*.e3) files. To enhance faster load operations the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+625">Save display data</span> area has been introduced. Saving the display list affects the size of the saved file and the saving time, for this reason this mode can be optionally disabled.</p>
+
+<h3><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+625">Save display data</span></h3>
+
+<p>You can enable these option by choosing the <span class="UI_OPTION" id="eklib.msg+eklib+349">Options</span> button in the <span class="UI_OPTION" id="eklib.msg+eklib+3">Save</span> dialog box with the <b>Save as type</b> being <span class="UI_OPTION" id="eklib.msg+td_filext+2">Model (*.e3)</span>.<br>
+<br>
+<img src="../images/save-options.gif" alt="" border="0"><br>
+<br>
+<a name="dispay"></a>Now the <b>ThinkDesign Model File Options</b> dialog box is displayed. In the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+18">Save</span> area you have the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+625">Save display data</span>. The <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+625">Save display data</span> area contains three radio buttons for selection. When the following radio buttons are selected:
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+626">Never</span></td>
+<td>a smaller file is generated as the display list will not be saved, but the file will take a longer time to load.</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+627">Always</span></td>
+<td>a larger file is generated as it contains the display list and it requires a longer time to save since the display list is always saved or updated, but the file is loaded faster.</td>
+</tr>
+
+<tr>
+<td valign="top"><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+628">Automatically</span></td>
+<td>lets the application decide when to save or update the display list, which is the optimal setup in terms of saving/loading time required.</td>
+</tr>
+</table>
+
+<br>
+<img src="../images/compressed.gif"><br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+These options are not available for <a href="T_HW_exclusive_mode_options.htm"><span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+624">Open in exclusive mode</span></a> files.</td>
+</tr>
+</table>
+</p>
+ 
+
+<h3>Reporting Odd Display Parameters.</h3>
+
+<p>When saving a large model (assembly), a warning report pops up if there are any odd parameters which may affect the process of saving/loading the file. When the persistent display list is saved in <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+627">Always</span> or <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+628">Automatically</span> mode, the application checks for any odd tessellation parameters present in the model. Then you are warned about the potentially wrong tessellation parameters in the <span class="UI_OPTION" id="tdesign.msg+_ASSYREPORT_LABEL_+30">Odd Display Parameters Report</span> dialog box, as shown in the image below.<br>
+<br>
+<img src="../images/Display1.gif"><br>
+<br>
+ The dialog box displays different tolerance values of the model being saved. The values are displayed in different colors which indicate the following:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><b>Red</b></td>
+<td>the tolerance value is odd (value may not be acceptable).</td>
+</tr>
+
+<tr>
+<td><b>Green</b></td>
+<td>the tolerance value is not odd (acceptable).</td>
+</tr>
+</table>
+
+<br>
+<p>After you get the warning report, you can do the following operations:</p>
+
+<ul>
+<li>You can optionally select the components whose display list is to be saved by selecting the <span class="UI_OPTION" id="idd_opts_dataexchange.msg+idd_opts_dataexchange+625">Save display data</span> check box. The display list of the components selected will be saved when the <b>Save</b> button is clicked.</li>
+
+<li>You can close the dialog box and continue the saving operation.</li>
+</ul>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The <span class="UI_OPTION" id="tdesign.msg+_ASSYREPORT_LABEL_+37">Save Display Data</span> check box in the <span class="UI_OPTION" id="tdesign.msg+_ASSYREPORT_LABEL_+30">Odd Display Parameters Report</span> dialog box is available only for X-Reference components and not for local components.</td>
+</tr>
+</table>
+
+<br>
+<br>
+ <!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

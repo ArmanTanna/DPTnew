@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="XXXXXX">
+<meta name="2008t1" content="translate">
+<title>Multi-Cavity Layout</title>
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<!-- <div align="center"><font color="red"><b><i>Preliminary - Work in progress</i></b></font></div> -->
+<table style="border-bottom-width: thick;border-right-width: thick" bgcolor="#ffffff" border="1" bordercolor="Black" width="100%">
+<tr bordercolor="#ffffff">
+<td><b>Insert</b><img src="../../images/general/litarr.gif"><b>MoldDesign</b><img src="../../images/general/litarr.gif"><b>Multi-Cavity Layout</b></td>
+</tr>
+
+</table>
+
+<p>The <b>Multi-Cavity Layout</b> command enables you to create multiple copies of derived components, starting from the selection of components as initial references. The initial references need to be X-reference components, usually core &amp cavity workpieces. This helps the generation of  multi-cavity mold layouts. <br>
+The resulting components are X-references components, stored in the same folder as the assembly of the core &amp; cavity workpieces and sticking to the following naming rules:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<i>INITIAL_XREF</i>&gt;_layout_&lt;<i>layoutnumbering</i>&gt;.e3<br>
+where &lt;<i>layoutnumbering</i>&gt; is a number related to layout copies as sequences like the following:<br><tt>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;part1_layout_F1.e3<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;part1_layout_F2_1.e3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;part1_layout_F3_S1.e3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;part1_layout_F1_layout_F1.e3<br></tt>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etc….
+</p>
+<p>The <b>Multi-Cavity Layout</b> command generates a history based event that can be redefined through the model structure.<br>
+More than one Multi-Cavity Layout is allowed in the same assembly, by selecting  X-reference components from a previous Multi-Cavity Layout event.</p>
+
+Command Options:
+<ul class="noleft">
+<li><b>Base entities</b>: multi selection of components. Only X-references can be selected.</li>
+<li><b>Placement</b>:<br> 
+	<table>
+	<tr valign="top">
+	<td valign="top"><b>Fit</b></td><td valign="top">Enables you to specify the number of copies and the linear or angular extension in which to specify those copies.</td></tr>
+<tr valign="top">
+	<td valign="top"><b>Fill</b></td><td valign="top">Enables you to specify the linear or angular step between the original and the first copy, and the linear or angular extension in which to fill those copies (with the number of copies determined by the number required to fill the extension).</td></tr>
+<tr valign="top">
+	<td valign="top"><b>Fixed</b></td><td valign="top">Enables you to specify the number of copies and the linear or angular step between the original and the first copy.</td>
+	</tr>
+	</table></li>
+	
+<li><b>Type</b>:
+<table>
+<tr valign="top">
+<td valign="top"><b>Linear</b></td><td valign="top">Creates a linear pattern in one direction. You are enabled to choose the direction as the one of an existing <b>Line</b>, or as the one defined by <b>2 points</b>, or as parallel to <b>X</b>, <b>Y</b> or <b>Z</b>.</td></tr>
+<tr valign="top">
+<td valign="top"><b>Linear-Linear</b></td><td valign="top">Creates a linear pattern in two directions. You are enabled to choose the directions as the ones of an existing <b>Line</b>, or as the one defined by <b>2 points</b>, or as <b>Parallel to X and through point</b>, <b>Parallel to Y and through point</b>, or <b>Parallel to Z and through point</b>.</td></tr>
+<tr valign="top">
+<td valign="top"><b>Angular</b></td><td valign="top">Creates an angular pattern about a single axis. You are enabled to choose the axis of rotation as an existing <b>Line</b>, or as the one defined by <b>2 points</b>, or as <b>X</b>, <b>Y</b> or <b>Z</b>. </td></tr>
+
+<tr valign="top">
+<td valign="top"><b>Mirrored</b></td><td valign="top">copies a core&amp;cavity by mirroring it about a plane of symmetry. You are enabled to choose the method used to define the plane of symmetry: <b>On Face</b> - on an existing face; <b>3 Points</b> - on a plane passing through three points; <b>Plane</b> - on an existing plane; <b>Through axis &amp; point</b> - on a plane passing through an existing line and a point, or passing through the line defined by two points and a third point; <b>Perpendicular to axis &amp; through point</b> - on a plane perpendicular to an existing line and passing through a point, or perpendicular to the line defined by two points and passing through a third point.
+</td></tr>
+</table></li>  
+<!-- - Linear, Linear-Linear, Angular (..follow rules of Pattern placements command)
+		- RectangularMirrored2 :  (..follow rules of Solid Mirror placements command) -->
+
+</ul>
+<br><br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding=10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><b>Note</b>
+<br>
+The <b>Mirrored</b> Type generates mirrored derived copies of the selected components, so that the resulting core and cavity shapes will be mirrored copies of the original parts.<br><br>
+<br>
+<div style="font-size:9;">
+<b>Current command limitations</b>:</div>
+<ul class="noleft" style="font-size:9;">
+<li style="font-size:9;">It is s not possible to use <b>Automatic</b> selection trim options on <b>Mold Standard Parts</b> on the derived copies coming from Multi-Cavity Layout. To obtain a trim of the ejectors, for example, you need to choose the <b>Manual</b> selection.  (this happens because the UDP of  Core&Cavity X-reference components coming from a Mold Split separation aren't inherited)  </li>
+<li style="font-size:9;">It is not possible to use <b>Unlink</b>. The possibility to allow Unlink on Layout components to break history and generate an unlinked copy of the components is under analisys.</li>
+<li style="font-size:9;">If you <b>Delete</b> a Mold Layout event after rebuilding, in the Model Structure the event will still be present, and a manual <b>Reload Model structure</b> is needed<!--  (will be improved/fixed before official release) --></font>.</li>
+</ul>
+</td></tr></table>
+<br><br>
+<p><b>Examples:</b>
+<hr color="silver">
+<br><br>
+<b>Type: Linear</b><br>
+<b>Placement: Fixed</b><br><br>
+<img border=1 src="layout_files/LinearFixed.jpg">
+<br><br>
+<b>Type: Linear-Linear</b><br>
+<b>Placement: Fixed</b><br><br>
+<img border=1 src="layout_files/LlinearLinearFixed.jpg">
+<br><br>
+<b>Type: Angular</b><br>
+<b>Placement: Fixed</b><br><br>
+<img border=1 src="layout_files/AngularFixed.jpg">
+<br><br>
+<b>Type: Mirrored</b>
+<br><br>
+<img border=1 src="layout_files/Mirrored.jpg">
+</p>
+
+<hr color="silver">
+</body>
+
+</html>

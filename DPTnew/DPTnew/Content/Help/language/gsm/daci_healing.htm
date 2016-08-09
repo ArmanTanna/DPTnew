@@ -1,0 +1,86 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Accurate healing with GSM</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+
+<style>
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style> .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white" onload="viaMk();">
+
+
+
+<h3>Accurate healing with GSM</h3>
+<p class="notop">This document describes how to insert a patch surface among existing ones keeping good curvature conditions.
+<ol class="litleft">
+<li>The user has to create a new surface that has to "heal" the highlighted gap.
+<br><br><img border=1 src="images/d01.gif"><br><br>Notice that the gap is surrounded by more than two surfaces ...<br>&nbsp;
+<li>... That's why, if you try to create a simple "proportional or stretched" surface, it won't be easy to retain tangency continuity all around.<br><br><img border=1 src="images/d02.gif"><br>&nbsp;
+<li>So, let's clean the curves and let's start with a <b><a href="mk:@MSITStore:help.chm::/language/surfaces/HWfile/T_HW_Lofted_Ruled.htm">Ruled Surface</a></b>, between the two highlighted curves.<br><br><img border=1 src="images/d03.gif"><br><br>Here's the ruled surface we'll obtain.<br><br><img border=1 src="images/d04.gif"><br>&nbsp;
+
+<li>This is the starting situation:
+The "space defined by a ruled, has to be modified so that it will be tangent, or have curvature continuity, with the adjacent surfaces"
+<br><br><img border=1 src="images/d05.gif"><br>&nbsp;
+<li>Let's start applying the constraints, one by one. It is a good technique to apply the constraints and use the <b>Preview</b> ( <img src="../../images/general/preview.gif" align="absmiddle"> ) button to see what happens. This way it will be easier to discover if the surface results in a "twisted" constraint.
+<br><br><img border=1 src="images/d06.gif">&nbsp;<img border=1 src="images/d07.gif"><br>&nbsp;
+<li>Let's add adding the <b>Keep position</b> constraint to the short edges of the ruled surface.<br><br><img border=1 src="images/d08.gif"><br>&nbsp;
+<li>We'll start with few welding points, so that the surface will be "light" (but not accurate)<br><br><img src="images/d09.gif"><br>&nbsp;
+<li>Once you got the first and good preview, change the constraints (imposing tangency in this case)<br><br><img border=1 src="images/d11.gif"><br>&nbsp;
+<li>Increasing the number of welding points and the number of loops, you can get a more accurate result<br><br><img border=1 src="images/d12.gif"><br><br>The surface looks good ... but probably <i>tangency is not enough</i> for a good designer.<br>&nbsp;
+<li>Notice the zebra stripes. As you can see they are forming an angle. (Tangency is satisfied, but not curvature)<br><br><img border=1 src="images/d15.gif"><br>&nbsp;
+<li>If you check it using <a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_19_07.htm"><b>Check Continuity</b></a> (from 
+<a href="mk:@MSITStore:help.chm::/language/tools/to_07/FWfile/T_FW_to_04_07.htm"><b>Analysis</b></a>), you will find a high value for the <b>Max. curvature difference %</b>.<br>&nbsp;
+
+<li>If you stopped the command, restore it using the <b>Restore Selection</b> button on top of the selection list ( <img src="../../images/rn_800/LastTransform.gif" align="middle"> )<br>&nbsp;
+<li>... and change the constraints again<br><br><img border=1 src="images/d18.gif"><br>&nbsp;
+<li>Notice that the <b>Bulge</b> factor becomes automatically "Big" (because of the curvature constraint)<br><br><img src="images/d19.gif"><br>&nbsp;
+<li>Since the quality checks are related to the tessellation, it is better to use a very accurate tessellation<br><br><img border=1 src="images/d20.gif"><br>&nbsp;
+
+<li>Now the stripes are continuous (no angles). It means we reached the curvature condition!!!
+<br><br><img border=1 src="images/d22.gif"><br><br>if you want to analyze the stripes on a set of surfaces, since the stripes are related to the normal to the surface, you should always impose an even number. Unless you want to check all the normals and give them the same direction ...
+<br>&nbsp;
+<li>If you analyze just one surface, it can be useful to ask for just one stripe. In this case you can see that the surface has a sort of "island" in the middle and this is not acceptable.
+<br><br><img border=1 src="images/d23.gif"><br>&nbsp;
+<li>Coming back to the frozen command, and playing with <b>Roundness</b> (for example setting it to 0.01), you can get a "less bulged surface"<br><br><img border=1 src="images/d25.gif"><br>&nbsp;
+<li>Anyway, why we did have trouble with this shape? Because the edge we have selected as "fixed" were not tangent to the surfaces we want to be tangent. Remember: GSM does not check whether the constraints you're applying are coherent or not. It's up to you.
+<br><br><img border=1 src="images/d26.gif"><br>&nbsp;
+<li>Removing the edge to be preserved, this will be the natural shape!
+<br><br><img border=1 src="images/d29.gif"><br><br>
+So, if you want the perfect shape, you have to deal with all the constraints and check them. 
+In this case, if you want a very nice shape, once you got the surface, you should change the outer surfaces (trimming them or using GSM).
+&nbsp;
+</ol>
+
+<hr color="silver">
+</body>
+</html>

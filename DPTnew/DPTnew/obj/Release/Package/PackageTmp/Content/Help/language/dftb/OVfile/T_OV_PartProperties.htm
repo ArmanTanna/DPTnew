@@ -1,0 +1,70 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>An Overview on Part Properties and Document Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+
+<style type="text/css">
+.noleft{margin-left:22;margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideTDC();">
+
+<h1>An Overview on Part Properties and Document Data</h1>
+
+<p>The Part Properties are a collection of information assigned to a component in the <SPAN id="TWOD">model or </SPAN>drawing. The Part Properties are stored in the file and may be edited, cut, copied and pasted between components at any time.</p>
+
+<p>You are enabled to access the Part Properties of the components through a variety of commands available in the context menus and in the program menu bar. The top level component Part Properties, however, are always available to you in the <a href="../FWfile/T_FW_PartPropertiesTab.htm"><span class="UI_COMMAND" id="idp_edit_partdata.msg+idd_edit_partdata+13">Edit Part Properties</span></a> tab of <a href="mk:@MSITStore:HELP.CHM::/language/file/FWfile/T_FW_file_properties.htm"><span class="UI_COMMAND" id="ids_sheet_ddata.msg+ids_sheet_ddata+1">File Properties</span></a>.<br>
+<SPAN id="TWOD">The program retains the Part Properties when you reference a component in an assembly, or create a layout, in order to keep to a minimum the need to edit the Part Properties. For this reason, it is good practice to edit the Part Properties as soon as you create the relevant model or import a component in an assembly.</SPAN></p>
+
+<p>Other data that complete the Part Properties collection are the position and quantity of the components that you are enabled to edit with the <a href="../FWfile/T_FW_ItemPositionProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_PartProperties.msg+MenuBar_Document_Insert_PartProperties+1">Item Position Property</span></a> and <a href="../FWfile/T_FW_QuantityProperties.htm"><span class="UI_COMMAND" id="MenuBar_Document_Modify_PartProperties.msg+MenuBar_Document_Modify_PartProperties+1">Quantity Property</span></a> commands.</p>
+
+<p>The Document Data are a collection of information relevant to the file, accessible through the <a href="../FWfile/T_FW_DocumentDataTab.htm"><span class="UI_COMMAND" id="idp_file_document_data.msg+IDP_FILE_DOCUMENT_DATA+1">Document Data </span></a> tab of <a href="mk:@MSITStore:HELP.CHM::/language/file/FWfile/T_FW_file_properties.htm"><span class="UI_COMMAND" id="ids_sheet_ddata.msg+ids_sheet_ddata+1">File Properties</span></a>.</p>
+<br>
+
+<h4>Typical data set</h4>
+
+<p>The standard configuration of the Part Properties data set includes information such as the part name, description, <SPAN id="TWOD">heat and surface treatments, </SPAN>measurement unit and type of item.</p>
+
+<p>The standard configuration of the Document Data set includes editable information such as the document name, description and a comment field. Moreover, the program displays information about the file such as name, path and extension.</p>
+<br>
+
+<h4>Data applicability</h4>
+
+<p><SPAN id="TWOD">In 3D models, you are enabled to edit the Part Properties of assemblies and their components. Note that if you import a component in an assembly, the component retains its Part Properties.<br>
+In layouts, you are not required to edit the Part Properties of the components, since they are copied from the original model.<br></SPAN>
+In drawings, you are enabled to edit the Part Properties of groups.</p>
+
+<p>Document Data only apply to the current file, be it a <SPAN id="TWOD">3D model or a </SPAN>drawing; you are enabled to edit only one set of data per document.</p>
+<br>
+
+<h4>Functional dependencies</h4>
+
+<p>The Part Properties data are needed by the ballooning and part list commands. These commands do not operate correctly if the Part Properties data are not assigned to the components.</p>
+
+<p id="HIDEP">In 3D models, set the <span class="UI_COMMAND" id="idd_preferences.msg+idd_preferences+1704">Inside thinkteam description</span> option to enable searches in the model structure.</p>
+
+<p>Depending on your customization, moreover, Part Properties and Document Data may be used by the program to fill automatically the Title Block fields.</p>
+
+<p>Component position and quantity are used by both the balloons and the Part List.</p>
+
+<hr color="navy">
+</body>
+</html>

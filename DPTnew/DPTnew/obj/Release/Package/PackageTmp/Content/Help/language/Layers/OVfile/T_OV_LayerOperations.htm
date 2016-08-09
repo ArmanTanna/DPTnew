@@ -1,0 +1,178 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<title>Working with Layers</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\surfaces\FWfile -->
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideTR();HideTDC();">
+<h3>Working with Layers</h3>
+
+<p>You can use <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+1">Layers</span> <a href="#toolbar">toolbar</a> or the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab to perform the functions associated with layers.<br>
+ Following are the functions that can be performed from the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab:</p>
+
+<ul>
+<li><a href="#cnl">Creating a new layer</a></li>
+
+<li><a href="#scl">Setting the layer as the current layer</a></li>
+
+<li><a href="#lock">Locking/unlocking a layer</a></li>
+
+<li><a href="#scol">Setting the color of a layer</a></li>
+
+<li><a href="#lt_lw">Setting the line type and line width of a layer</a></li>
+</ul>
+
+<p>Note: When you open the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab, a default layer with the name <b>0</b> is displayed. It is the current layer and the entity you draw is created in this layer.</p>
+
+<h4><a name="cnl"></a>Creating a New Layer</h4>
+
+<p>You can create a new layer in the following ways:</p>
+
+<ol>
+<li>Click on the <a href="../FWfile/T_FW_NewLayer.htm"><span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+15">New Layer</span></a> button of the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_TOOLTIP_+1">Layers</span> tab 
+
+<ul>
+<li>If there is a layer selected, it creates a new layer with the properties of the selected layer.</li>
+
+<li>If there is not any layer selected, it creates a new layer with the default properties: On, Unlock, the system current Color, Line Type and Width.</li>
+</ul>
+</li>
+
+<li>Choose <b>New Layer</b> option from the drop-down menu of the <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+1">Layers</span> toolbar 
+
+<ul>
+<li>It creates a new layer with the following properties: On, Unlock, the system current color, line type and width.</li>
+</ul>
+</li>
+</ol>
+
+<p>In the first case, a new layer with the name <i>Layer1</i> (in case of a new document) and having the properties of 0 layer is created and listed in the Name column. If you have more layers, in addition to layer 0, the new layer has the properties of the layer that is selected in the layer list. As you can see from the illustration below, the layer name is automatically highlighted for you so that you can give the layer a more meaningful name. When you have entered an appropriate name, press the <b>ENTER</b> key to complete the operation. You have now created a new layer and given it a name.<br>
+<br>
+<img src="../images/Newlayer_01.gif" border="1"><br>
+<br>
+</p>
+
+<p>If more than one layer is selected, the new layer is placed at the end of the layers list and has the properties of the layer selected last. Right-clicking anywhere in the Layers list area of the Layers tab displays a context menu that also gives you an option to create a new layer. You can right-click on the layer whose properties you want to use in the new layer and then select <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+15">New Layer</span> from the context menu.</p>
+
+<p>In the second case, a new layer with the same properties of current layer is created. You can define the name of the new layer in the <span class="UI_OPTION" id="idd_layer_new.msg+idd_layer_new+1">New Layer</span> dialog box.</p>
+
+<p><a name="name_restriction"></a>There is a restriction when naming a layer. Some special characters such as <b>\ /:*?'|,.</b> are not valid characters while naming a layer. If you do use an invalid character, <b>ThinkDesign Engineering</b> will alert you with the warning message. Notice that it very helpfully tells you which characters are not invalid. Basically, if you stick with letters and numbers you will not experience any problems.</p>
+
+<h4><a name="scl"></a>Setting the Layer as the Current</h4>
+
+<p>Once you have created some layers you will want to start using them. It is possible to draw one layer at a time. In order to draw on a particular layer you must first make it the current layer. As usual with the application there are a number of alternatives:</p>
+
+<ul>
+<li>To set the current layer, select a layer from the list and then click on the <a href="../FWfile/T_FW_SetCurrentLayer.htm"><span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+4">Set Current Layer</span></a> button or <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+16">Set Current Layer</span> command from the context menu (available by right-clicking at any place on the Layer list area). The selected layer is now the current layer and it's properties are displayed on the <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+1">Layers</span> toolbar.</li>
+
+<li>It is quicker and more convenient to use the <span class="UI_COMMAND" id="eklib.msg+layer +6">Toggle Layer On/Off</span> drop-down list in the <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+1">Layers</span> toolbar to make the layer current and control the display features of the layer (On/Off, Lock, Color, Name). To do so, choose the name of the layer (from the drop-down list) you wish to make current.<br>
+<br>
+</li>
+
+<li style="list-style: none">
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Modifying the layer of entities belonging to other entities</b><br>
+To change the layer of an entity belonging to a group, you first need to set the group current and then to select the single entity.<br>
+<SPAN id="TWOD">To change the layer of a face of a solid you need to select the entire solid or break the solid into surfaces to change the layer only to the desired face.</SPAN></td>
+</tr>
+</table>
+</li>
+</ul>
+
+<h4><a name="lock"></a>Locking/Unlocking a Layer</h4>
+
+<p>While working on a drawing, if you do not want to accidentally edit some objects on a particular layer but still need to have them visible, you can use the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+5">Lock</span> icon to lock the layers. When a layer is locked, you can still use the entities in the locked layer for entity snap unless you freeze the snap lock. You can also make the locked layer as the current and draw entities on it. The <span class="UI_COMMAND" id="idd_layer_lock.msg+idd_layer_lock+1">Unlock</span> option negates the <span class="UI_COMMAND" id="LayerUI.msg+_LayerUI_LABEL_+5">Lock</span> and <span class="UI_COMMAND" id="idd_layer_lock.msg+idd_layer_lock+2">Lock with Snap</span> options and allows the user to edit entities on the layers previously locked.</p>
+
+<h4><a name="scol"></a>Setting the Color of a Layer</h4>
+
+<p>It is often convenient to set the layer color when the layer is created, although this can be done at any time. The layer color can be changed as many times as you like. Each time it is changed, any entity on that layer will change to the new color, providing their color is set to <i>By layer</i>.<br>
+<br>
+ To set a layer color, click on the color icon, which pops up the Color palette. From which you can select any of the standard colors.<br>
+<br>
+ Assigning different colors to your layers will make working with complex drawings much easier. You will be able to see at a glance what a particular entity represents.</p>
+
+<h4><a name="lt_lw"></a>Setting the Linetype and Line Width of a Layer</h4>
+
+<p>In the same way that you can assign a color to a layer you can also assign a linetype and width to a layer. To set a linetype/line width to a layer, click on the corresponding icon and then choose the another type from the available list.</p>
+
+<h4>Setting Color and Linetype by Layer</h4>
+
+<p>The application offers two methods of setting the color and linetype of a drawing entity. First of all, color and linetype can be set by layer. In other words, an entity will be displayed in the color and linetype of its layer. For example, if you draw a circle on a layer which you have called <i>Detail</i> and you have also set the color of Detail to blue and the linetype to dashed, then the circle will be displayed in a dashed blue line. When an entity takes on the properties of its layer, the color and linetype are said to be set <i>By layer</i>.</p>
+
+<p>The second method the application offers is to set the color and linetype by entity. Setting properties by entity overrides those set by layer. In general it is good drawing practice to set color and linetype properties to <span class="UI_COMMAND" id="idd_type_color.msg+idd_type_color+3">By layer</span>, this is more efficient and less confusing in the long-run. For example, imagine that you have drawn hundreds of entities on the same layer and have set their color to green. Later in the drawing process you decide that these entities should, in fact, be yellow. In order to make the change you would have to use the <span class="UI_COMMAND" id="eklib.msg+optsmsg+2">Entity Properties</span> and select every one of the entity by picking them. By contrast, if you had set the entity color to <span class="UI_COMMAND" id="idd_type_color.msg+idd_type_color+3">By layer</span>, you would only have to change the layer color from green to yellow and all of the entities would automatically change.<br>
+<br>
+<!-- 
+There are times, however, when in is useful to be able to set color and linetype properties by entity.  --></p>
+
+<h4><a name="toolbar"></a>Layers Toolbar</h4>
+
+<p>The layers toolbar contains two controls: <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+4">Set Current Layer</span> button and <span class="UI_COMMAND" id="eklib.msg+layer +6">Toggle Layer On/Off</span> drop-down list. You can perform the following layer functions directly from the toolbar using these controls:</p>
+
+<ul>
+<li><b>Setting the current layer as the one of an entity</b><br>
+The <span class="UI_COMMAND" id="ButtonToolbar_Layer.msg+ButtonToolbar_Layer+4">Set Current Layer</span> button on the left enables you to set the layer of a selected entity as the current one.<br>
+Note: Even if none of the entities is selected, you can set any layer as current by choosing it from the <span class="UI_COMMAND" id="eklib.msg+layer +6">Toggle Layer On/Off</span> drop-down list.<br>
+<br>
+</li>
+
+<li><b>Showing Layer</b> 
+
+<ul class="noleft">
+<li>If no entity is selected, it will show the current layer and its properties.</li>
+
+<li>If one or more entities belonging to the same layer are selected, the layer they belong to and its properties will be shown.</li>
+
+<li>If one or more entities belonging to different layers are selected, nothing will be updated in the toolbar.</li>
+</ul>
+
+<br>
+</li>
+
+<li><b>Setting the Visibility and Lock for each layer</b><br>
+By scrolling the <span class="UI_COMMAND" id="eklib.msg+layer +6">Toggle Layer On/Off</span> drop-down list and clicking on the visibility and/or lock items, you can set the corresponding properties for each layer in the list.<br>
+<br>
+</li>
+
+<li><b>Moving entities from one layer to another one</b><br>
+ If you select an entity and then scroll the <span class="UI_COMMAND" id="eklib.msg+layer +6">Toggle Layer On/Off</span> drop-down list to a layer you want to move the selected entity onto, the entity will actually be moved onto that layer.<br>
+<br>
+</li>
+
+<li><b>Creating new layers</b><br>
+ If you select New Layer in the drop-down list, you will be enabled to create a new layer with the same properties of current layer. You can define the name of the new layer in the <span class="UI_OPTION" id="idd_layer_new.msg+idd_layer_new+1">New Layer</span> dialog box. If you insert an <a href="#name_restriction">invalid</a> name in text box and click <b>OK</b>, a warning appears and the <b>OK</b> button will be grayed off. To enable the <b>OK</b> button, insert a valid name and press <b>Tab</b> key.<br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<li><a href="T_OV_Layer_UI.htm"><b>Layers: Interface Overview</b></a></li>
+
+<li><a href="T_OV_Filter_Selection.htm"><b>Layers: Filter and selection methods</b></a></li>
+</ul>
+
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+</body>
+</html>
+

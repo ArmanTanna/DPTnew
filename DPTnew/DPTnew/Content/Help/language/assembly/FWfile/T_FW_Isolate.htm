@@ -1,0 +1,72 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<HTML>
+<HEAD>
+
+<meta name="T_2015t1" content="internally">
+<meta name="Modifier" content="NIBI">
+<TITLE>Isolate</TITLE> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style>	#docframe  
+{
+ 		width : 380;
+		height : 480;
+}
+</style>
+
+<style> .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<p>The <B>Isolate</B> command enables you to view to the entities involved in the selected constraint in isolation of the other entities that make up the assembly.</p>
+
+<p>The command is available from the context menu displayed when right-clicking the selected mating constraint in the <!-- Model -->Mating Structure.</p>
+
+<p>When you perform the command on a mating constraint at the top level of the assembly:
+<ul class="noleft30">
+<li> All entities are hidden showing only those which involve the constraints. 
+<li> The constraints are shown with highlighted faces and arrows.
+<li> A zoom is applied on the involved components.
+</ul></p>
+<p>When you perform the command on a mating constraint that is at a lower level of the assembly:
+<ul class="noleft30">
+<li>The top of the Selection list shows the selected constraint that has been isolated.
+<li>All the components at the same level of the selected mating are hidden except those that involved in the selected constraint which are <b>Set Current</b>.
+<li>All components higher up in the assembly hierarchy that are not current are visible but <b>greyed</b>.
+<li>A Zoom fit is applied on the involved components.
+</ul></p>
+<p>You can note that this command can be used on constraints at any level of the assembly hierarchy.
+<!-- You can apply the command both to <b>Solid</b> and <b>Multiple Mating</b>.  --> When you exit the command, the previous view is restored.</p>
+
+<h5><hr color="silver">Try to ...</h5>
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Isolate.htm"><b>Isolate a mating Constraint</b></a></ul>
+
+<h5><hr color="silver">Related Topics</h5>
+<ul class="noleft">
+<li><a href="T_FW_Mating.htm"><b>Mating</b></a>
+<!-- <li><a href="T_FW_MultipleMating.htm"><b>Multiple Mating</b></a> -->
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

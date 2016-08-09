@@ -1,0 +1,224 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+
+<meta name="T_2009t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<title>Job: Modify Dimension</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff" onresize="self.location.reload();" onload="viaMk();self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();ResizeIFrame1();ResizeIFrame2();">
+
+<h4>Modify individual portions of the dimension</h4>
+
+<p>When you start the <a href="../FWfile/T_FW_dm_Modify.htm"><span class="UI_COMMAND" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+7912">Modify Dimension</span></a> command, the program prompts you to select the entity to be moved and the selection list displays the following options for which the handles will appear conditionally depending on the node selection:</p>
+
+<table>
+<tr valign="top">
+<td><a name="dim"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+135">Dimension</span></td>
+<td>Enables you to select the dimension to be modified.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="txt"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+68">Text</span></td>
+<td>Enables you to choose the options controlling the movements of a dimension text.<br>
+ 
+
+<table>
+<tr valign="top">
+<td><a name="txt_combo"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+64">Horizontally free</span></td>
+<td>The text will move along the measure line freely.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+65">Horizontally constrained</span></td>
+<td>The text will move along the measure line only at the four restricted points as shown in the image below:<br>
+<br>
+<img src="../../../images/rn_2008T1/Modify_text.gif" border="1"><br>
+<br>
+`</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+66">Away free</span></td>
+<td>The text will move away from the measure line freely.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+67">Away perpendicular</span></td>
+<td>The text will move away from the measure line with perpendicular leader.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="length"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+69">Reference Line Length</span></td>
+<td>Enables you to modify the reference line length freely.<br>
+<ul class="noleft">
+<li>When the node is expanded, a handle associated with the <span class="UI_MINIDIALOG" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+82">Gap</span> mini-dialog box will be shown at the start of the reference line. Using either mini-dialog or handle, it is possible to change the length of the reference line freely.<br>
+<br>
+<img src="../images/Modify_length.gif" border="1"><br>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="slant"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+70">Reference Line Slant</span></td>
+<td>Enables you to rotate the dimension line and text freely.<br>
+<ul class="noleft">
+<li>When the node is expanded, a handle associated with the <span class="UI_MINIDIALOG" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+83">Slant</span> mini-dialog box will be shown at the start of the reference line. Using either mini-dialog or handle, it is possible to change the angle of the reference line freely. The maximum permissible angle is 45 degrees.<br>
+<br>
+<img src="../images/Modify_slant.gif" border="1"><br>
+<br>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="dash"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+71">Dashes</span></td>
+<td>When selected, expands to show the following options:<!-- enable the user to specify number of segments required to reposition the dimension text by inserting multi-segment leader line. -->
+<ul class="noleft">
+<li><a name="nod"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+72">No. of Dashes</span>&nbsp;&nbsp;Enables you to enter the number of leader line segments.</li>
+
+<li><a name="dpoints"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+73">Dash Points</span>&nbsp;&nbsp;Enables you to specify the positioning points for the leader line.<br>
+<br>
+<img border="1" src="../../../images/dimensio/Modify_dash.gif"><br>
+<br>
+You can draw multiple segments, up to <i>five</i>. Although you are always enabled to right-click and reposition the dimension text with fewer points, when you have entered the required number of points the program positions the dimension text.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="break"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+74">Breaks</span></td>
+<td>When selected, expands to display the following options: 
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+75">1st break</span>, <span class="UI_COMMAND" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+76">2nd break</span>, <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+77">3rd break</span>, <span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+78">4th break</span>&nbsp;&nbsp;When selected, expands to show the following options: 
+
+<ul class="noleft">
+<li><a name="bpoints"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+80">Two Points</span>&nbsp;&nbsp;Enables you to select two points to insert the first break.<br>
+Similarly, it is possible to insert up to <i>four</i> breaks using the respective options in the list.<br>
+<br>
+<img border="1" src="../../../images/dimensio/Modify_break.gif"><br>
+<br>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><a name="jog"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+79">Jogs</span></td>
+<td>When selected, expands to show the following option: 
+
+<ul class="noleft">
+<li><a name="jpoints"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+80">Two Points</span>&nbsp;&nbsp;Enables you to choose two points for the jog insertion.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+13">Dimension Format</span></td>
+<td>Enables you to choose a dimension format to be applied from the drop-down list. When selected, the node expands to show the options to make customization.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+14">Entity Properties</span></td>
+<td><a name="ET"></a><iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 40%; width: 98%; border: none; margin: 0px;" src="../jsoptions/EntityProperties.htm" onload="viaMk();ResizeIFrame0()" scrolling="no"></iframe></td>
+</tr>
+</table>
+
+<br>
+<a name="label"></a> 
+
+<p>The selection list changes depending on the portion of the dimension you select:</p>
+
+<ul class="noleft">
+<li><b>Entity with leader line</b> 
+
+<table>
+<tr valign="top">
+<td><a name="ell_dim"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+135">Dimension</span></td>
+<td>Enables you to select the dimension to be modified.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="ell_ref"></a><span class="UI_COMMAND" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+131">Reference Point</span></td>
+<td>Enables you to select the reference point that identifies the component that is referenced by the balloon.</td>
+</tr>
+
+
+<tr valign="top">
+<td><a name="ell_lpoints"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+132">Leader line endpoints</span></td>
+<td>Enables you to redefine the position of the leader line point on the drawing area. 
+
+<ul class="noleft">
+<li><a name="ell_max"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+72">No. of Dashes</span>&nbsp;&nbsp;Enables you to specify the number of leader line segments.</li>
+
+<li><a name="ell_epoints"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+73">Dash Points</span>&nbsp;&nbsp;Enables you to specify the positioning points for the leader line.</li>
+</ul>
+</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+14">Entity Properties</span></td>
+<td><a name="ET"></a><iframe id="MyIframe1" name="MyIframe1" frameborder="no" marginheight="0" marginwidth="0" style="height: 35%; width: 98%; border: none; margin: 0px;" src="../jsoptions/EntityProperties.htm" onload="viaMk();ResizeIFrame1()" scrolling="no"></iframe></td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<li><b>Entity without leader line</b> 
+
+<table>
+<tr valign="top">
+<td><a name="ewl_dim"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+135">Dimension</span></td>
+<td>Enables you to select the dimension to be modified.</td>
+</tr>
+
+<tr valign="top">
+<td><a name="ewl_txt"></a><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+130">Text</span></td>
+<td>Enables you to edit the label (one without leader line points).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="T3DraftingUI.msg+_T3DRAFTINGUI_LABEL_+14">Entity Properties</span></td>
+<td><a name="ET"></a><iframe id="MyIframe2" name="MyIframe2" frameborder="no" marginheight="0" marginwidth="0" style="height: 40%; width: 98%; border: none; margin: 0px;" src="../jsoptions/EntityProperties.htm" onload="viaMk();ResizeIFrame2()" scrolling="no"></iframe></td>
+</tr>
+</table>
+</li>
+</ul>
+
+
+<hr color="silver">
+</body>
+</html>
+

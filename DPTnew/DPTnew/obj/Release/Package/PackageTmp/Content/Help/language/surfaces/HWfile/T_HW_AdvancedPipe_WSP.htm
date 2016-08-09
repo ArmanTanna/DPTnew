@@ -1,0 +1,208 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a pipe surface along a contour with sharp points</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+blockquote{margin-left:22;margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h2>Creating a pipe surface along a contour with sharp points</h2>
+
+<p class="notop">In this task you will use the <a href="../FWfile/T_FW_AdvancedPipe.htm"><span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+2">Pipe Surface</span></a> command to create a pipe surface along a contour with a sharp point.<br>
+
+ <i>Please note that you can accomplish this task by loading file "AdvancedPipe.e3"</i>. As you can see, there is a sharp point in the contour to be used as the drive path for the pipe surface.<br>
+<br>
+<img border="1" src="../../../images/surfaces/ADVPP01.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <span class="UI_COMMAND" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+2">Pipe Surface</span> command.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>Select the drive curves.<br>
+<br>
+<img border="1" src="../../../images/surfaces/ADVPP02.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+92">Extend/Restrict</span> drop-down list, choose 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+93">None</span>, so as not to extend the pipe beyond the drive curves, nor to restrict it.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>4</b></td>
+<td>Under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span>, select 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+40">With Transitions</span>.<br>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Filling transitions</b><br>
+The <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+40">With Transitions</span> check box under 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to control the resulting surfaces at each sharp point: 
+
+
+<ul class="noleft">
+<li>If the check box is selected, the resulting surfaces will be positionally continuous.</li>
+
+<li>If it is cleared the resulting surfaces will <i>not</i> be continuous.</li>
+</ul>
+
+<br>
+<img border="1" src="../../../images/surfaces/AP-01WT.gif"><br>
+<br>
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+40">With Transitions</span> checked&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+40">With Transitions</span> cleared.</td>
+
+</tr>
+</table>
+
+<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>5</b></td>
+<td>Click the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+185">Preview</span> button ( <img src="../../../images/general/preview.gif" align="absmiddle"> ).<br>
+
+<br>
+<img border="1" src="../images/ADVPP03.gif"><br>
+<br>
+Now you can define the radius of the pipe either by dragging the handle or by specifying the numerical value in the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+60">Radius</span> <b>1</b> mini-dialog box at a point which is initially the first endpoint of the selected drive curves, but which you can move along such curves either by typing a new parameter value into the 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+61">Position of Radius</span> <b>1</b> box or by interactively dragging the corresponding handle.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>6</b></td>
+<td>Change the value of the radius.<br>
+<br>
+<img border="1" src="../images/ADVPP04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>You may want to vary the radius along the path. You can specify different radius values through the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+50">Add Radius</span> command of the contextual menu displayed by right-clicking on the point of the drive curves where you want the different radius to be applied (if you don't click exactly on the drive curves, your click point will be projected onto them). A 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+60">Radius</span> <i>n</i> and a 
+<span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+61">Position of Radius</span> <i>n</i> handle/mini-dialog box pair will be displayed each time you do so. In the following illustration, two additional radii have been added, by right-clicking at points 1 and 2 on the drive path.<br>
+
+<br>
+<img border="1" src="../images/ADVPP05.gif"><br>
+<br>
+Note that you can move the position of the additional radius by dragging the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+61">Position of Radius</span> <i>n</i> handle or by typing a new parameter value in the corresponding mini-dialog box.<br>
+
+Additional radii can be removed by right-clicking again and selecting <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+51">Remove Radius</span> in the context menu: 
+
+
+<ul class="noleft">
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+52">All But First</span>&nbsp;&#151;&nbsp;to remove all additional radii, leaving only the first value, thus getting a constant radius pipe.</li>
+
+
+<li><span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+61">Position of Radius</span> <i>n</i>&nbsp;&#151;&nbsp;to remove only the <i>n</i>-th additional radius.<br>
+
+&nbsp;</li>
+</ul>
+
+Let us now suppose to remove all additional radii as described above.<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>Click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the pipe surfaces.<br>
+<br>
+<img border="1" src="../../../images/surfaces/ADVPP-LAST.gif"> <br>
+<br>
+ Click <img src="../../../images/general/CANCELbutton.gif"> to discard your changes.<br>
+<br>
+Please note that the <span class="UI_OPTION" id="GenSweepUI.msg+_GENSWEEPUI_LABEL_+44">With Endcaps</span> check box under 
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> enables you to create the two surfaces which close the pipe at both of its ends.<br>
+
+<br>
+ 
+
+<ul class="noleft" style="margin-top:0;">
+<li>When the box is checked, the two end caps are created.<br>
+<br>
+<img border="1" src="../../../images/surfaces/AP_ENDCAP.gif"><br>
+<br>
+</li>
+
+<li>When the box is cleared, no end cap is created.<br>
+<br>
+<img border="1" src="../../../images/surfaces/AP_ENDCAPNO.gif"></li>
+</ul>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b><br>
+If a drive curve has no sharp points (that is: points where the continuity is only <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G0">positional, G0</a>) or points where the continuity is no more than 
+<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G1">tangency (G1)</a>, the resulting surface relative to that curve will be just one. On the contrary, if there are G0 or G1 points, a new surface will be created along each part the drive curve chain is divided into by those points.<br>
+
+If you have more than one drive curve you will obtain: 
+
+<ul class="noleft" style="margin-top:0;">
+<li>Two surfaces for each couple of curves with positional (G0) or tangency (G1) continuity at the connection point.</li>
+
+<li>Just one surface for each couple of curves with continuity higher than G1 (that means <a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G2">curvature continuity</a> or higher) at the connection point.</li>
+
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

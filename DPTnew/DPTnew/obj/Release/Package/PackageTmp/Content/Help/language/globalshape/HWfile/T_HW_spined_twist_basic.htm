@@ -1,0 +1,84 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(1143,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<title>Job: Creating a Spined Twist Surface</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 4;
+}
+</style>
+
+</head>
+<body onload="viaMk();" >
+
+<h3>Creating a Spined Twist Surface</h3>
+
+<p>In this tutorial you will apply a basic spined twist to a surface. Open the <i>Spined_Twist.e3</i> file available in the <i>Samples</i> folder of your <b>think<font color="#FF0F00">3</font></b> installation and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="../FWfile/T_FW_SpinedTwist.htm"><span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+1">GSM Spined Twist</span></a> command and select all the surfaces of the model for the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+2">Surfaces to Be Sectioned</span> selector. The selected surfaces will define the drive curves.<br>
+<br>
+<img src="../../../images/globalshape/spined_twist_1.gif" border="1"><br>
+<br>
+Ensure that the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+4">Include surfaces to be sectioned</span> check box under <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span> node is selected. This will ensure that the twist is applied to all the selected surfaces.<br>
+<br>
+</li>
+
+<li>Select the curve on the top surface of the model for the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span> selector. The twist will be generated about the selected curve and it will form the reference to place the <i>section planes</i>.<br>
+<br>
+<img src="../../../images/globalshape/spined_twist_2.gif" border="1"><br>
+<br>
+</li>
+
+<li>Expand the <span class="UI_SELECTOR" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node and select <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span>; the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> dialog box is displayed. Enter <b>4</b> in the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5525">No. of sections</span> edit box and select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5531">Show preview</span> check box. Accept the remaining default values and finally select the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5526">Update Now</span> button. Select <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1490">Yes</span> for the displayed warning to proceed.<br>
+<br>
+</li>
+
+<li>Five <i>section planes</i> will be displayed on the spine curve, dividing it into four sections, as entered in the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> dialog box. The first and the last <i>section planes</i> are the drive sections.<br>
+<br>
+<img src="../images/spined_twist_3.gif" border="1"><br>
+<br>
+<a name="angle"></a>The <span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5552">Angle</span> handle at each drive section enables you to dynamically modify the angle values specified there; also, you see the angle values at each section. As you drag the handle, a dynamic preview of the twisted shape will be displayed, enabling you to control the operation. Instead of using handles, you can also enter the value of the twisting angle in the corresponding <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5552">Angle</span> edit box.<br>
+<br>
+</li>
+
+<li>Modify the angle values to <b>15</b> and <b>-10</b> at the extreme end sections. The program immediately calculates and displays the angle values along with the modified preview of section curves, at each <i>section plane</i>.<br>
+<br>
+<img src="../images/spined_twist_4.gif" border="1"><br>
+<br>
+</li>
+
+<li>Clear the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span> and <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> check boxes under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> and <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_TOOLTIP_+3">Apply</span> (<img src="../../../images/general/APPLYbutton.gif" align="absmiddle">) the command. The twisted surface will be developed as shown below.<br>
+<br>
+<img src="../../../images/globalshape/spined_twist_5.gif" border="1"></li>
+</ol>
+<hr color="silver">
+
+<h5>Also try to ...</h5>
+
+<li><a href="../HWfile/T_HW_spined_twist_adv.htm"><b>Create a Spined Twist Surface (Advanced)</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

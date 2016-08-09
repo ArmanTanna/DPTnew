@@ -1,0 +1,59 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2012t1" content="translate">
+<meta name="Author" content="Stefania Fortuzzi">
+<meta name="Revisor" content="Donella Geminiani">
+<title>What's New in Service Pack 1</title>
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+
+<h1>What's New in 2012.1 Service Pack 1</h1>
+<p class="noindent">Version 2012.1 Service Pack 1 introduces the following improvements:</p>
+<br>
+<ul class="noleft">
+<li><a href="#Flex">New version of FlexNet licence manager </a></li>
+<li><a href="#TDReader">New reader for Parasolid and  Pro/ENGINEER files</a></li>
+<li><a href="#Mold">MoldDesign: enhancements in the standard parts management</a></li>
+</ul>
+<hr color="silver">
+
+<h2><a name="Flex"></a>New version of FlexNet licence manager</h2>
+
+<p>A new version of FlexNet (formerly FLEX<i>lm</i>) licence manager has been relesed. It can manage the new licensing algorithm created for 2012.1</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="TDReader"></a>New reader for Parasolid and  Pro/ENGINEER files</h2>
+
+<p>The <b>TD XchangeReader</b> module enables to read also <b>Pro/ENGINEER</b>  (*.prt*; *.asm*; *.neu*) and <b>Parasolid</b> (*.x_*; *.X_*) files, by simply using <span class="UI_OPTION" id="MenuBar_Document_File.msg+MenuBar_Document_File+1037">Open</span> command and its <span class="UI_OPTION" id="eklib.msg+eklib+349">Options</span>.
+<br>
+For <b>Pro/ENGINEER</b>, it enables to read any Wildfire&trade; version up to 5; for <b>Parasolid</b>, any version up to 25.
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="Mold"></a>MoldDesign: enhancements in the standard parts management</h2>
+<p>The name of the standard parts <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+53">Screw</span> or <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+32">Sprue bush</span>  inserted by the <span class="UI_OPTION" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+1">MoldDesign</span><img src="../../images/general/litarr.gif"><span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+5">Standard Parts</span> command, now follows the rule: "name" and "line number" identifying the object in the catalog  &mdash; similarly to what is obtained by placing the same object  with <b>thinkparts</b> &mdash; plus a "numeric identifier". In the case of multiple occurrences in the same grouping, the name of these components is the same. This new behavior &mdash; shared name &mdash; would not allow to modify instances separately. Therefore, the new  <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+7845">Move to New Standard Part Group</span> command has been added to the context menu on the component, in the <b>Model Structure</b>. This command removes the component selected from the grouping and it creates another occurrence with a different name, in order to allow editing. 
+<p>In the <span class="UI_OPTION" id="MenuBar_Document_Insert_thinkMold.msg+MenuBar_Document_Insert_thinkMold+5">Standard Parts</span> command, a new <span class="UI_COMMAND" id="MoldManagerUI.msg+_MoldManagerUI_LABEL_+77">Insert Component as X-Ref.</span> check box has been added under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. When selected, an external reference component is created for each component with a different name, in the same folder of the model. By applying the   <span class="UI_COMMAND" id="ContextMenu_HistoryTree.msg+ContextMenu_HistoryTree+607">Redefine Feature</span> command, the option appears grayed.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+</body>
+</html>

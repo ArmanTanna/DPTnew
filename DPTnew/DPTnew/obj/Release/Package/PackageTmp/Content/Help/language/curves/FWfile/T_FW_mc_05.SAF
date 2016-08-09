@@ -1,0 +1,142 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(308,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Join Curve</title>
+<meta name="BelongsTo" content="TDD"><!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript">
+</script>
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideP();HideLists();HideTR();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1119">Join</span></p>
+<hr color="#63a9d8">
+</table>
+
+<br>
+</p>
+
+<p style="margin-bottom:0;">The <b>Join Curve</b> command enables you to create a single curve from a set of consecutive curves. <span id="TWOD">The command enables you to select also <a href="../OVfile/T_OV_curves.htm#Assoc">associative curves</a>.</span><br>
+
+The resulting curve is a <a href="../OVfile/T_OV_curves.htm">NURBS</a>.</p>
+
+<p style="margin-top:0;margin-bottom:6px;">First select the curves to be joined (the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span> item in the selection list will turn to green) and then end selection by right-clicking and selecting 
+<span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> in the context menu.</p>
+
+
+<p>When one or more of the curves to be joined are not NURBS, the command automatically converts them to NURBS entities and displays an appropriate warning in the preview (if you click the warnings button <img src="../../../images/general/warnings_on_new.gif" align="absmiddle">&nbsp;), so that you can decide whether to go on (thus actually converting it to a NURBS in the end) or to remove them from the selection before going on.</p>
+
+<p style="margin-bottom:0">Several options are available in order to improve the shape of the resulting curve, in order to ensure the downstream shape quality is preserved.</p>
+
+<ul class="noleft">
+<li>You can set the tolerance value to be used to detect different levels of C-continuity (see "<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm">Continuity Types</a>" for details).</li>
+
+
+<li>You can improve the C-continuity properties of the resulting curve at the joints.</li>
+
+<li>As the resulting curve is always obtained as an approximation curve, you can set the value of the parameters controlling the approximation (tolerance, maximum number of arcs and maximum degree of the curve).</li>
+</ul>
+
+<p style="margin-bottom:0" id="HIDEP">The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box is also available, enabling you to control the link between the original curves and the resulting one.</p>
+
+
+<ul class="noleft">
+<li id="HIDELI">When the box is checked, if you modify one of the original curves, the curve you obtained as a result of the <b>Join Curve</b> command will be modified accordingly.</li>
+
+<li id="HIDELI">When the box is cleared, no link exists between the original curves and the resulting one.</li>
+</ul>
+
+<p><a name="Join_OldEntMode"></a><span id="TWOD">When using the command in non-associative mode (
+<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> box <i>not</i> checked),</span> 
+<span id="TWOD">you</span>
+<span id="HIDETD">You</span> can specify what to do with the original curves. In the 
+<span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+392">Base Entities</span> drop-down list, select one of the following:</p>
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+395">Delete</span></td>
+
+<td>To remove the original curves from the <span id="TWOD">model</span>
+<span id="HIDETD">drawing</span>. Only the resulting joined curve will be available.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+394">Hide</span></td>
+
+<td>To hide the original curves, though keeping them in the <span id="TWOD">model</span>
+<span id="HIDETD">drawing</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+393">Keep</span></td>
+
+<td>To keep the original curves, leaving them visible.</td>
+</tr>
+</table>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1">
+<tr>
+<td bordercolor="#ffffe1"><b>Note</b><br>
+Please note that the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+395">Delete</span> option does not apply to associative curves. An appropriate warning is displayed in such cases.</td>
+
+</tr>
+</table>
+
+<p id="HIDEP">By using the <a href="../../tools/to_07/FWfile/T_FW_CurveCurvature.htm"><b>Curve Curvature</b></a> command, you can also display a plot of the curvature or of the radius of curvature.</p>
+
+<p>An effective way of selecting consecutive curves is to perform selection by using the <a href="mk:@MSITStore:selsna.chm::/language/selection/FWfile/T_FW_ed_28.htm"><b>Select Chain</b></a> operator. Curves that are not consecutive cannot be joined.</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_JoinCurves.htm"><b>Join curves</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>General concepts related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../../Notes/T_GL_mc_02.htm"><b>Specialized curves and NURBS curves</b></a></li>
+
+<li><a href="../OVfile/T_OV_Curves.htm"><b>An overview on curves</b></a></li>
+
+<li><a href="../../MathConc/T_MC_ContinuityClassification.htm"><b>Continuity Types</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

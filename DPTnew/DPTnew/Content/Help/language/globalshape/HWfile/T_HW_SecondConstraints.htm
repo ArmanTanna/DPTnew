@@ -1,0 +1,101 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2008t1" content="internally">
+<TITLE>Job: Constraints along the second cutting line</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>                
+.small{
+font-family: Verdana;
+font-size : 9pt;
+}
+</style>
+
+<style> 
+.noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<BODY BGCOLOR="white">
+
+<h5>Constraints along the second cutting line<hr color="silver"></h5>
+<p>Constraints that can be set along the second cutting line are the following. Please note that the applied constraints are propagated along the object up to its end (illustrations refere to the model contained in file "bend_constraints.e3"; the line of bend is the red one, while the cutting lines are vertical lines through the endpoints of the line of bend):<br><br>
+
+<table>
+<tr valign="top">
+<td width="90"><b>Status</b></td>
+<td>Enables you to control the movement of the section along the second cutting line. Select an option in the drop-down list:
+<table>
+<tr valign="top">
+<td><b>Free</b></td>
+<td>Any movement is allowed along the second cutting line.</td>
+</tr>
+<tr valign="top">
+<td><b>Fixed</b></td>
+<td>No movement is allowed, whatever the other constraints are.</td>
+</tr>
+<tr valign="top">
+<td><b>Rotation</b></td>
+<td>Rotates the section about the second cutting line.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p align="center">
+<IMG border=1 SRC="../images/SecondFree.gif"><BR><br><IMG border=1 SRC="../images/SecondFixed.gif"><BR><br><IMG border=1 SRC="../images/SecondRotation.gif"></p>
+
+<table>
+<tr valign="top">
+<td width="90"><b>Continuity</b></td>
+<td>Enables you to define the continuity constraint along the second cutting line. Select an option in the drop-down list:
+<table>
+<tr valign="top">
+<td><b>Position</b></td>
+<td>Applies positional continuity between the two sections along the second line.</td>
+</tr>
+<tr valign="top">
+<td><b>Tangency</b></td>
+<td>Applies tangency continuity between the two sections along the second cutting line.</td>
+</tr>
+<tr valign="top">
+<td><b>Curvature</b></td>
+<td>Applies curvature continuity between the two sections along the second cutting line.</td>
+</tr>
+<tr valign="top">
+<td><b>G3</b></td>
+<td>Applies continuity one degree higher than curvature between the two sections along the second cutting line.</td>
+</tr>
+<tr valign="top">
+<td><b>G4</b></td>
+<td>Applies continuity two degrees higher than curvature between the two sections along the second cutting line.</td>
+</tr>
+</table>
+
+
+</td>
+</tr>
+</table>
+<p align="center"><IMG border=1 SRC="../images/SecondPosition.gif"><BR><br>
+<IMG border=1 SRC="../images/SecondTangency.gif"><BR><br>
+<IMG border=1 SRC="../images/SecondCurvature.gif">
+
+<hr color="silver">
+</body>
+</html>

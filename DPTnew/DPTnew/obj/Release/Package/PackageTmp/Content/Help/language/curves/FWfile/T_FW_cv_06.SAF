@@ -1,0 +1,326 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<title>Offset Curve on Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#ffffff">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1376">Offset on Surface</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1376">Offset on Surface</span> command enables you to create <i>offset curves</i> on a surface or on a plane, from a set of one or more user selected curves. An offset curve is a curve whose distance from a selected curve is constant at all points along that curve.</p>
+
+<p>After starting the command, you need to select the curves to offset for the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+53">Curves</span> selector. You can select chains of consecutive curves by right-clicking on the portion of the curve and then selecting <span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4668">Select</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION" id="ContextMenu_GraphicArea.msg+ContextMenu_GraphicArea+4688">Chain from This</span> in the context menu.</p>
+
+<p>If the selected curves do not lie on the surface/plane, the offset curves will be created starting from their orthogonal projection onto the surface.<br>
+</p>
+
+<p><a name="CTX_OffsetSurfaceOn"></a>You need to select in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+50">On</span> drop-down list <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+40">Surface</span> or <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> to create the offset curve on a surface or plane, respectively.</p>
+
+<ul class="noleft">
+<li>While offsetting on a surface (<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+50">On</span> is set to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+40">Surface</span>), the offset curves can be created: 
+
+<table border="1" bordercolor="white">
+<tr valign="top">
+<td><a name="CTX_OffsetOnSurface_normal"></a><img src="../../../images/general/bullet_white.gif" align="bottom"></td>
+<td>At a given distance along the normal direction by specifying the required value in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+281">Normal distance</span> mini-dialog box.</td>
+<td bordercolor="black"><img src="../../../images/curves/OFS-Normal.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><a name="CTX_OffsetOnSurface_binormal"></a><img src="../../../images/general/bullet_white.gif" align="bottom"></td>
+<td>At a given distance along the binormal&nbsp;(<a href="#binormal">*</a>) direction by specifying the required value in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+282">Binormal distance</span> mini-dialog box.</td>
+<td bordercolor="black"><img src="../../../images/curves/OFS-Binormal.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif" align="bottom"></td>
+<td>At any combination of distances along the normal and the binormal directions. Instead of specifying values in the mini-dialog boxes, you can drag the corresponding handles to interactively assess the resulting curves in the preview.</td>
+<td bordercolor="black"><img src="../../../images/curves/OFS-Both.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><img src="../../../images/general/bullet_white.gif" align="bottom"></td>
+<td>If the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+282">Binormal distance</span> is set to <b>0</b>, then the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box is active. 
+
+<ul class="noleft">
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is selected, the resulting curve will be of the Curve on Surface type.</li>
+
+<li>When <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> is cleared, the curve will be a standalone curve, generally a NURBS.</li>
+</ul>
+
+See "<a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm">Curves On Surfaces</a>" for details on COS.</td>
+</tr>
+</table>
+
+<br>
+<br>
+</li>
+
+<p style="margin-bottom:0;">While offsetting on a plane (<span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+50">On</span> is set to <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span>), the offset of a 3D curve is computed by using a reference plane. Select the plane definition method in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+51">Plane</span> drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+45">On Face</span></td>
+<td>A face of a solid (to be selected for the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+29">Face</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span></td>
+<td>The plane which contains the three points (to be specified for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+44">3 points</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span></td>
+<td>An existing plane (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+37">Plane</span> selector).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+48">Through axis &amp; point</span></td>
+<td>A plane passing through an axis and a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selectors, respectively).</td>
+</tr>
+
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+49">Perpendicular to axis &amp; through point</span></td>
+<td>A plane orthogonal to an axis and passing through a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span> and <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selectors, respectively).</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+83">Coefficients</span></td>
+<td>A plane defined through the coefficient values of its Cartesian equation (<b>A</b><i>x</i>+<b>B</b><i>y</i>+<b>C</b><i>z</i>+<b>D</b>=0), to be specified in the respective mini-dialog boxes (<span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+84">Coeff. A</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+85">Coeff. B</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+86">Coeff. C</span>, <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+87">Coeff. D</span>), and at a point (to be selected for the <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+28">Point</span> selector).</td>
+</tr>
+</table>
+
+<p style="margin-top:0;">See "<i><a href="../../HWfile/T_HW_AxisLine.htm" target="_top">How to define an axis or a line</a></i>" for details on making selection for <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+3">Axis</span>.</p>
+
+<p style="margin-bottom:0;"><a name="CTX_CTX_OffsetCurveOnSurfaceProjection"></a>The projection mode can be chosen in the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+372">Projection</span> drop-down list.</p>
+
+<table>
+<tr valign="top">
+<td width="200"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+46">Normal</span></td>
+<td class="ver9">Enables you to create the offset curve using a normal projection.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+314">View direction</span></td>
+<td>Enables you to create the offset curve using a projection along the current view direction.</td>
+</tr>
+</table>
+
+<p>The 3D offset of a curve is then created according to the following internal procedure:<br>
+<br>
+</p>
+
+<div align="center"><img src="../../../images/curves/ONS-01.gif" border="1"></div>
+
+<br>
+<ol class="litleft">
+<li>The set of selected curves (<font color="red"><b>C</b></font>) is first projected onto the selected plane (<font face="symbol"><b>P</b></font>) along the selected projection direction.</li>
+
+<li>A planar offset (<b>C''</b>) of the projected curves (<b>C'</b>) is created on the selected plane according to the distance value you set.</li>
+
+<li>The curves thus obtained are then projected onto a temporary support surface (<font face="symbol"><b>S</b></font>) obtained by sweeping the selected original curves along the selected projection direction.<br>
+The resulting curves are the 3D offsets of the selected ones (<font color="green"><b>Cr</b></font>).</li>
+</ol>
+</ul>
+
+<p style="margin-bottom:0;">While making the offset on plane, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+425">Transition</span> drop-down list is available.</p>
+
+<p style="margin-top:0;margin-bottom:0;"><a name="CTX_OffsetOnSurface_OffsetTransition"></a>In the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+425">Transition</span> drop-down list you can select the method to be used upon selection of a chain of consecutive curves. <span id="TWOD">Some of these options are not displayed on starting the command in the <span class="UI_COMMAND" id="eklib.msg+eklib+558">2D Profile</span> environment, as they are not relevant there.</span></p>
+
+<br>
+ 
+
+<table style="margin-top:2px;margin-bottom:6px;">
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span><br>
+ when this option is selected, if the chain of curves has sharp corners and the offset requested is made in the area on the outside of them, the corners are not filleted, instead the adjacent curves are extended. When it is not possible to extend the curve, a warning will be displayed to highlight the failed transition.</td>
+<td><img border="1" src="../../curves/images/OC004.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+429">Extend curvature</span><br>
+this option can be selected when it is not possible to obtain a parametric curve extension through the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span> option, since the extended offset curves would not intersect. Two additional extension curves will be created, so as to obtain the intersection. The two curves will have curvature continuity (<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G2">G2</a>) with the offset curves.</td>
+<td><img border="1" src="../../curves/images/OC02.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+430">Extend tangent</span><br>
+this option can be selected when it is not possible to obtain a parametric curve extension through the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+428">Extend parameter</span> option, since the extended offset curves would not intersect. Two additional extension curves will be created, so as to obtain the intersection. The two curves will have tangency continuity (<a href="mk:@MSITStore:help.chm::/language/MathConc/T_MC_ContinuityClassification.htm#G1">G1</a>) with the offset curves.</td>
+<td><img border="1" src="../../curves/images/OC03.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+427">Fillet</span><br>
+ when this option is selected, if the chain of curves has sharp corners and the offset requested is made in the area on the outside of them, they are filleted.</td>
+<td><img border="1" src="../../curves/images/OC05.gif"></td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+120">None</span><br>
+when this option is selected no trimming or filleting action is performed on the offset curves. <span id="TWOD">Please note that, if the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+34">Automatic cut</span> check box is <i>not</i> selected in the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span> - <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the <span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span>, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+120">None</span> option is automatically selected by the application, and no other choice is possible.</span></td>
+<td><img border="1" src="../../curves/images/OC06.gif"></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box enables you to choose either to copy or to move the original curves.</p>
+
+<ul class="noleft">
+<li>When the check box is selected, you will create as many offset copies of the original curves as you specify in the corresponding edit box that shows up as soon as the <span class="UI_OPTION" id="tdesign.msg+_EDITCMD_LABEL_+8">Copies</span> check box is checked. Also, the <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_Offset.ht"><span class="UI_OPTION" id="MenuBar_Document_Insert_Profile.msg+MenuBar_Document_Insert_Profile+7761">Offset</span></a> constraint gets applied between the offset curves.</li>
+
+<li>When the check box is cleared, the original curves are moved according to the offset parameters.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p style="margin-bottom:0;margin-left:0"><a name="CurvesToBeDeleted"></a>
+
+<p style="margin-bottom:0;">There may be situations in which some of the resulting offset curves are overlapped. A <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+437">Curve(s) to Be Deleted</span> selector is displayed and available in the selection list when the resulting offsets include overlapping curves, so as to enable you to get rid of them. For example, take a look at the following<span id="TWOD"> model</span>.<br>
+<br>
+
+<img border="1" src="../../../images/rn_2008T1/OF01.gif"></p>
+
+<p>Suppose you start the command and select all the lines of the two rectangles. For a certain value of the distance, the offset of the second rectangle is reduced to a line (two overlapping lines). In this case the <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+437">Curve(s) to Be Deleted</span> selector is displayed in the selection list.<br>
+<br>
+<img src="../images/OF02.gif" border="1"></p>
+
+<p>You can click on the selector and then select the markers in the middle of the curves to be removed. The selected curves will be deleted.<br>
+<br>
+<img src="../images/OF03.gif" border="1"><br>
+</p>
+
+<p style="margin-bottom:0;">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+436">Remove All Overlaps</span> check box is also available, which enables you to remove all overlapping curves simultaneously, without the need of selecting them one by one.</p>
+
+<ul class="noleft" style="margin-top:0">
+<li>When the check box is selected, all overlapping curves are automatically removed.<br>
+</li>
+
+<li>When the check box is cleared, the <span class="UI_SELECTOR" id="CurveUI.msg+_CURVE_UI_LABEL_+437">Curve(s) to Be Deleted</span> selector is available in the selection list and you can select the curves to be removed one by one.</li>
+</ul>
+
+</p>
+
+<p style="margin-bottom:0;"><a name="ASSOC"></a>The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span> check box is also available. It enables you to create curves which retain a link to the curves they derive from:</p>
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When the check box is selected, the resulting curves will be associative. The new curve will retain a link to the entities it derives from. A specific node displaying both the original entities and the resulting associative curve will be added to the Model Structure.</li>
+
+<li>When the check box is cleared, the resulting curves will not be associative.</li>
+</ul>
+
+<p style="margin-top:0;">For further details, see "<a href="../OVfile/T_OV_curves.htm#Assoc">Associativity</a>".</p>
+
+<p>&nbsp;</p>
+
+<p style="margin-bottom:0">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+438">Use inferred surface</span> check box is displayed when at least one of the selected curve is a 3D curve (and none is a COS).<br>
+<br>
+<img src="../images/OFS_02.gif" border="1"><br>
+<br>
+</p>
+
+<ul class="noleft">
+<li>When the check box is selected, especially in case of twisted curves, the computation is made more efficiently than in normal circumstances, hence producing better results.</li>
+
+<li>When the box is cleared, the result is created through the normal offset mechanism.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p style="margin-bottom:0">The <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+439">Use base surface</span> check box is displayed when all of the selected chain of curves (except the planar ones, if any) are composed of curves of the <i>Curve On Surface</i> (COS) type.<br>
+<br>
+<img src="../images/OFS_01.gif" border="1"><br>
+<br>
+</p>
+
+<ul class="noleft">
+<li>When the check box is selected, the base surface of the COS curves is used to map the offset, thus obtaining the final curves.</li>
+
+<li>When the check box is cleared, the base surface of the COS surface is not taken into account in the computation and the resulting curves are obtained according to the ordinary offset mechanism.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><a name="blend"></a>At times a gap (G0 discontinuity) occurs between two parts of resulting offset curve beyond a certain offset length due to the original (3D) curve's curvature, as highlighted in the image below. In such situations, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span> check box is available.<br><br>
+<img src="../../../images/curves/blend_angle-1.gif" border="1"><br>
+Original yellow curve; offset blue curve is normal; offset black curve has discontinuity.
+</p>
+
+
+<ul class="noleft">
+<li>When the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span> check box is selected, you are enabled to specify a blend angle value to obtain a smooth transition at the point of discontinuity.</li>
+
+<li>When the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span> check box is cleared, the blend angle value is taken as 90 degree, resulting in a vertical straight line.</li>
+</ul>
+
+<p><b>Definition:</b> The <i>Blend Angle</i> is the angle between the tangent at the middle of blend curve and the selected plane. Bigger the blend angle, more vertical and shorter the <i>blend curve</i>.</p>
+
+<p>Consider the following image as an example. From a certain offset length, offset of the <i>yellow</i> (3D) curve has a discontinuity as visible in the resulting <i>black</i> offset curve. The transition at the discontinuity is a vertical straight line. By selecting the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span> check box and defining the blend angle value (in degree), you will obtain smoother transition as shown by the <i>blue</i> and <i>green</i> curves.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span>=90</td>
+<td rowspan="3"><img src="../../../images/curves/blend_angle.gif" border="1"></td>
+</tr>
+
+<tr>
+<td><font color="#008000"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span>=45</font></td>
+</tr>
+
+<tr>
+<td><font color="#0000FF"><span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+461">Blend angle</span>=20</font></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p style="margin-bottom:0">The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+431">Update preview at end drag</span> check box under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enables you to control the preview update mode when the offset curves are dragged using the proper handle.</p>
+<ul class="noleft" style="margin-top:0;">
+<li>When the box is selected, the preview is updated only when drag operations are over<SPAN id="TWOD"> (which can be very useful to speed up operations, especially in case of complex models)</SPAN>.</li> 
+<li>When the box is not selected, the preview is updated continually during drag operations.</li>
+</ul>
+
+<hr color="silver">
+<p style="font-size:8pt;"><a name="binormal"></a>(*) The binormal at a point of a curve is the normal to the surface on which the curve lies at that point.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_OffsetCurveOnSurface.htm"><b>Insert an offset curve on a surface</b></a></li>
+
+<li><a href="../HWfile/T_HW_OffsetCurveOnPlane.htm"><b>Create the offset of a 3D curve</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(392,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<meta name="Revisor" content="Vicky Raina">
+<title>Unbend</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6989">Sheet Metal</span><img src="../../../images/general/litarr.gif"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> command enables you to unbend a sheet metal component (with sharp edges, chamfers, fillets and bends). It is possible to unbend a generic solid also if no sheet metal features have been inserted yet.</p>
+
+<p>Once you selected the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+5">Fixed Face/Edge</span> (select an edge in the case the part has only cylindrical faces and no planar faces exist), depending on the option you select in the <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+2">Type</span> drop-down list you can choose whether to unbend all the bends or sharp edges in the sheet metal part ( <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+3">Global</span>) or few bends or sharp edges ( <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+4">Local</span>).</p>
+
+<p><a name="#LocalProperties"></a>Expand <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+12">Local Properties</span> and select <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+119">Normal side faces</span>, if you need all the side faces of the objects to be created vertical.<br>
+</p>
+
+<p>With this approach all bends automatically added by the unbend operation will inherit sheet metal data from the solid ones (if any, otherwise from the general ones defined in the <a href="../HWfile/IDP_SET_SHEET_METAL.htm"><span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+436">Sheet Metal</span></a> category of the <span class="UI_OPTION" id="eklib.msg+optsmsg+2">Entity Properties</span>). To specify a different set of sheet metal data for each bend, you have to explicitly add a bend on the sharp edge or on the fillet using the <a href="T_FW_Bend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6991">Bend</span></a> command.</p>
+
+<p>While performing the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> operation if any interference is observed in the model, a warning will be displayed in the graphics area with the interfering regions getting highlighted.</p>
+
+<p>Objects flattened using the <span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6992">Unbend</span> command can be rebend using the <a href="T_FW_Rebend.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_SheetMetal.msg+MenuBar_Document_Insert_SheetMetal+6993">Rebend</span></a> command.<br><br>
+
+Corner reliefs are automatically added, if needed.</p>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Unbend.htm"><b>Unbend a solid</b></a></li>
+
+<li><a href="../HWfile/T_HW_Unbend2.htm"><b>Unbend a solid with sharp edges</b></a></li>
+
+<li><a href="../HWfile/T_HW_Unbend_NormalOption.htm"><b>Unbend a solid with <span class="UI_OPTION" id="SheetMetalUI.msg+_SHEETMETALUI_LABEL_+119">Normal side faces</span> option</b></a></li>
+
+<li><a href="../HWfile/T_HW_Unbend_Int.htm"><b>Manage interference during Unbend</b></a></li>
+
+<li><a href="../HWfile/T_HW_Doubly_Curved_Surface.htm"><b>Unbending of doubly curved surface</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_SheetMetal.htm"><b>Sheet metal workflow</b></a></li>
+
+<li><a href="../OVfile/T_OV_BT00.htm"><b>The Bend Table</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_SheetMetal.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Sheet Metal</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

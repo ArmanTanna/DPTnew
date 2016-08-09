@@ -1,0 +1,86 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Vicky Raina">
+<meta name="T_2010t1" content="translate">
+<title>Solid Difference</title>
+
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1519">Solid</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1530">Boolean</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1536">Difference</span></p>
+<hr color="#63a9d8">
+</table>
+
+<br>
+<p>The <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+19">Solid Difference</span> command creates a solid by <i>subtracting</i> one or more solids from a base solid.</p>
+
+<p>As difference is not a commutative operation, the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+13">Operation</span> drop-down list is provided to reverse the selection order.</p>
+
+<p>Solid difference is defined by a base solid (Solid A) and one or more solids that will be removed from it (Solids B). Therefore, if you want to try the opposite operation (B-A), "Solids B" selection should be composed of only one entity. If you selected more than one solid, a warning message will be displayed and only one solid will be accepted in "Solids B" selection (the first one).</p>
+
+<p>Two modes (<span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+1">Global</span> or <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+2">Local</span>) are available to perform the <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+19">Solid Difference</span> operation, to be selected in the <span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+3">Boolean</span> drop-down list:</p>
+
+<table>
+<tr valign="top">
+<td width="50"><span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+1">Global</span> :</td>
+<td>It can be applied to any number of solids. The resulting single solid occupies the space previously occupied by the remaining portion of the base solid.<br>
+<br>
+ <img border="1" src="../../../images/solids/Diff00.gif"> <img src="../../../images/general/Arrow_To_Right.gif" width="32" height="25" align="center"> <img src="../../../images/solids/Diff06.gif" alt="" width="250" height="150" border="1"> <br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+2">Local</span> :</td>
+<td>It can be applied only to two solids. It enables you to limit the difference by selecting some faces, so that the resulting solid will occupy the space obtained by subtracting the portions of the second solid delimited by the selected surfaces from the base solid.<br>
+<br>
+ <img border="1" src="../../../images/solids/Diff00.gif"> <img src="../../../images/general/Arrow_To_Right.gif" width="32" height="25" align="center"> <img src="../../../images/solids/DiffLocal.gif" alt="" width="250" height="150" border="1"> </td>
+</tr>
+</table>
+
+<p>To display a preview of the operation, you can select the <span class="UI_OPTION" id="PERSON.msg+PERSON+29">Preview</span> button (<img class abs src="../../../images/general/preview.gif" align="middle">).</p>
+
+<p><a name="#keep_original"></a>It is possible to retain the original solids after performing the <span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1530">Boolean</span> by using the options available in the <span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+20">Keep Original Solids</span> drop-down list. The options are:</p>
+
+<ul>
+<li><span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+21">None</span>: The difference of solids will be created</li>
+
+<li><span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+22">Solids B</span>: The resultant model will contain difference of the solids(A-B) and the original solids B</li>
+
+<li><span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+23">All</span>: The resultant model will contain difference of solids (A-B) and the original solids A and B</li>
+</ul>
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_Global.htm"><b>Create a global boolean difference</b></a></li>
+
+<li><a href="../HWfile/T_HW_Difference.htm"><b>Create a local boolean difference</b></a></li>
+</ul>
+
+<hr color="silver">
+
+</body>
+</html>

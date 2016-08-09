@@ -1,0 +1,43 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2007t1" content="internally">
+<title>Unexpected system performance degrade or crash</title>
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.menu{font-size: 10pt; font-family: Arial;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:28;margin-top:1}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Unexpected system performance degrade or crash</h4>
+
+<p>If your Operating System is Microsoft&reg; Windows&reg; XP with Service Pack 2 (SP2) installed and the <b>Theme</b> drop-down list in the <b>Themes</b> tab of the <b>Display Properties</b> dialog box opened by right-clicking on an empty area of your desktop and choosing <b>Properties</b> is set to <b>Windows XP</b>:
+<BR><BR><IMG SRC="images/XPTHEME.gif"><BR><BR>
+when using <b>think<font color="#FF0F00">3</font></b> products you may experience an unexpected degrade of the system performance or even a crash with no apparent reason, especially if you have opened/closed several document windows.</p>
+
+<p>The issue can be due to Microsoft&reg; Windows&reg; XP SP2 memory leaks for Graphics Device Interface (GDI) objects when you create and destroy child windows.</p>
+
+<p>While for details you can take a look at "<a href="http://support.microsoft.com/?kbid=319740" >MFC applications leak GDI objects on computers that are running Windows XP</a>" (Microsoft&reg; Help and Support, Article ID 319740), as a very simple work around you can change the <b>Theme</b> to <b>Windows Classics</b>. This action should be sufficient to eliminate your problems and to restore normal system performances.</p>
+
+<hr color="silver">
+</body>
+</html>
+

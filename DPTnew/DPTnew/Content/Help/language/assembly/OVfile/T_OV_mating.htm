@@ -1,0 +1,234 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2015t1" content="translate">
+<meta name="Revisor" content="NIBI">
+<title>Mating - Overview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<a name="top"></a> 
+<!-- <hr color="red" size="10">
+<p style="margin-top: 1px; margin-bottom: 1px; text-align: center;">Improved in version 2015. See "<a href="mk:@MSITStore:rn_td.chm::/language/rn_td_2015T1/newmating.htm">New Mating</a>".</p>
+<hr color="red" size="10"> -->
+<h1>Fundamentals on Mating</h1>
+<br><table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme bordercolor="#ffffe1"><img src="../../../images/general/movie.gif" border=0 align="absmiddle">&nbsp; <b><font color="#63a9d8">e-Learning</font> Material</b>:<br>
+A friendly set of <i>e-Tutorial videos and documents</i> on Assemblies and Mating has been created and is available on the Customer Care Corporate site (<a href="http://dpt3.dptcorporate.com/elearning" target="_new"><font color="#63a9d8"><b>e-Learning</b></font></a> home page). Take a look at the list of the available educational documents on Assemblies and Mating here: <a href="../../tocpages/EL_Assemblies.htm"><font color="#63a9d8"><b>e-Learning</b></font>: <b>Assemblies and Mating</b></a>.<br> Enjoy your lessons!</td></tr></table><br><br>
+
+<p><a name="general"></a>This software enables you to mate objects in an absolutely natural and smart way, based on the selection of two entities in the mating objects.<br>
+<br>This article provides you with the fundemental concepts of this topic, while further details and important operative suggestions can be found in "<a href="NewMating.htm"><b>Mating in ThnkDesign</b></a>".
+The order in which you select the two entities is not mandatory, in fact the constraint that will be applied is reciprocal, thus making no difference whether you first select an entity or the other or vice-versa. The applied constraint is in fact reciprocal. <br>
+In general, then, you can work no having a "reference" entity and an entity to be positioned with respect to the one used as a reference. It's absolutely not mandatory.<br>
+In certain situations, which you can evaluate on your own, though, it <i>might</i> be helpful to think of the first entity as a reference and to proceed positioning the second entity with respect to the first. In case you want to really use the first entity as a reference entity, and ensure that it will really work that way, you need to make it assume an unghangeable location in the space, and to accomplish this goal you can use the <a href="../FWfile/T_FW_FIx_Unfix.htm"><b>Fixed</b></a> constraint command. This, anyway, is a particular working method not required by the program.<br>
+
+In general, then all you need to do is select two entities: the constraint will be reciprocally applied to the two objects the selected entities belong to.</p>
+
+<!-- <ul class="noleft">
+<li>The first entity selected should belong to the object that has to be positioned.</li>
+
+<li>The successive selection is of a reference entity which belongs to another object.</li>
+</ul> -->
+
+<img src="../../../images/assembly/mat_1.gif" border="1"><br>
+<br>
+<p>All the significant parameters are displayed in the selection list and drive your mating actions.</p>
+
+<ul class="noleft">
+<li>As soon as the first entity is picked, the program automatically detects the mating constraint types which suit the entity you selected and you can view them in the selection list.</li>
+
+<li>Depending on the type you choose, the selection of reference entities is restricted to suitable entities only. An additional option in <span class="UI_OPTION" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+33"> Mating</span> enables you to restrict the selection of entities exclusively to Symbolic References, which can be identified anyway by a tool tip displayed by keeping the cursor for a while over them.</li>
+
+
+<li>You also see the preview of the object that must be positioned, while moving the cursor during the selection of the reference entity.<br>
+<br>
+<img src="../../../images/assembly/mat_2.gif" border="1"><br>
+<br>
+</li>
+
+<li>You get additional feedback for the mating consistency, when you get close to a suitable object, and for the constraint creation. Every time the object goes over a suitable reference entities you hear a sound, see a different cursor and the preview orientation is updated to reflect the effect of the detected constraint(s). If you keep the cursor for a while over one/two suitable entities, the program displays a tool tip, describing the detected constraint(s). Similarly, you get the same information on inconsistent and existing constraints.<br>
+<br>
+<img src="../images/mat_6_new.gif" border="1"><br>
+<br>
+</li>
+
+<li>When you click on the <!-- reference, the mating constraint is created, --> First entity and Second Entity and  both entities are selected, the constraint is not yet created, you get the preview but to create it you need to click <b>Apply</b> or <b>OK</b>. <!-- but it can be still modified: you can change any options in the selection list (for instance, switch to <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+17">Aligned</span> from 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+18">Anti aligned</span> or select a mating constraint type which differs from the default one) -->.</li>
+
+
+<li>Worth remarking you can edit the constraint before clicking on the reference, that is when the constraint hasn't been created yet (always by modifying any options in the selection list), and after clicking on the reference, that is, when the mating constraint is created. You apply the mating constraint by switching to a new command, by selecting <span class="UI_OPTION" id="MenuBar_Document_Edit.msg+MenuBar_Document_Edit+4458">Rebuild Model</span> (if you chose the 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+12">Deferred mating</span> option), or, if you wish to define a new constraint, by picking a new entity, belonging to the object that will be moved in the mating.</li>
+
+</ul>
+
+<p>The program detects the suitable mating constraint types, according to the entity that you select, which belongs to the object to be moved. See the <a href="T_OV_MatingTable.htm">table</a> listing the entities of the object to be positioned, on the left and the suitable mating constraints for any entity type, on the top. If you watch a specific column and a row, when the mating constraint in the column is available for the entity of the object to be positioned in the row, you see the cell at the crossing between the column and the row displayed in pale blue. Move the mouse cursor over any pale blue cell and a tool tip will display the reference entities corresponding to the specific mating constraint.</p>
+
+<p>Mating provides two different constraint detection modes:</p>
+
+<ul>
+<li>simple&nbsp;&#151;&nbsp;<i>(default)</i></li>
+
+<li>inferred</li>
+</ul>
+
+<p>You choose simple when you apply just one constraint a time. You choose inferred when you require the program to identify more than one constraint a time. In inferred mode, when you click on a suitable reference entity, the program creates the corresponding constraint and then tries to infer additional constraints, which are consistent with the shape of both objects, the one to be positioned and the reference one. For instance, when you mate a cylindrical pin and a blind cylindrical hole, in inferred mode, the program will add a coincidence constraint between the two planar faces that are contiguous to the pin and the hole.<br>
+<br>
+<img src="../../assembly/images/inferred_mating_new.gif" border="1"></p>
+
+<p>The labels that are displayed on the Graphics Area upon selecting a constraint are color coded for better understanding of their status.<br>
+<br>
+<img src="../images/mating_labels.gif" border="1"></p>
+
+<table border="0" cellspacing="2" cellpadding="2" bgcolor="#E1E1E1">
+<tr>
+<td><font color="green"><b>Green</b></font></td>
+<td>:</td>
+<td>The mating constraint is consistent</td>
+<td><img src="../images/mating_green.gif"></td>
+</tr>
+
+<tr>
+<td><font color="yellow"><b>Yellow</b></font></td>
+<td>:</td>
+<td>The mating constraint is having dangling references</td>
+<td><img src="../images/mating_yellow.gif"></td>
+</tr>
+
+<tr>
+<td><font color="red"><b>Red</b></font></td>
+<td>:</td>
+<td>The mating constraint is conflicting</td>
+<td><img src="../images/mating_red.gif"></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td colspan="2">Each mating label displayed in the Graphics Area will have the following attributes:</td>
+</tr>
+
+<tr>
+<td><img src="../images/mating_pointers.gif" border="1"></td>
+<td valign="top">
+<ul class="noleft">
+<li>A <b>X</b> marker is displayed over the first entity</li>
+
+<li>A <b>O</b> marker is displayed over the second entity</li>
+
+<li>The line pointing towards the first entity geometry is solid</li>
+
+<li>The line pointing towards the second geometry is dashed</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<p>While using the <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint, you can specify an additional alignment know as 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span>. The 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> option will be internally change by the program to 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+17">Aligned</span> or 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+18">Anti aligned</span> depending on the constraints you apply next. This option is very useful when you are not sure of the effects that the present alignment will have on the constraints that you will be introducing later in your model.</p>
+
+
+<p>For example, you create two constraints, a <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+29">Coaxiality</span> constraint with alignment as 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> and then a 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+23">Coincidence</span> constraint with alignment as 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+17">Aligned</span>, with a pre notion that the second constraint works only when the first constraint is 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+18">Anti aligned</span>. In this case the program automatically calculates and changes the first constraint from 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+18">Anti aligned</span>.</p>
+
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+The change of alignment from <span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+49">Any</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+17">Aligned</span> or 
+<span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+18">Anti aligned</span> is done internally by the program. It will not be shown in the Model Structure.</td>
+
+</tr>
+</table>
+
+<p>Mating enables you to drag and drop an entity partially constrained by a mating constraint to a different position. Both the preview and the final position will be consistent with the existing constraints.</p>
+
+<p>A powerful tool to keep the mating constraints even after replacing a component (involved in the mating events) is using Symbolic References &#151; identifying parametric references by means of names &#151; with the same name both in the starting and final object. In fact, when mating solids by using Symbolic References as parametric references, the Symbolic References are stored in addition to the absolute references. As a consequence, the referenced entity can be successfully replaced by any other entity that you consider to be functionally equivalent and that you tagged with the same Symbolic Reference name.</p>
+
+<!-- <p>When there is failure of a mating event (due to change in the mating references), the failing constraints are highlighted in the Model Structure so that you can immediately access, and redefine them. Specific icons in the Model Structure represent that the mating constraint is not consistent.</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td><img src="../images/MS_mating_conflict.gif" border="1"></td>
+<td>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:10;">
+<tr>
+<td><img src="../../../images/assembly/MS_icon_mating_failure.gif"></td>
+<td>-</td>
+<td>Mating failure</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/assembly/MS_icon_mating_conflict.gif"></td>
+<td>-</td>
+<td>Conflicting constraint</td>
+</tr>
+
+<tr>
+<td><img src="../../../images/assembly/MS_icon_mating_dangling.gif"></td>
+<td>-</td>
+<td>Missing constraint references</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>In case the constraints get conflicting the <span class="UI_OPTION" id="tdesign.msg+_CP_ERROR+22">Warning</span> dialog box is displayed where you can see the details about the failure.<br>
+
+<br>
+<img src="../images/mating_fail_warning.gif" border="0"></p> -->
+
+<hr color="silver">
+<h5>Related Topics</h5>
+
+<ul class="noleft">
+<!-- <li><a href="T_OV_MultipleMating.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6395">Multiple Mating</span></a></li> -->
+
+
+<li><a href="T_OV_Inferred.htm"><span class="UI_OPTION" id="tdesign.msg+_MATING_LABEL_+15">Inferred</span></a></li>
+
+
+<li><a href="mk:@MSITStore:help.chm::/language/SymbRefs/OVfile/T_OV_SymbRefs.htm">
+<span class="UI_OPTION" id="MenuBar_Document_Insert_SymbolicReference.msg+MenuBar_Document_Insert_SymbolicReference+7068">Symbolic Reference</span></a></li>
+
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_Assemblies.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Assemblies and Mating</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

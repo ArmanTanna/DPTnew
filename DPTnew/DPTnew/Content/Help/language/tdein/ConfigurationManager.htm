@@ -1,0 +1,54 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="2007t1" content="translate">
+<title>Retaining reserved settings through the Configuration Manager</title>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+
+<h4>Retaining reserved settings through the <span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span></h4>
+
+<p style="margin-top:0;"><span class="UI_COMMAND" id="MenuBar_Empty_Tools.msg+MenuBar_Empty_Tools+7276">Configuration Manager</span> "local" parameters are controlled in a separate branch of the registry (<b><i>Local Preferences</i></b>)&nbsp;&#151;&nbsp;rather than in the ordinary <b><i>Saved Preferences</i></b> branch&nbsp;&#151;&nbsp;so as to prevent parameters related to local configurations from being overwritten by those in the <b><i>Saved Preferences</i></b>.</p>
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Correct setting management when moving to a new version (CAD managers only)</b><br>
+As a consequence, in order to provide a correct setting management for the new versions, CAD managers are strongly recommended to proceed as follows: 
+
+<ul class="noleft" style="margin-top:0;margin-bottom:0;">
+<li>First of all clean up the registry. Specifically, remove the <i><b>Saved Preferences</b></i> and <b><i>Graphic</i></b> branches.</li>
+
+<li>Run the <b>think<font color="#FF0F00">3</font></b> application and perform the new parameter setting as required/desired.</li>
+
+<li>Stop the application.</li>
+</ul>
+
+Only at this point it is possible to obtain the new configuration from the <i><b>Saved Preferences</b></i> branch (otherwise some parameters may be retained from former installations).</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

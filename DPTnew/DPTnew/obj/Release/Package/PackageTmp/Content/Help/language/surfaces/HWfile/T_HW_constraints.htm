@@ -1,0 +1,268 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<meta name="T_2009t1" content="translate">
+<title>Job: Setting constraints on Control Points (surfaces)</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h3>Job: Setting constraints on Control Points</h3>
+
+<p>This document explains how to set constraints on the control points of a selected surface when using the <a href="../FWfile/T_FW_ms_08.htm"><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+279">Surface through Control Points</span></a> command.</p>
+
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>After selecting the surfaces to be modified, expand the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+50">Constraints</span> node in the selection list.<br>
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>2</b></td>
+<td>First of all, <i>define</i> the constraints you want to apply. To do this, in the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list, select 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+73">Define constraints</span>.<br>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Defining constraints on control points and applying them</b> <br>
+Note that at this stage you will just <i>define</i> the constraints you need to apply and <i>select the control points</i> you want to apply them to.<br>
+When you're done with the definition of constraints, you will change the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> to 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+72">Move control points</span> and you will see that the surface control points will be enabled to move only according to the constraints you have set.</td>
+
+</tr>
+</table>
+
+<br>
+For details on how to control the <i>distribution</i> of motion for control points, see "<a href="T_HW_KD.htm">Using the Distribution law options</a>".<br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>In the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+5">Type:</span> drop-down list, choose the constraint you want to apply.<br>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Reference entity management</b> <br>
+When defining constraints, you will typically use reference objects, such as lines, planes, curves or surfaces. If the object you use as a reference is an <i>active</i> object (that is: an object selected among the ones to be edited), the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+49">Static</span> check box will show up. 
+
+
+<ul class="noleft" style="margin-bottom:0;">
+<li>When the box is checked, the shape of the reference object (from now on: the <i>shadow</i>) to be used is the one it had at the time it was selected.</li>
+
+<li>When the box is cleared, on the contrary, the reference object will be updated based on its current shape.</li>
+</ul>
+
+So, the actual meaning of <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+49">Static</span> is to use a static representation of the object during the editing operations.</td>
+
+</tr>
+</table>
+
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td width="120"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+64">Parallel to axis</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move in a direction parallel to that of a selected 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span> (see "<a href="../../HWfile/T_HW_AxisLine.htm">How to define an axis or line</a>").</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+78">On to axis</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on a selected 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+52">Parallel to plane</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on a plane parallel to the one you can specify as described in "
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>".</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+81">On to plane</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on the selected plane which can be specified as described in "
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>".</td>
+
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+82">Orthogonal to plane</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on a plane orthogonal to the selected one which can be specified as described in "
+<a href="../../HWfile/T_HW_PlaneSurface.htm">How to define a plane</a>".</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+79">Parallel to curve</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move keeping parallel to a selected curve (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+53">Curve</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+80">On to curve</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on a selected curve (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+53">Curve</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+55">Orthogonal to curve</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move orthogonally to a selected curve (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+53">Curve</span>).</td>
+
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+84">Parallel to surface</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move keeping parallel to a selected surface (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+54">Surface</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td><b>On to surface</b></td>
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move on a selected surface (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+54">Surface</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+56">Orthogonal to surface</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move orthogonally to a selected surface (
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+54">Surface</span>).</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+85">Radial to Point</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move radially about a selected 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+87">Radial origin</span>.</td>
+
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+86">Radial to Axis</span></td>
+
+<td>The selected <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+51">Points</span> will be constrained to move radially about a selected 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+2">Axis</span>.</td>
+
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Constraint groups</b><br>
+Any time you complete the definition of constraints for the selected control points, a new <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+33">Constraint group</span> item shows up in the selection list so as to enable you to select another set of control points to which you can apply different constraints.</td>
+
+</tr>
+</table>
+
+<br>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>When you're done with setting the constraints, set the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+60">Mode</span> drop-down list to 
+<span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+72">Move control points</span> and move the control points.<br>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+90">Snap to markers</span><br>
+
+When the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+90">Snap to markers</span> check box under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> is selected, you will be enabled to move a control point and snap it exactly to another one, which is not possible when the check box is not selected.</td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Visibility of cursor, markers and curve "shadows"</b> <br>
+The check boxes available by expanding the <span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+47">Drag display</span> node under 
+<span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> enable you to control the visibility of the cursor, control point markers and shadows during mouse drag operations. Turning visibility off can be useful when the involved entities are complex, to better visualize the shape and the location of the curve during the operation. 
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+39">Cursor</span></td>
+
+<td>When selected, the cursor is visible during mouse drag operations. When not selected, the cursor is not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+48">Markers</span></td>
+
+<td>When selected, control points markers are visible during mouse drag operations. When not selected, control points markers are not visible.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="tdesign.msg+_TDCMDCOMMON_LABEL_+31">Shadow</span></td>
+
+<td>When selected, shadows of the reference entities are visible during mouse drag operations. When not selected, shadows are not visible.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+<h5>Tips and Tricks</h5>
+
+<ul class="noleft">
+<li><a href="T_HW_KD.htm"><b>Using the Distribution law options</b></a></li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error handler removed 03 June 2014 -->
+<html>
+<head>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Modifying legacy surfaces with GSM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+blockquote{margin-top:0;margin-left:29;}
+</style>
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+
+<style type="text/css">
+ .notop
+{
+margin-top: 0;
+}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Modifying legacy surfaces with GSM</h3>
+
+<p class="notop">This article describes how <a href="../globalshape/FWfile/T_FW_GMTadvanced.htm"><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> was used to modify a design.</p>
+
+
+<ol class="litleft">
+<li>The model was originally created in Autodesk&reg; Mechanical Desktop&reg;, and imported via IGES into the <b>think<font color="#FF0F00">3</font></b> application.<br>
+<br>
+<img border="1" src="images/bs01.gif"><br>
+&nbsp;</li>
+<li>The goal of the shape modification is to modify the edge of the model using the green curve as our initial condition and the red curve as the target condition.<br>
+<br>
+<img border="1" src="images/bs02.gif"><br>
+&nbsp;</li>
+<li>Before starting <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span>, we take a look at the surfaces to see what we are dealing with.<br>
+
+<br>
+The surfaces highlighted in orange are a total of seven surfaces, none of which have tangency or curvature continuity. We will simplify these surfaces before moving on to the desired shape modification.<br>
+<br>
+<img border="1" src="images/bs03.gif"><br>
+&nbsp;</li>
+<li>We will replace the seven surfaces with a single <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_LoftedGrid.htm">Grid Lofted Surface</a>&nbsp;&#151;&nbsp;utilizing curves derived from the original model.<br>
+
+<br>
+<img border="1" src="images/bs04.gif"><br>
+&nbsp;</li>
+<li>We also have some very messy surfaces "capping" the end of this part. These surfaces also should be simplified prior to initiating the desired shape modification. This capping situation is tough for any designer to model, however, we can actually use <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> to replace these bad surfaces with one very good one!<br>
+
+<br>
+<img border="1" src="images/bs05.gif"><br>
+&nbsp;</li>
+<li>In order to cap the end of this part, we create a regular four sided planar surface and trim it to the approximate desired shape.<br>
+<br>
+<img border="1" src="images/bs06.gif"><br>
+&nbsp;<br>
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Using the Surface Capping command</b><br>
+<br>
+You can easily cap the end of this part also using the <a href="mk:@MSITStore:help.chm::/language/surfaces/FWfile/T_FW_Capping.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+130">Capping</span></a>command.</td>
+
+</tr>
+</table>
+<br>
+</li>
+<li>We initiate the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command, and select our initial curves (the edges of the trimmed surface) and our target curves (the curves on the model). In addition, we specify that the new capping surface created have both position and tangency continuity with the existing model surface. The resulting surface is a clean single surface, tangent to the U curve surface that we created earlier.<br>
+
+<br>
+<img border="1" src="images/bs07.gif"><br>
+&nbsp;</li>
+<li>Now that the surfaces have been simplified we initiate <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> again to accomplish the original desired shape modification.<br>
+
+<br>
+<img border="1" src="images/bs08.gif"><br>
+&nbsp;</li>
+<li>The selection list prompts for initial and target curves. In this case, the initial curve is the green curve and the target curve is the red curve. We choose to target position and select the surfaces to modify.<br>
+<br>
+<img border="1" src="images/bs09.gif"><br>
+&nbsp;</li>
+<li>GSM gives the desired shape modification while maintaining all existing positional, tangential, and curvature continuities!<br>
+<br>
+<img border="1" src="images/bs10.gif"><br>
+<br>
+<img border="1" src="images/bs11.gif"><br>
+</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

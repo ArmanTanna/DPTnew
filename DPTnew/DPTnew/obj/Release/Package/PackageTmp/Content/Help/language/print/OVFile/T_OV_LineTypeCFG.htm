@@ -1,0 +1,92 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>The Line Type Width Configuration File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft { margin-left: 22; margin-top: 0; } 
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<a href="LineTypeCFG.htm"></a> 
+
+<h3>The Line Type Width Configuration File</h3>
+
+<p>The <b>think<font color="#FF0F00">3</font></b> application enables you to define a configuration file that defines the line width of each of the 16 <a href="mk:@MSITStore:forcus.chm::/language/format/FWfile/T_FW_fo_02.htm">line types</a> defined. If you do, you will be able to use the <a href="../Options/OP_Width.htm"><b>Line Type</b></a> width option available in the <a href="../FWfile/T_FW_PrintSetup.htm"><b>Print Setup</b></a> command to control the printing width of your elements.</p>
+
+<p>You can customize the width of the line types by editing the "<tt><b>linetype.cfg</b></tt>" file in the "<tt>files/printers</tt>" subfolder of your installation folder. "<tt><b>linetype.cfg</b></tt>" is a text file you can edit using any non formatting text editor program such as Notepad.</p>
+
+<table border="3" bordercolor="silver" bgcolor="white" width="90%" align="center">
+<caption><b>An Example of Line Type Width Configuration File</b></caption>
+
+<tr>
+<td bordercolor="white"></td>
+</tr>
+
+<tr>
+<td bordercolor="white"><iframe src="LineTypeCFG.htm" width="100%" height="150" scrolling="yes" frameborder="0">&nbsp;</iframe> </td>
+</tr>
+</table>
+
+
+<br>
+<br>
+ 
+
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%" align="center" width="90%" summary="">
+<tr>
+<td bordercolor="#ffffe1">
+<table summary="">
+<tr>
+<td valign="center"><img alt="error-file:DoNotCheckThisIn.htm" src="../../../images/general/warning3.gif"></td>
+<td><b><i>Make a copy of this file</i></b></td>
+</tr>
+
+<tr>
+<td></td>
+<td>It is highly recommended to make a copy of this file before editing it. You might need to restore the default values in case you should input some incorrect ones.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<p>The file contains two columns of numbers:</p>
+
+<table border="0" bordercolor="navy" summary="">
+<tr valign="top">
+<td class="hea"><img src="../../../images/print/LineTypes.gif" border="0" alt=""></td>
+<td>
+<ul class="noleft">
+<li><b>Column 1</b>: the line type identification number. Note that the <b>think<font color="#FF0F00">3</font></b> application provides you with 16 line types, numbered 1 through 16.
+<br>
+If you look at the figure on the left, you will find a one to one correspondence with the file content, the top solid line being line type 1, the dashed line just below being line type 2, the dotted line below this being line type 3 and so on.</li>
+
+<li><b>Column 2</b>: the line width. In the example above, note that the solid line type (1) has been assigned a 3.5mm line width; the dashed line has been assigned a 0.2mm line width and so on. The default file that comes with the standard the <b>think<font color="#FF0F00">3</font></b> application installation has all widths set to 0.0mm; depending on the printer driver characteristics, this normally produces a 1 pixel line width.</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

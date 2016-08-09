@@ -1,0 +1,178 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t3" content="internally">
+<TITLE>New Catalog (thinkparts)</TITLE>
+<meta name="BelongsTo" content="TDD">
+<!-- ensure the TDD tagging is properly accomplished,or the tidy process will spoil your document: refer to the ThinkDesign Drafting Tagging page of the style guide -->
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css"> 
+<script src="../../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+</HEAD>
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();HideMore();HideLists();HideP();HideHR();HideH1();HideH2();HideH3();HideH4();HideH5();HideTR();HideTDC();">
+
+<p>The <img src="../../../images/ThinkParts/NewCatalog.gif" align="absmiddle"> <b>New Catalog</b> command enables you to create a new catalog in the selected index of your <b>thinkparts</b> catalog.</p>
+
+<p>You can find this command in the context menu of an index in the catalog tree frame of the <b>Catalog Manager</b> and in the toolbar of the command main dialog.</p>
+
+<p>The command uses a simple three step wizard to guide you through the process of creating a new catalog:<br>
+<ul class="noleft">
+	<li><a href="#Step_01"><b>Catalog Properties</b></a></li>
+	<li><a href="#Step_02"><b>Catalog Preview</b></a></li>
+	<li><a href="#Step_03"><b>Field Attributes</b></a></li>
+</ul>
+</p>
+
+<p>&nbsp;</p>
+<A name="Step_01"></A>
+<H4>Catalog Properties</H4>
+
+<p>The dialog displayed in the first step enables you to edit the general catalog properties:
+</p>
+<img src="../Images/NewCatalog_1.gif" border="0" alt="">
+
+<p>Enter the information in each field:
+</p>
+
+<table border="0" bordercolor="navy">
+	<tr valign="top">
+		<td class="hea"><b>Name</b></td>
+		<td>The catalog name, mandatory. If you enter the name of an existing catalog, <b>thinkparts</b> loads the relevant information in the remaining fields. The name is a text string of 14 or less characters. Since this is also the name of the physical folder where the data is stored, it must comply with your operating system file naming rules (i.e. it cannot contain any of the following characters: <i>\ / : * ? " &lt; &gt; |</i>).</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>Description</b></td>
+		<td>The description of the catalog that is displayed in the catalog tree frame.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>Additional desc.</b></td>
+		<td>Reserved for future use.</td>
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>Future type</b></td>
+		<td>The <a href="mk:@MSITStore:tt.chm::/language/QueryView/FWFile/T_FW_DataStructureManager.htm">entity type</a> that will pertain to the part when it will be <a href="T_FW_ImportPart.htm">imported</a> as a <b>think<font color="#FF0F00">3</font></b> component. The default setting of this field is <b>COMPONENT</b><SPAN id="TWOD">, however, if you have customized your <b>thinkPLM</b> installation with new entity types, you are enabled to use the <b>...</b> button to select the appropriate one.</SPAN></td>
+
+	</tr>
+	<tr valign="top">
+		<td class="hea"><b>Part description</b></td>
+		<td>Enter the parametric description of the part. <SPAN id="TWOD">This will become the <b>thinkPLM</b> component description when you <a href="T_FW_AssignPN.htm">assign a part number</a>.</SPAN> You may use <a href="#Step_03">attributes names</a> enclosed in angular brackets; if you do, these will be replaced with their specific values in the component description.</td>
+	</tr> 
+</table>
+
+<p>The buttons in the dialog have the following functions:
+</p>
+
+<table border="1" bordercolor="navy">
+	<tr valign="top">
+		<td><b>Cancel</b></td>
+		<td>Closes the dialog and terminates the widget.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Back</b></td>
+		<td>Not enabled in this dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><a href="#Step_02"><b>Next</b></a></td>
+		<td>Moves on to the next dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Finish</b></td>
+		<td>Not enabled in this dialog.</td>
+	</tr>
+</table>
+
+<p>&nbsp;</p>
+<A name="Step_02"></A>
+<H4>Catalog Preview</H4>
+
+<p>In this step you are enabled to define the preview image of the catalog:
+</p>
+<img src="../Images/NewCatalog_2.gif" border="0" alt="">
+
+<p>Note that the dimensions indicate the key fields of the component: this visual information will prove useful to select the right component from the catalog.<br>
+Use the <b>Browse</b> button to navigate through your file system to locate the preview image of your choice. The image is a file in either BMP, GIF or JPEG format of any size that will be scaled to fit in the preview frames of the relevant <b>thinkparts</b> dialogs.
+</p>
+
+<p>The buttons in the dialog have the following functions:
+</p>
+
+<table border="1" bordercolor="navy">
+	<tr valign="top">
+		<td><b>Cancel</b></td>
+		<td>Closes the dialog and terminates the widget.</td>
+	</tr>
+	<tr valign="top">
+		<td><a href="#Step_01"><b>Back</b></a></td>
+		<td>Returns to the previous dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><a href="#Step_03"><b>Next</b></a></td>
+		<td>Moves on to the next dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Finish</b></td>
+		<td>Not enabled in this dialog.</td>
+	</tr>
+</table>
+
+<p>&nbsp;</p>
+<A name="Step_03"></A>
+<H4>Field Attributes</H4>
+
+<p>This dialog enables you to set the attributes of the fields used to define the geometric properties of the parts in the catalog:
+</p>
+<img src="../Images/NewCatalog_3.gif" border="0" alt="">
+
+<p>With reference to the <b>List of Fields</b>, you can edit the attributes displayed in the <b>Field attributes</b> frame.
+</p>
+
+<p>The buttons in the dialog have the following functions:
+</p>
+
+<table border="1" bordercolor="navy">
+	<tr valign="top">
+		<td><b>New...</b></td>
+		<td>Adds a new field. Enter the appropriate field <b>Name</b>, <b>Type</b> and <b>Length</b> when prompted.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Delete</b></td>
+		<td>Deletes the selected field.</td>
+	</tr>
+	<tr valign="top">
+		<td><a href="T_FW_ReportCSV.htm"><b>Report CSV</b></a></td>
+		<td>Uploads the contents of the current catalog to a file in CSV format.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Details</b></td>
+		<td>Enables you to edit secondary properties of the selected field; among these, the numeric format, the default value and the column size.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Cancel</b></td>
+		<td>Closes the dialog and terminates the widget.</td>
+	</tr>
+	<tr valign="top">
+		<td><a href="#Step_02"><b>Back</b></a></td>
+		<td>Returns to the previous dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Next</b></td>
+		<td>Not enabled in this dialog.</td>
+	</tr>
+	<tr valign="top">
+		<td><b>Finish</b></td>
+		<td>Closes the dialog and creates the new catalog.</td>
+	</tr>
+</table>
+
+<HR color="silver">
+</BODY>
+</HTML>

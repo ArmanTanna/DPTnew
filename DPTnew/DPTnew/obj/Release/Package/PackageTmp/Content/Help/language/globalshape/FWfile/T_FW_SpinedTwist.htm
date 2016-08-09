@@ -1,0 +1,270 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(526,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="translate">
+<meta name="Revisor" content="Sanjib Sahu">
+<title>GSM Spined Twist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+}
+</style>
+
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+6435">Global Shape Modeling</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7885">Spined Twist</span></p>
+<hr color="#63a9d8">
+</table>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command enables you to provide compensation to those parts in which the spring-back effect generates a twist. Using this command you can provide twist to a part along a predefined spine. It is also possible to define the degree of twist at various sections defined over the part.</p>
+
+
+<p><span class="UI_COMMAND" id="MenuBar_Document_Modify_GSM.msg+MenuBar_Document_Modify_GSM+7885">Spined Twist</span> modifies globally a whole shape. The command can be applied over a set of surfaces, curves or meshes that are twisted about a selected spine. The twisting is as per an interpolation twist-angle-law. The twist-angle-law is defined by the interpolation of angle values specified at some user-selected sections called the <i>drive sections</i> and applied at all defined sections. The sections that are not "drive sections" are called <i>driven sections</i>. You have the full control over the number and location of the sections, and the possibility to specify the twist angle value at each section. You can also control the preview of the sections and define the stamping direction.</p>
+
+
+<p>On starting the command, you need to make two primary selections for the following two selectors:</p>
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="110"><a name="skin"></a><span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+2">Surfaces to Be Sectioned</span></td>
+
+<td>:</td>
+<td>Select a set of surfaces (neither solids nor skins) that will define the drive sections. The twist will be applied to these set of surfaces if the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+4">Include surfaces to be sectioned</span> check box is selected.</td>
+
+</tr>
+
+<tr valign="top">
+<td><a name="curve"></a><span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span></td>
+
+<td>:</td>
+<td>Select a spine curve (not a curve chain) about which the twist will take place. The curve is sub-divided into sections over which the twist angle is calculated.</td>
+</tr>
+</table>
+
+<p>Once the spine curve has been selected, the location of the <i>section planes</i> is displayed over it as a red handle. The location of these <i>section planes</i> demarcates the intersection of two sections. The preview of the <i>section plane</i>, if turned on, is displayed as two concentric circles. The twisting action of the <span class="UI_COMMAND" id="ButtonToolbar_Surface.msg+ButtonToolbar_Surface+7741">GSM Spined Twist</span> command is applied in the zone lying in-between the section plane limits (i.e. the two concentric circles).</p>
+
+
+<p>You can modify the position of each <i>section plane</i> by dragging its handle. Additionally, you can right-click to display the context menu at each section with the following options in it.</p>
+
+<table cellspacing="2" cellpadding="2" border="1">
+<tr align="center" valign="middle">
+<td><b>Option</b></td>
+<td><b>Drive Section</b></td>
+<td><b>Driven Section</b></td>
+<td><b>Description</b></td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="tdesign.msg+_GM_UI_DESCRIPTION_+13">Show preview</span></td>
+
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td>Toggles the display of the <i>section plane</i> preview</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5558">Enable Drive Section</span></td>
+
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td>Converts a <i>drive section</i> to a <i>driven section</i> and vice-versa. A check mark is displayed in case the section is a <i>drive section</i>.</td>
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5557">Invert Angle Direction</span></td>
+
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td align="center"><img src="../../../images/general/cross_mark.gif"></td>
+<td>Inverts the direction of the <span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5552">Angle</span> handle over the <i>section plane</i> preview</td>
+
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5555">Show Section Options</span></td>
+
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td>Displays additional options (<span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5550">Max. radius</span>, 
+<span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5551">Min. radius</span>, 
+<span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5553">Limited to curvature</span>) exclusive to that section plane. Values specified for these options will override the settings made in the 
+<span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> dialog box.</td>
+
+</tr>
+
+<tr>
+<td><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5556">Remove Section</span></td>
+
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td align="center"><img src="../../../images/general/check_mark.gif"></td>
+<td>Deletes the current <i>section plane</i></td>
+</tr>
+
+<tr>
+<td><span class="UI_MINIDIALOG" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5534">Add Section</span></td>
+
+<td colspan="2">Right-click in empty area, close to the spine curve</td>
+<td>A new section plane is added at the nearest curve point from the pick point.</td>
+</tr>
+</table>
+
+<br>
+<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class="noteme" bordercolor="#ffffe1"><b>Note</b> <br>
+If the section plane corresponds to that of a <i>drive section</i> then you can define the rotation value at that point. If it is <i>driven section</i>, and when <span class="UI_MINIDIALOG" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> node is expanded, then you can only see the calculated angle values.</td>
+
+</tr>
+</table>
+
+<p>Under the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span> node, use the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> selector to select the surfaces, curves, and mesh over which the twist will be applied, by choosing <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span>, <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+29">Curves</span> or <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+118">Mesh</span>, respectively from its drop-down list.</p>
+
+
+<ul>
+<li><a name="include"></a>When the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+4">Include surfaces to be sectioned</span> check box is selected, the twisting modification will be applied also on all the surfaces selected for the 
+<span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+2">Surfaces to Be Sectioned</span> selector.</li>
+
+
+<li>When the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+4">Include surfaces to be sectioned</span> check box is cleared, no twist will be applied to the surfaces selected for the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+2">Surfaces to Be Sectioned</span> selector. In case, you want to apply twist to these surfaces, then select them exclusively for the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> selector.</li>
+
+</ul>
+
+<p>&nbsp;</p>
+ 
+
+<p><a name="preserving"></a>Under the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> node, you can use the <span class="UI_SELECTOR" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> selector to select the curves that will be preserved during the twist modification. You can make selection for:</p>
+
+
+<ul>
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+29">Curves</span>: The position of the selected curves are preserved (maintaining the Positional <b>G0</b> continuity).</li>
+
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+76">Tangency</span> 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+29">Curves</span>: The position of the selected curves and their tangency conditions are preserved (maintaining the Tangency <b>G1</b> continuity).</li>
+
+</ul>
+
+<p>Additionally, you can define the preserving condition for the curve selected as the <span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span>.</p>
+
+
+<ul>
+<li><a name="Include_spine"></a>When the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+6">Include spine curve</span> check box is selected, the <b>G0</b> continuity preserving conditions are automatically applied to the curve selected for the 
+<span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span> selector.</li>
+
+
+<li>When the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+6">Include spine curve</span> check box is cleared, by default the curve selected for the 
+<span class="UI_SELECTOR" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+3">Spine Curve</span> selector is NOT preserved.</li>
+
+</ul>
+
+<p>&nbsp;</p>
+
+<p><a name="mold_direction"></a>The setting for the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> option impacts the orientation of the <i>section planes</i> generated over the spine curve, as it defines the X-direction of the <i>section plane</i>. You need to make a selection based on the option chosen in the 
+<span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+7">Molding Direction</span> drop-down list:</p>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+8">Normal to curve plane</span></td>
+
+<td>:</td>
+<td>The X-direction of the <i>section plane</i> is automatically aligned to the normal vector of the spine curve mean plane.</td>
+</tr>
+
+<tr valign="top">
+<td><b><i>Other options</i></b></td>
+<td>:</td>
+<td>Make a selection to specify the X-direction of the <i>section plane</i> as per the details given in the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a> document.</td>
+
+</tr>
+</table>
+
+<p>Click <a href="../OVfile/T_OV_sec_direction_sp_twist.htm">here</a> for graphic illustration.</p>
+
+<p>&nbsp;</p>
+
+<p><a name="sec_direction"></a>The setting for the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span> option also impacts the orientation of the <i>section planes</i> generated over the spine curve, as it defines the Z-direction (or the normal) of the <i>section plane</i>. You need to make a selection based on the option chosen in the 
+<span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+12">Section Direction</span> drop-down list:</p>
+
+
+<table cellspacing="2" cellpadding="2" border="0">
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+13">Automatic</span></td>
+
+<td>:</td>
+<td>The Z-direction of the <i>section plane</i> is automatically aligned to the tangent vector of the spine curve.</td>
+</tr>
+
+<tr valign="top">
+<td><b><i>Other options</i></b></td>
+<td>:</td>
+<td>Make a selection to specify the Z-direction of the <i>section plane</i> as per the details given in the <a href="mk:@MSITStore:help.chm::/language/HWfile/T_HW_AxisLine.htm">How to define an axis or a line</a> document.</td>
+
+</tr>
+</table>
+
+<p>Click <a href="../OVfile/T_OV_sec_direction_sp_twist.htm">here</a> for graphic illustration.</p>
+
+<p>&nbsp;</p>
+
+<p>The <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> provides you additional standard GSM functionalities of 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+40">Shape Control</span>, 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span>, and 
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span>. However, the 
+<span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+5520">Advanced Options</span> is explicit for the 
+<span class="UI_COMMAND" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+1">GSM Spined Twist</span> command, click <a href="../OVfile/T_OV_adv_option_sp_twist.htm">here</a> for details.<br>
+
+<br>
+<a name="show_section"></a>On selecting the <span class="UI_OPTION" id="DieFaceTools.msg+_DIEFACETOOLS_LABEL_+9">Show section curves</span> check box, the preview of the twist on the section curves will be visible on the model.</p>
+
+
+<hr color="silver">
+<h5>Try to ...</h5>
+
+<ul class="noleft">
+<li><a href="../HWfile/T_HW_spined_twist_basic.htm"><b>Create a Spined Twist Surface</b></a></li>
+<li><a href="../HWfile/T_HW_spined_twist_adv.htm"><b>Create a Spined Twist Surface (Advanced)</b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Related topics</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_adv_option_sp_twist.htm"><b>Advanced Options of the GSM Spined Twist Command</b></a></li>
+<li><a href="../OVfile/T_OV_sec_plane_sp_twist.htm"><b>Managing the <i>Section Planes</i></b></a></li>
+<li><a href="../OVfile/T_OV_sec_direction_sp_twist.htm"><b>Orientating the <i>Section Planes</i></b></a></li>
+</ul>
+
+<hr color="silver">
+<h5>Methodology articles related to this topic</h5>
+
+<ul class="noleft">
+<li><a href="../OVfile/T_OV_GMadvanced.htm"><b>The benefits of GSM</b></a></li>
+</ul>
+
+<hr color="silver">
+<p style="margin-top:0;margin-bottom:0;"><a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><img src="../../../images/general/movie.gif" alt="Take a look at the video list" border=0 align="absmiddle"></a>&nbsp;&nbsp;<a href="../../tocpages/EL_GSM.htm" style="text-decoration: none;"><font color="#63a9d8"><b>e-Learning</font> on Global Modeling</b></a></p>
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t3" content="translate">
+<title>Job: Creating a 3D Polyline</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+ .noleft
+{
+margin-left: 22;
+margin-top: 0;
+margin-bottom:0;
+}
+</style>
+</head>
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Creating a 3D Polyline</h4>
+
+<p>In this tutorial, you are going use the <a href="../FWfile/T_FW_gm_02.htm"><span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1346">Polyline</span></a> command to create a 3D profile. Open a blank Model (*.e3) document and follow the steps given below.</p>
+
+<ol class="noleft">
+<li>Start the <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_3D_sk.htm"><span class="UI_OPTION" id="ButtonToolbar_Profile.msg+ButtonToolbar_Profile+7744">3D Profile</span></a> command. You will notice that the <a href="mk:@MSITStore:prf.chm::/language/sketcher/FWfile/T_FW_3D_sk.htm">Profile Reference System</a> is displayed on the Graphics area.<br>
+<br>
+</li>
+
+<li>If not already visible, activate the display of the Work Plane by using the <span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+1231">View</span><img src="../../../images/general/litarr.gif"><a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_47.htm"><span class="UI_OPTION" id="MenuBar_Document_View.msg+MenuBar_Document_View+4528">Work Plane</span></a> command. Now, change the view to a left-front orientation by using the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_47.htm"><span class="UI_OPTION" id="ButtonToolbar_NamedViews.msg+ButtonToolbar_NamedViews+5749">Left Front View</span></a> command. Also activate the <a href="mk:@MSITStore:help.chm::/language/view/FWfile/T_FW_vw_47.htm"><span class="UI_OPTION" id="ButtonToolbar_View.msg+ButtonToolbar_View+7109">Static Grid</span></a> to assist in point selection during the profile creation. The Work Plane should appear as shown in the image below.<br>
+<br>
+<img src="../../../images/geometry/3Dpolyline_01.gif" border="1"><br>
+<br>
+</li>
+
+<li>Start the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1346">Polyline</span> command and ensure that the <span class="UI_OPTION" id="tdesign.msg+_SKETCHERUI_LABEL_+101">Work Plane on Last Point</span> check box is selected in the selection list.<br>
+<br>
+</li>
+
+<li>Use the <a href="mk:@MSITStore:selsna.chm::/language/snap/FWfile/T_FW_to_13_15.htm"><span class="UI_OPTION" id="MenuBar_Document_Tools_Snap.msg+MenuBar_Document_Tools_Snap+6748">Work Plane Origin</span></a> snap to select the origin as the first point of the polyline.<br>
+<br>
+</li>
+
+<li>Move the cursor in the positive X-direction and click on the next point to create a line segment of 50 units. You can make use of the mini-dialog boxes too.<br>
+ <i>All references of direction are with respect to the Work Plane.</i><br>
+<br>
+<img src="../images/3Dpolyline_02.gif" border="1"><br>
+<br>
+You will notice that the Work Plane origin immediately moves to the last selected point. However, the orientation of the Work Plane does not change.<br>
+<br>
+</li>
+
+<li>Click on the next point such that the line segment is of 50 units in the positive Y-direction.<br>
+<br>
+<img src="../images/3Dpolyline_03.gif" border="1"><br>
+<br>
+</li>
+
+<li>Press <b>Q</b> on the keyboard to start the <a href="mk:@MSITStore:wp.chm::/language/edit/wp/FWfile/T_FW_quick_edit.htm"><span class="UI_OPTION" id="MenuBar_Document_Edit_WorkPlane.msg+MenuBar_Document_Edit_WorkPlane+7901">Select</span></a> command. Notice the various markers displayed on the Work Plane. Double-click on the rotation marker over <i>X-axis</i>; the Work Plane rotates into its new orientation.<br>
+<br>
+<img src="../../../images/geometry/3Dpolyline_04.gif" border="1"><br>
+<br>
+Press <b>Q</b> again to exit Work Plane editing and return to polyline creation.<br>
+<br>
+</li>
+
+<li>Click on the next point such that the line segment is of 50 units in the positive Y-direction.<br>
+<br>
+<img src="../images/3Dpolyline_05.gif" border="1"><br>
+<br>
+</li>
+
+<li>Continue creation of more line segments as shown in the following images.<br>
+<br>
+<img src="../images/3Dpolyline_06.gif" border="1"> <img src="../images/3Dpolyline_07.gif" border="1"><br>
+<br>
+</li>
+
+<li>Once you reach the starting point of the profile, it gets closed and the <span class="UI_OPTION" id="MenuBar_Document_Insert_Drafting.msg+MenuBar_Document_Insert_Drafting+1346">Polyline</span> command exits automatically.<br>
+<br>
+<img src="../../../images/geometry/3Dpolyline_08.gif" border="1"><br>
+<br>
+Note that some line constraints are displayed over the created lines. These constraints are applied in reference to the <a href="mk:@MSITStore:wp.chm::/language/workplane/Ref_syst.htm#prf">Profile Reference System</a>.</li>
+</ol>
+
+<hr color="silver">
+</body>
+</html>
+

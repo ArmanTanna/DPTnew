@@ -1,0 +1,293 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+<meta name="T_2010t1" content="internally">
+<title>Surface Tension</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7511">Tension</span></p>
+<hr color="#63a9d8">
+</table>
+
+
+<p style="margin-bottom:6px;"><a name="CTX_SurfaceTension"></a>The <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+100">Surface Tension</span> command enables you to apply a controlled deformation to a shape by applying <i>tension</i> to the normal curvature along some <i>controlling curves</i> on the shape. Note that the <i>normal</i> curvature is the curvature computed on the plane formed by the tangent to the controlling curve and the normal to the surface along the same curve.</p>
+
+
+
+<p style="margin-top:6px;margin-bottom:0;"><i>Tension</i> is a characteristic of a curve related to curvature and controlled through a real value, in our system varying from -1 to +1:</p>
+
+<ul style="margin-left:22;margin-bottom:6px;margin-top:0;">
+<li>The higher the tension value in a certain region, the lower the curvature (and obviously the higher the radius of curvature).</li>
+
+<li>The lower the tension value in the same region, the higher the curvature (and the lower the radius of curvature).</li>
+</ul>
+
+<p style="margin-bottom:6px;">As mentioned above, the normal curvature along some curves on the selected shape will be modified by applying the tension value to it, similarly to what happens when using the <a href="../../curves/Fwfile/T_FW_CurveTension.htm"><span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+1">Curve Tension</span></a> command. You will be enabled to select several groups of controlling curves on the shape, and to apply different tension values to the normal curvature along them.</p>
+
+
+
+<p style="margin-bottom:6px;">The command executes a process based on an optimization, so as to produce the best possible results. Therefore, the optimization process itself can require some minutes to complete.</p>
+
+<p style="margin-bottom:0;">Similarly to the <a href="mk:@MSITStore:gsm.chm::/language/globalshape/FWfile/T_FW_GMTadvanced.htm">
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span></a> command, you will be enabled to select:</p>
+
+
+
+<ul style="margin-left:22;margin-bottom:6px;margin-top:0;">
+<li>The type of entities to which the modification is to be applied, in the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> drop-down list under 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span>: 
+
+
+
+<ul style="margin-left:22;margin-bottom:6px;margin-top:0;">
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span></li>
+
+
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span></li>
+
+
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span></li>
+
+
+</ul>
+</li>
+
+<li><a name="CTX_ST_PRES"></a>One or more sets of constraints to be applied with the goal to preserve the geometry of some parts of the model, under the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> node. In the 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> drop-down list you can choose the type of entities to be preserved: 
+
+
+
+<ul style="margin-left:22;margin-bottom:6px;margin-top:0;">
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span></li>
+
+
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+38">Points</span></li>
+
+
+
+<li><span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+120">Virtual vertices</span></li>
+
+
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;"><a name="CTX_ST_GROUP"></a>For each <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+25">Group</span> of entities to be preserved, you can set the type of constraint to be applied by selecting the corresponding item in the 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+24">Constraint</span> drop-down list in terms of position, tangency, curvature and so on. Please refer to the documentation of the 
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+20">Advanced GSM</span> command for further details.</p>
+
+
+
+<ul style="margin-left:22;margin-bottom:6px;margin-top:0;">
+<li><a name="CTX_ST_TENSION"></a>Under the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+101">Tension</span> node, you can set several groups of curves along which the tension value for the surface must be modified.</li>
+
+
+
+<li><a name="CTX_ST_CURVES"></a>You first select the curves (<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+5">Curves</span>) along which the tension value should be modified. Note that these curves must be of the Curve on Surface type. Also note that each base surface of these curves is required to be part of the surfaces to be modified.</li>
+
+
+
+<li><a name="CTX_ST_NOPTS"></a>In the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+111">No. of points</span> box specify the number of points to be taken into account along a given controlling curve when computing the modification. The higher the number, the more precise the computation and (generally) the longer the time required.</li>
+
+
+
+<li><a name="CTX_ST_ROUND"></a>In the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+71">Roundness</span> box, type the value of roundness. According to this value, the modified surface will be more or less "round" along a given controlling curve (<i>see</i> "Examples of the Roundness parameter" in the documentation for further details). A useful suggestion is to generally use a much bigger value than the one used as global roundness (see 
+
+<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+40">Shape Control</span> under 
+
+<span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>).</li>
+
+
+
+<li><a name="CTX_ST_ZONEP"></a>Under the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+83">Zone Parameters</span> node, you can define the tension parameters for a 
+
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+10">Start Zone</span> and/or for an 
+
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+11">End Zone</span>.<br>
+
+
+In both cases, first of all you can define the part of the curve (and thus of the surface) to be affected either by dragging a specific handle or by supplying the corresponding curve parameter value in the associated mini-dialog box.</li>
+
+<li>In the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+10">Start Zone</span>/ 
+
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+11">End Zone</span> drop-down lists, select: 
+
+
+
+<table>
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+14">None</span></td>
+
+
+<td>No start/end zone is defined.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+15">Preserved</span></td>
+
+
+<td>To prevent the normal curvature of the surface(s) along this part of curve from being affected.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+16">Controlled</span></td>
+
+
+<td>To apply the modification to the normal curvature of surface(s) along this part of the curve.<br>
+Please note that all the remaining parts of the curve (the ones not included in the start/end zone), will be affected by the modification but without being controlled.</td>
+</tr>
+</table>
+
+The following image shows the curvature plot before and after applying the surface tension modification. The blue straight line is the plot before applying the command, while the other one, in which you can easily distinguish the three different areas, is the plot after the modification (area 1 was set as controlled, area 3 as preserved).<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/TensionCSP.gif"><br>
+<br>
+</li>
+
+<li><a name="CTX_ST_TTN"></a>Define the <span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+25">Start Tension Value</span>/ 
+
+<span class="UI_OPTION" id="TDDUI.msg+_TDDUI_LABEL_+26">End Tension Value</span>. As stated previously, these values can vary from -1 to +1.</li>
+
+
+
+<li>Some further options are available under <span class="UI_COMMAND" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span>. 
+
+
+
+<ul style="margin-left:22;margin-top:-;margin-bottom:0;">
+<li>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+117">Copy</span> box enables you to choose whether to modify the original entities or to apply the change to a copy. 
+
+
+
+<ul style="margin-left:22;margin-top:-;margin-bottom:0;">
+<li>When the box is checked, a copy of the selected entities will be made and the controlled modification will be applied to the copy, so that the unchanged original entities are still there in the model along with the new ones the modification has been applied to.</li>
+
+<li>When the box is cleared, the controlled deformation will be applied directly to the original entities you selected.</li>
+</ul>
+</li>
+
+<li>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+23">Hide</span> check box enables you to manage the visualization of the original entities during the editing session. 
+
+
+
+<ul style="margin-left:22;margin-top:-;margin-bottom:0;">
+<li>When the box is checked, the original entities are hidden during the editing session.</li>
+
+<li>When the box is cleared, the original entities are visible during the editing session, along with the modified ones.</li>
+</ul>
+</li>
+
+<li><a name="CTX_ST_ITER"></a>The <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+113">No. of iterations</span> enables you to type in the maximum number of iterations allowed in the optimization process. If this number is too small, the process will stop before reaching the best possible solution.</li>
+
+
+
+<li>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+39">Approximation</span> item enables you to obtain NURBS entities rather than special type entities. <i>See</i> "Get NURBS surfaces instead of specialized ones" in the documentation for further details.</li>
+
+
+
+<li>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+64">Precision</span> item enables you to define the precision values to be achieved during the computation. <i>See</i> "Setting the precision values to be achieved" in the documentation for further details.</li>
+
+
+
+<li>The <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+40">Shape Control</span> item enables you to manage the parameters that the shape of the final surfaces. <i>See</i> "Set the parameters controlling the shape of the resulting surfaces" in the documentation for further details.</li>
+
+
+</ul>
+</li>
+</ul>
+
+<p style="margin-bottom:0;">In the following example, see the curvature plot of the base surface along the red COS curve, computed using the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+63">Curvature</span> command:<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/SRFT-00.gif"><br>
+<br>
+Create the curvature plot curve by checking the <span class="UI_COMMAND" id="tdesign.msg+_RTC_UI_LABEL_+105">Base surface curvature</span> box.</p>
+
+
+
+<ul style="margin-left:22;margin-top:0;margin-bottom:0;">
+<li>Start the <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+100">Surface Tension</span> command.</li>
+
+
+
+<li>In the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+114">Entities</span> drop-down list under 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+35">Entities to Be Modified</span>, select 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+36">Surfaces</span>.</li>
+
+
+
+<li>Select the surface to be modified.<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SRFT-01.gif"><br>
+<br>
+</li>
+
+<li>Now, in the <span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span> drop-down list under 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+122">Preserving</span>, select 
+
+<span class="UI_COMMAND" id="tdesign.msg+_GM_UI_LABEL_+37">Curves</span> and then click on the red curve as in the following image:<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/SRFT-02.gif"><br>
+<br>
+</li>
+
+<li>Click <span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+5">Curves</span> under 
+
+<span class="UI_COMMAND" id="TDDUI.msg+_TDDUI_LABEL_+101">Tension</span> and select the red curve as in the image below:<br>
+
+
+<br>
+<img border="1" src="../../../images/rn_2007T1/SRFT-03.gif"><br>
+<br>
+</li>
+
+<li>Set the values for the starting and end zones to the ones shown in the following image and set the tension value to 0.1.<br>
+<br>
+<img src="../images/SRFT-04.gif" border="1"><br>
+<br>
+</li>
+
+<li>If you apply the command and recreate the curvature plot, you will see the following differences:<br>
+<br>
+<img border="1" src="../../../images/rn_2007T1/SRFT-05.gif"><br>
+<br>
+</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

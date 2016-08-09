@@ -1,0 +1,124 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+
+<html>
+<head>
+
+<meta name="T_2010t1" content="translate">
+<meta name="BelongsTo" content="TDD">
+<TITLE>Unlink Model References</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK HREF="../../JSandSTYLEs/t32000vNOHR.css" REL="stylesheet" TYPE="text/css">
+<script src="../../JSandSTYLES/TwoDPLUS.js" type="text/javascript"></script>
+
+
+<style>.noleft{margin-left:22;}</style>
+
+</HEAD> 
+
+<body onload="viaMk();"  bgcolor="white" onload="viaMk();HideThreeD();">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
+<p class="headerpath" style="text-align: center;">Modify<img src="../../images/general/litarr.gif">Drawing View<img src="../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+7166">Unlink Model References</span></p>
+<hr color="#63a9d8">
+
+
+<A NAME="top"></A> 
+<!-- <h3>Unlink Model References</h3> -->
+<!-- <H4><A NAME="gp_hl_02"></A>Foreword</h4> -->
+<p>The <span class="UI_COMMAND" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+7166">Unlink Model References</span> command enables you to unlink one or more views from the model they were obtained from, thus removing any references to that model and transforming the views into non-shared groups. A message is displayed to inform the user about references to the model getting lost, as any changes that are made to the model will no more be reflected to the views that have become simple groups.</div>
+
+<!-- <h4>Unlink Model References of the selected drawing views</h4> -->
+<p>After starting <span class="UI_COMMAND" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+7166">Unlink Model References</span> command, proceed as follows.</p>
+
+<table>
+<tr valign=top>
+<td><b>1</b></td><td>Select the view or the set of views to be unlinked from the model</td>
+</tr>
+<tr valign=top>
+<td><b>2</b></td><td>
+A message is displayed to inform you that all references to the model will be removed (if you subsequently modify the model, the view you converted into a group will not be updated to reflect those changes). 
+<br><br>
+If you select the <b>Don't prompt this warning again</b> check box, the message won't be displayed anymore when you use the <span class="UI_COMMAND" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+7166">Unlink Model References</span> command and all the references to the model will be lost without informing you.
+
+<br><br>The view is converted into a standard group. Notice that its icon in the <b>Drawing Structure</b> has changed.<BR><BR><IMG SRC="images/lay07.gif"><BR><BR>
+If you select a 
+
+<a href="mk:@MSITStore:dw.chm::/language/tocpages/T_TOC_MainViews60.htm">main view</a>
+
+ and some&nbsp;&#151;&nbsp;but not all&nbsp;&#151;&nbsp;its derived views, a message is displayed informing you that the selected main view will not be unlinked (while the selected derived views will).
+
+</td>
+</tr>
+
+</table>
+<p>There is an option, which allows to rearrange the 2D entities of the unlinked drawing view into groups and subgroups for representing 3D components hierarchy of the associated model.<br>
+To activate this option select the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1571">Create components as groups</span> check box in the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1570">Unlink model references</span> area of the 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+232">Drawing</span> category in the <a href="mk:@MSITStore:forcus.chm::/language/options/FWfile/T_FW_options.htm">
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+2">System Options</span></a>
+
+dialog box.</p>
+
+<p>
+<ul>
+<a name="OS_unlink"></a><li>When the check box is selected, the <span class="UI_OPTION" id="MenuBar_Document_Modify_DrawingViews.msg+MenuBar_Document_Modify_DrawingViews+7166">Unlink Model References</span> command will create a group for each 3D component. Group name will use the component name as shown in Model Structure of the referenced model.</li>
+
+
+<br><br>
+<img border="1" src="images/unlink_dw_struc.gif">
+<br><br>
+
+<b>Other details:</b>
+<p>
+<ul>
+<li>Solids/Surfaces: Entities belonging to solids and 
+surfaces (note &mdash; available only if surfaces visibility is ON) will be arranged into groups.</li>
+
+
+<ul>
+<li>If a name for the solid/surface has been already specified (by redefining it from the Model Structure), that will be used as the group name, otherwise a  generic name <i>Group</i> will be used for the same.</li>
+<li>If a component contains only one solid/surface, it's group for 
+the solid/surface will not be created and all the entities will be directly 
+added to the component-group (this is done to avoid the creation of useless groups).</li>
+</ul>
+
+
+<li>Other 3D entities:  Dimensions and axes will be placed in the root group of the view-group. X-hatches from sectioning will be placed in the corresponding component/solid group.</li>
+</ul>
+</p>
+
+<p>
+<b>Few warnings:</b>
+<ul>
+<li><b>Warning message 1</b>: If the reference model is not available during unlink, the following warning message will be prompted and a generic <i>Group</i> name will be used for each component-group.</li>
+
+<br><br><img src="images/unlink_warn1.gif" border="1">
+<br><br>
+
+
+<li><b>Warning message 2</b>: If the last drawing view regeneration was done before version 9.0, components as groups will not be created because of missing additional information. In these cases, drawing view regeneration will be requested before unlinking and the following error message will be prompted. 
+
+<br><br>
+<img src="images/unlink_warn2.gif" border="1">
+<br><br>
+
+</ul>
+</p>
+<li>When the check box is cleared, the resulting component entities will not be grouped.</li>
+</ul>
+
+<hr color="silver">
+</body>
+</html>

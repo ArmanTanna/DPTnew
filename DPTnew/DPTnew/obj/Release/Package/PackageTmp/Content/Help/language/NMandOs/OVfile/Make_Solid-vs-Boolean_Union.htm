@@ -1,0 +1,62 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Open Solids: Boolean Union vs Make Solid</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+
+<style> .noleft {margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+
+
+<h3>Open Solids: Boolean Union vs Make Solid</h3>
+
+<p>You may want to create an open solid joining two or more open solids together. You can do that using both Make Solid and Boolean Union commands. However, there is a significant difference between those two ways, 
+dealing with normals, that you should be aware of.</p>
+
+<p>What you need to know:</p>
+<UL class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open Solids</b></A> 
+<LI><A href="26.htm"><b>About Booleans</b></A>
+</LI></UL>
+
+<P>The difference between using the two commands concerns the normals of the faces involved. The Boolean Union command ignores the normals and does not affect them in any way. The Make Solid command will flip the normals of any surfaces that do not match those of the first surface selected.</p>
+
+<P>The following illustrations demonstrate the different behaviors. <BR>The following two pictures show <B>two separate open solids</B>. Each one has its normal pointing in opposite directions (or different colors if the option "Darken back-surfaces" is chosen: <a href="mk:@MSITStore:SolidUtilities.chm::/language/solids/sl_12/sl_13_12.htm"><b>Check Normals</b></a></b>).</p>
+
+<IMG src="../../../images/solids/NMandOS/create_normals1.gif">
+<IMG src="../../../images/solids/NMandOS/create_normals2.gif">
+
+<p>The following diagram shows what happens when the two separate surfaces are joined together with the Boolean Union command. The two solids combine to form one, but their normals ares 
+still facing in opposite directions.</p>
+<IMG src="../../../images/solids/NMandOS/create_union.gif">
+
+<p>What happens when we combine the two solids with the Make Solid command? The two solids are combined into one, and because the flat face was selected first, the normal of the angled face flips itself to match.</p>
+<IMG src="../../../images/solids/NMandOS/create_makesolid.gif"> 
+
+<hr color="silver">
+<h5>Related Topics</h5>
+<ul class="noleft">
+<LI><A href="Open-Solids.htm"><b>Open solids</b></A> 
+<LI><a href="26.htm"><b>About Booleans</b></a> 
+</ul>
+
+<hr color="silver">
+</body>
+</html>
+

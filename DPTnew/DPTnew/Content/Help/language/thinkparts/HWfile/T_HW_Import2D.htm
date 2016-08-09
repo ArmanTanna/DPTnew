@@ -1,0 +1,160 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(10002,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Importing a thinkparts component in a think3 drawing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+<h4>Importing a thinkparts component in a think3 drawing</h4>
+
+<p><b>thinkparts</b> comes with a built-in sample series of catalogs. In this example we will see the step by step procedure to mount a screw in a flange hole in a 2D drawing.</p>
+
+<p>Prerequisite to this procedure is the availability of a <b>think<font color="#FF0F00">3</font></b> application licence and the installation of <b>thinkparts</b> catalog browser. A drawing (a flange in our example) must be open in the <b>think<font color="#FF0F00">3</font></b> application; the drawing has a 10mm hole for mounting the screw.</p>
+
+<table summary="">
+<tr valign="top">
+<td><b>1</b></td>
+<td>Start the <b>thinkparts</b> <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_CatBrowser.htm">
+<span class="UI_COMMAND" id="tt.msg+tt+214">Catalog Browser</span></a> command and navigate to one of the sample screws catalog.</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td><a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_Open.htm">
+<span class="UI_CONTEXT" id="IDD_TT_TP_CBR_POPUP.msg+IDD_TT_TP_CBR_POPUP+11">Open</span></a> the catalog and select an M10 screw. If you have assigned part numbers to your parts, you may have more than one listed; choose a suitable one.</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>3</b></td>
+<td>Note on the top right corner of the <b>thinkparts</b> query view the presence of some options that appear only when you are inserting a part in a drawing:
+<br>
+<br>
+ <img src="../Images/Options2D.gif" border="1" alt=""> 
+
+<table border="0" bordercolor="navy" summary="">
+<tr valign="top">
+<td class="hea" width="120"><span class="UI_OPTION" id="IDD_TP_BCOMPONENT.msg+IDD_TP_BCOMPONENT+9">View type</span></td>
+
+
+
+<td>enables you to choose the part view that you wish to import in the drawing; available views, among others, are <b>Top</b> and <b>Side</b>. We will set this to <b>Side</b> for the sake of this example</td>
+</tr>
+
+<tr valign="top">
+<td class="hea" width="120"><span class="UI_OPTION" id="IDD_TP_BCOMPONENT.msg+IDD_TP_BCOMPONENT+11">Free</span></td>
+
+
+
+<td>select this option for an unconstrained part positioning</td>
+</tr>
+
+<tr valign="top">
+<td class="hea" width="120"><span class="UI_OPTION" id="IDD_TP_BCOMPONENT.msg+IDD_TP_BCOMPONENT+12">Pivot</span></td>
+
+
+
+<td>select this option to be able to set the part orientation after defining the position; we will use this option for this example</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Click <b>OK</b> or double-click the screw or select <a href="mk:@MSITStore:thp.chm::/language/thinkparts/FWfile/T_FW_ImportPart.htm">
+<span class="UI_CONTEXT" id="IDD_TT_TP_CBR_POPUP.msg+IDD_TT_TP_CBR_POPUP+1">Import</span></a> from the context menu. You may have to close the <b>thinkparts</b> query view or move it out of the way to continue.</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>You are prompted to enter the new position: specify the point in the drawing where you wish to add the screw.
+<br>
+<br>
+ <img src="../../../images/ThinkParts/Import2D_1.gif" border="0" alt=""></td>
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Because we set the <b>Pivot</b> option, the program expects you to define the orientation by selecting a new point to define the screw rotation.
+<br>
+<br>
+ <img src="../../../images/ThinkParts/Import2D_2.gif" border="0" alt=""></td>
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>You are enabled to insert more screws of this kind; to stop the sequence, simply press the ESC key on your keyboard.</td>
+</tr>
+
+<tr valign="top">
+<td><b>&nbsp;</b> </td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

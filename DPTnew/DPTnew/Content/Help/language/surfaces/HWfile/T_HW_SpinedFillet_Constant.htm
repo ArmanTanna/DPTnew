@@ -1,0 +1,177 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<html>
+<head>
+<!-- Error handler removed 03 June 2014 -->
+
+<meta name="T_2009t1" content="cleanup">
+<title>Job: Creating a spined fillet with constant radius</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.notop{margin-top:0;}
+</style>
+
+<style type="text/css">
+.noleft{margin-left:22; margin-top:2;margin-bottom:0;}
+</style>
+
+<style type="text/css">
+.noleftop{margin-top:0; margin-left:22;}
+</style>
+
+<style type="text/css">
+.litleft{margin-left:26; margin-top:0;margin-bottom:0;}
+</style>
+
+</head>
+
+<body bgcolor="white" onload="viaMk();">
+
+
+
+<h3>Creating a spined fillet with constant radius</h3>
+
+<p class="notop">In this task you will use the <a href="../FWfile/T_FW_SpinedFillet.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+485">Spined Fillet</span></a> command to create a constant radius fillet between two surfaces along a spine curve.<br>
+
+
+<i>Please note that you can accomplish this task by loading file "spf_constant.e3"</i>.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPF00.gif"><br>
+<br>
+</p>
+
+<table>
+<tr valign="top">
+<td width="20"><b>1</b></td>
+<td>Start the <a href="../FWfile/T_FW_SpinedFillet.htm"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+485">Spined Fillet</span></a> command.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>2</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_SPEECH_+490">Type</span> drop-down list select 
+
+<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+491">Constant radius</span>.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td width="20"><b>3</b></td>
+<td>Select the first surface (<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+483">Group A</span>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SPF01.gif"><br>
+<br>
+Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end selection for the first group of surfaces.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>4</b></td>
+<td>Select the second surface (<span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+484">Group B</span>).<br>
+
+
+<br>
+<img border="1" src="../../../images/surfaces/SPF02.gif"><br>
+<br>
+Right-click and select <span class="UI_OPTION" id="tdesign.msg+_INTEL_LABEL_+159">Continue</span> to end selection for the second group of surfaces.<br>
+
+
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>5</b></td>
+<td>As you can see, the normal of the second surface is outward bound. If you keep it like that, you won't be able to create the fillet, as the normal of the first surface is inward bound instead. To invert the direction of the normal, thus enabling the creation of the fillet, double-click on the arrow representing the normal of the second surface.<br>
+<br>
+<img border="1" src="../images/SPF03b.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>6</b></td>
+<td>Select the spine curve.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPF04.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>7</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+61">Radius</span> mini-dialog box, type the value of the radius of the fillet you want to create.<br>
+
+
+<br>
+<img border="1" src="../images/SPF05.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><b>8</b></td>
+<td>In the <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+497">Extension</span> drop-down list select the fillet extension and then click <img src="../../../images/general/OKbutton.gif"> or <img src="../../../images/general/APPLYbutton.gif"> to confirm your selections and create the fillet:<br>
+
+
+<br>
+ 
+
+<table>
+<tr valign="top">
+<td width="90"><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+494">Disabled</span> </td>
+
+
+<td>Creates a blend surface whose length is only as long as the length at which the two selected surfaces actually intersect.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPFDisabled.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+495">Full</span></td>
+
+
+<td>Creates a blend surface whose length extends to the outermost edges of either surface (which ever is longer) at the point where the two surfaces intersect.<br>
+<br>
+<img border="1" src="../../../images/surfaces/SPFFull.gif"><br>
+&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+496">Trimmed</span></td>
+
+
+<td>Creates a blend surface whose length at the point where it intersects with the selected surface is extended or trimmed to match the length of the surface at that intersection. If the <span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+34">Automatic cut</span> check box (
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+32">Construction</span> - 
+
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+49">Advanced</span> category of the 
+
+<span class="UI_OPTION" id="eklib.msg+optsmsg+5">System Options</span>) is selected, the portions of the selected surfaces extending beyond the new blend surface are automatically eliminated.<br>
+
+
+ <br>
+<img border="1" src="../../../images/surfaces/SPFTrimmed.gif"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t2" content="translate">
+<TITLE>How to display the name of the model (Symbolic Texts)</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<STYLE>.noleft{margin-left:22}</STYLE>
+</HEAD>
+
+<BODY bgcolor="white">
+
+
+
+<h4>How to display the name of the model</h4>
+<p>Suppose you need to insert the name property of a model shown on a drawing into the drawing itself (for example inside the title block), preceded by "Part Number:" and to remind designers to set this property. You will have to create a text string like the following&nbsp;&#151;&nbsp;<i>see</i> <b><a href="mk:@MSITStore:draft.chm::/language/geometry/FWfile/T_FW_gm_09.htm"><b>Texts</b></a></b> to learn how to create a text entity and position it as you like:<br><br>
+
+<table border=1 bordercolor="navy"><tr><td>&nbsp;<p>Part Number: <b>$MM{</b>COMPNAME<b>="</b>Remember to set name property in the model<b>"}</b></p>&nbsp;</td></tr></table><br>
+where:
+<ul class="noleft">
+<li>"COMPNAME" is the name property of the model (a predefined property you can assign to the model using <a href="T_OV_SY_CmpProp.htm">Part properties</a>)
+
+<li>The string between quotes that follows the <b>=</b> sign is the <i>default description</i>: the string that will be displayed when the <b>Symbolic text expansion</b> check box in the <b>Symbolic Texts</b> area of the <b>Text</b> category in the <b>Document Properties</b> is <i>not</i> selected. For further details <i>see:</i> <b><a href="T_OV_STsyntax.htm">Syntax of symbolic expression</a></b>. <br>If you forget to assign the "COMPNAME" property to the model (<i>see</i> <a href="T_OV_SY_CmpProp.htm">Part properties</a>) and insert the above said string into the title block, the default description will be displayed: "Remember to set name property in the model".
+
+</ul>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme  bordercolor="#ffffe1">
+So, the symbolic expression to be used in a drawing to display the value of a property associated to the overall model is <b>$MM</b>. See "<a href="T_OV_STavailable.htm"><b>Available Symbolic Expression Identifiers</b></a>" for more information.</td></tr></table>
+<p></p>
+<table border=1 bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
+<tr>
+<td class=noteme  bordercolor="#ffffe1"><b>Set the default value</b>
+<p>If no value is specified in the string defining the model name ($MM{COMPNAME=""}), a default string will be displayed: &lt;part number&gt;.
+<br>As the size of such string may exceed the space assigned to the corresponding field, it is strongly recommended that you set a default value by assigning the property a blank character:<p><b>$MM{</b>COMPNAME<b>=" "}</b></p>
+<p>This way, no string will be displayed and the space occupied will be the same as the one of a blank character.
+</td>
+</tr>
+</table>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,167 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2009t1" content="translate">
+<meta name="Author" content="Vicky Raina">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<title>New Part Modeling Functionalities and Improvements</title>
+<!-- Error handler removed 03 June 2014 -->
+
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="white" onload="viaMk();">
+<a name="top"></a> 
+ 
+
+<h1>New Part Modeling Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2009.1 has following enhancements to the Part Modeling functionalities.</p>
+
+<ul class="noleft">
+<li><a href="#436">Enhancement in the Generic Sweep functionalities</a></li>
+
+<li><a href="#434">The new <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span> command</a></li>
+
+<li><a href="#SHAFT">Simple Shaft command renamed</a></li>
+
+<li><a href="#544">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+19">Solid Difference</span> command (Boolean Difference)</a></li>
+
+<li><a href="#463">Improvement in the <span class="UI_COMMAND_NOBOLD" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+437">Draft Angle</span> command</a></li>
+
+<li><a href="#P464">Enhancement in the <span class="UI_COMMAND_NOBOLD" id="TDTweak.msg+_TDTWEAK_LABEL_+5">Extend Faces/Close Solid</span> command (Interactive Modeling)</a></li>
+</ul>
+<br>
+<hr color="silver">
+<!-- PRJ: P0000436 - OWN: Jithesh Menon -->
+<h2><a name="436"></a>Enhancement in the Generic Sweep functionalities</h2>
+
+<p>The <span class="UI_COMMAND" id="TDSweep.msg+_TDSWEEP_LABEL_+35">Motion Mode</span> drop-down list is now available in the selection lists of the <a href="mk:@MSITStore:solids.chm::/language/solids/sl_03/FWfile/T_FW_sl_01_03_solid.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span></a>, <a href="mk:@MSITStore:solids.chm::/language/solids/sl_03/FWfile/T_FW_Sl_01_03.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4592">Generic Protrusion</span></a>, and <a href="mk:@MSITStore:solids.chm::/language/solids/sl_03/FWfile/T_FW_Sl_02_03.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6702">Generic Slot</span></a> commands, which proposes a number of different methods to perform the sweep along the drive. Also, a new <span class="UI_COMMAND" id="TDSweep.msg+_TDSWEEP_LABEL_+29">Skin</span> check box has been introduced in the <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6702">Generic Slot</span> selection list.<br>
+<br>
+</p>
+
+<p>Henceforth, it is possible to create generic sweep (<span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6829">Generic Solid</span>, <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+4592">Generic Protrusion</span>, and <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+6702">Generic Slot</span>) along a non-tangential spine to boundaries, as shown in the images below.<br>
+<br>
+</p>
+
+<table style="margin-left:30 " cellspacing="2" cellpadding="2" border="0">
+<tr>
+<td align="center"><img src="../../images/rn_td_2009T1/Generic_solid1.gif" border="1"></td>
+<td align="center"><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td align="center"><img src="../../images/rn_td_2009T1/Generic_solid2.gif" border="1"></td>
+</tr>
+</table>
+
+<br>
+ 
+
+<p>The other improvements in the generic sweep are listed below:</p>
+
+<ul>
+<li>It is no longer mandatory to position the first boundary on the spine endpoint.</li>
+
+<li>The boundary profiles can now have different number of entities with respect to each other.</li>
+
+<li>Now, it is possible to redefine the generic solid features.</li>
+
+</ul>
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+<!-- PRJ: P0000434 - OWN: Valeria Naldi -->
+<h2><a name="434"></a>The new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span> command</h2>
+
+<p>In this version, the new <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm"><span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span></a> command replaces the previously existing <span class="OLD">Simple Hole</span> command.<br>
+<br>
+The new <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box is now available in the command selection list. It can be used for creating and redefining the standard, simple, shaped, and free dimensional holes. The options which were previously available in the <span class="OLD">Hole Catalog</span> dialog box of the <span class="OLD">Shaped Hole</span> command are now available under the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> node of the new <span class="UI_COMMAND" id="MenuBar_Document_Insert_Solid.msg+MenuBar_Document_Insert_Solid+1556">Hole</span> command. As a result the <span class="OLD">Shaped Hole</span> command and the <span class="OLD">Thread</span> check box in the <span class="OLD">Simple Hole</span> selection list are no longer available.<br>
+<br>
+</p>
+
+<p>Standard values for creating the holes are taken from the predefined table that can be modified by the user from the <a href="mk:@MSITStore:solids.chm::/language/features/FWfile/T_FW_ft_01.htm#XML">installation folder</a>. On clearing the <span class="UI_COMMAND" id="TDHole.msg+_TDHOLE_LABEL_+41">For screw</span> check box you are enabled to explicitly define the dimensions of the hole.<br>
+<br>
+</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> 
+
+<h2><a name="SHAFT">Simple Shaft command renamed</a></h2>
+
+<p>The <span class="OLD">Simple Shaft</span> command has been renamed as the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+417">Shaft</span> command.<br>
+<br>
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+ <!-- PRJ: P0000544 - OWN: Valeria Naldi -->
+ 
+
+<h2><a name="544"></a>Enhancement in the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+19">Solid Difference</span> command (Boolean Difference)</h2>
+
+<p>In order to increase the capability to retain the original solids during the <a href="mk:@MSITStore:solids.chm::/language/solids/FWfile/T_FW_Difference.htm"><span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+19">Solid Difference</span></a> operation, the <span class="OLD">Keep Original Solids</span> check box has been replaced by the <span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+20">Keep Original Solids</span> drop-down list with three different options: <span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+21">None</span>, <span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+22">Solids B</span>, and <span class="UI_COMMAND" id="TDBoolean.msg+_TDBOOLEAN_LABEL_+23">All</span>.<br>
+<br>
+</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+ <!-- PRJ: P0000463 - OWN: Francesco Domenicucci -->
+<h2><a name="463"></a>Improvement in the <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+437">Draft Angle</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="ButtonToolbar_Solid.msg+ButtonToolbar_Solid+437">Draft Angle</span> command is now much more reliable and can be applied to a much higher number of situations than in the past.<br>
+<br>
+</p>
+
+<!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+
+ <!-- PRJ: P0000464 - OWN: MAAM -->
+
+<h2><a name="P464">Enhancement in the <span class="UI_COMMAND" id="TDTweak.msg+_TDTWEAK_LABEL_+5">Extend Faces/Close Solid</span> command (Interactive Modeling)</a></h2>
+
+<p>A new <span class="UI_OPTION" id="TDTweak.msg+_TDTWEAK_LABEL_+35">Insert New Faces</span> check box has been introduced in the <span class="UI_OPTION" id="MenuBar_Document_Modify_ISM.msg+MenuBar_Document_Modify_ISM+7899">Extend Faces/Close Solid</span> command selection list.</p>
+
+<ul>
+<li>When the check box is selected, new faces are created to fill the selected holes, as shown in the image below.</li>
+
+<li>When the check box is cleared, no new face is created to fill the selected holes.</li>
+</ul>
+
+<br>
+<table cellspacing="2" cellpadding="2" border="0" style="margin-left:30;">
+<tr>
+<td><img src="../../images/rn_td_2009T1/ISM_create1.gif" border="1"></td>
+<td><img src="../../images/general/Arrow_To_Right.gif"></td>
+<td><img src="../../images/rn_td_2009T1/ISM_create2.gif" border="1"></td>
+</tr>
+</table>
+
+ <br>
+ <!-- END PRJ -->
+<!-- #################################################################################### -->
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a>
+</body>
+</html>
+

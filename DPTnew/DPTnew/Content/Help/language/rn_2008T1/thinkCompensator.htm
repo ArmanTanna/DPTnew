@@ -1,0 +1,173 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "http://help.dptcorporate.com/"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script type="text/javascript" language="JavaScript">
+function errorHandler() {
+alert("To view the desired page, install the documentation to your machine.\nIf the problem persists, contact think3 Customer Care (e-mail: thinkcare@think3.com).");
+  return true;
+}
+window.onerror = errorHandler;
+</script>
+
+<meta name="T_2008t1" content="translate">
+<title>New Compensator Functionalities and Improvements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Nicola Binaghi">
+<meta name="Revisor" content="Stefania Fortuzzi">
+<link href="../../JSandSTYLES/StylesForReleaseNotes.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../JSandSTYLES/redax.js">
+</script>
+
+<style type="text/css">
+.prel{
+ color: Gray;
+}
+</style>
+</head>
+<body onload="viaMk();"  bgcolor="#FFFFFF">
+<form id="TheForm">
+<p><object classid="CLSID:7093586E-6E5C-11D2-BE3B-0060B0EB1D67" data="data:application/x-oleobject;base64,bliTcFxu0hG+OwBgsOsdZwICAADYEwAA2BMAAA==" id="Redirector" onerror="SignalNoDLL()" style="DISPLAY: none"></object></p>
+</form>
+
+<a name="top"></a> 
+
+<h1><a name="#001"></a>New Compensator Functionalities and Improvements</h1>
+
+<p class="noindent">Version 2008.1 introduces the following enhancements to the Compensator commands.<br>
+</p>
+
+<ul class="noleft"><!-- <li><a href="#P0000176">Noise detection and evaluation</a></li> -->
+<!-- <li><a href="#P0000354">Compensate and loop within a contour</a></li> -->
+<!-- <li><a href="#P0000356">Keeping names in the compensator process</a></li> -->
+<!-- <li><a href="#P0000357">New tolerance check</a></li>
+<li><a href="#P0000358">New ratio option in the compensator process</a></li> -->
+<!-- <li><a href="#P0000359">Process compensator log file with elapsed time</a></li> -->
+<li><a href="#P0000367">Computation in mirror mode</a></li>
+
+<li><a href="#G2">New curvature (G2) constraint available in <span class="UI_COMMAND_NOBOLD" id="GMDecimCmd.msg+_GMDECIM_LABEL_+133">Preserving Curves</span></a></li>
+
+<li><a href="#CheckSymmetry">New <span class="UI_COMMAND_NOBOLD" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+70">Check Symmetry</span> command</a></li>
+
+<li><a href="#SmallCurvature">New <span class="UI_COMMAND_NOBOLD" id="GMDecimCmd.msg+_GMDECIM_LABEL_+170">Extract Small Curvature-Radius Zones</span> command</a></li>
+
+<li><a href="#LoadMesh">New <span class="UI_COMMAND_NOBOLD" id="idr_GMDecim.msg+idr_GMDecim+14">Load Mesh</span> command</a></li>
+
+<li><a href="#P0000355">New measurement tool to compute distances between two entities</a></li>
+
+<li><a href="#ExtractPoints">Enhancements in the <span class="UI_COMMAND_NOBOLD" id="GMDecimCmd.msg+_GMDECIM_LABEL_+110">Extract Points</span> command</a></li>
+</ul>
+
+<hr color="silver">
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000367 - OWN: PABS -->
+<h2><a name="P0000367"></a>Computation in mirror mode</h2>
+
+<p>In the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span> and <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span> commands, you can now work based on the displacement field symmetry.</p>
+
+<ul>
+<li>If a symmetry is there, by selecting the displacement field symmetry option you are ensured the final Global Model deformation will be a symmetric one.</li>
+
+<li>You can also set the symmetry option to run the computation on either half or on the entire displacement field and be sure to obtain the result relative to the entire displacement field.</li>
+
+<li>A check tool is available to detect symmetries in meshes (see "<a href="#CheckSymmetry">New <span class="UI_COMMAND_NOBOLD" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+70">Check Symmetry</span> command</a>"). Once a symmetry is detected, you can use the symmetry option to ensure the result is symmetric.</li>
+</ul>
+
+<p>To activate the symmetry method, select the <span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+405">Symmetry</span> check box<!--  under <span class="UI_OPTION" id="tdesign.msg+_TDCOMMAND_LABEL_+5">More Options</span> -->.<br>
+&nbsp;</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: G2 - OWN: JAGO -->
+ 
+
+<h2><a name="G2"></a>New curvature (G2) constraint available in <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+133">Preserving Curves</span></h2>
+
+<p>In the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span> and <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span> commands, you can now manage also <i>curvature</i> (G2) continuity along groups of curves to be preserved. Once the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+133">Preserving Curves</span> check box is selected, in the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+139">Constraint</span> drop-down list you can now select one of the following:</p>
+
+<ul>
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+2">Keep position</span> (G0)</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+3">Keep position + tangent</span> (G1)</li>
+
+<li><span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+4">Keep position + tangent + curvature</span> (G2).</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+<!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CheckSymmetry - OWN: PABS -->
+<h2><a name="CheckSymmetry"></a>New <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+70">Check Symmetry</span> command</h2>
+
+<p>The new <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+70">Check Symmetry</span> command (&nbsp;<img src="../../images/rn_2008T1/CheckSimmetry.bmp" align="absmiddle">&nbsp;) enables you to detect symmetry conditions in a selected mesh entity. Once a symmetry condition has been detected, the use of the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+91">Process Compensator</span> and <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+64">Identify Displacement Field</span> commands can ensure a symmetric computation along with symmetric results (see "<a href="#P0000367">Computation in mirror mode</a>"). See the command description in the online help for further details.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CheckSymmetry - OWN: PABS -->
+<h2><a name="SmallCurvature"></a>New <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+170">Extract Small Curvature-Radius Zones</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+170">Extract Small Curvature-Radius Zones</span> command (&nbsp;<img src="../../images/rn_2008T1/ExtractSmall.bmp" align="absmiddle">&nbsp;) enables you to clean the displacement fields so as to retain only areas with small radius of curvature.</p>
+
+<p style="margin-bottom:4;">The results of the command, on applying it, are two ASCII files named "extractCurvRadius_driving_<i>thr</i>_<i>num</i>.pt and "extractCurvRadius_depending_<i>thr</i>_<i>num</i>.pt in the temporary folder of your machine (<i>thr</i> is the current value of the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+174">Min. Curvature Radius Threshold</span> and <i>num</i> is a progressive number for successive save operations. The files contain the coordinates of the extracted points.<br>
+See the online help for a complete description.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: CheckSymmetry - OWN: PABS -->
+<h2><a name="LoadMesh"></a>New <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+14">Load Mesh</span> command</h2>
+
+<p>The <span class="UI_COMMAND" id="idr_GMDecim.msg+idr_GMDecim+14">Load Mesh</span> command (&nbsp;<img src="../../images/rn_2008T1/LoadMesh.bmp" align="absmiddle">&nbsp;) enables you to load mesh entities from Finite Element Analysis files that can be selected in a specific file selection box. Once loaded using this command, meshes can be used in <b>Compensator</b> commands.</p>
+
+<p>The supported FEM file formats are the following:</p>
+
+<ul>
+<li>Nastran<sup><font size="-1">TM</font></sup> (".nas")</li>
+
+<li>Autoform (".af").</li>
+</ul>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: P0000355 - OWN: PABS -->
+<h2><a name="P0000355"></a>New measurement tool to compute distances between two entities</h2>
+
+<p>The new <span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+1">Two-Entity Distance Map</span> command (<span class="UI_COMMAND" id="MenuBar_Document_Tools.msg+MenuBar_Document_Tools+1667">Tools</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="MenuBar_Document_Tools_Image.msg+MenuBar_Document_Tools_Image+4627">Info</span><img src="../../images/general/litarr.gif"><span class="UI_COMMAND" id="ShapeShapeDistanceUI.msg+_SHAPESHAPEDISTANCEANALIZER_LABEL_+1">Two-Entity Distance Map</span>) is now available. It enables you to compute the distance between two entities that can be meshes, surfaces and curves, providing result in form of a graph and of a color map. See the online help for details.</p>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+ <!-- ###########################################Project SEPARATOR###################### -->
+<!-- PRJ: Extract Points - OWN: PABS -->
+ 
+
+<h2><a name="ExtractPoints"></a>Enhancements in the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+110">Extract Points</span> command</h2>
+
+<p>Starting from this version the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+110">Extract Points</span> command applies also to meshes. In the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+127">Points</span> drop-down list you can select:</p>
+
+<table style="margin-left:30;">
+<tr valign="top">
+<td width="100"><span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+166">FEM File</span></td>
+<td>To select a FEM file using the <span class="UI_OPTION" id="GMDecimCmd.msg+_GMDECIM_LABEL_+90">Browse for FEM File</span> option which displays a specific file selection box, just like in former version.</td>
+</tr>
+
+<tr valign="top">
+<td><span class="UI_OPTION" id="GlobalModelingUI.msg+_GLOBALMODELINGUI_LABEL_+9">Mesh nodes</span></td>
+<td>To select a mesh in the model (<span class="UI_OPTION" id="tdesign.msg+_GM_UI_LABEL_+118">Mesh</span>). In this case, the coordinates of the mesh nodes will be saved to the ".pt" file according to the usual behavior of the <span class="UI_COMMAND" id="GMDecimCmd.msg+_GMDECIM_LABEL_+110">Extract Points</span> command.</td>
+</tr>
+</table>
+
+<hr color="silver">
+<a href="#top"><img border="0" src="../../images/general/Top1.gif"></a> <!-- END PRJ -->
+</body>
+</html>
+
