@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DPTnew.Localization;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,31 +16,44 @@ namespace DPTnew.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        [Display(Name = "Case ID")]
+        [Display(Name = "CaseID", ResourceType = typeof(Resource))]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
-        [Display(Name = "Submitted On")]
+        [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
         public string CreatedBy { get; set; }
         public DateTime ModifiedOn { get; set; }
         [Display(Name = "Modified On")]
         public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
+        [Display(Name = "Details", ResourceType = typeof(Resource))]
         public string Details { get; set; }
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string Product { get; set; }
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string ProductVersion { get; set; }
+        [Display(Name = "Severity", ResourceType = typeof(Resource))]
         public string Severity { get; set; }
+        [Display(Name = "Platform", ResourceType = typeof(Resource))]
         public string Platform { get; set; }
+        [Display(Name = "PlatformVersion", ResourceType = typeof(Resource))]
         public string PlatformVersion { get; set; }
+        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineId { get; set; }
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string Type { get; set; }
         public string AccountNumber { get; set; }
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
+        [Display(Name = "Language", ResourceType = typeof(Resource))]
         public string Language { get; set; }
-        [Display(Name = "Assigned To")]
+        [Display(Name = "AssignedTo", ResourceType = typeof(Resource))]
         public string CCEngineer { get; set; }
         public int CCEngineerId { get; set; }
+        [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
         public int ContactId { get; set; }
         public string File { get; set; }
@@ -47,29 +61,41 @@ namespace DPTnew.Models
 
     public class UpdateCase
     {
-        [Display(Name = "Case ID")]
+        [Display(Name = "CaseID", ResourceType = typeof(Resource))]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
-        [Display(Name = "Submitted On")]
+        [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
         public DateTime ModifiedOn { get; set; }
         [Display(Name = "Modified On")]
         public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
+        [Display(Name = "Details", ResourceType = typeof(Resource))]
         public string Details { get; set; }
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string Product { get; set; }
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string ProductVersion { get; set; }
+        [Display(Name = "Severity", ResourceType = typeof(Resource))]
         public string Severity { get; set; }
+        [Display(Name = "Platform", ResourceType = typeof(Resource))]
         public string Platform { get; set; }
+        [Display(Name = "PlatformVersion", ResourceType = typeof(Resource))]
         public string PlatformVersion { get; set; }
+        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineId { get; set; }
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string Type { get; set; }
         public string AccountNumber { get; set; }
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
-        [Display(Name = "Assigned To")]
+        [Display(Name = "AssignedTo", ResourceType = typeof(Resource))]
         public string CCEngineer { get; set; }
         public int CCEngineerId { get; set; }
+        [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
         public int ContactId { get; set; }
         public HttpPostedFileBase File { get; set; }
@@ -89,7 +115,9 @@ namespace DPTnew.Models
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
+        [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
+        [Display(Name = "Details", ResourceType = typeof(Resource))]
         public string Details { get; set; }
         public string File { get; set; }
     }

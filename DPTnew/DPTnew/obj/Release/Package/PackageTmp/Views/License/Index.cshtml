@@ -6,7 +6,7 @@
 
 
 @section Scripts {
-    @if (ViewBag.IsAdmin || ViewBag.IsVarExp)
+    @if (ViewBag.IsAdmin || ViewBag.IsVarExpInt)
     {
         <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
         <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -117,7 +117,7 @@
                 ],
                 orderClasses: false
             };
-            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExp.ToString().ToLower()" == "false") {
+            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExpInt.ToString().ToLower()" == "false") {
                 var searchFilterHandler = function () {
                     var api = this.api();
                     api.$("td:not(.details-control)").click(function () {
@@ -128,8 +128,8 @@
                 ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
             }
 
-            loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true",
-                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true",
+            loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
+                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
                 ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
                 "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
                 "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
@@ -144,7 +144,7 @@
     </script>
 }
 
-@if (ViewBag.IsAdmin || ViewBag.IsVarExp)
+@if (ViewBag.IsAdmin || ViewBag.IsVarExpInt)
 {
     <div id="machineid-dialog" title="Please enter your machineid" style="display: none;">
         <input id="machineid" required="required" type="text" size="8" maxlength="8" />

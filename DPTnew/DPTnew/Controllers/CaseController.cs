@@ -18,6 +18,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Net;
 using System.IO;
+using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
@@ -26,6 +27,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index(int pageSize = 10)
         {
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             ViewBag.VarUserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");

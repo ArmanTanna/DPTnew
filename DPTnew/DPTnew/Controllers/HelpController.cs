@@ -11,6 +11,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index()
         {
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             return View();
         }
 

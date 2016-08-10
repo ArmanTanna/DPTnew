@@ -1,152 +1,167 @@
 ﻿@model DPTnew.Models.People
 
-    @{
-        ViewBag.Title = "People";
-    }
+@{
+    ViewBag.Title = "People";
+}
 
+@section Scripts {
+    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.highlight.js"></script>
 
-    @section Scripts {
-        @*<script src="~/Scripts/Company/table_list.js"> </script>*@
-        <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-ui.min.js"></script>
-        <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
-        <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
-        @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
-        <script src="~/Scripts/dataTables.buttons.min.js"></script>
-        <script src="~/Scripts/buttons.flash.min.js"></script>
-        <script src="~/Scripts/jszip.min.js"></script>
-        <script src="~/Scripts/pdfmake.min.js"></script>
-        <script src="~/Scripts/vfs_fonts.js"></script>
-        <script src="~/Scripts/buttons.html5.min.js"></script>
-        <script src="~/Scripts/buttons.print.min.js"></script>
-        <script src="~/Scripts/jquery.highlight.js"></script>
+    <script type="text/javascript">
 
-        <script type="text/javascript">
+    var yourApp = yourApp || {};
+    yourApp.Urls = yourApp.Urls || {};
+    yourApp.Urls.baseUrl = '@Url.Content("~")';
+    yourApp.Urls.DataUrl = '@Url.Action("SinglePeopleRow", "People")';
 
-            var yourApp = yourApp || {};
-            yourApp.Urls = yourApp.Urls || {};
-            yourApp.Urls.baseUrl = '@Url.Content("~")';
-            yourApp.Urls.DataUrl = '@Url.Action("SinglePeopleRow", "People")';
+    $(document).ready(function () {
 
-            $(document).ready(function () {
-
-                var myTable = $("#dptPeople").DataTable({
-                    serverSide: true,
-                    processing: true,
-                    dom: 'lBfrtip',
-                    buttons: [
-                        'csv', 'excel', 'pdf'
-                    ],
-                    ajax: {
-                        type: "POST",
-                        url: "People/Search"
-                    },
-                    columns: [
-                    { data: "Email" },
-                    { data: "FirstName" },
-                    { data: "LastName" },
-                    { data: "Language" },
-                    { data: "EmailStatus" },
-                    { data: "AccountNumber", "className": 'mycenter-text' },
-                    { data: "PrimaryContact", "className": 'mycenter-text' },
-                    { data: "RoleName", "className": 'mycenter-text' }
-                    ],
-                    order: [[1, 'desc']],
-                    orderClasses: false,
-                    select: {
-                        style: 'single'
+        var myTable = $("#dptPeople").DataTable({
+            serverSide: true,
+            processing: true,
+            dom: 'lBfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf'
+            ],
+            ajax: {
+                type: "POST",
+                url: "People/Search"
+            },
+            columns: [
+            { data: "Email" },
+            { data: "FirstName" },
+            { data: "LastName" },
+            { data: "Language" },
+            { data: "EmailStatus" },
+            { data: "AccountNumber", "className": 'mycenter-text' },
+            { data: "PrimaryContact", "className": 'mycenter-text' },
+            { data: "RoleName", "className": 'mycenter-text' }
+            ],
+            order: [[1, 'desc']],
+            orderClasses: false,
+            select: {
+                style: 'single'
+            },
+            language: {
+                search: "@DPTnew.Localization.Resource.Search",
+                lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                info: "@DPTnew.Localization.Resource.info",
+                infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                paginate: {
+                    previous: "@DPTnew.Localization.Resource.Previous",
+                    next: "@DPTnew.Localization.Resource.Next",
+                },
+                select: {
+                    rows: {
+                        0: "@DPTnew.Localization.Resource.noRowsSelected",
+                        1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
                     }
-                });
-
-                new $.fn.dataTable.Buttons(myTable, {
-                    buttons: [
-                 {
-                     text: 'Modify',
-                     className: 'modify',
-                     action: function () {
-                         if (myTable.rows('.selected').count() != 0) {
-                             var data = myTable.rows('.selected').data()[0];
-                             $.post(yourApp.Urls.DataUrl, {
-                                 UserId: data.UserId,
-                                 Email: data.Email,
-                                 FirstName: data.FirstName,
-                                 LastName: data.LastName,
-                                 Language: data.Language,
-                                 Status: data.Status,
-                                 EmailStatus: data.EmailStatus,
-                                 AccountNumber: data.AccountNumber,
-                                 PrimaryContact: data.PrimaryContact,
-                                 FirstNameK: data.FirstNameK,
-                                 LastNameK: data.LastNameK,
-                                 RoleId: data.RoleId,
-                                 RoleName: data.RoleName,
-                             },
-                                             function (result) {
-                                                 var url = yourApp.Urls.DataUrl;
-                                                 WinId = window.open(url, '_blank');
-                                                 WinId.document.open();
-                                                 WinId.document.write(result);
-                                                 WinId.document.close();
-                                                 myTable.rows('.selected').deselect();
-                                             });
-                         }
-                     },
-                     enabled: false
-                 }
-                    ]
-                });
-                myTable.buttons().container().insertBefore('#dptPeople_filter');
-
-                myTable.on('select', function () {
-                    var erpRow = myTable.rows('.selected').data()[0];
-                    myTable.buttons(['.modify']).enable(true);
-                });
-
-                myTable.on('deselect', function () {
-                    myTable.buttons(['.modify']).disable();
-                });
-
-
-                myTable.on("draw", function () {
-                    var $body = $(myTable.table().body());
-                    $body.unhighlight();
-                    $body.highlight(myTable.search());
-                });
+                }
             });
 
-        </script>
-    }
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+             {
+                 text: '@DPTnew.Localization.Resource.Modify',
+                 className: 'modify',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.DataUrl, {
+                             UserId: data.UserId,
+                             Email: data.Email,
+                             FirstName: data.FirstName,
+                             LastName: data.LastName,
+                             Language: data.Language,
+                             Status: data.Status,
+                             EmailStatus: data.EmailStatus,
+                             AccountNumber: data.AccountNumber,
+                             PrimaryContact: data.PrimaryContact,
+                             FirstNameK: data.FirstNameK,
+                             LastNameK: data.LastNameK,
+                             RoleId: data.RoleId,
+                             RoleName: data.RoleName,
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.DataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             }
+                ]
+            });
+            myTable.buttons().container().insertBefore('#dptPeople_filter');
 
-    <div style="width: 1000px">
-        <table id="dptPeople" class="display" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Language)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmailStatus)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.AccountNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PrimaryContact)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RoleName)
-                    </th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+            myTable.on('select', function () {
+                var erpRow = myTable.rows('.selected').data()[0];
+                myTable.buttons(['.modify']).enable(true);
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.modify']).disable();
+            });
+
+
+            myTable.on("draw", function () {
+                var $body = $(myTable.table().body());
+                $body.unhighlight();
+                $body.highlight(myTable.search());
+            });
+        });
+
+    </script>
+}
+
+<div style="width: 1000px">
+    <table id="dptPeople" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Language)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrimaryContact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoleName)
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
 

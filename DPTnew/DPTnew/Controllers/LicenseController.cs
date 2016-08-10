@@ -18,7 +18,7 @@ namespace DPTnew.Controllers
         {
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
-            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.IsVarExpInt = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace DPTnew.Controllers
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public ActionResult SingleLicenseRow(LicenseView licSingleRow)
         {
@@ -67,7 +67,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public JsonResult Modify(LicenseView licSingleRow)
         {
