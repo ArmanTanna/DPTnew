@@ -29,8 +29,8 @@ namespace DPTnew.Controllers
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
-            ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
-            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
+                Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View();
         }
 
@@ -148,7 +148,7 @@ namespace DPTnew.Controllers
             return View(company.Licenses);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public ActionResult SingleCompanyRow(CompanyView cmpSingleRow)
         {
@@ -157,7 +157,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public JsonResult Modify(CompanyView cmpSingleRow)
         {

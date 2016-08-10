@@ -17,7 +17,7 @@ using SafenetIntegration;
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "Admin,VarExp")]
+    [Authorize(Roles = "Admin,VarExp,Internal")]
     public class PeopleController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
@@ -25,7 +25,7 @@ namespace DPTnew.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public JsonResult Search()
         {
@@ -38,7 +38,7 @@ namespace DPTnew.Controllers
             return Json(_db.ConvertToSearchResult<People>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public ActionResult SinglePeopleRow(People pplSingleRow)
         {
@@ -47,7 +47,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public JsonResult Modify(People pplSingleRow)
         {
@@ -97,7 +97,7 @@ namespace DPTnew.Controllers
             return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,VarExp")]
+        [Authorize(Roles = "Admin,VarExp,Internal")]
         [HttpPost]
         public JsonResult GetPeopleRolesFromDB()
         {

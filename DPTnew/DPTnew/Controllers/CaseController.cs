@@ -17,6 +17,7 @@ using System.Net.Mail;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Net;
+using System.IO;
 
 namespace DPTnew.Controllers
 {
@@ -109,8 +110,8 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file)
         {
-            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
-                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar") /*||
+            if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
+                || Path.GetExtension(file.FileName).Contains("rar") /*||
                 file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
             {
                 ViewBag.ok1 = "Only the *.zip, and *.rar file are accepted!";
@@ -133,7 +134,7 @@ namespace DPTnew.Controllers
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + WebUtility.HtmlDecode(file.FileName);
+                            ncase.File = path + "\\" + caseRowID + Path.GetExtension(file.FileName);
                             file.SaveAs(ncase.File);
                             _db.SaveChanges();
                         }
@@ -244,8 +245,8 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file)
         {
-            if (file != null && !(file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("zip")
-                || file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("rar") /*||
+            if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
+                || Path.GetExtension(file.FileName).Contains("rar") /*||
                 file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
             {
                 ViewBag.ok1 = "Only the *.zip and *.rar file are accepted!";
@@ -268,7 +269,7 @@ namespace DPTnew.Controllers
                         try
                         {
                             System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + WebUtility.HtmlDecode(file.FileName);
+                            ncase.File = path + "\\" + caseRowID + "_" + casehID + Path.GetExtension(file.FileName);
                             file.SaveAs(ncase.File);
                             _db.SaveChanges();
                         }

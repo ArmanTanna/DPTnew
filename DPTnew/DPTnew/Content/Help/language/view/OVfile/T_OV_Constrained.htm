@@ -1,7 +1,7 @@
 <script language="JavaScript">
 function viaMk() {
 	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
-	myRepStr = "http://help.dptcorporate.com/"
+	myRepStr = "../../../Help/Index"
 	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
 }
 </script>
@@ -58,7 +58,8 @@ function viaMk() {
 
 <li><p>The <a  href="../FWfile/T_FW_Synchronize.htm"><B>Synchronize</B></a> command enables you to re-align the other constrained views after you have changed one of them (by zooming or panning). This command is not necessary if the connection among views has been defined as <b>Synchronized</b>. See a simple example in "<a  href="../HWfile/T_HW_Synchronize.htm"><b>Synchronizing Constrained Views</b></a>".
 <li>Drafting commands have been enhanced in order to properly support the new constrained view mechanism.
-<li>Orientation commands (<b>On Work Plane</b>, <b>Top</b>, <b>Front</b>, <b>Left</b>, ...) have a slightly different behavior inside constrained views: orientation is derived from the Work Plane rather than from the World coordinate system, while the zooming factor and the viewing focus are kept as they are (no view fitting operation is performed). The constrained attribute is left untouched if the orientation is simple (top, left, right, front, back, bottom) otherwise for diagonal orientations (left-back, front-right…) the view is unconstrained.
+<li>Orientation commands (<b>On Work Plane</b>, <b>Top</b>, <b>Front</b>, <b>Left</b>, ...) have a slightly different behavior inside constrained views: orientation is derived from the Work Plane rather than from the World coordinate system, while the zooming factor and the viewing focus are kept as they are (no view fitting operation is performed). The constrained attribute is left untouched if the orientation is simple (top, left, right, front, back, bottom) otherwise for diagonal orientations (left-back, front-right
+) the view is unconstrained.
 </ul>
 
 <hr color="navy">
