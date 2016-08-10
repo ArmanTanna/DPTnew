@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="T_2016t1" content="translate">
+<meta name="Author" content="NIBI">
+<title>Title</title>
+
+<!-- C:\workspace\ABCD_bl2007t1_sn\doc_source_vob\DOCENG\english\rn_2007T1 -->
+<link href="../../JSandSTYLES/StylesForReleaseNotes_DPT.css" rel="stylesheet" type="text/css">
+
+</head>
+<body bgcolor="white">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
+<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+<hr color="#63a9d8">
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal;}</STYLE>
+<p class="headerpath" align="center"><img border="0" src="comingsoon.jpg" align="absmiddle">&nbsp;&nbsp;Multi Flange</p>
+<hr color="#63a9d8">
+
+<!-- <h1>Multi Flange</h1> -->
+<!-- <h1 style="align: center; text-align: center;"><i><font color="gray">Preliminary Version, Work in Progress</font></i></h1> -->
+<a name="top"></a> 
+<p>The new <a href="MultiFlange.htm"><b>Multi Flange</b></a> command enables you to create multiple flanges within the same command session. At the same time, you can select separate chains with discontonuity points, and they will be correctly managed by the command with the proper miter gaps.</p>
+
+<p><b>Input method</b>
+<br>The input method is very similar to that of the Flange command. Obviously, selection of multiple edges is allowed. Edges can also be separated ones, and can be selected one by one.<BR><BR><IMG border=1 SRC="images/input01.png"> <IMG border=1 SRC="images/input02.png"><BR><BR><IMG border=1 SRC="images/input03.png"> <IMG border=1 SRC="images/input04.png"><br><br></p>
+<p>The length of all the created flanges will be the same and can be input numerically or dragged using the proper handle.<BR><BR><IMG border=1 SRC="images/length01.png"><br><br></p>
+
+
+<p>Miter gaps are possible, so to have symmetric flanges. Using miter gaps is similar to tear corner reliefs. When the miter is selected, it is obviously not possible to have corner reliefs.<br>
+If the miter gap is selected, the intersection of flanges is avoided by maintaining the miter gap and also by auto- adjusting the flange in case the orientation is other than 90°.<BR><BR><IMG border=1 SRC="images/miter.png"><br><br>
+</p>
+<p>When the miter is selected, the gap will be displayed in the selection list.<br>
+When the offset is selected, you can extend the edge till the needed distance. When the Offset is selected, the miter is not displayed and available. When the miter is selected, the offset will not be displayed and available.
+</p>
+<p><b>Orientation</b> with respect to the edge face is included. 
+Other options such as <b>Alignment</b>, <b>Length</b>, <b>Allowance</b>, <b>Side angles</b>, <b>Extension</b>  work in the same way as they do in the <b>Flange</b> command.
+</p>
+<p>When the miter option is selected it creates flanges symmetric at the intersection with miter gap<br><br><IMG border=1 SRC="images/miter02.png"><br><br></p>
+<p>If you want to have corner reliefs without miter gap, the following corner relief options will be provided.</p>
+<p>a)	Rectangular corner relief<br><br><IMG border=1 SRC="images/crelief01.png"> <IMG border=1 SRC="images/crelief02.png"></p>
+<p>b)	Circular corner relief<br><br><IMG border=1 SRC="images/ccr01.png"> <IMG border=1 SRC="images/ccr02.png"></p>
+<p>c)	Triangular circular relief<br><br><IMG border=1 SRC="images/tcr01.png"> <IMG border=1 SRC="images/tcr02.png"></p>
+<h2>Future developements</h2>
+<p>1)	The Overlap flanges option will be available<br><br><IMG border=1 SRC="images/overlap.png"></p>
+<p>2)	Other Orientation options can be added.</p>
+<p>3)	Flange using profiles: Instead of length user can choose to use profiles for respective edges. But it will be like all profiles or no profiles.<br><br><IMG border=1 SRC="images/prf01.png"> <IMG border=1 SRC="images/prf02.png"></p>
+<!-- Document End - Page Bottom -->
+<hr color="silver">
+<!-- <<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a> -->
+
+<script>
+function goBack() {
+//alert(window.self.name);
+	if(window.self.name != "body"){
+    	window.history.back(1);
+	}
+	else{
+		alert("The Navigation Pane is already active!");
+		void(0);
+	}
+}
+</script>
+
+<!-- <br> -->
+<table width="100%" align="center">
+<tr>
+<td align="left"><a href="#" target="_parent"><img border="0" src="/images/Hide_Nav.png" title="Hide the Navigation Pane" align="left"></a>
+<a href="#" onclick="goBack()"><img border="0" src="/images/Display_Nav.png" title="Display the Navigation Pane" align="left"></a></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- Laudetur Jesus Christus, Laudetur cum Maria. Semper Laudentur! -->
+<!-- Exsurgat Dominus et dissipentur inimici Ejus ... -->
+<!-- B.J.H.e.G. --></td>
+<td align="right"><a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></td>
+</tr>
+</table>
+<hr size=3 color="silver">
+<!-- Ps. 50 -->
+<!-- Miserere mei Deus -->
+<!-- secundum magnam misericordiam tuam -->
+<!-- et secundum mutitudinem miserationum tuarum -->
+<!-- dele iniquitatem meam -->
+<script type="text/javascript" language="JavaScript">
+<!--
+var ErrMsg = "DPT SARL - All Rights reserved";
+function disableRightClick (btnClick)
+{
+if (navigator.appName == "Netscape" && btnClick.which == 3)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (navigator.appName == "Microsoft Internet Explorer" && event.button
+== 2)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (event.button== 2){
+	alert(ErrMsg);
+	return false;
+}
+//------------------------
+}
+document.onmousedown = disableRightClick;
+-->
+</script>
+</body>
+</html>
