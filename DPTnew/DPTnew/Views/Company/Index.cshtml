@@ -115,7 +115,7 @@
                      "className": 'licenses',
                      "orderable": false,
                      "data": null,
-                     "defaultContent": '<button>'+"@DPTnew.Localization.Resource.View_Menu_Licenses"+'</button>'
+                     "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Licenses" + '</button>'
                  }
                 ],
                 //order: [[1, 'asc']],
@@ -141,7 +141,7 @@
                 },
             });
 
-            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true")
+            if ("@ViewBag.IsButtonRole.ToString().ToLower()" == "true")
                 new $.fn.dataTable.Buttons(myTable, {
                     buttons: [
                  {
