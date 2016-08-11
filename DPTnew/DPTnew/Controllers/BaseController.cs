@@ -93,7 +93,7 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<Order> GetOrders()
         {
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Orders.ToList();
 
             return null;

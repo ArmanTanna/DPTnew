@@ -14,6 +14,10 @@ using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
 using DPTnew.Helper;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Text;
+using System.Net;
 
 namespace DPTnew.Controllers
 {
@@ -122,6 +126,32 @@ namespace DPTnew.Controllers
                 }
             }
             return errormsg;
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> UpdateProductList()
+        {
+            string uri = Url.Action("UpdateDptProducts", "Safenet", new { httproute = "" }, "http");
+            HttpResponseMessage response = await SendJsonAsync(uri);
+            ViewBag.Message = response.ReasonPhrase;
+            return View();
+        }
+
+        private async Task<HttpResponseMessage> SendJsonAsync(string uri)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                HttpResponseMessage responseMessage = new HttpResponseMessage();
+                try
+                {
+                    responseMessage = await httpClient.GetAsync(uri);
+                }
+                catch (Exception ex)
+                {
+                    responseMessage.StatusCode = HttpStatusCode.InternalServerError;
+                }
+                return responseMessage;
+            }
         }
 
         [HttpPost]

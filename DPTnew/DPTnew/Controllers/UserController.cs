@@ -368,7 +368,6 @@ namespace DPTnew.Controllers
             string c2v;
             string input = "";
 
-
             if (l.file != null)
             {
                 filestring = fileToString(l.file);
@@ -387,7 +386,6 @@ namespace DPTnew.Controllers
                 {
                     ModelState.AddModelError("CREATE", "The file you have uploaded is not correct");
                     return View("Create");
-
                 }
 
                 using (var context = new DptContext())
@@ -404,7 +402,6 @@ namespace DPTnew.Controllers
                     //check for import
                     if (currentlicense.Import == 1)
                     {
-
                         //CHECK if is EVAL
                         Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                         var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -440,7 +437,7 @@ namespace DPTnew.Controllers
 
                         //building product
                         string productPostfix = "";
-                        if (currentlicense.Version == "2015") 
+                        if (currentlicense.Version == "2015")
                             productPostfix = "_" + currentlicense.Version + "2" + type;
                         if (currentlicense.Version == "2016")
                             productPostfix = "_" + currentlicense.Version + "1" + type;
@@ -448,10 +445,10 @@ namespace DPTnew.Controllers
                         //EVAL or LOCAL PL
                         if (type == "PL" || type == "EVAL")
                         {
-
                             SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                             e1.CrmId = dpt_Company;
                             e1.EntType = "PRODUCT_KEY";
+                            e1.refId1 = l.file.FileName;
 
                             //ADD PRODUCT
                             e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
@@ -467,6 +464,7 @@ namespace DPTnew.Controllers
 
                             e2.CrmId = dpt_Company;
                             e2.EntType = "PRODUCT_KEY";
+                            e2.refId1 = l.file.FileName;
                             //ADD PRODUCT
                             e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
 

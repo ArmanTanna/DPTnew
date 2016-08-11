@@ -213,6 +213,8 @@ namespace DPTnew.Models
 
         public string EntType { get; set; }
 
+        public string refId1 { get; set; }
+
         public JArray ProductName { get; set; }
 
         public static IEnumerable<string> AddTTeamDocTo = new List<string> { "UP", "US", "UM", "UT", "BY", "UE" };

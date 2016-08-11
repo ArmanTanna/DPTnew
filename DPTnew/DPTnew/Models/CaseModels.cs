@@ -106,14 +106,14 @@ namespace DPTnew.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        [Display(Name = "Case History ID")]
+        [Display(Name = "CaseHistoryID", ResourceType = typeof(Resource))]
         public int CaseHistoryId { get; set; }
-        [Display(Name = "Case ID")]
+        [Display(Name = "CaseID", ResourceType = typeof(Resource))]
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
-        [Display(Name = "Created On")]
+        [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
-        [Display(Name = "Created By")]
+        [Display(Name = "CreatedBy", ResourceType = typeof(Resource))]
         public string CreatedBy { get; set; }
         [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }

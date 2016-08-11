@@ -160,6 +160,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Case History ID.
+        /// </summary>
+        public static string CaseHistoryID {
+            get {
+                return ResourceManager.GetString("CaseHistoryID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case ID.
         /// </summary>
         public static string CaseID {
@@ -219,6 +228,15 @@ namespace DPTnew.Localization {
         public static string Country {
             get {
                 return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created By.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
             }
         }
         
