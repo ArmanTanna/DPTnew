@@ -122,7 +122,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
-                    errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); ";
+                    errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); </br>";
                 }
             }
             return errormsg;

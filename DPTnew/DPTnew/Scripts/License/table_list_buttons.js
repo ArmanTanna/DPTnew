@@ -170,18 +170,13 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                 height: 250,
                 buttons: {
                     OK: function () {
-                        $("#pwd-dialog").prop('title', '');
                         $(this).dialog("close");
                         location.reload();
                     }
                 }
             };
-            //$("#pwd-dialog").prop('title', 'Your requested password is');
-            $("span.ui-dialog-title").text('Your requested password is');
-            $("#pwd-dialog").dialog(pwdDialogConfig);
-            $("#version-choice").css("display", "none");
-            myTable.rows('.selected').deselect();
 
+            $("#pwd-dialog").dialog(pwdDialogConfig);
         };
 
         var headers = {};
@@ -358,7 +353,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                  if (myTable.rows('.selected').count() != 0) {
                      var headers = {};
                      headers = myTable.rows('.selected').data()[0];
-                     var $psw = $("#password");
+                     var $psw = $("#year");
                      $psw.text("");
                      //$psw.text("Would you like to upgrade the version to 2014?");
                      var pwdDialogConfig = {
@@ -376,7 +371,6 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                                          headers: headers,
                                          dataType: "json",
                                          success: function (result) {
-                                             $("#pwd-dialog").prop('title', '');
                                              location.reload();
                                          }
                                      });
@@ -407,10 +401,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                              }
                          }
                      };
-                     $("#pwd-dialog").prop('title', 'Select Version');
-                     $("span.ui-dialog-title").text('Select Version');
-                     $("#pwd-dialog").dialog(pwdDialogConfig);
-                     $("#version-choice").css("display", "");
+                     $("#version-dialog").dialog(pwdDialogConfig);
                      myTable.rows('.selected').deselect();
                  }
              },

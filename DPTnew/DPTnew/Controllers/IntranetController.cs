@@ -73,7 +73,7 @@ namespace DPTnew.Controllers
                 }
                 db.SaveChanges();
             }
-            return Json(erpSingleRow, JsonRequestBehavior.AllowGet);
+            return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Admin,Internal")]

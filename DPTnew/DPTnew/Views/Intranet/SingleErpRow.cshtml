@@ -24,7 +24,21 @@
                 TimeSpent: $("input[name=timespent]").val(),
             },
             function (result) {
-                window.confirm("Saved!");
+                var $psw = $("#msg");
+                $psw.text("");
+                $psw.text(result);
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: result ? 250 : "auto",
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                            //location.reload();
+                        }
+                    }
+                };
+                $("#sysmsg-dialog").dialog(pwdDialogConfig);
             });
         }
 
@@ -109,3 +123,6 @@
         }
     </tbody>
 </table>
+<div id="sysmsg-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
+</div>

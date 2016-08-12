@@ -31,7 +31,7 @@
                 Status: $("#status-choice").val()
             },
             function (result) {
-                var $psw = $("#password");
+                var $psw = $("#msg");
                 $psw.text("");
                 $psw.text(result);
                 var pwdDialogConfig = {
@@ -45,7 +45,7 @@
                         }
                     }
                 };
-                $("#pwd-dialog").dialog(pwdDialogConfig);
+                $("#sysmsg-dialog").dialog(pwdDialogConfig);
             });
         }
 
@@ -187,6 +187,6 @@
     </tbody>
 </table>
 <p><a href="javascript: submitform()">Submit</a></p>
-<div id="pwd-dialog" title="System message" style="display:none;">
-    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
+<div id="sysmsg-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
 </div>

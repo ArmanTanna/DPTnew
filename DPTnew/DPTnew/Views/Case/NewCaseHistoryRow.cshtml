@@ -14,7 +14,7 @@
 
         function submitform() {
             if ($("#item_Description").val() == "" || $("#item_Details").val() == "") {
-                var $psw = $("#password");
+                var $psw = $("#errmsg");
                 $psw.text("");
                 $psw.text("Please fill out Description and details fields!");
                 var pwdDialogConfig = {
@@ -27,7 +27,7 @@
                         }
                     }
                 };
-                $("#pwd-dialog").dialog(pwdDialogConfig);
+                $("#sysmsg-dialog").dialog(pwdDialogConfig);
             }
             else
                 $.post("/Case/Update", {
@@ -50,7 +50,7 @@
                         //    }
                         //}
                     };
-                    $("#machineid-dialog").dialog(pwdDialogConfig);
+                    $("#fileupload-dialog").dialog(pwdDialogConfig);
                 });
         }
 
@@ -90,10 +90,7 @@
         }
     </tbody>
 </table>
-<div id="pwd-dialog" title="System message" style="display:none;">
-    <strong style="position:absolute; margin-top:20px;" id="password"></strong>
-</div>
-<div id="machineid-dialog" title="Upload File" style="display: none;">
+<div id="fileupload-dialog" title="Upload File" style="display: none;">
     @using (Html.BeginForm("UploadHistoryFile", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="text" name="msg" id="msg" readonly />
@@ -112,4 +109,7 @@
 
         <input type="submit" />
     }
+</div>
+<div id="sysmsg-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="errmsg"></strong>
 </div>
