@@ -46,7 +46,7 @@
                     Contact: $("#contact-choice").val()
                 },
                 function (result) {
-                    $("#caseRowID").val(result); 
+                    $("#caseRowID").val(result);
                     $("#msg").val("The new case has been saved correctly!");
                     $("#msgConfirm").val("Choose file or click on Submit");
                     var pwdDialogConfig = {
@@ -123,6 +123,15 @@
                     @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
                 </td>
             </tr>
+        }
+    </tbody>
+</table>
+<table id="dptcase2" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Product)</td>
                 <td>

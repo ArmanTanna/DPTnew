@@ -25,9 +25,9 @@
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                '<tr>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.Product" + '</b></td>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.Description" + '</b></td>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.View_Menu_Download" + '</b></td>' +
+                    '<td style="width:25%"><b>' + "@DPTnew.Localization.Resource.Product" + '</b></td>' +
+                    '<td style="width:60%"><b>' + "@DPTnew.Localization.Resource.Description" + '</b></td>' +
+                    '<td style="width:15%"><b>' + "@DPTnew.Localization.Resource.View_Menu_Download" + '</b></td>' +
                '</tr>' +
                 ((salesReg == "japan" && d.Product.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ?
                 "" : '<tr>' +
@@ -194,13 +194,13 @@
                 }
                 else {
                     //close all the open rows
-                    cadTable.rows().eq(0).each(function (idx) {
-                        var row = cadTable.row(idx);
-                        if (row.child.isShown()) {
-                            row.child.hide();
-                            tr.removeClass('shown');
-                        }
-                    });
+                    //cadTable.rows().eq(0).each(function (idx) {
+                    //    var row = cadTable.row(idx);
+                    //    if (row.child.isShown()) {
+                    //        row.child.hide();
+                    //        tr.removeClass('shown');
+                    //    }
+                    //});
 
                     // Open this row
                     var data = row.data();
