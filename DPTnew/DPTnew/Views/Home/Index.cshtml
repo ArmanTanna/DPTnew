@@ -94,7 +94,13 @@
 <table>
     <tbody>
         <tr>
-            <th>
+            <th style ="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
+                    <a href="~/Intranet" target="_blank"><u>Activities</u></a>
+                }
+            </th>
+            <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
@@ -102,7 +108,7 @@
                     </u>
                 }
             </th>
-            <th>
+            <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
@@ -112,6 +118,12 @@
             </th>
         </tr>
         <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
+                    <text> For internal use only.</text>
+                }
+            </td>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
