@@ -195,8 +195,10 @@ namespace DPTnew.Controllers
                         _db.CaseLogs.Add(dcl);
                         _db.SaveChanges();
                         MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                        mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
                         mail.Subject = "Case Update";
-                        mail.Body = "Dear User, \n\nThe case status has changed.\n\nBest Regards,\n\nCustomer Care team";
+                        mail.Body = "Dear User, \n\nThe case " + caseRow.CaseId + " status has changed.\n\n" +
+                            "Details: " + caseRow.Details + "\n\nBest Regards,\n\nCustomer Care team";
                         SendMail(mail);
                     }
                     ncase.Status = caseRow.Status;

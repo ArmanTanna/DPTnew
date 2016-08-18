@@ -18,13 +18,11 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
-
 namespace DPTnew.Controllers
 {
     [Authorize]
     public class UserController : BaseController
     {
-
         private async Task<HttpResponseMessage> SendJsonAsync(string uri, string body)
         {
             using (HttpClient httpClient = new HttpClient())
@@ -47,7 +45,6 @@ namespace DPTnew.Controllers
 
 
         //private Utility functions
-
         private string fileToString(HttpPostedFileBase file)
         {
             var totalfile = "";
@@ -83,7 +80,6 @@ namespace DPTnew.Controllers
 
         }
 
-
         // GET: /Licenses/
         public ActionResult Licenses()
         {
@@ -116,11 +112,9 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Validate(string licenseid)
         {
-
             ViewBag.LicenseId = licenseid;
             return View();
         }
-
 
         [HttpPost]
         public async Task<ActionResult> ExportLicense(LicenseBase l)
@@ -174,9 +168,25 @@ namespace DPTnew.Controllers
                             ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         ue.refId1 = ue.ProtectionKeyId;
                         if (currentlicense.Version == "2015")
+                        {
                             ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
+                            foreach (var it in ue.ProductName.ToList())
+                            {
+                                var repName = it.ToString();
+                                repName = repName.Replace("_20152CANCEL", "_20161CANCEL");
+                                ue.ProductName.Add(repName);
+                            }
+                        }
                         if (currentlicense.Version == "2016")
+                        {
                             ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20161CANCEL");
+                            foreach (var it in ue.ProductName.ToList())
+                            {
+                                var repName = it.ToString();
+                                repName = repName.Replace("_20161CANCEL", "_20152CANCEL");
+                                ue.ProductName.Add(repName);
+                            }
+                        }
 
                         ue.Encoded = true;
                         ue.C2V = "";
@@ -223,7 +233,6 @@ namespace DPTnew.Controllers
             ModelState.AddModelError("EXPORT", "You can't export this license. Contact think3 Customer Care");
             return View("Export", l);
         }
-
 
         [HttpPost]
         public async Task<ActionResult> ValidateC2V(string Licenseid, HttpPostedFileBase file)
@@ -280,7 +289,6 @@ namespace DPTnew.Controllers
                     if (currentpkey == pkey)
                     {
 
-
                         JObject key = (JObject)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"];
 
                         var p = key.Property("product");
@@ -288,7 +296,6 @@ namespace DPTnew.Controllers
                         if (p == null) success = true;
                         else
                         {
-
                             JToken products = (JToken)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["product"];
                             //check if product is single
                             if (products is JObject)
@@ -300,7 +307,6 @@ namespace DPTnew.Controllers
                                     //correct
                                     success = true;
                                 }
-
                             }
                             //multiple products 
                             else if (products is JArray && !products.Any(child => child["feature"] != null && child["name"].ToString().Trim().ToLower() == currentlicense.ProductName))
@@ -335,7 +341,6 @@ namespace DPTnew.Controllers
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("VALIDATE", "The file you have uploaded is not correct.");
             return View("Validate");
-
         }
 
         private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix)
