@@ -17,7 +17,7 @@ using SafenetIntegration;
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "Admin,Internal")]
+    [Authorize(Roles = "Admin,Internal,VarExp")]
     public class OrderController : BaseController
     {
 

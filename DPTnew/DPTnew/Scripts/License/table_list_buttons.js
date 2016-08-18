@@ -64,7 +64,11 @@ function format(d) {
             '<td><b>Legacy Product:</b></td>' +
             '<td>' + d.OriginalProduct + '</td>' +
          '</tr>' +
-             '</table>';
+         '<tr>' +
+            '<td><b>Action:</b></td>' +
+            '<td>' + d.Action + '</td>' +
+         '</tr>' +
+         '</table>';
 }
 
 function parseJsonDate(jsonDateString) {
