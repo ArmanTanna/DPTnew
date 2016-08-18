@@ -338,6 +338,73 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
              enabled: false
          },
          {
+             text: btnTextLocalization[8],//upgrade (> 2014)
+             className: 'upgrade',
+             action: function () {
+                 if (myTable.rows('.selected').count() != 0) {
+                     var headers = {};
+                     headers = myTable.rows('.selected').data()[0];
+                     var $psw = $("#upgver");
+                     $psw.text("");
+                     var pwdDialogConfig = {
+                         modal: true,
+                         width: 200,
+                         height: "auto",
+                         buttons: {
+                             OK: function () {
+                                 $(this).dialog("close");
+                                 if ($("#upgrade-choice").val() > headers.Version) {
+                                     $.ajax({
+                                         url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val(),
+                                         type: 'GET',
+                                         data: null,
+                                         headers: headers,
+                                         dataType: "json",
+                                         success: function (result) {
+                                             var $psw = $("#msg");
+                                             $psw.text("");
+                                             $psw.text(result);
+                                             var pwdDialogConfig = {
+                                                 modal: true,
+                                                 width: 400,
+                                                 height: result ? 250 : "auto",
+                                                 buttons: {
+                                                     OK: function () {
+                                                         $(this).dialog("close");
+                                                         location.reload();
+                                                     }
+                                                 }
+                                             };
+                                             $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                         }
+                                     });
+                                 } else {
+                                     var $psw = $("#msg");
+                                     $psw.text("");
+                                     $psw.text("You have already the latest version!");
+                                     var pwdDialogConfig = {
+                                         modal: true,
+                                         width: 400,
+                                         height: 250,
+                                         buttons: {
+                                             OK: function () {
+                                                 $(this).dialog("close");
+                                                 location.reload();
+                                             }
+                                         }
+                                     };
+                                     $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                 }
+                             }
+                         }
+                     };
+                     $("#upgrade-dialog").dialog(pwdDialogConfig);
+                     myTable.rows('.selected').deselect();
+                 }
+             },
+             enabled: false
+         },
+         {
              text: btnTextLocalization[4],//'Password < 2015',
              className: 'pssw2014',
              action: function () {
@@ -355,10 +422,9 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                      headers = myTable.rows('.selected').data()[0];
                      var $psw = $("#year");
                      $psw.text("");
-                     //$psw.text("Would you like to upgrade the version to 2014?");
                      var pwdDialogConfig = {
                          modal: true,
-                         width: 400,
+                         width: 200,
                          height: "auto",
                          buttons: {
                              OK: function () {
@@ -408,7 +474,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
              enabled: false
          },
          {
-             text: btnTextLocalization[6],
+             text: btnTextLocalization[6], //decrypt password
              className: 'decryptpwd',
              action: function () {
                  var $psw = $("#password-dialog");
@@ -528,6 +594,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                 if (data.Installed == 1 && maintenddate >= now) {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
+                        //myTable.buttons(['.upgrade']).enable(true);
                     }
                 }
 
@@ -563,6 +630,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
         myTable.buttons(['.export']).disable();
         myTable.buttons(['.validate_export']).disable();
         myTable.buttons(['.import']).disable();
+        myTable.buttons(['.upgrade']).disable();
         myTable.buttons(['.license2014']).disable();
         myTable.buttons(['.pssw2014']).disable();
         myTable.buttons(['.changeversion']).disable();

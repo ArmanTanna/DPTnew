@@ -142,7 +142,7 @@ namespace DPTnew.Controllers
                 return View("Export", l);
             }
 
-            if (currentlicense != null && currentlicense.Version == "2015")
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
@@ -172,7 +172,11 @@ namespace DPTnew.Controllers
                         ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
                         if (ue.ProtectionKeyId.StartsWith("0"))
                             ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
-                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
+                        ue.refId1 = ue.ProtectionKeyId;
+                        if (currentlicense.Version == "2015")
+                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
+                        if (currentlicense.Version == "2016")
+                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20161CANCEL");
 
                         ue.Encoded = true;
                         ue.C2V = "";
@@ -357,6 +361,166 @@ namespace DPTnew.Controllers
 
             return prodName;
         }
+
+        [HttpGet]
+        [ActionName("UpgradeLicense")]
+        public async Task<JsonResult> UpgradeLicense(string licenseId, string version)
+        {
+            //common variables
+            LicenseView currentlicense = null;
+            string type = "";
+            string dpt_Company = "";
+            string input = "";
+
+            using (var context = new DptContext())
+            {
+                currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == licenseId);
+                dpt_Company = currentlicense.AccountNumber;
+            }
+
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && Convert.ToInt64(version) > Convert.ToInt64(currentlicense.Version))
+            {
+                var now = System.DateTime.Now;
+                Regex licensergx = new Regex(@"^KID[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex testrgx = new Regex(@"^TEST[0-9]+$");
+                Regex poolrgx = new Regex(@"^POOL[0-9]+$");
+
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID);
+                var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+                var isTdVar = currentlicense.PwdCode.StartsWith("VA");
+                var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
+                    currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
+                var isL = lrgx.IsMatch(currentlicense.LicenseID);
+                var isTest = testrgx.IsMatch(currentlicense.LicenseID);
+                var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
+
+                if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
+                {
+                    currentlicense.Version = version;
+
+                    if (currentlicense.LicenseType == "local")
+                    { //LOCAL
+                        if (currentlicense.ArticleDetail == "pl")
+                        {
+                            type = "PL";
+                        }
+                        else
+                        {
+                            if (isEval) { type = "EVAL"; }
+                            else
+                            {
+                                type = "EXPIR";
+                            }
+                        }
+                    }
+                    else
+                    {//FLOATING
+                        if (currentlicense.ArticleDetail == "pl")
+                        {
+                            type = "NET_PL";
+                        }
+                        else
+                        {
+                            type = "NET_EXPIR";
+                        }
+                    }
+
+                    //building product
+                    string productPostfix = "";
+                    if (currentlicense.Version == "2015")
+                        productPostfix = "_" + currentlicense.Version + "2" + type;
+                    if (currentlicense.Version == "2016")
+                        productPostfix = "_" + currentlicense.Version + "1" + type;
+
+                    //EVAL or LOCAL PL
+                    if (type == "PL" || type == "EVAL")
+                    {
+                        SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
+                        e1.CrmId = dpt_Company;
+                        e1.EntType = "PROTECTIONKEY_UPDATE";
+                        e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
+                        if (e1.ProtectionKeyId.StartsWith("0"))
+                            e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
+                        e1.refId1 = e1.ProtectionKeyId;
+
+                        //ADD PRODUCT
+                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, productPostfix);
+
+                        e1.Encoded = true;
+                        e1.C2V = "";
+                        input = JsonConvert.SerializeObject(e1);
+
+                    }
+                    else
+                    {
+                        SafenetNetAsfLocalEntitlment e2 = new SafenetNetAsfLocalEntitlment();
+
+                        e2.CrmId = dpt_Company;
+                        e2.EntType = "PROTECTIONKEY_UPDATE";
+                        e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
+                        if (e2.ProtectionKeyId.StartsWith("0"))
+                            e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
+                        e2.refId1 = e2.ProtectionKeyId;
+                        //ADD PRODUCT
+                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, productPostfix);
+
+                        //ADDITIONAL PARAMETERS
+                        e2.SaotParams = new JArray();
+
+                        foreach (string pn in e2.ProductName)
+                        {
+                            JObject temp = new JObject();
+                            temp["Product"] = pn;
+
+                            //choose product
+                            if (type == "EXPIR" || type == "NET_EXPIR")
+                            {
+                                DateTime med = new DateTime();
+                                med = (System.DateTime)currentlicense.MaintEndDate;
+                                temp["EXPIRATION_DATE"] = med.Date.ToString("yyyy-MM-dd");
+
+                            }
+                            if (type == "NET_PL" || type == "NET_EXPIR")
+                            {
+                                temp["CONCURRENT_INSTANCES"] = currentlicense.Quantity.ToString();
+
+                            }
+                            e2.SaotParams.Add(temp);
+                        }
+
+                        e2.Encoded = true;
+                        e2.C2V = "";
+
+                        input = JsonConvert.SerializeObject(e2);
+                    }
+
+                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+
+                    HttpResponseMessage response = await SendJsonAsync(uri, input);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var context = new DptContext())
+                        {
+                            context.Licenses.Attach(currentlicense);
+                            var entry = context.Entry(currentlicense);
+                            entry.Property(x => x.Version).IsModified = true;
+                            context.SaveChanges();
+                        }
+
+                        var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                        //ViewBag.ok1 = "You have generated your license.";
+                        return Json("You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return Json("Something went wrong. It's impossible to upgrade the license.", JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public async Task<ActionResult> CreateLicense(Entitlement l)
         {

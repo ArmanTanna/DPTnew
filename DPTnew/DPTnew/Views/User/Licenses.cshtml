@@ -16,7 +16,7 @@
         yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
         yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
         yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
-
+        yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
 
     </script>
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
@@ -28,7 +28,7 @@
                 ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
                     "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
                     "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
-                    "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify"],
+                    "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade"],
                     ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
                      "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
                      "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
@@ -186,4 +186,13 @@
         <option value="2013">2013</option>
         <option value="2014">2014</option>
     </select>
+</div>
+<div id="upgrade-dialog" title="Select Version" style="display: none;">
+    <strong style="position: absolute; margin-top: 20px;" id="upgver"></strong>
+    <select id="upgrade-choice">
+        <option value="2016">2016</option>
+    </select>
+</div>
+<div id="sysmsg-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
 </div>

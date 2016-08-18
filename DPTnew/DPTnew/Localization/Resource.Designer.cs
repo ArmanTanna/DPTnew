@@ -151,6 +151,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upgrade.
+        /// </summary>
+        public static string ButtonUpgrade {
+            get {
+                return ResourceManager.GetString("ButtonUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Validate Export.
         /// </summary>
         public static string ButtonValidateExport {

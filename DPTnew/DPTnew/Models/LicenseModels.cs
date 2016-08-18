@@ -230,6 +230,7 @@ namespace DPTnew.Models
 
         public string C2V { get; set; }
 
+        public string ProtectionKeyId { get; set; }
     }
 
     public class SafenetNetAsfLocalEntitlment : SafenetEntitlement
@@ -241,6 +242,7 @@ namespace DPTnew.Models
 
         public string C2V { get; set; }
 
+        public string ProtectionKeyId { get; set; }
     }
 
     public class SafenetUpdateEntitlment : SafenetEntitlement
