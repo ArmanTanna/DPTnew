@@ -93,6 +93,15 @@
                     @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @readonly = "readonly" })
                 </td>
             </tr>
+        }
+    </tbody>
+</table>
+<table id="dptcase2" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Product)</td>
                 <td>
