@@ -15,7 +15,7 @@
             $.post("/Case/Modify", {
                 CaseId: $("input[name=id]").val(),
                 MachineId: $("input[name=machineId]").val(),
-                CCEngineer: $("input[name=ccEngineer]").val(),
+                CCEngineer: $("#ccEngineer-choice").val(),
                 Status: $("#status-choice").val()
             },
             function (result) {
@@ -48,6 +48,22 @@
                 $("#status-choice").append("<option value='Closed'>Closed</option>");
             if ($("#status-choice").val() != "Frozen")
                 $("#status-choice").append("<option value='Frozen'>Frozen</option>");
+
+            if ($("#ccEngineer-choice").val() != "hideki.kobayashi@dptcorporate.com")
+                $("#ccEngineer-choice").append("<option value='hideki.kobayashi@dptcorporate.com'>hideki.kobayashi@dptcorporate.com</option>");
+            if ($("#ccEngineer-choice").val() != "fumiko.ksahara@think3.eu")
+                $("#ccEngineer-choice").append("<option value='fumiko.kasahara@think3.eu'>fumiko.kasahara@think3.eu</option>");
+            if ($("#ccEngineer-choice").val() != "michiyo.miyako@think3.eu")
+                $("#ccEngineer-choice").append("<option value='michiyo.miyako@think3.eu'>michiyo.miyako@think3.eu</option>");
+            if ($("#ccEngineer-choice").val() != "satomi.ono@think3.eu")
+                $("#ccEngineer-choice").append("<option value='satomi.ono@think3.eu'>satomi.ono@think3.eu</option>");
+            if ($("#ccEngineer-choice").val() != "anacleto.boffo@dptcorporate.com")
+                $("#ccEngineer-choice").append("<option value='anacleto.boffo@dptcorporate.com'>anacleto.boffo@dptcorporate.com</option>");
+            if ($("#ccEngineer-choice").val() != "giorgio.pirri@dptcorporate.com")
+                $("#ccEngineer-choice").append("<option value='giorgio.pirri@dptcorporate.com'>giorgio.pirri@dptcorporate.com</option>");
+            if ($("#ccEngineer-choice").val() != "jacopo.azzi@dptcorporate.com")
+                $("#ccEngineer-choice").append("<option value='jacopo.azzi@dptcorporate.com'>jacopo.azzi@dptcorporate.com</option>");
+
         });
     </script>
 }
@@ -122,7 +138,9 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.CCEngineer)</td>
                 <td>
-                    <input type="text" name="ccEngineer" placeholder="CC Engineer email" value="@Html.DisplayFor(modelItem => item.CCEngineer)">
+                    <select name="ccEngineer" id="ccEngineer-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.CCEngineer)">@Html.DisplayFor(modelItem => item.CCEngineer)</option>
+                    </select>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Status)</td>
                 <td>

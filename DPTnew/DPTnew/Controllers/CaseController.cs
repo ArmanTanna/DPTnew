@@ -110,8 +110,14 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file)
+        public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file, string submitButton)
         {
+            if (submitButton == "close")
+            {
+                ViewBag.ok1 = "The new case has been saved correctly!";
+                return View("Success");
+            }
+
             if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
                 || Path.GetExtension(file.FileName).Contains("rar") /*||
                 file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
@@ -247,8 +253,14 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file)
+        public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file, string submitButton)
         {
+            if (submitButton == "close")
+            {
+                ViewBag.ok1 = "The new history case has been saved correctly!";
+                return View("Success");
+            }
+
             if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
                 || Path.GetExtension(file.FileName).Contains("rar") /*||
                 file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
@@ -292,9 +304,20 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {
-            return View(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
+            List<DptCaseHistory> result = new List<DptCaseHistory>();
+            result.AddRange(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
+            var casemg = _db.Cases.Where(c => c.CaseId == caseId).FirstOrDefault();
+            var caseh = new DptCaseHistory();
+            caseh.CaseHistoryId = 0;
+            caseh.CaseId = casemg.CaseId;
+            caseh.CreatedBy = casemg.CreatedBy;
+            caseh.CreatedOn = casemg.CreatedOn;
+            caseh.Description = casemg.Description;
+            caseh.Details = casemg.Details;
+            caseh.File = casemg.File;
+            result.Add(caseh);
+            return View(result);
         }
-
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]

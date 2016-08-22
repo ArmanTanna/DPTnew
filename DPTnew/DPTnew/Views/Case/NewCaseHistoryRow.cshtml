@@ -39,11 +39,11 @@
                     $("#caseRowID").val(result.split("_")[0]);
                     $("#casehID").val(result.split("_")[1]);
                     $("#msg").val("History case has been saved correctly!");
-                    $("#msgConfirm").val("Choose file or click on Submit");
+                    $("#msgConfirm").val("Choose the file and click Submit");
                     var pwdDialogConfig = {
                         modal: true,
                         width: 400,
-                        height: 350
+                        height: 400
                         //buttons: {
                         //    OK: function () {
                         //        $(this).dialog("close");
@@ -95,8 +95,6 @@
     {
         <input type="text" name="msg" id="msg" readonly />
 
-        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
-
         <label for="caseRowID">Case ID: </label>
 
         <input type="text" name="caseRowID" id="caseRowID" readonly />
@@ -105,9 +103,13 @@
 
         <input type="text" name="casehID" id="casehID" readonly />
 
+        <input type="submit" name="submitButton" value="close" />
+
+        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
+
         <input type="file" name="file" id="file" accept=".zip,.rar" />
 
-        <input type="submit" />
+        <input type="submit" name="submitButton" value="submit" />
     }
 </div>
 <div id="sysmsg-dialog" title="System message" style="display:none;">

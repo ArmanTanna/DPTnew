@@ -26,6 +26,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Search()
         {
+            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var sps = Request.GetSearchParams();
             var items = GetLicenses();
             foreach (var sp in sps)

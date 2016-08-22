@@ -19,78 +19,94 @@
 
     <script type="text/javascript">
 
-        var yourApp = yourApp || {};
-        yourApp.Urls = yourApp.Urls || {};
-        yourApp.Urls.baseUrl = '@Url.Content("~")';
+    var yourApp = yourApp || {};
+    yourApp.Urls = yourApp.Urls || {};
+    yourApp.Urls.baseUrl = '@Url.Content("~")';
 
-        /* Formatting function for row details - modify as you need */
-        function format(d) {
-            // `d` is the original data object for the row
-            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
-             '<tr>' +
-                  '<td><b>Invoicer:</b></td>' +
-                  '<td>' + d.Invoicer + '</td>' +
-                  '<td><b>InvoicedName:</b></td>' +
-                  '<td>' + d.InvoicedName + '</td>' +
-                  '<td><b>InvoicedNumber:</b></td>' +
-                  '<td>' + d.InvoicedNumber + '</td>' +
-              '</tr>' +
-               '<tr>' +
-                  '<td><b>InvoiceNumber:</b></td>' +
-                  '<td>' + d.InvoiceNumber + '</td>' +
-                  '<td><b>InvoiceDate:</b></td>' +
-                  '<td>' + d.StrInvoiceDate + '</td>' +
-                  '<td><b>NewRenewal:</b></td>' +
-                  '<td>' + d.NewRenewal + '</td>' +
-              '</tr>' +
-                '<tr>' +
-                  '<td><b>ProductName:</b></td>' +
-                  '<td>' + d.ProductName + '</td>' +
-                  '<td><b>ArticleDetail:</b></td>' +
-                  '<td>' + d.ArticleDetail + '</td>' +
-                  '<td><b>LineType:</b></td>' +
-                  '<td>' + d.LineType + '</td>' +
-              '</tr>' +
-               '<tr>' +
-                  '<td><b>RequestDate:</b></td>' +
-                  '<td>' + d.StrRequestDate + '</td>' +
-                  '<td><b>StartDate:</b></td>' +
-                  '<td>' + d.StrStartDate + '</td>' +
-                  '<td><b>EndDate:</b></td>' +
-                  '<td>' + d.StrEndDate + '</td>' +
-              '</tr>' +
-               '<tr>' +
-                '<td><b>LicenseType:</b></td>' +
-                  '<td>' + d.LicenseType + '</td>' +
-                  '<td><b>Quantity:</b></td>' +
-                  '<td>' + d.Quantity + '</td>' +
-                '<td><b>Currency:</b></td>' +
-                  '<td>' + d.Currency + '</td>' +
-              '</tr>' +
-               '<tr>' +
-                  '<td><b>Ordered:</b></td>' +
-                  '<td>' + d.Ordered + '</td>' +
-                  '<td><b>Invoiced:</b></td>' +
-                  '<td>' + d.Invoiced + '</td>' +
-              '</tr>' +
-              '</table>';
-        }
+    /* Formatting function for row details - modify as you need */
+    function format(d) {
+        // `d` is the original data object for the row
+        return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+         '<tr>' +
+              '<td><b>Invoicer:</b></td>' +
+              '<td>' + d.Invoicer + '</td>' +
+              '<td><b>InvoicedName:</b></td>' +
+              '<td>' + d.InvoicedName + '</td>' +
+              '<td><b>InvoicedNumber:</b></td>' +
+              '<td>' + d.InvoicedNumber + '</td>' +
+          '</tr>' +
+           '<tr>' +
+              '<td><b>InvoiceNumber:</b></td>' +
+              '<td>' + d.InvoiceNumber + '</td>' +
+              '<td><b>InvoiceDate:</b></td>' +
+              '<td>' + d.StrInvoiceDate + '</td>' +
+              '<td><b>NewRenewal:</b></td>' +
+              '<td>' + d.NewRenewal + '</td>' +
+          '</tr>' +
+            '<tr>' +
+              '<td><b>ProductName:</b></td>' +
+              '<td>' + d.ProductName + '</td>' +
+              '<td><b>ArticleDetail:</b></td>' +
+              '<td>' + d.ArticleDetail + '</td>' +
+              '<td><b>LineType:</b></td>' +
+              '<td>' + d.LineType + '</td>' +
+          '</tr>' +
+           '<tr>' +
+              '<td><b>RequestDate:</b></td>' +
+              '<td>' + d.StrRequestDate + '</td>' +
+              '<td><b>StartDate:</b></td>' +
+              '<td>' + d.StrStartDate + '</td>' +
+              '<td><b>EndDate:</b></td>' +
+              '<td>' + d.StrEndDate + '</td>' +
+          '</tr>' +
+           '<tr>' +
+            '<td><b>LicenseType:</b></td>' +
+              '<td>' + d.LicenseType + '</td>' +
+              '<td><b>Quantity:</b></td>' +
+              '<td>' + d.Quantity + '</td>' +
+            '<td><b>Currency:</b></td>' +
+              '<td>' + d.Currency + '</td>' +
+          '</tr>' +
+           '<tr>' +
+              '<td><b>Ordered:</b></td>' +
+              '<td>' + d.Ordered + '</td>' +
+              '<td><b>Invoiced:</b></td>' +
+              '<td>' + d.Invoiced + '</td>' +
+          '</tr>' +
+          '</table>';
+    }
 
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            var myTable = $("#orders").DataTable({
-                serverSide: true,
-                processing: true,
-                dom: 'lBfrtip',
-                buttons: [
-                    'csv', 'excel', 'pdf'
-                ],
-                ajax: {
-                    type: "POST",
-                    url: "Order/Search"
+        var myTable = $("#orders").DataTable({
+            serverSide: true,
+            processing: true,
+            dom: 'lBfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf'
+            ],
+            ajax: {
+                type: "POST",
+                url: "Order/Search"
+            },
+            select: {
+                style: 'single'
+            },
+            language: {
+                search: "@DPTnew.Localization.Resource.Search",
+                lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                info: "@DPTnew.Localization.Resource.info",
+                infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                paginate: {
+                    previous: "@DPTnew.Localization.Resource.Previous",
+                    next: "@DPTnew.Localization.Resource.Next",
                 },
                 select: {
-                    style: 'single'
+                    rows: {
+                        0: "@DPTnew.Localization.Resource.noRowsSelected",
+                        1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
+                    }
                 },
                 columns: [
                 {
@@ -109,7 +125,7 @@
                     "className": 'licenses',
                     "orderable": false,
                     "data": null,
-                    "defaultContent": '<button>Licenses</button>'
+                    "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Licenses" + '</button>'
                 }
                 ],
                 orderClasses: false
@@ -151,9 +167,9 @@
 
             yadcf.init(myTable, [
                 { column_number: 6, filter_default_label: "Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }
-            ]);
+        ]);
 
-        });
+    });
 
 
     </script>

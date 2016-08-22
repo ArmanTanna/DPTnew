@@ -48,7 +48,7 @@
                 function (result) {
                     $("#caseRowID").val(result);
                     $("#msg").val("The new case has been saved correctly!");
-                    $("#msgConfirm").val("Choose file or click on Submit");
+                    $("#msgConfirm").val("Choose the file and click Submit");
                     var pwdDialogConfig = {
                         modal: true,
                         width: 400,
@@ -219,15 +219,17 @@
     {
         <input type="text" name="msg" id="msg" readonly />
 
-        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
-
         <label for="newCaseID">Case ID: </label>
 
         <input type="text" name="caseRowID" id="caseRowID" readonly />
 
+        <input type="submit" name="submitButton" value="close" />
+
+        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
+
         <input type="file" name="file" id="file" accept=".zip,.rar" />
 
-        <input type="submit" />
+        <input type="submit" name="submitButton" value="submit" />
     }
 </div>
 <div id="sysmsg-dialog" title="System message" style="display:none;">
