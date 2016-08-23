@@ -17,25 +17,6 @@ namespace DPTnew.Controllers
     {
         protected DptContext _db = new DptContext();
 
-        protected override void ExecuteCore()
-        {
-            int culture = 0;
-            if (this.Session == null || this.Session["CurrentCulture"] == null)
-            {
-
-                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["Culture"], out culture);
-                this.Session["CurrentCulture"] = culture;
-            }
-            else
-            {
-                culture = (int)this.Session["CurrentCulture"];
-            }
-            // calling CultureHelper class properties for setting  
-            CultureHelper.CurrentCulture = culture;
-
-            base.ExecuteCore();
-        }
-
         private IEnumerable<CompanyView> GetVarCompanies()
         {
             var user = _db.Contacts.Single(u => u.Email == WebSecurity.CurrentUserName);
@@ -77,7 +58,7 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<string> GetCompanyAccountNumbers()
         {
-            return GetCompanies().Select(x => x.AccountNumber);
+            return GetCompanies().Select(x => x.AccountNumber).ToList();
         }
 
         protected IEnumerable<CompanyView> GetCompanies()
@@ -102,7 +83,7 @@ namespace DPTnew.Controllers
                 var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
-                return _db.Orders.Where(c => companies.Contains(c.AccountNumber));
+                return _db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList();
             }
             return null;
         }
@@ -139,9 +120,9 @@ namespace DPTnew.Controllers
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
-                return _db.Cases.Where(c => companies.Contains(c.AccountNumber));
+                return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
             }
-            return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber);
+            return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
         }
 
         protected IEnumerable<ActivityTitles> GetActivityTitles()

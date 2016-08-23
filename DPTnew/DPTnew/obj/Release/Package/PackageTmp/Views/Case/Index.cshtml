@@ -181,6 +181,7 @@
                          $.post(yourApp.Urls.CaseDataUrl, {
                              CaseId: null,
                              StrCreatedOn: null,
+                             StrModifiedOn: null,
                              Description: null,
                              Details: null,
                              Product: null,
@@ -297,7 +298,7 @@
 
             yadcf.init(myTable, [
             { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
-                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["english", "japanese", "italian", "chinese", "french", "german"] },
+            { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["english", "japanese", "italian", "chinese", "french", "german"] },
             ]);
         });
 

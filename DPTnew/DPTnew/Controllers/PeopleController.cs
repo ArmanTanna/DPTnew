@@ -58,17 +58,19 @@ namespace DPTnew.Controllers
                 PeopleRoles pplr = new PeopleRoles();
                 pplr.UserId = pplSingleRow.UserId;
                 pplr.RoleId = pplSingleRow.RoleId;
+                var qry = from ppl in db.PeopleRoles
+                          where ppl.UserId == pplr.UserId
+                          select ppl;
 
                 if (pplSingleRow.RoleId > 0)
-                    db.PeopleRoles.Add(pplr);
+                {
+                    if (qry.Count() < 1)
+                        db.PeopleRoles.Add(pplr);
+                }
                 else
                 {
-                    var query =
-                from ppl in db.PeopleRoles
-                where ppl.UserId == pplr.UserId
-                select ppl;
-                    if (query.Count() > 0)
-                        db.PeopleRoles.Remove(query.FirstOrDefault());
+                    if (qry.Count() > 0)
+                        db.PeopleRoles.Remove(qry.FirstOrDefault());
                 }
                 db.SaveChanges();
                 try

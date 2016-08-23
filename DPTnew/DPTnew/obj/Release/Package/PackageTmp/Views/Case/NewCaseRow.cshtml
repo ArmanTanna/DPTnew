@@ -98,35 +98,28 @@
     </script>
 }
 
+@foreach (var item in Model)
+{
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.CaseId)
+    </div>
+    <div class="editor-field">
+        <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
+    </div>
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @required = "required" })
+    </div>
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.Details)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
+    </div>
+}
 <table id="dptcase" class="display" cellspacing="0" width="100%">
-    <thead>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CaseId)</td>
-                <td>
-                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Description)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @required = "required" })
-                    @*<input type="email" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>*@
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Details)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<table id="dptcase2" class="display" cellspacing="0" width="100%">
     <thead>
     </thead>
     <tbody>
@@ -194,6 +187,15 @@
                     </select>
                 </td>
             </tr>
+        }
+    </tbody>
+</table>
+<table id="dptcase2" class="display" cellspacing="0" width="100%">
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>@Html.DisplayNameFor(model => model.AccountName)</td>
                 <td>

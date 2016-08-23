@@ -1042,6 +1042,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modified On.
+        /// </summary>
+        public static string ModifiedOn {
+            get {
+                return ResourceManager.GetString("ModifiedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         public static string Modify {

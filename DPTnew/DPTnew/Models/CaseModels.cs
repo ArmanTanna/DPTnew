@@ -23,7 +23,7 @@ namespace DPTnew.Models
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
         public string CreatedBy { get; set; }
         public DateTime ModifiedOn { get; set; }
-        [Display(Name = "Modified On")]
+        [Display(Name = "ModifiedOn", ResourceType = typeof(Resource))]
         public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
         [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
@@ -67,7 +67,7 @@ namespace DPTnew.Models
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
         public DateTime ModifiedOn { get; set; }
-        [Display(Name = "Modified On")]
+        [Display(Name = "ModifiedOn", ResourceType = typeof(Resource))]
         public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
         [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
