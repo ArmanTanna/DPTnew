@@ -64,8 +64,9 @@ namespace DPTnew.Controllers
 
                 if (pplSingleRow.RoleId > 0)
                 {
-                    if (qry.Count() < 1)
-                        db.PeopleRoles.Add(pplr);
+                    if (qry.Count() > 0)
+                        db.PeopleRoles.Remove(qry.FirstOrDefault());
+                    db.PeopleRoles.Add(pplr);
                 }
                 else
                 {
