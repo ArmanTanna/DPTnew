@@ -55,7 +55,7 @@ namespace DPTnew.Controllers
                 var userName = Membership.GetUser().UserName;
                 var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
                 var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountName).ToList()).ToString(Formatting.None));
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList()).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
                 ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");

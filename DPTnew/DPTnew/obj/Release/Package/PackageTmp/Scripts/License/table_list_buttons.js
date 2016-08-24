@@ -598,7 +598,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                 if (data.Installed == 1 && maintenddate >= now) {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
-                        //myTable.buttons(['.upgrade']).enable(true);
+                        myTable.buttons(['.upgrade']).enable(true);
                     }
                 }
 
