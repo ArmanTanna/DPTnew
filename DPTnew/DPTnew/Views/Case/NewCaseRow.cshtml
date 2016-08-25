@@ -72,6 +72,7 @@
                 $("#contact-choice").empty();
                 $.post(yourApp.Urls.GetContacts, { companyName: $("#accountName-choice").val() },
                      function (result) {
+                         $("#contact-choice").empty();
                          for (var i = 0; i < result.length; i++) {
                              $("#contact-choice").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
                          }
@@ -203,6 +204,8 @@
                         <option selected value="@Html.DisplayFor(modelItem => item.AccountName)">@Html.DisplayFor(modelItem => item.AccountName)</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
                 <td>@Html.DisplayNameFor(model => model.Contact)</td>
                 <td>
                     <select name="contact" id="contact-choice">

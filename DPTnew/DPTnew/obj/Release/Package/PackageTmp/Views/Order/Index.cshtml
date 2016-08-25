@@ -19,92 +19,93 @@
 
     <script type="text/javascript">
 
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.OrderDataUrl = '@Url.Action("NewOrderRow", "Order")';
 
-    /* Formatting function for row details - modify as you need */
-    function format(d) {
-        // `d` is the original data object for the row
-        return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
-         '<tr>' +
-              '<td><b>Invoicer:</b></td>' +
-              '<td>' + d.Invoicer + '</td>' +
-              '<td><b>InvoicedName:</b></td>' +
-              '<td>' + d.InvoicedName + '</td>' +
-              '<td><b>InvoicedNumber:</b></td>' +
-              '<td>' + d.InvoicedNumber + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>InvoiceNumber:</b></td>' +
-              '<td>' + d.InvoiceNumber + '</td>' +
-              '<td><b>InvoiceDate:</b></td>' +
-              '<td>' + d.StrInvoiceDate + '</td>' +
-              '<td><b>NewRenewal:</b></td>' +
-              '<td>' + d.NewRenewal + '</td>' +
-          '</tr>' +
-            '<tr>' +
-              '<td><b>ProductName:</b></td>' +
-              '<td>' + d.ProductName + '</td>' +
-              '<td><b>ArticleDetail:</b></td>' +
-              '<td>' + d.ArticleDetail + '</td>' +
-              '<td><b>LineType:</b></td>' +
-              '<td>' + d.LineType + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>RequestDate:</b></td>' +
-              '<td>' + d.StrRequestDate + '</td>' +
-              '<td><b>StartDate:</b></td>' +
-              '<td>' + d.StrStartDate + '</td>' +
-              '<td><b>EndDate:</b></td>' +
-              '<td>' + d.StrEndDate + '</td>' +
-          '</tr>' +
-           '<tr>' +
-            '<td><b>LicenseType:</b></td>' +
-              '<td>' + d.LicenseType + '</td>' +
-              '<td><b>Quantity:</b></td>' +
-              '<td>' + d.Quantity + '</td>' +
-            '<td><b>Currency:</b></td>' +
-              '<td>' + d.Currency + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>Ordered:</b></td>' +
-              '<td>' + d.Ordered + '</td>' +
-              '<td><b>Invoiced:</b></td>' +
-              '<td>' + d.Invoiced + '</td>' +
-          '</tr>' +
-          '</table>';
-    }
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+             '<tr>' +
+                  '<td><b>Invoicer:</b></td>' +
+                  '<td>' + d.Invoicer + '</td>' +
+                  '<td><b>InvoicedName:</b></td>' +
+                  '<td>' + d.InvoicedName + '</td>' +
+                  '<td><b>InvoicedNumber:</b></td>' +
+                  '<td>' + d.InvoicedNumber + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>InvoiceNumber:</b></td>' +
+                  '<td>' + d.InvoiceNumber + '</td>' +
+                  '<td><b>InvoiceDate:</b></td>' +
+                  '<td>' + d.StrInvoiceDate + '</td>' +
+                  '<td><b>NewRenewal:</b></td>' +
+                  '<td>' + d.NewRenewal + '</td>' +
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>ProductName:</b></td>' +
+                  '<td>' + d.ProductName + '</td>' +
+                  '<td><b>ArticleDetail:</b></td>' +
+                  '<td>' + d.ArticleDetail + '</td>' +
+                  '<td><b>LineType:</b></td>' +
+                  '<td>' + d.LineType + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>RequestDate:</b></td>' +
+                  '<td>' + d.StrRequestDate + '</td>' +
+                  '<td><b>StartDate:</b></td>' +
+                  '<td>' + d.StrStartDate + '</td>' +
+                  '<td><b>EndDate:</b></td>' +
+                  '<td>' + d.StrEndDate + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                '<td><b>LicenseType:</b></td>' +
+                  '<td>' + d.LicenseType + '</td>' +
+                  '<td><b>Quantity:</b></td>' +
+                  '<td>' + d.Quantity + '</td>' +
+                '<td><b>Currency:</b></td>' +
+                  '<td>' + d.Currency + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>Ordered:</b></td>' +
+                  '<td>' + d.Ordered + '</td>' +
+                  '<td><b>Invoiced:</b></td>' +
+                  '<td>' + d.Invoiced + '</td>' +
+              '</tr>' +
+              '</table>';
+        }
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        var myTable = $("#orders").DataTable({
-            serverSide: true,
-            processing: true,
-            dom: 'lBfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ],
-            ajax: {
-                type: "POST",
-                url: "Order/Search"
-            },
-            select: {
-                style: 'single'
-            },
-            language: {
-                search: "@DPTnew.Localization.Resource.Search",
-                lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
-                info: "@DPTnew.Localization.Resource.info",
-                infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
-                paginate: {
-                    previous: "@DPTnew.Localization.Resource.Previous",
-                    next: "@DPTnew.Localization.Resource.Next",
+            var myTable = $("#dptorders").DataTable({
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "Order/Search"
                 },
                 select: {
-                    rows: {
-                        0: "@DPTnew.Localization.Resource.noRowsSelected",
-                        1: "@DPTnew.Localization.Resource.rowsSelected",
+                    style: 'single'
+                },
+                language: {
+                    search: "@DPTnew.Localization.Resource.Search",
+                    lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                    info: "@DPTnew.Localization.Resource.info",
+                    infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                    paginate: {
+                        previous: "@DPTnew.Localization.Resource.Previous",
+                        next: "@DPTnew.Localization.Resource.Next",
+                    },
+                    select: {
+                        rows: {
+                            0: "@DPTnew.Localization.Resource.noRowsSelected",
+                            1: "@DPTnew.Localization.Resource.rowsSelected",
                         }
                     }
                 },
@@ -131,6 +132,59 @@
                 orderClasses: false
             });
 
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+                    {
+                        text: '@DPTnew.Localization.Resource.New',
+                        className: 'new',
+                        action: function () {
+                            $.post(yourApp.Urls.OrderDataUrl, {
+                                idxx: null,
+                                Invoicer: null,
+                                InvoicedName: null,
+                                InvoicedNumber: null,
+                                AccountName: null,
+                                AccountNumber: null,
+                                OrderNumber: null,
+                                StrOrderDate: null,
+                                PO_Number: null,
+                                InvoiceNumber: null,
+                                StrInvoiceDate: null,
+                                NewOldAccount: null,
+                                SalesRep: null,
+                                Currency: null,
+                                LineType: null,
+                                ProductName: null,
+                                ArticleDetail: null,
+                                StrStartDate: null,
+                                StrEndDate: null,
+                                StrRequestDate: null,
+                                Ordered: null,
+                                Invoiced: null,
+                                Quantity: null,
+                                LicenseType: null,
+                                NewRenewal: null,
+                                EURO_Pricelist: null,
+                                JPY_Pricelist: null,
+                                LeasingCompany: null,
+                                LicenseID: null
+                            },
+                                function (result) {
+                                  var url = yourApp.Urls.OrderDataUrl;
+                                  WinId = window.open(url, '_blank');
+                                  WinId.document.open();
+                                  WinId.document.write(result);
+                                  WinId.document.close();
+                                  myTable.rows('.selected').deselect();
+                                });
+                        },
+                        enabled: true
+                    }
+                ]
+            });
+
+            myTable.buttons().container().insertBefore('#dptorders_filter');
+
             myTable.on("draw", function () {
                 var $body = $(myTable.table().body());
                 $body.unhighlight();
@@ -138,8 +192,7 @@
             });
 
             // Add event listener for opening licenses page
-            $('#orders tbody').on('click', 'td.licenses', function () {
-
+            $('#dptorders tbody').on('click', 'td.licenses', function () {
                 var tr = $(this).closest('tr');
                 var row = myTable.row(tr);
                 var datarow = row.data();
@@ -147,7 +200,7 @@
                 window.open("/Company/Licenses/" + datarow.AccountNumber, "_blank");
             })
             // Add event listener for opening and closing details
-            $('#orders tbody').on('click', 'td.details-control', function () {
+            $('#dptorders tbody').on('click', 'td.details-control', function () {
 
                 var tr = $(this).closest('tr');
                 var row = myTable.row(tr);
@@ -166,18 +219,16 @@
             });
 
             yadcf.init(myTable, [
-                { column_number: 6, filter_default_label: "Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }
-        ]);
-
-    });
-
+                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }
+            ]);
+        });
 
     </script>
 }
 
 <div style="width: 1000px">
 
-    <table id="orders" class="display" cellspacing="0" width="100%">
+    <table id="dptorders" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th></th>

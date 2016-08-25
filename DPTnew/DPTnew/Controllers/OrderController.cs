@@ -40,6 +40,27 @@ namespace DPTnew.Controllers
             return Json(_db.ConvertToSearchResult<Order>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
-    }
+        [HttpPost]
+        public ActionResult NewOrderRow(Order orderRow)
+        {
+            using (var db = new DptContext())
+            {
+                var userName = Membership.GetUser().UserName;
+                var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList()).ToString(Formatting.None));
+                ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+            }
+            List<Order> rows = new List<Order>();
+            rows.Add(orderRow);
+            return View(rows);
+        }
 
+        [HttpPost]
+        public ActionResult Insert(Order orderRow)
+        {
+            return Json("Saved!", JsonRequestBehavior.AllowGet);
+        }
+
+    }
 }

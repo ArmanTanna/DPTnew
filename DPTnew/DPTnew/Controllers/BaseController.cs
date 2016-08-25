@@ -119,8 +119,22 @@ namespace DPTnew.Controllers
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
-                var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
-                return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
+                var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                if (salesRep.Count == 0)
+                {
+                    var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
+                    return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
+                }
+                else
+                {
+                    var res = new List<DptCases>();
+                    foreach (var sr in salesRep)
+                    {
+                        var companies = _db.Companies.Where(x => x.SalesRep == sr).Select(u => u.AccountNumber).ToList();
+                        res.AddRange(_db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList());
+                    }
+                    return res;
+                }
             }
             return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
         }

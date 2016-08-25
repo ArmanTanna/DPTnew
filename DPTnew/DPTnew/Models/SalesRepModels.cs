@@ -7,13 +7,13 @@ using System.Web;
 
 namespace DPTnew.Models
 {
-     [Table("service_SalesRegions")]
+    [Table("service_SalesRegions")]
     public class SalesR
     {
         public SalesR()
         {
             this.Companies = new HashSet<Company>();
-            
+
         }
 
         [Key]
@@ -21,11 +21,9 @@ namespace DPTnew.Models
         public string SalesRegion { get; set; }
         public string AccountNumber { get; set; }
         public string SalesProvince { get; set; }
-    
+        public string Invoicer { get; set; }
+
         public virtual ICollection<Company> Companies { get; set; }
-
-
-
 
     }
 }
