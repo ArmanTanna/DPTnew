@@ -295,6 +295,76 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
              },
              enabled: false
          },
+                  {
+                      text: btnTextLocalization[8],//upgrade (> 2014)
+                      className: 'upgrade',
+                      action: function () {
+                          if (myTable.rows('.selected').count() != 0) {
+                              var headers = {};
+                              headers = myTable.rows('.selected').data()[0];
+                              var $psw = $("#upgver");
+                              $psw.text("");
+                              var pwdDialogConfig = {
+                                  modal: true,
+                                  width: 200,
+                                  height: "auto",
+                                  buttons: {
+                                      OK: function () {
+                                          $(this).dialog("close");
+                                          if ($("#upgrade-choice").val() > headers.Version) {
+                                              $.ajax({
+                                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val(),
+                                                  type: 'GET',
+                                                  data: null,
+                                                  headers: headers,
+                                                  dataType: "json",
+                                                  success: function (result) {
+                                                      var $psw = $("#msg");
+                                                      $psw.text("");
+                                                      $psw.text(result);
+                                                      var pwdDialogConfig = {
+                                                          modal: true,
+                                                          width: 400,
+                                                          height: result ? 250 : "auto",
+                                                          buttons: {
+                                                              OK: function () {
+                                                                  $(this).dialog("close");
+                                                                  location.reload();
+                                                              }
+                                                          }
+                                                      };
+                                                      $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                                  }
+                                              });
+                                          } else {
+                                              var $psw = $("#msg");
+                                              $psw.text("");
+                                              $psw.text("You have already the latest version!");
+                                              var pwdDialogConfig = {
+                                                  modal: true,
+                                                  width: 400,
+                                                  height: 250,
+                                                  buttons: {
+                                                      OK: function () {
+                                                          $(this).dialog("close");
+                                                          location.reload();
+                                                      }
+                                                  }
+                                              };
+                                              $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                          }
+                                      },
+                                      Cancel: function () {
+                                          $(this).dialog("close");
+                                      }
+                                  }
+                              };
+                              $("#upgrade-dialog").dialog(pwdDialogConfig);
+                              myTable.rows('.selected').deselect();
+                          }
+                      },
+                      enabled: false
+                  },
          {
              text: btnTextLocalization[3],//'Install < 2015',
              className: 'license2014',
@@ -337,73 +407,6 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                              }
                          });
                      }
-                 }
-             },
-             enabled: false
-         },
-         {
-             text: btnTextLocalization[8],//upgrade (> 2014)
-             className: 'upgrade',
-             action: function () {
-                 if (myTable.rows('.selected').count() != 0) {
-                     var headers = {};
-                     headers = myTable.rows('.selected').data()[0];
-                     var $psw = $("#upgver");
-                     $psw.text("");
-                     var pwdDialogConfig = {
-                         modal: true,
-                         width: 200,
-                         height: "auto",
-                         buttons: {
-                             OK: function () {
-                                 $(this).dialog("close");
-                                 if ($("#upgrade-choice").val() > headers.Version) {
-                                     $.ajax({
-                                         url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val(),
-                                         type: 'GET',
-                                         data: null,
-                                         headers: headers,
-                                         dataType: "json",
-                                         success: function (result) {
-                                             var $psw = $("#msg");
-                                             $psw.text("");
-                                             $psw.text(result);
-                                             var pwdDialogConfig = {
-                                                 modal: true,
-                                                 width: 400,
-                                                 height: result ? 250 : "auto",
-                                                 buttons: {
-                                                     OK: function () {
-                                                         $(this).dialog("close");
-                                                         location.reload();
-                                                     }
-                                                 }
-                                             };
-                                             $("#sysmsg-dialog").dialog(pwdDialogConfig);
-                                         }
-                                     });
-                                 } else {
-                                     var $psw = $("#msg");
-                                     $psw.text("");
-                                     $psw.text("You have already the latest version!");
-                                     var pwdDialogConfig = {
-                                         modal: true,
-                                         width: 400,
-                                         height: 250,
-                                         buttons: {
-                                             OK: function () {
-                                                 $(this).dialog("close");
-                                                 location.reload();
-                                             }
-                                         }
-                                     };
-                                     $("#sysmsg-dialog").dialog(pwdDialogConfig);
-                                 }
-                             }
-                         }
-                     };
-                     $("#upgrade-dialog").dialog(pwdDialogConfig);
-                     myTable.rows('.selected').deselect();
                  }
              },
              enabled: false

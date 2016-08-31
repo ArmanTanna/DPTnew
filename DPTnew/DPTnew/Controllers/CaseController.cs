@@ -332,6 +332,33 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
+        public JsonResult DeleteFile(int caseId, int historyId)
+        {
+            if (historyId == 0)
+            {
+                using (var db = new DptContext())
+                {
+                    var cId = db.Cases.Where(c => c.CaseId == caseId).FirstOrDefault();
+                    System.IO.File.Delete(cId.File);
+                    cId.File = null;
+                    db.SaveChanges();
+                }
+            }
+            else
+            {
+                using (var db = new DptContext())
+                {
+                    var hId = db.CaseHistories.Where(h => h.CaseHistoryId == historyId).FirstOrDefault();
+                    System.IO.File.Delete(hId.File);
+                    hId.File = null;
+                    db.SaveChanges();
+                }
+            }
+            return Json("The file is deleted correctly!", JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [HttpPost]
         public JsonResult GetContacts(string companyName)
         {
             using (var db = new DptContext())

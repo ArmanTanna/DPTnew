@@ -47,8 +47,8 @@ namespace DPTnew.Models
         public double? Quantity { get; set; }
         public string LicenseType { get; set; }
         public string NewRenewal { get; set; }
-        public double? EURO_Pricelist { get; set; }
-        public double? JPY_Pricelist { get; set; }
+        public double? EURO_PriceList { get; set; }
+        public double? JPY_PriceList { get; set; }
         public string LeasingCompany { get; set; }
         public string LicenseID { get; set; }
     }

@@ -10,47 +10,59 @@
 
 <section id="loginForm">
 
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            @*<li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>*@
-        </ol>
-        <input type="submit" value="Log in" />
-    </fieldset>
-   
-    
-    <p>
-        @Html.ActionLink("Recover", "LostPassword") if you forgot password
-    </p>
-    
-}
-</section> 
- 
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                @*<li>
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </li>*@
+            </ol>
+            <input type="submit" value="Log in" />
+        </fieldset>
 
 
-<!--
+        <p>
+            @Html.ActionLink("Recover", "LostPassword") if you forgot password
+        </p>
+        <br>
+    }
+</section>
+
 <section class="social" id="socialLoginForm">
-   <h2>Use another service to log in.</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })-->
+    <p>
+        <b>Any access issues?</b><br>
+        Send an e-mail to
+        <a href="mailto:info@dptcorporate.com">DPT Info</a>
+        pointing your name,<br>
+        company name and a short description of the issue.
+    </p>
+    <br>
+    <p>
+        <b>アクセスできないときは．．．．</b><br>
+        お名前、会社名、問題の説明を記載して、
+        <a href="mailto:care.jp@think3.eu">こちら</a><br>
+        までメールにてご連絡ください。
+    </p>
 
-
+    <!--   <h2>Use another service to log in.</h2>
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })-->
+</section>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
