@@ -996,7 +996,7 @@ namespace SafenetIntegration
             {
                 string dptProductAssociation = SafenetUtilities.Instance.PRODUCT_LIST_DPTASSOCIATION[productList[i].Value<string>().ToLower()];
                 itemProduct _iP = new itemProduct();
-                this.SearchProducts(new string[] { "productName=" + dptProductAssociation }, VENDOR);
+                this.SearchProducts(new string[] { "productName=" + dptProductAssociation + "&lifeCycleStage=Commit" }, VENDOR);
                 string pId = JsonResponse["listResponse"]["instance"]["@id"].Value<string>();
                 this.GetProductById(pId);
                 _iP.productId = pId; //tocheck
