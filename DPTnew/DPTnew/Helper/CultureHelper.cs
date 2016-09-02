@@ -27,6 +27,7 @@ namespace DPTnew.Helper
                     case "it-IT": return 1;
                     case "ja-JP": return 2;
                     case "ko-KR": return 3;
+                    case "de-DE": return 4;
                     case "en-US":
                     default: return 0;
                 }
@@ -42,6 +43,8 @@ namespace DPTnew.Helper
                     case 2: Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
                         break;
                     case 3: Thread.CurrentThread.CurrentUICulture = new CultureInfo("ko-KR");
+                        break;
+                    case 4: Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
                         break;
                     default: Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
                         break;

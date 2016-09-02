@@ -55,14 +55,21 @@ namespace DPTnew.Controllers
                 var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
                 var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 List<String> companyList = new List<string>();
-                if (salesRep.Count == 0)
-                    companyList.AddRange(db.Companies.Where(x => x.SalesRep == company.SalesRep).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                else
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
-                    foreach (var sr in salesRep)
-                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sr).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                    if (salesRep.Count == 0)
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == company.SalesRep).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                    else
+                    {
+                        foreach (var sr in salesRep)
+                            companyList.AddRange(db.Companies.Where(x => x.SalesRep == sr).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                    }
+                    companyList.Sort();
                 }
-                companyList.Sort();
+                else
+                    companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
                 ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")

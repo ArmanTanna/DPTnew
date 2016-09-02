@@ -213,6 +213,11 @@
     </Compile>
     <Compile Include="Helper\CultureHelper.cs" />
     <Compile Include="Helper\LocalizationHelper.cs" />
+    <Compile Include="Localization\Resource.de-DE.Designer.cs">
+      <DependentUpon>Resource.de-DE.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Localization\Resource.Designer.cs">
       <DependentUpon>Resource.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -23315,6 +23320,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Localization\Resource.de-DE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.de-DE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Resource.it-IT.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.it-IT.Designer.cs</LastGenOutput>

@@ -48,6 +48,11 @@ namespace DPTnew.Helper
                         Localization.Resource.Culture = new CultureInfo("ko-KR");
                         return CultureHelper.CurrentCulture = 3;
                     }
+                    if (lang.Language == "german")
+                    {
+                        Localization.Resource.Culture = new CultureInfo("de-DE");
+                        return CultureHelper.CurrentCulture = 4;
+                    }
                     Localization.Resource.Culture = new CultureInfo("en-US");
                     return CultureHelper.CurrentCulture = 0;
                 }
@@ -68,6 +73,11 @@ namespace DPTnew.Helper
                 {
                     Localization.Resource.Culture = new CultureInfo("ko-KR");
                     return CultureHelper.CurrentCulture = 3;
+                }
+                if (((int)session) == 4)
+                {
+                    Localization.Resource.Culture = new CultureInfo("de-DE");
+                    return CultureHelper.CurrentCulture = 4;
                 }
                 Localization.Resource.Culture = new CultureInfo("en-US");
                 return CultureHelper.CurrentCulture = 0;
