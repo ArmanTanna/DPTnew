@@ -128,6 +128,21 @@ namespace DPTnew.Models
         public int MaxExport { get; set; }
         public string OriginalProduct { get; set; }
         public string Action { get; set; }
+        public int Release { get; set; }
+    }
+
+    [Table("DPT_LicenseLog")]
+    public class DptLicenseLog
+    {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int LicenseLogId { get; set; }
+        public string LicenseID { get; set; }
+        public string MachineID { get; set; }
+        public string Action { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string CreatedBy { get; set; }
+        public string C2VFileName { get; set; }
     }
 
     public class LicenseState

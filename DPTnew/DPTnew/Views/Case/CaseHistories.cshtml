@@ -11,7 +11,7 @@
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript">
-        function deleteFile(caseId, historyId) {
+        function deleteFile(historyId) {
             var $psw = $("#msg");
             $psw.text("");
             $psw.text("Do you want to delete the file?");
@@ -23,7 +23,6 @@
                     OK: function () {
                         $(this).dialog("close");
                         $.post("/Case/DeleteFile", {
-                            caseId: caseId,
                             historyId: historyId
                         },
                         function (result) {
@@ -81,7 +80,7 @@
                     {
                         @Html.DisplayFor(modelItem => item.File.Split('\\')[item.File.Split('\\').Length - 1])
                         <a href="@Url.Content(item.File.Replace("E:\\Case","T3-Case"))">Download</a>
-                        <a href="javascript: deleteFile('@item.CaseId','@item.CaseHistoryId')">Delete</a>
+                        <a href="javascript: deleteFile('@item.CaseHistoryId')">Delete</a>
                     }
                     else
                     {

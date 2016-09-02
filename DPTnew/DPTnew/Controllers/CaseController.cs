@@ -30,7 +30,6 @@ namespace DPTnew.Controllers
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
-            ViewBag.VarUserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             return View();
         }
 
@@ -46,7 +45,6 @@ namespace DPTnew.Controllers
             return Json(_db.ConvertToSearchResult<DptCases>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult NewCaseRow(UpdateCase caseRow)
         {
@@ -75,7 +73,6 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult Insert(UpdateCase caseRow)
         {
@@ -114,11 +111,19 @@ namespace DPTnew.Controllers
                 db.Cases.Add(newCase);
                 db.SaveChanges();
                 caseId = db.Cases.Local[0].CaseId;
+
+                var chl = new DptCaseHistory();
+                chl.CaseId = caseId;
+                chl.CreatedOn = DateTime.Now;
+                chl.Description = caseRow.Description;
+                chl.Details = caseRow.Details;
+                chl.CreatedBy = Membership.GetUser().UserName;
+                _db.CaseHistories.Add(chl);
+                _db.SaveChanges();
             }
             return Json(caseId, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file, string submitButton)
         {
@@ -139,7 +144,7 @@ namespace DPTnew.Controllers
             if (file != null)
             {
                 var caseID = Convert.ToInt64(caseRowID);
-                var query = from ucase in _db.Cases
+                var query = from ucase in _db.CaseHistories
                             where ucase.CaseId == caseID
                             select ucase;
                 if (query.Count() > 0)
@@ -147,7 +152,7 @@ namespace DPTnew.Controllers
                     var basePath = "E:\\Case";
                     var folder = caseRowID;
                     var path = basePath + "\\" + folder;
-                    foreach (DptCases ncase in query.ToList())
+                    foreach (DptCaseHistory ncase in query.ToList())
                     {
                         try
                         {
@@ -235,7 +240,6 @@ namespace DPTnew.Controllers
             client.Send(mail);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult NewCaseHistoryRow(UpdateCase caseRow)
         {
@@ -244,7 +248,6 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult Update(UpdateCase caseHistoryRow)
         {
@@ -262,7 +265,6 @@ namespace DPTnew.Controllers
             return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file, string submitButton)
         {
@@ -315,49 +317,23 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {
-            List<DptCaseHistory> result = new List<DptCaseHistory>();
-            result.AddRange(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
-            var casemg = _db.Cases.Where(c => c.CaseId == caseId).FirstOrDefault();
-            var caseh = new DptCaseHistory();
-            caseh.CaseHistoryId = 0;
-            caseh.CaseId = casemg.CaseId;
-            caseh.CreatedBy = casemg.CreatedBy;
-            caseh.CreatedOn = casemg.CreatedOn;
-            caseh.Description = casemg.Description;
-            caseh.Details = casemg.Details;
-            caseh.File = casemg.File;
-            result.Add(caseh);
-            return View(result);
+            return View(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        public JsonResult DeleteFile(int caseId, int historyId)
+        public JsonResult DeleteFile(int historyId)
         {
-            if (historyId == 0)
+            using (var db = new DptContext())
             {
-                using (var db = new DptContext())
-                {
-                    var cId = db.Cases.Where(c => c.CaseId == caseId).FirstOrDefault();
-                    System.IO.File.Delete(cId.File);
-                    cId.File = null;
-                    db.SaveChanges();
-                }
+                var hId = db.CaseHistories.Where(h => h.CaseHistoryId == historyId).FirstOrDefault();
+                System.IO.File.Delete(hId.File);
+                hId.File = null;
+                db.SaveChanges();
             }
-            else
-            {
-                using (var db = new DptContext())
-                {
-                    var hId = db.CaseHistories.Where(h => h.CaseHistoryId == historyId).FirstOrDefault();
-                    System.IO.File.Delete(hId.File);
-                    hId.File = null;
-                    db.SaveChanges();
-                }
-            }
+
             return Json("The file is deleted correctly!", JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
         public JsonResult GetContacts(string companyName)
         {

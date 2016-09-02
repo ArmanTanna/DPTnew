@@ -67,10 +67,10 @@
                   '<td>' + d.Details + '</td>' +
 
               '</tr>' +
-              '<tr>' +
-                  '<td><b>File:</b></td>' +
-                  '<td>' + (d.File ? '<a href="' + d.File.replace("E:\\Case", "T3-Case") + '">' + d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
-              '</tr>' +
+              //'<tr>' +
+              //    '<td><b>File:</b></td>' +
+              //    '<td>' + (d.File ? '<a href="' + d.File.replace("E:\\Case", "T3-Case") + '">' + d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
+              //'</tr>' +
               '</table>';
         }
 
@@ -208,7 +208,7 @@
                                                  myTable.rows('.selected').deselect();
                                              });
                      },
-                     enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true" || "@ViewBag.VarUserRole.ToString().ToLower()" == "true"
+                     enabled: true
                  },
     {
         text: '@DPTnew.Localization.Resource.Update',
@@ -260,7 +260,7 @@
                 var caseRow = myTable.rows('.selected').data()[0];
                 if (caseRow.Status !== "Frozen" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.modify']).enable(true);
-                if (caseRow.Status !== "Frozen" && ("@ViewBag.UserRole.ToString().ToLower()" == "true" || "@ViewBag.VarUserRole.ToString().ToLower()" == "true"))
+                if (caseRow.Status !== "Frozen")
                     myTable.buttons(['.update']).enable(true);
                 myTable.buttons(['.history']).enable(true);
             });

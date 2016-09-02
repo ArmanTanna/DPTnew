@@ -56,7 +56,7 @@ namespace DPTnew.Models
         [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
         public int ContactId { get; set; }
-        public string File { get; set; }
+        //public string File { get; set; }
     }
 
     public class UpdateCase

@@ -4,76 +4,85 @@
     ViewBag.Title = "Export License";
 }
 
-<p style ="font-size: 1.3em;" >@Html.ValidationMessage("EXPORT")
+@section Scripts {
+    <script type="text/javascript">
+        $('form').one('submit', function () {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+        });
+    </script>
+}
 
+<p style="font-size: 1.3em;">
+    @Html.ValidationMessage("EXPORT")
 </p>
 
 
 <h2>@DPTnew.Localization.Resource.ExportLicense</h2>
 
-<p style ="font-size: 1.3em;">@DPTnew.Localization.Resource.ExportingLicense</p>
-    
+<p style="font-size: 1.3em;">@DPTnew.Localization.Resource.ExportingLicense</p>
+
+@using (Html.BeginForm("ExportLicense", "User", FormMethod.Post))
+{
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.LicenseID)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.LicenseID, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.ProductName)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.ProductName, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.ArticleDetail)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.ArticleDetail, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Quantity)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Quantity, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.LicenseType)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.LicenseType, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.MachineID)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.MachineID, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.MaintEndDate)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.MaintEndDate, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Version)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Version, new { @readonly = "readonly" })
+    </div>
 
 
- @using (Html.BeginForm("ExportLicense", "User", FormMethod.Post))
-            {
-
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.LicenseID)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.LicenseID , new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.ProductName)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.ProductName , new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.ArticleDetail)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.ArticleDetail , new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.Quantity)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.Quantity, new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.LicenseType)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.LicenseType, new { @readonly = "readonly" })
-     </div>
-      
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.MachineID)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.MachineID, new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.MaintEndDate)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.MaintEndDate, new { @readonly = "readonly" })
-     </div>
-     
-     <div class="editor-label" style ="font-size: 1.2em;">
-            @Html.LabelFor(model => model.Version)
-     </div>
-     <div class="editor-field">
-            @Html.TextBoxFor(model => model.Version, new { @readonly = "readonly" })
-     </div>
-
- 
-  <button type="submit">Export</button>
-            }
+    <button type="submit">Export</button>
+}

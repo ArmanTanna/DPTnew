@@ -3,11 +3,22 @@
 @{
     ViewBag.Title = "Generate License";
 }
+
+@section Scripts {
+    <script type="text/javascript">
+        $('form').one('submit', function () {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+        });
+    </script>
+}
+
 <p style="font-size: 1.3em;">
     @Html.ValidationMessage("CREATE")
 
 </p>
-
 
 <h2>@DPTnew.Localization.Resource.GenerateLicense</h2>
 

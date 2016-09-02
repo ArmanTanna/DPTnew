@@ -212,6 +212,15 @@ namespace DPTnew.Controllers
                                 entry.Property(x => x.ExportedNum).IsModified = true;
                                 //context.Entry(currentlicense).State = EntityState.Modified;
                                 context.SaveChanges();
+
+                                DptLicenseLog log = new DptLicenseLog();
+                                log.LicenseID = currentlicense.LicenseID;
+                                log.MachineID = currentlicense.MachineID;
+                                log.Action = "Export";
+                                log.CreatedOn = DateTime.Now;
+                                log.CreatedBy = Membership.GetUser().UserName;
+                                _db.LicenseLogs.Add(log);
+                                _db.SaveChanges();
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
@@ -320,6 +329,16 @@ namespace DPTnew.Controllers
             {
                 using (var context = new DptContext())
                 {
+                    DptLicenseLog log = new DptLicenseLog();
+                    log.LicenseID = currentlicense.LicenseID;
+                    log.MachineID = currentlicense.MachineID;
+                    log.Action = "Validate";
+                    log.CreatedOn = DateTime.Now;
+                    log.CreatedBy = Membership.GetUser().UserName;
+                    log.C2VFileName = file.FileName;
+                    _db.LicenseLogs.Add(log);
+                    _db.SaveChanges();
+
                     //update state in db
                     currentlicense.Exported = 0;
                     currentlicense.Import = 1;
@@ -513,6 +532,15 @@ namespace DPTnew.Controllers
                             var entry = context.Entry(currentlicense);
                             entry.Property(x => x.Version).IsModified = true;
                             context.SaveChanges();
+
+                            DptLicenseLog log = new DptLicenseLog();
+                            log.LicenseID = currentlicense.LicenseID;
+                            log.MachineID = currentlicense.MachineID;
+                            log.Action = "Upgrade";
+                            log.CreatedOn = DateTime.Now;
+                            log.CreatedBy = Membership.GetUser().UserName;
+                            _db.LicenseLogs.Add(log);
+                            _db.SaveChanges();
                         }
 
                         var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
@@ -605,11 +633,7 @@ namespace DPTnew.Controllers
                         }
 
                         //building product
-                        string productPostfix = "";
-                        if (currentlicense.Version == "2015")
-                            productPostfix = "_" + currentlicense.Version + "2" + type;
-                        if (currentlicense.Version == "2016")
-                            productPostfix = "_" + currentlicense.Version + "1" + type;
+                        string productPostfix = "_" + currentlicense.Version + currentlicense.Release + type;
 
                         //EVAL or LOCAL PL
                         if (type == "PL" || type == "EVAL")
@@ -712,6 +736,16 @@ namespace DPTnew.Controllers
                                     entry.Property(x => x.StartDate).IsModified = true;
                                 }
                                 context.SaveChanges();
+
+                                DptLicenseLog log = new DptLicenseLog();
+                                log.LicenseID = currentlicense.LicenseID;
+                                log.MachineID = currentlicense.MachineID;
+                                log.Action = "Install";
+                                log.CreatedOn = DateTime.Now;
+                                log.CreatedBy = Membership.GetUser().UserName;
+                                log.C2VFileName = l.file.FileName;
+                                _db.LicenseLogs.Add(log);
+                                _db.SaveChanges();
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;

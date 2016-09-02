@@ -1,9 +1,17 @@
-﻿
-<p style ="font-size: 1.3em;" >@Html.ValidationMessage("VALIDATE")
+﻿@section Scripts {
+    <script type="text/javascript">
+        $('form').one('submit', function () {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+        });
+    </script>
+}
 
+<p style="font-size: 1.3em;">
+    @Html.ValidationMessage("VALIDATE")
 </p>
-
-
 
 <h2>Validate C2V</h2>
 
@@ -11,14 +19,13 @@
     ViewBag.Title = "Validate C2V";
 }
 
-     
-    @using (Html.BeginForm("ValidateC2V", "User", FormMethod.Post, new{ enctype="multipart/form-data"}))
-    {
+@using (Html.BeginForm("ValidateC2V", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 
-       @Html.Hidden("Licenseid", (object) ViewBag.LicenseId)
+    @Html.Hidden("Licenseid", (object)ViewBag.LicenseId)
 
-     <input type="file" name="file" id="file" accept =".c2v" required />
+    <input type="file" name="file" id="file" accept=".c2v" required />
 
- 
-  <input type="submit" />
-            }
+
+    <input type="submit" />
+}
