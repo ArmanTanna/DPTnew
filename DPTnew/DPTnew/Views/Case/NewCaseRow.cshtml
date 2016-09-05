@@ -16,6 +16,10 @@
 
         var companies = JSON.parse(atob('@ViewBag.Companies'));
         function submitform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
             if ($("#item_Description").val() == "" || $("#item_Details").val() == "") {
                 var $psw = $("#errmsg");
                 $psw.text("");

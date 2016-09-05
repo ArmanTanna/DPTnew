@@ -122,7 +122,9 @@ namespace DPTnew.Controllers
                 var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 if (salesRep.Count == 0)
                 {
-                    var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
+                    var sR = _db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                    var companies = _db.Companies.Where(x => x.SalesRep == sR).Select(u => u.AccountNumber).ToList();
+                    companies.Add(company.AccountNumber);
                     return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
                 }
                 else

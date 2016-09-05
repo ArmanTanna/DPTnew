@@ -59,7 +59,11 @@ namespace DPTnew.Controllers
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
                     if (salesRep.Count == 0)
-                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == company.SalesRep).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                    {
+                        var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                    }
                     else
                     {
                         foreach (var sr in salesRep)

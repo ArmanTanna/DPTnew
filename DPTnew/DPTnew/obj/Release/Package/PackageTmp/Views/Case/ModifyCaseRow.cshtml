@@ -12,6 +12,10 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         function submitform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
             $.post("/Case/Modify", {
                 CaseId: $("input[name=id]").val(),
                 MachineId: $("input[name=machineId]").val(),
