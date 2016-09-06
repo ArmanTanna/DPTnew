@@ -119,6 +119,9 @@ namespace DPTnew.Controllers
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
+                if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
+                    return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+
                 var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 if (salesRep.Count == 0)
                 {
