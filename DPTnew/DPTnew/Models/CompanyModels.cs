@@ -50,10 +50,17 @@ namespace DPTnew.Models
 
         public string AccountNameK { get; set; }
         public string ProvinceK { get; set; }
-        
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         //public int Blocked { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
+        public string Fax { get; set; }
+        public string Website { get; set; }
+        public string Segment { get; set; }
+        public string Industry { get; set; }
+        public string Production { get; set; }
 
         [ScriptIgnore(ApplyToOverrides = true)]
         public virtual ICollection<LicenseView> Licenses { get; set; }

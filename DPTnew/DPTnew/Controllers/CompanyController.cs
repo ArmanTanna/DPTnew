@@ -35,6 +35,7 @@ namespace DPTnew.Controllers
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
             ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                 Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View();
         }
 
@@ -184,6 +185,9 @@ namespace DPTnew.Controllers
         {
             List<CompanyView> rows = new List<CompanyView>();
             rows.Add(cmpSingleRow);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View(rows);
         }
 
@@ -191,36 +195,77 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Modify(CompanyView cmpSingleRow)
         {
+            Regex email = new Regex(@"^(([0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)(\.[0-9a-zA-Z0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)*)@(([0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)(\.[0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)+)$");
+            if (string.IsNullOrEmpty(cmpSingleRow.AccountName))
+                return Json("Invalid AccountName", JsonRequestBehavior.AllowGet);
+            if (string.IsNullOrEmpty(cmpSingleRow.Email) || (!email.IsMatch(cmpSingleRow.Email)))
+                return Json("Invalid mail", JsonRequestBehavior.AllowGet);
+
             using (var db = new DptContext())
             {
-                try
+                if (!string.IsNullOrEmpty(cmpSingleRow.AccountNumber))
                 {
-                    var query =
-                from cmp in db.Companies
-                where cmp.AccountNumber == cmpSingleRow.AccountNumber
-                select cmp;
-
-                    if (query.Count() > 0)
+                    try
                     {
-                        query.FirstOrDefault().AccountName = cmpSingleRow.AccountName;
-                        query.FirstOrDefault().Address = cmpSingleRow.Address;
-                        query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
-                        query.FirstOrDefault().City = cmpSingleRow.City;
-                        query.FirstOrDefault().Province = cmpSingleRow.Province;
-                        query.FirstOrDefault().Email = cmpSingleRow.Email;
-                        query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
-                        query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
-                        db.SaveChanges();
+                        var query =
+                    from cmp in db.Companies
+                    where cmp.AccountNumber == cmpSingleRow.AccountNumber
+                    select cmp;
+
+                        if (query.Count() > 0)
+                        {
+                            query.FirstOrDefault().AccountName = cmpSingleRow.AccountName.ToUpper();
+                            query.FirstOrDefault().Address = cmpSingleRow.Address;
+                            query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
+                            query.FirstOrDefault().City = cmpSingleRow.City;
+                            query.FirstOrDefault().Province = cmpSingleRow.Province;
+                            query.FirstOrDefault().Email = cmpSingleRow.Email;
+                            query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
+                            query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
+                            query.FirstOrDefault().Phone1 = cmpSingleRow.Phone1;
+                            query.FirstOrDefault().Phone2 = cmpSingleRow.Phone2;
+                            query.FirstOrDefault().Segment = cmpSingleRow.Segment;
+                            if (cmpSingleRow.Industry != "0.00 To be defined")
+                                query.FirstOrDefault().Industry = cmpSingleRow.Industry;
+                            query.FirstOrDefault().Fax = cmpSingleRow.Fax;
+                            query.FirstOrDefault().Website = cmpSingleRow.Website;
+                            query.FirstOrDefault().Production = cmpSingleRow.Production;
+                            query.FirstOrDefault().Language = cmpSingleRow.Language;
+                            db.SaveChanges();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
                     }
                 }
-                catch (Exception e)
+                else
                 {
-                    return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
+                    try
+                    {
+                        var maxq = db.Companies.Max(u => u.AccountNumber);
+                        cmpSingleRow.AccountNumber = maxq.Split('-')[0] + "-" + (Convert.ToInt64(maxq.Split('-')[1]) + 1).ToString("D7");
+                        cmpSingleRow.AccountName = cmpSingleRow.AccountName.ToUpper();
+                        cmpSingleRow.AccountKind = "customer";
+                        db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Companies] (AccountNumber, AccountName, AccountKind," +
+                        "AccountStatus, Address, ZIP, City, Province, Country, Phone1, Phone2, Email, Fax, Website, Segment, Industry," +
+                        "Production, SalesRep, Language, AccountNameK, ProvinceK) VALUES ('" + cmpSingleRow.AccountNumber + "','" +
+                        cmpSingleRow.AccountName + "','customer','" + cmpSingleRow.AccountStatus + "','" + cmpSingleRow.Address + "','" +
+                        cmpSingleRow.ZIP + "','" + cmpSingleRow.City + "','" + cmpSingleRow.Province + "','" + cmpSingleRow.Country +
+                        "','" + cmpSingleRow.Phone1 + "','" + cmpSingleRow.Phone2 + "','" + cmpSingleRow.Email + "','" + cmpSingleRow.Fax +
+                        "','" + cmpSingleRow.Website + "','" + cmpSingleRow.Segment + "','" + cmpSingleRow.Industry + "','" +
+                        cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "','" + cmpSingleRow.AccountNameK
+                        + "','" + cmpSingleRow.ProvinceK + "');");
+                    }
+                    catch (Exception e)
+                    {
+                        return Json(e.Message, JsonRequestBehavior.AllowGet);
+                    }
                 }
 
                 if (cmpSingleRow.AccountStatus == "03 - Active Customer" || cmpSingleRow.AccountStatus == "06 - Partner" ||
-                    cmpSingleRow.AccountStatus == "04 - Not Active Customer" || cmpSingleRow.AccountStatus == "04b - Not Active Customer OM"
-                    || cmpSingleRow.AccountStatus == "01 - Prospect")
+                        cmpSingleRow.AccountStatus == "04 - Not Active Customer" || cmpSingleRow.AccountStatus == "04b - Not Active Customer OM"
+                        || cmpSingleRow.AccountStatus == "01 - Prospect")
                 {
                     var q =
                      from cmp in db.SafenetCompanies
@@ -237,21 +282,12 @@ namespace DPTnew.Controllers
                     {
                         SafenetComapny sfnc = new SafenetComapny();
                         sfnc.AccountNumber = cmpSingleRow.AccountNumber;
-                        sfnc.AccountName = cmpSingleRow.AccountName;
+                        sfnc.AccountName = cmpSingleRow.AccountName.ToUpper();
                         sfnc.Email = cmpSingleRow.Email;
                         sfnc.FirstName = "DPT";
                         sfnc.LastName = "User";
                         sfnc.Description = "Company";
-
-                        var pc =
-                        from pcl in db.Peoples
-                        where pcl.AccountNumber == cmpSingleRow.AccountNumber && pcl.PrimaryContact == "yes"
-                        select pcl;
-
-                        if (pc.Count() > 0)
-                            sfnc.Language = pc.FirstOrDefault().Language;
-                        else
-                            sfnc.Language = "English";
+                        sfnc.Language = cmpSingleRow.Language;
 
                         db.SafenetCompanies.Add(sfnc);
                         db.SaveChanges();
@@ -259,7 +295,6 @@ namespace DPTnew.Controllers
                     SaveCompaniesToSafenetDB();
                 }
             }
-
             return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 

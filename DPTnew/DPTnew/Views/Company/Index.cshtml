@@ -159,10 +159,16 @@
                                  City: data.City,
                                  Province: data.Province,
                                  Country: data.Country,
+                                 Phone1: data.Phone1,
+                                 Phone2: data.Phone2,
                                  Email: data.Email,
+                                 Fax: data.Fax,
+                                 Website: data.Website,
+                                 Segment: data.Segment,
+                                 Industry: data.Industry,
+                                 Production: data.Production,
+                                 Language: data.Language,
                                  AccountNameK: data.AccountNameK,
-                                 AddressK: data.AddressK,
-                                 CityK: data.CityK,
                                  ProvinceK: data.ProvinceK,
                              },
                                              function (result) {
@@ -176,7 +182,45 @@
                          }
                      },
                      enabled: false
-                 }
+                 },
+                     {
+                         text: '@DPTnew.Localization.Resource.New',
+                         className: 'addnew',
+                         action: function () {
+                             $.post(yourApp.Urls.DataUrl, {
+                                 AccountNumber: null,
+                                 AccountName: null,
+                                 AccountKind: null,
+                                 AccountStatus: null,
+                                 SalesRep: null,
+                                 Address: null,
+                                 ZIP: null,
+                                 City: null,
+                                 Province: null,
+                                 Country: null,
+                                 Phone1: null,
+                                 Phone2: null,
+                                 Email: null,
+                                 Fax: null,
+                                 Website: null,
+                                 Segment: null,
+                                 Industry: null,
+                                 Production: null,
+                                 Language: null,
+                                 AccountNameK: null,
+                                 ProvinceK: null,
+                             },
+                                             function (result) {
+                                                 var url = yourApp.Urls.DataUrl;
+                                                 WinId = window.open(url, '_blank');
+                                                 WinId.document.open();
+                                                 WinId.document.write(result);
+                                                 WinId.document.close();
+                                                 myTable.rows('.selected').deselect();
+                                             });
+                         },
+                         enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true"
+                     }
                     ]
                 });
             myTable.buttons().container().insertBefore('#companies_filter');
@@ -227,10 +271,10 @@
 
             yadcf.init(myTable, [
       { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["customer", "partner", "educational"] },
-      { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["03 - Active Customer", "06 - Partner", "05 - Ex Customer", "02 - Only Legacy", "04 - Not Active Customer", "04b - Not Active Customer OM", "07 - Ex Partner"] },
-      //{ column_number: 5, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-      { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
-      { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
+{ column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["03 - Active Customer", "06 - Partner", "05 - Ex Customer", "02 - Only Legacy", "04 - Not Active Customer", "04b - Not Active Customer OM", "07 - Ex Partner"] },
+//{ column_number: 5, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
+{ column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
+{ column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
 
         });
 
