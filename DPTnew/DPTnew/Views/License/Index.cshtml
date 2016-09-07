@@ -24,125 +24,125 @@
     <script src="~/Scripts/buttons.print.min.js"></script>
     <script type="text/javascript">
 
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
-    yourApp.Urls.exportUrl = '@Url.Action("Export", "User")';
-    yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
-    yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
-    yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
-    yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
-    yourApp.Urls.DataUrl = '@Url.Action("SingleLicenseRow", "License")';
-    yourApp.Urls.AddLicenseUrl = '@Url.Action("AddLicenseRow", "License")';
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.exportUrl = '@Url.Action("Export", "User")';
+        yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
+        yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
+        yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
+        yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
+        yourApp.Urls.DataUrl = '@Url.Action("SingleLicenseRow", "License")';
+        yourApp.Urls.AddLicenseUrl = '@Url.Action("AddLicenseRow", "License")';
 
-    /* init drop down */
-    function initdropdown(table) {
+        /* init drop down */
+        function initdropdown(table) {
 
-        yadcf.init(table, [
-  { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["dptxsw", "gbgdm", "tcatiav4", "tdbase", "tddrafting", "tdengineering", "tdengineeringplus", "tdirectrw", "tdmolding", "tdprofessional", "tdstyling", "tdtooling", "tdvar", "tdviewerplus", "tdxchangereader", "thinkapigsm", "thinkcore", "thinkom", "thinkprint", "tteamadd", "tteamdev", "tteamdoc", "tteampcb", "tteampcm", "tteampdm", "webteam"] },
-{ column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["asf", "pl"] },
-{ column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["L", "Fx "] },
-//{ column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["j: next 30 days", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last 30 days", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-{ column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
-{ column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["2008", "2009", "2006", "2011", "2014", "2007", "2005", "2015", "2010", "2012", "2013", "2016"] }]);
+            yadcf.init(table, [
+      { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["dptxsw", "gbgdm", "tcatiav4", "tdbase", "tddrafting", "tdengineering", "tdengineeringplus", "tdirectrw", "tdmolding", "tdprofessional", "tdstyling", "tdtooling", "tdvar", "tdviewerplus", "tdxchangereader", "thinkapigsm", "thinkcore", "thinkom", "thinkprint", "tteamadd", "tteamdev", "tteamdoc", "tteampcb", "tteampcm", "tteampdm", "webteam"] },
+    { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["asf", "pl"] },
+    { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["L", "Fx "] },
+    //{ column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["j: next 30 days", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last 30 days", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
+    { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
+    { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["2008", "2009", "2006", "2011", "2014", "2007", "2005", "2015", "2010", "2012", "2013", "2016"] }]);
 
-    }
-    /* Formatting function for row details - modify as you need */
-    function format(d) {
-        // `d` is the original data object for the row
-        return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
-           '<tr>' +
-                '<td><b>Start Date:</b></td>' +
-                '<td>' + d.SD + '</td>' +
-                '<td><b>End Date:</b></td>' +
-                '<td>' + d.ED + '</td>' +
-                '<td><b>Maint Start Date:</b></td>' +
-                '<td>' + d.MSD + '</td>' +
-                '<td><b>Maint End Date:</b></td>' +
-                '<td>' + d.MED + '</td>' +
-                '<td><b>Ancestor:</b></td>' +
-                '<td>' + d.Ancestor + '</td>' +
-            '</tr>' +
+        }
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+               '<tr>' +
+                    '<td><b>Start Date:</b></td>' +
+                    '<td>' + d.SD + '</td>' +
+                    '<td><b>End Date:</b></td>' +
+                    '<td>' + d.ED + '</td>' +
+                    '<td><b>Maint Start Date:</b></td>' +
+                    '<td>' + d.MSD + '</td>' +
+                    '<td><b>Maint End Date:</b></td>' +
+                    '<td>' + d.MED + '</td>' +
+                    '<td><b>Ancestor:</b></td>' +
+                    '<td>' + d.Ancestor + '</td>' +
+                '</tr>' +
 
-             '<tr>' +
-                '<td><b>MachineID:</b></td>' +
-                '<td>' + d.MachineID + '</td>' +
-                //'<td><b>License Kind:</b></td>' +
-                //'<td>' + d.LicenseKind + '</td>' +
-                '<td><b>Note:</b></td>' +
-                '<td>' + d.Note + '</td>' +
-               '<td><b>Exported Num:</b></td>' +
-               '<td>' + d.ExportedNum + '</td>' +
-               '<td><b>Max Export:</b></td>' +
-               '<td>' + d.MaxExport + '</td>' +
-                '<td><b>Legacy Product:</b></td>' +
-                '<td>' + d.OriginalProduct + '</td>' +
-           '</tr>' +
-            '<tr>' +
-                '<td><b>Action:</b></td>' +
-                '<td>' + d.Action + '</td>' +
-            '</tr>' +
-                 '</table>';
-    }
-
-
-
-
-    $(document).ready(function () {
-        var ltConfig = {
-            serverSide: true,
-            processing: true,
-            dom: 'lBfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ],
-            ajax: {
-                type: "POST",
-                url: "License/Search"
-            },
-            columns: [
-            {
-                "className": 'details-control',
-                "orderable": false,
-                "data": null,
-                "defaultContent": ''
-            },
-            { data: "AccountNumber", "className": 'no-dropdown' },
-            { data: "AccountName", "className": 'no-dropdown' },
-            { data: "LicenseID", "className": 'no-dropdown' },
-            { data: "ProductName" },
-            { data: "ArticleDetail", "className": 'mycenter-text' },
-            { data: "ServLicense1", "className": 'mycenter-text' }, //union of type and quantity
-            { data: "MED", type: "date", "width": "10%", "className": 'no-dropdown', "className": 'mycenter-text' },
-            { data: "LastExp" },
-            { data: "Version", "className": 'mycenter-text' }
-            ],
-            orderClasses: false
-        };
-        if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExpInt.ToString().ToLower()" == "false") {
-            var searchFilterHandler = function () {
-                var api = this.api();
-                api.$("td:not(.details-control)").click(function () {
-                    api.search(this.innerText).draw();
-                    //api.columns(this.cellIndex).search( this.innerHTML ).draw();
-                });
-            };
-            ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
+                 '<tr>' +
+                    '<td><b>MachineID:</b></td>' +
+                    '<td>' + d.MachineID + '</td>' +
+                    //'<td><b>License Kind:</b></td>' +
+                    //'<td>' + d.LicenseKind + '</td>' +
+                    '<td><b>Note:</b></td>' +
+                    '<td>' + d.Note + '</td>' +
+                   '<td><b>Exported Num:</b></td>' +
+                   '<td>' + d.ExportedNum + '</td>' +
+                   '<td><b>Max Export:</b></td>' +
+                   '<td>' + d.MaxExport + '</td>' +
+                    '<td><b>Legacy Product:</b></td>' +
+                    '<td>' + d.OriginalProduct + '</td>' +
+               '</tr>' +
+                '<tr>' +
+                    '<td><b>Action:</b></td>' +
+                    '<td>' + d.Action + '</td>' +
+                '</tr>' +
+                     '</table>';
         }
 
-        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
-            "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
-                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
-                ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
-            "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
-            "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
-            "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade",
-            "@DPTnew.Localization.Resource.New"],
-            ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
-             "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
-             "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
 
-    });
+
+
+        $(document).ready(function () {
+            var ltConfig = {
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "License/Search"
+                },
+                columns: [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                { data: "AccountNumber", "className": 'no-dropdown' },
+                { data: "AccountName", "className": 'no-dropdown' },
+                { data: "LicenseID", "className": 'no-dropdown' },
+                { data: "ProductName" },
+                { data: "ArticleDetail", "className": 'mycenter-text' },
+                { data: "ServLicense1", "className": 'mycenter-text' }, //union of type and quantity
+                { data: "MED", type: "date", "width": "10%", "className": 'no-dropdown', "className": 'mycenter-text' },
+                { data: "LastExp" },
+                { data: "Version", "className": 'mycenter-text' }
+                ],
+                orderClasses: false
+            };
+            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExpInt.ToString().ToLower()" == "false") {
+                var searchFilterHandler = function () {
+                    var api = this.api();
+                    api.$("td:not(.details-control)").click(function () {
+                        api.search(this.innerText).draw();
+                        //api.columns(this.cellIndex).search( this.innerHTML ).draw();
+                    });
+                };
+                ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
+            }
+
+            loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
+                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExpInt.ToString().ToLower()" == "true",
+                    "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
+                    ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
+                "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
+                "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
+                "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade",
+                "@DPTnew.Localization.Resource.New"],
+                ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
+                 "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
+                 "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
+
+        });
 
 
     </script>
@@ -190,6 +190,7 @@
         <strong style="position: absolute; margin-top: 20px;" id="upgver"></strong>
         <select id="upgrade-choice">
             <option value="2016">2016</option>
+            <option value="2015">2015</option>
         </select>
     </div>
     <div id="sysmsg-dialog" title="System message" style="display:none;">

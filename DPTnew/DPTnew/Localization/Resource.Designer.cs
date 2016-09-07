@@ -151,7 +151,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upgrade.
+        ///   Looks up a localized string similar to Change Version.
         /// </summary>
         public static string ButtonUpgrade {
             get {

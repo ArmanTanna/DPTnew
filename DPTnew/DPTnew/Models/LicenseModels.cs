@@ -143,6 +143,8 @@ namespace DPTnew.Models
         public DateTime CreatedOn { get; set; }
         public string CreatedBy { get; set; }
         public string C2VFileName { get; set; }
+        public string VersionFrom { get; set; }
+        public string VersionTo { get; set; }
     }
 
     public class LicenseState

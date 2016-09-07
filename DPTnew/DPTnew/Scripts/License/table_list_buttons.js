@@ -296,7 +296,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
              enabled: false
          },
                   {
-                      text: btnTextLocalization[8],//upgrade (> 2014)
+                      text: btnTextLocalization[8],//upgrade (> 2014) [Change Version]
                       className: 'upgrade',
                       action: function () {
                           if (myTable.rows('.selected').count() != 0) {
@@ -311,7 +311,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                   buttons: {
                                       OK: function () {
                                           $(this).dialog("close");
-                                          if ($("#upgrade-choice").val() > headers.Version) {
+                                          if ($("#upgrade-choice").val() !== headers.Version) {
                                               $.ajax({
                                                   url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val(),
                                                   type: 'GET',
@@ -339,7 +339,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                           } else {
                                               var $psw = $("#msg");
                                               $psw.text("");
-                                              $psw.text("You have already the latest version!");
+                                              $psw.text("You have already the selected version!");
                                               var pwdDialogConfig = {
                                                   modal: true,
                                                   width: 400,
@@ -421,7 +421,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
              enabled: false
          },
          {
-             text: btnTextLocalization[5],//'Change Version',
+             text: btnTextLocalization[5],//'Change Version < 2015',
              className: 'changeversion',
              action: function () {
                  if (myTable.rows('.selected').count() != 0) {

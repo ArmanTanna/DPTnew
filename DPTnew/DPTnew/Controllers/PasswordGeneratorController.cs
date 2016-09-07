@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Web.Security;
 
 namespace DptLicensingServer.Controllers
 {
@@ -99,6 +100,16 @@ namespace DptLicensingServer.Controllers
                         db.Licenses.Attach(currentlicense);
                         var entry = db.Entry(currentlicense);
                         entry.Property(x => x.MachineID).IsModified = true;
+                        db.SaveChanges();
+
+                        DptLicenseLog log = new DptLicenseLog();
+                        log.LicenseID = currentlicense.LicenseID;
+                        log.MachineID = currentlicense.MachineID;
+                        log.Action = "Install";
+                        log.CreatedOn = DateTime.Now;
+                        log.CreatedBy = Membership.GetUser().UserName;
+                        log.VersionFrom = currentlicense.Version;
+                        db.LicenseLogs.Add(log);
                         db.SaveChanges();
                     }
                 return CreateResponse(HttpStatusCode.OK, newLicenseResult);
@@ -427,10 +438,21 @@ namespace DptLicensingServer.Controllers
                     where license.LicenseID == licenseId
                     select license;
 
+                    DptLicenseLog log = new DptLicenseLog();
+
                     foreach (LicenseView lic in query)
                     {
+                        log.VersionFrom = lic.Version;
+                        log.VersionTo = version;
+                        log.LicenseID = lic.LicenseID;
+                        log.MachineID = lic.MachineID;
+
                         lic.Version = version;
                     }
+                    log.CreatedOn = DateTime.Now;
+                    log.CreatedBy = Membership.GetUser().UserName;
+                    log.Action = "Upgrade";
+                    db.LicenseLogs.Add(log);
 
                     db.SaveChanges();
                 }

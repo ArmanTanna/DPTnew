@@ -219,6 +219,7 @@ namespace DPTnew.Controllers
                                 log.Action = "Export";
                                 log.CreatedOn = DateTime.Now;
                                 log.CreatedBy = Membership.GetUser().UserName;
+                                log.VersionFrom = currentlicense.Version;
                                 _db.LicenseLogs.Add(log);
                                 _db.SaveChanges();
                             }
@@ -336,6 +337,7 @@ namespace DPTnew.Controllers
                     log.CreatedOn = DateTime.Now;
                     log.CreatedBy = Membership.GetUser().UserName;
                     log.C2VFileName = file.FileName;
+                    log.VersionFrom = currentlicense.Version;
                     _db.LicenseLogs.Add(log);
                     _db.SaveChanges();
 
@@ -402,7 +404,7 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && Convert.ToInt64(version) > Convert.ToInt64(currentlicense.Version))
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version))
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
@@ -422,8 +424,6 @@ namespace DPTnew.Controllers
 
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
                 {
-                    currentlicense.Version = version;
-
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
                         if (currentlicense.ArticleDetail == "pl")
@@ -453,10 +453,10 @@ namespace DPTnew.Controllers
 
                     //building product
                     string productPostfix = "";
-                    if (currentlicense.Version == "2015")
-                        productPostfix = "_" + currentlicense.Version + "2" + type;
-                    if (currentlicense.Version == "2016")
-                        productPostfix = "_" + currentlicense.Version + "1" + type;
+                    if (version == "2015")
+                        productPostfix = "_" + version + "2" + type;
+                    if (version == "2016")
+                        productPostfix = "_" + version + "1" + type;
 
                     //EVAL or LOCAL PL
                     if (type == "PL" || type == "EVAL")
@@ -528,15 +528,22 @@ namespace DPTnew.Controllers
                     {
                         using (var context = new DptContext())
                         {
+                            DptLicenseLog log = new DptLicenseLog();
                             context.Licenses.Attach(currentlicense);
                             var entry = context.Entry(currentlicense);
-                            entry.Property(x => x.Version).IsModified = true;
-                            context.SaveChanges();
+                            log.VersionFrom = currentlicense.Version;
+                            log.VersionTo = version;
+                            log.Action = "ChangeVersion";
+                            if (Convert.ToInt64(version) > Convert.ToInt64(currentlicense.Version))
+                            {
+                                currentlicense.Version = version;
+                                entry.Property(x => x.Version).IsModified = true;
+                                context.SaveChanges();
+                                log.Action = "Upgrade";
+                            }
 
-                            DptLicenseLog log = new DptLicenseLog();
                             log.LicenseID = currentlicense.LicenseID;
                             log.MachineID = currentlicense.MachineID;
-                            log.Action = "Upgrade";
                             log.CreatedOn = DateTime.Now;
                             log.CreatedBy = Membership.GetUser().UserName;
                             _db.LicenseLogs.Add(log);
@@ -744,6 +751,7 @@ namespace DPTnew.Controllers
                                 log.CreatedOn = DateTime.Now;
                                 log.CreatedBy = Membership.GetUser().UserName;
                                 log.C2VFileName = l.file.FileName;
+                                log.VersionFrom = currentlicense.Version;
                                 _db.LicenseLogs.Add(log);
                                 _db.SaveChanges();
                             }
