@@ -77,7 +77,7 @@ function parseJsonDate(jsonDateString) {
 
 var enmodifybutton;
 
-var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocalization, DTmsgLocalization) {
+var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, btnTextLocalization, DTmsgLocalization) {
     enmodifybutton = enablemodify;
     var dtDefaults = {
         "columns": [
@@ -567,6 +567,45 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, btnTextLocal
                  }
              },
              enabled: false
+         },
+         {
+             text: btnTextLocalization[9],//'New',
+             className: 'addnew',
+             action: function () {
+                 $.post(yourApp.Urls.AddLicenseUrl, {
+                     LicenseID: null,
+                     AccountNumber: null,
+                     ProductName: null,
+                     ArticleDetail: null,
+                     Quantity: null,
+                     LicenseType: null,
+                     MachineID: null,
+                     Ancestor: null,
+                     StartDate: null,
+                     EndDate: null,
+                     MaintStartDate: null,
+                     MaintEndDate: null,
+                     Version: null,
+                     OriginalProduct: null,
+                     Installed: null,
+                     Exported: null,
+                     Import: null,
+                     Vend_String: null,
+                     FlexType: null,
+                     ExportedNum: null,
+                     MaxExport: null,
+                     Note: null,
+                 },
+                                 function (result) {
+                                     var url = yourApp.Urls.AddLicenseUrl;
+                                     WinId = window.open(url, '_blank');
+                                     WinId.document.open();
+                                     WinId.document.write(result);
+                                     WinId.document.close();
+                                     myTable.rows('.selected').deselect();
+                                 });
+             },
+             enabled: enableadd
          }
             ]
         });

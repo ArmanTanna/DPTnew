@@ -1,5 +1,7 @@
 ﻿using DPTnew.Helper;
 using DPTnew.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,7 @@ namespace DPTnew.Controllers
         {
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
+            ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.IsVarExpInt = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View();
         }
@@ -90,6 +93,114 @@ namespace DPTnew.Controllers
             }
 
             return Json("Saved!", JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [HttpPost]
+        public ActionResult AddLicenseRow(LicenseView licSingleRow)
+        {
+            List<LicenseView> rows = new List<LicenseView>();
+            rows.Add(licSingleRow);
+            var companyList = _db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+            companyList.Sort();
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
+            ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+            return View(rows);
+        }
+
+        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [HttpPost]
+        public JsonResult AddNew(LicenseView licSingleRow)
+        {
+            var version = Convert.ToInt64(licSingleRow.Version);
+            if (!string.IsNullOrEmpty(licSingleRow.MachineID))
+            {
+                if (version < 2015 && licSingleRow.MachineID.Length != 8)
+                    return Json("Wrong Machine ID!", JsonRequestBehavior.AllowGet);
+                if (version > 2014 && licSingleRow.MachineID.Length != 21)
+                    return Json("Wrong Machine ID!", JsonRequestBehavior.AllowGet);
+            }
+            if (string.IsNullOrEmpty(licSingleRow.AccountNumber))
+                return Json("Wrong Account Number!", JsonRequestBehavior.AllowGet);
+
+            using (var db = new DptContext())
+            {
+                var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
+                var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(sr)).Max(x => x.LicenseID);
+
+                char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
+                switch (licSingleRow.LicenseID)
+                {
+                    case "POOL":
+                    case "EVAL":
+                        var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
+                        licSingleRow.LicenseID = lId;
+                        break;
+                    case "TEST":
+                        var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
+                        licSingleRow.LicenseID = lid;
+                        break;
+                    case "L":
+                        var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
+                        licSingleRow.LicenseID = LID;
+                        break;
+                    default:
+                        var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
+                        licSingleRow.LicenseID = lID;
+                        break;
+                }
+                licSingleRow.OriginalProduct = licSingleRow.ProductName;
+                licSingleRow.Installed = 0;
+                licSingleRow.Exported = 0;
+                licSingleRow.Import = 1;
+                licSingleRow.Vend_String = "vs001";
+                licSingleRow.FlexType = 0;
+                licSingleRow.ExportedNum = 0;
+
+                if (licSingleRow.LicenseType == "local" || (licSingleRow.LicenseType == "floating" && licSingleRow.Quantity < 1))
+                    licSingleRow.Quantity = 1;
+
+                if (licSingleRow.ArticleDetail == "qsf" || licSingleRow.ArticleDetail == "msf" || licSingleRow.ArticleDetail == "tsf"
+                    || licSingleRow.ArticleDetail == "wsf")
+                {
+                    licSingleRow.StartDate = DateTime.Now;
+                    licSingleRow.MaintStartDate = DateTime.Now;
+                    licSingleRow.EndDate = Convert.ToDateTime("01/01/2028");
+                    licSingleRow.MaintEndDate = Convert.ToDateTime("01/01/2028");
+                }
+                if (licSingleRow.ArticleDetail == "pl")
+                {
+                    licSingleRow.EndDate = licSingleRow.StartDate;
+                    licSingleRow.MaintStartDate = licSingleRow.StartDate;
+                    licSingleRow.MaintEndDate = licSingleRow.StartDate;
+                }
+                if (string.IsNullOrEmpty(licSingleRow.MachineID))
+                {
+                    if (version < 2015)
+                        licSingleRow.MachineID = "ABCDEFGH";
+                    else
+                        licSingleRow.MachineID = "KIDABCDEFGH";
+                }
+                try
+                {
+                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Licenses] (LicenseID, AccountNumber, ProductName, " +
+                        "ArticleDetail, Quantity, LicenseType, MachineID, Ancestor, StartDate, EndDate, MaintStartDate, MaintEndDate," +
+                        " Version, OriginalProduct, Note, [2Bexp], [2Bval], [2Bins], ExportedNum, MaxExport, Vend_String, FlexType)" +
+                        " VALUES ('" + licSingleRow.LicenseID + "','" + licSingleRow.AccountNumber + "','" + licSingleRow.ProductName
+                        + "','" + licSingleRow.ArticleDetail + "','" + licSingleRow.Quantity + "','" + licSingleRow.LicenseType + "','" +
+                        licSingleRow.MachineID + "','" + licSingleRow.Ancestor + "','" + licSingleRow.StartDate + "','" +
+                        licSingleRow.EndDate + "','" + licSingleRow.MaintStartDate + "','" + licSingleRow.MaintEndDate + "','" +
+                        licSingleRow.Version + "','" + licSingleRow.OriginalProduct + "','" + licSingleRow.Note + "','" + licSingleRow.Installed
+                        + "','" + licSingleRow.Exported + "','" + licSingleRow.Import + "','" + licSingleRow.ExportedNum + "','" +
+                        licSingleRow.MaxExport + "','" + licSingleRow.Vend_String + "','" + licSingleRow.FlexType + "');");
+                }
+                catch (Exception e)
+                {
+                    return Json(e.Message, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            return Json("Saved LicenseID: " + licSingleRow.LicenseID, JsonRequestBehavior.AllowGet);
         }
 
     }

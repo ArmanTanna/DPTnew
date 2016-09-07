@@ -475,7 +475,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version..
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2015 64bit SP3..
         /// </summary>
         public static string Description2015ThinkDesign64bitSP3 {
             get {
@@ -529,7 +529,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Official release of ThinkDesign 2016..
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2016..
         /// </summary>
         public static string Description2016ThinkDesign64bit {
             get {

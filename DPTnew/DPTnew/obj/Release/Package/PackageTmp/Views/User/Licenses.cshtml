@@ -24,12 +24,13 @@
     <script src="~/Scripts/License/table_list_buttons.js"> </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true, false,
+            loadLicenseTable({ data: JSON.parse(atob("@ViewBag.Licenses")) }, true, false, false,
                 ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
                     "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
                     "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
-                    "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade"],
-                    ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
+                    "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade",
+                    "@DPTnew.Localization.Resource.New"],
+                        ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
                      "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
                      "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
         });
@@ -73,7 +74,8 @@
             </th>
 
 
-            @*<th>
+            @*
+                <th>
                     @Html.DisplayNameFor(model => model.Ancestor)
                 </th>
                 <th>
@@ -94,8 +96,9 @@
                 </th>*@
         </tr>
     </thead>
-    @*<tbody>
-        @foreach (var item in Model) {
+    @*
+        <tbody>
+            @foreach (var item in Model) {
             <tr>
                 <td></td>
                 <td>
@@ -111,13 +114,13 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                     @if (item.LicenseType == "local")
-                {
-                     <text>L</text>
-                     }
-                else {
-                     <text>F</text>
-                     }
+                    @if (item.LicenseType == "local")
+                    {
+                    <text>L</text>
+                    }
+                    else {
+                    <text>F</text>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MachineID)
@@ -148,7 +151,7 @@
                 </td>
 
             </tr>
-        }
+            }
         </tbody>*@
 </table>
 <div id="machineid-dialog" title="Please enter your machineid" style="display:none;">

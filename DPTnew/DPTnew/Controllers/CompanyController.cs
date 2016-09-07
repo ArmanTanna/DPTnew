@@ -295,7 +295,7 @@ namespace DPTnew.Controllers
                     SaveCompaniesToSafenetDB();
                 }
             }
-            return Json("Saved!", JsonRequestBehavior.AllowGet);
+            return Json("Saved AccountNumber: " + cmpSingleRow.AccountNumber, JsonRequestBehavior.AllowGet);
         }
 
     }
