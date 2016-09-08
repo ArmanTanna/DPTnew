@@ -79,36 +79,65 @@ namespace DPTnew.Controllers
 
             using (var db = new DptContext())
             {
-                var company = db.Companies.Where(c => c.AccountName == orderRow.AccountName).FirstOrDefault();
-                orderRow.AccountNumber = company.AccountNumber;
-                var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
-                orderRow.Invoicer = sr.Invoicer;
-                orderRow.InvoicedNumber = sr.AccountNumber;
-                orderRow.InvoicedName = company.SalesRep;
-                orderRow.SalesRep = company.SalesRep;
-                orderRow.RequestDate = orderRow.OrderDate;
-                int res = 0;
-                orderRow.idxx = db.Database.SqlQuery<int>("SELECT MAX(idxx) FROM [dbo].[DPT_Orders]", res).First() + 1;
-
-                if (string.IsNullOrEmpty(orderRow.OrderNumber))
+                if (orderRow.idxx < 1)
                 {
-                    var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
-                    orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
+                    var company = db.Companies.Where(c => c.AccountName == orderRow.AccountName).FirstOrDefault();
+                    orderRow.AccountNumber = company.AccountNumber;
+                    var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
+                    orderRow.Invoicer = sr.Invoicer;
+                    orderRow.InvoicedNumber = sr.AccountNumber;
+                    orderRow.InvoicedName = company.SalesRep;
+                    orderRow.SalesRep = company.SalesRep;
+                    orderRow.RequestDate = orderRow.OrderDate;
+                    int res = 0;
+                    orderRow.idxx = db.Database.SqlQuery<int>("SELECT MAX(idxx) FROM [dbo].[DPT_Orders]", res).First() + 1;
+
+                    if (string.IsNullOrEmpty(orderRow.OrderNumber))
+                    {
+                        var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
+                        orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
+                    }
+                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
+                        "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
+                        " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
+                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx) VALUES ('" + orderRow.Invoicer + "','" +
+                        orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
+                        + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
+                        + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
+                        orderRow.Currency + "','" + orderRow.LineType + "','" + orderRow.ProductName + "','" + orderRow.ArticleDetail + "','" +
+                        orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
+                        orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
+                        orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
+                        orderRow.LicenseID + "','" + orderRow.idxx + "');");
                 }
-                db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
-                    "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
-                    " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
-                    " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx) VALUES ('" + orderRow.Invoicer + "','" +
-                    orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
-                    + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
-                    + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
-                    orderRow.Currency + "','" + orderRow.LineType + "','" + orderRow.ProductName + "','" + orderRow.ArticleDetail + "','" +
-                    orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
-                    orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
-                    orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
-                    orderRow.LicenseID + "','" + orderRow.idxx + "');");
+                else
+                {
+                    var query = from ord in db.Orders
+                                where ord.idxx == orderRow.idxx
+                                select ord;
+                    if (query.Count() > 0)
+                    {
+                        foreach (Order o in query.ToList())
+                        {
+                            o.LineType = orderRow.LineType;
+                            o.ProductName = orderRow.ProductName;
+                            o.ArticleDetail = orderRow.ArticleDetail;
+                            o.StartDate = orderRow.StartDate;
+                            o.EndDate = orderRow.EndDate;
+                            o.Ordered = orderRow.Ordered;
+                            o.Quantity = orderRow.Quantity;
+                            o.LicenseType = orderRow.LicenseType;
+                            o.NewRenewal = orderRow.NewRenewal;
+                            o.EURO_PriceList = orderRow.EURO_PriceList;
+                            o.JPY_PriceList = orderRow.JPY_PriceList;
+                            o.LicenseID = orderRow.LicenseID;
+
+                            db.SaveChanges();
+                        }
+                    }
+                }
             }
-            return Json("Saved OrderNumber: " + orderRow.OrderNumber, JsonRequestBehavior.AllowGet);
+            return Json("Saved OrderNumber: " + orderRow.OrderNumber + " " + orderRow.idxx, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -171,7 +200,7 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetPrice(string productName, string articleDetail)
+        public JsonResult GetPrice(string productName, string articleDetail, string licenseType)
         {
             if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(articleDetail))
                 return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
@@ -198,6 +227,11 @@ namespace DPTnew.Controllers
                 query = query.Replace("PLSS_EURO", "PLSS_JPY");
                 query = query.Replace("ASF_EURO", "ASF_JPY");
                 var jpyprice = db.Database.SqlQuery<decimal>(query, res).First();
+                if (licenseType == "floating")
+                {
+                    europrice = europrice + ((europrice * 15) / 100);
+                    jpyprice = jpyprice + ((jpyprice * 5) / 100);
+                }
                 if (articleDetail == "qsf")
                 {
                     europrice = europrice / 4;

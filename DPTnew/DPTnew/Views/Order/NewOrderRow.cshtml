@@ -23,7 +23,7 @@
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 2000);
-            if ($("#accountName-choice").val() == "" || $("#productName-choice").val() == "" || $("#licenseID-choice").val()) {
+            if ($("#accountName-choice").val() == "" || $("#productName-choice").val() == "" || $("#licenseID-choice").val() == "") {
                 var $psw = $("#msg");
                 $psw.text("");
                 $psw.text("Please fill out Account name, Product name and licenseID fields!");
@@ -42,6 +42,7 @@
             }
             else
                 $.post("/Order/Insert", {
+                    idxx: $("input[name=idxx]").val(),
                     OrderNumber: $("input[name=orderNumber]").val(),
                     AccountName: $("#accountName-choice").val(),
                     SalesRep: $("input[name=salesRep]").val(),
@@ -68,9 +69,11 @@
                     JPY_PriceList: $("input[name=jpyPriceList]").val()
                 },
                 function (result) {
-                    if (result.split(" ").length == 3) {
+                    if (result.split(" ").length == 4) {
                         $("input[name=orderNumber]").empty();
                         $("input[name=orderNumber]").val(result.split(" ")[2]);
+                        $("input[name=idxx]").empty();
+                        $("input[name=idxx]").val(result.split(" ")[3]);
                     }
                     var $psw = $("#msg");
                     $psw.text("");
@@ -145,7 +148,7 @@
                          }
                      });
                 if ($("#articleDetail-choice").val() !== "") {
-                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val() },
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
                          function (result) {
                              $("input[name=euroPriceList]").empty();
                              $("input[name=euroPriceList]").val(result.split("_")[0]);
@@ -157,7 +160,7 @@
 
             $("#articleDetail-choice").change(function () {
                 if ($("#productName-choice").val() !== "") {
-                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val() },
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
                          function (result) {
                              $("input[name=euroPriceList]").empty();
                              $("input[name=euroPriceList]").val(result.split("_")[0]);
@@ -167,6 +170,17 @@
                 }
             });
 
+            $("input[name=licenseType]").change(function () {
+                if ($("#productName-choice").val() !== "" && $("#articleDetail-choice").val() !== "") {
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
+                         function (result) {
+                             $("input[name=euroPriceList]").empty();
+                             $("input[name=euroPriceList]").val(result.split("_")[0]);
+                             $("input[name=jpyPriceList]").empty();
+                             $("input[name=jpyPriceList]").val(result.split("_")[1]);
+                         });
+                }
+            });
 
             $("#licenseID-choice").change(function () {
                 $("#licenseType-choice").empty();
@@ -176,6 +190,7 @@
                          $("input[name=licenseType]").val(result.LicenseType);
                          $("input[name=quantity]").empty();
                          $("input[name=quantity]").val(result.Quantity);
+                         $("input[name=licenseType]").change();
                      });
             });
 
@@ -185,13 +200,6 @@
 
 @foreach (var item in Model)
 {
-    <div class="editor-label" style="font-size: 1.2em;">
-        @Html.DisplayNameFor(model => model.OrderNumber)
-    </div>
-    <div class="editor-field">
-        <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)" readonly>
-    </div>
-
     <div class="editor-label" style="font-size: 1.2em;">
         @Html.DisplayNameFor(model => model.AccountName)
     </div>
@@ -207,6 +215,16 @@
     <tbody>
         @foreach (var item in Model)
         {
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.OrderNumber)</td>
+                <td>
+                    <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.idxx)</td>
+                <td>
+                    <input type="number" name="idxx" min="0" value="@Html.DisplayFor(modelItem => item.idxx)">
+                </td>
+            </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.SalesRep)</td>
                 <td>
