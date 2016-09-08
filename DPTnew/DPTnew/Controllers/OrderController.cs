@@ -51,13 +51,18 @@ namespace DPTnew.Controllers
                 var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 List<String> companyList = new List<string>();
                 if (salesRep.Count == 0)
-                    companyList.AddRange(db.Companies.Where(x => x.SalesRep == company.SalesRep).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                {
+                    var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                    companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                    companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                }
                 else
                 {
                     foreach (var sr in salesRep)
                         companyList.AddRange(db.Companies.Where(x => x.SalesRep == sr).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
                 }
                 companyList.Sort();
+
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
             }
@@ -69,20 +74,67 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Insert(Order orderRow)
         {
-            var company = _db.Companies.Where(c => c.AccountName == orderRow.AccountName).FirstOrDefault();
-            orderRow.AccountNumber = company.AccountNumber;
-            var sr = _db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
-            orderRow.Invoicer = sr.Invoicer;
-            orderRow.InvoicedNumber = sr.AccountNumber;
-            orderRow.InvoicedName = company.SalesRep;
-            orderRow.SalesRep = company.SalesRep;
-            orderRow.idxx = _db.Orders.Max(o => o.idxx) + 1;
-            return Json("Saved!", JsonRequestBehavior.AllowGet);
+            if (string.IsNullOrEmpty(orderRow.AccountName) || string.IsNullOrEmpty(orderRow.ProductName) || string.IsNullOrEmpty(orderRow.LicenseID))
+                return Json("Missing Info", JsonRequestBehavior.AllowGet);
+
+            using (var db = new DptContext())
+            {
+                var company = db.Companies.Where(c => c.AccountName == orderRow.AccountName).FirstOrDefault();
+                orderRow.AccountNumber = company.AccountNumber;
+                var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
+                orderRow.Invoicer = sr.Invoicer;
+                orderRow.InvoicedNumber = sr.AccountNumber;
+                orderRow.InvoicedName = company.SalesRep;
+                orderRow.SalesRep = company.SalesRep;
+                orderRow.RequestDate = orderRow.OrderDate;
+                int res = 0;
+                orderRow.idxx = db.Database.SqlQuery<int>("SELECT MAX(idxx) FROM [dbo].[DPT_Orders]", res).First() + 1;
+
+                if (string.IsNullOrEmpty(orderRow.OrderNumber))
+                {
+                    var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
+                    orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
+                }
+                db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
+                    "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
+                    " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
+                    " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx) VALUES ('" + orderRow.Invoicer + "','" +
+                    orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
+                    + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
+                    + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
+                    orderRow.Currency + "','" + orderRow.LineType + "','" + orderRow.ProductName + "','" + orderRow.ArticleDetail + "','" +
+                    orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
+                    orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
+                    orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
+                    orderRow.LicenseID + "','" + orderRow.idxx + "');");
+            }
+            return Json("Saved OrderNumber: " + orderRow.OrderNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult GetInvoiceInfo(string companyName)
+        {
+            if (string.IsNullOrEmpty(companyName))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
+            using (var db = new DptContext())
+            {
+                var orderRow = new Order();
+                var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
+                orderRow.AccountNumber = company.AccountNumber;
+                var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
+                orderRow.Invoicer = sr.Invoicer;
+                orderRow.InvoicedNumber = sr.AccountNumber;
+                orderRow.InvoicedName = company.SalesRep;
+                orderRow.SalesRep = company.SalesRep;
+                return Json(orderRow, JsonRequestBehavior.AllowGet);
+            }
         }
 
         [HttpPost]
         public JsonResult GetProducts(string companyName)
         {
+            if (string.IsNullOrEmpty(companyName))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
             using (var db = new DptContext())
             {
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
@@ -92,34 +144,67 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetArtDetails(string companyName, string productName)
+        public JsonResult GetLicenseIds(string companyName, string productName)
         {
+            if (string.IsNullOrEmpty(companyName) || string.IsNullOrEmpty(productName))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
             using (var db = new DptContext())
             {
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
-                var artDetails = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName).Select(x => x.ArticleDetail).Distinct().ToList();
-                return Json(artDetails, JsonRequestBehavior.AllowGet);
-            }
-        }
-
-        [HttpPost]
-        public JsonResult GetLicenseIds(string companyName, string productName, string artDetail)
-        {
-            using (var db = new DptContext())
-            {
-                var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
-                var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName && u.ArticleDetail == artDetail).Select(x => x.LicenseID).ToList();
+                var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName).ToList();
                 return Json(licIds, JsonRequestBehavior.AllowGet);
             }
         }
 
         [HttpPost]
-        public JsonResult GetLicenseType(string licenseId)
+        public JsonResult GetLicenseInfo(string licenseId)
         {
+            if (string.IsNullOrEmpty(licenseId))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
+            var lic = new LicenseView();
             using (var db = new DptContext())
             {
-                var licenseType = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.LicenseType).ToList();
-                return Json(licenseType, JsonRequestBehavior.AllowGet);
+                lic.LicenseType = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.LicenseType).FirstOrDefault();
+                lic.Quantity = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.Quantity).FirstOrDefault();
+                return Json(lic, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult GetPrice(string productName, string articleDetail)
+        {
+            if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(articleDetail))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
+            using (var db = new DptContext())
+            {
+                string query = "SELECT ";
+                switch (articleDetail)
+                {
+                    case "pl":
+                        query += "PL_EURO";
+                        break;
+                    case "plss":
+                        query += "PLSS_EURO";
+                        break;
+                    default:
+                        query += "ASF_EURO";
+                        break;
+                }
+                query += " FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + productName + "' and [Status] = 'active'";
+                var res = 0;
+                var europrice = db.Database.SqlQuery<decimal>(query, res).First();
+
+                query = query.Replace("PL_EURO", "PL_JPY");
+                query = query.Replace("PLSS_EURO", "PLSS_JPY");
+                query = query.Replace("ASF_EURO", "ASF_JPY");
+                var jpyprice = db.Database.SqlQuery<decimal>(query, res).First();
+                if (articleDetail == "qsf")
+                {
+                    europrice = europrice / 4;
+                    jpyprice = jpyprice / 4;
+                }
+
+                return Json(europrice + "_" + jpyprice, JsonRequestBehavior.AllowGet);
             }
         }
 

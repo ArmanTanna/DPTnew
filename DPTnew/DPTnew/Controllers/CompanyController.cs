@@ -96,34 +96,36 @@ namespace DPTnew.Controllers
             cc.UserName.Password = System.Configuration.ConfigurationManager.AppSettings["safenetpassword"];
             var safenetUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["safeneturi"]);
             string errormsg = "DB Sync failed for: ";
-
-            foreach (SafenetComapny company in _db.SafenetCompanies.ToList())
+            using (var db = new DptContext())
             {
-                try
+                foreach (SafenetComapny company in db.SafenetCompanies.ToList())
                 {
-                    //if (string.IsNullOrEmpty(company.Email))
-                    //    continue;
+                    try
+                    {
+                        //if (string.IsNullOrEmpty(company.Email))
+                        //    continue;
 
-                    sew = new SentinelEMSWrapper(safenetUri, cc);
-                    sew.Authentication();
-                    var data = new JObject();
-                    data["Email"] = company.Email;
-                    data["FirstName"] = company.FirstName;
-                    data["LastName"] = company.LastName;
-                    data["Locale"] = company.Language;
-                    data["CompanyName"] = company.AccountName;
-                    data["CrmId"] = company.AccountNumber;
-                    data["ActualBatchCode"] = company.ActualBatchCode;
-                    data["UpdateBatchCode"] = company.UpdateBatchCode;
-                    data["Description"] = company.Description;
-                    if (sew.CheckExistCustomer(data))
-                        sew.UpdateCustomer(data);
-                    else
-                        sew.CreateCustomer(data);
-                }
-                catch (Exception e)
-                {
-                    errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); </br>";
+                        sew = new SentinelEMSWrapper(safenetUri, cc);
+                        sew.Authentication();
+                        var data = new JObject();
+                        data["Email"] = company.Email;
+                        data["FirstName"] = company.FirstName;
+                        data["LastName"] = company.LastName;
+                        data["Locale"] = company.Language;
+                        data["CompanyName"] = company.AccountName;
+                        data["CrmId"] = company.AccountNumber;
+                        data["ActualBatchCode"] = company.ActualBatchCode;
+                        data["UpdateBatchCode"] = company.UpdateBatchCode;
+                        data["Description"] = company.Description;
+                        if (sew.CheckExistCustomer(data))
+                            sew.UpdateCustomer(data);
+                        else
+                            sew.CreateCustomer(data);
+                    }
+                    catch (Exception e)
+                    {
+                        errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); </br>";
+                    }
                 }
             }
             return errormsg;
@@ -185,8 +187,11 @@ namespace DPTnew.Controllers
         {
             List<CompanyView> rows = new List<CompanyView>();
             rows.Add(cmpSingleRow);
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
-            ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            using (var db = new DptContext())
+            {
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
+                ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            }
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View(rows);
         }

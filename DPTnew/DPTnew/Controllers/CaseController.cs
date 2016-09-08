@@ -99,11 +99,11 @@ namespace DPTnew.Controllers
             {
                 var newCase = new DptCases();
                 newCase.AccountName = caseRow.AccountName;
-                newCase.AccountNumber = _db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault().AccountNumber;
+                newCase.AccountNumber = db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault().AccountNumber;
                 newCase.Contact = caseRow.Contact;
                 try
                 {
-                    var usr = _db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
+                    var usr = db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
                     newCase.ContactId = usr.UserId;
                     newCase.Language = usr.Language;
                 }
@@ -136,8 +136,8 @@ namespace DPTnew.Controllers
                 chl.Description = caseRow.Description;
                 chl.Details = caseRow.Details;
                 chl.CreatedBy = Membership.GetUser().UserName;
-                _db.CaseHistories.Add(chl);
-                _db.SaveChanges();
+                db.CaseHistories.Add(chl);
+                db.SaveChanges();
             }
             return Json(caseId, JsonRequestBehavior.AllowGet);
         }
@@ -161,28 +161,31 @@ namespace DPTnew.Controllers
 
             if (file != null)
             {
-                var caseID = Convert.ToInt64(caseRowID);
-                var query = from ucase in _db.CaseHistories
-                            where ucase.CaseId == caseID
-                            select ucase;
-                if (query.Count() > 0)
+                using (var db = new DptContext())
                 {
-                    var basePath = "E:\\Case";
-                    var folder = caseRowID;
-                    var path = basePath + "\\" + folder;
-                    foreach (DptCaseHistory ncase in query.ToList())
+                    var caseID = Convert.ToInt64(caseRowID);
+                    var query = from ucase in db.CaseHistories
+                                where ucase.CaseId == caseID
+                                select ucase;
+                    if (query.Count() > 0)
                     {
-                        try
+                        var basePath = "E:\\Case";
+                        var folder = caseRowID;
+                        var path = basePath + "\\" + folder;
+                        foreach (DptCaseHistory ncase in query.ToList())
                         {
-                            System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + caseRowID + Path.GetExtension(file.FileName);
-                            file.SaveAs(ncase.File);
-                            _db.SaveChanges();
-                        }
-                        catch (Exception e)
-                        {
-                            ViewBag.ok1 = "Cannot save the uploaded file!";
-                            return View("Success");
+                            try
+                            {
+                                System.IO.Directory.CreateDirectory(path);
+                                ncase.File = path + "\\" + caseRowID + Path.GetExtension(file.FileName);
+                                file.SaveAs(ncase.File);
+                                db.SaveChanges();
+                            }
+                            catch (Exception e)
+                            {
+                                ViewBag.ok1 = "Cannot save the uploaded file!";
+                                return View("Success");
+                            }
                         }
                     }
                 }
@@ -206,43 +209,46 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Modify(UpdateCase caseRow)
         {
-            var query = from ucase in _db.Cases
-                        where ucase.CaseId == caseRow.CaseId
-                        select ucase;
-            if (query.Count() > 0)
+            using (var db = new DptContext())
             {
-                foreach (DptCases ncase in query.ToList())
+                var query = from ucase in db.Cases
+                            where ucase.CaseId == caseRow.CaseId
+                            select ucase;
+                if (query.Count() > 0)
                 {
-                    ncase.ModifiedOn = DateTime.Now;
-                    ncase.CCEngineer = caseRow.CCEngineer;
-                    ncase.MachineId = caseRow.MachineId;
-                    try
+                    foreach (DptCases ncase in query.ToList())
                     {
-                        ncase.CCEngineerId = _db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
+                        ncase.ModifiedOn = DateTime.Now;
+                        ncase.CCEngineer = caseRow.CCEngineer;
+                        ncase.MachineId = caseRow.MachineId;
+                        try
+                        {
+                            ncase.CCEngineerId = db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
+                        }
+                        catch (Exception e)
+                        {
+                            return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
+                        }
+                        if (ncase.Status != caseRow.Status)
+                        {
+                            var dcl = new DptCaseLog();
+                            dcl.CaseId = caseRow.CaseId;
+                            dcl.CreatedBy = Membership.GetUser().UserName;
+                            dcl.CreatedOn = DateTime.Now;
+                            dcl.Status = caseRow.Status;
+                            db.CaseLogs.Add(dcl);
+                            db.SaveChanges();
+                            MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                            mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
+                            mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + ncase.Description;
+                            mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
+                                "Details: " + ncase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                "\n\nBest Regards,\n\nCustomer Care team";
+                            SendMail(mail);
+                        }
+                        ncase.Status = caseRow.Status;
+                        db.SaveChanges();
                     }
-                    catch (Exception e)
-                    {
-                        return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
-                    }
-                    if (ncase.Status != caseRow.Status)
-                    {
-                        var dcl = new DptCaseLog();
-                        dcl.CaseId = caseRow.CaseId;
-                        dcl.CreatedBy = Membership.GetUser().UserName;
-                        dcl.CreatedOn = DateTime.Now;
-                        dcl.Status = caseRow.Status;
-                        _db.CaseLogs.Add(dcl);
-                        _db.SaveChanges();
-                        MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
-                        mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
-                        mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + ncase.Description;
-                        mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                            "Details: " + ncase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
-                            "\n\nBest Regards,\n\nCustomer Care team";
-                        SendMail(mail);
-                    }
-                    ncase.Status = caseRow.Status;
-                    _db.SaveChanges();
                 }
             }
             return Json("The new case has been modified correctly!", JsonRequestBehavior.AllowGet);
@@ -270,16 +276,18 @@ namespace DPTnew.Controllers
         public ActionResult Update(UpdateCase caseHistoryRow)
         {
             int casehId = 0;
-            var chl = new DptCaseHistory();
-            chl.CaseId = caseHistoryRow.CaseId;
-            chl.CreatedOn = DateTime.Now;
-            chl.Description = caseHistoryRow.Description;
-            chl.Details = caseHistoryRow.Details;
-            chl.CreatedBy = Membership.GetUser().UserName;
-            _db.CaseHistories.Add(chl);
-            _db.SaveChanges();
-            casehId = _db.CaseHistories.Local[0].CaseHistoryId;
-
+            using (var db = new DptContext())
+            {
+                var chl = new DptCaseHistory();
+                chl.CaseId = caseHistoryRow.CaseId;
+                chl.CreatedOn = DateTime.Now;
+                chl.Description = caseHistoryRow.Description;
+                chl.Details = caseHistoryRow.Details;
+                chl.CreatedBy = Membership.GetUser().UserName;
+                db.CaseHistories.Add(chl);
+                db.SaveChanges();
+                casehId = db.CaseHistories.Local[0].CaseHistoryId;
+            }
             return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
         }
 
@@ -301,29 +309,32 @@ namespace DPTnew.Controllers
             }
             if (file != null)
             {
-                var casehID = Convert.ToInt64(casehId);
-                var query = from uhcase in _db.CaseHistories
-                            where uhcase.CaseHistoryId == casehID
-                            select uhcase;
-                if (query.Count() > 0)
+                using (var db = new DptContext())
                 {
-
-                    var basePath = "E:\\Case" + "\\" + caseRowID;
-                    var folder = casehID;
-                    var path = basePath + "\\" + folder;
-                    foreach (DptCaseHistory ncase in query.ToList())
+                    var casehID = Convert.ToInt64(casehId);
+                    var query = from uhcase in db.CaseHistories
+                                where uhcase.CaseHistoryId == casehID
+                                select uhcase;
+                    if (query.Count() > 0)
                     {
-                        try
+
+                        var basePath = "E:\\Case" + "\\" + caseRowID;
+                        var folder = casehID;
+                        var path = basePath + "\\" + folder;
+                        foreach (DptCaseHistory ncase in query.ToList())
                         {
-                            System.IO.Directory.CreateDirectory(path);
-                            ncase.File = path + "\\" + caseRowID + "_" + casehID + Path.GetExtension(file.FileName);
-                            file.SaveAs(ncase.File);
-                            _db.SaveChanges();
-                        }
-                        catch (Exception e)
-                        {
-                            ViewBag.ok1 = "Cannot save the uploaded file!";
-                            return View("Success");
+                            try
+                            {
+                                System.IO.Directory.CreateDirectory(path);
+                                ncase.File = path + "\\" + caseRowID + "_" + casehID + Path.GetExtension(file.FileName);
+                                file.SaveAs(ncase.File);
+                                db.SaveChanges();
+                            }
+                            catch (Exception e)
+                            {
+                                ViewBag.ok1 = "Cannot save the uploaded file!";
+                                return View("Success");
+                            }
                         }
                     }
                 }
@@ -335,7 +346,10 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {
-            return View(_db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
+            using (var db = new DptContext())
+            {
+                return View(db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
+            }
         }
 
         [HttpPost]

@@ -84,13 +84,15 @@ namespace DPTnew.Controllers
         public ActionResult Licenses()
         {
             var licenses = GetLicenses();
-            ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
-            ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
-            //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
+            if (licenses.Count() > 0)
+            {
+                ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
+                ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
+                //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
 
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
-            ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
-
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
+                ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
+            }
             return View();
         }
 
@@ -220,8 +222,8 @@ namespace DPTnew.Controllers
                                 log.CreatedOn = DateTime.Now;
                                 log.CreatedBy = Membership.GetUser().UserName;
                                 log.VersionFrom = currentlicense.Version;
-                                _db.LicenseLogs.Add(log);
-                                _db.SaveChanges();
+                                context.LicenseLogs.Add(log);
+                                context.SaveChanges();
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
@@ -338,8 +340,8 @@ namespace DPTnew.Controllers
                     log.CreatedBy = Membership.GetUser().UserName;
                     log.C2VFileName = file.FileName;
                     log.VersionFrom = currentlicense.Version;
-                    _db.LicenseLogs.Add(log);
-                    _db.SaveChanges();
+                    context.LicenseLogs.Add(log);
+                    context.SaveChanges();
 
                     //update state in db
                     currentlicense.Exported = 0;
@@ -546,8 +548,8 @@ namespace DPTnew.Controllers
                             log.MachineID = currentlicense.MachineID;
                             log.CreatedOn = DateTime.Now;
                             log.CreatedBy = Membership.GetUser().UserName;
-                            _db.LicenseLogs.Add(log);
-                            _db.SaveChanges();
+                            context.LicenseLogs.Add(log);
+                            context.SaveChanges();
                         }
 
                         var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
@@ -752,8 +754,8 @@ namespace DPTnew.Controllers
                                 log.CreatedBy = Membership.GetUser().UserName;
                                 log.C2VFileName = l.file.FileName;
                                 log.VersionFrom = currentlicense.Version;
-                                _db.LicenseLogs.Add(log);
-                                _db.SaveChanges();
+                                context.LicenseLogs.Add(log);
+                                context.SaveChanges();
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;

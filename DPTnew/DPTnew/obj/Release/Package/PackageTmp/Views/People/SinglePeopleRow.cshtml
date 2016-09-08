@@ -16,6 +16,10 @@
         yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "People")';
 
         function submitform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
             $.post("/People/Modify", {
                 UserId: $("input[name=userId]").val(),
                 Email: $("input[name=email]").val(),

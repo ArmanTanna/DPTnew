@@ -11,45 +11,26 @@
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.GetInvoiceInfo = '@Url.Action("GetInvoiceInfo", "Order")';
         yourApp.Urls.GetProducts = '@Url.Action("GetProducts", "Order")';
-        yourApp.Urls.GetArtDetails = '@Url.Action("GetArtDetails", "Order")';
         yourApp.Urls.GetLicenseIds = '@Url.Action("GetLicenseIds", "Order")';
-        yourApp.Urls.GetLicenseType = '@Url.Action("GetLicenseType", "Order")';
+        yourApp.Urls.GetLicenseInfo = '@Url.Action("GetLicenseInfo", "Order")';
+        yourApp.Urls.GetPrice = '@Url.Action("GetPrice", "Order")';
 
         var companies = JSON.parse(atob('@ViewBag.Companies'));
         function submitform() {
-            $.post("/Order/Insert", {
-                AccountName: $("#accountName-choice").val(),
-                ProductName: $("#productName-choice").val(),
-                ArticleDetail: $("#articleDetail-choice").val(),
-                LicenseID: $("#licenseID-choice").val(),
-                StartDate: $("input[name=startDate]").val(),
-                EndDate: $("input[name=endDate]").val(),
-                LicenseType: $("#licenseType-choice").val(),
-                LineType: $("#lineType-choice").val(),
-                Quantity: $("input[name=quantity]").val(),
-                Ordered: $("input[name=ordered]").val(),
-                OrderNumber: $("input[name=orderNumber]").val(),
-                Orderdate: $("input[name=orderDate]").val(),
-                PO_Number: $("input[name=poNumber]").val(),
-                InvoiceNumber: $("input[name=invoiceNumber]").val(),
-                Invoicedate: $("input[name=invoiceDate]").val(),
-                NewOldAccount: $("#newOldAccount-choice").val(),
-                NewRenewal: $("#newRenewal-choice").val(),
-                Currency: $("#currency-choice").val(),
-                EURO_PriceList: $("input[name=euroPriceList]").val(),
-                JPY_PriceList: $("input[name=jpyPriceList]").val(),
-                Invoiced: $("input[name=invoiced]").val(),
-                Requestdate: $("input[name=requestDate]").val(),
-            },
-            function (result) {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+            if ($("#accountName-choice").val() == "" || $("#productName-choice").val() == "" || $("#licenseID-choice").val()) {
                 var $psw = $("#msg");
                 $psw.text("");
-                $psw.text(result);
+                $psw.text("Please fill out Account name, Product name and licenseID fields!");
                 var pwdDialogConfig = {
                     modal: true,
                     width: 400,
-                    height: result ? 250 : "auto",
+                    height: 250,
                     buttons: {
                         OK: function () {
                             $(this).dialog("close");
@@ -58,12 +39,60 @@
                     }
                 };
                 $("#sysmsg-dialog").dialog(pwdDialogConfig);
-            });
+            }
+            else
+                $.post("/Order/Insert", {
+                    OrderNumber: $("input[name=orderNumber]").val(),
+                    AccountName: $("#accountName-choice").val(),
+                    SalesRep: $("input[name=salesRep]").val(),
+                    Invoicer: $("input[name=invoicer]").val(),
+                    InvoicedName: $("input[name=invoicedName]").val(),
+                    InvoicedNumber: $("input[name=invoicedNumber]").val(),
+                    ProductName: $("#productName-choice").val(),
+                    ArticleDetail: $("#articleDetail-choice").val(),
+                    LicenseID: $("#licenseID-choice").val(),
+                    StartDate: $("input[name=startDate]").val(),
+                    EndDate: $("input[name=endDate]").val(),
+                    LicenseType: $("input[name=licenseType]").val(),
+                    LineType: $("#lineType-choice").val(),
+                    Quantity: $("input[name=quantity]").val(),
+                    Ordered: $("input[name=ordered]").val(),
+                    Orderdate: $("input[name=orderDate]").val(),
+                    PO_Number: $("input[name=poNumber]").val(),
+                    InvoiceNumber: $("input[name=invoiceNumber]").val(),
+                    Invoicedate: $("input[name=invoiceDate]").val(),
+                    NewOldAccount: $("#newOldAccount-choice").val(),
+                    NewRenewal: $("#newRenewal-choice").val(),
+                    Currency: $("#currency-choice").val(),
+                    EURO_PriceList: $("input[name=euroPriceList]").val(),
+                    JPY_PriceList: $("input[name=jpyPriceList]").val()
+                },
+                function (result) {
+                    if (result.split(" ").length == 3) {
+                        $("input[name=orderNumber]").empty();
+                        $("input[name=orderNumber]").val(result.split(" ")[2]);
+                    }
+                    var $psw = $("#msg");
+                    $psw.text("");
+                    $psw.text(result);
+                    var pwdDialogConfig = {
+                        modal: true,
+                        width: 400,
+                        height: result ? 250 : "auto",
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("close");
+                                //location.reload();
+                            }
+                        }
+                    };
+                    $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                });
         }
 
         $(document).ready(function () {
             if ($("input[name=startDate]").val() == "0001-01-01" || $("input[name=endDate]").val() == "0001-01-01" ||
-                $("input[name=orderDate]").val() == "0001-01-01" || $("input[name=invoiceDate]").val() == "0001-01-01" || $("input[name=requestDate]").val() == "0001-01-01") {
+                $("input[name=orderDate]").val() == "0001-01-01" || $("input[name=invoiceDate]").val() == "0001-01-01") {
                 var now = new Date();
                 var month = (now.getMonth() + 1);
                 var day = now.getDate();
@@ -76,7 +105,6 @@
                 $("input[name=endDate]").val(today);
                 $("input[name=orderDate]").val(today);
                 $("input[name=invoiceDate]").val(today);
-                $("input[name=requestDate]").val(today);
             }
 
             for (var i = 0; i < companies.length; i++) {
@@ -93,41 +121,61 @@
                              $("#productName-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
                          }
                      });
-            });
-
-            $("#productName-choice").change(function () {
-                $("#articleDetail-choice").empty();
-                $.post(yourApp.Urls.GetArtDetails, { companyName: $("#accountName-choice").val(), productName: $("#productName-choice").val() },
+                $.post(yourApp.Urls.GetInvoiceInfo, { companyName: $("#accountName-choice").val() },
                      function (result) {
-                         $("#articleDetail-choice").empty();
-                         $("#articleDetail-choice").append("<option value='" + "" + "'>" + "" + "</option>");
-                         for (var i = 0; i < result.length; i++) {
-                             $("#articleDetail-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
-                         }
+                         $("input[name=salesRep]").empty();
+                         $("input[name=salesRep]").val(result.SalesRep);
+                         $("input[name=invoicer]").empty();
+                         $("input[name=invoicer]").val(result.Invoicer);
+                         $("input[name=invoicedName]").empty();
+                         $("input[name=invoicedName]").val(result.InvoicedName);
+                         $("input[name=invoicedNumber]").empty();
+                         $("input[name=invoicedNumber]").val(result.InvoicedNumber);
                      });
             });
 
-            $("#articleDetail-choice").change(function () {
+            $("#productName-choice").change(function () {
                 $("#licenseID-choice").empty();
-                $.post(yourApp.Urls.GetLicenseIds, { companyName: $("#accountName-choice").val(), productName: $("#productName-choice").val(), artDetail: $("#articleDetail-choice").val() },
+                $.post(yourApp.Urls.GetLicenseIds, { companyName: $("#accountName-choice").val(), productName: $("#productName-choice").val() },
                      function (result) {
                          $("#licenseID-choice").empty();
                          $("#licenseID-choice").append("<option value='" + "" + "'>" + "" + "</option>");
                          for (var i = 0; i < result.length; i++) {
-                             $("#licenseID-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
+                             $("#licenseID-choice").append("<option value='" + result[i].LicenseID + "'>" + result[i].LicenseID + " - \"" + result[i].MachineID + "\" - " + result[i].MED + "</option>");
                          }
                      });
+                if ($("#articleDetail-choice").val() !== "") {
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val() },
+                         function (result) {
+                             $("input[name=euroPriceList]").empty();
+                             $("input[name=euroPriceList]").val(result.split("_")[0]);
+                             $("input[name=jpyPriceList]").empty();
+                             $("input[name=jpyPriceList]").val(result.split("_")[1]);
+                         });
+                }
             });
+
+            $("#articleDetail-choice").change(function () {
+                if ($("#productName-choice").val() !== "") {
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val() },
+                         function (result) {
+                             $("input[name=euroPriceList]").empty();
+                             $("input[name=euroPriceList]").val(result.split("_")[0]);
+                             $("input[name=jpyPriceList]").empty();
+                             $("input[name=jpyPriceList]").val(result.split("_")[1]);
+                         });
+                }
+            });
+
 
             $("#licenseID-choice").change(function () {
                 $("#licenseType-choice").empty();
-                $.post(yourApp.Urls.GetLicenseType, { licenseId: $("#licenseID-choice").val() },
+                $.post(yourApp.Urls.GetLicenseInfo, { licenseId: $("#licenseID-choice").val() },
                      function (result) {
-                         $("#licenseType-choice").empty();
-                         $("#licenseType-choice").append("<option value='" + "" + "'>" + "" + "</option>");
-                         for (var i = 0; i < result.length; i++) {
-                             $("#licenseType-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
-                         }
+                         $("input[name=licenseType]").empty();
+                         $("input[name=licenseType]").val(result.LicenseType);
+                         $("input[name=quantity]").empty();
+                         $("input[name=quantity]").val(result.Quantity);
                      });
             });
 
@@ -137,6 +185,13 @@
 
 @foreach (var item in Model)
 {
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.OrderNumber)
+    </div>
+    <div class="editor-field">
+        <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)" readonly>
+    </div>
+
     <div class="editor-label" style="font-size: 1.2em;">
         @Html.DisplayNameFor(model => model.AccountName)
     </div>
@@ -153,57 +208,59 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayNameFor(model => model.ProductName)</td>
+                <td>@Html.DisplayNameFor(model => model.SalesRep)</td>
                 <td>
-                    <select name="productName" id="productName-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.ProductName)">@Html.DisplayFor(modelItem => item.ProductName)</option>
-                    </select>
+                    <input type="text" name="salesRep" value="@Html.DisplayFor(modelItem => item.SalesRep)" readonly>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.ArticleDetail)</td>
+                <td>@Html.DisplayNameFor(model => model.Invoicer)</td>
                 <td>
-                    <select name="articleDetail" id="articleDetail-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.ArticleDetail)">@Html.DisplayFor(modelItem => item.ArticleDetail)</option>
-                    </select>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.LineType)</td>
-                <td>
-                    <select name="lineType" id="lineType-choice">
-                        <option value="standard" selected>standard</option>
-                        <option value="activation">activation</option>
-                        <option value="freeOfCharge">freeOfCharge</option>
-                    </select>
+                    <input type="text" name="invoicer" value="@Html.DisplayFor(modelItem => item.Invoicer)" readonly>
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
+                <td>@Html.DisplayNameFor(model => model.InvoicedName)</td>
                 <td>
-                    <select name="licenseID" id="licenseID-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.LicenseID)">@Html.DisplayFor(modelItem => item.LicenseID)</option>
-                    </select>
+                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.InvoicedName)" readonly>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.StrStartDate)</td>
+                <td>@Html.DisplayNameFor(model => model.InvoicedNumber)</td>
                 <td>
-                    <input type="date" name="startDate" value="@Html.DisplayFor(modelItem => item.StrStartDate)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.StrEndDate)</td>
-                <td>
-                    <input type="date" name="endDate" value="@Html.DisplayFor(modelItem => item.StrEndDate)">
+                    <input type="text" name="invoicedNumber" value="@Html.DisplayFor(modelItem => item.InvoicedNumber)" readonly>
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.LicenseType)</td>
+                <td>@Html.DisplayNameFor(model => model.StrOrderDate)</td>
                 <td>
-                    <select name="licenseType" id="licenseType-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.LicenseType)">@Html.DisplayFor(modelItem => item.LicenseType)</option>
+                    <input type="date" name="orderDate" value="@Html.DisplayFor(modelItem => item.StrOrderDate)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.PO_Number)</td>
+                <td>
+                    <input type="text" name="poNumber" value="@Html.DisplayFor(modelItem => item.PO_Number)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.StrInvoiceDate)</td>
+                <td>
+                    <input type="date" name="invoiceDate" value="@Html.DisplayFor(modelItem => item.StrInvoiceDate)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.InvoiceNumber)</td>
+                <td>
+                    <input type="text" name="invoiceNumber" value="@Html.DisplayFor(modelItem => item.InvoiceNumber)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NewOldAccount)</td>
+                <td>
+                    <select name="newOldAccount" id="newOldAccount-choice">
+                        <option value="old" selected>old</option>
+                        <option value="new">new</option>
                     </select>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.Quantity)</td>
+                <td>@Html.DisplayNameFor(model => model.Currency)</td>
                 <td>
-                    <input type="number" name="quantity" min="1" value="@Html.DisplayFor(modelItem => item.Quantity)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.Ordered)</td>
-                <td>
-                    <input type="number" name="ordered" min="0" value="@Html.DisplayFor(modelItem => item.Ordered)">
+                    <select name="currency" id="currency-choice">
+                        <option value="eur" selected>eur</option>
+                        <option value="jpy">jpy</option>
+                    </select>
                 </td>
             </tr>
         }
@@ -216,43 +273,61 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayNameFor(model => model.OrderNumber)</td>
+                <td>@Html.DisplayNameFor(model => model.ProductName)</td>
                 <td>
-                    <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.StrOrderDate)</td>
-                <td>
-                    <input type="date" name="orderDate" value="@Html.DisplayFor(modelItem => item.StrOrderDate)">
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.InvoiceNumber)</td>
-                <td>
-                    <input type="text" name="invoiceNumber" value="@Html.DisplayFor(modelItem => item.InvoiceNumber)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.StrInvoiceDate)</td>
-                <td>
-                    <input type="date" name="invoiceDate" value="@Html.DisplayFor(modelItem => item.StrInvoiceDate)">
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.PO_Number)</td>
-                <td>
-                    <input type="text" name="poNumber" value="@Html.DisplayFor(modelItem => item.PO_Number)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.StrRequestDate)</td>
-                <td>
-                    <input type="date" name="requestDate" value="@Html.DisplayFor(modelItem => item.StrRequestDate)">
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.NewOldAccount)</td>
-                <td>
-                    <select name="newOldAccount" id="newOldAccount-choice">
-                        <option value="old" selected>old</option>
-                        <option value="new">new</option>
+                    <select name="productName" id="productName-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.ProductName)">@Html.DisplayFor(modelItem => item.ProductName)</option>
                     </select>
                 </td>
+                <td>@Html.DisplayNameFor(model => model.ArticleDetail)</td>
+                <td>
+                    <select name="articleDetail" id="articleDetail-choice">
+                        <option value="asf" selected>asf</option>
+                        <option value="qsf">qsf</option>
+                        <option value="plss">plss</option>
+                        <option value="pl">pl</option>
+                        <option value="chw">chw</option>
+                        <option value="cvu">cvu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
+                <td>
+                    <select name="licenseID" id="licenseID-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.LicenseID)">@Html.DisplayFor(modelItem => item.LicenseID)</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.LineType)</td>
+                <td>
+                    <select name="lineType" id="lineType-choice">
+                        <option value="standard" selected>standard</option>
+                        <option value="activation">activation</option>
+                        <option value="freeOfCharge">freeOfCharge</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.LicenseType)</td>
+                <td>
+                    <input type="text" name="licenseType" value="@Html.DisplayFor(modelItem => item.LicenseType)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Quantity)</td>
+                <td>
+                    <input type="number" name="quantity" min="1" value="@Html.DisplayFor(modelItem => item.Quantity)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.StrStartDate)</td>
+                <td>
+                    <input type="date" name="startDate" value="@Html.DisplayFor(modelItem => item.StrStartDate)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.StrEndDate)</td>
+                <td>
+                    <input type="date" name="endDate" value="@Html.DisplayFor(modelItem => item.StrEndDate)">
+                </td>
+            </tr>
+            <tr>
                 <td>@Html.DisplayNameFor(model => model.NewRenewal)</td>
                 <td>
                     <select name="newRenewal" id="newRenewal-choice">
@@ -260,28 +335,19 @@
                         <option value="new">new</option>
                     </select>
                 </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Currency)</td>
+                <td>@Html.DisplayNameFor(model => model.Ordered)</td>
                 <td>
-                    <select name="currency" id="currency-choice">
-                        <option value="eur" selected>eur</option>
-                        <option value="jpy">jpy</option>
-                    </select>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.Invoiced)</td>
-                <td>
-                    <input type="number" name="invoiced" min="0" value="@Html.DisplayFor(modelItem => item.Invoiced)">
+                    <input type="number" name="ordered" min="0" value="@Html.DisplayFor(modelItem => item.Ordered)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.EURO_PriceList)</td>
                 <td>
-                    <input type="number" name="euroPriceList" min="0" value="@Html.DisplayFor(modelItem => item.EURO_PriceList)">
+                    <input type="number" name="euroPriceList" min="0" value="@Html.DisplayFor(modelItem => item.EURO_PriceList)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.JPY_PriceList)</td>
                 <td>
-                    <input type="number" name="jpyPriceList" min="0" value="@Html.DisplayFor(modelItem => item.JPY_PriceList)">
+                    <input type="number" name="jpyPriceList" min="0" value="@Html.DisplayFor(modelItem => item.JPY_PriceList)" readonly>
                 </td>
             </tr>
             <tr>

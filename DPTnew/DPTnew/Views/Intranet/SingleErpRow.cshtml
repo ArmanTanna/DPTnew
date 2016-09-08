@@ -14,6 +14,10 @@
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Intranet")';
         function submitform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
             $.post("/Intranet/Modify", {
                 ActivityId: $("input[name=id]").val(),
                 Email: $("input[name=email]").val(),

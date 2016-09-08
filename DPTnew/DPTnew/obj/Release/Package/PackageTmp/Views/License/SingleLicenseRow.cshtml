@@ -15,6 +15,10 @@
         yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "License")';
 
         function submitform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
             $.post("/License/Modify", {
                 AccountNumber: $("input[name=accountNumber]").val(),
                 AccountName: $("input[name=accountName]").val(),

@@ -11,37 +11,18 @@
         yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "Company")';
 
         function submitform() {
-            $.post("/Company/Modify", {
-                AccountNumber: $("input[name=accountNumber]").val(),
-                AccountName: $("input[name=accountName]").val(),
-                AccountKind: $("input[name=accountKind]").val(),
-                AccountStatus: $("#accountStatus-choice").val(),
-                SalesRep: $("#salesRep-choice").val(),
-                Address: $("input[name=address]").val(),
-                ZIP: $("input[name=zip]").val(),
-                City: $("input[name=city]").val(),
-                Province: $("input[name=province]").val(),
-                Country: $("input[name=country]").val(),
-                Email: $("input[name=email]").val(),
-                AccountNameK: $("input[name=accountNameK]").val(),
-                ProvinceK: $("input[name=provinceK]").val(),
-                Phone1: $("input[name=phone1]").val(),
-                Phone2: $("input[name=phone2]").val(),
-                Fax: $("input[name=fax]").val(),
-                Website: $("input[name=website]").val(),
-                Segment: $("#segment-choice").val(),
-                Industry: $("#industry-choice").val(),
-                Production: $("input[name=production]").val(),
-                Language: $("#language-choice").val()
-            },
-            function (result) {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+            if ($("input[name=accountName]").val() == "") {
                 var $psw = $("#msg");
                 $psw.text("");
-                $psw.text(result);
+                $psw.text("Account Name missing!");
                 var pwdDialogConfig = {
                     modal: true,
                     width: 400,
-                    height: result ? 250 : "auto",
+                    height: 250,
                     buttons: {
                         OK: function () {
                             $(this).dialog("close");
@@ -50,7 +31,52 @@
                     }
                 };
                 $("#sysmsg-dialog").dialog(pwdDialogConfig);
-            });
+            }
+            else
+                $.post("/Company/Modify", {
+                    AccountNumber: $("input[name=accountNumber]").val(),
+                    AccountName: $("input[name=accountName]").val(),
+                    AccountKind: $("input[name=accountKind]").val(),
+                    AccountStatus: $("#accountStatus-choice").val(),
+                    SalesRep: $("#salesRep-choice").val(),
+                    Address: $("input[name=address]").val(),
+                    ZIP: $("input[name=zip]").val(),
+                    City: $("input[name=city]").val(),
+                    Province: $("input[name=province]").val(),
+                    Country: $("input[name=country]").val(),
+                    Email: $("input[name=email]").val(),
+                    AccountNameK: $("input[name=accountNameK]").val(),
+                    ProvinceK: $("input[name=provinceK]").val(),
+                    Phone1: $("input[name=phone1]").val(),
+                    Phone2: $("input[name=phone2]").val(),
+                    Fax: $("input[name=fax]").val(),
+                    Website: $("input[name=website]").val(),
+                    Segment: $("#segment-choice").val(),
+                    Industry: $("#industry-choice").val(),
+                    Production: $("input[name=production]").val(),
+                    Language: $("#language-choice").val()
+                },
+                function (result) {
+                    if (result.split(" ").length == 3) {
+                        $("input[name=accountNumber]").empty();
+                        $("input[name=accountNumber]").val(result.split(" ")[2]);
+                    }
+                    var $psw = $("#msg");
+                    $psw.text("");
+                    $psw.text(result);
+                    var pwdDialogConfig = {
+                        modal: true,
+                        width: 400,
+                        height: result ? 250 : "auto",
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("close");
+                                //location.reload();
+                            }
+                        }
+                    };
+                    $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                });
         }
 
     </script>

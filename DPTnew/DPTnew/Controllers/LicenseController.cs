@@ -101,10 +101,13 @@ namespace DPTnew.Controllers
         {
             List<LicenseView> rows = new List<LicenseView>();
             rows.Add(licSingleRow);
-            var companyList = _db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
-            companyList.Sort();
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
-            ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+            using (var db = new DptContext())
+            {
+                var companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                companyList.Sort();
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
+                ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+            }
             return View(rows);
         }
 
