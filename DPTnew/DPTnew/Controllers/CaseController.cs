@@ -151,13 +151,13 @@ namespace DPTnew.Controllers
                 return View("Success");
             }
 
-            if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
-                || Path.GetExtension(file.FileName).Contains("rar") /*||
-                file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
-            {
-                ViewBag.ok1 = "Only the *.zip, and *.rar file are accepted!";
-                return View("Success");
-            }
+            //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
+            //    || Path.GetExtension(file.FileName).Contains("rar") /*||
+            //    file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
+            //{
+            //    ViewBag.ok1 = "Only the *.zip, and *.rar file are accepted!";
+            //    return View("Success");
+            //}
 
             if (file != null)
             {
@@ -229,6 +229,9 @@ namespace DPTnew.Controllers
                         {
                             return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
                         }
+                        if (caseRow.Status == "Open")
+                            caseRow.Status = "Working";
+
                         if (ncase.Status != caseRow.Status)
                         {
                             var dcl = new DptCaseLog();
@@ -238,11 +241,13 @@ namespace DPTnew.Controllers
                             dcl.Status = caseRow.Status;
                             db.CaseLogs.Add(dcl);
                             db.SaveChanges();
+
                             MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                            var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
                             mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
-                            mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + ncase.Description;
+                            mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
                             mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                "Details: " + ncase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
                                 "\n\nBest Regards,\n\nCustomer Care team";
                             SendMail(mail);
                         }
@@ -287,6 +292,36 @@ namespace DPTnew.Controllers
                 db.CaseHistories.Add(chl);
                 db.SaveChanges();
                 casehId = db.CaseHistories.Local[0].CaseHistoryId;
+
+                var origCase = from oc in db.Cases
+                               where oc.CaseId == caseHistoryRow.CaseId
+                               select oc;
+                var destmail = chl.CreatedBy;
+                if (origCase.Count() > 0)
+                {
+                    foreach (var oc in origCase)
+                    {
+                        if (oc.CreatedBy == chl.CreatedBy)
+                        {
+                            destmail = oc.CCEngineer;
+                            oc.Status = "Working";
+                        }
+                        else
+                        {
+                            oc.Status = "Waiting on Customer";
+                            destmail = oc.CreatedBy;
+                        }
+                    }
+                    db.SaveChanges();
+                }
+                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
+                mail.Subject = "[DO NOT REPLY] Case #" + caseHistoryRow.CaseId + " has been updated - " + caseHistoryRow.Description;
+                mail.Body = "Dear User, \n\nThe case #" + caseHistoryRow.CaseId + " status has changed.\n\n" +
+                    "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                    "\n\nBest Regards,\n\nCustomer Care team";
+                SendMail(mail);
+
             }
             return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
         }
@@ -300,13 +335,13 @@ namespace DPTnew.Controllers
                 return View("Success");
             }
 
-            if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
-                || Path.GetExtension(file.FileName).Contains("rar") /*||
-                file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
-            {
-                ViewBag.ok1 = "Only the *.zip and *.rar file are accepted!";
-                return View("Success");
-            }
+            //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
+            //    || Path.GetExtension(file.FileName).Contains("rar") /*||
+            //    file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
+            //{
+            //    ViewBag.ok1 = "Only the *.zip and *.rar file are accepted!";
+            //    return View("Success");
+            //}
             if (file != null)
             {
                 using (var db = new DptContext())
