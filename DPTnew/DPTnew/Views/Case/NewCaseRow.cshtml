@@ -14,6 +14,10 @@
         yourApp.Urls.GetContacts = '@Url.Action("GetContacts", "Case")';
         yourApp.Urls.UploadFile = '@Url.Action("UploadFile", "Case")';
 
+        $('form').one('submit', function () {
+            $("input[name=filename]").val(escape($("input[name=file]").val().split("\\")[$("input[name=file]").val().split("\\").length - 1]));
+        });
+
         var companies = JSON.parse(atob('@ViewBag.Companies'));
         function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
@@ -239,6 +243,8 @@
         <input type="file" name="file" id="file" accept=".*" />
 
         <input type="submit" name="submitButton" value="submit" />
+
+        <input type="text" name="filename" id="filename" hidden />
     }
 </div>
 <div id="sysmsg-dialog" title="System message" style="display:none;">

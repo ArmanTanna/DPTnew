@@ -12,6 +12,10 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
 
+        $('form').one('submit', function () {
+            $("input[name=filename]").val(escape($("input[name=file]").val().split("\\")[$("input[name=file]").val().split("\\").length - 1]));
+        });
+
         function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
@@ -114,6 +118,8 @@
         <input type="file" name="file" id="file" accept=".*" />
 
         <input type="submit" name="submitButton" value="submit" />
+
+        <input type="text" name="filename" id="filename" hidden />
     }
 </div>
 <div id="sysmsg-dialog" title="System message" style="display:none;">

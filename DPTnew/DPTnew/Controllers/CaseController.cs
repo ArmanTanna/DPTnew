@@ -19,6 +19,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 using DPTnew.Helper;
+using Microsoft.JScript;
 
 namespace DPTnew.Controllers
 {
@@ -143,13 +144,14 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadFile(string caseRowID, HttpPostedFileBase file, string submitButton)
+        public ActionResult UploadFile(string caseRowID, string filename, HttpPostedFileBase file, string submitButton)
         {
             if (submitButton == "close")
             {
                 ViewBag.ok1 = "The new case has been saved correctly!";
                 return View("Success");
             }
+            string decodedfl = GlobalObject.unescape(filename);
 
             //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
             //    || Path.GetExtension(file.FileName).Contains("rar") /*||
@@ -163,7 +165,7 @@ namespace DPTnew.Controllers
             {
                 using (var db = new DptContext())
                 {
-                    var caseID = Convert.ToInt64(caseRowID);
+                    var caseID = System.Convert.ToInt64(caseRowID);
                     var query = from ucase in db.CaseHistories
                                 where ucase.CaseId == caseID
                                 select ucase;
@@ -177,7 +179,7 @@ namespace DPTnew.Controllers
                             try
                             {
                                 System.IO.Directory.CreateDirectory(path);
-                                ncase.File = path + "\\" + caseRowID + Path.GetExtension(file.FileName);
+                                ncase.File = path + "\\" + decodedfl;
                                 file.SaveAs(ncase.File);
                                 db.SaveChanges();
                             }
@@ -327,13 +329,16 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadHistoryFile(string caseRowID, string casehId, HttpPostedFileBase file, string submitButton)
+        public ActionResult UploadHistoryFile(string caseRowID, string casehId, string filename, HttpPostedFileBase file, string submitButton)
         {
             if (submitButton == "close")
             {
                 ViewBag.ok1 = "The new history case has been saved correctly!";
                 return View("Success");
             }
+
+            //string decodedfl = Encoding.Default.GetString(Convert.FromBase64String(filename));
+            string decodedfl = GlobalObject.unescape(filename);
 
             //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
             //    || Path.GetExtension(file.FileName).Contains("rar") /*||
@@ -346,7 +351,7 @@ namespace DPTnew.Controllers
             {
                 using (var db = new DptContext())
                 {
-                    var casehID = Convert.ToInt64(casehId);
+                    var casehID = System.Convert.ToInt64(casehId);
                     var query = from uhcase in db.CaseHistories
                                 where uhcase.CaseHistoryId == casehID
                                 select uhcase;
@@ -361,7 +366,7 @@ namespace DPTnew.Controllers
                             try
                             {
                                 System.IO.Directory.CreateDirectory(path);
-                                ncase.File = path + "\\" + caseRowID + "_" + casehID + Path.GetExtension(file.FileName);
+                                ncase.File = path + "\\" + decodedfl;
                                 file.SaveAs(ncase.File);
                                 db.SaveChanges();
                             }
