@@ -160,6 +160,15 @@ namespace DptLicensingServer.Controllers
                 currentlicense.EndDate = currentlicense.MaintEndDate;
                 expdata = DateTime.Now.AddDays(7).ToString("yyyyMMdd");
             }
+            if (artDetail == "pl")
+            {
+                currentlicense.MaintStartDate = DateTime.Now;
+                currentlicense.MaintEndDate = DateTime.Now;
+                currentlicense.StartDate = currentlicense.MaintStartDate;
+                currentlicense.EndDate = currentlicense.MaintEndDate;
+                expdata = DateTime.Now.ToString("yyyyMMdd");
+            }
+
             db.Licenses.Attach(currentlicense);
             var entry = db.Entry(currentlicense);
             entry.Property(x => x.MaintEndDate).IsModified = true;

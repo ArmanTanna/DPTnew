@@ -348,7 +348,7 @@ namespace DPTnew.Controllers
         {
             using (var db = new DptContext())
             {
-                return View(db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId));
+                return View(db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId).ToList());
             }
         }
 

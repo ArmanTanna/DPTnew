@@ -149,8 +149,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             tipo: "P",
             machineid: machineId,
             prodotto: data.PwdCode,
-            artDetail: data.ArticleDetail.toLocaleLowerCase()
+            artDetail: data.ArticleDetail.toLocaleLowerCase(),
         };
+        if (data.ArticleDetail.toLocaleLowerCase() == "pl" && data.MED)
+            postData.expdata = data.MED.replaceAll("-", "") == "20280101" ? data.MED.replaceAll("-", "") : null;
+
         if (data.ArticleDetail.toLocaleLowerCase() === "asf" || data.ArticleDetail.toLocaleLowerCase() === "qsf"
             || data.ArticleDetail.toLocaleLowerCase() === "msf" || data.ArticleDetail.toLocaleLowerCase() === "tsf"
             || data.ArticleDetail.toLocaleLowerCase() === "wsf") {
@@ -395,7 +398,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                      var header = myTable.rows('.selected').data()[0];
                                      header.FlexType = $("#flexType-choice").val();
                                      header.MachineID = $("input[name=macid]").val();
-                                     header.Vend_String = $("input[name=vString]").val();
+                                     if ($("input[name=vString]").val() !== "")
+                                         header.Vend_String = $("input[name=vString]").val();
                                      header.PwdCode = header.PwdCode.split(",")[0] + "," + header.PwdCode.split(",")[1] + "," +
                                          header.MachineID + "," + header.Quantity + "," + (header.MED ? header.MED.replaceAll("-", "") : "")
                                      + "," + header.Vend_String + "," + header.FlexType + "," + (header.ArticleDetail == "pl" ? 2 : 0);

@@ -617,6 +617,7 @@ namespace DPTnew.Controllers
                             if (currentlicense.ArticleDetail == "pl")
                             {
                                 type = "PL";
+                                SetDateToNow(currentlicense);
                             }
                             else
                             {
@@ -633,6 +634,7 @@ namespace DPTnew.Controllers
                             if (currentlicense.ArticleDetail == "pl")
                             {
                                 type = "NET_PL";
+                                SetDateToNow(currentlicense);
                             }
                             else
                             {
@@ -772,6 +774,14 @@ namespace DPTnew.Controllers
             ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license.");
             return View("Create", l);
 
+        }
+
+        private static void SetDateToNow(LicenseView currentlicense)
+        {
+            currentlicense.StartDate = DateTime.Now;
+            currentlicense.EndDate = DateTime.Now;
+            currentlicense.MaintStartDate = DateTime.Now;
+            currentlicense.MaintEndDate = DateTime.Now;
         }
 
         private static void CheckQMTsf(LicenseView currentlicense)
