@@ -417,9 +417,13 @@ namespace DptLicensingServer.Controllers
                         currentlicense.MachineID = machineid1;
                         currentlicense.Vend_String = vend_string;
                         currentlicense.FlexType = typelic;
+                        currentlicense.Quantity = nlic;
                         db.Licenses.Attach(currentlicense);
                         var entry = db.Entry(currentlicense);
                         entry.Property(x => x.MachineID).IsModified = true;
+                        entry.Property(x => x.Vend_String).IsModified = true;
+                        entry.Property(x => x.FlexType).IsModified = true;
+                        entry.Property(x => x.Quantity).IsModified = true;
                         db.SaveChanges();
                     }
 

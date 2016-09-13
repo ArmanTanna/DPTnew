@@ -391,13 +391,15 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                      else {
                          $("#floating-dialog").dialog({
                              resizable: false,
-                             height: 250,
+                             height: 300,
                              modal: true,
                              buttons: {
                                  "Install": function () {
                                      var header = myTable.rows('.selected').data()[0];
                                      header.FlexType = $("#flexType-choice").val();
                                      header.MachineID = $("input[name=macid]").val();
+                                     if ($("input[name=qty]").val() > 1)
+                                         header.Quantity = $("input[name=qty]").val();
                                      if ($("input[name=vString]").val() !== "")
                                          header.Vend_String = $("input[name=vString]").val();
                                      header.PwdCode = header.PwdCode.split(",")[0] + "," + header.PwdCode.split(",")[1] + "," +

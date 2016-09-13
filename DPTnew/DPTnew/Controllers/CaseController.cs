@@ -139,6 +139,13 @@ namespace DPTnew.Controllers
                 chl.CreatedBy = Membership.GetUser().UserName;
                 db.CaseHistories.Add(chl);
                 db.SaveChanges();
+
+                MailMessage mail = new MailMessage("is@dptcorporate.com", "Caseinteractions@think3.eu");
+                mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + caseRow.Description;
+                mail.Body = "Dear User, \n\nThe case #" + caseId + " has been inserted.\n\n" +
+                    "Details: " + caseRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                    "\n\nBest Regards,\n\nCustomer Care team";
+                SendMail(mail);
             }
             return Json(caseId, JsonRequestBehavior.AllowGet);
         }
@@ -245,12 +252,45 @@ namespace DPTnew.Controllers
                             db.SaveChanges();
 
                             MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
-                            var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
-                            mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
-                            mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
-                            mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
-                                "\n\nBest Regards,\n\nCustomer Care team";
+                            mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
+
+                            if (caseRow.Status != "Closed")
+                            {
+                                var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
+                                mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
+                                mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
+                                    "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                    "\n\nBest Regards,\n\nCustomer Care team";
+                            }
+                            else
+                            {
+                                var cr = db.Cases.Where(c => c.CaseId == caseRow.CaseId).FirstOrDefault();
+                                if (cr.Language == "japanese")
+                                {
+                                    mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been closed";
+                                    mail.Body = "Dear User,\n" + "We have closed the case.\n" +
+                                        "If you need more information please do not hesitate to contact us.\n" +
+                                        "To add more information and upload files, we strongly recommend you to use the web site " +
+                                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                                        "address (noreply_thinkcare@think3.eu)." +
+                                        "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/ " +
+                                        " \nThank you for your patience and cooperation." +
+                                        "\n\nBest Regards,\n\nCustomer Care team";
+                                }
+                                else
+                                {
+                                    mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been closed";
+                                    mail.Body = "Dear User,\n" + "We have closed the case.\n" +
+                                        "If you need more information please do not hesitate to contact us.\n" +
+                                        "To add more information and upload files, we strongly recommend you to use the web site " +
+                                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                                        "address (noreply_thinkcare@think3.eu)." +
+                                        "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/ " +
+                                        " \nThank you for your patience and cooperation." +
+                                        "\n\nBest Regards,\n\nCustomer Care team";
+
+                                }
+                            }
                             SendMail(mail);
                         }
                         ncase.Status = caseRow.Status;
@@ -316,14 +356,16 @@ namespace DPTnew.Controllers
                     }
                     db.SaveChanges();
                 }
-                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                mail.CC.Add(new MailAddress("Caseinteractions@think3.eu"));
-                mail.Subject = "[DO NOT REPLY] Case #" + caseHistoryRow.CaseId + " has been updated - " + caseHistoryRow.Description;
-                mail.Body = "Dear User, \n\nThe case #" + caseHistoryRow.CaseId + " status has changed.\n\n" +
-                    "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
-                    "\n\nBest Regards,\n\nCustomer Care team";
-                SendMail(mail);
-
+                if (!string.IsNullOrEmpty(destmail))
+                {
+                    MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                    mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
+                    mail.Subject = "[DO NOT REPLY] Case #" + caseHistoryRow.CaseId + " has been updated - " + caseHistoryRow.Description;
+                    mail.Body = "Dear User, \n\nThe case #" + caseHistoryRow.CaseId + " status has changed.\n\n" +
+                        "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                        "\n\nBest Regards,\n\nCustomer Care team";
+                    SendMail(mail);
+                }
             }
             return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
         }
