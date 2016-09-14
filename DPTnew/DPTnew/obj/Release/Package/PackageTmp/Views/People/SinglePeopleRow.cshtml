@@ -14,6 +14,8 @@
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.GetPeopleRolesFromDB = '@Url.Action("GetPeopleRolesFromDB", "People")';
         yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "People")';
+        var companies = JSON.parse(atob('@ViewBag.Companies'));
+        var UserRole = '@ViewBag.UserRole.ToString().ToLower()';
 
         function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
@@ -27,7 +29,7 @@
                 LastName: $("input[name=lastName]").val(),
                 Language: $("#language-choice").val(),
                 EmailStatus: $("#emailStatus-choice").val(),
-                AccountNumber: $("input[name=accountNumber]").val(),
+                AccountNumber: $("#accountNumber-choice").val(),
                 PrimaryContact: $("#primaryContact-choice").val(),
                 FirstNameK: $("input[name=firstNameK]").val(),
                 LastNameK: $("input[name=lastNameK]").val(),
@@ -35,6 +37,10 @@
                 Status: $("#status-choice").val()
             },
             function (result) {
+                if (result.split(" ").length == 3) {
+                    $("input[name=userId]").empty();
+                    $("input[name=userId]").val(result.split(" ")[2]);
+                }
                 var $psw = $("#msg");
                 $psw.text("");
                 $psw.text(result);
@@ -65,11 +71,11 @@
             $.post(yourApp.Urls.GetPeopleRolesFromDB, {},
              function (result) {
                  for (var i = 0; i < result.length; i++) {
-                     if ($("#roleName-choice").val() != result[i].RoleName)
+                     if ($("#roleName-choice").val() != result[i].RoleId)
                          $("#roleName-choice").append("<option value='" + result[i].RoleId + "'>" + result[i].RoleName + "</option>");
                  }
              });
-            if ($("#roleName-choice").val() != "0")
+            if (($("#roleName-choice").text().indexOf("User") === -1 && $("#roleName-choice").text().indexOf("UserNoLic") !== -1) || $("#roleName-choice").val() !== "0")
                 $("#roleName-choice").append("<option value='0'>User</option>");
 
             if ($("#language-choice").val() != "english")
@@ -107,10 +113,30 @@
                 $("#status-choice").append("<option value='0'>0</option>");
             if ($("#status-choice").val() != 1)
                 $("#status-choice").append("<option value='1'>1</option>");
+
+            if (UserRole !== "true") {
+                $("#accountNumber-choice").attr("disabled", true);
+            }
+            else {
+                for (var i = 0; i < companies.length; i++) {
+                    $("#accountNumber-choice").append('<option value="' + companies[i].split("\"")[1] + '">' + companies[i] + '</option>');
+                }
+            }
         });
     </script>
 }
 
+@foreach (var item in Model)
+{
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.AccountNumber)
+    </div>
+    <div class="editor-field">
+        <select name="accountNumber" id="accountNumber-choice">
+            <option selected value="@Html.DisplayFor(modelItem => item.AccountNumber)">@Html.DisplayFor(modelItem => item.AccountNumber)</option>
+        </select>
+    </div>
+}
 <table id="dptPeople" class="display" cellspacing="0" width="100%">
     <thead>
     </thead>
@@ -162,14 +188,16 @@
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.AccountNumber)</td>
-                <td>
-                    <input type="text" name="accountNumber" value="@Html.DisplayFor(modelItem => item.AccountNumber)" readonly>
-                </td>
                 <td>@Html.DisplayNameFor(model => model.PrimaryContact)</td>
                 <td>
                     <select name="roleName" id="primaryContact-choice">
                         <option selected value="@Html.DisplayFor(modelItem => item.PrimaryContact)">@Html.DisplayFor(modelItem => item.PrimaryContact)</option>
+                    </select>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Status)</td>
+                <td>
+                    <select name="status" id="status-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => item.Status)">@Html.DisplayFor(modelItem => item.Status)</option>
                     </select>
                 </td>
             </tr>
@@ -180,12 +208,8 @@
                         <option selected value="@Html.DisplayFor(modelItem => item.RoleId)">@Html.DisplayFor(modelItem => item.RoleName)</option>
                     </select>
                 </td>
-                <td>@Html.DisplayNameFor(model => model.Status)</td>
-                <td>
-                    <select name="status" id="status-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.Status)">@Html.DisplayFor(modelItem => item.Status)</option>
-                    </select>
-                </td>
+                <td></td>
+                <td></td>
             </tr>
         }
     </tbody>

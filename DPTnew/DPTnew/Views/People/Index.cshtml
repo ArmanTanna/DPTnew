@@ -68,33 +68,64 @@
                     rows: {
                         0: "@DPTnew.Localization.Resource.noRowsSelected",
                         1: "@DPTnew.Localization.Resource.rowsSelected",
-                        }
                     }
                 }
-            });
+            }
+        });
 
-            new $.fn.dataTable.Buttons(myTable, {
-                buttons: [
+        new $.fn.dataTable.Buttons(myTable, {
+            buttons: [
+         {
+             text: '@DPTnew.Localization.Resource.Modify',
+             className: 'modify',
+             action: function () {
+                 if (myTable.rows('.selected').count() != 0) {
+                     var data = myTable.rows('.selected').data()[0];
+                     $.post(yourApp.Urls.DataUrl, {
+                         UserId: data.UserId,
+                         Email: data.Email,
+                         FirstName: data.FirstName,
+                         LastName: data.LastName,
+                         Language: data.Language,
+                         Status: data.Status,
+                         EmailStatus: data.EmailStatus,
+                         AccountNumber: data.AccountNumber,
+                         PrimaryContact: data.PrimaryContact,
+                         FirstNameK: data.FirstNameK,
+                         LastNameK: data.LastNameK,
+                         RoleId: data.RoleId,
+                         RoleName: data.RoleName,
+                     },
+                                     function (result) {
+                                         var url = yourApp.Urls.DataUrl;
+                                         WinId = window.open(url, '_blank');
+                                         WinId.document.open();
+                                         WinId.document.write(result);
+                                         WinId.document.close();
+                                         myTable.rows('.selected').deselect();
+                                     });
+                 }
+             },
+             enabled: false
+         },
              {
-                 text: '@DPTnew.Localization.Resource.Modify',
-                 className: 'modify',
-                 action: function () {
-                     if (myTable.rows('.selected').count() != 0) {
-                         var data = myTable.rows('.selected').data()[0];
+                 text: '@DPTnew.Localization.Resource.New',
+                     className: 'new',
+                     action: function () {
                          $.post(yourApp.Urls.DataUrl, {
-                             UserId: data.UserId,
-                             Email: data.Email,
-                             FirstName: data.FirstName,
-                             LastName: data.LastName,
-                             Language: data.Language,
-                             Status: data.Status,
-                             EmailStatus: data.EmailStatus,
-                             AccountNumber: data.AccountNumber,
-                             PrimaryContact: data.PrimaryContact,
-                             FirstNameK: data.FirstNameK,
-                             LastNameK: data.LastNameK,
-                             RoleId: data.RoleId,
-                             RoleName: data.RoleName,
+                             UserId: null,
+                             Email: null,
+                             FirstName: null,
+                             LastName: null,
+                             Language: null,
+                             Status: null,
+                             EmailStatus: null,
+                             AccountNumber: null,
+                             PrimaryContact: null,
+                             FirstNameK: null,
+                             LastNameK: null,
+                             RoleId: null,
+                             RoleName: null,
                          },
                                          function (result) {
                                              var url = yourApp.Urls.DataUrl;
@@ -104,10 +135,9 @@
                                              WinId.document.close();
                                              myTable.rows('.selected').deselect();
                                          });
-                     }
-                 },
-                 enabled: false
-             }
+                     },
+                     enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true"
+                 }
                 ]
             });
             myTable.buttons().container().insertBefore('#dptPeople_filter');

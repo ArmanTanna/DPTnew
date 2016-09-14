@@ -170,16 +170,65 @@
                                 LicenseID: null
                             },
                                 function (result) {
-                                  var url = yourApp.Urls.OrderDataUrl;
-                                  WinId = window.open(url, '_blank');
-                                  WinId.document.open();
-                                  WinId.document.write(result);
-                                  WinId.document.close();
-                                  myTable.rows('.selected').deselect();
+                                    var url = yourApp.Urls.OrderDataUrl;
+                                    WinId = window.open(url, '_blank');
+                                    WinId.document.open();
+                                    WinId.document.write(result);
+                                    WinId.document.close();
+                                    myTable.rows('.selected').deselect();
                                 });
                         },
                         enabled: true
-                    }
+                    },
+                                        {
+                                            text: '@DPTnew.Localization.Resource.Modify',
+                                            className: 'modify',
+                                            action: function () {
+                                                if (myTable.rows('.selected').count() != 0) {
+                                                    var data = myTable.rows('.selected').data()[0];
+                                                    $.post(yourApp.Urls.OrderDataUrl, {
+                                                        idxx: data.idxx,
+                                                        Invoicer: data.Invoicer,
+                                                        InvoicedName: data.InvoicedName,
+                                                        InvoicedNumber: data.InvoicedNumber,
+                                                        AccountName: data.AccountName,
+                                                        AccountNumber: data.AccountNumber,
+                                                        OrderNumber: data.OrderNumber,
+                                                        StrOrderDate: data.StrOrderDate,
+                                                        PO_Number: data.PO_Number,
+                                                        InvoiceNumber: data.InvoiceNumber,
+                                                        StrInvoiceDate: data.StrInvoiceDate,
+                                                        NewOldAccount: data.NewOldAccount,
+                                                        SalesRep: data.SalesRep,
+                                                        Currency: data.Currency,
+                                                        LineType: data.LineType,
+                                                        ProductName: data.ProductName,
+                                                        ArticleDetail: data.ArticleDetail,
+                                                        StrStartDate: data.StrStartDate,
+                                                        StrEndDate: data.StrEndDate,
+                                                        StrRequestDate: data.StrRequestDate,
+                                                        Ordered: data.Ordered,
+                                                        Invoiced: data.Invoiced,
+                                                        Quantity: data.Quantity,
+                                                        LicenseType: data.LicenseType,
+                                                        NewRenewal: data.NewRenewal,
+                                                        EURO_PriceList: data.EURO_PriceList,
+                                                        JPY_PriceList: data.JPY_PriceList,
+                                                        LeasingCompany: data.LeasingCompany,
+                                                        LicenseID: data.LicenseID
+                                                    },
+                                                        function (result) {
+                                                            var url = yourApp.Urls.OrderDataUrl;
+                                                            WinId = window.open(url, '_blank');
+                                                            WinId.document.open();
+                                                            WinId.document.write(result);
+                                                            WinId.document.close();
+                                                            myTable.rows('.selected').deselect();
+                                                        });
+                                                }
+                                            },
+                                            enabled: false
+                                        }
                 ]
             });
 
@@ -189,6 +238,14 @@
                 var $body = $(myTable.table().body());
                 $body.unhighlight();
                 $body.highlight(myTable.search());
+            });
+
+            myTable.on('select', function () {
+                myTable.buttons(['.modify']).enable(true);
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.modify']).disable();
             });
 
             // Add event listener for opening licenses page
