@@ -56,13 +56,12 @@ namespace DPTnew.Controllers
                 var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
                 var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 List<String> companyList = new List<string>();
-                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
-                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
                     if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
-                    {
                         companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
-                    }
                     else
                     {
                         if (salesRep.Count == 0)
@@ -72,10 +71,7 @@ namespace DPTnew.Controllers
                             companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
                         }
                         else
-                        {
-                            foreach (var sr in salesRep)
-                                companyList.AddRange(db.Companies.Where(x => x.SalesRep == sr).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                        }
+                            companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
                         companyList.Sort();
                     }
                 }
@@ -95,6 +91,11 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Insert(UpdateCase caseRow)
         {
+            if (string.IsNullOrEmpty(caseRow.AccountName) || string.IsNullOrEmpty(caseRow.Contact))
+            {
+                return Json("Cannot save the case!", JsonRequestBehavior.AllowGet);
+            }
+
             int caseId = 0;
             using (var db = new DptContext())
             {
@@ -145,9 +146,9 @@ namespace DPTnew.Controllers
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + caseRow.Description;
                     mail.Body = "お客様。\n以下のご質問項目 #" + caseId + " が作成されたことをお知らせいたします。\n\n" +
-                        "詳細：" + caseRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                        "詳細：\n" + caseRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
                         "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
-                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（noreply_thinkcare@think3.eu）" +
+                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）" +
                         "へ返信されます。\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
                 }
                 else
@@ -250,6 +251,7 @@ namespace DPTnew.Controllers
                         {
                             return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
                         }
+                        var oldstatus = caseRow.Status;
                         if (caseRow.Status == "Open")
                             caseRow.Status = "Working";
 
@@ -263,57 +265,59 @@ namespace DPTnew.Controllers
                             db.CaseLogs.Add(dcl);
                             db.SaveChanges();
 
-                            MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
-                            mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
-                            var cr = db.Cases.Where(c => c.CaseId == caseRow.CaseId).FirstOrDefault();
-                            if (caseRow.Status != "Closed")
+                            if (oldstatus != "Open")
                             {
-                                var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
-                                if (cr.Language == "japanese")
+                                MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                                mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
+                                var cr = db.Cases.Where(c => c.CaseId == caseRow.CaseId).FirstOrDefault();
+                                if (caseRow.Status != "Closed")
                                 {
-                                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " が更新されました - " + lchr.Description;
-                                    mail.Body = "お客様。\nご質問項目 #" + caseRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                        "詳細：" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
-                                        " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
-                                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（noreply_thinkcare@think3.eu）へ返信されます。" +
-                                        "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
+                                    var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
+                                    if (cr.Language == "japanese")
+                                    {
+                                        mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " が更新されました - " + lchr.Description;
+                                        mail.Body = "お客様。\nご質問項目 #" + caseRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
+                                            "詳細：\n" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                                            " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
+                                            "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
+                                            "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
+                                    }
+                                    else
+                                    {
+                                        mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
+                                        mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
+                                            "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                            "\n\nBest Regards,\n\nCustomer Care team";
+                                    }
                                 }
                                 else
                                 {
-                                    mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
-                                    mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                        "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
-                                        "\n\nBest Regards,\n\nCustomer Care team";
+                                    if (cr.Language == "japanese")
+                                    {
+                                        mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " をクローズいたしました";
+                                        mail.Body = "お客様。\n" + "本件はクローズさせていただきます。\n" +
+                                            "より詳しい情報が必要な場合は、お手数ですが再度ご連絡ください。\n\n" +
+                                            "ご質問項目の詳細はこちらでご覧ください：http://dpt3.dptcorporate.com/ " +
+                                            "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
+                                            "このメールには返信しないでください。このメールに返信すると無効なメールアドレス" +
+                                            "（is@dptcorporate.com）へ返信されます。" +
+                                            "\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
+                                    }
+                                    else
+                                    {
+                                        mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been closed";
+                                        mail.Body = "Dear User,\n" + "We have closed the case.\n" +
+                                            "If you need more information please do not hesitate to contact us.\n" +
+                                            "To add more information and upload files, we strongly recommend you to use the web site " +
+                                            "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                                            "address (noreply_thinkcare@think3.eu)." +
+                                            "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/ " +
+                                            " \nThank you for your patience and cooperation." +
+                                            "\n\nBest Regards,\n\nCustomer Care team";
+                                    }
                                 }
+                                SendMail(mail);
                             }
-                            else
-                            {
-                                if (cr.Language == "japanese")
-                                {
-                                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " をクローズいたしました";
-                                    mail.Body = "お客様。\n" + "本件はクローズさせていただきます。\n" +
-                                        "より詳しい情報が必要な場合は、お手数ですが再度ご連絡ください。\n\n" +
-                                        "ご質問項目の詳細はこちらでご覧ください：http://dpt3.dptcorporate.com/ " +
-                                        "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
-                                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス" +
-                                        "（noreply_thinkcare@think3.eu）へ返信されます。" +
-                                        "\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
-                                }
-                                else
-                                {
-                                    mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been closed";
-                                    mail.Body = "Dear User,\n" + "We have closed the case.\n" +
-                                        "If you need more information please do not hesitate to contact us.\n" +
-                                        "To add more information and upload files, we strongly recommend you to use the web site " +
-                                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
-                                        "address (noreply_thinkcare@think3.eu)." +
-                                        "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/ " +
-                                        " \nThank you for your patience and cooperation." +
-                                        "\n\nBest Regards,\n\nCustomer Care team";
-
-                                }
-                            }
-                            SendMail(mail);
                         }
                         ncase.Status = caseRow.Status;
                         db.SaveChanges();
@@ -385,9 +389,9 @@ namespace DPTnew.Controllers
                                 {
                                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseHistoryRow.CaseId + " が更新されました - " + caseHistoryRow.Description;
                                     mail.Body = "お客様。\nご質問項目 #" + caseHistoryRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                        "詳細：" + caseHistoryRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                                        "詳細：\n" + caseHistoryRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
                                         " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
-                                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（noreply_thinkcare@think3.eu）へ返信されます。" +
+                                        "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                         "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
                                 }
                                 else

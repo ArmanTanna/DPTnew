@@ -92,12 +92,13 @@
                     @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
                 </td>
             </tr>
-            <tr>
-                <td><a href="javascript: submitform()"><input type="submit" value="Submit" /></a></td>
-            </tr>
         }
     </tbody>
 </table>
+<p>
+    <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
+    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
+</p>
 <div id="fileupload-dialog" title="Upload File" style="display: none;">
     @using (Html.BeginForm("UploadHistoryFile", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {

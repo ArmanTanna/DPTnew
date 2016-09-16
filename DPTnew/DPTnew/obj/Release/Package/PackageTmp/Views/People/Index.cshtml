@@ -22,94 +22,94 @@
 
     <script type="text/javascript">
 
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
-    yourApp.Urls.DataUrl = '@Url.Action("SinglePeopleRow", "People")';
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.DataUrl = '@Url.Action("SinglePeopleRow", "People")';
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        var myTable = $("#dptPeople").DataTable({
-            serverSide: true,
-            processing: true,
-            dom: 'lBfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ],
-            ajax: {
-                type: "POST",
-                url: "People/Search"
-            },
-            columns: [
-            { data: "Email" },
-            { data: "FirstName" },
-            { data: "LastName" },
-            { data: "Language" },
-            { data: "EmailStatus" },
-            { data: "AccountNumber", "className": 'mycenter-text' },
-            { data: "PrimaryContact", "className": 'mycenter-text' },
-            { data: "RoleName", "className": 'mycenter-text' }
-            ],
-            order: [[1, 'desc']],
-            orderClasses: false,
-            select: {
-                style: 'single'
-            },
-            language: {
-                search: "@DPTnew.Localization.Resource.Search",
-                lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
-                info: "@DPTnew.Localization.Resource.info",
-                infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
-                paginate: {
-                    previous: "@DPTnew.Localization.Resource.Previous",
-                    next: "@DPTnew.Localization.Resource.Next",
+            var myTable = $("#dptPeople").DataTable({
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "People/Search"
                 },
+                columns: [
+                { data: "Email" },
+                { data: "FirstName" },
+                { data: "LastName" },
+                { data: "Language" },
+                { data: "EmailStatus" },
+                { data: "AccountNumber", "className": 'mycenter-text' },
+                { data: "PrimaryContact", "className": 'mycenter-text' },
+                { data: "RoleName", "className": 'mycenter-text' }
+                ],
+                order: [[1, 'desc']],
+                orderClasses: false,
                 select: {
-                    rows: {
-                        0: "@DPTnew.Localization.Resource.noRowsSelected",
-                        1: "@DPTnew.Localization.Resource.rowsSelected",
+                    style: 'single'
+                },
+                language: {
+                    search: "@DPTnew.Localization.Resource.Search",
+                    lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                    info: "@DPTnew.Localization.Resource.info",
+                    infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                    paginate: {
+                        previous: "@DPTnew.Localization.Resource.Previous",
+                        next: "@DPTnew.Localization.Resource.Next",
+                    },
+                    select: {
+                        rows: {
+                            0: "@DPTnew.Localization.Resource.noRowsSelected",
+                            1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        new $.fn.dataTable.Buttons(myTable, {
-            buttons: [
-         {
-             text: '@DPTnew.Localization.Resource.Modify',
-             className: 'modify',
-             action: function () {
-                 if (myTable.rows('.selected').count() != 0) {
-                     var data = myTable.rows('.selected').data()[0];
-                     $.post(yourApp.Urls.DataUrl, {
-                         UserId: data.UserId,
-                         Email: data.Email,
-                         FirstName: data.FirstName,
-                         LastName: data.LastName,
-                         Language: data.Language,
-                         Status: data.Status,
-                         EmailStatus: data.EmailStatus,
-                         AccountNumber: data.AccountNumber,
-                         PrimaryContact: data.PrimaryContact,
-                         FirstNameK: data.FirstNameK,
-                         LastNameK: data.LastNameK,
-                         RoleId: data.RoleId,
-                         RoleName: data.RoleName,
-                     },
-                                     function (result) {
-                                         var url = yourApp.Urls.DataUrl;
-                                         WinId = window.open(url, '_blank');
-                                         WinId.document.open();
-                                         WinId.document.write(result);
-                                         WinId.document.close();
-                                         myTable.rows('.selected').deselect();
-                                     });
-                 }
-             },
-             enabled: false
-         },
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
              {
-                 text: '@DPTnew.Localization.Resource.New',
+                 text: '@DPTnew.Localization.Resource.Modify',
+                 className: 'modify',
+                 action: function () {
+                     if (myTable.rows('.selected').count() != 0) {
+                         var data = myTable.rows('.selected').data()[0];
+                         $.post(yourApp.Urls.DataUrl, {
+                             UserId: data.UserId,
+                             Email: data.Email,
+                             FirstName: data.FirstName,
+                             LastName: data.LastName,
+                             Language: data.Language,
+                             Status: data.Status,
+                             EmailStatus: data.EmailStatus,
+                             AccountNumber: data.AccountNumber,
+                             PrimaryContact: data.PrimaryContact,
+                             FirstNameK: data.FirstNameK,
+                             LastNameK: data.LastNameK,
+                             RoleId: data.RoleId,
+                             RoleName: data.RoleName,
+                         },
+                                         function (result) {
+                                             var url = yourApp.Urls.DataUrl;
+                                             WinId = window.open(url, '_blank');
+                                             WinId.document.open();
+                                             WinId.document.write(result);
+                                             WinId.document.close();
+                                             myTable.rows('.selected').deselect();
+                                         });
+                     }
+                 },
+                 enabled: false
+             },
+                 {
+                     text: '@DPTnew.Localization.Resource.New',
                      className: 'new',
                      action: function () {
                          $.post(yourApp.Urls.DataUrl, {
@@ -124,8 +124,8 @@
                              PrimaryContact: null,
                              FirstNameK: null,
                              LastNameK: null,
-                             RoleId: null,
-                             RoleName: null,
+                             RoleId: 0,
+                             RoleName: "User",
                          },
                                          function (result) {
                                              var url = yourApp.Urls.DataUrl;

@@ -25,7 +25,8 @@ namespace DPTnew.Controllers
         public ActionResult Index(int pageSize = 10)
         {
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
-            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
         }
 
@@ -48,29 +49,32 @@ namespace DPTnew.Controllers
         {
             using (var db = new DptContext())
             {
-                //var userName = Membership.GetUser().UserName;
-                //var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
-                //var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
-                //var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
-                //List<String> companyList = new List<string>();
-                //if (salesRep.Count == 0)
-                //{
-                //    var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
-                //    companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                //    companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
-                //}
-                //else
-                //{
-                //    foreach (var sr in salesRep)
-                //        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sr).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                //}
-                var companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                List<String> companyList = new List<string>();
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                else
+                {
+                    var userName = Membership.GetUser().UserName;
+                    var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                    var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                    var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+
+                    if (salesRep.Count == 0)
+                    {
+                        var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                    }
+                    else
+                        companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                }
                 companyList.Sort();
 
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
             }
-            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             List<People> rows = new List<People>();
             rows.Add(pplSingleRow);
             return View(rows);

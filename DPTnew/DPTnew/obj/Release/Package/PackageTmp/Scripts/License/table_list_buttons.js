@@ -456,22 +456,40 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                  } else {
                                      switch ($("#version-choice").val()) {
                                          case "2008":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "D1";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "D1";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2008.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          case "2009":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "E3";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "E3";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2009.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          case "2011":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "G1";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "G1";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2011.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          case "2012":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "H1";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "H1";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2012.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          case "2013":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "I1";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "I1";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2013.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          case "2014":
-                                             headers.PwdCode = headers.PwdCode.substring(0, 2) + "J1";
+                                             if (headers.LicenseType === "local")
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 2) + "J1";
+                                             else
+                                                 headers.PwdCode = headers.PwdCode.substring(0, 3) + "2014.1" + headers.PwdCode.substring(9, headers.PwdCode.length);
                                              break;
                                          default:
                                      }
@@ -665,8 +683,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
                     myTable.buttons(['.pssw2014']).enable(true);
-                    if (data.LicenseType.toLowerCase() == "local" && parseJsonDate(data.MaintEndDate) > new Date() &&
-                        data.Version < '2015')
+                    if (parseJsonDate(data.MaintEndDate) > new Date() && data.Version < '2015')
                         myTable.buttons(['.changeversion']).enable(true);
                 }
             }

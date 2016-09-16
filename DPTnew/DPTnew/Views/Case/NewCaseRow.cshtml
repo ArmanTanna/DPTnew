@@ -24,10 +24,11 @@
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 2000);
-            if ($("#item_Description").val() == "" || $("#item_Details").val() == "") {
+            if ($("#item_Description").val() === "" || $("#item_Details").val() === "" || $("#accountName-choice").val() === "" ||
+                $("#contact-choice").val() === "" || $("#accountName-choice").val() === null || $("#contact-choice").val() === null) {
                 var $psw = $("#errmsg");
                 $psw.text("");
-                $psw.text("Please fill out Description and details fields!");
+                $psw.text("Please fill out Description, details, account name  and contact fields!");
                 var pwdDialogConfig = {
                     modal: true,
                     width: 400,
@@ -55,8 +56,14 @@
                 },
                 function (result) {
                     $("#caseRowID").val(result);
-                    $("#msg").val("The new case has been saved correctly!");
-                    $("#msgConfirm").val("Choose the file and click Submit");
+                    if (parseInt(result)) {
+                        $("#msg").val("The new case has been saved correctly!");
+                        $("#msgConfirm").val("Choose the file and click Submit");
+                    }
+                    else {
+                        $("#msg").val("Something went wrong! Check contact field");
+                        $("#msgConfirm").val("Retry again!");
+                    }
                     var pwdDialogConfig = {
                         modal: true,
                         width: 400,
@@ -221,12 +228,13 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-                <td><a href="javascript: submitform()"><input type="submit" value="Submit" /></a></td>
-            </tr>
         }
     </tbody>
 </table>
+<p>
+    <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
+    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
+</p>
 <div id="fileupload-dialog" title="Upload File" style="display: none;">
     @using (Html.BeginForm("UploadFile", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
