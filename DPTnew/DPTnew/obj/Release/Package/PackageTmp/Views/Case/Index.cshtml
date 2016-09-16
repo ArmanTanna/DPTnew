@@ -5,12 +5,14 @@
 }
 
 @section Scripts {
-    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    @*
+        <script src="~/Scripts/Company/table_list.js"> </script>*@
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
-    @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+    @*
+        <script src="~/Scripts/jquery.dataTables.min.js"></script>*@
     <script src="~/Scripts/dataTables.buttons.min.js"></script>
     <script src="~/Scripts/buttons.flash.min.js"></script>
     <script src="~/Scripts/jszip.min.js"></script>
@@ -263,12 +265,14 @@
                 if (caseRow.Status !== "Frozen")
                     myTable.buttons(['.update']).enable(true);
                 myTable.buttons(['.history']).enable(true);
+                myTable.buttons(['.new']).disable();
             });
 
             myTable.on('deselect', function () {
                 myTable.buttons(['.modify']).disable();
                 myTable.buttons(['.update']).disable();
                 myTable.buttons(['.history']).disable();
+                myTable.buttons(['.new']).enable(true);
             });
 
             myTable.on("draw", function () {
@@ -299,6 +303,7 @@
             yadcf.init(myTable, [
             { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
             { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["english", "japanese", "italian", "chinese", "french", "german"] },
+            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["hideki.kobayashi@dptcorporate.com", "fumiko.ksahara@think3.eu", "michiyo.miyako@think3.eu", "satomi.ono@think3.eu", "giorgio.pirri@dptcorporate.com", "jacopo.azzi@dptcorporate.com"] }
             ]);
         });
 

@@ -98,6 +98,22 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         ],
         "order": [[1, 'asc']],
         "orderClasses": false,
+        createdRow: function (row, data, index) {
+            if (data.MED != null) {
+                var now = new Date();
+                var month = (now.getMonth() + 1);
+                var day = now.getDate();
+                if (month < 10)
+                    month = "0" + month;
+                if (day < 10)
+                    day = "0" + day;
+                var today = now.getFullYear() + '-' + month + '-' + day;
+                if (data.MED < today)
+                    $(row).addClass('highlight_red');
+                if (data.MED >= today && data.MachineID.indexOf("ABCDEFGH") != -1)
+                    $(row).addClass('highlight_blue');
+            }
+        },
         select: {
             style: 'single'
         },

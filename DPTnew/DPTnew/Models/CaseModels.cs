@@ -20,11 +20,11 @@ namespace DPTnew.Models
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
-        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
+        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
         public string CreatedBy { get; set; }
         public DateTime ModifiedOn { get; set; }
         [Display(Name = "ModifiedOn", ResourceType = typeof(Resource))]
-        public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd") : ""; } }
+        public string StrModifiedOn { get { return ModifiedOn != null ? ((DateTime)ModifiedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
         [Display(Name = "Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
         [Display(Name = "Details", ResourceType = typeof(Resource))]
@@ -112,7 +112,7 @@ namespace DPTnew.Models
         public int CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
-        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
+        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
         [Display(Name = "CreatedBy", ResourceType = typeof(Resource))]
         public string CreatedBy { get; set; }
         [Display(Name = "Description", ResourceType = typeof(Resource))]
