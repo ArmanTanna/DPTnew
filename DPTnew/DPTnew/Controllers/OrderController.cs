@@ -13,14 +13,13 @@ using WebMatrix.WebData;
 using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
+using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
-
     [Authorize(Roles = "Admin,Internal,VarExp")]
     public class OrderController : BaseController
     {
-
         public ActionResult Index(int pageSize = 10)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Orders.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
@@ -242,6 +241,14 @@ namespace DPTnew.Controllers
 
                 return Json(europrice + "_" + jpyprice, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
     }

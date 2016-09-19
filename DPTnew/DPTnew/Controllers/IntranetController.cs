@@ -13,6 +13,7 @@ using WebMatrix.WebData;
 using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
+using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
@@ -22,6 +23,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index(int pageSize = 10)
         {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             return View();
         }
 

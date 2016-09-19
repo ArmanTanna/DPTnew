@@ -28,7 +28,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index(int pageSize = 10)
         {
-            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
@@ -390,6 +390,7 @@ namespace DPTnew.Controllers
                                 }
                                 SendMail(mail);
                             }
+                            oc.ModifiedOn = DateTime.Now;
                         }
                     }
                     db.SaveChanges();
@@ -431,6 +432,14 @@ namespace DPTnew.Controllers
                 var contacts = db.Peoples.Where(u => u.AccountNumber == company.AccountNumber).ToList();
                 return Json(contacts, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
     }

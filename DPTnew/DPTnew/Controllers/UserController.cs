@@ -17,6 +17,7 @@ using System.Net.Http;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
+using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
@@ -821,6 +822,14 @@ namespace DPTnew.Controllers
                     }
                 }
             }
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
         //

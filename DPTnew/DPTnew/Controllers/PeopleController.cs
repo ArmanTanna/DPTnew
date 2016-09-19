@@ -24,7 +24,7 @@ namespace DPTnew.Controllers
     {
         public ActionResult Index(int pageSize = 10)
         {
-            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
@@ -175,6 +175,14 @@ namespace DPTnew.Controllers
         public JsonResult GetPeopleRolesFromDB()
         {
             return Json(GetWebMainRoles(), JsonRequestBehavior.AllowGet);
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
     }

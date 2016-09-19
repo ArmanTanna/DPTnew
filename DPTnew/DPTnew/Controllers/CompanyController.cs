@@ -30,7 +30,7 @@ namespace DPTnew.Controllers
 
         public ActionResult Index(int pageSize = 10)
         {
-            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
             ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
@@ -301,6 +301,14 @@ namespace DPTnew.Controllers
                 }
             }
             return Json("Saved AccountNumber: " + cmpSingleRow.AccountNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
     }

@@ -19,7 +19,7 @@ namespace DPTnew.Controllers
         [Authorize(Roles = "Admin,Var,VarExp,Internal")]
         public ActionResult Index(int pageSize = 10)
         {
-            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.IsVarExpInt = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
@@ -30,7 +30,6 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Search()
         {
-            LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var sps = Request.GetSearchParams();
             var items = GetLicenses();
             foreach (var sp in sps)
@@ -39,8 +38,7 @@ namespace DPTnew.Controllers
             }
             return Json(_db.ConvertToSearchResult<LicenseView>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
-
-
+        
         public JsonResult StateByLicenceId(string LicenseId)
         {
             LicenseState licenseState = new LicenseState();
@@ -205,6 +203,14 @@ namespace DPTnew.Controllers
             }
 
             return Json("Saved LicenseID: " + licSingleRow.LicenseID, JsonRequestBehavior.AllowGet);
+        }
+
+        [NonAction]
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            Session["CurrentCulture"] = LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+
+            base.OnActionExecuting(filterContext);
         }
 
     }
