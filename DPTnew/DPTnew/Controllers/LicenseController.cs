@@ -12,6 +12,7 @@ using WebMatrix.WebData;
 
 namespace DPTnew.Controllers
 {
+    [Authorize]
     public class LicenseController : BaseController
     {
         // GET: /All Companies/

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace DPTnew.Controllers
 {
     [Authorize(Roles = "VarExp,Var,Admin,Internal")]
-    public class FaqController : Controller
+    public class FaqController : BaseController
     {
         //
         // GET: /Faq/

@@ -10,7 +10,7 @@ using System.Web.Security;
 namespace DPTnew.Controllers
 {
     [Authorize]
-    public class eLearningController : Controller
+    public class eLearningController : BaseController
     {
         //
         // GET: /eLearning/

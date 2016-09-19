@@ -1,128 +1,61 @@
-﻿@model IEnumerable<DPTnew.Models.UpdateCase>
-
+﻿@model DPTnew.Models.UpdateCase
 @{
     ViewBag.Title = "Case Management";
 }
 
 @section Scripts {
-    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript">
-        var yourApp = yourApp || {};
-        yourApp.Urls = yourApp.Urls || {};
-        yourApp.Urls.baseUrl = '@Url.Content("~")';
 
         $('form').one('submit', function () {
-            $("input[name=filename]").val(escape($("input[name=file]").val().split("\\")[$("input[name=file]").val().split("\\").length - 1]));
-        });
-
-        function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 2000);
-            if ($("#item_Description").val() == "" || $("#item_Details").val() == "") {
-                var $psw = $("#errmsg");
-                $psw.text("");
-                $psw.text("Please fill out Description and details fields!");
-                var pwdDialogConfig = {
-                    modal: true,
-                    width: 400,
-                    height: 250,
-                    buttons: {
-                        OK: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                };
-                $("#sysmsg-dialog").dialog(pwdDialogConfig);
+
+            if ($("#file").val() !== "" && $("#file").val() !== null) {
+                var fileName = escape($("#file").val().split("\\")[$("#file").val().split("\\").length - 1]);
+                $("#fileName").val(fileName);
             }
-            else
-                $.post("/Case/Update", {
-                    CaseId: $("input[name=id]").val(),
-                    Description: $("#item_Description").val(),
-                    Details: $("#item_Details").val()
-                },
-                function (result) {
-                    $("#caseRowID").val(result.split("_")[0]);
-                    $("#casehID").val(result.split("_")[1]);
-                    $("#msg").val("History case has been saved correctly!");
-                    $("#msgConfirm").val("Choose the file and click Submit");
-                    var pwdDialogConfig = {
-                        modal: true,
-                        width: 400,
-                        height: 400
-                        //buttons: {
-                        //    OK: function () {
-                        //        $(this).dialog("close");
-                        //    }
-                        //}
-                    };
-                    $("#fileupload-dialog").dialog(pwdDialogConfig);
-                });
-        }
+            var desc = escape($("#Description").val());
+            $("#Description").val(desc);
+            var det = escape($("#Details").val());
+            $("#Details").val(det);
+        });
 
         $(document).ready(function () {
         });
     </script>
 }
 
-<table id="dptcase" class="display" cellspacing="0" width="100%">
-    <thead>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CaseId)</td>
-                <td>
-                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Description)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @required = "required" })
-                    @*<input type="email" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>*@
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Details)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @required = "required" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<p>
-    <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
-</p>
-<div id="fileupload-dialog" title="Upload File" style="display: none;">
-    @using (Html.BeginForm("UploadHistoryFile", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <input type="text" name="msg" id="msg" readonly />
+@using (Html.BeginForm("Update", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.CaseId)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.CaseId, new { @readonly = "readonly" })
+    </div>
 
-        <label for="caseRowID">Case ID: </label>
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1", required = "required" })
+    </div>
 
-        <input type="text" name="caseRowID" id="caseRowID" readonly />
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Details)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "5", required = "required" })
+    </div>
 
-        <label for="casehID">Case History ID: </label>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.fileName, new { @hidden = "hidden" })
+    </div>
 
-        <input type="text" name="casehID" id="casehID" readonly />
+    <input type="file" name="file" id="file" />
 
-        <input type="submit" name="submitButton" value="close" />
-
-        <input type="text" name="msgConfirm" id="msgConfirm" readonly />
-
-        <input type="file" name="file" id="file" accept=".*" />
-
-        <input type="submit" name="submitButton" value="submit" />
-
-        <input type="text" name="filename" id="filename" hidden />
-    }
-</div>
-<div id="sysmsg-dialog" title="System message" style="display:none;">
-    <strong style="position:absolute; margin-top:20px;" id="errmsg"></strong>
-</div>
+    <input type="submit" value="submit" />
+}
+<p><a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a></p>

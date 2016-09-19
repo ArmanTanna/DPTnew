@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace DPTnew.Controllers
 {
-    public class HelpController : Controller
+    [Authorize]
+    public class HelpController : BaseController
     {
         public ActionResult Index()
         {

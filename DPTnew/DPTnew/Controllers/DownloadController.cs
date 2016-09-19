@@ -11,7 +11,7 @@ using System.Web.Security;
 namespace DPTnew.Controllers
 {
     [Authorize]
-    public class DownloadController : Controller
+    public class DownloadController : BaseController
     {
         //
         // GET: /Download/

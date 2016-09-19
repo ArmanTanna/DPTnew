@@ -99,6 +99,7 @@ namespace DPTnew.Models
         public string Contact { get; set; }
         public int ContactId { get; set; }
         public HttpPostedFileBase File { get; set; }
+        public string fileName { get; set; }
     }
 
     [Table("DPT_CaseHistory")]

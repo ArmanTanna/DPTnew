@@ -113,14 +113,14 @@ namespace DPTnew.Controllers
         {
             var user = WebSecurity.CurrentUserName;
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
-                return _db.Cases.ToList();
+                return _db.Cases.OrderByDescending(x => x.ModifiedOn).ToList();
 
             var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
-                    return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+                    return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).OrderByDescending(x => x.ModifiedOn).ToList();
 
                 var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 if (salesRep.Count == 0)
@@ -128,7 +128,7 @@ namespace DPTnew.Controllers
                     var sR = _db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
                     var companies = _db.Companies.Where(x => x.SalesRep == sR).Select(u => u.AccountNumber).ToList();
                     companies.Add(company.AccountNumber);
-                    return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
+                    return _db.Cases.Where(c => companies.Contains(c.AccountNumber)).OrderByDescending(x => x.ModifiedOn).ToList();
                 }
                 else
                 {
@@ -138,7 +138,7 @@ namespace DPTnew.Controllers
                         var companies = _db.Companies.Where(x => x.SalesRep == sr).Select(u => u.AccountNumber).ToList();
                         res.AddRange(_db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList());
                     }
-                    return res;
+                    return res.OrderByDescending(x => x.ModifiedOn);
                 }
             }
             return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();

@@ -23,7 +23,7 @@ using Microsoft.JScript;
 
 namespace DPTnew.Controllers
 {
-
+    [Authorize]
     public class CaseController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
@@ -83,17 +83,17 @@ namespace DPTnew.Controllers
                 ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             }
-            List<UpdateCase> rows = new List<UpdateCase>();
-            rows.Add(caseRow);
-            return View(rows);
+            return View(caseRow);
         }
 
         [HttpPost]
         public ActionResult Insert(UpdateCase caseRow)
         {
-            if (string.IsNullOrEmpty(caseRow.AccountName) || string.IsNullOrEmpty(caseRow.Contact))
+            if (string.IsNullOrEmpty(caseRow.AccountName) || string.IsNullOrEmpty(caseRow.Contact)
+                || string.IsNullOrEmpty(caseRow.Description) || string.IsNullOrEmpty(caseRow.Details))
             {
-                return Json("Cannot save the case!", JsonRequestBehavior.AllowGet);
+                ViewBag.ok1 = "Something went wrong. Cannot save the case!";
+                return View("Success");
             }
 
             int caseId = 0;
@@ -116,8 +116,8 @@ namespace DPTnew.Controllers
                 }
                 newCase.CreatedOn = DateTime.Now;
                 newCase.CreatedBy = Membership.GetUser().UserName;
-                newCase.Description = caseRow.Description;
-                newCase.Details = caseRow.Details;
+                newCase.Description = GlobalObject.unescape(caseRow.Description);
+                newCase.Details = GlobalObject.unescape(caseRow.Details);
                 newCase.MachineId = caseRow.MachineId;
                 newCase.ModifiedOn = DateTime.Now;
                 newCase.Platform = caseRow.Platform;
@@ -135,84 +135,48 @@ namespace DPTnew.Controllers
                 var chl = new DptCaseHistory();
                 chl.CaseId = caseId;
                 chl.CreatedOn = DateTime.Now;
-                chl.Description = caseRow.Description;
-                chl.Details = caseRow.Details;
+                chl.Description = newCase.Description;
+                chl.Details = newCase.Details;
                 chl.CreatedBy = Membership.GetUser().UserName;
+                if (caseRow.File != null)
+                {
+                    var basePath = "E:\\Case";
+                    var folder = caseId;
+                    var path = basePath + "\\" + folder;
+                    try
+                    {
+                        System.IO.Directory.CreateDirectory(path);
+                        chl.File = path + "\\" + GlobalObject.unescape(caseRow.fileName);
+                        caseRow.File.SaveAs(chl.File);
+                        db.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.ok1 = "Cannot save the uploaded file!";
+                        return View("Success");
+                    }
+                }
                 db.CaseHistories.Add(chl);
                 db.SaveChanges();
 
                 MailMessage mail = new MailMessage("is@dptcorporate.com", "Caseinteractions@think3.eu");
                 if (newCase.Language == "japanese")
                 {
-                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + caseRow.Description;
+                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
                     mail.Body = "お客様。\n以下のご質問項目 #" + caseId + " が作成されたことをお知らせいたします。\n\n" +
-                        "詳細：\n" + caseRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                        "詳細：\n" + newCase.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
                         "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）" +
                         "へ返信されます。\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
                 }
                 else
                 {
-                    mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + caseRow.Description;
+                    mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + newCase.Description;
                     mail.Body = "Dear User, \n\nThe case #" + caseId + " has been inserted.\n\n" +
-                        "Details: " + caseRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                        "Details: " + newCase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                         "\n\nBest Regards,\n\nCustomer Care team";
                 }
                 SendMail(mail);
-            }
-            return Json(caseId, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public ActionResult UploadFile(string caseRowID, string filename, HttpPostedFileBase file, string submitButton)
-        {
-            if (submitButton == "close")
-            {
-                ViewBag.ok1 = "The new case has been saved correctly!";
-                return View("Success");
-            }
-            string decodedfl = GlobalObject.unescape(filename);
-
-            //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
-            //    || Path.GetExtension(file.FileName).Contains("rar") /*||
-            //    file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
-            //{
-            //    ViewBag.ok1 = "Only the *.zip, and *.rar file are accepted!";
-            //    return View("Success");
-            //}
-
-            if (file != null)
-            {
-                using (var db = new DptContext())
-                {
-                    var caseID = System.Convert.ToInt64(caseRowID);
-                    var query = from ucase in db.CaseHistories
-                                where ucase.CaseId == caseID
-                                select ucase;
-                    if (query.Count() > 0)
-                    {
-                        var basePath = "E:\\Case";
-                        var folder = caseRowID;
-                        var path = basePath + "\\" + folder;
-                        foreach (DptCaseHistory ncase in query.ToList())
-                        {
-                            try
-                            {
-                                System.IO.Directory.CreateDirectory(path);
-                                ncase.File = path + "\\" + decodedfl;
-                                file.SaveAs(ncase.File);
-                                db.SaveChanges();
-                            }
-                            catch (Exception e)
-                            {
-                                ViewBag.ok1 = "Cannot save the uploaded file!";
-                                return View("Success");
-                            }
-                        }
-                    }
-                }
-                ViewBag.ok1 = "The uploaded file has been saved correctly!";
-                return View("Success");
             }
             ViewBag.ok1 = "The new case has been saved correctly!";
             return View("Success");
@@ -277,7 +241,7 @@ namespace DPTnew.Controllers
                                     {
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " が更新されました - " + lchr.Description;
                                         mail.Body = "お客様。\nご質問項目 #" + caseRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                            "詳細：\n" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                                            "詳細：\n" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
                                             " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                             "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                             "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
@@ -286,7 +250,7 @@ namespace DPTnew.Controllers
                                     {
                                         mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
                                         mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                            "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                            "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                                             "\n\nBest Regards,\n\nCustomer Care team";
                                     }
                                 }
@@ -297,7 +261,7 @@ namespace DPTnew.Controllers
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " をクローズいたしました";
                                         mail.Body = "お客様。\n" + "本件はクローズさせていただきます。\n" +
                                             "より詳しい情報が必要な場合は、お手数ですが再度ご連絡ください。\n\n" +
-                                            "ご質問項目の詳細はこちらでご覧ください：http://dpt3.dptcorporate.com/ " +
+                                            "ご質問項目の詳細はこちらでご覧ください：http://dpt3.dptcorporate.com/Case " +
                                             "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                             "このメールには返信しないでください。このメールに返信すると無効なメールアドレス" +
                                             "（is@dptcorporate.com）へ返信されます。" +
@@ -311,7 +275,7 @@ namespace DPTnew.Controllers
                                             "To add more information and upload files, we strongly recommend you to use the web site " +
                                             "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
                                             "address (noreply_thinkcare@think3.eu)." +
-                                            "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/ " +
+                                            "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case " +
                                             " \nThank you for your patience and cooperation." +
                                             "\n\nBest Regards,\n\nCustomer Care team";
                                     }
@@ -340,26 +304,49 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult NewCaseHistoryRow(UpdateCase caseRow)
         {
-            List<UpdateCase> rows = new List<UpdateCase>();
-            rows.Add(caseRow);
-            return View(rows);
+            return View(caseRow);
         }
 
         [HttpPost]
         public ActionResult Update(UpdateCase caseHistoryRow)
         {
+            if (string.IsNullOrEmpty(caseHistoryRow.Description) || string.IsNullOrEmpty(caseHistoryRow.Details))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the case history!";
+                return View("Success");
+            }
+
             int casehId = 0;
             using (var db = new DptContext())
             {
                 var chl = new DptCaseHistory();
                 chl.CaseId = caseHistoryRow.CaseId;
                 chl.CreatedOn = DateTime.Now;
-                chl.Description = caseHistoryRow.Description;
-                chl.Details = caseHistoryRow.Details;
+                chl.Description = GlobalObject.unescape(caseHistoryRow.Description);
+                chl.Details = GlobalObject.unescape(caseHistoryRow.Details);
                 chl.CreatedBy = Membership.GetUser().UserName;
                 db.CaseHistories.Add(chl);
                 db.SaveChanges();
                 casehId = db.CaseHistories.Local[0].CaseHistoryId;
+
+                if (caseHistoryRow.File != null)
+                {
+                    var basePath = "E:\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
+                    var folder = casehId;
+                    var path = basePath + "\\" + folder;
+                    try
+                    {
+                        System.IO.Directory.CreateDirectory(path);
+                        chl.File = path + "\\" + GlobalObject.unescape(caseHistoryRow.fileName);
+                        caseHistoryRow.File.SaveAs(chl.File);
+                        db.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.ok1 = "Cannot save the uploaded file!";
+                        return View("Success");
+                    }
+                }
 
                 var origCase = from oc in db.Cases
                                where oc.CaseId == caseHistoryRow.CaseId
@@ -389,7 +376,7 @@ namespace DPTnew.Controllers
                                 {
                                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseHistoryRow.CaseId + " が更新されました - " + caseHistoryRow.Description;
                                     mail.Body = "お客様。\nご質問項目 #" + caseHistoryRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                        "詳細：\n" + caseHistoryRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/" +
+                                        "詳細：\n" + caseHistoryRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
                                         " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                         "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
@@ -398,7 +385,7 @@ namespace DPTnew.Controllers
                                 {
                                     mail.Subject = "[DO NOT REPLY] Case #" + caseHistoryRow.CaseId + " has been updated - " + caseHistoryRow.Description;
                                     mail.Body = "Dear User, \n\nThe case #" + caseHistoryRow.CaseId + " status has changed.\n\n" +
-                                        "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/" +
+                                        "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest Regards,\n\nCustomer Care team";
                                 }
                                 SendMail(mail);
@@ -406,60 +393,6 @@ namespace DPTnew.Controllers
                         }
                     }
                     db.SaveChanges();
-                }
-            }
-            return Json(caseHistoryRow.CaseId + "_" + casehId, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public ActionResult UploadHistoryFile(string caseRowID, string casehId, string filename, HttpPostedFileBase file, string submitButton)
-        {
-            if (submitButton == "close")
-            {
-                ViewBag.ok1 = "The new history case has been saved correctly!";
-                return View("Success");
-            }
-
-            //string decodedfl = Encoding.Default.GetString(Convert.FromBase64String(filename));
-            string decodedfl = GlobalObject.unescape(filename);
-
-            //if (file != null && !(Path.GetExtension(file.FileName).Contains("zip")
-            //    || Path.GetExtension(file.FileName).Contains("rar") /*||
-            //    file.FileName.Split('.')[file.FileName.Split('.').Length - 1].Contains("7z")*/))
-            //{
-            //    ViewBag.ok1 = "Only the *.zip and *.rar file are accepted!";
-            //    return View("Success");
-            //}
-            if (file != null)
-            {
-                using (var db = new DptContext())
-                {
-                    var casehID = System.Convert.ToInt64(casehId);
-                    var query = from uhcase in db.CaseHistories
-                                where uhcase.CaseHistoryId == casehID
-                                select uhcase;
-                    if (query.Count() > 0)
-                    {
-
-                        var basePath = "E:\\Case" + "\\" + caseRowID;
-                        var folder = casehID;
-                        var path = basePath + "\\" + folder;
-                        foreach (DptCaseHistory ncase in query.ToList())
-                        {
-                            try
-                            {
-                                System.IO.Directory.CreateDirectory(path);
-                                ncase.File = path + "\\" + decodedfl;
-                                file.SaveAs(ncase.File);
-                                db.SaveChanges();
-                            }
-                            catch (Exception e)
-                            {
-                                ViewBag.ok1 = "Cannot save the uploaded file!";
-                                return View("Success");
-                            }
-                        }
-                    }
                 }
             }
             ViewBag.ok1 = "The new history case has been saved correctly!";
