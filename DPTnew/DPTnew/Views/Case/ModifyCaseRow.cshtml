@@ -1,58 +1,23 @@
-﻿@model IEnumerable<DPTnew.Models.UpdateCase>
+﻿@model DPTnew.Models.UpdateCase
 
 @{
     ViewBag.Title = "Case Management";
 }
 
 @section Scripts {
-    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript">
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
-        function submitform() {
+
+        $('form').one('submit', function () {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 2000);
-            $.post("/Case/Modify", {
-                CaseId: $("input[name=id]").val(),
-                MachineId: $("input[name=machineId]").val(),
-                CCEngineer: $("#ccEngineer-choice").val(),
-                Status: $("#status-choice").val()
-            },
-            function (result) {
-                var $psw = $("#msg");
-                $psw.text("");
-                $psw.text(result);
-                var pwdDialogConfig = {
-                    modal: true,
-                    width: 400,
-                    height: result ? 250 : "auto",
-                    buttons: {
-                        OK: function () {
-                            $(this).dialog("close");
-                            //location.reload();
-                        }
-                    }
-                };
-                $("#sysmsg-dialog").dialog(pwdDialogConfig);
-            });
-        }
+        });
 
         $(document).ready(function () {
-            if ($("#status-choice").val() != "Working")
-                $("#status-choice").append("<option value='Working'>Working</option>");
-            if ($("#status-choice").val() != "Waiting on R&D")
-                $("#status-choice").append("<option value='Waiting on R&D'>Waiting on R&D</option>");
-            if ($("#status-choice").val() != "Waiting on Customer")
-                $("#status-choice").append("<option value='Waiting on Customer'>Waiting on Customer</option>");
-            if ($("#status-choice").val() != "Closed")
-                $("#status-choice").append("<option value='Closed'>Closed</option>");
-            if ($("#status-choice").val() != "Frozen")
-                $("#status-choice").append("<option value='Frozen'>Frozen</option>");
-
             if ($("#ccEngineer-choice").val() != "hideki.kobayashi@dptcorporate.com")
                 $("#ccEngineer-choice").append("<option value='hideki.kobayashi@dptcorporate.com'>hideki.kobayashi@dptcorporate.com</option>");
             if ($("#ccEngineer-choice").val() != "fumiko.ksahara@think3.eu")
@@ -66,107 +31,140 @@
             if ($("#ccEngineer-choice").val() != "jacopo.azzi@dptcorporate.com")
                 $("#ccEngineer-choice").append("<option value='jacopo.azzi@dptcorporate.com'>jacopo.azzi@dptcorporate.com</option>");
 
+            if ($("#status-choice").val() != "Working")
+                $("#status-choice").append("<option value='Working'>Working</option>");
+            if ($("#status-choice").val() != "Waiting on R&D")
+                $("#status-choice").append("<option value='Waiting on R&D'>Waiting on R&D</option>");
+            if ($("#status-choice").val() != "Waiting on Customer")
+                $("#status-choice").append("<option value='Waiting on Customer'>Waiting on Customer</option>");
+            if ($("#status-choice").val() != "Closed")
+                $("#status-choice").append("<option value='Closed'>Closed</option>");
+            //if ($("#Status").val() != "Frozen")
+            //    $("#Status").append("<option value='Frozen'>Frozen</option>");
         });
     </script>
 }
 
-<table id="dptcase" class="display" cellspacing="0" width="100%">
-    <thead>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CaseId)</td>
-                <td>
-                    <input type="number" name="id" value="@Html.DisplayFor(modelItem => item.CaseId)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Description)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 1, @readonly = "readonly" })
-                    @*<input type="email" name="description" value="@Html.DisplayFor(modelItem => item.Description)" readonly>*@
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Details)</td>
-                <td>
-                    @Html.TextAreaFor(modelItem => item.Details, new { @cols = 350, @rows = 8, @readonly = "readonly" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<table id="dptcase2" class="display" cellspacing="0" width="100%">
-    <thead>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Product)</td>
-                <td>
-                    <input type="text" name="product" value="@Html.DisplayFor(modelItem => item.Product)" readonly>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.ProductVersion)</td>
-                <td>
-                    <input type="text" name="productVersion" value="@Html.DisplayFor(modelItem => item.ProductVersion)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.MachineId)</td>
-                <td>
-                    <input type="text" name="machineId" value="@Html.DisplayFor(modelItem => item.MachineId)">
-                </td>
-                <td>@Html.DisplayNameFor(model => model.Severity)</td>
-                <td>
-                    <input type="text" name="severity" value="@Html.DisplayFor(modelItem => item.Severity)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.Platform)</td>
-                <td>
-                    <input type="text" name="platform" value="@Html.DisplayFor(modelItem => item.Platform)" readonly>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.PlatformVersion)</td>
-                <td>
-                    <input type="text" name="platformVersion" value="@Html.DisplayFor(modelItem => item.PlatformVersion)" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.AccountName)</td>
-                <td>
-                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" readonly>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.Contact)</td>
-                <td>
-                    <input type="text" name="contact" value="@Html.DisplayFor(modelItem => item.Contact)" readonly>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayNameFor(model => model.CCEngineer)</td>
-                <td>
+@using (Html.BeginForm("Modify", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.CaseId)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.CaseId, new { @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1", @readonly = "readonly" })
+    </div>
+
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.LabelFor(model => model.Details)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "8", @readonly = "readonly" })
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Product)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Product, new { @readonly = "readonly" })
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.ProductVersion)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.ProductVersion, new { @readonly = "readonly" })
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Severity)
+                </div>
+                <div class="editor-field" style="width: 250px;">
+                    @Html.TextBoxFor(model => model.Severity, new { @readonly = "readonly" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.MachineId)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.MachineId)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Platform)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Platform, new { @readonly = "readonly" })
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.PlatformVersion)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.PlatformVersion, new { @readonly = "readonly" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.AccountName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.AccountName, new { @readonly = "readonly" })
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Contact)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Contact, new { @readonly = "readonly" })
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.CCEngineer)
+                </div>
+                <div class="editor-field">
                     <select name="ccEngineer" id="ccEngineer-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.CCEngineer)">@Html.DisplayFor(modelItem => item.CCEngineer)</option>
+                        <option selected value="@Html.DisplayFor(modelItem => modelItem.CCEngineer)">@Html.DisplayFor(modelItem => modelItem.CCEngineer)</option>
                     </select>
-                </td>
-                <td>@Html.DisplayNameFor(model => model.Status)</td>
-                <td>
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Status)
+                </div>
+                <div class="editor-field">
                     <select name="Status" id="status-choice">
-                        <option selected value="@Html.DisplayFor(modelItem => item.Status)">@Html.DisplayFor(modelItem => item.Status)</option>
+                        <option selected value="@Html.DisplayFor(modelItem => modelItem.Status)">@Html.DisplayFor(modelItem => modelItem.Status)</option>
                     </select>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<p>
-    <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
-</p>
-<div id="sysmsg-dialog" title="System message" style="display:none;">
-    <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
-</div>
+                </div>
+            </td>
+            <td>
+                <input type="submit" value="submit" />
+            </td>
+        </tr>
+    </table>
+}
+<p><a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a></p>

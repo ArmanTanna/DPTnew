@@ -186,9 +186,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult ModifyCaseRow(UpdateCase caseRow)
         {
-            List<UpdateCase> rows = new List<UpdateCase>();
-            rows.Add(caseRow);
-            return View(rows);
+            return View(caseRow);
         }
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
@@ -213,7 +211,8 @@ namespace DPTnew.Controllers
                         }
                         catch (Exception e)
                         {
-                            return Json("The CCEngineer doesn't exist in the DB!", JsonRequestBehavior.AllowGet);
+                            ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
+                            return View("Success");
                         }
                         var oldstatus = caseRow.Status;
                         if (caseRow.Status == "Open")
@@ -288,7 +287,8 @@ namespace DPTnew.Controllers
                     }
                 }
             }
-            return Json("The new case has been modified correctly!", JsonRequestBehavior.AllowGet);
+            ViewBag.ok1 = "The new case has been modified correctly!";
+            return View("Success");
         }
 
         private void SendMail(MailMessage mail)
@@ -403,6 +403,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult CaseHistories(int caseId)
         {
+            ViewBag.CaseId = caseId;
             using (var db = new DptContext())
             {
                 return View(db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId).ToList());
