@@ -20,7 +20,7 @@
         $(document).ready(function () {
             if ($("#ccEngineer-choice").val() != "hideki.kobayashi@dptcorporate.com")
                 $("#ccEngineer-choice").append("<option value='hideki.kobayashi@dptcorporate.com'>hideki.kobayashi@dptcorporate.com</option>");
-            if ($("#ccEngineer-choice").val() != "fumiko.ksahara@think3.eu")
+            if ($("#ccEngineer-choice").val() != "fumiko.kasahara@think3.eu")
                 $("#ccEngineer-choice").append("<option value='fumiko.kasahara@think3.eu'>fumiko.kasahara@think3.eu</option>");
             if ($("#ccEngineer-choice").val() != "michiyo.miyako@think3.eu")
                 $("#ccEngineer-choice").append("<option value='michiyo.miyako@think3.eu'>michiyo.miyako@think3.eu</option>");
@@ -41,6 +41,10 @@
                 $("#status-choice").append("<option value='Closed'>Closed</option>");
             //if ($("#Status").val() != "Frozen")
             //    $("#Status").append("<option value='Frozen'>Frozen</option>");
+            if ($("#type-choice").val() != "Bug")
+                $("#type-choice").append("<option value='Bug'>Bug</option>");
+            if ($("#type-choice").val() != "Working")
+                $("#type-choice").append("<option value='Wish'>Wish</option>");
         });
     </script>
 }
@@ -138,7 +142,16 @@
                     @Html.TextBoxFor(model => model.Contact, new { @readonly = "readonly" })
                 </div>
             </td>
-            <td></td>
+            <td>
+                <div class="editor-label" style="font-size: 1.2em;">
+                    @Html.LabelFor(model => model.Type)
+                </div>
+                <div class="editor-field">
+                    <select name="type" id="type-choice">
+                        <option selected value="@Html.DisplayFor(modelItem => modelItem.Type)">@Html.DisplayFor(modelItem => modelItem.Type)</option>
+                    </select>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>

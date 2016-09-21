@@ -52,10 +52,10 @@ namespace DPTnew.Models
         public string Language { get; set; }
         [Display(Name = "AssignedTo", ResourceType = typeof(Resource))]
         public string CCEngineer { get; set; }
-        public int CCEngineerId { get; set; }
+        public int? CCEngineerId { get; set; }
         [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
         //public string File { get; set; }
     }
 

@@ -125,7 +125,7 @@ namespace DPTnew.Controllers
                 newCase.Product = caseRow.Product;
                 newCase.ProductVersion = caseRow.ProductVersion;
                 newCase.Severity = caseRow.Severity;
-                newCase.Type = "Bug";
+                newCase.Type = "General Request";
                 newCase.Status = "Open";
 
                 db.Cases.Add(newCase);
@@ -205,6 +205,7 @@ namespace DPTnew.Controllers
                         ncase.ModifiedOn = DateTime.Now;
                         ncase.CCEngineer = caseRow.CCEngineer;
                         ncase.MachineId = caseRow.MachineId;
+                        ncase.Type = caseRow.Type;
                         try
                         {
                             ncase.CCEngineerId = db.Contacts.Where(c => c.Email == caseRow.CCEngineer).FirstOrDefault().UserId;
