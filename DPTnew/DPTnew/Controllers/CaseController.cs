@@ -193,6 +193,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Modify(UpdateCase caseRow)
         {
+            caseRow.Status = GlobalObject.unescape(caseRow.Description);
             using (var db = new DptContext())
             {
                 var query = from ucase in db.Cases
@@ -375,18 +376,18 @@ namespace DPTnew.Controllers
                                 mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
                                 if (oc.Language == "japanese")
                                 {
-                                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseHistoryRow.CaseId + " が更新されました - " + caseHistoryRow.Description;
-                                    mail.Body = "お客様。\nご質問項目 #" + caseHistoryRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                        "詳細：\n" + caseHistoryRow.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
+                                    mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + chl.CaseId + " が更新されました - " + chl.Description;
+                                    mail.Body = "お客様。\nご質問項目 #" + chl.CaseId + " が更新されたことをお知らせいたします。\n\n" +
+                                        "詳細：\n" + chl.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
                                         " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                         "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
                                 }
                                 else
                                 {
-                                    mail.Subject = "[DO NOT REPLY] Case #" + caseHistoryRow.CaseId + " has been updated - " + caseHistoryRow.Description;
-                                    mail.Body = "Dear User, \n\nThe case #" + caseHistoryRow.CaseId + " status has changed.\n\n" +
-                                        "Details: " + caseHistoryRow.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
+                                    mail.Subject = "[DO NOT REPLY] Case #" + chl.CaseId + " has been updated - " + chl.Description;
+                                    mail.Body = "Dear User, \n\nThe case #" + chl.CaseId + " status has changed.\n\n" +
+                                        "Details: " + chl.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest Regards,\n\nCustomer Care team";
                                 }
                                 SendMail(mail);

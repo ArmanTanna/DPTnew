@@ -14,7 +14,9 @@
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
-            }, 2000);
+            }, 2000); debugger
+            var sts = escape($("#status-choice").val());
+            $("#Description").val(sts);
         });
 
         $(document).ready(function () {
@@ -39,6 +41,10 @@
                 $("#status-choice").append("<option value='Waiting on Customer'>Waiting on Customer</option>");
             if ($("#status-choice").val() != "Closed")
                 $("#status-choice").append("<option value='Closed'>Closed</option>");
+            if ($("#status-choice").val() === "Waiting on R&amp;D") {
+                $("#status-choice").val("Waiting on R&D");
+                $("#status-choice option[value='Waiting on R&amp;D']").remove();
+            }
             //if ($("#Status").val() != "Frozen")
             //    $("#Status").append("<option value='Frozen'>Frozen</option>");
             if ($("#type-choice").val() != "Bug")
