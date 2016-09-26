@@ -96,7 +96,7 @@ namespace DPTnew.Controllers
                 return View("Success");
             }
 
-            int caseId = 0;
+            string caseId = "";
             using (var db = new DptContext())
             {
                 var newCase = new DptCases();
@@ -127,6 +127,12 @@ namespace DPTnew.Controllers
                 newCase.Severity = caseRow.Severity;
                 newCase.Type = "General Request";
                 newCase.Status = "Open";
+
+                var maxq = db.Cases.Where(u => u.CaseId.StartsWith("D")).Max(x => x.CaseId);
+                if (maxq == null)
+                    newCase.CaseId = "D1";
+                else
+                    newCase.CaseId = "D" + (System.Convert.ToInt64(maxq.Split('D')[1]) + 1);
 
                 db.Cases.Add(newCase);
                 db.SaveChanges();
@@ -318,7 +324,7 @@ namespace DPTnew.Controllers
                 return View("Success");
             }
 
-            int casehId = 0;
+            var casehId = 0;
             using (var db = new DptContext())
             {
                 var chl = new DptCaseHistory();
@@ -403,12 +409,21 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult CaseHistories(int caseId)
+        public ActionResult CaseHistories(string caseId)
         {
             ViewBag.CaseId = caseId;
             using (var db = new DptContext())
             {
-                return View(db.CaseHistories.Where(c => c.CaseId == caseId).OrderByDescending(x => x.CaseHistoryId).ToList());
+                try
+                {
+                    var xx =db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList();
+                    return View(xx);
+                    //return View(db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList());
+                }
+                catch (Exception e)
+                {
+                    return View();
+                }
             }
         }
 

@@ -15,9 +15,8 @@ namespace DPTnew.Models
     public class DptCases
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Display(Name = "CaseID", ResourceType = typeof(Resource))]
-        public int CaseId { get; set; }
+        public string CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
@@ -56,13 +55,12 @@ namespace DPTnew.Models
         [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
         public int? ContactId { get; set; }
-        //public string File { get; set; }
     }
 
     public class UpdateCase
     {
         [Display(Name = "CaseID", ResourceType = typeof(Resource))]
-        public int CaseId { get; set; }
+        public string CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd") : ""; } }
@@ -110,7 +108,7 @@ namespace DPTnew.Models
         [Display(Name = "CaseHistoryID", ResourceType = typeof(Resource))]
         public int CaseHistoryId { get; set; }
         [Display(Name = "CaseID", ResourceType = typeof(Resource))]
-        public int CaseId { get; set; }
+        public string CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
         public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
@@ -129,7 +127,7 @@ namespace DPTnew.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int CaseLogId { get; set; }
-        public int CaseId { get; set; }
+        public string CaseId { get; set; }
         public DateTime CreatedOn { get; set; }
         public string CreatedBy { get; set; }
         public string Status { get; set; }
