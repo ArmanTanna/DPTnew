@@ -14,7 +14,7 @@
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
-            }, 2000); 
+            }, 2000);
             var sts = escape($("#status-choice").val());
             $("#Description").val(sts);
         });
@@ -180,10 +180,12 @@
                     </select>
                 </div>
             </td>
-            <td>
-                <input type="submit" value="submit" />
-            </td>
+            <td></td>
         </tr>
     </table>
+    <div>
+        <input type="submit" name="submitButton" value="Submit" />
+
+        <input type="submit" name="submitButton" value="Cancel" />
+    </div>
 }
-<p><a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a></p>

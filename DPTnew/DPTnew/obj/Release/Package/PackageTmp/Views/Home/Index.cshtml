@@ -57,7 +57,7 @@
 <table style="width:100%">
     <tbody>
         <tr>
-            <th style="width:33%"><a href="http://care.think3.eu/default.aspx" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a></th>
+            <th style="width:33%"><a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a></th>
             <th style="width:33%">
                 <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
             </th>
@@ -70,7 +70,6 @@
                     <a href="~/Faq/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_VarGuidebook</u></a>
                 }
             </th>
-
         </tr>
         <tr>
             <td>
@@ -94,7 +93,7 @@
 <table>
     <tbody>
         <tr>
-            <th style ="width:33%">
+            <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 {
                     <a href="~/Intranet" target="_blank"><u>Activities</u></a>

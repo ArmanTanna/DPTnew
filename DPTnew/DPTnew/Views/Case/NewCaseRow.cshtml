@@ -27,6 +27,7 @@
         });
 
         var companies = JSON.parse(atob('@ViewBag.Companies'));
+        var curuser = '@ViewBag.CurrUser';
         $(document).ready(function () {
             for (var i = 0; i < companies.length; i++) {
                 $("#AccountName").append('<option value="' + companies[i].split("\"")[0].substring(0, companies[i].length - 1) + '">' + companies[i] + '</option>');
@@ -36,7 +37,10 @@
                          function (result) {
                              $("#Contact").empty();
                              for (var i = 0; i < result.length; i++) {
-                                 $("#Contact").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
+                                 if (curuser == result[i].Email)
+                                     $("#Contact").append("<option value='" + result[i].Email + "' selected>" + result[i].Email + "</option>");
+                                 else
+                                     $("#Contact").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
                              }
                          });
             }
@@ -47,7 +51,10 @@
                      function (result) {
                          $("#Contact").empty();
                          for (var i = 0; i < result.length; i++) {
-                             $("#Contact").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
+                             if (curuser == result[i].Email)
+                                 $("#Contact").append("<option value='" + result[i].Email + "' selected>" + result[i].Email + "</option>");
+                             else
+                                 $("#Contact").append("<option value='" + result[i].Email + "'>" + result[i].Email + "</option>");
                          }
                      });
             });

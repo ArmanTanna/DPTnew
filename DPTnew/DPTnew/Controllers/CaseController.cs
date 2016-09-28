@@ -82,6 +82,7 @@ namespace DPTnew.Controllers
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
                 ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+                ViewBag.CurrUser = Membership.GetUser().UserName;
             }
             return View(caseRow);
         }
@@ -108,6 +109,10 @@ namespace DPTnew.Controllers
                     var usr = db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
                     newCase.ContactId = usr.UserId;
                     newCase.Language = usr.Language;
+                    if (usr.Language.Contains("japanese"))
+                        newCase.Language = "Japanese";
+                    else
+                        newCase.Language = "English";
                 }
                 catch (Exception e)
                 {
@@ -130,9 +135,9 @@ namespace DPTnew.Controllers
 
                 var maxq = db.Cases.Where(u => u.CaseId.StartsWith("D")).Max(x => x.CaseId);
                 if (maxq == null)
-                    newCase.CaseId = "D1";
+                    newCase.CaseId = "D00000001";
                 else
-                    newCase.CaseId = "D" + (System.Convert.ToInt64(maxq.Split('D')[1]) + 1);
+                    newCase.CaseId = "D" + (System.Convert.ToInt64(maxq.Split('D')[1]) + 1).ToString("D8");
 
                 db.Cases.Add(newCase);
                 db.SaveChanges();
@@ -197,8 +202,13 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,Var,VarExp")]
         [HttpPost]
-        public ActionResult Modify(UpdateCase caseRow)
+        public ActionResult Modify(UpdateCase caseRow, string submitButton)
         {
+            if (submitButton == "Cancel")
+            {
+                ViewBag.ok1 = "The case modify operation has been canceled!";
+                return View("Success");
+            }
             caseRow.Status = GlobalObject.unescape(caseRow.Description);
             using (var db = new DptContext())
             {
@@ -416,7 +426,7 @@ namespace DPTnew.Controllers
             {
                 try
                 {
-                    var xx =db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList();
+                    var xx = db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList();
                     return View(xx);
                     //return View(db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList());
                 }
