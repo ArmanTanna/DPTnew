@@ -94,7 +94,8 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Description)</td>
                 <td>
-                    <input type="text" name="description" value="@Html.DisplayTextFor(modelItem => item.Description)" readonly>
+                    @Html.TextAreaFor(modelItem => item.Description, new { @cols = 350, @rows = 2, @readonly = "readonly" })
+                    @*<input type="text" name="description" value="@Html.DisplayTextFor(modelItem => item.Description)" readonly>*@
                 </td>
             </tr>
             <tr>

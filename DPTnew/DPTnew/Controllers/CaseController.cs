@@ -109,7 +109,7 @@ namespace DPTnew.Controllers
                     var usr = db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
                     newCase.ContactId = usr.UserId;
                     newCase.Language = usr.Language;
-                    if (usr.Language.Contains("japanese"))
+                    if (usr.Language.ToLower() == "japanese")
                         newCase.Language = "Japanese";
                     else
                         newCase.Language = "English";
@@ -171,7 +171,7 @@ namespace DPTnew.Controllers
                 db.SaveChanges();
 
                 MailMessage mail = new MailMessage("is@dptcorporate.com", "Caseinteractions@think3.eu");
-                if (newCase.Language == "japanese")
+                if (newCase.Language.ToLower() == "japanese")
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
                     mail.Body = "お客様。\n以下のご質問項目 #" + caseId + " が作成されたことをお知らせいたします。\n\n" +
@@ -222,6 +222,7 @@ namespace DPTnew.Controllers
                         ncase.ModifiedOn = DateTime.Now;
                         ncase.CCEngineer = caseRow.CCEngineer;
                         ncase.MachineId = caseRow.MachineId;
+                        ncase.EDBnumber = caseRow.EDBnumber;
                         ncase.Type = caseRow.Type;
                         try
                         {
@@ -248,13 +249,15 @@ namespace DPTnew.Controllers
 
                             if (oldstatus != "Open")
                             {
-                                MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.CreatedBy);
+                                MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.Contact);
+                                if (ncase.Contact != ncase.CreatedBy)
+                                    mail.Bcc.Add(new MailAddress(dcl.CreatedBy));
                                 mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
                                 var cr = db.Cases.Where(c => c.CaseId == caseRow.CaseId).FirstOrDefault();
                                 if (caseRow.Status != "Closed")
                                 {
                                     var lchr = db.CaseHistories.Where(c => c.CaseId == caseRow.CaseId).OrderByDescending(x => x.CaseHistoryId).FirstOrDefault();
-                                    if (cr.Language == "japanese")
+                                    if (cr.Language.ToLower() == "japanese")
                                     {
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " が更新されました - " + lchr.Description;
                                         mail.Body = "お客様。\nご質問項目 #" + caseRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
@@ -273,7 +276,7 @@ namespace DPTnew.Controllers
                                 }
                                 else
                                 {
-                                    if (cr.Language == "japanese")
+                                    if (cr.Language.ToLower() == "japanese")
                                     {
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " をクローズいたしました";
                                         mail.Body = "お客様。\n" + "本件はクローズさせていただきます。\n" +
@@ -370,13 +373,14 @@ namespace DPTnew.Controllers
                                where oc.CaseId == caseHistoryRow.CaseId
                                select oc;
                 string destmail = null;
+                string varmail = null;
                 if (origCase.Count() > 0)
                 {
                     foreach (var oc in origCase)
                     {
                         if (!string.IsNullOrEmpty(oc.CCEngineer))
                         {
-                            if (oc.CreatedBy == chl.CreatedBy)
+                            if (oc.Contact == chl.CreatedBy)
                             {
                                 destmail = oc.CCEngineer;
                                 oc.Status = "Working";
@@ -384,13 +388,17 @@ namespace DPTnew.Controllers
                             else
                             {
                                 oc.Status = "Waiting on Customer";
-                                destmail = oc.CreatedBy;
+                                destmail = oc.Contact;
+                                if (oc.Contact != oc.CreatedBy)
+                                    varmail = oc.CreatedBy;
                             }
                             if (!string.IsNullOrEmpty(destmail))
                             {
                                 MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                                if (!string.IsNullOrEmpty(varmail))
+                                    mail.Bcc.Add(new MailAddress(varmail));
                                 mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
-                                if (oc.Language == "japanese")
+                                if (oc.Language.ToLower() == "japanese")
                                 {
                                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + chl.CaseId + " が更新されました - " + chl.Description;
                                     mail.Body = "お客様。\nご質問項目 #" + chl.CaseId + " が更新されたことをお知らせいたします。\n\n" +

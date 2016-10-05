@@ -55,6 +55,7 @@ namespace DPTnew.Models
         [Display(Name = "Contact", ResourceType = typeof(Resource))]
         public string Contact { get; set; }
         public int? ContactId { get; set; }
+        public string EDBnumber { get; set; }
     }
 
     public class UpdateCase
@@ -98,6 +99,7 @@ namespace DPTnew.Models
         public int ContactId { get; set; }
         public HttpPostedFileBase File { get; set; }
         public string fileName { get; set; }
+        public string EDBnumber { get; set; }
     }
 
     [Table("DPT_CaseHistory")]

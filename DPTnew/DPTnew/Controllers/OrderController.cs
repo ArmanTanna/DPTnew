@@ -24,6 +24,7 @@ namespace DPTnew.Controllers
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Orders.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             return View();
         }
 
@@ -139,6 +140,36 @@ namespace DPTnew.Controllers
                 }
             }
             return Json("Saved OrderNumber: " + orderRow.OrderNumber + " " + orderRow.idxx, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult ApproveOrderRow(Order orderRow)
+        {
+            if (string.IsNullOrEmpty(orderRow.OrderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot open the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                var ord = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber).OrderBy(y => y.idxx).ToList();
+                return View(ord);
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Approve(string orderNumber)
+        {
+            if (string.IsNullOrEmpty(orderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 1 WHERE ordernumber='" + orderNumber + "'");
+                return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+            }
         }
 
         [HttpPost]

@@ -106,6 +106,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approve.
+        /// </summary>
+        public static string ButtonApprove {
+            get {
+                return ResourceManager.GetString("ButtonApprove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decrypt password &lt; 2015.
         /// </summary>
         public static string ButtonDecryptPwd {

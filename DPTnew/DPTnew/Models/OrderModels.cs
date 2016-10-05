@@ -51,6 +51,7 @@ namespace DPTnew.Models
         public double? JPY_PriceList { get; set; }
         public string LeasingCompany { get; set; }
         public string LicenseID { get; set; }
+        public bool Status { get; set; }
     }
 
 }

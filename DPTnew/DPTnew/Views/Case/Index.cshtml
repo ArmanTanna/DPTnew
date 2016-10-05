@@ -124,7 +124,8 @@
                     }
                 },
                     { data: "Language" },
-                    { data: "StrModifiedOn" }
+                    { data: "StrModifiedOn" },
+                    { data: "AccountName" }
                 ],
                 order: [[7, 'desc']],
                 orderClasses: false,
@@ -160,7 +161,8 @@
                              CCEngineer: data.CCEngineer,
                              CCEngineerId: data.CCEngineerId,
                              Contact: data.Contact,
-                             ContactId: data.ContactId
+                             ContactId: data.ContactId,
+                             EDBnumber: data.EDBnumber
                          },
                                          function (result) {
                                              var url = yourApp.Urls.ModifyDataUrl;
@@ -197,7 +199,8 @@
                              CCEngineer: null,
                              CCEngineerId: null,
                              Contact: null,
-                             ContactId: null
+                             ContactId: null,
+                             EDBnumber: null
                          },
                                              function (result) {
                                                  var url = yourApp.Urls.CaseDataUrl;
@@ -246,7 +249,7 @@
                                         WinId.document.open();
                                         WinId.document.write(result);
                                         WinId.document.close();
-                                        myTable.rows('.selected').deselect();
+                                        //myTable.rows('.selected').deselect();
                                     });
                 }
             },
@@ -333,6 +336,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StrModifiedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountName)
                 </th>
             </tr>
         </thead>
