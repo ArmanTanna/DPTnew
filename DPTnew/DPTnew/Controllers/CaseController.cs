@@ -108,7 +108,6 @@ namespace DPTnew.Controllers
                 {
                     var usr = db.Contacts.Where(c => c.Email == caseRow.Contact).FirstOrDefault();
                     newCase.ContactId = usr.UserId;
-                    newCase.Language = usr.Language;
                     if (usr.Language.ToLower() == "japanese")
                         newCase.Language = "Japanese";
                     else

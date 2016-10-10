@@ -1699,7 +1699,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Release Notes &amp; Help manual 2016 - Work in Progress..
+        ///   Looks up a localized string similar to Release Notes &amp; Help manual 2016..
         /// </summary>
         public static string View_Home_THelp_Text {
             get {

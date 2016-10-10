@@ -62,7 +62,7 @@ var dataSetIndex = [
 ["17", "tdstylingvstdprof", "TDStyling vs TDProfessional", "l1c4p6", "Products", "Product Mktg", "2060"],
 ["18", "tdproductsequivalence", "TD Products Equivalence", "l1c4p7", "Products", "Product Mktg", "1180"],
 ["19", "eolmodules", "What about End-of-Life modules?", "l1c4p8", "Products", "Product Mktg", "1510"],
-["20", "all", "TD Suite in detail", "l1c4p9", "Products", "Product Mktg", "1300"],
+["20", "all", "TD Suite in detail", "l1c4p9", "Products", "Product Mktg", "1200"],
 ["21", "ttsuite", "TT Suite at a glance!", "l1c4p10", "Products", "Product Mktg", "1520"],
 ["22", "trycampaign", "Try  & &hellip;", "l1c5p1", "Campaigns", "Sales & Mktg", "1160"],
 ["23", "convpack", "ConvPack", "l1c5p2", "Campaigns", "Sales & Mktg", "540"],
