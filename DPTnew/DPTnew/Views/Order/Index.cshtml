@@ -19,219 +19,220 @@
 
     <script type="text/javascript">
 
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
-    yourApp.Urls.OrderDataUrl = '@Url.Action("NewOrderRow", "Order")';
-    yourApp.Urls.ApproveOrderRow = '@Url.Action("ApproveOrderRow", "Order")';
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.OrderDataUrl = '@Url.Action("NewOrderRow", "Order")';
+        yourApp.Urls.ApproveOrderRow = '@Url.Action("ApproveOrderRow", "Order")';
 
-    /* Formatting function for row details - modify as you need */
-    function format(d) {
-        // `d` is the original data object for the row
-        return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
-         '<tr>' +
-              '<td><b>Invoicer:</b></td>' +
-              '<td>' + d.Invoicer + '</td>' +
-              '<td><b>InvoicedName:</b></td>' +
-              '<td>' + d.InvoicedName + '</td>' +
-              '<td><b>InvoicedNumber:</b></td>' +
-              '<td>' + d.InvoicedNumber + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>InvoiceNumber:</b></td>' +
-              '<td>' + d.InvoiceNumber + '</td>' +
-              '<td><b>InvoiceDate:</b></td>' +
-              '<td>' + d.StrInvoiceDate + '</td>' +
-              '<td><b>NewRenewal:</b></td>' +
-              '<td>' + d.NewRenewal + '</td>' +
-          '</tr>' +
-            '<tr>' +
-              '<td><b>ProductName:</b></td>' +
-              '<td>' + d.ProductName + '</td>' +
-              '<td><b>ArticleDetail:</b></td>' +
-              '<td>' + d.ArticleDetail + '</td>' +
-              '<td><b>LineType:</b></td>' +
-              '<td>' + d.LineType + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>RequestDate:</b></td>' +
-              '<td>' + d.StrRequestDate + '</td>' +
-              '<td><b>StartDate:</b></td>' +
-              '<td>' + d.StrStartDate + '</td>' +
-              '<td><b>EndDate:</b></td>' +
-              '<td>' + d.StrEndDate + '</td>' +
-          '</tr>' +
-           '<tr>' +
-            '<td><b>LicenseType:</b></td>' +
-              '<td>' + d.LicenseType + '</td>' +
-              '<td><b>Quantity:</b></td>' +
-              '<td>' + d.Quantity + '</td>' +
-            '<td><b>Currency:</b></td>' +
-              '<td>' + d.Currency + '</td>' +
-          '</tr>' +
-           '<tr>' +
-              '<td><b>Ordered:</b></td>' +
-              '<td>' + d.Ordered + '</td>' +
-              '<td><b>Invoiced:</b></td>' +
-              '<td>' + d.Invoiced + '</td>' +
-          '</tr>' +
-          '</table>';
-    }
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+             '<tr>' +
+                  '<td><b>Invoicer:</b></td>' +
+                  '<td>' + d.Invoicer + '</td>' +
+                  '<td><b>InvoicedName:</b></td>' +
+                  '<td>' + d.InvoicedName + '</td>' +
+                  '<td><b>InvoicedNumber:</b></td>' +
+                  '<td>' + d.InvoicedNumber + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>InvoiceNumber:</b></td>' +
+                  '<td>' + d.InvoiceNumber + '</td>' +
+                  '<td><b>InvoiceDate:</b></td>' +
+                  '<td>' + d.StrInvoiceDate + '</td>' +
+                  '<td><b>NewRenewal:</b></td>' +
+                  '<td>' + d.NewRenewal + '</td>' +
+              '</tr>' +
+                '<tr>' +
+                  '<td><b>ProductName:</b></td>' +
+                  '<td>' + d.ProductName + '</td>' +
+                  '<td><b>ArticleDetail:</b></td>' +
+                  '<td>' + d.ArticleDetail + '</td>' +
+                  '<td><b>LineType:</b></td>' +
+                  '<td>' + d.LineType + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>RequestDate:</b></td>' +
+                  '<td>' + d.StrRequestDate + '</td>' +
+                  '<td><b>StartDate:</b></td>' +
+                  '<td>' + d.StrStartDate + '</td>' +
+                  '<td><b>EndDate:</b></td>' +
+                  '<td>' + d.StrEndDate + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                '<td><b>LicenseType:</b></td>' +
+                  '<td>' + d.LicenseType + '</td>' +
+                  '<td><b>Quantity:</b></td>' +
+                  '<td>' + d.Quantity + '</td>' +
+                '<td><b>Currency:</b></td>' +
+                  '<td>' + d.Currency + '</td>' +
+              '</tr>' +
+               '<tr>' +
+                  '<td><b>Ordered:</b></td>' +
+                  '<td>' + d.Ordered + '</td>' +
+                  '<td><b>Invoiced:</b></td>' +
+                  '<td>' + d.Invoiced + '</td>' +
+              '</tr>' +
+              '</table>';
+        }
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        var myTable = $("#dptorders").DataTable({
-            serverSide: true,
-            processing: true,
-            dom: 'lBfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ],
-            ajax: {
-                type: "POST",
-                url: "Order/Search"
-            },
-            select: {
-                style: 'single'
-            },
-            language: {
-                search: "@DPTnew.Localization.Resource.Search",
-                lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
-                info: "@DPTnew.Localization.Resource.info",
-                infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
-                paginate: {
-                    previous: "@DPTnew.Localization.Resource.Previous",
-                    next: "@DPTnew.Localization.Resource.Next",
+            var myTable = $("#dptorders").DataTable({
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "Order/Search"
                 },
                 select: {
-                    rows: {
-                        0: "@DPTnew.Localization.Resource.noRowsSelected",
-                        1: "@DPTnew.Localization.Resource.rowsSelected",
-                    }
-                }
-            },
-            columns: [
-            {
-                "className": 'details-control',
-                "orderable": false,
-                "data": null,
-                "defaultContent": ''
-            },
-            { data: "OrderNumber", "className": 'no-dropdown' },
-            { data: "StrOrderDate", "className": 'no-dropdown' },
-            { data: "PO_Number" },
-            { data: "AccountNumber" },
-            { data: "AccountName" },
-            { data: "SalesRep" },
-            {
-                "className": 'licenses',
-                "orderable": false,
-                "data": null,
-                "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Licenses" + '</button>'
-            }
-            ],
-            orderClasses: false
-        });
-
-        new $.fn.dataTable.Buttons(myTable, {
-            buttons: [
-                {
-                    text: '@DPTnew.Localization.Resource.New',
-                    className: 'new',
-                    action: function () {
-                        $.post(yourApp.Urls.OrderDataUrl, {
-                            idxx: null,
-                            Invoicer: null,
-                            InvoicedName: null,
-                            InvoicedNumber: null,
-                            AccountName: null,
-                            AccountNumber: null,
-                            OrderNumber: null,
-                            StrOrderDate: null,
-                            PO_Number: null,
-                            InvoiceNumber: null,
-                            StrInvoiceDate: null,
-                            NewOldAccount: null,
-                            SalesRep: null,
-                            Currency: null,
-                            LineType: null,
-                            ProductName: null,
-                            ArticleDetail: null,
-                            StrStartDate: null,
-                            StrEndDate: null,
-                            StrRequestDate: null,
-                            Ordered: null,
-                            Invoiced: null,
-                            Quantity: null,
-                            LicenseType: null,
-                            NewRenewal: null,
-                            EURO_PriceList: null,
-                            JPY_PriceList: null,
-                            LeasingCompany: null,
-                            LicenseID: null
-                        },
-                            function (result) {
-                                var url = yourApp.Urls.OrderDataUrl;
-                                WinId = window.open(url, '_blank');
-                                WinId.document.open();
-                                WinId.document.write(result);
-                                WinId.document.close();
-                                myTable.rows('.selected').deselect();
-                            });
-                    },
-                    enabled: true
+                    style: 'single'
                 },
-                                    {
-                                        text: '@DPTnew.Localization.Resource.Modify',
-                                        className: 'modify',
-                                        action: function () {
-                                            if (myTable.rows('.selected').count() != 0) {
-                                                var data = myTable.rows('.selected').data()[0];
-                                                $.post(yourApp.Urls.OrderDataUrl, {
-                                                    idxx: data.idxx,
-                                                    Invoicer: data.Invoicer,
-                                                    InvoicedName: data.InvoicedName,
-                                                    InvoicedNumber: data.InvoicedNumber,
-                                                    AccountName: data.AccountName,
-                                                    AccountNumber: data.AccountNumber,
-                                                    OrderNumber: data.OrderNumber,
-                                                    StrOrderDate: data.StrOrderDate,
-                                                    PO_Number: data.PO_Number,
-                                                    InvoiceNumber: data.InvoiceNumber,
-                                                    StrInvoiceDate: data.StrInvoiceDate,
-                                                    NewOldAccount: data.NewOldAccount,
-                                                    SalesRep: data.SalesRep,
-                                                    Currency: data.Currency,
-                                                    LineType: data.LineType,
-                                                    ProductName: data.ProductName,
-                                                    ArticleDetail: data.ArticleDetail,
-                                                    StrStartDate: data.StrStartDate,
-                                                    StrEndDate: data.StrEndDate,
-                                                    StrRequestDate: data.StrRequestDate,
-                                                    Ordered: data.Ordered,
-                                                    Invoiced: data.Invoiced,
-                                                    Quantity: data.Quantity,
-                                                    LicenseType: data.LicenseType,
-                                                    NewRenewal: data.NewRenewal,
-                                                    EURO_PriceList: data.EURO_PriceList,
-                                                    JPY_PriceList: data.JPY_PriceList,
-                                                    LeasingCompany: data.LeasingCompany,
-                                                    LicenseID: data.LicenseID
-                                                },
-                                                    function (result) {
-                                                        var url = yourApp.Urls.OrderDataUrl;
-                                                        WinId = window.open(url, '_blank');
-                                                        WinId.document.open();
-                                                        WinId.document.write(result);
-                                                        WinId.document.close();
-                                                        myTable.rows('.selected').deselect();
-                                                    });
-                                            }
-                                        },
-                                        enabled: false
-                                    },
+                language: {
+                    search: "@DPTnew.Localization.Resource.Search",
+                    lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                    info: "@DPTnew.Localization.Resource.info",
+                    infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                    paginate: {
+                        previous: "@DPTnew.Localization.Resource.Previous",
+                        next: "@DPTnew.Localization.Resource.Next",
+                    },
+                    select: {
+                        rows: {
+                            0: "@DPTnew.Localization.Resource.noRowsSelected",
+                            1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
+                    }
+                },
+                columns: [
                 {
-                    text: '@DPTnew.Localization.Resource.ButtonApprove',
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                { data: "OrderNumber", "className": 'no-dropdown' },
+                { data: "StrOrderDate", "className": 'no-dropdown' },
+                { data: "PO_Number" },
+                { data: "AccountNumber" },
+                { data: "AccountName" },
+                { data: "SalesRep" },
+                { data: "Status" },
+                {
+                    "className": 'licenses',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Licenses" + '</button>'
+                }
+                ],
+                orderClasses: false
+            });
+
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+                    {
+                        text: '@DPTnew.Localization.Resource.New',
+                        className: 'new',
+                        action: function () {
+                            $.post(yourApp.Urls.OrderDataUrl, {
+                                idxx: null,
+                                Invoicer: null,
+                                InvoicedName: null,
+                                InvoicedNumber: null,
+                                AccountName: null,
+                                AccountNumber: null,
+                                OrderNumber: null,
+                                StrOrderDate: null,
+                                PO_Number: null,
+                                InvoiceNumber: null,
+                                StrInvoiceDate: null,
+                                NewOldAccount: null,
+                                SalesRep: null,
+                                Currency: null,
+                                LineType: null,
+                                ProductName: null,
+                                ArticleDetail: null,
+                                StrStartDate: null,
+                                StrEndDate: null,
+                                StrRequestDate: null,
+                                Ordered: null,
+                                Invoiced: null,
+                                Quantity: null,
+                                LicenseType: null,
+                                NewRenewal: null,
+                                EURO_PriceList: null,
+                                JPY_PriceList: null,
+                                LeasingCompany: null,
+                                LicenseID: null
+                            },
+                                function (result) {
+                                    var url = yourApp.Urls.OrderDataUrl;
+                                    WinId = window.open(url, '_blank');
+                                    WinId.document.open();
+                                    WinId.document.write(result);
+                                    WinId.document.close();
+                                    myTable.rows('.selected').deselect();
+                                });
+                        },
+                        enabled: true
+                    },
+                                        {
+                                            text: '@DPTnew.Localization.Resource.Modify',
+                                            className: 'modify',
+                                            action: function () {
+                                                if (myTable.rows('.selected').count() != 0) {
+                                                    var data = myTable.rows('.selected').data()[0];
+                                                    $.post(yourApp.Urls.OrderDataUrl, {
+                                                        idxx: data.idxx,
+                                                        Invoicer: data.Invoicer,
+                                                        InvoicedName: data.InvoicedName,
+                                                        InvoicedNumber: data.InvoicedNumber,
+                                                        AccountName: data.AccountName,
+                                                        AccountNumber: data.AccountNumber,
+                                                        OrderNumber: data.OrderNumber,
+                                                        StrOrderDate: data.StrOrderDate,
+                                                        PO_Number: data.PO_Number,
+                                                        InvoiceNumber: data.InvoiceNumber,
+                                                        StrInvoiceDate: data.StrInvoiceDate,
+                                                        NewOldAccount: data.NewOldAccount,
+                                                        SalesRep: data.SalesRep,
+                                                        Currency: data.Currency,
+                                                        LineType: data.LineType,
+                                                        ProductName: data.ProductName,
+                                                        ArticleDetail: data.ArticleDetail,
+                                                        StrStartDate: data.StrStartDate,
+                                                        StrEndDate: data.StrEndDate,
+                                                        StrRequestDate: data.StrRequestDate,
+                                                        Ordered: data.Ordered,
+                                                        Invoiced: data.Invoiced,
+                                                        Quantity: data.Quantity,
+                                                        LicenseType: data.LicenseType,
+                                                        NewRenewal: data.NewRenewal,
+                                                        EURO_PriceList: data.EURO_PriceList,
+                                                        JPY_PriceList: data.JPY_PriceList,
+                                                        LeasingCompany: data.LeasingCompany,
+                                                        LicenseID: data.LicenseID
+                                                    },
+                                                        function (result) {
+                                                            var url = yourApp.Urls.OrderDataUrl;
+                                                            WinId = window.open(url, '_blank');
+                                                            WinId.document.open();
+                                                            WinId.document.write(result);
+                                                            WinId.document.close();
+                                                            myTable.rows('.selected').deselect();
+                                                        });
+                                                }
+                                            },
+                                            enabled: false
+                                        },
+                    {
+                        text: '@DPTnew.Localization.Resource.ButtonApprove',
                         className: 'approve',
                         action: function () {
                             if (myTable.rows('.selected').count() != 0) {
@@ -263,7 +264,7 @@
             });
 
             myTable.on('select', function () {
-                if(myTable.rows('.selected').data()[0].Status == 0){
+                if (myTable.rows('.selected').data()[0].Status == "Entered") {
                     myTable.buttons(['.modify']).enable(true);
                     if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
                         myTable.buttons(['.approve']).enable(true);
@@ -303,9 +304,10 @@
             });
 
             yadcf.init(myTable, [
-                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }
-        ]);
-    });
+                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
+                { column_number: 7, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Approved"] }
+            ]);
+        });
 
     </script>
 }
@@ -335,9 +337,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.SalesRep)
                 </th>
-
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
                 <th></th>
-
             </tr>
         </thead>
     </table>

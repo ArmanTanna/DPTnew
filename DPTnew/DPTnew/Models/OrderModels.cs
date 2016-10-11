@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DPTnew.Localization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +17,9 @@ namespace DPTnew.Models
         public string Invoicer { get; set; }
         public string InvoicedName { get; set; }
         public string InvoicedNumber { get; set; }
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
+        [Display(Name = "AccountNumber", ResourceType = typeof(Resource))]
         public string AccountNumber { get; set; }
         public string OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }
@@ -51,7 +54,7 @@ namespace DPTnew.Models
         public double? JPY_PriceList { get; set; }
         public string LeasingCompany { get; set; }
         public string LicenseID { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
     }
 
 }

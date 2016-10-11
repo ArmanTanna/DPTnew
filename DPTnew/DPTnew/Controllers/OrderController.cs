@@ -167,7 +167,7 @@ namespace DPTnew.Controllers
             }
             using (var db = new DptContext())
             {
-                db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 1 WHERE ordernumber='" + orderNumber + "'");
+                db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
                 return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
             }
         }
