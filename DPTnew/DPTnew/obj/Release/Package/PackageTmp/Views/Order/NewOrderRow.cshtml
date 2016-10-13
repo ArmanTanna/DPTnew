@@ -62,9 +62,9 @@
                     PO_Number: $("input[name=poNumber]").val(),
                     InvoiceNumber: $("input[name=invoiceNumber]").val(),
                     Invoicedate: $("input[name=invoiceDate]").val(),
-                    NewOldAccount: $("#newOldAccount-choice").val(),
+                    NewOldAccount: $("input[name=newOldAccount]").val(),
                     NewRenewal: $("#newRenewal-choice").val(),
-                    Currency: $("#currency-choice").val(),
+                    Currency: $("input[name=currency]").val(),
                     EURO_PriceList: $("input[name=euroPriceList]").val(),
                     JPY_PriceList: $("input[name=jpyPriceList]").val()
                 },
@@ -94,21 +94,52 @@
         }
 
         $(document).ready(function () {
-            if ($("input[name=startDate]").val() == "0001-01-01" || $("input[name=endDate]").val() == "0001-01-01" ||
-                $("input[name=orderDate]").val() == "0001-01-01" || $("input[name=invoiceDate]").val() == "0001-01-01") {
-                var now = new Date();
-                var month = (now.getMonth() + 1);
-                var day = now.getDate();
-                if (month < 10)
-                    month = "0" + month;
-                if (day < 10)
-                    day = "0" + day;
-                var today = now.getFullYear() + '-' + month + '-' + day;
-                $("input[name=startDate]").val(today);
-                $("input[name=endDate]").val(today);
-                $("input[name=orderDate]").val(today);
-                $("input[name=invoiceDate]").val(today);
+            if ($("#articleDetail-choice").val() != "asf")
+                $("#articleDetail-choice").append("<option value='asf'>asf</option>");
+            if ($("#articleDetail-choice").val() != "qsf")
+                $("#articleDetail-choice").append("<option value='qsf'>qsf</option>");
+            if ($("#articleDetail-choice").val() != "plss")
+                $("#articleDetail-choice").append("<option value='plss'>plss</option>");
+            if ($("#articleDetail-choice").val() != "pl")
+                $("#articleDetail-choice").append("<option value='pl'>pl</option>");
+            if ($("#articleDetail-choice").val() != "chw")
+                $("#articleDetail-choice").append("<option value='chw'>chw</option>");
+            if ($("#articleDetail-choice").val() != "cvu")
+                $("#articleDetail-choice").append("<option value='cvu'>cvu</option>");
+
+            if ($("#lineType-choice").val() != "standard")
+                $("#lineType-choice").append("<option value='standard'>standard</option>");
+            if ($("#lineType-choice").val() != "activation")
+                $("#lineType-choice").append("<option value='activation'>activation</option>");
+            if ($("#lineType-choice").val() != "freeOfCharge")
+                $("#lineType-choice").append("<option value='freeOfCharge'>freeOfCharge</option>");
+
+            var price = 0;
+            if ($("input[name=currency]").val() == "eur")
+                price = $("input[name=euroPriceList]").val();
+            else
+                price = $("input[name=jpyPriceList]").val();
+            var ord = $("input[name=ordered]").val();
+            if (price !== 0 && ord !== 0) {
+                var dis = (1 - (ord / price)) * 100;
+                $("input[name=discount]").val(dis);
             }
+
+            //if ($("input[name=startDate]").val() == "0001-01-01" || $("input[name=endDate]").val() == "0001-01-01" ||
+            //    $("input[name=orderDate]").val() == "0001-01-01" || $("input[name=invoiceDate]").val() == "0001-01-01") {
+            //    var now = new Date();
+            //    var month = (now.getMonth() + 1);
+            //    var day = now.getDate();
+            //    if (month < 10)
+            //        month = "0" + month;
+            //    if (day < 10)
+            //        day = "0" + day;
+            //    var today = now.getFullYear() + '-' + month + '-' + day;
+            //    $("input[name=startDate]").val(today);
+            //    $("input[name=endDate]").val(today);
+            //    $("input[name=orderDate]").val(today);
+            //    $("input[name=invoiceDate]").val(today);
+            //}
 
             for (var i = 0; i < companies.length; i++) {
                 $("#accountName-choice").append('<option value="' + companies[i].split("\"")[0].substring(0, companies[i].length - 1) + '">' + companies[i] + '</option>');
@@ -134,6 +165,10 @@
                          $("input[name=invoicedName]").val(result.InvoicedName);
                          $("input[name=invoicedNumber]").empty();
                          $("input[name=invoicedNumber]").val(result.InvoicedNumber);
+                         $("input[name=newOldAccount]").empty();
+                         $("input[name=newOldAccount]").val(result.NewOldAccount);
+                         $("input[name=currency]").empty();
+                         $("input[name=currency]").val(result.Currency);
                      });
             });
 
@@ -190,8 +225,26 @@
                          $("input[name=licenseType]").val(result.LicenseType);
                          $("input[name=quantity]").empty();
                          $("input[name=quantity]").val(result.Quantity);
+                         $("input[name=startDate]").empty();
+                         $("input[name=startDate]").val(result.PwdCode);
+                         $("input[name=endDate]").empty();
+                         $("input[name=endDate]").val(result.Ancestor);
                          $("input[name=licenseType]").change();
                      });
+            });
+
+            $("input[name=ordered]").change(function () {
+                $("input[name=discount]").empty();
+                var price = 0;
+                if ($("input[name=currency]").val() == "eur")
+                    price = $("input[name=euroPriceList]").val();
+                else
+                    price = $("input[name=jpyPriceList]").val();
+                var ord = $("input[name=ordered]").val();
+                if (price !== 0 && ord !== 0) {
+                    var dis = (1 - (ord / price)) * 100;
+                    $("input[name=discount]").val(dis);
+                }
             });
 
         });
@@ -262,23 +315,17 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.InvoiceNumber)</td>
                 <td>
-                    <input type="text" name="invoiceNumber" value="@Html.DisplayFor(modelItem => item.InvoiceNumber)">
+                    <input type="text" name="invoiceNumber" value="@Html.DisplayFor(modelItem => item.InvoiceNumber)" readonly>
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.NewOldAccount)</td>
                 <td>
-                    <select name="newOldAccount" id="newOldAccount-choice">
-                        <option value="old" selected>old</option>
-                        <option value="new">new</option>
-                    </select>
+                    <input type="text" name="newOldAccount" value="@Html.DisplayFor(modelItem => item.NewOldAccount)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Currency)</td>
                 <td>
-                    <select name="currency" id="currency-choice">
-                        <option value="eur" selected>eur</option>
-                        <option value="jpy">jpy</option>
-                    </select>
+                    <input type="text" name="currency" value="@Html.DisplayFor(modelItem => item.Currency)" readonly>
                 </td>
             </tr>
         }
@@ -300,12 +347,7 @@
                 <td>@Html.DisplayNameFor(model => model.ArticleDetail)</td>
                 <td>
                     <select name="articleDetail" id="articleDetail-choice">
-                        <option value="asf" selected>asf</option>
-                        <option value="qsf">qsf</option>
-                        <option value="plss">plss</option>
-                        <option value="pl">pl</option>
-                        <option value="chw">chw</option>
-                        <option value="cvu">cvu</option>
+                        <option selected value="@Html.DisplayFor(modelItem => item.ArticleDetail)">@Html.DisplayFor(modelItem => item.ArticleDetail)</option>
                     </select>
                 </td>
             </tr>
@@ -319,9 +361,7 @@
                 <td>@Html.DisplayNameFor(model => model.LineType)</td>
                 <td>
                     <select name="lineType" id="lineType-choice">
-                        <option value="standard" selected>standard</option>
-                        <option value="activation">activation</option>
-                        <option value="freeOfCharge">freeOfCharge</option>
+                        <option selected value="@Html.DisplayFor(modelItem => item.LineType)">@Html.DisplayFor(modelItem => item.LineType)</option>
                     </select>
                 </td>
             </tr>
@@ -366,6 +406,12 @@
                 <td>@Html.DisplayNameFor(model => model.JPY_PriceList)</td>
                 <td>
                     <input type="number" name="jpyPriceList" min="0" value="@Html.DisplayFor(modelItem => item.JPY_PriceList)" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td>
+                    <input type="number" name="discount" min="0" value="0" readonly>
                 </td>
             </tr>
         }

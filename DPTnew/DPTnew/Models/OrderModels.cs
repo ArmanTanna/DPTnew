@@ -13,6 +13,7 @@ namespace DPTnew.Models
     public class Order
     {
         [Key]
+        [Display(Name = "Row number")]
         public int idxx { get; set; }
         public string Invoicer { get; set; }
         public string InvoicedName { get; set; }

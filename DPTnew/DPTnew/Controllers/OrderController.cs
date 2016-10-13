@@ -67,6 +67,23 @@ namespace DPTnew.Controllers
 
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+
+                if (!string.IsNullOrEmpty(orderRow.OrderNumber))
+                {
+                    var ord = db.Orders.Where(x => x.idxx == orderRow.idxx).FirstOrDefault();
+                    orderRow.OrderDate = ord.OrderDate;
+                    orderRow.InvoiceDate = ord.InvoiceDate;
+                    orderRow.StartDate = ord.StartDate;
+                    orderRow.EndDate = ord.EndDate;
+                    orderRow.AccountName = orderRow.AccountName + " \"" + orderRow.AccountNumber + "\"";
+                }
+                else
+                {
+                    orderRow.OrderDate = DateTime.Now;
+                    orderRow.InvoiceDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)); 
+                    orderRow.StartDate = DateTime.Now;
+                    orderRow.EndDate = DateTime.Now;
+                }
             }
             List<Order> rows = new List<Order>();
             rows.Add(orderRow);
@@ -91,13 +108,30 @@ namespace DPTnew.Controllers
                     orderRow.InvoicedName = company.SalesRep;
                     orderRow.SalesRep = company.SalesRep;
                     orderRow.RequestDate = orderRow.OrderDate;
+                    if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
+                        orderRow.InvoiceNumber = "Ixxx";
+                    else
+                    {
+                        if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
+                            orderRow.InvoiceNumber = "Fxxx";
+                        else
+                            orderRow.InvoiceNumber = "Jxxx";
+                    }
+                    if (string.IsNullOrEmpty(orderRow.PO_Number))
+                        orderRow.PO_Number = "automatic input " + DateTime.Now;
                     int res = 0;
                     orderRow.idxx = db.Database.SqlQuery<int>("SELECT MAX(idxx) FROM [dbo].[DPT_Orders]", res).First() + 1;
 
                     if (string.IsNullOrEmpty(orderRow.OrderNumber))
                     {
-                        var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
-                        orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
+                        if (DateTime.Now.Year == 2016)
+                        {
+                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
+                            if (maxq == null)
+                                orderRow.OrderNumber = "S000001";
+                            else
+                                orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
+                        }
                     }
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
                         "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
@@ -119,20 +153,26 @@ namespace DPTnew.Controllers
                                 select ord;
                     if (query.Count() > 0)
                     {
+                        if (DateTime.Now.Year == 2016 && !(orderRow.OrderNumber.StartsWith("S")))
+                            return Json("Error: wrong order number (2016 = S)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
                         {
-                            o.LineType = orderRow.LineType;
+                            o.OrderNumber = orderRow.OrderNumber;
+                            o.OrderDate = orderRow.OrderDate;
+                            o.PO_Number = orderRow.PO_Number;
+                            o.InvoiceDate = orderRow.InvoiceDate;
                             o.ProductName = orderRow.ProductName;
                             o.ArticleDetail = orderRow.ArticleDetail;
+                            o.LicenseID = orderRow.LicenseID;
+                            o.LineType = orderRow.LineType;
+                            o.LicenseType = orderRow.LicenseType;
+                            o.Quantity = orderRow.Quantity;
                             o.StartDate = orderRow.StartDate;
                             o.EndDate = orderRow.EndDate;
                             o.Ordered = orderRow.Ordered;
-                            o.Quantity = orderRow.Quantity;
-                            o.LicenseType = orderRow.LicenseType;
                             o.NewRenewal = orderRow.NewRenewal;
                             o.EURO_PriceList = orderRow.EURO_PriceList;
                             o.JPY_PriceList = orderRow.JPY_PriceList;
-                            o.LicenseID = orderRow.LicenseID;
 
                             db.SaveChanges();
                         }
@@ -167,7 +207,18 @@ namespace DPTnew.Controllers
             }
             using (var db = new DptContext())
             {
-                db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
+                var query = from ord in db.Orders
+                            where ord.OrderNumber == orderNumber
+                            select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        o.Status = "Approved";
+                        db.SaveChanges();
+                    }
+                }
+                //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
                 return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
             }
         }
@@ -187,6 +238,21 @@ namespace DPTnew.Controllers
                 orderRow.InvoicedNumber = sr.AccountNumber;
                 orderRow.InvoicedName = company.SalesRep;
                 orderRow.SalesRep = company.SalesRep;
+                var query = "SELECT COUNT(*) as cnt FROM [dbo].[DPT_Orders] WHERE AccountNumber='" + company.AccountNumber + "'";
+                var res = 0;
+                var cnt = 0;
+                cnt = db.Database.SqlQuery<Int32>(query, res).First();
+
+                if (cnt == 0)
+                    orderRow.NewOldAccount = "new";
+                else
+                    orderRow.NewOldAccount = "old";
+
+                if (orderRow.Invoicer.ToLower().Trim() == "dpt srl" || orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
+                    orderRow.Currency = "eur";
+                else
+                    orderRow.Currency = "jpy";
+
                 return Json(orderRow, JsonRequestBehavior.AllowGet);
             }
         }
@@ -227,6 +293,9 @@ namespace DPTnew.Controllers
             {
                 lic.LicenseType = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.LicenseType).FirstOrDefault();
                 lic.Quantity = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.Quantity).FirstOrDefault();
+                var nd = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.MaintEndDate).FirstOrDefault();
+                lic.PwdCode = ((DateTime)nd).AddDays(1).ToString("yyyy-MM-dd");
+                lic.Ancestor = ((DateTime)nd).AddDays(366).ToString("yyyy-MM-dd");
                 return Json(lic, JsonRequestBehavior.AllowGet);
             }
         }
