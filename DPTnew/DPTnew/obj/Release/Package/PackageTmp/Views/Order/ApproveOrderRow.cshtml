@@ -56,7 +56,7 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.AccountName)</td>
                 <td>
-                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" re readonly>
+                    <input type="text" name="accountName" value="@Html.DisplayFor(modelItem => item.AccountName)" readonly>
                 </td>
             </tr>
             <tr>
@@ -76,47 +76,57 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.PO_Number)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.PO_Number)" readonly>
+                    <input type="text" name="poNumber" value="@Html.DisplayFor(modelItem => item.PO_Number)" readonly>
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.ProductName)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.ProductName)" readonly>
+                    <input type="text" name="productName" value="@Html.DisplayFor(modelItem => item.ProductName)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.ArticleDetail)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.ArticleDetail)" readonly>
+                    <input type="text" name="articleDetail" value="@Html.DisplayFor(modelItem => item.ArticleDetail)" readonly>
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.LineType)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.LineType)" readonly>
+                    <input type="text" name="lineType" value="@Html.DisplayFor(modelItem => item.LineType)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.LicenseType)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.LicenseType)" readonly>
+                    <input type="text" name="licenseType" value="@Html.DisplayFor(modelItem => item.LicenseType)" readonly>
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.StrStartDate)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.StrStartDate)" readonly>
+                    <input type="text" name="startDate" value="@Html.DisplayFor(modelItem => item.StrStartDate)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.StrEndDate)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.StrEndDate)" readonly>
+                    <input type="text" name="endDate" value="@Html.DisplayFor(modelItem => item.StrEndDate)" readonly>
                 </td>
             </tr>
             <tr>
+                <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
+                <td>
+                    <input type="text" name="licenseID" value="@Html.DisplayFor(modelItem => item.LicenseID)" readonly>
+                </td>
                 <td>@Html.DisplayNameFor(model => model.Quantity)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.Quantity)" readonly>
+                    <input type="number" name="quantity" value="@Html.DisplayFor(modelItem => item.Quantity)" readonly>
                 </td>
+            </tr>
+            <tr>
                 <td>@Html.DisplayNameFor(model => model.Ordered)</td>
                 <td>
-                    <input type="text" name="invoicedName" value="@Html.DisplayFor(modelItem => item.Ordered)" readonly>
+                    <input type="number" name="invoicedName" value="@Html.DisplayFor(modelItem => item.Ordered)" readonly>
+                </td>
+                <td>@Html.DisplayNameFor(model => model.Currency)</td>
+                <td>
+                    <input type="text" name="currency" value="@Html.DisplayFor(modelItem => item.Currency)" readonly>
                 </td>
             </tr>
             <tr>
@@ -162,7 +172,7 @@
 </table>
 <p>
     <a href="javascript: submitform()"><input type="submit" value="Approve" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
+    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Close" /></a>
 </p>
 
 <div id="sysmsg-dialog" title="System message" style="display:none;">

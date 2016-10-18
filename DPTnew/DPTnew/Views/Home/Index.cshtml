@@ -57,7 +57,9 @@
 <table style="width:100%">
     <tbody>
         <tr>
-            <th style="width:33%"><a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a></th>
+            <th style="width:33%">
+                <a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a>
+            </th>
             <th style="width:33%">
                 <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
             </th>
@@ -88,10 +90,17 @@
         </tr>
     </tbody>
 </table>
-        </br>
-<table>
+    </br>
+<table style="width:100%">
     <tbody>
         <tr>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                {
+                    <a href="~/CaseHistory" target="_blank"><u>Case Archive</u></a>
+                }
+            </th>
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 {
@@ -106,16 +115,15 @@
                     </u>
                 }
             </th>
-            <th style="width:33%">
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <u>
-                        @Html.ActionLink("Update Product List", "UpdateProductList", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
-                    </u>
-                }
-            </th>
         </tr>
         <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                {
+                    <text> All the cases managed by CC.</text>
+                }
+            </td>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 {
@@ -128,36 +136,37 @@
                     <text> Synchronize the site company info's with Safenet.</text>
                 }
             </td>
+        </tr>
+    </tbody>
+</table>
+    </br>
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Update Product List", "UpdateProductList", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
+            </th>
+            <th style="width:33%">
+            </th>
+            <th style="width:33%">
+            </th>
+        </tr>
+        <tr>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <text> Synchronize the Safenet product list info's with the site.</text>
                 }
             </td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
 
 
-
-
-
-
-
-
-@* Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
-    <h3 style="color:orange;">We suggest the following:</h3>
-    <ol class="round">
-        <li class="one">
-            <h5>Getting Started</h5>
-           Go to the <a href="~/Licenses/Index">Licenses</a> section to start to ...
-        </li>
-        @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
-        {
-
-        <li class="one">
-            <h5>Sono un VAR</h5>
-            Click <a href="~/Faq/Index">here</a> to access the VAR Guidebook.
-        </li>
-        }
-    </ol>*@

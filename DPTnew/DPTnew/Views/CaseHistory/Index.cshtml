@@ -1,0 +1,147 @@
+﻿@model DPTnew.Models.DptCaseHistory
+
+@{
+    ViewBag.Title = "Case Archive";
+}
+
+@section Scripts {
+    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/pdfmake.min.js"></script>
+    <script src="~/Scripts/vfs_fonts.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.highlight.js"></script>
+
+    <script type="text/javascript">
+
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.GetCaseHistoryUrl = '@Url.Action("CaseHistories", "Case")';
+
+        $(document).ready(function () {
+
+            var myTable = $("#dptcasehistory").DataTable({
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "CaseHistory/Search"
+                },
+                language: {
+                    search: "@DPTnew.Localization.Resource.Search",
+                    lengthMenu: "@DPTnew.Localization.Resource.lengthmenu",
+                    info: "@DPTnew.Localization.Resource.info",
+                    infoFiltered: "@DPTnew.Localization.Resource.infofiltered",
+                    paginate: {
+                        previous: "@DPTnew.Localization.Resource.Previous",
+                        next: "@DPTnew.Localization.Resource.Next",
+                    },
+                    select: {
+                        rows: {
+                            0: "@DPTnew.Localization.Resource.noRowsSelected",
+                            1: "@DPTnew.Localization.Resource.rowsSelected",
+                        }
+                    }
+                },
+                columns: [
+                { data: "CaseId" },
+                { data: "StrCreatedOn" },
+                { data: "CreatedBy" },
+                { data: "Description" },
+                { data: "Details" }
+                ],
+                order: [[1, 'desc']],
+                orderClasses: false,
+                select: {
+                    style: 'single'
+                }
+            });
+
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+                  {
+                      text: '@DPTnew.Localization.Resource.History',
+                      className: 'history',
+                      action: function () {
+                          if (myTable.rows('.selected').count() != 0) {
+                              var data = myTable.rows('.selected').data()[0];
+                              $.post(yourApp.Urls.GetCaseHistoryUrl, {
+                                  caseId: data.CaseId,
+                              },
+                              function (result) {
+                                  var url = yourApp.Urls.GetCaseHistoryUrl;
+                                  WinId = window.open(url, '_blank');
+                                  WinId.document.open();
+                                  WinId.document.write(result);
+                                  WinId.document.close();
+                                  //myTable.rows('.selected').deselect();
+                              });
+                          }
+                      },
+                      enabled: false
+                  }
+                ]
+            });
+
+            myTable.buttons().container().insertBefore('#dptcasehistory_filter');
+
+            myTable.on('select', function () {
+                myTable.buttons(['.history']).enable(true);
+            });
+
+            myTable.on('deselect', function () {
+                myTable.buttons(['.history']).disable();
+            });
+
+            myTable.on("draw", function () {
+                var $body = $(myTable.table().body());
+                $body.unhighlight();
+                $body.highlight(myTable.search());
+            });
+
+            // Add event listener for opening and closing details
+            $('#dptcasehistory tbody').on('click', 'td.details-control', function () {
+
+            });
+
+        });
+
+    </script>
+}
+<div style="width: 1000px">
+    <table id="dptcasehistory" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CaseId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StrCreatedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Details)
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+

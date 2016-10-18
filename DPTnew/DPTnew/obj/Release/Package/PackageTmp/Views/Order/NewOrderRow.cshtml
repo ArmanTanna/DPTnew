@@ -59,14 +59,15 @@
                     Quantity: $("input[name=quantity]").val(),
                     Ordered: $("input[name=ordered]").val(),
                     Orderdate: $("input[name=orderDate]").val(),
-                    PO_Number: $("input[name=poNumber]").val(),
+                    PO_Number: $("#item_PO_Number").val(),
                     InvoiceNumber: $("input[name=invoiceNumber]").val(),
                     Invoicedate: $("input[name=invoiceDate]").val(),
                     NewOldAccount: $("input[name=newOldAccount]").val(),
                     NewRenewal: $("#newRenewal-choice").val(),
                     Currency: $("input[name=currency]").val(),
                     EURO_PriceList: $("input[name=euroPriceList]").val(),
-                    JPY_PriceList: $("input[name=jpyPriceList]").val()
+                    JPY_PriceList: $("input[name=jpyPriceList]").val(),
+                    Note: $("#item_Note").val()
                 },
                 function (result) {
                     if (result.split(" ").length == 4) {
@@ -114,6 +115,11 @@
             if ($("#lineType-choice").val() != "freeOfCharge")
                 $("#lineType-choice").append("<option value='freeOfCharge'>freeOfCharge</option>");
 
+            if ($("#newRenewal-choice").val() != "renewal")
+                $("#newRenewal-choice").append("<option value='renewal'>renewal</option>");
+            if ($("#newRenewal-choice").val() != "new")
+                $("#newRenewal-choice").append("<option value='new'>new</option>");
+
             var price = 0;
             if ($("input[name=currency]").val() == "eur")
                 price = $("input[name=euroPriceList]").val();
@@ -140,6 +146,12 @@
             //    $("input[name=orderDate]").val(today);
             //    $("input[name=invoiceDate]").val(today);
             //}
+
+            $("input[name=orderDate]").change(function () {
+                var ordDate = new Date($("input[name=orderDate]").val());
+                var lastDateofTheMonth = new Date(ordDate.getFullYear(), ((ordDate.getMonth() + 1) % 12), 1);
+                $("input[name=invoiceDate]").val(lastDateofTheMonth.toISOString().substring(0,10));
+            });
 
             for (var i = 0; i < companies.length; i++) {
                 $("#accountName-choice").append('<option value="' + companies[i].split("\"")[0].substring(0, companies[i].length - 1) + '">' + companies[i] + '</option>');
@@ -183,7 +195,7 @@
                          }
                      });
                 if ($("#articleDetail-choice").val() !== "") {
-                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val(), quantity: $("input[name=quantity]").val() },
                          function (result) {
                              $("input[name=euroPriceList]").empty();
                              $("input[name=euroPriceList]").val(result.split("_")[0]);
@@ -195,7 +207,7 @@
 
             $("#articleDetail-choice").change(function () {
                 if ($("#productName-choice").val() !== "") {
-                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val(), quantity: $("input[name=quantity]").val() },
                          function (result) {
                              $("input[name=euroPriceList]").empty();
                              $("input[name=euroPriceList]").val(result.split("_")[0]);
@@ -207,7 +219,7 @@
 
             $("input[name=licenseType]").change(function () {
                 if ($("#productName-choice").val() !== "" && $("#articleDetail-choice").val() !== "") {
-                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val() },
+                    $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val(), quantity: $("input[name=quantity]").val() },
                          function (result) {
                              $("input[name=euroPriceList]").empty();
                              $("input[name=euroPriceList]").val(result.split("_")[0]);
@@ -261,6 +273,12 @@
             <option selected value="@Html.DisplayFor(modelItem => item.AccountName)">@Html.DisplayFor(modelItem => item.AccountName)</option>
         </select>
     </div>
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.PO_Number)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(modelItem => item.PO_Number, new { @cols = 20, @rows = 1 })
+    </div>
 }
 <table id="dptorder" class="display" cellspacing="0" width="100%">
     <thead>
@@ -303,15 +321,15 @@
                 <td>
                     <input type="date" name="orderDate" value="@Html.DisplayFor(modelItem => item.StrOrderDate)">
                 </td>
-                <td>@Html.DisplayNameFor(model => model.PO_Number)</td>
+                <td>@Html.DisplayNameFor(model => model.NewOldAccount)</td>
                 <td>
-                    <input type="text" name="poNumber" value="@Html.DisplayFor(modelItem => item.PO_Number)">
+                    <input type="text" name="newOldAccount" value="@Html.DisplayFor(modelItem => item.NewOldAccount)" readonly>
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.StrInvoiceDate)</td>
                 <td>
-                    <input type="date" name="invoiceDate" value="@Html.DisplayFor(modelItem => item.StrInvoiceDate)">
+                    <input type="date" name="invoiceDate" value="@Html.DisplayFor(modelItem => item.StrInvoiceDate)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.InvoiceNumber)</td>
                 <td>
@@ -319,18 +337,23 @@
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.NewOldAccount)</td>
-                <td>
-                    <input type="text" name="newOldAccount" value="@Html.DisplayFor(modelItem => item.NewOldAccount)" readonly>
-                </td>
                 <td>@Html.DisplayNameFor(model => model.Currency)</td>
                 <td>
                     <input type="text" name="currency" value="@Html.DisplayFor(modelItem => item.Currency)" readonly>
                 </td>
+                <td></td>
+                <td></td>
             </tr>
         }
     </tbody>
 </table>
+<div>
+    <text>
+        <font color="gray">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </font>
+    </text>
+</div>
 <table id="dptorder2" class="display" cellspacing="0" width="100%">
     <thead>
     </thead>
@@ -389,8 +412,7 @@
                 <td>@Html.DisplayNameFor(model => model.NewRenewal)</td>
                 <td>
                     <select name="newRenewal" id="newRenewal-choice">
-                        <option value="renewal" selected>renewal</option>
-                        <option value="new">new</option>
+                        <option selected value="@Html.DisplayFor(modelItem => item.NewRenewal)">@Html.DisplayFor(modelItem => item.NewRenewal)</option>
                     </select>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Ordered)</td>
@@ -413,13 +435,24 @@
                 <td>
                     <input type="number" name="discount" min="0" value="0" readonly>
                 </td>
+                <td></td>
+                <td></td>
             </tr>
         }
     </tbody>
 </table>
+@foreach (var item in Model)
+{
+    <div class="editor-label" style="font-size: 1.2em;">
+        @Html.DisplayNameFor(model => model.Note)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(modelItem => item.Note, new { @cols = 20, @rows = 1 })
+    </div>
+}
 <p>
     <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a>
+    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Close" /></a>
 </p>
 <div id="sysmsg-dialog" title="System message" style="display:none;">
     <strong style="position:absolute; margin-top:20px;" id="msg"></strong>

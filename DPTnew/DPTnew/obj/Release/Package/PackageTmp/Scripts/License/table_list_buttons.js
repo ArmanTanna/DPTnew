@@ -677,7 +677,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
                 //check for export
-                if (data.Installed == 1 && maintenddate >= now) {
+                if (data.Installed == 1 && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating") {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
                         myTable.buttons(['.upgrade']).enable(true);

@@ -56,6 +56,7 @@ namespace DPTnew.Models
         public string LeasingCompany { get; set; }
         public string LicenseID { get; set; }
         public string Status { get; set; }
+        public string Note { get; set; }
     }
 
 }

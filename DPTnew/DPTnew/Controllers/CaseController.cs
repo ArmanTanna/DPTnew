@@ -379,10 +379,10 @@ namespace DPTnew.Controllers
                     {
                         if (!string.IsNullOrEmpty(oc.CCEngineer))
                         {
-                            if (oc.Contact == chl.CreatedBy)
+                            if (oc.CCEngineer.ToLower() != chl.CreatedBy.ToLower())
                             {
-                                destmail = oc.CCEngineer;
                                 oc.Status = "Working";
+                                destmail = oc.CCEngineer;
                             }
                             else
                             {

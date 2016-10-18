@@ -74,16 +74,45 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<Order> GetOrders()
         {
+            var user = WebSecurity.CurrentUserName;
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Orders.ToList();
 
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            //if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
+            //{
+            //    var user = WebSecurity.CurrentUserName;
+            //    var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
+            //    var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
+            //    var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
+            //    return _db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList();
+            //}
+            //return null;
+
+            var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
-                var user = WebSecurity.CurrentUserName;
-                var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
-                var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
-                return _db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList();
+                if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
+                    return _db.Orders.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+
+                var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                if (salesRep.Count == 0)
+                {
+                    var sR = _db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                    var companies = _db.Companies.Where(x => x.SalesRep == sR).Select(u => u.AccountNumber).ToList();
+                    companies.Add(company.AccountNumber);
+                    return _db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList();
+                }
+                else
+                {
+                    var res = new List<Order>();
+                    foreach (var sr in salesRep)
+                    {
+                        var companies = _db.Companies.Where(x => x.SalesRep == sr).Select(u => u.AccountNumber).ToList();
+                        res.AddRange(_db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList());
+                    }
+                    return res;
+                }
             }
             return null;
         }
@@ -142,6 +171,12 @@ namespace DPTnew.Controllers
                 }
             }
             return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+        }
+
+        protected IEnumerable<DptCaseHistory> GetHistoryCases()
+        {
+            return _db.CaseHistories.ToList();
+
         }
 
         protected IEnumerable<ActivityTitles> GetActivityTitles()

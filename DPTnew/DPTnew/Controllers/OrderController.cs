@@ -17,7 +17,7 @@ using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
-    [Authorize(Roles = "Admin,Internal,VarExp")]
+    [Authorize(Roles = "Admin,Internal,VarExp,Var")]
     public class OrderController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
@@ -80,7 +80,7 @@ namespace DPTnew.Controllers
                 else
                 {
                     orderRow.OrderDate = DateTime.Now;
-                    orderRow.InvoiceDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)); 
+                    orderRow.InvoiceDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
                     orderRow.StartDate = DateTime.Now;
                     orderRow.EndDate = DateTime.Now;
                 }
@@ -133,10 +133,16 @@ namespace DPTnew.Controllers
                                 orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
                         }
                     }
+                    else
+                    {
+                        var old = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber).FirstOrDefault();
+                        if (old.AccountNumber != orderRow.AccountNumber)
+                            return Json("rows belonging to the same order can't have different account number", JsonRequestBehavior.AllowGet);
+                    }
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
                         "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
                         " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
-                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx) VALUES ('" + orderRow.Invoicer + "','" +
+                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx, Note) VALUES ('" + orderRow.Invoicer + "','" +
                         orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
                         + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
                         + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
@@ -144,7 +150,7 @@ namespace DPTnew.Controllers
                         orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
                         orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
                         orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
-                        orderRow.LicenseID + "','" + orderRow.idxx + "');");
+                        orderRow.LicenseID + "','" + orderRow.idxx + "','" + orderRow.Note + "');");
                 }
                 else
                 {
@@ -173,13 +179,27 @@ namespace DPTnew.Controllers
                             o.NewRenewal = orderRow.NewRenewal;
                             o.EURO_PriceList = orderRow.EURO_PriceList;
                             o.JPY_PriceList = orderRow.JPY_PriceList;
-
+                            o.Note = orderRow.Note;
                             db.SaveChanges();
                         }
                     }
                 }
             }
             return Json("Saved OrderNumber: " + orderRow.OrderNumber + " " + orderRow.idxx, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult OrderRows(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot open the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                var ord = db.Orders.Where(x => x.OrderNumber == id).OrderBy(y => y.idxx).ToList();
+                return View(ord);
+            }
         }
 
         [Authorize(Roles = "Admin")]
@@ -295,13 +315,13 @@ namespace DPTnew.Controllers
                 lic.Quantity = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.Quantity).FirstOrDefault();
                 var nd = db.Licenses.Where(u => u.LicenseID == licenseId).Select(x => x.MaintEndDate).FirstOrDefault();
                 lic.PwdCode = ((DateTime)nd).AddDays(1).ToString("yyyy-MM-dd");
-                lic.Ancestor = ((DateTime)nd).AddDays(366).ToString("yyyy-MM-dd");
+                lic.Ancestor = ((DateTime)nd).AddDays(365).ToString("yyyy-MM-dd");
                 return Json(lic, JsonRequestBehavior.AllowGet);
             }
         }
 
         [HttpPost]
-        public JsonResult GetPrice(string productName, string articleDetail, string licenseType)
+        public JsonResult GetPrice(string productName, string articleDetail, string licenseType, int quantity)
         {
             if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(articleDetail))
                 return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
@@ -311,13 +331,15 @@ namespace DPTnew.Controllers
                 switch (articleDetail)
                 {
                     case "pl":
+                    case "chw":
                         query += "PL_EURO";
                         break;
-                    case "plss":
-                        query += "PLSS_EURO";
+                    case "asf":
+                    case "qsf":
+                        query += "ASF_EURO";
                         break;
                     default:
-                        query += "ASF_EURO";
+                        query += "PLSS_EURO";
                         break;
                 }
                 query += " FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + productName + "' and [Status] = 'active'";
@@ -333,12 +355,26 @@ namespace DPTnew.Controllers
                     europrice = europrice + ((europrice * 15) / 100);
                     jpyprice = jpyprice + ((jpyprice * 5) / 100);
                 }
-                if (articleDetail == "qsf")
+                switch (articleDetail)
                 {
-                    europrice = europrice / 4;
-                    jpyprice = jpyprice / 4;
+                    case "qsf":
+                        europrice = europrice / 4;
+                        jpyprice = jpyprice / 4;
+                        break;
+                    case "cvu":
+                        europrice = europrice * 3;
+                        jpyprice = jpyprice * 3;
+                        break;
+                    case "chw":
+                        europrice = (europrice * 20) / 100;
+                        jpyprice = (jpyprice * 20) / 100;
+                        break;
                 }
-
+                if (quantity > 1)
+                {
+                    europrice = europrice * quantity;
+                    jpyprice = jpyprice * quantity;
+                }
                 return Json(europrice + "_" + jpyprice, JsonRequestBehavior.AllowGet);
             }
         }

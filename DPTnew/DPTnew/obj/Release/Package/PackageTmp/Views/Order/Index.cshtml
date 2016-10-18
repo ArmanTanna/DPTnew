@@ -72,8 +72,10 @@
                '<tr>' +
                   '<td><b>Invoiced:</b></td>' +
                   '<td>' + d.Invoiced + '</td>' +
-                '<td><b>LicenseID:</b></td>' +
+                  '<td><b>LicenseID:</b></td>' +
                   '<td>' + d.LicenseID + '</td>' +
+                  '<td><b>Note:</b></td>' +
+                  '<td>' + d.Note + '</td>' +
               '</tr>' +
               '</table>';
         }
@@ -126,10 +128,10 @@
                 { data: "SalesRep" },
                 { data: "Status" },
                 {
-                    "className": 'licenses',
+                    "className": 'orders',
                     "orderable": false,
                     "data": null,
-                    "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Licenses" + '</button>'
+                    "defaultContent": '<button>' + "Orders" + '</button>'
                 }
                 ],
                 orderClasses: false
@@ -170,7 +172,8 @@
                                 EURO_PriceList: null,
                                 JPY_PriceList: null,
                                 LeasingCompany: null,
-                                LicenseID: null
+                                LicenseID: null,
+                                Note: null
                             },
                                 function (result) {
                                     var url = yourApp.Urls.OrderDataUrl;
@@ -219,7 +222,8 @@
                                                         EURO_PriceList: data.EURO_PriceList,
                                                         JPY_PriceList: data.JPY_PriceList,
                                                         LeasingCompany: data.LeasingCompany,
-                                                        LicenseID: data.LicenseID
+                                                        LicenseID: data.LicenseID,
+                                                        Note: data.Note
                                                     },
                                                         function (result) {
                                                             var url = yourApp.Urls.OrderDataUrl;
@@ -279,12 +283,12 @@
             });
 
             // Add event listener for opening licenses page
-            $('#dptorders tbody').on('click', 'td.licenses', function () {
+            $('#dptorders tbody').on('click', 'td.orders', function () {
                 var tr = $(this).closest('tr');
                 var row = myTable.row(tr);
                 var datarow = row.data();
-
-                window.open("/Company/Licenses/" + datarow.AccountNumber, "_blank");
+               
+                window.open("/Order/OrderRows/" + datarow.OrderNumber, "_blank");
             })
             // Add event listener for opening and closing details
             $('#dptorders tbody').on('click', 'td.details-control', function () {
