@@ -109,16 +109,17 @@ namespace DPTnew.Controllers
                     orderRow.InvoicedName = company.SalesRep;
                     orderRow.SalesRep = company.SalesRep;
                     orderRow.RequestDate = orderRow.OrderDate;
+                    orderRow.Invoiced = orderRow.Ordered;
                     if (orderRow.LineType == "activation")
                         orderRow.InvoiceNumber = "ACT";
                     else
                     {
                         if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
-                            orderRow.InvoiceNumber = "Ixxx";
+                            orderRow.InvoiceNumber = "I16-XXX";
                         else
                         {
                             if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
-                                orderRow.InvoiceNumber = "Fxxx";
+                                orderRow.InvoiceNumber = "F16-XXX";
                             else
                                 orderRow.InvoiceNumber = "JJ";
                         }
@@ -303,6 +304,7 @@ namespace DPTnew.Controllers
                 ViewBag.ok1 = "Something went wrong. Cannot save the order!";
                 return View("Success");
             }
+            var destmail = "";
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
@@ -314,10 +316,23 @@ namespace DPTnew.Controllers
                     {
                         o.Status = "Entered";
                         db.SaveChanges();
+                        if (string.IsNullOrEmpty(destmail))
+                        {
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                            else
+                                destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                        }
                     }
                 }
+                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been rejected";
+                mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been rejected.\n\n" +
+                    "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
+                    "\n\nBest Regards,\n\nDPT orders";
+                SendMail(mail);
             }
-            return Json("Rejected OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+            return Json("Rejected OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Admin")]
@@ -357,7 +372,7 @@ namespace DPTnew.Controllers
                 SendMail(mail);
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }
-            return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+            return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

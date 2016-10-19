@@ -38,8 +38,8 @@
                   '<td>' + d.InvoicedNumber + '</td>' +
               '</tr>' +
                '<tr>' +
-                  '<td><b>Account #:</b></td>' +
-                  '<td>' + d.AccountNumber + '</td>' +
+                  '<td><b>PO #:</b></td>' +
+                  '<td>' + d.PO_Number + '</td>' +
                   '<td><b>InvoiceNumber:</b></td>' +
                   '<td>' + d.InvoiceNumber + '</td>' +
                   '<td><b>InvoiceDate:</b></td>' +
@@ -48,8 +48,8 @@
                 '<tr>' +
                   '<td><b>NewRenewal:</b></td>' +
                   '<td>' + d.NewRenewal + '</td>' +
-                  '<td><b>ArticleDetail:</b></td>' +
-                  '<td>' + d.ArticleDetail + '</td>' +
+                '<td><b>LicenseType:</b></td>' +
+                  '<td>' + d.LicenseType + '</td>' +
                   '<td><b>LineType:</b></td>' +
                   '<td>' + d.LineType + '</td>' +
               '</tr>' +
@@ -62,20 +62,20 @@
                   '<td>' + d.StrEndDate + '</td>' +
               '</tr>' +
                '<tr>' +
-                '<td><b>LicenseType:</b></td>' +
-                  '<td>' + d.LicenseType + '</td>' +
+                '<td><b>OrderNumber:</b></td>' +
+                  '<td>' + d.OrderNumber + '</td>' +
+                '<td><b>OrderDate:</b></td>' +
+                  '<td>' + d.StrOrderDate + '</td>' +
                   '<td><b>Quantity:</b></td>' +
                   '<td>' + d.Quantity + '</td>' +
-                '<td><b>Currency:</b></td>' +
-                  '<td>' + d.Currency + '</td>' +
               '</tr>' +
                '<tr>' +
                   '<td><b>Invoiced:</b></td>' +
                   '<td>' + d.Invoiced + '</td>' +
-                  '<td><b>LicenseID:</b></td>' +
-                  '<td>' + d.LicenseID + '</td>' +
                   '<td><b>Note:</b></td>' +
                   '<td>' + d.Note + '</td>' +
+                  '<td><b>RowNumber:</b></td>' +
+                  '<td>' + d.idxx + '</td>' +
               '</tr>' +
               '</table>';
         }
@@ -119,12 +119,17 @@
                     "data": null,
                     "defaultContent": ''
                 },
-                { data: "OrderNumber", "className": 'no-dropdown' },
-                { data: "StrOrderDate", "className": 'no-dropdown' },
-                { data: "PO_Number" },
+                { data: "AccountNumber" },
                 { data: "AccountName" },
-                { data: "ProductName" },
-                { data: "Ordered" },
+                { data: "LicenseID" },
+                { data: "ArticleType" },
+                {
+                    data: "Ordered",
+                    render: function (data, type, row) {
+                        return data + " " + row.Currency;
+                    }
+                },
+                { data: "Discount" },
                 { data: "SalesRep" },
                 { data: "Status" },
                 {
@@ -324,24 +329,23 @@
         <thead>
             <tr>
                 <th></th>
-
                 <th>
-                    @Html.DisplayNameFor(model => model.OrderNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StrOrderDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PO_Number)
+                    @Html.DisplayNameFor(model => model.AccountNumber)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.AccountName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ProductName)
+                    @Html.DisplayNameFor(model => model.LicenseID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArticleType)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Ordered)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discount)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.SalesRep)
