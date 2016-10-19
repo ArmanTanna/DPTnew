@@ -237,7 +237,7 @@
                                             },
                                             enabled: false
                                         },
-                    {
+                    @*{
                         text: '@DPTnew.Localization.Resource.ButtonApprove',
                         className: 'approve',
                         action: function () {
@@ -257,7 +257,7 @@
                             }
                         },
                         enabled: false
-                    }
+                    }*@
                 ]
             });
 
@@ -272,14 +272,14 @@
             myTable.on('select', function () {
                 if (myTable.rows('.selected').data()[0].Status == "Entered") {
                     myTable.buttons(['.modify']).enable(true);
-                    if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
-                        myTable.buttons(['.approve']).enable(true);
+                    @*if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
+                        myTable.buttons(['.approve']).enable(true);*@
                 }
             });
 
             myTable.on('deselect', function () {
                 myTable.buttons(['.modify']).disable();
-                myTable.buttons(['.approve']).disable();
+                //myTable.buttons(['.approve']).disable();
             });
 
             // Add event listener for opening licenses page
@@ -287,7 +287,7 @@
                 var tr = $(this).closest('tr');
                 var row = myTable.row(tr);
                 var datarow = row.data();
-               
+
                 window.open("/Order/OrderRows/" + datarow.OrderNumber, "_blank");
             })
             // Add event listener for opening and closing details
@@ -311,7 +311,7 @@
 
             yadcf.init(myTable, [
                 { column_number: 7, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
-                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Approved"] }
+                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Booked", "Checked", "Approved"] }
             ]);
         });
 

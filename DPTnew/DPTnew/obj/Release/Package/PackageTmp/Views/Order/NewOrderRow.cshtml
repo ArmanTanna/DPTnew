@@ -109,14 +109,14 @@
                 $("#articleDetail-choice").append("<option value='cvu'>cvu</option>");
 
             if ($("#lineType-choice").val() != "standard")
-                $("#lineType-choice").append("<option value='standard'>standard</option>");
+                $("#lineType-choice").append("<option value='standard' selected>standard</option>");
             if ($("#lineType-choice").val() != "activation")
                 $("#lineType-choice").append("<option value='activation'>activation</option>");
             if ($("#lineType-choice").val() != "freeOfCharge")
                 $("#lineType-choice").append("<option value='freeOfCharge'>freeOfCharge</option>");
 
             if ($("#newRenewal-choice").val() != "renewal")
-                $("#newRenewal-choice").append("<option value='renewal'>renewal</option>");
+                $("#newRenewal-choice").append("<option value='renewal' selected>renewal</option>");
             if ($("#newRenewal-choice").val() != "new")
                 $("#newRenewal-choice").append("<option value='new'>new</option>");
 
@@ -293,7 +293,7 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.idxx)</td>
                 <td>
-                    <input type="number" name="idxx" min="0" value="@Html.DisplayFor(modelItem => item.idxx)">
+                    <input type="number" name="idxx" min="0" value="@Html.DisplayFor(modelItem => item.idxx)" readonly>
                 </td>
             </tr>
             <tr>

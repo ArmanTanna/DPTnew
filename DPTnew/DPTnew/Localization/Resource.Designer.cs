@@ -115,6 +115,24 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Book.
+        /// </summary>
+        public static string ButtonBook {
+            get {
+                return ResourceManager.GetString("ButtonBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check.
+        /// </summary>
+        public static string ButtonCheck {
+            get {
+                return ResourceManager.GetString("ButtonCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decrypt password &lt; 2015.
         /// </summary>
         public static string ButtonDecryptPwd {
@@ -156,6 +174,15 @@ namespace DPTnew.Localization {
         public static string ButtonPasswordMin2015 {
             get {
                 return ResourceManager.GetString("ButtonPasswordMin2015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reject.
+        /// </summary>
+        public static string ButtonReject {
+            get {
+                return ResourceManager.GetString("ButtonReject", resourceCulture);
             }
         }
         

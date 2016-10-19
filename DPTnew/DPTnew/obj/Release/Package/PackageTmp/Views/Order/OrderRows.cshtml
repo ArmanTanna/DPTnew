@@ -4,6 +4,8 @@
     ViewBag.Title = "Orders";
 }
 @section Scripts {
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
     <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
@@ -17,6 +19,51 @@
     <script src="~/Scripts/jquery.highlight.js"></script>
 
     <script type="text/javascript">
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+                '<tr>' +
+                    '<td><b>Currency:</b></td>' +
+                    '<td>' + d[11] + '</td>' +
+                    '<td><b>Invoicer:</b></td>' +
+                    '<td>' + d[12] + '</td>' +
+                    '<td><b>Invoiced Name:</b></td>' +
+                    '<td>' + d[13] + '</td>' +
+                    '<td><b>Invoiced Number:</b></td>' +
+                    '<td>' + d[14] + '</td>' +
+                '</tr>' +
+                '<tr>' +
+                    '<td><b>Account #:</b></td>' +
+                    '<td>' + d[15] + '</td>' +
+                    '<td><b>Invoice Number:</b></td>' +
+                    '<td>' + d[16] + '</td>' +
+                    '<td><b>Invoice Date:</b></td>' +
+                    '<td>' + d[17] + '</td>' +
+                    '<td><b>NewRenewal:</b></td>' +
+                    '<td>' + d[18] + '</td>' +
+                '</tr>' +
+                '<tr>' +
+                    '<td><b>LineType:</b></td>' +
+                    '<td>' + d[19] + '</td>' +
+                    '<td><b>Request Date:</b></td>' +
+                    '<td>' + d[20] + '</td>' +
+                    '<td><b>Start Date:</b></td>' +
+                    '<td>' + d[21] + '</td>' +
+                    '<td><b>End Date:</b></td>' +
+                    '<td>' + d[22] + '</td>' +
+                '</tr>' +
+                '<tr>' +
+                    '<td><b>Invoiced:</b></td>' +
+                    '<td>' + d[23] + '</td>' +
+                    '<td><b>LicenseID:</b></td>' +
+                    '<td>' + d[24] + '</td>' +
+                    '<td><b>Status:</b></td>' +
+                    '<td>' + d[25] + '</td>' +
+                    '<td><b>Note</b></td>' +
+                    '<td>' + d[26] + '</td>' +
+                '</tr>' +
+                '</table>';
+        }
         $(document).ready(function () {
             var myTable = $('#dptOrder').DataTable({
                 dom: 'lBfrtip',
@@ -29,6 +76,12 @@
                     'csv', 'excel'
                 ],
                 "columns": [
+                    {
+                        "className": 'details-control',
+                        "orderable": false,
+                        "data": null,
+                        "defaultContent": ''
+                    },
                     null,
                     null,
                     null,
@@ -38,19 +91,173 @@
                     null,
                     null,
                     null,
-                    null
+                    null,
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, },
+                    { "bVisible": false, }
                 ],
                 "order": [[1, 'asc']],
                 "orderClasses": false,
-
             });
+
+            new $.fn.dataTable.Buttons(myTable, {
+                buttons: [
+                    {
+                        text: '@DPTnew.Localization.Resource.ButtonBook',
+                        className: 'book',
+                        action: function () {
+                            $.post("/Order/Book", {
+                                orderNumber: $("input[name=orderNumber]").val()
+                            },
+                            function (result) {
+                                var $psw = $("#msg");
+                                $psw.text("");
+                                $psw.text(result);
+                                var pwdDialogConfig = {
+                                    modal: true,
+                                    width: 400,
+                                    height: result ? 250 : "auto",
+                                    buttons: {
+                                        OK: function () {
+                                            $(this).dialog("close");
+                                            //location.reload();
+                                        }
+                                    }
+                                };
+                                $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                            });
+                        },
+                        enabled: "@ViewBag.ButtonBook.ToString().ToLower()" == "true"
+                    },
+                        {
+                            text: '@DPTnew.Localization.Resource.ButtonCheck',
+                            className: 'check',
+                            action: function () {
+                                $.post("/Order/Check", {
+                                    orderNumber: $("input[name=orderNumber]").val()
+                                },
+                                function (result) {
+                                    var $psw = $("#msg");
+                                    $psw.text("");
+                                    $psw.text(result);
+                                    var pwdDialogConfig = {
+                                        modal: true,
+                                        width: 400,
+                                        height: result ? 250 : "auto",
+                                        buttons: {
+                                            OK: function () {
+                                                $(this).dialog("close");
+                                                //location.reload();
+                                            }
+                                        }
+                                    };
+                                    $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                });
+                            },
+                            enabled: "@ViewBag.ButtonCheck.ToString().ToLower()" == "true"
+                        },
+                            {
+                                text: '@DPTnew.Localization.Resource.ButtonReject',
+                                className: 'reject',
+                                action: function () {
+                                    $.post("/Order/Reject", {
+                                        orderNumber: $("input[name=orderNumber]").val()
+                                    },
+                                    function (result) {
+                                        var $psw = $("#msg");
+                                        $psw.text("");
+                                        $psw.text(result);
+                                        var pwdDialogConfig = {
+                                            modal: true,
+                                            width: 400,
+                                            height: result ? 250 : "auto",
+                                            buttons: {
+                                                OK: function () {
+                                                    $(this).dialog("close");
+                                                    //location.reload();
+                                                }
+                                            }
+                                        };
+                                        $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                    });
+                                },
+                                enabled: "@ViewBag.ButtonReject.ToString().ToLower()" == "true"
+                            },
+                            {
+                                text: '@DPTnew.Localization.Resource.ButtonApprove',
+                                className: 'approve',
+                                action: function () {
+                                    $.post("/Order/Approve", {
+                                        orderNumber: $("input[name=orderNumber]").val()
+                                    },
+                                    function (result) {
+                                        var $psw = $("#msg");
+                                        $psw.text("");
+                                        $psw.text(result);
+                                        var pwdDialogConfig = {
+                                            modal: true,
+                                            width: 400,
+                                            height: result ? 250 : "auto",
+                                            buttons: {
+                                                OK: function () {
+                                                    $(this).dialog("close");
+                                                    //location.reload();
+                                                }
+                                            }
+                                        };
+                                        $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                    });
+                                },
+                                enabled: "@ViewBag.ButtonApprove.ToString().ToLower()" == "true"
+                            }
+                ]
+            });
+
+            myTable.buttons().container().insertBefore('#dptOrder_filter');
+
+            // Add event listener for opening and closing details
+            $('#dptOrder tbody').on('click', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = myTable.row(tr);
+
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
+            });
+
         });
     </script>
 }
 
+<p>
+    <b>@Html.DisplayNameFor(model => model.OrderNumber): </b>
+    <input type="text" name="orderNumber" value="@ViewBag.OrderNumber" readonly>
+</p>
+
 <table id="dptOrder" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderNumber)
             </th>
@@ -79,7 +286,55 @@
                 @Html.DisplayNameFor(model => model.Ordered)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.StrOrderDate)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoicer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoicedName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoicedNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrInvoiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewRenewal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LineType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrRequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoiced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
             </th>
         </tr>
     </thead>
@@ -87,6 +342,7 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td></td>
                 <td>
                     @Html.DisplayFor(modelItem => item.OrderNumber)
                 </td>
@@ -115,9 +371,60 @@
                     @Html.DisplayFor(modelItem => item.Ordered)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.StrOrderDate)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Invoicer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoicedName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoicedNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrInvoiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NewRenewal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LineType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrRequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Invoiced)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicenseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<div id="sysmsg-dialog" title="System message" style="display:none;">
+    <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
+</div>

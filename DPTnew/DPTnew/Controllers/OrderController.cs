@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using System.ServiceModel.Description;
 using SafenetIntegration;
 using DPTnew.Helper;
+using System.Net.Mail;
 
 namespace DPTnew.Controllers
 {
@@ -108,14 +109,19 @@ namespace DPTnew.Controllers
                     orderRow.InvoicedName = company.SalesRep;
                     orderRow.SalesRep = company.SalesRep;
                     orderRow.RequestDate = orderRow.OrderDate;
-                    if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
-                        orderRow.InvoiceNumber = "Ixxx";
+                    if (orderRow.LineType == "activation")
+                        orderRow.InvoiceNumber = "ACT";
                     else
                     {
-                        if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
-                            orderRow.InvoiceNumber = "Fxxx";
+                        if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
+                            orderRow.InvoiceNumber = "Ixxx";
                         else
-                            orderRow.InvoiceNumber = "Jxxx";
+                        {
+                            if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
+                                orderRow.InvoiceNumber = "Fxxx";
+                            else
+                                orderRow.InvoiceNumber = "JJ";
+                        }
                     }
                     if (string.IsNullOrEmpty(orderRow.PO_Number))
                         orderRow.PO_Number = "automatic input " + DateTime.Now;
@@ -198,6 +204,13 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var ord = db.Orders.Where(x => x.OrderNumber == id).OrderBy(y => y.idxx).ToList();
+                ViewBag.ButtonBook = ord.FirstOrDefault().Status == "Entered";
+                ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    && ord.FirstOrDefault().Status == "Booked";
+                ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked")
+                    || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
+                ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
+                ViewBag.OrderNumber = id;
                 return View(ord);
             }
         }
@@ -217,8 +230,7 @@ namespace DPTnew.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
-        public ActionResult Approve(string orderNumber)
+        public ActionResult Book(string orderNumber)
         {
             if (string.IsNullOrEmpty(orderNumber))
             {
@@ -234,13 +246,118 @@ namespace DPTnew.Controllers
                 {
                     foreach (Order o in query.ToList())
                     {
-                        o.Status = "Approved";
+                        o.Status = "Booked";
                         db.SaveChanges();
                     }
                 }
-                //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
-                return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
             }
+            MailMessage mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been booked";
+            mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been booked.\n\n" +
+                "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                "\n\nBest Regards,\n\nsystem automatic mail";
+            SendMail(mail);
+            return Json("Booked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        private void SendMail(MailMessage mail)
+        {
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = true;
+            client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
+            client.Send(mail);
+        }
+
+        [Authorize(Roles = "Admin,Internal")]
+        public ActionResult Check(string orderNumber)
+        {
+            if (string.IsNullOrEmpty(orderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                var query = from ord in db.Orders
+                            where ord.OrderNumber == orderNumber
+                            select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        o.Status = "Checked";
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return Json("Checked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal")]
+        public ActionResult Reject(string orderNumber)
+        {
+            if (string.IsNullOrEmpty(orderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                var query = from ord in db.Orders
+                            where ord.OrderNumber == orderNumber
+                            select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        o.Status = "Entered";
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return Json("Rejected OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Approve(string orderNumber)
+        {
+            if (string.IsNullOrEmpty(orderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the order!";
+                return View("Success");
+            }
+            var destmail = "";
+            using (var db = new DptContext())
+            {
+                var query = from ord in db.Orders
+                            where ord.OrderNumber == orderNumber
+                            select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        o.Status = "Approved";
+                        db.SaveChanges();
+                        if (string.IsNullOrEmpty(destmail))
+                        {
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                            else
+                                destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                        }
+                    }
+                }
+                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been approved";
+                mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
+                    "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                    "\n\nBest Regards,\n\nDPT orders";
+                SendMail(mail);
+                //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
+            }
+            return Json("Approved OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
