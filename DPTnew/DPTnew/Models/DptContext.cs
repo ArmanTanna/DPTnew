@@ -31,6 +31,7 @@ namespace DPTnew.Models
         public DbSet<DptCaseHistory> CaseHistories { get; set; }
         public DbSet<DptCaseLog> CaseLogs { get; set; }
         public DbSet<DptLicenseLog> LicenseLogs { get; set; }
+        public DbSet<Activation> Activations { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {

@@ -108,10 +108,18 @@ namespace DPTnew.Controllers
                     orderRow.InvoicedNumber = sr.AccountNumber;
                     orderRow.InvoicedName = company.SalesRep;
                     orderRow.SalesRep = company.SalesRep;
-                    orderRow.RequestDate = orderRow.OrderDate;
                     orderRow.Invoiced = orderRow.Ordered;
                     if (orderRow.LineType == "activation")
+                    {
                         orderRow.InvoiceNumber = "ACT";
+                        var act = db.Activations.Where(x => x.AccountNumber == orderRow.InvoicedNumber).FirstOrDefault();
+                        if (act != null)
+                        {
+                            orderRow.OrderNumber = act.OrderNumber;
+                            orderRow.OrderDate = act.OrderDate;
+                            orderRow.PO_Number = act.PO_Number;
+                        }
+                    }
                     else
                     {
                         if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
@@ -124,6 +132,7 @@ namespace DPTnew.Controllers
                                 orderRow.InvoiceNumber = "JJ";
                         }
                     }
+                    orderRow.RequestDate = orderRow.OrderDate;
                     if (string.IsNullOrEmpty(orderRow.PO_Number))
                         orderRow.PO_Number = "automatic input " + DateTime.Now;
                     int res = 0;
@@ -143,7 +152,7 @@ namespace DPTnew.Controllers
                     else
                     {
                         var old = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber).FirstOrDefault();
-                        if (old.AccountNumber != orderRow.AccountNumber)
+                        if (old != null && old.AccountNumber != orderRow.AccountNumber)
                             return Json("rows belonging to the same order can't have different account number", JsonRequestBehavior.AllowGet);
                     }
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
@@ -173,7 +182,34 @@ namespace DPTnew.Controllers
                             o.OrderNumber = orderRow.OrderNumber;
                             o.OrderDate = orderRow.OrderDate;
                             o.PO_Number = orderRow.PO_Number;
+                            if (o.LineType == "activation")
+                            {
+                                o.InvoiceNumber = "ACT";
+                                var act = db.Activations.Where(x => x.AccountNumber == orderRow.InvoicedNumber).FirstOrDefault();
+                                if (act != null)
+                                {
+                                    orderRow.OrderNumber = act.OrderNumber;
+                                    orderRow.OrderDate = act.OrderDate;
+                                    orderRow.PO_Number = act.PO_Number;
+                                }
+                            }
+                            else
+                            {
+                                if (o.Invoicer.ToLower().Trim() == "dpt srl")
+                                    o.InvoiceNumber = "I16-XXX";
+                                else
+                                {
+                                    if (o.Invoicer.ToLower().Trim() == "dpt sarl")
+                                        o.InvoiceNumber = "F16-XXX";
+                                    else
+                                        o.InvoiceNumber = "JJ";
+                                }
+                            }
+                            if (string.IsNullOrEmpty(orderRow.PO_Number))
+                                orderRow.PO_Number = "automatic input " + DateTime.Now;
                             o.InvoiceDate = orderRow.InvoiceDate;
+                            o.Invoiced = orderRow.Ordered;
+                            o.RequestDate = orderRow.OrderDate;
                             o.ProductName = orderRow.ProductName;
                             o.ArticleDetail = orderRow.ArticleDetail;
                             o.LicenseID = orderRow.LicenseID;

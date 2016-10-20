@@ -108,15 +108,19 @@
             if ($("#articleDetail-choice").val() != "cvu")
                 $("#articleDetail-choice").append("<option value='cvu'>cvu</option>");
 
-            if ($("#lineType-choice").val() != "standard")
+            if ($("#lineType-choice").val() != "standard" && $("#lineType-choice").val() === "")
                 $("#lineType-choice").append("<option value='standard' selected>standard</option>");
+            if ($("#lineType-choice").val() != "standard" && $("#lineType-choice").val() !== "")
+                $("#lineType-choice").append("<option value='standard'>standard</option>");
             if ($("#lineType-choice").val() != "activation")
                 $("#lineType-choice").append("<option value='activation'>activation</option>");
             if ($("#lineType-choice").val() != "freeOfCharge")
                 $("#lineType-choice").append("<option value='freeOfCharge'>freeOfCharge</option>");
 
-            if ($("#newRenewal-choice").val() != "renewal")
+            if ($("#newRenewal-choice").val() != "renewal" && $("#newRenewal-choice").val() === "")
                 $("#newRenewal-choice").append("<option value='renewal' selected>renewal</option>");
+            if ($("#newRenewal-choice").val() != "renewal" && $("#newRenewal-choice").val() !== "")
+                $("#newRenewal-choice").append("<option value='renewal'>renewal</option>");
             if ($("#newRenewal-choice").val() != "new")
                 $("#newRenewal-choice").append("<option value='new'>new</option>");
 

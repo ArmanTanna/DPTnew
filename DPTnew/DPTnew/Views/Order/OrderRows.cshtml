@@ -23,44 +23,36 @@
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                 '<tr>' +
-                    '<td><b>Currency:</b></td>' +
-                    '<td>' + d[11] + '</td>' +
-                    '<td><b>Invoicer:</b></td>' +
+                    '<td><b>OrderNumber:</b></td>' +
                     '<td>' + d[12] + '</td>' +
-                    '<td><b>Invoiced Name:</b></td>' +
+                    '<td><b>OrderDate:</b></td>' +
                     '<td>' + d[13] + '</td>' +
-                    '<td><b>Invoiced Number:</b></td>' +
+                    '<td><b>Discount:</b></td>' +
                     '<td>' + d[14] + '</td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<td><b>Account #:</b></td>' +
+                    '<td><b>Invoicer:</b></td>' +
                     '<td>' + d[15] + '</td>' +
-                    '<td><b>Invoice Number:</b></td>' +
+                    '<td><b>InvoicedName:</b></td>' +
                     '<td>' + d[16] + '</td>' +
-                    '<td><b>Invoice Date:</b></td>' +
+                    '<td><b>InvoicedNumber:</b></td>' +
                     '<td>' + d[17] + '</td>' +
-                    '<td><b>NewRenewal:</b></td>' +
-                    '<td>' + d[18] + '</td>' +
                 '</tr>' +
                 '<tr>' +
+                    '<td><b>NewRenawal:</b></td>' +
+                    '<td>' + d[18] + '</td>' +
                     '<td><b>LineType:</b></td>' +
                     '<td>' + d[19] + '</td>' +
-                    '<td><b>Request Date:</b></td>' +
+                    '<td><b>Currency:</b></td>' +
                     '<td>' + d[20] + '</td>' +
-                    '<td><b>Start Date:</b></td>' +
-                    '<td>' + d[21] + '</td>' +
-                    '<td><b>End Date:</b></td>' +
-                    '<td>' + d[22] + '</td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<td><b>Invoiced:</b></td>' +
-                    '<td>' + d[23] + '</td>' +
-                    '<td><b>LicenseID:</b></td>' +
-                    '<td>' + d[24] + '</td>' +
+                    '<td><b>RequestDate:</b></td>' +
+                    '<td>' + d[21] + '</td>' +
                     '<td><b>Status:</b></td>' +
-                    '<td>' + d[25] + '</td>' +
-                    '<td><b>Note</b></td>' +
-                    '<td>' + d[26] + '</td>' +
+                    '<td>' + d[22] + '</td>' +
+                    '<td><b>Note:</b></td>' +
+                    '<td>' + d[23] + '</td>' +
                 '</tr>' +
                 '</table>';
         }
@@ -92,10 +84,7 @@
                     null,
                     null,
                     null,
-                    { "bVisible": false, },
-                    { "bVisible": false, },
-                    { "bVisible": false, },
-                    { "bVisible": false, },
+                    null,
                     { "bVisible": false, },
                     { "bVisible": false, },
                     { "bVisible": false, },
@@ -108,6 +97,9 @@
                     { "bVisible": false, },
                     { "bVisible": false, },
                     { "bVisible": false, }
+                ],
+                "columnDefs": [
+                    { "className": "dt-center", "targets": "_all" }
                 ],
                 "order": [[1, 'asc']],
                 "orderClasses": false,
@@ -263,22 +255,19 @@
         <tr>
             <th></th>
             <th>
-                @Html.DisplayNameFor(model => model.OrderNumber)
+                @Html.DisplayNameFor(model => model.SalesRep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SalesRep)
+                @Html.DisplayNameFor(model => model.LicenseID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PO_Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArticleDetail)
+                @Html.DisplayNameFor(model => model.ArticleType)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LicenseType)
@@ -290,11 +279,25 @@
                 @Html.DisplayNameFor(model => model.Ordered)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.PO_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEndDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNumber)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.StrOrderDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Currency)
+                @Html.DisplayNameFor(model => model.Discount)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Invoicer)
             </th>
@@ -304,15 +307,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.InvoicedNumber)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InvoiceNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StrInvoiceDate)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.NewRenewal)
             </th>
@@ -320,19 +315,11 @@
                 @Html.DisplayNameFor(model => model.LineType)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+
+            <th>
                 @Html.DisplayNameFor(model => model.StrRequestDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StrStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StrEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Invoiced)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LicenseID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -348,22 +335,19 @@
             <tr>
                 <td></td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                    @Html.DisplayFor(modelItem => item.SalesRep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.AccountName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SalesRep)
+                    @Html.DisplayFor(modelItem => item.LicenseID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PO_Number)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ArticleDetail)
+                    @Html.DisplayFor(modelItem => item.ArticleType)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LicenseType)
@@ -375,11 +359,25 @@
                     @Html.DisplayFor(modelItem => item.Ordered)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.PO_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrEndDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.StrOrderDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Currency)
+                    @Html.DisplayFor(modelItem => item.Discount)
                 </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Invoicer)
                 </td>
@@ -389,15 +387,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.InvoicedNumber)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AccountNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrInvoiceDate)
-                </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.NewRenewal)
                 </td>
@@ -405,19 +395,11 @@
                     @Html.DisplayFor(modelItem => item.LineType)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+
+                <td>
                     @Html.DisplayFor(modelItem => item.StrRequestDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrStartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrEndDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Invoiced)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LicenseID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)

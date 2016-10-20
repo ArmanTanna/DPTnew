@@ -61,4 +61,17 @@ namespace DPTnew.Models
         public double Discount { get; set; }
     }
 
+    [Table("service_Activation")]
+    public class Activation
+    {
+        [Key]
+        public string AccountNumber { get; set; }
+        public string AccountName { get; set; }
+        public string OrderNumber { get; set; }
+        public DateTime OrderDate { get; set; }
+        [Display(Name = "Order Date")]
+        public string StrOrderDate { get { return OrderDate != null ? ((DateTime)OrderDate).ToString("yyyy-MM-dd") : ""; } }
+        public string PO_Number { get; set; }
+    }
+
 }
