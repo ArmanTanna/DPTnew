@@ -106,7 +106,7 @@ namespace DPTnew.Controllers
                     var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
                     orderRow.Invoicer = sr.Invoicer;
                     orderRow.InvoicedNumber = sr.AccountNumber;
-                    orderRow.InvoicedName = company.SalesRep;
+                    orderRow.InvoicedName = sr.AccountName;
                     orderRow.SalesRep = company.SalesRep;
                     orderRow.Invoiced = orderRow.Ordered;
                     if (orderRow.LineType == "activation")
@@ -151,9 +151,24 @@ namespace DPTnew.Controllers
                     }
                     else
                     {
-                        var old = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber).FirstOrDefault();
-                        if (old != null && old.AccountNumber != orderRow.AccountNumber)
-                            return Json("rows belonging to the same order can't have different account number", JsonRequestBehavior.AllowGet);
+                        var nocheck = db.Activations.Select(x => x.OrderNumber).ToList();
+                        if (!nocheck.Contains(orderRow.OrderNumber))
+                        {
+                            var old = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber).FirstOrDefault();
+                            if (old != null && old.AccountNumber != orderRow.AccountNumber)
+                                return Json("rows belonging to the same order can't have different account number", JsonRequestBehavior.AllowGet);
+                            if (orderRow.ArticleDetail == "plss")
+                            {
+                                var plss = db.Orders.Where(x => x.OrderNumber == orderRow.OrderNumber && x.LicenseID == orderRow.LicenseID && x.ArticleDetail == orderRow.ArticleDetail).FirstOrDefault();
+                                if (plss != null)
+                                    return Json("for a license, in an Order, cannot insert more than one plss", JsonRequestBehavior.AllowGet);
+                            }
+                        }
+                        else
+                        {
+                            if(orderRow.LineType != "activation")
+                                return Json("the linetype of the row should be activation", JsonRequestBehavior.AllowGet);
+                        }
                     }
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
                         "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
@@ -287,13 +302,15 @@ namespace DPTnew.Controllers
                         db.SaveChanges();
                     }
                 }
+                var order = db.Orders.Where(x => x.OrderNumber == orderNumber).FirstOrDefault();
+                MailMessage mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been booked";
+                mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been booked.\n\n" +
+                    "Account Name: " + order.AccountName + "; Sales rep: " + order.SalesRep + "; Order date: " + order.OrderDate + "\n\n" +
+                    "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                    "\n\nBest Regards,\n\nsystem automatic mail";
+                SendMail(mail);
             }
-            MailMessage mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
-            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been booked";
-            mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been booked.\n\n" +
-                "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                "\n\nBest Regards,\n\nsystem automatic mail";
-            SendMail(mail);
             return Json("Booked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
         }
 
@@ -358,15 +375,16 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                            MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been rejected";
+                            mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
+                                "Account Name: " + o.AccountName + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
+                                "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
+                                "\n\nBest Regards,\n\nDPT orders";
+                            SendMail(mail);
                         }
                     }
                 }
-                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been rejected";
-                mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been rejected.\n\n" +
-                    "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
-                    "\n\nBest Regards,\n\nDPT orders";
-                SendMail(mail);
             }
             return Json("Rejected OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
         }
@@ -397,15 +415,17 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                            MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been approved";
+                            mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
+                                "Account Name: " + o.AccountName + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
+                                "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                                "\n\nBest Regards,\n\nDPT orders";
+                            SendMail(mail);
+
                         }
                     }
                 }
-                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been approved";
-                mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
-                    "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                    "\n\nBest Regards,\n\nDPT orders";
-                SendMail(mail);
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }
             return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
@@ -424,7 +444,7 @@ namespace DPTnew.Controllers
                 var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
                 orderRow.Invoicer = sr.Invoicer;
                 orderRow.InvoicedNumber = sr.AccountNumber;
-                orderRow.InvoicedName = company.SalesRep;
+                orderRow.InvoicedName = sr.AccountName;
                 orderRow.SalesRep = company.SalesRep;
                 var query = "SELECT COUNT(*) as cnt FROM [dbo].[DPT_Orders] WHERE AccountNumber='" + company.AccountNumber + "'";
                 var res = 0;

@@ -19,6 +19,7 @@ namespace DPTnew.Models
         [Key]
         public string SalesRep { get; set; }
         public string SalesRegion { get; set; }
+        public string AccountName { get; set; }
         public string AccountNumber { get; set; }
         public string SalesProvince { get; set; }
         public string Invoicer { get; set; }
