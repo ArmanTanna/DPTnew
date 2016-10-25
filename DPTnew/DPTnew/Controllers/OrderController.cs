@@ -166,7 +166,7 @@ namespace DPTnew.Controllers
                         }
                         else
                         {
-                            if(orderRow.LineType != "activation")
+                            if (orderRow.LineType != "activation")
                                 return Json("the linetype of the row should be activation", JsonRequestBehavior.AllowGet);
                         }
                     }
@@ -262,7 +262,13 @@ namespace DPTnew.Controllers
                 ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked")
                     || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
                 ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
+                double tot = 0;
+                foreach (var rw in ord)
+                {
+                    tot += rw.Ordered;
+                }
                 ViewBag.OrderNumber = id;
+                ViewBag.Total = tot;
                 return View(ord);
             }
         }
@@ -304,9 +310,9 @@ namespace DPTnew.Controllers
                 }
                 var order = db.Orders.Where(x => x.OrderNumber == orderNumber).FirstOrDefault();
                 MailMessage mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
-                mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been booked";
+                mail.Subject = "[DO NOT REPLY] booked Order for: " + order.AccountName.Trim() + " (" + order.AccountNumber + ")";
                 mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been booked.\n\n" +
-                    "Account Name: " + order.AccountName + "; Sales rep: " + order.SalesRep + "; Order date: " + order.OrderDate + "\n\n" +
+                    "Account Name: " + order.AccountName.Trim() + "; Sales rep: " + order.SalesRep + "; Order date: " + order.OrderDate + "\n\n" +
                     "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                     "\n\nBest Regards,\n\nsystem automatic mail";
                 SendMail(mail);
@@ -376,9 +382,9 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
                             MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been rejected";
+                            mail.Subject = "[DO NOT REPLY] Order rejected for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
-                                "Account Name: " + o.AccountName + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
+                                "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
                                 "\n\nBest Regards,\n\nDPT orders";
                             SendMail(mail);
@@ -416,13 +422,12 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
                             MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                            mail.Subject = "[DO NOT REPLY] Order #: " + orderNumber + " has been approved";
+                            mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
-                                "Account Name: " + o.AccountName + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
+                                "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                                 "\n\nBest Regards,\n\nDPT orders";
                             SendMail(mail);
-
                         }
                     }
                 }
@@ -513,6 +518,8 @@ namespace DPTnew.Controllers
         {
             if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(articleDetail))
                 return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
+            if (articleDetail == "upg")
+                return Json("1500_200000", JsonRequestBehavior.AllowGet);
             using (var db = new DptContext())
             {
                 string query = "SELECT ";
