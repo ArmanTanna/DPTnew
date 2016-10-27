@@ -102,11 +102,31 @@ namespace DPTnew.Controllers
             rows.Add(licSingleRow);
             using (var db = new DptContext())
             {
-                var companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                var userName = Membership.GetUser().UserName;
+                var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                List<String> companyList = new List<string>();
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                else
+                {
+                    if (salesRep.Count == 0)
+                    {
+                        var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                    }
+                    else
+                        companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                }
                 companyList.Sort();
+
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
             }
+            ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
+            ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View(rows);
         }
 
@@ -127,6 +147,48 @@ namespace DPTnew.Controllers
 
             using (var db = new DptContext())
             {
+                licSingleRow.OriginalProduct = licSingleRow.ProductName;
+                licSingleRow.Installed = 0;
+                licSingleRow.Exported = 0;
+                licSingleRow.Import = 1;
+                licSingleRow.Vend_String = "vs001";
+                licSingleRow.FlexType = 0;
+
+                if (licSingleRow.LicenseType == "local" || (licSingleRow.LicenseType == "floating" && licSingleRow.Quantity < 1))
+                    licSingleRow.Quantity = 1;
+
+                if (licSingleRow.LicenseID != "NEW")
+                {
+                    if (licSingleRow.ArticleDetail == "qsf" || licSingleRow.ArticleDetail == "msf" || licSingleRow.ArticleDetail == "tsf"
+                        || licSingleRow.ArticleDetail == "wsf")
+                    {
+                        licSingleRow.StartDate = DateTime.Now;
+                        licSingleRow.MaintStartDate = DateTime.Now;
+                        licSingleRow.EndDate = Convert.ToDateTime("01/01/2028");
+                        licSingleRow.MaintEndDate = Convert.ToDateTime("01/01/2028");
+                    }
+                    if (licSingleRow.ArticleDetail == "pl")
+                    {
+                        licSingleRow.EndDate = licSingleRow.StartDate;
+                        licSingleRow.MaintStartDate = licSingleRow.StartDate;
+                        licSingleRow.MaintEndDate = licSingleRow.StartDate;
+                    }
+                }
+                else
+                {
+                    licSingleRow.Import = 0;
+                    licSingleRow.StartDate = DateTime.Now;
+                    licSingleRow.MaintStartDate = DateTime.Now;
+                    licSingleRow.EndDate = DateTime.Now;
+                    licSingleRow.MaintEndDate = DateTime.Now;
+                }
+                if (string.IsNullOrEmpty(licSingleRow.MachineID))
+                {
+                    if (version < 2015)
+                        licSingleRow.MachineID = "ABCDEFGH";
+                    else
+                        licSingleRow.MachineID = "KIDABCDEFGH";
+                }
                 var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
                 var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(sr)).Max(x => x.LicenseID);
 
@@ -150,38 +212,6 @@ namespace DPTnew.Controllers
                         var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
                         licSingleRow.LicenseID = lID;
                         break;
-                }
-                licSingleRow.OriginalProduct = licSingleRow.ProductName;
-                licSingleRow.Installed = 0;
-                licSingleRow.Exported = 0;
-                licSingleRow.Import = 1;
-                licSingleRow.Vend_String = "vs001";
-                licSingleRow.FlexType = 0;
-                licSingleRow.ExportedNum = 0;
-
-                if (licSingleRow.LicenseType == "local" || (licSingleRow.LicenseType == "floating" && licSingleRow.Quantity < 1))
-                    licSingleRow.Quantity = 1;
-
-                if (licSingleRow.ArticleDetail == "qsf" || licSingleRow.ArticleDetail == "msf" || licSingleRow.ArticleDetail == "tsf"
-                    || licSingleRow.ArticleDetail == "wsf")
-                {
-                    licSingleRow.StartDate = DateTime.Now;
-                    licSingleRow.MaintStartDate = DateTime.Now;
-                    licSingleRow.EndDate = Convert.ToDateTime("01/01/2028");
-                    licSingleRow.MaintEndDate = Convert.ToDateTime("01/01/2028");
-                }
-                if (licSingleRow.ArticleDetail == "pl")
-                {
-                    licSingleRow.EndDate = licSingleRow.StartDate;
-                    licSingleRow.MaintStartDate = licSingleRow.StartDate;
-                    licSingleRow.MaintEndDate = licSingleRow.StartDate;
-                }
-                if (string.IsNullOrEmpty(licSingleRow.MachineID))
-                {
-                    if (version < 2015)
-                        licSingleRow.MachineID = "ABCDEFGH";
-                    else
-                        licSingleRow.MachineID = "KIDABCDEFGH";
                 }
                 try
                 {

@@ -30,8 +30,8 @@
                 MachineID: $("input[name=machineID]").val(),
                 StartDate: $("input[name=startDate]").val(),
                 EndDate: $("input[name=endDate]").val(),
-                MaintStartDate: $("input[name=MaintStartDate]").val(),
-                MaintEndDate: $("input[name=MaintEndDate]").val(),
+                MaintStartDate: $("input[name=maintStartDate]").val(),
+                MaintEndDate: $("input[name=maintEndDate]").val(),
                 Note: $("input[name=note]").val(),
                 MaxExport: $("input[name=maxExport]").val(),
             },
@@ -58,16 +58,16 @@
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript">
-        var yourApp = yourApp || {};
-        yourApp.Urls = yourApp.Urls || {};
-        yourApp.Urls.baseUrl = '@Url.Content("~")';
+    var yourApp = yourApp || {};
+    yourApp.Urls = yourApp.Urls || {};
+    yourApp.Urls.baseUrl = '@Url.Content("~")';
 
         $(document).ready(function () {
             for (var i = 0; i < companies.length; i++) {
                 $("#accountNumber-choice").append('<option value="' + companies[i].split("\"")[1] + '">' + companies[i] + '</option>');
             }
-            if ($("input[name=startDate]").val() == "0001-01-01" || $("input[name=endDate]").val() == "0001-01-01" ||
-                $("input[name=maintStartDate]").val() == "0001-01-01" || $("input[name=maintEndDate]").val() == "0001-01-01") {
+            if ($("input[name=startDate]").val() == "" || $("input[name=endDate]").val() == "" ||
+                $("input[name=maintStartDate]").val() == "" || $("input[name=maintEndDate]").val() == "") {
                 var now = new Date();
                 var month = (now.getMonth() + 1);
                 var day = now.getDate();
@@ -81,7 +81,12 @@
                 $("input[name=maintStartDate]").val(today);
                 $("input[name=maintEndDate]").val(today);
             }
-
+            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsInternal.ToString().ToLower()" == "false") {
+                $("input[name=startDate]").attr('readonly', true);
+                $("input[name=endDate]").attr('readonly', true);
+                $("input[name=maintStartDate]").attr('readonly', true);
+                $("input[name=maintEndDate]").attr('readonly', true);
+            }
         });
     </script>
 }
@@ -113,15 +118,25 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
                 <td>
-                    <select name="licenseID" id="licenseID-choice">
-                        <option value="L" selected>L</option>
-                        <option value="POOL">POOL</option>
-                        <option value="DEM">DEM</option>
-                        <option value="TEST">TEST</option>
-                        <option value="EVAL">EVAL</option>
-                        <option value="EDU">EDU</option>
-                        <option value="LOB">LOB</option>
-                    </select>
+                    @if (@ViewBag.IsAdmin.ToString().ToLower() == "true" || @ViewBag.IsInternal.ToString().ToLower() == "true")
+                    {
+                        <select name="licenseID" id="licenseID-choice">
+                            <option value="L" selected>L</option>
+                            <option value="POOL">POOL</option>
+                            <option value="DEM">DEM</option>
+                            <option value="TEST">TEST</option>
+                            <option value="EVAL">EVAL</option>
+                            <option value="EDU">EDU</option>
+                            <option value="LOB">LOB</option>
+                            <option value="NEW">NEW</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <select name="licenseID" id="licenseID-choice">
+                            <option value="NEW" selected>NEW</option>
+                        </select>
+                    }
                 </td>
                 <td>@Html.DisplayNameFor(model => model.ProductName)</td>
                 <td>
