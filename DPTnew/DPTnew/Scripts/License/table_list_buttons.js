@@ -650,8 +650,6 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             ]
         });
 
-
-
     myTable.buttons().container().insertBefore('#licenses_filter');
 
     myTable.on('select', function () {
@@ -677,10 +675,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
                 //check for export
-                if (data.Installed == 1 && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating") {
+                if (data.Installed == 1 && maintenddate >= now) {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
-                        myTable.buttons(['.upgrade']).enable(true);
+                        if (data.LicenseType.toLowerCase() !== "floating")
+                            myTable.buttons(['.upgrade']).enable(true);
                     }
                 }
 
@@ -699,7 +698,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
                     myTable.buttons(['.pssw2014']).enable(true);
-                    if (parseJsonDate(data.MaintEndDate) > new Date() && data.Version < '2015')
+                    if (parseJsonDate(data.MaintEndDate) > new Date() && data.Version < '2015' /*&& data.LicenseType.toLowerCase() !== "floating"*/)
                         myTable.buttons(['.changeversion']).enable(true);
                 }
             }

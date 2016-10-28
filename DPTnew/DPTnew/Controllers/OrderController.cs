@@ -422,6 +422,7 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
                             MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                            mail.CC.Add("Orders@dptcorporate.com");
                             mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
