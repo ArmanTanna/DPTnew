@@ -215,6 +215,11 @@
     </Compile>
     <Compile Include="Helper\CultureHelper.cs" />
     <Compile Include="Helper\LocalizationHelper.cs" />
+    <Compile Include="Localization\Resource.zh-CN.Designer.cs">
+      <DependentUpon>Resource.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Localization\Resource.fr-FR.Designer.cs">
       <DependentUpon>Resource.fr-FR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -23334,6 +23339,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Localization\Resource.zh-CN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Resource.fr-FR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.fr-FR.Designer.cs</LastGenOutput>

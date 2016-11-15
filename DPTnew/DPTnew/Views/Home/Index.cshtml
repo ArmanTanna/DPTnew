@@ -66,8 +66,9 @@
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
-                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") ||
-                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") ||                    
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") ||
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
                 {
                     <a href="~/Faq/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_VarGuidebook</u></a>
                 }
@@ -81,8 +82,9 @@
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
-                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") ||
-                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") ||
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") ||
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
                 {
                     <text>@DPTnew.Localization.Resource.View_Home_VarGuidebook_Text</text>
                 }

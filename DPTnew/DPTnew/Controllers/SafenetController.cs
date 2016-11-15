@@ -15,10 +15,8 @@ using System.Web.Http;
 
 namespace DptLicensingServer.Controllers
 {
-
     public class SafenetController : ApiController
     {
-
         private const string token = "CalcX@Integration!";
 
         #region API

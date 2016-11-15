@@ -58,7 +58,8 @@ namespace DPTnew.Controllers
                 List<String> companyList = new List<string>();
                 if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                     companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
-                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
                     if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                         companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
@@ -192,14 +193,14 @@ namespace DPTnew.Controllers
             return View("Success");
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp")]
         [HttpPost]
         public ActionResult ModifyCaseRow(UpdateCase caseRow)
         {
             return View(caseRow);
         }
 
-        [Authorize(Roles = "Admin,Internal,Var,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp")]
         [HttpPost]
         public ActionResult Modify(UpdateCase caseRow, string submitButton)
         {

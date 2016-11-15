@@ -22,7 +22,7 @@ using System.Net;
 namespace DPTnew.Controllers
 {
 
-    [Authorize(Roles = "VarExp,Admin,Var,Internal")]
+    [Authorize(Roles = "VarExp,VarMed,Var,Internal,Admin")]
     public class CompanyController : BaseController
     {
         //
@@ -33,8 +33,8 @@ namespace DPTnew.Controllers
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
-            ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
-                Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             return View();
         }
@@ -181,7 +181,7 @@ namespace DPTnew.Controllers
             return View(company.Licenses);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public ActionResult SingleCompanyRow(CompanyView cmpSingleRow)
         {
@@ -196,7 +196,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public JsonResult Modify(CompanyView cmpSingleRow)
         {

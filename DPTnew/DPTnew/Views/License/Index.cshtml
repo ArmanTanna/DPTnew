@@ -6,7 +6,7 @@
 
 
 @section Scripts {
-    @if (ViewBag.IsAdmin || ViewBag.IsVarExp || ViewBag.IsInternal)
+    @if (ViewBag.IsAdmin || ViewBag.IsVarExp || ViewBag.IsInternal || ViewBag.IsVar)
     {
         <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
         <script src="~/Scripts/jquery-ui.min.js"></script>
@@ -131,7 +131,8 @@
                 }
             }
         };
-        if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExp.ToString().ToLower()" == "false" && "@ViewBag.IsInternal.ToString().ToLower()" == "false") {
+        if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExp.ToString().ToLower()" == "false"
+            && "@ViewBag.IsInternal.ToString().ToLower()" == "false" && "@ViewBag.IsVar.ToString().ToLower()" == "false") {
             var searchFilterHandler = function () {
                 var api = this.api();
                 api.$("td:not(.details-control)").click(function () {
@@ -142,7 +143,7 @@
             ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
         }
 
-        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
+        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true" || "@ViewBag.IsVar.ToString().ToLower()" == "true",
             "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
             "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
             ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
@@ -155,10 +156,10 @@
              "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
     });
 
-    </script>
+</script>
 }
 
-@if (ViewBag.IsAdmin || ViewBag.IsVarExp || ViewBag.IsInternal)
+@if (ViewBag.IsAdmin || ViewBag.IsVarExp || ViewBag.IsInternal || ViewBag.IsVar)
 {
     <div id="machineid-dialog" title="Please enter your machineid" style="display: none;">
         <input id="machineid" required="required" type="text" size="8" maxlength="8" />

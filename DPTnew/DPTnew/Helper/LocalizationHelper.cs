@@ -58,6 +58,11 @@ namespace DPTnew.Helper
                         Localization.Resource.Culture = new CultureInfo("fr-FR");
                         return CultureHelper.CurrentCulture = 5;
                     }
+                    if (lang.Language == "chinese")
+                    {
+                        Localization.Resource.Culture = new CultureInfo("zh-CN");
+                        return CultureHelper.CurrentCulture = 6;
+                    }
                     Localization.Resource.Culture = new CultureInfo("en-US");
                     return CultureHelper.CurrentCulture = 0;
                 }
@@ -88,6 +93,11 @@ namespace DPTnew.Helper
                 {
                     Localization.Resource.Culture = new CultureInfo("fr-FR");
                     return CultureHelper.CurrentCulture = 5;
+                }
+                if (((int)session) == 6)
+                {
+                    Localization.Resource.Culture = new CultureInfo("zh-CN");
+                    return CultureHelper.CurrentCulture = 6;
                 }
                 Localization.Resource.Culture = new CultureInfo("en-US");
                 return CultureHelper.CurrentCulture = 0;

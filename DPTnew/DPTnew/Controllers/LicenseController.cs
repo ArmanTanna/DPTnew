@@ -16,17 +16,18 @@ namespace DPTnew.Controllers
     public class LicenseController : BaseController
     {
         // GET: /All Companies/
-        [Authorize(Roles = "Admin,Var,VarExp,Internal")]
+        [Authorize(Roles = "Var,VarMed,VarExp,Internal,Admin")]
         public ActionResult Index(int pageSize = 10)
         {
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
-            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed");
+            ViewBag.IsVar =  Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             return View();
         }
 
-        [Authorize(Roles = "Admin,Var,VarExp,Internal")]
+        [Authorize(Roles = "Var,VarMed,VarExp,Internal,Admin")]
         [HttpPost]
         public JsonResult Search()
         {
@@ -38,7 +39,7 @@ namespace DPTnew.Controllers
             }
             return Json(_db.ConvertToSearchResult<LicenseView>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
-        
+
         public JsonResult StateByLicenceId(string LicenseId)
         {
             LicenseState licenseState = new LicenseState();
@@ -61,7 +62,7 @@ namespace DPTnew.Controllers
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public ActionResult SingleLicenseRow(LicenseView licSingleRow)
         {
@@ -70,7 +71,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public JsonResult Modify(LicenseView licSingleRow)
         {
@@ -94,7 +95,7 @@ namespace DPTnew.Controllers
             return Json("Saved!", JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public ActionResult AddLicenseRow(LicenseView licSingleRow)
         {
@@ -130,7 +131,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,VarExp,Internal")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
         [HttpPost]
         public JsonResult AddNew(LicenseView licSingleRow)
         {

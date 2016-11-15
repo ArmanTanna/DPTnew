@@ -65,7 +65,8 @@ namespace DPTnew.Controllers
         {
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Companies.ToList();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 return GetVarCompanies();
 
             var user = _db.Contacts.Single(u => u.Email == WebSecurity.CurrentUserName);
@@ -89,7 +90,7 @@ namespace DPTnew.Controllers
             //return null;
 
             var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
@@ -145,7 +146,8 @@ namespace DPTnew.Controllers
                 return _db.Cases.ToList();
 
             var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
@@ -175,8 +177,10 @@ namespace DPTnew.Controllers
 
         protected IEnumerable<DptCaseHistory> GetHistoryCases()
         {
-            return _db.CaseHistories.ToList();
-
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                return _db.CaseHistories.ToList();
+            return null;
         }
 
         protected IEnumerable<ActivityTitles> GetActivityTitles()

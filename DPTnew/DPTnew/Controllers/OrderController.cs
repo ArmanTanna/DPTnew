@@ -18,7 +18,7 @@ using System.Net.Mail;
 
 namespace DPTnew.Controllers
 {
-    [Authorize(Roles = "Admin,Internal,VarExp,Var")]
+    [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
     public class OrderController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
