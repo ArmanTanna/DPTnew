@@ -139,9 +139,9 @@ namespace DPTnew.Controllers
             if (!string.IsNullOrEmpty(licSingleRow.MachineID))
             {
                 if (version < 2015 && licSingleRow.MachineID.Length != 8)
-                    return Json("Wrong Machine ID!", JsonRequestBehavior.AllowGet);
+                    return Json("Wrong Machine ID! The length should be 8", JsonRequestBehavior.AllowGet);
                 if (version > 2014 && licSingleRow.MachineID.Length != 21)
-                    return Json("Wrong Machine ID!", JsonRequestBehavior.AllowGet);
+                    return Json("Wrong Machine ID! The length should be 21", JsonRequestBehavior.AllowGet);
             }
             if (string.IsNullOrEmpty(licSingleRow.AccountNumber))
                 return Json("Wrong Account Number!", JsonRequestBehavior.AllowGet);

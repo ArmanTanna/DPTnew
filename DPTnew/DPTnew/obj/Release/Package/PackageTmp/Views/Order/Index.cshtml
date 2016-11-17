@@ -121,8 +121,13 @@
                 },
                 { data: "AccountNumber" },
                 { data: "AccountName" },
-                { data: "LicenseID" },
-                { data: "ArticleType" },
+                {
+                    data: "LicenseID",
+                    render: function (data, type, row) {
+                        return data + " - " + row.MachineID;
+                    }
+                },
+                { data: "Item" },
                 {
                     data: "Ordered",
                     render: function (data, type, row) {
@@ -339,7 +344,7 @@
                     @Html.DisplayNameFor(model => model.LicenseID)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ArticleType)
+                    @Html.DisplayNameFor(model => model.Item)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Ordered)

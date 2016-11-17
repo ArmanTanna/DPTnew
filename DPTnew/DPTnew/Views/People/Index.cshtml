@@ -45,10 +45,10 @@
                 { data: "FirstName" },
                 { data: "LastName" },
                 { data: "Language" },
-                { data: "EmailStatus" },
                 { data: "AccountNumber", "className": 'mycenter-text' },
                 { data: "PrimaryContact", "className": 'mycenter-text' },
-                { data: "RoleName", "className": 'mycenter-text' }
+                { data: "RoleName", "className": 'mycenter-text' },
+                { data: "Status", "className": 'mycenter-text' }
                 ],
                 order: [[1, 'desc']],
                 orderClasses: false,
@@ -179,9 +179,6 @@
                     @Html.DisplayNameFor(model => model.Language)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.EmailStatus)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.AccountNumber)
                 </th>
                 <th>
@@ -189,6 +186,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.RoleName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
                 </th>
             </tr>
         </thead>

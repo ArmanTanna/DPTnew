@@ -57,8 +57,9 @@ namespace DPTnew.Models
         public string LicenseID { get; set; }
         public string Status { get; set; }
         public string Note { get; set; }
-        public string ArticleType { get; set; }
+        public string Item { get; set; }
         public double Discount { get; set; }
+        public string MachineID { get; set; }
     }
 
     [Table("service_Activation")]

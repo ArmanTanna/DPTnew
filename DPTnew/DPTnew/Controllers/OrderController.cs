@@ -58,7 +58,7 @@ namespace DPTnew.Controllers
                     if (salesRep.Count == 0)
                     {
                         var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
-                        companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep.Contains(sR)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
                         companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
                     }
                     else
@@ -403,7 +403,7 @@ namespace DPTnew.Controllers
                 ViewBag.ok1 = "Something went wrong. Cannot save the order!";
                 return View("Success");
             }
-            var destmail = "";
+            var varmail = "";
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
@@ -411,30 +411,67 @@ namespace DPTnew.Controllers
                             select ord;
                 if (query.Count() > 0)
                 {
+                    MailMessage mail = null;
                     foreach (Order o in query.ToList())
                     {
+                        var oLid = o.LicenseID;
                         o.Status = "Approved";
-                        db.SaveChanges();
-                        if (string.IsNullOrEmpty(destmail))
+                        var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
+
+                        if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu")
+                            lic.MaintEndDate = o.EndDate;
+
+                        if (o.ArticleDetail == "asf")
                         {
-                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
-                                destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
-                            else
-                                destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
-                            MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
-                            mail.CC.Add("Orders@dptcorporate.com");
-                            mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                            mail.Body = "Dear User, \n\nThe Order #" + orderNumber + " has been approved.\n\n" +
-                                "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
-                                "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                                "\n\nBest Regards,\n\nDPT orders";
-                            SendMail(mail);
+                            lic.MaintEndDate = o.EndDate;
+                            lic.EndDate = o.EndDate;
+                            lic.MaintStartDate = o.StartDate;
                         }
+
+                        if ((o.ArticleDetail == "pl" || o.ArticleDetail == "upg" || o.ArticleDetail == "asf") && o.LicenseID.StartsWith("NEW"))
+                        {
+                            var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith("L")).Max(x => x.LicenseID);
+                            var LID = "L" + (Convert.ToInt64(maxq.Split('L')[1]) + 1).ToString("D8");
+                            o.LicenseID = LID;
+                        }
+                        db.SaveChanges();
+
+                        if ((o.ArticleDetail == "pl" || o.ArticleDetail == "upg" || o.ArticleDetail == "asf") && lic.LicenseID.StartsWith("NEW"))
+                            db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseID = '" + o.LicenseID + "' WHERE licenseID = '" + oLid + "'");
+
+                        if (string.IsNullOrEmpty(varmail))
+                        {
+                            //var clmail = db.Companies.Where(x => x.AccountNumber == o.AccountNumber).FirstOrDefault().Email;
+                            varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+
+                            mail = new MailMessage("is@dptcorporate.com", varmail);
+                            mail.CC.Add("Orders@dptcorporate.com");
+                            //mail.CC.Add(clmail);
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+
+                            mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                            mail.Body = "Dear User, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
+                                "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                                "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                                "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
+                                "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
+                                "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                        }
+                        else
+                            mail.Body += "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
                     }
+                    mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
+                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
+                    mail.IsBodyHtml = true;
+                    SendMail(mail);
                 }
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }
-            return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
+            return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + varmail, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -492,7 +529,8 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
-                var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName).ToList();
+                var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName &&
+                    (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L"))).ToList();
                 return Json(licIds, JsonRequestBehavior.AllowGet);
             }
         }
