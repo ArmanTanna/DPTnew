@@ -89,8 +89,13 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult Insert(UpdateCase caseRow)
+        public ActionResult Insert(UpdateCase caseRow, string submitButton)
         {
+            if (submitButton == "Cancel")
+            {
+                ViewBag.ok1 = "The case insert operation has been canceled!";
+                return View("Success");
+            }
             if (string.IsNullOrEmpty(caseRow.AccountName) || string.IsNullOrEmpty(caseRow.Contact)
                 || string.IsNullOrEmpty(caseRow.Description) || string.IsNullOrEmpty(caseRow.Details))
             {
@@ -329,8 +334,13 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(UpdateCase caseHistoryRow)
+        public ActionResult Update(UpdateCase caseHistoryRow, string submitButton)
         {
+            if (submitButton == "Cancel")
+            {
+                ViewBag.ok1 = "The case update operation has been canceled!";
+                return View("Success");
+            }
             if (string.IsNullOrEmpty(caseHistoryRow.Description) || string.IsNullOrEmpty(caseHistoryRow.Details))
             {
                 ViewBag.ok1 = "Something went wrong. Cannot save the case history!";

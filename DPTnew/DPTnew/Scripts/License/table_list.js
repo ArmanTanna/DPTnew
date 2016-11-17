@@ -54,8 +54,23 @@ $(document).ready(function () {
             { "bVisible": false, }
         ],
         "order": [[1, 'asc']],
-        "orderClasses": false
-
+        "orderClasses": false,
+        createdRow: function (row, data, index) {
+            if (data[11] != null) {
+                var now = new Date();
+                var month = (now.getMonth() + 1);
+                var day = now.getDate();
+                if (month < 10)
+                    month = "0" + month;
+                if (day < 10)
+                    day = "0" + day;
+                var today = now.getFullYear() + '-' + month + '-' + day;
+                if (data[11] < today)
+                    $(row).addClass('highlight_red');
+                if (data[11] >= today && data[6].indexOf("ABCDEFGH") != -1)
+                    $(row).addClass('highlight_blue');
+            }
+        }
     });
     // Add event listener for opening and closing details
     $('#licenses tbody').on('click', 'td.details-control', function () {

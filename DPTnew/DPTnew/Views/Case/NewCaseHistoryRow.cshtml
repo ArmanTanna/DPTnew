@@ -40,14 +40,14 @@
         @Html.LabelFor(model => model.Description)
     </div>
     <div class="editor-field">
-        @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1", required = "required" })
+        @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1"@*, required = "required"*@ })
     </div>
 
     <div class="editor-label" style="font-size: 1.2em;">
         @Html.LabelFor(model => model.Details)
     </div>
     <div class="editor-field">
-        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "5", required = "required" })
+        @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "5"@*, required = "required"*@ })
     </div>
 
     <div class="editor-field">
@@ -56,6 +56,13 @@
 
     <input type="file" name="file" id="file" />
 
-    <input type="submit" value="submit" />
+    <div>
+        <input type="submit" name="submitButton" value="Submit" />
+
+        <input type="submit" name="submitButton" value="Cancel" />
+    </div>
+
+    @*<input type="submit" value="submit" />
+
+    <p><a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a></p>*@
 }
-<p><a href="javascript:window.open('','_self').close();"><input type="submit" value="Cancel" /></a></p>
