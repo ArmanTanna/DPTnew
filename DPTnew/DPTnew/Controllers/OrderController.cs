@@ -412,11 +412,23 @@ namespace DPTnew.Controllers
                 if (query.Count() > 0)
                 {
                     MailMessage mail = null;
+                    var dic = new Dictionary<string, string>();
                     foreach (Order o in query.ToList())
                     {
-                        var oLid = o.LicenseID;
+                        if (o.LicenseID.StartsWith("NEW"))
+                        {
+                            var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith("L")).Max(x => x.LicenseID);
+                            var LID = "L" + (Convert.ToInt64(maxq.Split('L')[1]) + 1).ToString("D8");
+                            if (!dic.ContainsKey(o.LicenseID))
+                                dic.Add(o.LicenseID, LID);
+                        }
                         o.Status = "Approved";
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
+                        if(lic == null)
+                        { 
+                            var val = dic.FirstOrDefault(k => k.Key == o.LicenseID);
+                            lic = db.Licenses.Where(l => l.LicenseID == val.Value).FirstOrDefault();
+                        }
 
                         if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu")
                             lic.MaintEndDate = o.EndDate;
@@ -428,30 +440,35 @@ namespace DPTnew.Controllers
                             lic.MaintStartDate = o.StartDate;
                         }
 
-                        if ((o.ArticleDetail == "pl" || o.ArticleDetail == "upg" || o.ArticleDetail == "asf") && o.LicenseID.StartsWith("NEW"))
+                        if (o.LicenseID.StartsWith("NEW"))
                         {
-                            var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith("L")).Max(x => x.LicenseID);
-                            var LID = "L" + (Convert.ToInt64(maxq.Split('L')[1]) + 1).ToString("D8");
-                            o.LicenseID = LID;
+                            var val = dic.FirstOrDefault(k => k.Key == o.LicenseID);
+                            o.LicenseID = val.Value;
                         }
                         db.SaveChanges();
 
-                        if ((o.ArticleDetail == "pl" || o.ArticleDetail == "upg" || o.ArticleDetail == "asf") && lic.LicenseID.StartsWith("NEW"))
-                            db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseID = '" + o.LicenseID + "' WHERE licenseID = '" + oLid + "'");
+                        if (lic.LicenseID.StartsWith("NEW"))
+                        {
+                            var val = dic.FirstOrDefault(k => k.Key == lic.LicenseID);
+                            db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseID = '" + val.Value + "', [2Bins] = 1 WHERE licenseID = '" + val.Key + "'");
+                        }
 
                         if (string.IsNullOrEmpty(varmail))
                         {
                             //var clmail = db.Companies.Where(x => x.AccountNumber == o.AccountNumber).FirstOrDefault().Email;
-                            varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                            else
+                                varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             mail = new MailMessage("is@dptcorporate.com", varmail);
                             mail.CC.Add("Orders@dptcorporate.com");
                             //mail.CC.Add(clmail);
-                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
-                                mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                            //if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                            //    mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
 
                             mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                            mail.Body = "Dear User, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
+                            mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
                                 "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
                                 "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
                                 "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +

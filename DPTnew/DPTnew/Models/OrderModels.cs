@@ -32,6 +32,7 @@ namespace DPTnew.Models
         [Display(Name = "Invoice Date")]
         public string StrInvoiceDate { get { return InvoiceDate != null ? ((DateTime)InvoiceDate).ToString("yyyy-MM-dd") : ""; } }
         public string NewOldAccount { get; set; }
+        [Display(Name = "SalesRep", ResourceType = typeof(Resource))]
         public string SalesRep { get; set; }
         public string Currency { get; set; }
         public string LineType { get; set; }
@@ -54,7 +55,9 @@ namespace DPTnew.Models
         public double? EURO_PriceList { get; set; }
         public double? JPY_PriceList { get; set; }
         public string LeasingCompany { get; set; }
+        [Display(Name = "LicenseId", ResourceType = typeof(Resource))]
         public string LicenseID { get; set; }
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
         public string Note { get; set; }
         public string Item { get; set; }

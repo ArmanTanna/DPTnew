@@ -91,7 +91,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Insert(UpdateCase caseRow, string submitButton)
         {
-            if (submitButton == "Cancel")
+            if (submitButton == "Close")
             {
                 ViewBag.ok1 = "The case insert operation has been canceled!";
                 return View("Success");
@@ -209,7 +209,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Modify(UpdateCase caseRow, string submitButton)
         {
-            if (submitButton == "Cancel")
+            if (submitButton == "Close")
             {
                 ViewBag.ok1 = "The case modify operation has been canceled!";
                 return View("Success");
@@ -336,7 +336,7 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult Update(UpdateCase caseHistoryRow, string submitButton)
         {
-            if (submitButton == "Cancel")
+            if (submitButton == "Close")
             {
                 ViewBag.ok1 = "The case update operation has been canceled!";
                 return View("Success");

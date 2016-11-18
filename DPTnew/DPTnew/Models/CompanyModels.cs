@@ -34,6 +34,7 @@ namespace DPTnew.Models
         [Display(Name = "Province", ResourceType = typeof(Resource))]
         public string Province { get; set; }
         public string Region { get; set; }
+         [Display(Name = "Language", ResourceType = typeof(Resource))]
         public string Language { get; set; }
         [Display(Name = "Country", ResourceType = typeof(Resource))]
         public string Country { get; set; }

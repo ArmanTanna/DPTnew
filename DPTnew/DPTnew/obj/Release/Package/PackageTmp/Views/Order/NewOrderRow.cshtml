@@ -189,7 +189,7 @@
 
             $("input[name=orderDate]").change(function () {
                 var ordDate = new Date($("input[name=orderDate]").val());
-                var lastDateofTheMonth = new Date(ordDate.getFullYear(), ((ordDate.getMonth() + 1) % 12), 1);
+                var lastDateofTheMonth = new Date(ordDate.getFullYear(), (ordDate.getMonth() + 1), 1);
                 $("input[name=invoiceDate]").val(lastDateofTheMonth.toISOString().substring(0, 10));
             });
 
@@ -491,8 +491,8 @@
     </div>
 }
 <p>
-    <a href="javascript: submitform()"><input type="submit" value="Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="Close" /></a>
+    <a href="javascript: submitform()"><input type="submit" value="@DPTnew.Localization.Resource.Submit" /></a>
+    <a href="javascript:window.open('','_self').close();"><input type="submit" value="@DPTnew.Localization.Resource.Close" /></a>
 </p>
 <div id="sysmsg-dialog" title="System message" style="display:none;">
     <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
