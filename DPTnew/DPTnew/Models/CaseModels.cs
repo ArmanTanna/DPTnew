@@ -38,8 +38,6 @@ namespace DPTnew.Models
         public string Platform { get; set; }
         [Display(Name = "PlatformVersion", ResourceType = typeof(Resource))]
         public string PlatformVersion { get; set; }
-        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
-        public string MachineId { get; set; }
         [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
         [Display(Name = "Type", ResourceType = typeof(Resource))]
@@ -82,8 +80,6 @@ namespace DPTnew.Models
         public string Platform { get; set; }
         [Display(Name = "PlatformVersion", ResourceType = typeof(Resource))]
         public string PlatformVersion { get; set; }
-        [Display(Name = "MachineID", ResourceType = typeof(Resource))]
-        public string MachineId { get; set; }
         [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
         [Display(Name = "Type", ResourceType = typeof(Resource))]

@@ -64,14 +64,14 @@
                '<tr>' +
                 '<td><b>OrderNumber:</b></td>' +
                   '<td>' + d.OrderNumber + '</td>' +
-                '<td><b>OrderDate:</b></td>' +
-                  '<td>' + d.StrOrderDate + '</td>' +
+                '<td><b>Invoiced:</b></td>' +
+                  '<td>' + d.Invoiced + '</td>' +
                   '<td><b>Quantity:</b></td>' +
                   '<td>' + d.Quantity + '</td>' +
               '</tr>' +
                '<tr>' +
-                  '<td><b>Invoiced:</b></td>' +
-                  '<td>' + d.Invoiced + '</td>' +
+                  '<td><b>NewOldAccount:</b></td>' +
+                  '<td>' + d.NewOldAccount + '</td>' +
                   '<td><b>Note:</b></td>' +
                   '<td>' + d.Note + '</td>' +
                   '<td><b>RowNumber:</b></td>' +
@@ -135,6 +135,7 @@
                     }
                 },
                 { data: "Discount" },
+                { data: "StrOrderDate" },
                 { data: "SalesRep" },
                 { data: "Status" },
                 {
@@ -144,6 +145,7 @@
                     "defaultContent": '<button>' + "@DPTnew.Localization.Resource.View_Menu_Orders" + '</button>'
                 }
                 ],
+                order: [[7, 'desc']],
                 orderClasses: false
             });
 
@@ -320,8 +322,8 @@
             });
 
             yadcf.init(myTable, [
-                { column_number: 7, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
-                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Booked", "Checked", "Approved"] }
+                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
+                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Booked", "Checked", "Approved"] }
             ]);
         });
 
@@ -351,6 +353,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Discount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StrOrderDate)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.SalesRep)

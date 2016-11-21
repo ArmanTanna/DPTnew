@@ -128,7 +128,6 @@ namespace DPTnew.Controllers
                 newCase.CreatedBy = Membership.GetUser().UserName;
                 newCase.Description = GlobalObject.unescape(caseRow.Description);
                 newCase.Details = GlobalObject.unescape(caseRow.Details);
-                newCase.MachineId = caseRow.MachineId;
                 newCase.ModifiedOn = DateTime.Now;
                 newCase.Platform = caseRow.Platform;
                 newCase.PlatformVersion = caseRow.PlatformVersion;
@@ -226,7 +225,6 @@ namespace DPTnew.Controllers
                     {
                         ncase.ModifiedOn = DateTime.Now;
                         ncase.CCEngineer = caseRow.CCEngineer;
-                        ncase.MachineId = caseRow.MachineId;
                         ncase.EDBnumber = caseRow.EDBnumber;
                         ncase.Type = caseRow.Type;
                         try
