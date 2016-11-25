@@ -55,12 +55,19 @@ namespace DPTnew.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         //public int Blocked { get; set; }
+        [Display(Name = "Phone1", ResourceType = typeof(Resource))]
         public string Phone1 { get; set; }
+        [Display(Name = "Phone2", ResourceType = typeof(Resource))]
         public string Phone2 { get; set; }
+        [Display(Name = "Fax", ResourceType = typeof(Resource))]
         public string Fax { get; set; }
+        [Display(Name = "Website", ResourceType = typeof(Resource))]
         public string Website { get; set; }
+        [Display(Name = "Segment", ResourceType = typeof(Resource))]
         public string Segment { get; set; }
+        [Display(Name = "Industry", ResourceType = typeof(Resource))]
         public string Industry { get; set; }
+        [Display(Name = "Production", ResourceType = typeof(Resource))]
         public string Production { get; set; }
 
         [ScriptIgnore(ApplyToOverrides = true)]

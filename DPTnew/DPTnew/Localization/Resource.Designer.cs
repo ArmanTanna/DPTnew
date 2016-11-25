@@ -79,11 +79,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
             get {
                 return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ancestor.
+        /// </summary>
+        public static string Ancestor {
+            get {
+                return ResourceManager.GetString("Ancestor", resourceCulture);
             }
         }
         
@@ -97,7 +115,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assigned To.
+        ///   Looks up a localized string similar to Assigned to.
         /// </summary>
         public static string AssignedTo {
             get {
@@ -205,6 +223,24 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Case Archive.
+        /// </summary>
+        public static string CaseArchive {
+            get {
+                return ResourceManager.GetString("CaseArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file has been deleted correctly!.
+        /// </summary>
+        public static string CaseDelFileMsg {
+            get {
+                return ResourceManager.GetString("CaseDelFileMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Case History ID.
         /// </summary>
         public static string CaseHistoryID {
@@ -219,6 +255,105 @@ namespace DPTnew.Localization {
         public static string CaseID {
             get {
                 return ResourceManager.GetString("CaseID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The case insert operation has been cancelled!.
+        /// </summary>
+        public static string CaseInsertCloseMsg {
+            get {
+                return ResourceManager.GetString("CaseInsertCloseMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Contact doesn&apos;t exist in the DB!.
+        /// </summary>
+        public static string CaseInsertContactMsg {
+            get {
+                return ResourceManager.GetString("CaseInsertContactMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot save the uploaded file!.
+        /// </summary>
+        public static string CaseInsertFileMsg {
+            get {
+                return ResourceManager.GetString("CaseInsertFileMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The new case has been saved correctly!.
+        /// </summary>
+        public static string CaseInsertSaveMsg {
+            get {
+                return ResourceManager.GetString("CaseInsertSaveMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong. Cannot save the case!.
+        /// </summary>
+        public static string CaseInsertWrongMsg {
+            get {
+                return ResourceManager.GetString("CaseInsertWrongMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The CC Engineer doesn&apos;t exist in the DB!.
+        /// </summary>
+        public static string CaseModifyCCEngMsg {
+            get {
+                return ResourceManager.GetString("CaseModifyCCEngMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The case modify operation has been cancelled!.
+        /// </summary>
+        public static string CaseModifyCloseMsg {
+            get {
+                return ResourceManager.GetString("CaseModifyCloseMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The case has been modified correctly!.
+        /// </summary>
+        public static string CaseModifySaveMsg {
+            get {
+                return ResourceManager.GetString("CaseModifySaveMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The case update operation has been cancelled!.
+        /// </summary>
+        public static string CaseUpdateCloseMsg {
+            get {
+                return ResourceManager.GetString("CaseUpdateCloseMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The new history case has been saved correctly!.
+        /// </summary>
+        public static string CaseUpdateSaveMsg {
+            get {
+                return ResourceManager.GetString("CaseUpdateSaveMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong. Cannot save the case history!.
+        /// </summary>
+        public static string CaseUpdateWrongMsg {
+            get {
+                return ResourceManager.GetString("CaseUpdateWrongMsg", resourceCulture);
             }
         }
         
@@ -610,6 +745,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discount.
+        /// </summary>
+        public static string Discount {
+            get {
+                return ResourceManager.GetString("Discount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip.
         /// </summary>
         public static string Download2011TDViewerLight {
@@ -916,6 +1060,24 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End Date.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported Num.
+        /// </summary>
+        public static string ExportedNum {
+            get {
+                return ResourceManager.GetString("ExportedNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are exporting this license:.
         /// </summary>
         public static string ExportingLicense {
@@ -930,6 +1092,15 @@ namespace DPTnew.Localization {
         public static string ExportLicense {
             get {
                 return ResourceManager.GetString("ExportLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fax.
+        /// </summary>
+        public static string Fax {
+            get {
+                return ResourceManager.GetString("Fax", resourceCulture);
             }
         }
         
@@ -961,6 +1132,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Industry.
+        /// </summary>
+        public static string Industry {
+            get {
+                return ResourceManager.GetString("Industry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Showing _START_ to _END_ of _TOTAL_ entries.
         /// </summary>
         public static string info {
@@ -988,6 +1168,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item.
+        /// </summary>
+        public static string Item {
+            get {
+                return ResourceManager.GetString("Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kind.
         /// </summary>
         public static string Kind {
@@ -1006,7 +1195,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LastExp.
+        ///   Looks up a localized string similar to Last Exp.
         /// </summary>
         public static string LastExp {
             get {
@@ -1060,11 +1249,20 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MachineID.
+        ///   Looks up a localized string similar to Machine ID.
         /// </summary>
         public static string MachineID {
             get {
                 return ResourceManager.GetString("MachineID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maint Start Date.
+        /// </summary>
+        public static string MaintStartDate {
+            get {
+                return ResourceManager.GetString("MaintStartDate", resourceCulture);
             }
         }
         
@@ -1078,6 +1276,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Export.
+        /// </summary>
+        public static string MaxExport {
+            get {
+                return ResourceManager.GetString("MaxExport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MED.
         /// </summary>
         public static string MED {
@@ -1087,7 +1294,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modified On.
+        ///   Looks up a localized string similar to Modified on.
         /// </summary>
         public static string ModifiedOn {
             get {
@@ -1141,11 +1348,65 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string Note {
+            get {
+                return ResourceManager.GetString("Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old Password.
         /// </summary>
         public static string OldPassword {
             get {
                 return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordered.
+        /// </summary>
+        public static string Ordered {
+            get {
+                return ResourceManager.GetString("Ordered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Number.
+        /// </summary>
+        public static string OrderNumber {
+            get {
+                return ResourceManager.GetString("OrderNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legacy Product.
+        /// </summary>
+        public static string OriginalProduct {
+            get {
+                return ResourceManager.GetString("OriginalProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone 1.
+        /// </summary>
+        public static string Phone1 {
+            get {
+                return ResourceManager.GetString("Phone1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone 2.
+        /// </summary>
+        public static string Phone2 {
+            get {
+                return ResourceManager.GetString("Phone2", resourceCulture);
             }
         }
         
@@ -1483,6 +1744,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Production.
+        /// </summary>
+        public static string Production {
+            get {
+                return ResourceManager.GetString("Production", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Province.
         /// </summary>
         public static string Province {
@@ -1501,7 +1771,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please Enter Password.
+        ///   Looks up a localized string similar to Please, enter your Password.
         /// </summary>
         public static string RequiredFieldPassword {
             get {
@@ -1546,6 +1816,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Segment.
+        /// </summary>
+        public static string Segment {
+            get {
+                return ResourceManager.GetString("Segment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Select {
@@ -1560,6 +1839,15 @@ namespace DPTnew.Localization {
         public static string Severity {
             get {
                 return ResourceManager.GetString("Severity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
             }
         }
         
@@ -1582,6 +1870,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string Type {
@@ -1596,6 +1893,15 @@ namespace DPTnew.Localization {
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserId.
+        /// </summary>
+        public static string UserId {
+            get {
+                return ResourceManager.GetString("UserId", resourceCulture);
             }
         }
         
@@ -1902,6 +2208,15 @@ namespace DPTnew.Localization {
         public static string View_Menu_Orders {
             get {
                 return ResourceManager.GetString("View_Menu_Orders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
             }
         }
         

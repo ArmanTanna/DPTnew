@@ -66,7 +66,7 @@
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
-                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") ||                    
+                    Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
                 {
@@ -100,7 +100,7 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                     || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                 {
-                    <a href="~/CaseHistory" target="_blank"><u>Case Archive</u></a>
+                    <a href="~/CaseHistory" target="_blank"><u>@DPTnew.Localization.Resource.CaseArchive</u></a>
                 }
             </th>
             <th style="width:33%">

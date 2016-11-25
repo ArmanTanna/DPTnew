@@ -93,13 +93,13 @@ namespace DPTnew.Controllers
         {
             if (submitButton == "Close")
             {
-                ViewBag.ok1 = "The case insert operation has been canceled!";
+                ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertCloseMsg;
                 return View("Success");
             }
             if (string.IsNullOrEmpty(caseRow.AccountName) || string.IsNullOrEmpty(caseRow.Contact)
                 || string.IsNullOrEmpty(caseRow.Description) || string.IsNullOrEmpty(caseRow.Details))
             {
-                ViewBag.ok1 = "Something went wrong. Cannot save the case!";
+                ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertWrongMsg;
                 return View("Success");
             }
 
@@ -121,7 +121,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
-                    ViewBag.ok1 = "The Contact doesn't exist in the DB!";
+                    ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertContactMsg;
                     return View("Success");
                 }
                 newCase.CreatedOn = DateTime.Now;
@@ -167,7 +167,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
-                        ViewBag.ok1 = "Cannot save the uploaded file!";
+                        ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertFileMsg;
                         return View("Success");
                     }
                 }
@@ -193,7 +193,7 @@ namespace DPTnew.Controllers
                 }
                 SendMail(mail);
             }
-            ViewBag.ok1 = "The new case has been saved correctly!";
+            ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertSaveMsg;
             return View("Success");
         }
 
@@ -210,7 +210,7 @@ namespace DPTnew.Controllers
         {
             if (submitButton == "Close")
             {
-                ViewBag.ok1 = "The case modify operation has been canceled!";
+                ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifyCloseMsg;
                 return View("Success");
             }
             caseRow.Status = GlobalObject.unescape(caseRow.Description);
@@ -233,7 +233,7 @@ namespace DPTnew.Controllers
                         }
                         catch (Exception e)
                         {
-                            ViewBag.ok1 = "The CCEngineer doesn't exist in the DB!";
+                            ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifyCCEngMsg;
                             return View("Success");
                         }
                         var oldstatus = caseRow.Status;
@@ -311,7 +311,7 @@ namespace DPTnew.Controllers
                     }
                 }
             }
-            ViewBag.ok1 = "The new case has been modified correctly!";
+            ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifySaveMsg;
             return View("Success");
         }
 
@@ -336,12 +336,12 @@ namespace DPTnew.Controllers
         {
             if (submitButton == "Close")
             {
-                ViewBag.ok1 = "The case update operation has been canceled!";
+                ViewBag.ok1 = DPTnew.Localization.Resource.CaseUpdateCloseMsg;
                 return View("Success");
             }
             if (string.IsNullOrEmpty(caseHistoryRow.Description) || string.IsNullOrEmpty(caseHistoryRow.Details))
             {
-                ViewBag.ok1 = "Something went wrong. Cannot save the case history!";
+                ViewBag.ok1 = DPTnew.Localization.Resource.CaseUpdateWrongMsg;
                 return View("Success");
             }
 
@@ -372,7 +372,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
-                        ViewBag.ok1 = "Cannot save the uploaded file!";
+                        ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertFileMsg;
                         return View("Success");
                     }
                 }
@@ -430,7 +430,7 @@ namespace DPTnew.Controllers
                     db.SaveChanges();
                 }
             }
-            ViewBag.ok1 = "The new history case has been saved correctly!";
+            ViewBag.ok1 = DPTnew.Localization.Resource.CaseUpdateSaveMsg;
             return View("Success");
         }
 
@@ -464,7 +464,7 @@ namespace DPTnew.Controllers
                 db.SaveChanges();
             }
 
-            return Json("The file is deleted correctly!", JsonRequestBehavior.AllowGet);
+            return Json(DPTnew.Localization.Resource.CaseDelFileMsg, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

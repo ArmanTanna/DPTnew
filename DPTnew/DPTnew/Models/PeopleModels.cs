@@ -15,7 +15,7 @@ namespace DPTnew.Models
     public class People
     {
         [Key]
-        [Display(Name = "User ID")]
+        [Display(Name = "UserId", ResourceType = typeof(Resource))]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         [Display(Name = "Email", ResourceType = typeof(Resource))]

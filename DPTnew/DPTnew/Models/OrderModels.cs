@@ -22,6 +22,7 @@ namespace DPTnew.Models
         public string AccountName { get; set; }
         [Display(Name = "AccountNumber", ResourceType = typeof(Resource))]
         public string AccountNumber { get; set; }
+        [Display(Name = "OrderNumber", ResourceType = typeof(Resource))]
         public string OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }
         [Display(Name = "Order Date")]
@@ -38,18 +39,23 @@ namespace DPTnew.Models
         public string LineType { get; set; }
         public string ProductName { get; set; }
         public string ArticleDetail { get; set; }
+        [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         public DateTime StartDate { get; set; }
-        [Display(Name = "Start Date")]
+        [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         public string StrStartDate { get { return StartDate != null ? ((DateTime)StartDate).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "EndDate", ResourceType = typeof(Resource))]
         public DateTime EndDate { get; set; }
-        [Display(Name = "End Date")]
+        [Display(Name = "EndDate", ResourceType = typeof(Resource))]
         public string StrEndDate { get { return EndDate != null ? ((DateTime)EndDate).ToString("yyyy-MM-dd") : ""; } }
         public DateTime? RequestDate { get; set; }
         [Display(Name = "Request Date")]
         public string StrRequestDate { get { return RequestDate != null ? ((DateTime)RequestDate).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "Ordered", ResourceType = typeof(Resource))]
         public double Ordered { get; set; }
         public double? Invoiced { get; set; }
+        [Display(Name = "Quantity", ResourceType = typeof(Resource))]
         public double? Quantity { get; set; }
+        [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
         public string NewRenewal { get; set; }
         public double? EURO_PriceList { get; set; }
@@ -60,7 +66,9 @@ namespace DPTnew.Models
         [Display(Name = "Status", ResourceType = typeof(Resource))]
         public string Status { get; set; }
         public string Note { get; set; }
+        [Display(Name = "Item", ResourceType = typeof(Resource))]
         public string Item { get; set; }
+        [Display(Name = "Discount", ResourceType = typeof(Resource))]
         public double Discount { get; set; }
         public string MachineID { get; set; }
     }

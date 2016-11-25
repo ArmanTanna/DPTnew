@@ -82,15 +82,17 @@ namespace DPTnew.Models
 
         [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
+        [Display(Name = "Ancestor", ResourceType = typeof(Resource))]
         public string Ancestor { get; set; }
 
-        [Display(Name = "Start Date")]
+        [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> StartDate { get; set; }
 
-        [Display(Name = "Expiry")]
+        [Display(Name = "EndDate", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> EndDate { get; set; }
+        [Display(Name = "MaintStartDate", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> MaintStartDate { get; set; }
 
@@ -98,9 +100,13 @@ namespace DPTnew.Models
         [Display(Name = "MED", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<DateTime> MaintEndDate { get; set; }
+        [Display(Name = "MED", ResourceType = typeof(Resource))]
         public string MED { get { return MaintEndDate != null ? ((DateTime)MaintEndDate).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "MaintStartDate", ResourceType = typeof(Resource))]
         public string MSD { get { return MaintEndDate != null ? ((DateTime)MaintStartDate).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "EndDate", ResourceType = typeof(Resource))]
         public string ED { get { return MaintEndDate != null ? ((DateTime)EndDate).ToString("yyyy-MM-dd") : ""; } }
+        [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         public string SD { get { return MaintEndDate != null ? ((DateTime)StartDate).ToString("yyyy-MM-dd") : ""; } }
 
         public string PwdCode { get; set; }
@@ -108,6 +114,7 @@ namespace DPTnew.Models
         [Display(Name = "Version", ResourceType = typeof(Resource))]
         public string Version { get; set; }
         //public string LicenseKind { get; set; }
+        [Display(Name = "Note", ResourceType = typeof(Resource))]
         public string Note { get; set; }
         public int Installed { get; set; }
         public int Exported { get; set; }
@@ -123,10 +130,13 @@ namespace DPTnew.Models
         public string ServLicense1 { get; set; }
         public string Vend_String { get; set; }
         public int? FlexType { get; set; }
-
+        [Display(Name = "ExportedNum", ResourceType = typeof(Resource))]
         public int ExportedNum { get; set; }
+        [Display(Name = "MaxExport", ResourceType = typeof(Resource))]
         public int MaxExport { get; set; }
+        [Display(Name = "OriginalProduct", ResourceType = typeof(Resource))]
         public string OriginalProduct { get; set; }
+        [Display(Name = "Action", ResourceType = typeof(Resource))]
         public string Action { get; set; }
         public int Release { get; set; }
     }
