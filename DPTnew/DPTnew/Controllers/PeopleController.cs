@@ -107,6 +107,24 @@ namespace DPTnew.Controllers
                         "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
                         "\n\nBest Regards,\n\nCustomer Care team";
                     SendMail(mail);
+                    if (pplSingleRow.Language.ToLower() == "japanese")
+                    {
+                        var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                        var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
+                        mail = new MailMessage("is@dptcorporate.com", varmail);
+                        mail.Bcc.Add(new MailAddress("dpt@dptcorporate.com"));
+                        mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " + 
+                            pplSingleRow.LastName + " 様";
+                        mail.Body = accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + " 様\n\n" +
+                            "いつも大変お世話になっております。\n\n" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
+                            + "\nログイン情報は以下の通りです。" + "\n\nユーザー名：" + pplSingleRow.Email +
+                            "\n\nパスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
+                            "\n詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」「２．カスタマーケアサイトのユーザー名とパスワード" +
+                            "\n\n製品インストールガイド：ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
+                            "\n\n技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
+                            "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケアチーム";
+                        SendMail(mail);
+                    }
                 }
                 else
                 {

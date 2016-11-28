@@ -34,44 +34,43 @@
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
              '<tr>' +
-                  '<td style="width:15%"><b>Submitted by:</b></td>' +
-                  '<td style="width:15%">' + d.Contact + '</td>' +
+                  '<td style="width:15%"><b>' + "@DPTnew.Localization.Resource.Contact" + ':</b></td>' +
+                      '<td style="width:55%">' + d.Contact + '</td>' +
 
-                 '<td style="width:15%"><b>Severity:</b></td>' +
-                  '<td style="width:55%">' + d.Severity + '</td>' +
+                     '<td style="width:15%"><b>' + "@DPTnew.Localization.Resource.Severity" + ':</b></td>' +
+                      '<td style="width:15%">' + d.Severity + '</td>' +
 
-              '</tr>' +
-              '<tr>' +
-                  '<td><b>Product:</b></td>' +
-                  '<td>' + d.Product + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.Product" + ':</b></td>' +
+                      '<td>' + d.Product + '</td>' +
 
-                  '<td><b>Version:</b></td>' +
-                  '<td>' + d.ProductVersion + '</td>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.Version" + ':</b></td>' +
+                      '<td>' + d.ProductVersion + '</td>' +
 
-              '</tr>' +
-               '<tr>' +
+                  '</tr>' +
+                   '<tr>' +
 
-                  '<td><b>Platform:</b></td>' +
-                  '<td>' + d.Platform + '</td>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.Platform" + ':</b></td>' +
+                      '<td>' + d.Platform + '</td>' +
 
-                  '<td><b>MachineId:</b></td>' +
-                  '<td>' + d.MachineId + '</td>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.PlatformVersion" + ':</b></td>' +
+                      '<td>' + d.PlatformVersion + '</td>' +
 
-              '</tr>' +
-              '<tr>' +
+                  '</tr>' +
+                  '<tr>' +
 
-                  '<td><b>TD Platform:</b></td>' +
-                  '<td>' + d.PlatformVersion + '</td>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.Details" + ':</b></td>' +
+                      '<td>' + d.Details + '</td>' +
 
-                  '<td><b>Details:</b></td>' +
-                  '<td>' + d.Details + '</td>' +
+                      '<td></td><td></td>' +
 
-              '</tr>' +
-              //'<tr>' +
-              //    '<td><b>File:</b></td>' +
-              //    '<td>' + (d.File ? '<a href="' + d.File.replace("E:\\Case", "T3-Case") + '">' + d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
-              //'</tr>' +
-              '</table>';
+                  '</tr>' +
+                  //'<tr>' +
+                  //    '<td><b>File:</b></td>' +
+                  //    '<td>' + (d.File ? '<a href="' + d.File.replace("E:\\Case", "T3-Case") + '">' + d.File.split("\\")[d.File.split("\\").length - 1] : "") + '</td>' +
+                  //'</tr>' +
+                  '</table>';
         }
 
         $(document).ready(function () {
