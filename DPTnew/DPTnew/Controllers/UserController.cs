@@ -228,8 +228,8 @@ namespace DPTnew.Controllers
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
-                            ViewBag.ok1 = "You have exported your license.";
-                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email;
+                            ViewBag.ok1 = DPTnew.Localization.Resource.LicenseExportMsg;
+                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email;
                             return View("Success");
                         }
                         else
@@ -358,8 +358,8 @@ namespace DPTnew.Controllers
                     context.SaveChanges();
                 }
 
-                ViewBag.ok1 = "You have correctly exported your license.";
-                ViewBag.ok2 = "Now you can install the license in another pc.";
+                ViewBag.ok1 = DPTnew.Localization.Resource.LicenseValidateMsg1;
+                ViewBag.ok2 = DPTnew.Localization.Resource.LicenseValidateMsg2;
                 return View("Success");
             }
             // If we got this far, something failed, redisplay form
@@ -555,7 +555,7 @@ namespace DPTnew.Controllers
 
                         var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
                         //ViewBag.ok1 = "You have generated your license.";
-                        return Json("You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
+                        return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
                     }
                 }
             }
@@ -762,8 +762,8 @@ namespace DPTnew.Controllers
                             }
 
                             var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
-                            ViewBag.ok1 = "You have generated your license.";
-                            ViewBag.ok2 = "You are going to receive the .v2c file to install at your company email address: " + k.FirstOrDefault().Email;
+                            ViewBag.ok1 = DPTnew.Localization.Resource.LicenseCreateMsg;
+                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email;
                             return View("Success");
                         }
                     }

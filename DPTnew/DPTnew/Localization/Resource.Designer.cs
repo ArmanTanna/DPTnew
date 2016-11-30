@@ -439,6 +439,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -1105,6 +1114,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First name.
         /// </summary>
         public static string FirstName {
@@ -1231,11 +1249,56 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have generated your license..
+        /// </summary>
+        public static string LicenseCreateMsg {
+            get {
+                return ResourceManager.GetString("LicenseCreateMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have exported your license..
+        /// </summary>
+        public static string LicenseExportMsg {
+            get {
+                return ResourceManager.GetString("LicenseExportMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to License ID.
         /// </summary>
         public static string LicenseId {
             get {
                 return ResourceManager.GetString("LicenseId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are going to receive the .v2c file to install at your company email address.
+        /// </summary>
+        public static string LicenseMailMsg {
+            get {
+                return ResourceManager.GetString("LicenseMailMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have correctly exported your license..
+        /// </summary>
+        public static string LicenseValidateMsg1 {
+            get {
+                return ResourceManager.GetString("LicenseValidateMsg1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Now you can install the license in another pc..
+        /// </summary>
+        public static string LicenseValidateMsg2 {
+            get {
+                return ResourceManager.GetString("LicenseValidateMsg2", resourceCulture);
             }
         }
         

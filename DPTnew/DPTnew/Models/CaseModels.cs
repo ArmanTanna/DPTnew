@@ -116,6 +116,7 @@ namespace DPTnew.Models
         public string Description { get; set; }
         [Display(Name = "Details", ResourceType = typeof(Resource))]
         public string Details { get; set; }
+        [Display(Name = "File", ResourceType = typeof(Resource))]
         public string File { get; set; }
     }
 

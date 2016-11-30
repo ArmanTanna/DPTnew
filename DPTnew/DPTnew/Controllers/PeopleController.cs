@@ -111,18 +111,19 @@ namespace DPTnew.Controllers
                     {
                         var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                         var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
-                        mail = new MailMessage("is@dptcorporate.com", varmail);
-                        mail.Bcc.Add(new MailAddress("dpt@dptcorporate.com"));
-                        mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " + 
+                        mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
+                        mail.Bcc.Add(new MailAddress(varmail));
+                        mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " +
                             pplSingleRow.LastName + " 様";
-                        mail.Body = accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + " 様\n\n" +
-                            "いつも大変お世話になっております。\n\n" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
-                            + "\nログイン情報は以下の通りです。" + "\n\nユーザー名：" + pplSingleRow.Email +
-                            "\n\nパスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
-                            "\n詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」「２．カスタマーケアサイトのユーザー名とパスワード" +
-                            "\n\n製品インストールガイド：ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
-                            "\n\n技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
-                            "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケアチーム";
+                        mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 様<br/><br/>" +
+                            "いつも大変お世話になっております。<br/><br/>" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
+                            + "<br/>ログイン情報は以下の通りです。" + "<br/><br/>ユーザー名：<b>" + pplSingleRow.Email +
+                            "</b><br/><br/>パスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
+                            "<br/>詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」をご参照ください。" +
+                            "<br/><br/>製品インストールガイド：ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
+                            "<br/><br/>技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
+                            "<br/><br/>以上、よろしくお願いいたします。<br/>シンクスリー・カスタマーケアチーム";
+                        mail.IsBodyHtml = true;
                         SendMail(mail);
                     }
                 }
