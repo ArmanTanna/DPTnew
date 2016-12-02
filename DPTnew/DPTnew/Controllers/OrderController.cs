@@ -413,6 +413,7 @@ namespace DPTnew.Controllers
                 {
                     MailMessage mail = null;
                     var dic = new Dictionary<string, string>();
+                    var inv = "";
                     foreach (Order o in query.ToList())
                     {
                         if (o.LicenseID.StartsWith("NEW"))
@@ -424,8 +425,8 @@ namespace DPTnew.Controllers
                         }
                         o.Status = "Approved";
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
-                        if(lic == null)
-                        { 
+                        if (lic == null)
+                        {
                             var val = dic.FirstOrDefault(k => k.Key == o.LicenseID);
                             lic = db.Licenses.Where(l => l.LicenseID == val.Value).FirstOrDefault();
                         }
@@ -461,28 +462,53 @@ namespace DPTnew.Controllers
                             else
                                 varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
+                            inv = o.Invoicer.Trim().ToLower();
                             mail = new MailMessage("is@dptcorporate.com", varmail);
                             mail.CC.Add("Orders@dptcorporate.com");
                             //mail.CC.Add(clmail);
                             //if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
                             //    mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
-
-                            mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                            mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
-                                "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
-                                "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
-                                "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
-                                "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
-                                "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
-                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                            if (inv == "t3 japan kk")
+                            {
+                                mail.Subject = "[このメールには返信しないでください] ご注文のお手続きが完了致しました。" + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                                mail.Body = "販売代理店殿<br/><br/>ご注文のお手続きが完了致しました。(#" + orderNumber + ")<br/><br/>" +
+                                    "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>注文日: " + o.StrOrderDate +
+                                    "<br/>注文番号:" + o.PO_Number + "<br/><br/>" +
+                                    "<table border=1><tr>" + "<td>ライセンスID</td>" + "<td>マシンID</td>" + "<td>製品</td>" +
+                                    "<td>タイプ</td>" + "<td>数</td>" + "<td>開始日</td>" + "<td> 終了日</td></tr>" +
+                                    "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                    o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                            }
+                            else
+                            {
+                                mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                                mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
+                                    "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                                    "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                                    "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
+                                    "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
+                                    "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                    o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                            }
                         }
                         else
                             mail.Body += "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
                                 o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
                     }
-                    mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
-                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                        "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
+                    if (inv == "t3 japan kk")
+                    {
+                        mail.Body += "</table><br/>(*) 新しく発行されたライセンス（ASF 、PL） はお客様のカスタマーケアサイトよりインストールして頂けます。<br/>" +
+                            "ライセンス取得につきましては下記「インストールガイド」の「２－２．ライセンスの取得」をご覧ください。<br/>" +
+                            "(ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf)<br/><br/>" +
+                            "登録されたライセンスの状況につきまして、下記カスタマーケアのURLからご確認ください。<br/>" +
+                            "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                            "以上、ご不明な点はカスタマーケアサイトよりお問い合わせください。<br/>シンク・スリー カスタマーケアスタッフ";
+                    }
+                    else
+                        mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
+                            "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                            "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
+
                     mail.IsBodyHtml = true;
                     SendMail(mail);
                 }
@@ -547,7 +573,7 @@ namespace DPTnew.Controllers
             {
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName &&
-                    (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L"))).ToList();
+                    (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L") || u.LicenseID.StartsWith("EDU"))).ToList();
                 return Json(licIds, JsonRequestBehavior.AllowGet);
             }
         }

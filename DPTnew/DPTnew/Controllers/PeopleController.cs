@@ -107,25 +107,7 @@ namespace DPTnew.Controllers
                         "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
                         "\n\nBest Regards,\n\nCustomer Care team";
                     SendMail(mail);
-                    if (pplSingleRow.Language.ToLower() == "japanese")
-                    {
-                        var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
-                        var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
-                        mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
-                        mail.Bcc.Add(new MailAddress(varmail));
-                        mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " +
-                            pplSingleRow.LastName + " 様";
-                        mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 様<br/><br/>" +
-                            "いつも大変お世話になっております。<br/><br/>" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
-                            + "<br/>ログイン情報は以下の通りです。" + "<br/><br/>ユーザー名：<b>" + pplSingleRow.Email +
-                            "</b><br/><br/>パスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
-                            "<br/>詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」をご参照ください。" +
-                            "<br/><br/>製品インストールガイド：ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
-                            "<br/><br/>技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
-                            "<br/><br/>以上、よろしくお願いいたします。<br/>シンクスリー・カスタマーケアチーム";
-                        mail.IsBodyHtml = true;
-                        SendMail(mail);
-                    }
+                    mail = SendMailInUserLang(pplSingleRow, db, mail);
                 }
                 else
                 {
@@ -176,6 +158,49 @@ namespace DPTnew.Controllers
                 db.SaveChanges();
             }
             return Json("Saved User: " + pplSingleRow.UserId, JsonRequestBehavior.AllowGet);
+        }
+
+        private MailMessage SendMailInUserLang(People pplSingleRow, DptContext db, MailMessage mail)
+        {
+            if (pplSingleRow.Language.ToLower() == "japanese")
+            {
+                var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
+                mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
+                mail.Bcc.Add(new MailAddress(varmail));
+                mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " +
+                    pplSingleRow.LastName + " 様";
+                mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 様<br/><br/>" +
+                    "いつも大変お世話になっております。<br/><br/>" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
+                    + "<br/>ログイン情報は以下の通りです。" + "<br/><br/>ユーザー名：<b>" + pplSingleRow.Email +
+                    "</b><br/><br/>パスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
+                    "<br/>詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」をご参照ください。" +
+                    "<br/><br/>製品インストールガイド：ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
+                    "<br/><br/>技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
+                    "<br/><br/>以上、よろしくお願いいたします。<br/>シンクスリー・カスタマーケアチーム";
+                mail.IsBodyHtml = true;
+                SendMail(mail);
+            }
+            if (pplSingleRow.Language.ToLower() == "korean")
+            {
+                var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
+                mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
+                mail.Bcc.Add(new MailAddress(varmail));
+                mail.Subject = "고객 센터에 오신 것을 환영 " + accName + " " + pplSingleRow.FirstName + " " +
+                    pplSingleRow.LastName + " 님";
+                mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 님<br/><br/>" +
+                    "안녕하세요.<br/><br/>" + "당사 고객 지원 사이트 ：DPT3Care 사이트 （http://dpt3.dptcorporate.com/ ）에 사용자 등록이 완료되었으므로 알려드립니다."
+                    + "<br/>로그인 정보는 다음과 같습니다." + "<br/><br/>사용자 이름：<b>" + pplSingleRow.Email +
+                    "</b><br/><br/>비밀번호는 로그인 페이지의 'Recover if you forgot password'에서 " +
+                    "<br/>이메일 주소 입력 후 'Recover Account'를 클릭하시면 비밀번호 설정 화면을 알리는 이메일이 전달됩니다." +
+                    "<br/><br/>기술적인 질문은 로그인 후[사례관리]에서 보낼 수 있습니다." +
+                    "<br/><br/>이상, 잘 부탁드립니다." +
+                    "<br/>think3 고객 관리 팀";
+                mail.IsBodyHtml = true;
+                SendMail(mail);
+            }
+            return mail;
         }
 
         private void SendMail(MailMessage mail)
