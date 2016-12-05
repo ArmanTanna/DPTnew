@@ -34,6 +34,7 @@ namespace DPTnew.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult ChangeCurrentCulture(int id)
         {
             //  

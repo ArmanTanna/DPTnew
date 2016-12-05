@@ -61,6 +61,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account email.
+        /// </summary>
+        public static string AccountMail {
+            get {
+                return ResourceManager.GetString("AccountMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Name.
         /// </summary>
         public static string AccountName {
@@ -363,6 +372,15 @@ namespace DPTnew.Localization {
         public static string ChangeVersion {
             get {
                 return ResourceManager.GetString("ChangeVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the email you have provided.
+        /// </summary>
+        public static string CheckMailMsg {
+            get {
+                return ResourceManager.GetString("CheckMailMsg", resourceCulture);
             }
         }
         
@@ -709,11 +727,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2016 SP1 application..
+        /// </summary>
+        public static string Description2016TDViewerLightSP1 {
+            get {
+                return ResourceManager.GetString("Description2016TDViewerLightSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TD 2016 legacy version for old systems..
         /// </summary>
         public static string Description2016ThinkDesign32bit {
             get {
                 return ResourceManager.GetString("Description2016ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TD 2016 SP1 legacy version for old systems..
+        /// </summary>
+        public static string Description2016ThinkDesign32bitSP1 {
+            get {
+                return ResourceManager.GetString("Description2016ThinkDesign32bitSP1", resourceCulture);
             }
         }
         
@@ -727,11 +763,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2016 SP1..
+        /// </summary>
+        public static string Description2016ThinkDesign64bitSP1 {
+            get {
+                return ResourceManager.GetString("Description2016ThinkDesign64bitSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This section includes thinkPLM 2016 official version..
         /// </summary>
         public static string Description2016thinkPLM {
             get {
                 return ResourceManager.GetString("Description2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2016 SP1 official version..
+        /// </summary>
+        public static string Description2016thinkPLMSP1 {
+            get {
+                return ResourceManager.GetString("Description2016thinkPLMSP1", resourceCulture);
             }
         }
         
@@ -1132,6 +1186,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to if you forgot password.
+        /// </summary>
+        public static string ForgotPassword {
+            get {
+                return ResourceManager.GetString("ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate License.
         /// </summary>
         public static string GenerateLicense {
@@ -1321,6 +1384,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not a valid email--what are you trying to do here?.
+        /// </summary>
+        public static string MailErrMsg {
+            get {
+                return ResourceManager.GetString("MailErrMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maint Start Date.
         /// </summary>
         public static string MaintStartDate {
@@ -1353,6 +1425,24 @@ namespace DPTnew.Localization {
         public static string MED {
             get {
                 return ResourceManager.GetString("MED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The request was sent to our servers, please check your email box..
+        /// </summary>
+        public static string Message1 {
+            get {
+                return ResourceManager.GetString("Message1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will receive instructions to reset your password shortly.
+        /// </summary>
+        public static string Message2 {
+            get {
+                return ResourceManager.GetString("Message2", resourceCulture);
             }
         }
         
@@ -1771,11 +1861,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TDViewerLight 2016 SP1.
+        /// </summary>
+        public static string Product2016TDViewerLightSP1 {
+            get {
+                return ResourceManager.GetString("Product2016TDViewerLightSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ThinkDesign 2016 32bit.
         /// </summary>
         public static string Product2016ThinkDesign32bit {
             get {
                 return ResourceManager.GetString("Product2016ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2016 32bit SP1.
+        /// </summary>
+        public static string Product2016ThinkDesign32bitSP1 {
+            get {
+                return ResourceManager.GetString("Product2016ThinkDesign32bitSP1", resourceCulture);
             }
         }
         
@@ -1789,11 +1897,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2016 64bit SP1.
+        /// </summary>
+        public static string Product2016ThinkDesign64bitSP1 {
+            get {
+                return ResourceManager.GetString("Product2016ThinkDesign64bitSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to thinkPLM 2016.
         /// </summary>
         public static string Product2016thinkPLM {
             get {
                 return ResourceManager.GetString("Product2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2016 SP1.
+        /// </summary>
+        public static string Product2016thinkPLMSP1 {
+            get {
+                return ResourceManager.GetString("Product2016thinkPLMSP1", resourceCulture);
             }
         }
         
@@ -1839,6 +1965,15 @@ namespace DPTnew.Localization {
         public static string RequiredFieldPassword {
             get {
                 return ResourceManager.GetString("RequiredFieldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We need your email to send you a reset link!.
+        /// </summary>
+        public static string ResetPasswordMsg {
+            get {
+                return ResourceManager.GetString("ResetPasswordMsg", resourceCulture);
             }
         }
         
@@ -1929,6 +2064,15 @@ namespace DPTnew.Localization {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email correctly sent.
+        /// </summary>
+        public static string TitleMsg {
+            get {
+                return ResourceManager.GetString("TitleMsg", resourceCulture);
             }
         }
         

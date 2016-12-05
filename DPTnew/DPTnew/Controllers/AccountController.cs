@@ -16,10 +16,10 @@ namespace DPTnew.Controllers
 {
 
     [Authorize]
-   // [InitializeSimpleMembership]
+    // [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        
+
         //
         // GET: /Account/Login
 
@@ -57,7 +57,7 @@ namespace DPTnew.Controllers
                     {
                         ModelState.AddModelError("", "This account has been disabled");
                         return View(model);
-      
+
                     }
 
                     if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
@@ -137,74 +137,74 @@ namespace DPTnew.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LostPassword(LostPasswordModel model)
         {
-                MembershipUser user;
-                            
-                using (var context = new DptContext())
+            MembershipUser user;
+
+            using (var context = new DptContext())
+            {
+                bool exists = context.Contacts.Any(u => u.Email == model.Email);
+
+                //if user exists an model is valid
+                if (ModelState.IsValid && exists)
                 {
-                     bool exists = context.Contacts.Any(u => u.Email == model.Email);
+                    var foundUser = context.Contacts.Single(u => u.Email == model.Email);
 
-                    //if user exists an model is valid
-                    if (ModelState.IsValid && exists)
+                    //the account is blocked?
+                    if (foundUser.Company.Blocked == 1)
                     {
-                        var foundUser = context.Contacts.Single(u => u.Email == model.Email);
-
-                        //the account is blocked?
-                        if (foundUser.Company.Blocked == 1)
-                        {
-                            ModelState.AddModelError("", "This account has been blocked");
-                            return View(model);
-                        }
-                                                
-                        //the account is disabled?
-                        if (foundUser.Status == 0 || (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "06 - Partner"))
-                        {
-                            ModelState.AddModelError("", "This account has been disabled");
-                            return View(model);
-                        }
-                        user = Membership.GetUser(foundUser.Email.ToString());
-                        //I check if the user has already a password associated, otherwise I create a temporary one
-                        bool existuser = WebSecurity.IsConfirmed(model.Email);
-                        if (!existuser)
-                        {
-                            WebSecurity.CreateAccount(model.Email, "passwordtemp", false);
-                        }
-
-
-                        // Generate password token that will be used in the email link to authenticate user
-                        var token = WebSecurity.GeneratePasswordResetToken(user.UserName);
-                        // Generate the html link sent via email
-                        string resetLink = Url.Action("ResetPassword", "Account", new { rt = token }, "http");
-
-                        // Email stuff
-                        string subject = "Reset your password";
-                        string body = "Click this link to reset your password: " + resetLink;
-
-                        MailMessage message = new MailMessage();
-                        message.To.Add(new MailAddress(model.Email));
-                        message.Subject = subject;
-                        message.Body = body;
-                        SmtpClient client = new SmtpClient();
-
-                        // Attempt to send the email
-                        try
-                        {
-                            client.Send(message);
-                        }
-                        catch (Exception e)
-                        {
-                            ModelState.AddModelError("", "Issue sending email: " + e.Message);
-                        }
-
-                        ViewBag.title = "Email correctly sent";
-                        ViewBag.message1 = "The request was sent to our servers, please check your email box.";
-                        ViewBag.message2 = "You will receive instructions to reset your password shortly";
-
-                        return View("Result");
+                        ModelState.AddModelError("", "This account has been blocked");
+                        return View(model);
                     }
+
+                    //the account is disabled?
+                    if (foundUser.Status == 0 || (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "06 - Partner"))
+                    {
+                        ModelState.AddModelError("", "This account has been disabled");
+                        return View(model);
+                    }
+                    user = Membership.GetUser(foundUser.Email.ToString());
+                    //I check if the user has already a password associated, otherwise I create a temporary one
+                    bool existuser = WebSecurity.IsConfirmed(model.Email);
+                    if (!existuser)
+                    {
+                        WebSecurity.CreateAccount(model.Email, "passwordtemp", false);
+                    }
+
+
+                    // Generate password token that will be used in the email link to authenticate user
+                    var token = WebSecurity.GeneratePasswordResetToken(user.UserName);
+                    // Generate the html link sent via email
+                    string resetLink = Url.Action("ResetPassword", "Account", new { rt = token }, "http");
+
+                    // Email stuff
+                    string subject = "Reset your password";
+                    string body = "Click this link to reset your password: " + resetLink;
+
+                    MailMessage message = new MailMessage();
+                    message.To.Add(new MailAddress(model.Email));
+                    message.Subject = subject;
+                    message.Body = body;
+                    SmtpClient client = new SmtpClient();
+
+                    // Attempt to send the email
+                    try
+                    {
+                        client.Send(message);
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("", "Issue sending email: " + e.Message);
+                    }
+
+                    ViewBag.title = DPTnew.Localization.Resource.TitleMsg;
+                    ViewBag.message1 = DPTnew.Localization.Resource.Message1;
+                    ViewBag.message2 = DPTnew.Localization.Resource.Message2;
+
+                    return View("Result");
                 }
-                    
-                    
-             ModelState.AddModelError("","Check the email you have provided");
+            }
+
+
+            ModelState.AddModelError("", DPTnew.Localization.Resource.CheckMailMsg);
             return View(model);
         }
 
@@ -313,7 +313,7 @@ namespace DPTnew.Controllers
                     var id = WebSecurity.CurrentUserId;
                     var user = context.Contacts.SingleOrDefault(u => u.UserId == id);
                     ViewBag.User = user.FirstName + " " + user.LastName;
-                   
+
                 }
             }
             ViewBag.StatusMessage =
@@ -433,7 +433,7 @@ namespace DPTnew.Controllers
             }
         }
 
-     
+
         //
         // POST: /Account/ExternalLoginConfirmation
 

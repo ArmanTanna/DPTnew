@@ -4,6 +4,15 @@
     ViewBag.Title = "Log in";
 }
 <br />
+<ul style="margin-top:2px;position:absolute;right:150px">
+    @{
+        System.Globalization.CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+
+        <a href="/Home/ChangeCurrentCulture/0"><img src="~/Content/Faq/img/flags/United Kingdom(Great Britain).png" width="25px" vertical-align="-4px"></a>
+
+        <a href="/Home/ChangeCurrentCulture/2"><img src="~/Content/Faq/img/flags/Japan.png" width="25px"></a>
+    }
+</ul>
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
 </hgroup>
@@ -38,7 +47,7 @@
 
 
         <p>
-            @Html.ActionLink("Recover", "LostPassword") if you forgot password
+            @Html.ActionLink("Recover", "LostPassword") @DPTnew.Localization.Resource.ForgotPassword
         </p>
         <br>
     }

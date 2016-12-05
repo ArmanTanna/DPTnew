@@ -64,100 +64,115 @@
                 '<td>' + d.Product5 + '</td>' +
                 '<td>' + d.Description5 + '</td>' +
                 '<td> <a href="' + d.Download5 + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size5 + ' </a></td>' +
-            '</tr>') : "") +
-             '</table>';
+                    '</tr>') : "") +
+                    (d.Product6 ? ((salesReg == "japan" && d.Product6.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
+                '<tr>' +
+                    '<td>' + d.Product6 + '</td>' +
+                    '<td>' + d.Description6 + '</td>' +
+                    '<td> <a href="' + d.Download6 + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size6 + ' </a></td>' +
+                        '</tr>') : "") +
+                         '</table>';
         }
 
         $(document).ready(function () {
 
             var datacad = [
                 {
-                    "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bit",
-                    "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bit", "Size": " - 1.9 GB",
-                    "Download": "@DPTnew.Localization.Resource.Download2016ThinkDesign64bit",
-                    "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bit",
-                    "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bit", "Size1": " - 2.29 GB",
-                    "Download1": "@DPTnew.Localization.Resource.Download2016ThinkDesign32bit",
-                    "Product2": "@DPTnew.Localization.Resource.Product2016TDViewerLight",
-                    "Description2": "@DPTnew.Localization.Resource.Description2016TDViewerLight", "Size2": " - 328 MB",
-                    "Download2": "@DPTnew.Localization.Resource.Download2016TDViewerLight",
-                    "Product3": "@DPTnew.Localization.Resource.Product2016Utilitytools",
-                    "Description3": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size3": " - 38 MB",
-                    "Download3": "@DPTnew.Localization.Resource.Download2016Utilitytools"
+                    "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP1",
+                    "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bitSP1", "Size": " - 2 GB",
+                    "Download": "http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_64bit_2016T1_b21116.iso",
+                    "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bit",
+                    "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bit", "Size1": " - 1.9 GB",
+                    "Download1": "@DPTnew.Localization.Resource.Download2016ThinkDesign64bit",
+                    "Product2": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bitSP1",
+                    "Description2": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bitSP1", "Size2": " - 2.4 GB",
+                    "Download2": "http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_2016T1_b21116.iso",
+                    "Product3": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bit",
+                    "Description3": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bit", "Size3": " - 2.29 GB",
+                    "Download3": "@DPTnew.Localization.Resource.Download2016ThinkDesign32bit",
+                    "Product4": "@DPTnew.Localization.Resource.Product2016TDViewerLightSP1",
+                    "Description4": "@DPTnew.Localization.Resource.Description2016TDViewerLightSP1", "Size4": " - 330 MB",
+                    "Download4": "http://dpt3.dptcorporate.com/T3-Case/2016_build21116/CD_tdviewer_2016T1_b21116_64bit.iso",
+                    "Product5": "@DPTnew.Localization.Resource.Product2016TDViewerLight",
+                    "Description5": "@DPTnew.Localization.Resource.Description2016TDViewerLight", "Size5": " - 328 MB",
+                    "Download5": "@DPTnew.Localization.Resource.Download2016TDViewerLight",
+                    "Product6": "@DPTnew.Localization.Resource.Product2016Utilitytools",
+                    "Description6": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size6": " - 38 MB",
+                    "Download6": "@DPTnew.Localization.Resource.Download2016Utilitytools"
                 },
-                    {
-                        "Year": "2015", "Product": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP3",
-                        "Description": "@DPTnew.Localization.Resource.Description2015ThinkDesign64bitSP3", "Size": " - 2.03 GB",
-                        "Download": "@DPTnew.Localization.Resource.Download2015ThinkDesign64bitSP3",
-                        "Product1": "@DPTnew.Localization.Resource.Product2015ThinkDesign32bitSP3",
-                        "Description1": "@DPTnew.Localization.Resource.Description2015ThinkDesign32bitSP3", "Size1": " - 2.65 GB",
-                        "Download1": "@DPTnew.Localization.Resource.Download2015ThinkDesign32bitSP3",
-                        "Product2": "@DPTnew.Localization.Resource.Product2015TDViewerLightSP3",
-                        "Description2": "@DPTnew.Localization.Resource.Description2015TDViewerLightSP3", "Size2": " - 556 MB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2015TDViewerLightSP3",
-                        "Product3": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP2",
-                        "Description3": "@DPTnew.Localization.Resource.Description2015ThinkDesign64bitSP2", "Size3": " - 2.03 GB",
-                        "Download3": "@DPTnew.Localization.Resource.Download2015ThinkDesign64bitSP2",
-                        "Product4": "@DPTnew.Localization.Resource.Product2015ThinkDesign32bitSP2",
-                        "Description4": "@DPTnew.Localization.Resource.Description2015ThinkDesign32bitSP2", "Size4": " - 2.65 GB",
-                        "Download4": "@DPTnew.Localization.Resource.Download2015ThinkDesign32bitSP2",
-                        "Product5": "@DPTnew.Localization.Resource.Product2015Utilitytools",
-                        "Description5": "@DPTnew.Localization.Resource.Description2015Utilitytools", "Size5": " - 36 MB",
-                        "Download5": "@DPTnew.Localization.Resource.Download2015Utilitytools"
-                    },
-                    {
-                        "Year": "2014", "Product": "@DPTnew.Localization.Resource.Product2014ThinkDesign64bit",
-                        "Description": "@DPTnew.Localization.Resource.Description2014ThinkDesign64bit", "Size": " - 1.90 GB",
-                        "Download": "@DPTnew.Localization.Resource.Download2014ThinkDesign64bit",
-                        "Product1": "@DPTnew.Localization.Resource.Product2014TDViewerLight",
-                        "Description1": "@DPTnew.Localization.Resource.Description2014TDViewerLight", "Size1": " - 503 MB",
-                        "Download1": "@DPTnew.Localization.Resource.Download2014TDViewerLight",
-                        "Product2": "@DPTnew.Localization.Resource.Product2014ThinkDesign32bit",
-                        "Description2": "@DPTnew.Localization.Resource.Description2014ThinkDesign32bit", "Size2": " - 2.52 GB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2014ThinkDesign32bit",
-                        "Product3": "@DPTnew.Localization.Resource.Product2014Utilitytools",
-                        "Description3": "@DPTnew.Localization.Resource.Description2014Utilitytools", "Size3": " - 7 MB",
-                        "Download3": "@DPTnew.Localization.Resource.Download2014Utilitytools"
-                    },
-                    {
-                        "Year": "2013", "Product": "@DPTnew.Localization.Resource.Product2013ThinkDesign64bit",
-                        "Description": "@DPTnew.Localization.Resource.Description2013ThinkDesign64bit", "Size": " - 1.82 GB",
-                        "Download": "@DPTnew.Localization.Resource.Download2013ThinkDesign64bit",
-                        "Product1": "@DPTnew.Localization.Resource.Product2013TDViewerLight",
-                        "Description1": "@DPTnew.Localization.Resource.Description2013TDViewerLight", "Size1": " - 502 MB",
-                        "Download1": "@DPTnew.Localization.Resource.Download2013TDViewerLight",
-                        "Product2": "@DPTnew.Localization.Resource.Product2013ThinkDesign32bit",
-                        "Description2": "@DPTnew.Localization.Resource.Description2013ThinkDesign32bit", "Size2": " - 2.45 GB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2013ThinkDesign32bit",
-                        "Product3": "@DPTnew.Localization.Resource.Product2013Utilitytools",
-                        "Description3": "@DPTnew.Localization.Resource.Description2013Utilitytools", "Size3": " - 7.0 MB",
-                        "Download3": "@DPTnew.Localization.Resource.Download2013Utilitytools"
-                    },
-                    {
-                        "Year": "2012", "Product": "@DPTnew.Localization.Resource.Product2012ThinkDesign64bit",
-                        "Description": "@DPTnew.Localization.Resource.Description2012ThinkDesign64bit", "Size": " - 1.90 GB",
-                        "Download": "@DPTnew.Localization.Resource.Download2012ThinkDesign64bit",
-                        "Product1": "@DPTnew.Localization.Resource.Product2012TDViewerLight",
-                        "Description1": "@DPTnew.Localization.Resource.Description2012TDViewerLight", "Size1": " - 270 MB",
-                        "Download1": "@DPTnew.Localization.Resource.Download2012TDViewerLight",
-                        "Product2": "@DPTnew.Localization.Resource.Product2012ThinkDesign32bit",
-                        "Description2": "@DPTnew.Localization.Resource.Description2012ThinkDesign32bit", "Size2": " - 2.31 GB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2012ThinkDesign32bit",
-                        "Product3": "@DPTnew.Localization.Resource.Product2012Utilitytools",
-                        "Description3": "@DPTnew.Localization.Resource.Description2012Utilitytools", "Size3": " - 6.3 MB",
-                        "Download3": "@DPTnew.Localization.Resource.Download2012Utilitytools"
-                    },
-                    {
-                        "Year": "2011", "Product": "@DPTnew.Localization.Resource.Product2011ThinkDesign32bit",
-                        "Description": "@DPTnew.Localization.Resource.Description2011ThinkDesign32bit", "Size": " - 2.30 GB",
-                        "Download": "@DPTnew.Localization.Resource.Download2011ThinkDesign32bit",
-                        "Product1": "@DPTnew.Localization.Resource.Product2011TDViewerLight",
-                        "Description1": "@DPTnew.Localization.Resource.Description2011TDViewerLight", "Size1": " - 269 MB",
-                        "Download1": "@DPTnew.Localization.Resource.Download2011TDViewerLight",
-                        "Product2": "@DPTnew.Localization.Resource.Product2011Utilitytools",
-                        "Description2": "@DPTnew.Localization.Resource.Description2011Utilitytools", "Size2": " - 3.7 MB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2011Utilitytools"
-                    }
+        {
+            "Year": "2015", "Product": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP3",
+            "Description": "@DPTnew.Localization.Resource.Description2015ThinkDesign64bitSP3", "Size": " - 2.03 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2015ThinkDesign64bitSP3",
+            "Product1": "@DPTnew.Localization.Resource.Product2015ThinkDesign32bitSP3",
+            "Description1": "@DPTnew.Localization.Resource.Description2015ThinkDesign32bitSP3", "Size1": " - 2.65 GB",
+            "Download1": "@DPTnew.Localization.Resource.Download2015ThinkDesign32bitSP3",
+            "Product2": "@DPTnew.Localization.Resource.Product2015TDViewerLightSP3",
+            "Description2": "@DPTnew.Localization.Resource.Description2015TDViewerLightSP3", "Size2": " - 556 MB",
+            "Download2": "@DPTnew.Localization.Resource.Download2015TDViewerLightSP3",
+            "Product3": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP2",
+            "Description3": "@DPTnew.Localization.Resource.Description2015ThinkDesign64bitSP2", "Size3": " - 2.03 GB",
+            "Download3": "@DPTnew.Localization.Resource.Download2015ThinkDesign64bitSP2",
+            "Product4": "@DPTnew.Localization.Resource.Product2015ThinkDesign32bitSP2",
+            "Description4": "@DPTnew.Localization.Resource.Description2015ThinkDesign32bitSP2", "Size4": " - 2.65 GB",
+            "Download4": "@DPTnew.Localization.Resource.Download2015ThinkDesign32bitSP2",
+            "Product5": "@DPTnew.Localization.Resource.Product2015Utilitytools",
+            "Description5": "@DPTnew.Localization.Resource.Description2015Utilitytools", "Size5": " - 36 MB",
+            "Download5": "@DPTnew.Localization.Resource.Download2015Utilitytools"
+        },
+        {
+            "Year": "2014", "Product": "@DPTnew.Localization.Resource.Product2014ThinkDesign64bit",
+            "Description": "@DPTnew.Localization.Resource.Description2014ThinkDesign64bit", "Size": " - 1.90 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2014ThinkDesign64bit",
+            "Product1": "@DPTnew.Localization.Resource.Product2014TDViewerLight",
+            "Description1": "@DPTnew.Localization.Resource.Description2014TDViewerLight", "Size1": " - 503 MB",
+            "Download1": "@DPTnew.Localization.Resource.Download2014TDViewerLight",
+            "Product2": "@DPTnew.Localization.Resource.Product2014ThinkDesign32bit",
+            "Description2": "@DPTnew.Localization.Resource.Description2014ThinkDesign32bit", "Size2": " - 2.52 GB",
+            "Download2": "@DPTnew.Localization.Resource.Download2014ThinkDesign32bit",
+            "Product3": "@DPTnew.Localization.Resource.Product2014Utilitytools",
+            "Description3": "@DPTnew.Localization.Resource.Description2014Utilitytools", "Size3": " - 7 MB",
+            "Download3": "@DPTnew.Localization.Resource.Download2014Utilitytools"
+        },
+        {
+            "Year": "2013", "Product": "@DPTnew.Localization.Resource.Product2013ThinkDesign64bit",
+            "Description": "@DPTnew.Localization.Resource.Description2013ThinkDesign64bit", "Size": " - 1.82 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2013ThinkDesign64bit",
+            "Product1": "@DPTnew.Localization.Resource.Product2013TDViewerLight",
+            "Description1": "@DPTnew.Localization.Resource.Description2013TDViewerLight", "Size1": " - 502 MB",
+            "Download1": "@DPTnew.Localization.Resource.Download2013TDViewerLight",
+            "Product2": "@DPTnew.Localization.Resource.Product2013ThinkDesign32bit",
+            "Description2": "@DPTnew.Localization.Resource.Description2013ThinkDesign32bit", "Size2": " - 2.45 GB",
+            "Download2": "@DPTnew.Localization.Resource.Download2013ThinkDesign32bit",
+            "Product3": "@DPTnew.Localization.Resource.Product2013Utilitytools",
+            "Description3": "@DPTnew.Localization.Resource.Description2013Utilitytools", "Size3": " - 7.0 MB",
+            "Download3": "@DPTnew.Localization.Resource.Download2013Utilitytools"
+        },
+        {
+            "Year": "2012", "Product": "@DPTnew.Localization.Resource.Product2012ThinkDesign64bit",
+            "Description": "@DPTnew.Localization.Resource.Description2012ThinkDesign64bit", "Size": " - 1.90 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2012ThinkDesign64bit",
+            "Product1": "@DPTnew.Localization.Resource.Product2012TDViewerLight",
+            "Description1": "@DPTnew.Localization.Resource.Description2012TDViewerLight", "Size1": " - 270 MB",
+            "Download1": "@DPTnew.Localization.Resource.Download2012TDViewerLight",
+            "Product2": "@DPTnew.Localization.Resource.Product2012ThinkDesign32bit",
+            "Description2": "@DPTnew.Localization.Resource.Description2012ThinkDesign32bit", "Size2": " - 2.31 GB",
+            "Download2": "@DPTnew.Localization.Resource.Download2012ThinkDesign32bit",
+            "Product3": "@DPTnew.Localization.Resource.Product2012Utilitytools",
+            "Description3": "@DPTnew.Localization.Resource.Description2012Utilitytools", "Size3": " - 6.3 MB",
+            "Download3": "@DPTnew.Localization.Resource.Download2012Utilitytools"
+        },
+        {
+            "Year": "2011", "Product": "@DPTnew.Localization.Resource.Product2011ThinkDesign32bit",
+            "Description": "@DPTnew.Localization.Resource.Description2011ThinkDesign32bit", "Size": " - 2.30 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2011ThinkDesign32bit",
+            "Product1": "@DPTnew.Localization.Resource.Product2011TDViewerLight",
+            "Description1": "@DPTnew.Localization.Resource.Description2011TDViewerLight", "Size1": " - 269 MB",
+            "Download1": "@DPTnew.Localization.Resource.Download2011TDViewerLight",
+            "Product2": "@DPTnew.Localization.Resource.Product2011Utilitytools",
+            "Description2": "@DPTnew.Localization.Resource.Description2011Utilitytools", "Size2": " - 3.7 MB",
+            "Download2": "@DPTnew.Localization.Resource.Download2011Utilitytools"
+        }
             ];
 
             var cadTable = $('#cad').DataTable({
@@ -211,40 +226,45 @@
 
             var dataplm = [
                 {
-                    "Product": "@DPTnew.Localization.Resource.Product2016thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2016thinkPLM", "Size": " - 830 MB",
-                    "Download": "@DPTnew.Localization.Resource.Download2016thinkPLM"
+                    "Product": "@DPTnew.Localization.Resource.Product2016thinkPLMSP1",
+                    "Description": "@DPTnew.Localization.Resource.Description2016thinkPLMSP1", "Size": " - 850 MB",
+                    "Download": "http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_thinkplm_2016T1_b21116.iso"
                 },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2015thinkPLMSP3",
-                    "Description": "@DPTnew.Localization.Resource.Description2015thinkPLMSP3", "Size": " - 1.25 GB",
-                    "Download": "@DPTnew.Localization.Resource.Download2015thinkPLMSP3"
-                },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2015thinkPLMSP2",
-                    "Description": "@DPTnew.Localization.Resource.Description2015thinkPLMSP2", "Size": " - 1.25 GB",
-                    "Download": "@DPTnew.Localization.Resource.Download2015thinkPLMSP2"
-                },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2014thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2014thinkPLM", "Size": " - 1.18 GB",
-                    "Download": "@DPTnew.Localization.Resource.Download2014thinkPLM"
-                },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2013thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2013thinkPLM", "Size": " - 1.15 GB",
-                    "Download": "@DPTnew.Localization.Resource.Download2013thinkPLM"
-                },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2012thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2012thinkPLM", "Size": " - 821 MB",
-                    "Download": "@DPTnew.Localization.Resource.Download2012thinkPLM"
-                },
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2011thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2011thinkPLM", "Size": " - 813 MB",
-                    "Download": "@DPTnew.Localization.Resource.Download2011thinkPLM"
-                }
+                    {
+                        "Product": "@DPTnew.Localization.Resource.Product2016thinkPLM",
+                        "Description": "@DPTnew.Localization.Resource.Description2016thinkPLM", "Size": " - 830 MB",
+                        "Download": "@DPTnew.Localization.Resource.Download2016thinkPLM"
+                    },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2015thinkPLMSP3",
+            "Description": "@DPTnew.Localization.Resource.Description2015thinkPLMSP3", "Size": " - 1.25 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2015thinkPLMSP3"
+        },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2015thinkPLMSP2",
+            "Description": "@DPTnew.Localization.Resource.Description2015thinkPLMSP2", "Size": " - 1.25 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2015thinkPLMSP2"
+        },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2014thinkPLM",
+            "Description": "@DPTnew.Localization.Resource.Description2014thinkPLM", "Size": " - 1.18 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2014thinkPLM"
+        },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2013thinkPLM",
+            "Description": "@DPTnew.Localization.Resource.Description2013thinkPLM", "Size": " - 1.15 GB",
+            "Download": "@DPTnew.Localization.Resource.Download2013thinkPLM"
+        },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2012thinkPLM",
+            "Description": "@DPTnew.Localization.Resource.Description2012thinkPLM", "Size": " - 821 MB",
+            "Download": "@DPTnew.Localization.Resource.Download2012thinkPLM"
+        },
+        {
+            "Product": "@DPTnew.Localization.Resource.Product2011thinkPLM",
+            "Description": "@DPTnew.Localization.Resource.Description2011thinkPLM", "Size": " - 813 MB",
+            "Download": "@DPTnew.Localization.Resource.Download2011thinkPLM"
+        }
             ];
 
             var plmTable = $('#plm').DataTable({

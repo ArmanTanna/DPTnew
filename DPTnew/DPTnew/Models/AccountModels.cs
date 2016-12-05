@@ -84,9 +84,9 @@ namespace DPTnew.Models
 
     public class LostPasswordModel
     {
-        [Required(ErrorMessage = "We need your email to send you a reset link!")]
-        [Display(Name = "Your account email")]
-        [EmailAddress(ErrorMessage = "Not a valid email--what are you trying to do here?")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ResetPasswordMsg")]
+        [Display(Name = "AccountMail", ResourceType = typeof(Resource))]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "MailErrMsg", ErrorMessage = null)]
         public string Email { get; set; }
     }
 
