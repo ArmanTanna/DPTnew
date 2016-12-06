@@ -414,6 +414,7 @@ namespace DPTnew.Controllers
                     MailMessage mail = null;
                     var dic = new Dictionary<string, string>();
                     var inv = "";
+                    var lang = "";
                     foreach (Order o in query.ToList())
                     {
                         if (o.LicenseID.StartsWith("NEW"))
@@ -457,64 +458,96 @@ namespace DPTnew.Controllers
                         if (string.IsNullOrEmpty(varmail))
                         {
                             //var clmail = db.Companies.Where(x => x.AccountNumber == o.AccountNumber).FirstOrDefault().Email;
-                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
-                                varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
-                            else
-                                varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+                            varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             inv = o.Invoicer.Trim().ToLower();
+                            lang = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Language.ToLower();
                             mail = new MailMessage("is@dptcorporate.com", varmail);
                             mail.CC.Add("Orders@dptcorporate.com");
                             //mail.CC.Add(clmail);
-                            //if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
-                            //    mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
                             if (inv == "t3 japan kk")
-                            {
-                                mail.Subject = "[このメールには返信しないでください] ご注文のお手続きが完了致しました。" + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                                mail.Body = "販売代理店殿<br/><br/>ご注文のお手続きが完了致しました。(#" + orderNumber + ")<br/><br/>" +
-                                    "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>注文日: " + o.StrOrderDate +
-                                    "<br/>注文番号:" + o.PO_Number + "<br/><br/>" +
-                                    "<table border=1><tr>" + "<td>ライセンスID</td>" + "<td>マシンID</td>" + "<td>製品</td>" +
-                                    "<td>タイプ</td>" + "<td>数</td>" + "<td>開始日</td>" + "<td> 終了日</td></tr>" +
-                                    "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
-                                    o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
-                            }
-                            else
-                            {
-                                mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                                mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
-                                    "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
-                                    "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
-                                    "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
-                                    "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
-                                    "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
-                                    o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
-                            }
+                                mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+
+                            MailHeader(orderNumber, mail, lang, o, lic);
                         }
                         else
                             mail.Body += "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
                                 o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
                     }
-                    if (inv == "t3 japan kk")
-                    {
-                        mail.Body += "</table><br/>(*) 新しく発行されたライセンス（ASF 、PL） はお客様のカスタマーケアサイトよりインストールして頂けます。<br/>" +
-                            "ライセンス取得につきましては下記「インストールガイド」の「２－２．ライセンスの取得」をご覧ください。<br/>" +
-                            "(ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf)<br/><br/>" +
-                            "登録されたライセンスの状況につきまして、下記カスタマーケアのURLからご確認ください。<br/>" +
-                            "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
-                            "以上、ご不明な点はカスタマーケアサイトよりお問い合わせください。<br/>シンク・スリー カスタマーケアスタッフ";
-                    }
-                    else
-                        mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
-                            "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                            "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
-
+                    MailFooter(mail, lang);
                     mail.IsBodyHtml = true;
                     SendMail(mail);
                 }
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }
             return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + varmail, JsonRequestBehavior.AllowGet);
+        }
+
+        private static void MailFooter(MailMessage mail, string lang)
+        {
+            if (lang == "japanese")
+            {
+                mail.Body += "</table><br/>(*) 新しく発行されたライセンス（ASF 、PL） はお客様のカスタマーケアサイトよりインストールして頂けます。<br/>" +
+                    "ライセンス取得につきましては下記「インストールガイド」の「２－２．ライセンスの取得」をご覧ください。<br/>" +
+                    "(ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf)<br/><br/>" +
+                    "登録されたライセンスの状況につきまして、下記カスタマーケアのURLからご確認ください。<br/>" +
+                    "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "以上、ご不明な点はカスタマーケアサイトよりお問い合わせください。<br/>シンク・スリー カスタマーケアスタッフ";
+            }
+            else
+            {
+                if (lang == "korean")
+                    mail.Body += "</table><br/>(*) 새로 발급 된 라이선스 (ASF, PL)는 고객의 고객 지원 사이트에서 설치하실 수 있습니다.<br/>" +
+                    "라이선스 취득에 대해서는 아래 '설치 설명서'의 '2-2 라이선스 가져 오기'를 참조하십시오.<br/>" +
+                    "(ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/kr/InstallGuide_Kr.pdf)<br/><br/>" +
+                    "등록된 라이선스의 상태에 대해서는 아래 고객 센터의 URL에서 확인하시기 바랍니다.<br/>" +
+                    "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "기타 문의 사항은 고객 지원 사이트에서 문의해 주세요.<br/>think3 고객 센터 직원";
+                else
+                    mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
+                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
+            }
+        }
+
+        private static void MailHeader(string orderNumber, MailMessage mail, string lang, Order o, LicenseView lic)
+        {
+            if (lang == "japanese")
+            {
+                mail.Subject = "[このメールには返信しないでください] ご注文のお手続きが完了致しました。" + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                mail.Body = "販売代理店殿<br/><br/>ご注文のお手続きが完了致しました。(#" + orderNumber + ")<br/><br/>" +
+                    "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>注文日: " + o.StrOrderDate +
+                    "<br/>注文番号:" + o.PO_Number + "<br/><br/>" +
+                    "<table border=1><tr>" + "<td>ライセンスID</td>" + "<td>マシンID</td>" + "<td>製品</td>" +
+                    "<td>タイプ</td>" + "<td>数</td>" + "<td>開始日</td>" + "<td>終了日</td></tr>" +
+                    "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                    o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+            }
+            else
+            {
+                if (lang == "korean")
+                {
+                    mail.Subject = "[이 이메일에 회신하지 마십시오] 주문이 완료 되었습니다." + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                    mail.Body = "판매 대리점<br/><br/>주문이 완료 되었습니다. (#" + orderNumber + ")<br/><br/>" +
+                        "계정명：" + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>주문일: " + o.StrOrderDate +
+                        "<br/>주문번호:" + o.PO_Number + "<br/><br/>" +
+                        "<table border=1><tr>" + "<td>라이선스ID</td>" + "<td>머신ID</td>" + "<td>제품 </td>" +
+                        "<td>유형</td>" + "<td>수량</td>" + "<td>시작일</td>" + "<td>종료일</td></tr>" +
+                        "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                        o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                }
+                else
+                {
+                    mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                    mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
+                        "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                        "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                        "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
+                        "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
+                        "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                        o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                }
+            }
         }
 
         [HttpPost]
