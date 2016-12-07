@@ -1069,11 +1069,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/CD_tdviewer_2016T1_b21116_64bit.iso.
+        /// </summary>
+        public static string Download2016TDViewerLightSP1 {
+            get {
+                return ResourceManager.GetString("Download2016TDViewerLightSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/dvd_td_2016T1_b20718.iso.
         /// </summary>
         public static string Download2016ThinkDesign32bit {
             get {
                 return ResourceManager.GetString("Download2016ThinkDesign32bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_2016T1_b21116.iso.
+        /// </summary>
+        public static string Download2016ThinkDesign32bitSP1 {
+            get {
+                return ResourceManager.GetString("Download2016ThinkDesign32bitSP1", resourceCulture);
             }
         }
         
@@ -1087,11 +1105,29 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_64bit_2016T1_b21116.iso.
+        /// </summary>
+        public static string Download2016ThinkDesign64bitSP1 {
+            get {
+                return ResourceManager.GetString("Download2016ThinkDesign64bitSP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3software/2016_build20718/dvd_thinkplm_2016T1_b20718.iso.
         /// </summary>
         public static string Download2016thinkPLM {
             get {
                 return ResourceManager.GetString("Download2016thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_thinkplm_2016T1_b21116.iso.
+        /// </summary>
+        public static string Download2016thinkPLMSP1 {
+            get {
+                return ResourceManager.GetString("Download2016thinkPLMSP1", resourceCulture);
             }
         }
         
@@ -2131,7 +2167,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 (x64) - 1.9 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2016 SP1 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
