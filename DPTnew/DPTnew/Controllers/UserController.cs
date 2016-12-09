@@ -170,9 +170,10 @@ namespace DPTnew.Controllers
                         if (ue.ProtectionKeyId.StartsWith("0"))
                             ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         ue.refId1 = ue.ProtectionKeyId;
+                        var pname = GetProductName(currentlicense.ProductName);
                         if (currentlicense.Version == "2015")
                         {
-                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20152CANCEL");
+                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
                             foreach (var it in ue.ProductName.ToList())
                             {
                                 var repName = it.ToString();
@@ -182,7 +183,7 @@ namespace DPTnew.Controllers
                         }
                         if (currentlicense.Version == "2016")
                         {
-                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, "_20161CANCEL");
+                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20161CANCEL");
                             foreach (var it in ue.ProductName.ToList())
                             {
                                 var repName = it.ToString();
@@ -458,9 +459,10 @@ namespace DPTnew.Controllers
                     string productPostfix = "";
                     if (version == "2015")
                         productPostfix = "_" + version + "2" + type;
-                    if (version == "2016")
+                    else
                         productPostfix = "_" + version + "1" + type;
 
+                    var pname = GetProductName(currentlicense.ProductName);
                     //EVAL or LOCAL PL
                     if (type == "PL" || type == "EVAL")
                     {
@@ -473,7 +475,7 @@ namespace DPTnew.Controllers
                         e1.refId1 = e1.ProtectionKeyId;
 
                         //ADD PRODUCT
-                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, productPostfix);
+                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
                         e1.Encoded = true;
                         e1.C2V = "";
@@ -491,7 +493,7 @@ namespace DPTnew.Controllers
                             e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         e2.refId1 = e2.ProtectionKeyId;
                         //ADD PRODUCT
-                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, currentlicense.ProductName, productPostfix);
+                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
                         //ADDITIONAL PARAMETERS
                         e2.SaotParams = new JArray();
@@ -646,6 +648,7 @@ namespace DPTnew.Controllers
 
                         //building product
                         string productPostfix = "_" + currentlicense.Version + currentlicense.Release + type;
+                        var pname = GetProductName(l.ProductName);
 
                         //EVAL or LOCAL PL
                         if (type == "PL" || type == "EVAL")
@@ -656,7 +659,7 @@ namespace DPTnew.Controllers
                             e1.refId1 = l.file.FileName;
 
                             //ADD PRODUCT
-                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
+                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
                             e1.Encoded = true;
                             e1.C2V = c2v;
@@ -671,7 +674,7 @@ namespace DPTnew.Controllers
                             e2.EntType = "PRODUCT_KEY";
                             e2.refId1 = l.file.FileName;
                             //ADD PRODUCT
-                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, l.ProductName, productPostfix);
+                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
                             //ADDITIONAL PARAMETERS
                             e2.SaotParams = new JArray();
@@ -775,6 +778,21 @@ namespace DPTnew.Controllers
             ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license.");
             return View("Create", l);
 
+        }
+
+        private static string GetProductName(string prodName)
+        {
+            switch (prodName)
+            {
+                case "tteampdm": return "ThinkTeamPDM"; 
+                case "tteamadd": return "ThinkTeamADD"; 
+                case "tteamdev": return "ThinkTeamDEV"; 
+                case "tteamdm": return "ThinkTeamMDM"; 
+                case "tteamdoc": return "ThinkTeamDOC"; 
+                case "tteampcb": return "ThinkTeamPCB"; 
+                case "tteampcm": return "ThinkTeamPCM";
+                default: return prodName; 
+            }
         }
 
         private static void SetDateToNow(LicenseView currentlicense)
