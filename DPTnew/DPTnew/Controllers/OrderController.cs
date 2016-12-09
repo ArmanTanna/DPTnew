@@ -148,6 +148,14 @@ namespace DPTnew.Controllers
                             else
                                 orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
                         }
+                        if (DateTime.Now.Year == 2017)
+                        {
+                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("T")).Max(x => x.OrderNumber);
+                            if (maxq == null)
+                                orderRow.OrderNumber = "T000001";
+                            else
+                                orderRow.OrderNumber = "T" + (Convert.ToInt64(maxq.Split('T')[1]) + 1).ToString("D6");
+                        }
                     }
                     else
                     {

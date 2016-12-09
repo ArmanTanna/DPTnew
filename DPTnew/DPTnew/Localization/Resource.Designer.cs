@@ -718,7 +718,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2016 application..
+        ///   Looks up a localized string similar to This .iso file will install the TDViewerLight 2016 application..
         /// </summary>
         public static string Description2016TDViewerLight {
             get {
@@ -727,7 +727,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2016 SP1 application..
+        ///   Looks up a localized string similar to This .iso file will install the TDViewerLight 2016 SP1 application..
         /// </summary>
         public static string Description2016TDViewerLightSP1 {
             get {
@@ -754,7 +754,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2016..
+        ///   Looks up a localized string similar to This .iso file will install the official ThinkDesign suite 2016 64bit..
         /// </summary>
         public static string Description2016ThinkDesign64bit {
             get {
@@ -772,7 +772,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2016 official version..
+        ///   Looks up a localized string similar to This section includes thinkPLM 2016..
         /// </summary>
         public static string Description2016thinkPLM {
             get {
@@ -2266,7 +2266,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;b&gt;official release of ThinkDesign 2016&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to The &lt;b&gt;Service Pack 1 of ThinkDesign 2016&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
