@@ -20,10 +20,11 @@ namespace DPTnew.Controllers
         private IEnumerable<CompanyView> GetVarCompanies()
         {
             var user = _db.Contacts.Single(u => u.Email == WebSecurity.CurrentUserName);
-            var salesRep = _db.SalesR.Where(x => x.AccountNumber.Trim() == user.AccountNumber).FirstOrDefault();
+            var salesRep = _db.SalesR.Where(x => x.AccountNumber.Trim() == user.AccountNumber).ToList();
 
             IEnumerable<CompanyView> filteredcompanies = new List<CompanyView>();
-            if (salesRep.SalesRep.Trim() == "t3kk")
+            List<CompanyView> cmp = new List<CompanyView>();
+            if (salesRep[0].SalesRep.Trim() == "t3kk")
             {
                 var salesReps = (_db.SalesR.Where(x => x.SalesRegion == "japan")).Select(x => x.SalesRep).ToList();
 
@@ -31,14 +32,18 @@ namespace DPTnew.Controllers
             }
             else
             {
-                if (salesRep.SalesRep.Trim() == "t3korea")
+                if (salesRep[0].SalesRep.Trim() == "t3korea")
                 {
                     var salesReps = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();
 
                     filteredcompanies = _db.Companies.Where(x => salesReps.Contains(x.SalesRep.Trim()));
                 }
                 else
-                    filteredcompanies = _db.Companies.Where(x => x.SalesRep.Trim().Contains(salesRep.SalesRep.Trim()));
+                {
+                    foreach (var sr in salesRep)
+                        cmp.AddRange(_db.Companies.Where(x => x.SalesRep.Trim() == sr.SalesRep.Trim()));
+                    filteredcompanies = cmp;
+                }
             }
             return filteredcompanies.ToList();
         }
