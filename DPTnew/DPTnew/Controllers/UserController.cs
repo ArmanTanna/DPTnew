@@ -408,7 +408,7 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version))
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 /*&& Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version)*/)
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");

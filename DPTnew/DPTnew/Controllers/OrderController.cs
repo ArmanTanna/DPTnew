@@ -470,11 +470,12 @@ namespace DPTnew.Controllers
 
                             inv = o.Invoicer.Trim().ToLower();
                             lang = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Language.ToLower();
-                            mail = new MailMessage("is@dptcorporate.com", varmail);
+                            if (inv == "t3 japan kk")
+                                mail = new MailMessage("is@dptcorporate.com", db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                            else
+                                mail = new MailMessage("is@dptcorporate.com", varmail);
                             mail.CC.Add("Orders@dptcorporate.com");
                             //mail.CC.Add(clmail);
-                            if (inv == "t3 japan kk")
-                                mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
 
                             MailHeader(orderNumber, mail, lang, o, lic);
                         }
@@ -495,11 +496,17 @@ namespace DPTnew.Controllers
         {
             if (lang == "japanese")
             {
-                mail.Body += "</table><br/>(*) 新しく発行されたライセンス（ASF 、PL） はお客様のカスタマーケアサイトよりインストールして頂けます。<br/>" +
-                    "ライセンス取得につきましては下記「インストールガイド」の「２－２．ライセンスの取得」をご覧ください。<br/>" +
+                mail.Body += "</table><br/><br/>ライセンス管理の詳細につきましては下記「インストールガイド」の「２．ライセンス」をご覧ください。<br/>" +
                     "(ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf)<br/><br/>" +
-                    "登録されたライセンスの状況につきまして、下記カスタマーケアのURLからご確認ください。<br/>" +
+                    "think3 製品の最新のリリースは、下記カスタマーケアサイトのダウンロードエリアからダウンロードすることができます。<br/>" +
+                    "(http://dpt3.dptcorporate.com/Download)<br/><br/>" +
+                    "下記 URL からカスタマーケアへアクセスして、ライセンスを取得してください。<br/>" +
                     "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "なお、ご注文いただいたライセンスと登録されたライセンスに相違がないかどうかを必ずご確認ください。<br/>" +
+                    "ライセンスの種類には、ASF（年間使用料）、PL（永久）、PLSS（永久ライセンスのメンテナンスライセンス）等の種類があります。<br/><br/>" +
+                    "PLSS ライセンスはライセンス本体ではないため、カスタマーケアサイトに新しいライセンスが増えるわけではありません。<br/>" +
+                    "詳しくは上記インストールガイドの「２－４．ライセンスの更新」をご確認ください。<br/><br/>" +
+                    "弊社では評価用／貸出用のライセンスを納品することで、お客様からは費用を頂戴しておりません。<br/><br/>" +
                     "以上、ご不明な点はカスタマーケアサイトよりお問い合わせください。<br/>シンク・スリー カスタマーケアスタッフ";
             }
             else
@@ -522,10 +529,11 @@ namespace DPTnew.Controllers
         {
             if (lang == "japanese")
             {
-                mail.Subject = "[このメールには返信しないでください] ご注文のお手続きが完了致しました。" + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                mail.Body = "販売代理店殿<br/><br/>ご注文のお手続きが完了致しました。(#" + orderNumber + ")<br/><br/>" +
-                    "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>注文日: " + o.StrOrderDate +
-                    "<br/>注文番号:" + o.PO_Number + "<br/><br/>" +
+                mail.Subject = "[このメールには返信しないでください]" + o.AccountName.Trim() + " (" + o.AccountNumber + ") 様、think3製品が登録されました　(#S11209)";
+                mail.Body = o.AccountName.Trim() + " (" + o.AccountNumber + ") 様<br/><br/>" +
+                    "下記の通りライセンスが登録されておりますのでお知らせいたします。<br/><br/>" +
+                    "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" +
+                    "<br/>注文日: " + o.StrOrderDate + "<br/><br/>" +
                     "<table border=1><tr>" + "<td>ライセンスID</td>" + "<td>マシンID</td>" + "<td>製品</td>" +
                     "<td>タイプ</td>" + "<td>数</td>" + "<td>開始日</td>" + "<td>終了日</td></tr>" +
                     "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +

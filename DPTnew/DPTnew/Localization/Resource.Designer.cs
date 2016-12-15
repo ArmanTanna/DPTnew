@@ -214,6 +214,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Renew.
+        /// </summary>
+        public static string ButtonRenew {
+            get {
+                return ResourceManager.GetString("ButtonRenew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Version.
         /// </summary>
         public static string ButtonUpgrade {
@@ -1069,7 +1078,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/CD_tdviewer_2016T1_b21116_64bit.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/tdviewer_2016T1_b21116_64bit.iso.
         /// </summary>
         public static string Download2016TDViewerLightSP1 {
             get {
@@ -1105,7 +1114,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_64bit_2016T1_b21116.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/dvd_td_64bit_2016T1_b21116.iso.
         /// </summary>
         public static string Download2016ThinkDesign64bitSP1 {
             get {
@@ -1123,7 +1132,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_thinkplm_2016T1_b21116.iso.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/dvd_thinkplm_2016T1_b21116.iso.
         /// </summary>
         public static string Download2016thinkPLMSP1 {
             get {

@@ -384,6 +384,42 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                       },
                       enabled: false
                   },
+                  {
+                      text: btnTextLocalization[10],//renew (> 2014) 
+                      className: 'renew',
+                      action: function () {
+                          if (myTable.rows('.selected').count() != 0) {
+                              var headers = {};
+                              headers = myTable.rows('.selected').data()[0];
+                              $.ajax({
+                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + headers.Version,
+                                  type: 'GET',
+                                  data: null,
+                                  headers: headers,
+                                  dataType: "json",
+                                  success: function (result) {
+                                      var $psw = $("#msg");
+                                      $psw.text("");
+                                      $psw.text(result);
+                                      var pwdDialogConfig = {
+                                          modal: true,
+                                          width: 400,
+                                          height: result ? 250 : "auto",
+                                          buttons: {
+                                              OK: function () {
+                                                  $(this).dialog("close");
+                                                  location.reload();
+                                              }
+                                          }
+                                      };
+                                      $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                  }
+                              });
+                              myTable.rows('.selected').deselect();
+                          }
+                      },
+                      enabled: false
+                  },
          {
              text: btnTextLocalization[3],//'Install < 2015',
              className: 'license2014',
@@ -678,6 +714,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 if (data.Installed == 1 && maintenddate >= now) {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
+                        myTable.buttons(['.renew']).enable(true);
                         if (data.LicenseType.toLowerCase() !== "floating")
                             myTable.buttons(['.upgrade']).enable(true);
                     }
@@ -715,6 +752,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         myTable.buttons(['.validate_export']).disable();
         myTable.buttons(['.import']).disable();
         myTable.buttons(['.upgrade']).disable();
+        myTable.buttons(['.renew']).disable();
         myTable.buttons(['.license2014']).disable();
         myTable.buttons(['.pssw2014']).disable();
         myTable.buttons(['.changeversion']).disable();
