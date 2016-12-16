@@ -416,6 +416,7 @@ namespace DPTnew.Controllers
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
+                Regex demorgx = new Regex(@"^DEM[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -425,8 +426,10 @@ namespace DPTnew.Controllers
                 var isL = lrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
+                var isDem = demorgx.IsMatch(currentlicense.LicenseID);
 
-                if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
+                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
+                    || (isDem && currentlicense.MaintEndDate >= now && isLocal))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL

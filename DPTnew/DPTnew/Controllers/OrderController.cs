@@ -310,20 +310,43 @@ namespace DPTnew.Controllers
                             select ord;
                 if (query.Count() > 0)
                 {
+                    var destmail = "";
+                    MailMessage mail = null;
                     foreach (Order o in query.ToList())
                     {
                         o.Status = "Booked";
                         db.SaveChanges();
+                        var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
+                        if (string.IsNullOrEmpty(destmail))
+                        {
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                            else
+                                destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+
+                            mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+                            mail.CC.Add(destmail);
+                            mail.Subject = "[DO NOT REPLY] Order booked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                            mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been booked.<br/><br/>" +
+                                "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                                "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                                "<table border=1><tr><td>LicenseID</td><td>MachineID</td><td>Item</td><td>LicenseType</td>" +
+                                "<td>Quantity</td><td>StartDate</td><td>EndDate</td><td>Ordered</td></tr>" +
+                                "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" +
+                                o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
+                        }
+                        else
+                            mail.Body += "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" +
+                                o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
                     }
+                    mail.Body += "</table><br/>" +
+                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "<br/><br/>Best Regards,<br/>DPT Accounting";
+                    mail.IsBodyHtml = true;
+                    SendMail(mail);
                 }
-                var order = db.Orders.Where(x => x.OrderNumber == orderNumber).FirstOrDefault();
-                MailMessage mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
-                mail.Subject = "[DO NOT REPLY] booked Order for: " + order.AccountName.Trim() + " (" + order.AccountNumber + ")";
-                mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been booked.\n\n" +
-                    "Account Name: " + order.AccountName.Trim() + "; Sales rep: " + order.SalesRep + "; Order date: " + order.OrderDate + "\n\n" +
-                    "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                    "\n\nBest Regards,\n\nsystem automatic mail";
-                SendMail(mail);
             }
             return Json("Booked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
         }
@@ -353,11 +376,42 @@ namespace DPTnew.Controllers
                             select ord;
                 if (query.Count() > 0)
                 {
+                    var destmail = "";
+                    MailMessage mail = null;
                     foreach (Order o in query.ToList())
                     {
                         o.Status = "Checked";
                         db.SaveChanges();
+                        var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
+                        if (string.IsNullOrEmpty(destmail))
+                        {
+                            if (o.Invoicer.Trim().ToLower() == "t3 japan kk")
+                                destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
+                            else
+                                destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
+
+                            mail = new MailMessage("is@dptcorporate.com", destmail);
+                            mail.CC.Add("Orders@dptcorporate.com");
+                            mail.Subject = "[DO NOT REPLY] Order checked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                            mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been checked.<br/><br/>" +
+                                "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                                "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                                "<table border=1><tr><td>LicenseID</td><td>MachineID</td><td>Item</td><td>LicenseType</td>" +
+                                "<td>Quantity</td><td>StartDate</td><td>EndDate</td><td>Ordered</td></tr>" +
+                                "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" +
+                                o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
+                        }
+                        else
+                            mail.Body += "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
+                                o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" +
+                                o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
                     }
+                    mail.Body += "</table><br/>" +
+                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "<br/><br/>Best Regards,<br/>DPT Accounting";
+                    mail.IsBodyHtml = true;
+                    SendMail(mail);
                 }
             }
             return Json("Checked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
@@ -391,10 +445,10 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
                             MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
                             mail.Subject = "[DO NOT REPLY] Order rejected for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                            mail.Body = "Dear User, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
+                            mail.Body = "Dear Sir, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
-                                "\n\nBest Regards,\n\nDPT orders";
+                                "\n\nBest Regards,\nDPT orders";
                             SendMail(mail);
                         }
                     }
@@ -465,17 +519,17 @@ namespace DPTnew.Controllers
 
                         if (string.IsNullOrEmpty(varmail))
                         {
-                            //var clmail = db.Companies.Where(x => x.AccountNumber == o.AccountNumber).FirstOrDefault().Email;
+                            var clmail = db.Companies.Where(x => x.AccountNumber == o.AccountNumber).FirstOrDefault().Email;
                             varmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             inv = o.Invoicer.Trim().ToLower();
                             lang = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Language.ToLower();
+                            mail = new MailMessage("is@dptcorporate.com", clmail);
+                            mail.CC.Add(varmail);
                             if (inv == "t3 japan kk")
-                                mail = new MailMessage("is@dptcorporate.com", db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
-                            else
-                                mail = new MailMessage("is@dptcorporate.com", varmail);
-                            mail.CC.Add("Orders@dptcorporate.com");
-                            //mail.CC.Add(clmail);
+                                mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+
+                            mail.Bcc.Add("Orders@dptcorporate.com");
 
                             MailHeader(orderNumber, mail, lang, o, lic);
                         }
@@ -529,7 +583,7 @@ namespace DPTnew.Controllers
         {
             if (lang == "japanese")
             {
-                mail.Subject = "[このメールには返信しないでください]" + o.AccountName.Trim() + " (" + o.AccountNumber + ") 様、think3製品が登録されました　(#S11209)";
+                mail.Subject = o.AccountName.Trim() + " (" + o.AccountNumber + ") [このメールには返信しないでください] 様、think3製品が登録されました　(#S11209)";
                 mail.Body = o.AccountName.Trim() + " (" + o.AccountNumber + ") 様<br/><br/>" +
                     "下記の通りライセンスが登録されておりますのでお知らせいたします。<br/><br/>" +
                     "アカウント名: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" +
@@ -543,7 +597,7 @@ namespace DPTnew.Controllers
             {
                 if (lang == "korean")
                 {
-                    mail.Subject = "[이 이메일에 회신하지 마십시오] 주문이 완료 되었습니다." + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                    mail.Subject = o.AccountName.Trim() + " (" + o.AccountNumber + ") [이 이메일에 회신하지 마십시오] 주문이 완료 되었습니다.";
                     mail.Body = "판매 대리점<br/><br/>주문이 완료 되었습니다. (#" + orderNumber + ")<br/><br/>" +
                         "계정명：" + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>주문일: " + o.StrOrderDate +
                         "<br/>주문번호:" + o.PO_Number + "<br/><br/>" +

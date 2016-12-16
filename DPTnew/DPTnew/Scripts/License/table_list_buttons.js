@@ -706,6 +706,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
                 var isL = /^L[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
+                var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
@@ -718,6 +719,10 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                         if (data.LicenseType.toLowerCase() !== "floating")
                             myTable.buttons(['.upgrade']).enable(true);
                     }
+                }
+                //check for DEMo licenses
+                if (isDem && maintenddate >= now && isLocal) {
+                    myTable.buttons(['.renew']).enable(true);
                 }
 
                 //check for validate
