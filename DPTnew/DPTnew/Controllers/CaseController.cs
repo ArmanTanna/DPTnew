@@ -201,6 +201,12 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult ModifyCaseRow(UpdateCase caseRow)
         {
+            using (var db = new DptContext())
+            {
+                var res = db.Cases.Where(x => x.CaseId == caseRow.CaseId).FirstOrDefault();
+                caseRow.Description = res.Description;
+                caseRow.Details = res.Details;
+            }
             return View(caseRow);
         }
 

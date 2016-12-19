@@ -18,6 +18,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
 using System.Net;
+using Microsoft.JScript;
 
 namespace DPTnew.Controllers
 {
@@ -35,7 +36,8 @@ namespace DPTnew.Controllers
             ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
             ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
-            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View();
         }
 
@@ -189,10 +191,23 @@ namespace DPTnew.Controllers
             rows.Add(cmpSingleRow);
             using (var db = new DptContext())
             {
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
-                ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+                byte[] plainTextBytes;
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                {
+                    var userName = Membership.GetUser().UserName;
+                    var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                    var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                    plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList()).ToString(Formatting.None));
+                    ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+                }
+                else
+                {
+                    plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
+                    ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+                }
             }
-            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+            ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             return View(rows);
         }
 
@@ -220,13 +235,13 @@ namespace DPTnew.Controllers
                         if (query.Count() > 0)
                         {
                             query.FirstOrDefault().AccountName = cmpSingleRow.AccountName.ToUpper();
-                            query.FirstOrDefault().Address = cmpSingleRow.Address;
+                            query.FirstOrDefault().Address = GlobalObject.unescape(cmpSingleRow.Address);
                             query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
-                            query.FirstOrDefault().City = cmpSingleRow.City;
+                            query.FirstOrDefault().City = GlobalObject.unescape(cmpSingleRow.City);
                             query.FirstOrDefault().Province = cmpSingleRow.Province;
                             query.FirstOrDefault().Email = cmpSingleRow.Email;
-                            query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
-                            query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
+                            query.FirstOrDefault().AccountNameK = GlobalObject.unescape(cmpSingleRow.AccountNameK);
+                            query.FirstOrDefault().ProvinceK = GlobalObject.unescape(cmpSingleRow.ProvinceK);
                             query.FirstOrDefault().Phone1 = cmpSingleRow.Phone1;
                             query.FirstOrDefault().Phone2 = cmpSingleRow.Phone2;
                             query.FirstOrDefault().Segment = cmpSingleRow.Segment;
@@ -236,6 +251,7 @@ namespace DPTnew.Controllers
                             query.FirstOrDefault().Website = cmpSingleRow.Website;
                             query.FirstOrDefault().Production = cmpSingleRow.Production;
                             query.FirstOrDefault().Language = cmpSingleRow.Language;
+                            query.FirstOrDefault().SalesRep = cmpSingleRow.SalesRep;
                             db.SaveChanges();
                         }
                     }
@@ -249,18 +265,18 @@ namespace DPTnew.Controllers
                     try
                     {
                         var maxq = db.Companies.Max(u => u.AccountNumber);
-                        cmpSingleRow.AccountNumber = maxq.Split('-')[0] + "-" + (Convert.ToInt64(maxq.Split('-')[1]) + 1).ToString("D7");
+                        cmpSingleRow.AccountNumber = maxq.Split('-')[0] + "-" + (System.Convert.ToInt64(maxq.Split('-')[1]) + 1).ToString("D7");
                         cmpSingleRow.AccountName = cmpSingleRow.AccountName.ToUpper();
                         cmpSingleRow.AccountKind = "customer";
                         db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Companies] (AccountNumber, AccountName, AccountKind," +
                         "AccountStatus, Address, ZIP, City, Province, Country, Phone1, Phone2, Email, Fax, Website, Segment, Industry," +
                         "Production, SalesRep, Language, AccountNameK, ProvinceK) VALUES ('" + cmpSingleRow.AccountNumber + "','" +
-                        cmpSingleRow.AccountName + "','customer','" + cmpSingleRow.AccountStatus + "','" + cmpSingleRow.Address + "','" +
-                        cmpSingleRow.ZIP + "','" + cmpSingleRow.City + "','" + cmpSingleRow.Province + "','" + cmpSingleRow.Country +
+                        cmpSingleRow.AccountName.ToUpper() + "','customer','" + cmpSingleRow.AccountStatus + "','" + GlobalObject.unescape(cmpSingleRow.Address) + "','" +
+                        cmpSingleRow.ZIP + "','" + GlobalObject.unescape(cmpSingleRow.City) + "','" + cmpSingleRow.Province + "','" + cmpSingleRow.Country +
                         "','" + cmpSingleRow.Phone1 + "','" + cmpSingleRow.Phone2 + "','" + cmpSingleRow.Email + "','" + cmpSingleRow.Fax +
                         "','" + cmpSingleRow.Website + "','" + cmpSingleRow.Segment + "','" + cmpSingleRow.Industry + "','" +
-                        cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "','" + cmpSingleRow.AccountNameK
-                        + "','" + cmpSingleRow.ProvinceK + "');");
+                        cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "','" + GlobalObject.unescape(cmpSingleRow.AccountNameK)
+                        + "','" + GlobalObject.unescape(cmpSingleRow.ProvinceK) + "');");
                     }
                     catch (Exception e)
                     {
