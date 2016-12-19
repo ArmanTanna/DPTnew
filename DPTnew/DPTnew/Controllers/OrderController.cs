@@ -198,7 +198,8 @@ namespace DPTnew.Controllers
                                 select ord;
                     if (query.Count() > 0)
                     {
-                        if (DateTime.Now.Year == 2016 && !(orderRow.OrderNumber.StartsWith("S")))
+                        if ((DateTime.Now.Year == 2016 && !(orderRow.OrderNumber.StartsWith("S"))) ||
+                            (DateTime.Now.Year == 2017 && !(orderRow.OrderNumber.StartsWith("T"))))
                             return Json("Error: wrong order number (2016 = S)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
                         {
@@ -264,12 +265,21 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var ord = db.Orders.Where(x => x.OrderNumber == id).OrderBy(y => y.idxx).ToList();
-                ViewBag.ButtonBook = ord.FirstOrDefault().Status == "Entered";
+                //if (ord.FirstOrDefault().LineType != "activation")
+                //{
+                //    ViewBag.ButtonBook = ord.FirstOrDefault().Status == "Entered";
+                //    ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                //        && ord.FirstOrDefault().Status == "Booked";
+                //    ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked")
+                //        || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
+                //    ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
+                //}
+                ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && x.Status == "Entered").ToList().Count > 0;
                 ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
-                    && ord.FirstOrDefault().Status == "Booked";
-                ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked")
-                    || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
-                ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
+                    && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Booked").ToList().Count > 0);
+                ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Checked").ToList().Count > 0))
+                || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Booked").ToList().Count > 0));
+                ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Checked").ToList().Count > 0);
                 double tot = 0;
                 foreach (var rw in ord)
                 {
@@ -306,7 +316,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber
+                            where ord.OrderNumber == orderNumber && ord.Status == "Entered"
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -372,7 +382,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber
+                            where ord.OrderNumber == orderNumber && ord.Status == "Booked"
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -429,7 +439,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber
+                            where ord.OrderNumber == orderNumber && (ord.Status == "Booked" || ord.Status == "Checked")
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -469,7 +479,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber
+                            where ord.OrderNumber == orderNumber && ord.Status == "Checked"
                             select ord;
                 if (query.Count() > 0)
                 {
