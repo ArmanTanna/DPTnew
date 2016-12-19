@@ -52,4 +52,5 @@ cp[50] = new Array("molddesignrequirements", "Which are the special requirements
 cp[51] = new Array("partsolutionserror", "PARTsolutions plug-in error", "l2c5p4", "Miscellanea", "Customer Care", "280")
 cp[52] = new Array("onlinehelplooksbad", "Why does the online help look so bad?", "l2c5p5", "Miscellanea", "Customer Care", "180")
 cp[53] = new Array("onlinehelpnotshowup", "Why does the online help not show up?", "l2c5p6", "Miscellanea", "Customer Care", "520")
-cp[54] = new Array("chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500")
+cp[54] = new Array("howtoinsertnewcase", "How do I open a New Case?", "l2c5p7", "Miscellanea", "Customer Care", "1000")
+cp[55] = new Array("chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500")

@@ -93,7 +93,8 @@ var dataSetIndex = [
 ["51", "partsolutionserror", "PARTsolutions plug-in error", "l2c5p4", "Miscellanea", "Customer Care", "280"],
 ["52", "onlinehelplooksbad", "Why does the online help look so bad?", "l2c5p5", "Miscellanea", "Customer Care", "180"],
 ["53", "onlinehelpnotshowup", "Why does the online help not show up?", "l2c5p6", "Miscellanea", "Customer Care", "520"],
-["54", "chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500"]
+["54", "howtoinsertnewcase", "How do I open a New Case?", "l2c5p7", "Miscellanea", "Customer Care", "1000"],
+["55", "chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500"]
 ]
 
 var titles = ["sortorder","ancora","Title","cxpy","Chapter","Owner"]

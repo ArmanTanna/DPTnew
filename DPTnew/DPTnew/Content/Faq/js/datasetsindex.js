@@ -79,11 +79,11 @@ var dataSetIndex = [
 ["34", "wrongv2c", "What if my V2C file is wrong?", "l1c6p7", "Licensing 2015", "License Manager", "320"],
 ["35", "floatinglicenses2015", "How can I manage floating licenses?", "l1c6p8", "Licensing 2015", "License Manager", "1460"],
 ["36", "td2015nostart", "TD2015 doesn&lsquo;t start, and neither does the previous version", "l1c6p9", "Licensing 2015", "License Manager", "200"],
-["37", "exportlicense2015", "Can I export my license 2015?", "l1c6p10", "Licensing 2015", "License Manager", "110"],
+["37", "exportlicense2015", "Can I export my licence 2015?", "l1c6p10", "Licensing 2015", "License Manager", "110"],
 ["38", "howtoexportlicense2015", "How can I export a license?", "l1c6p11", "Licensing 2015", "License Manager", "300"],
 ["39", "selfserviceexport", "How does the self-service export functionality work?", "l1c6p12", "Licensing 2015", "License Manager", "1000"],
 ["40", "dongleondifferentpc2015", "What if I want to use my dongle on a different PC?", "l1c6p13", "Licensing 2015", "License Manager", "60"],
-["41", "exportlicense2014", "Can I export my license 2014?", "l1c7p1", "Licensing 2014", "License Manager", "110"],
+["41", "exportlicense2014", "Can I export my licence 2014?", "l1c7p1", "Licensing 2014", "License Manager", "110"],
 ["42", "howtoexportlicense2014", "How can I export a license?", "l1c7p2", "Licensing 2014", "License Manager", "760"],
 ["43", "dongleondifferentpc2014", "What if I want to use my dongle on a different PC?", "l1c7p3", "Licensing 2014", "License Manager", "180"],
 ["44", "invalidlicense", "Why do I get an &lsquo;invalid license&lsquo; message?", "l1c7p4", "Licensing 2014", "License Manager", "120"],
@@ -118,7 +118,8 @@ var dataSetIndex = [
 ["73", "partsolutionserror", "PARTsolutions plug-in error", "l2c5p4", "Miscellanea", "Customer Care", "280"],
 ["74", "onlinehelplooksbad", "Why does the online help look so bad?", "l2c5p5", "Miscellanea", "Customer Care", "180"],
 ["75", "onlinehelpnotshowup", "Why does the online help not show up?", "l2c5p6", "Miscellanea", "Customer Care", "520"],
-["76", "chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500"]
+["76", "howtoinsertnewcase", "How do I open a New Case?", "l2c5p7", "Miscellanea", "Customer Care", "1000"],
+["77", "chartgeography", "Where do they use TD?", "l3c1p1", "Stats", "Sales & Mktg", "500"]
 ]
 
 var titles = ["sortorder","ancora","Title","cxpy","Chapter","Owner"]
