@@ -49,7 +49,7 @@ var dataSetIndex = [
 ["4", "onlinelicensesreport", "Online Licenses Report", "l1c2p2", "BI Tools", "Sales & Mktg", "1220"],
 ["5", "bitools", "BI Tools", "l1c2p3", "BI Tools", "Sales & Mktg", "180"],
 ["6", "prices", "What about the prices?", "l1c3p1", "Pricelist", "Sales & Mktg", "800"],
-["7", "mydiscount", "What is my discount?", "l1c3p2", "Pricelist", "Sales & Mktg", "340"],
+["7", "mydiscount", "What is my discount?", "l1c3p2", "Pricelist", "Sales & Mktg", "780"],
 ["8", "licenseagreement", "What about the License Agreement?", "l1c3p3", "Pricelist", "Sales & Mktg", "780"],
 ["9", "pcbrokenlost", "What if my PC is broken or got lost/stolen?", "l1c3p4", "Pricelist", "Sales & Mktg", "1030"],
 ["10", "chw", "How does a CHW work?", "l1c3p5", "Pricelist", "Sales & Mktg", "440"],

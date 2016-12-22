@@ -335,7 +335,8 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
-                            mail.CC.Add(destmail);
+                            if (o.LineType != "activation")
+                                mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order booked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been booked.<br/><br/>" +
                                 "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
@@ -400,8 +401,9 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
-                            mail = new MailMessage("is@dptcorporate.com", destmail);
-                            mail.CC.Add("Orders@dptcorporate.com");
+                            mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+                            if (o.LineType != "activation")
+                                mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order checked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been checked.<br/><br/>" +
                                 "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
@@ -576,11 +578,17 @@ namespace DPTnew.Controllers
             else
             {
                 if (lang == "korean")
-                    mail.Body += "</table><br/>(*) 새로 발급 된 라이선스 (ASF, PL)는 고객의 고객 지원 사이트에서 설치하실 수 있습니다.<br/>" +
-                    "라이선스 취득에 대해서는 아래 '설치 설명서'의 '2-2 라이선스 가져 오기'를 참조하십시오.<br/>" +
+                    mail.Body += "</table><br/><br/>라이선스 관리에 대한 자세한 내용은 아래 'think3 제품 설치 가이드'의 '2. 라이선스'를 참조하십시오.<br/>" +
                     "(ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/kr/InstallGuide_Kr.pdf)<br/><br/>" +
-                    "등록된 라이선스의 상태에 대해서는 아래 고객 센터의 URL에서 확인하시기 바랍니다.<br/>" +
+                    " think3 제품의 최신 릴리스는 고객 지원 사이트의 다운로드 영역에서 다운로드 할 수 있습니다.<br/>" +
+                    "(http://dpt3.dptcorporate.com/Download)<br/><br/>" +
+                    "아래 URL에서 고객 센터에 접속하여 라이선스를 취득해야합니다.<br/>" +
                     "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "또한, 주문하신 라이선스와  등록된 라이선스가 차이가 있는지를반드시 확인하시기 바랍니다. <br/>" +
+                    "라이선스 유형은 ASF (연간 라이선스), PL (영구라이선스), PLSS (영구 라이선스의 유지 보수 라이선스) 등의 종류가 있습니다.<br/><br/>" +
+                    "PLSS 라이선스는 유지보수 라이선스이기 때문에, 고객 지원 사이트에서 새로운 라이선스가 늘어나는 것은 아닙니다. <br/>" +
+                    "자세한 내용은 위 설치 안내서의 '2-4. 라이선스 갱신'을 확인하시기 바랍니다.<br/><br/>" +
+                    " 당사는 평가 / 대여용 라이선스에 대해 비용을 부과하지 않습니다.<br/><br/>" +
                     "기타 문의 사항은 고객 지원 사이트에서 문의해 주세요.<br/>think3 고객 센터 직원";
                 else
                     mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
@@ -607,10 +615,11 @@ namespace DPTnew.Controllers
             {
                 if (lang == "korean")
                 {
-                    mail.Subject = o.AccountName.Trim() + " (" + o.AccountNumber + ") [이 이메일에 회신하지 마십시오] 주문이 완료 되었습니다.";
-                    mail.Body = "판매 대리점<br/><br/>주문이 완료 되었습니다. (#" + orderNumber + ")<br/><br/>" +
+                    mail.Subject = o.AccountName.Trim() + " (" + o.AccountNumber + ") [이 이메일에 회신하지 마세요] 님, think3 제품이 등록되었습니다 (#" + orderNumber + ")";
+                    mail.Body = o.AccountName.Trim() + " (" + o.AccountNumber + ") 님<br/><br/>" +
+                        "아래와 같이 라이선스가 등록되었음을 알려드립니다.<br/><br/>" +
                         "계정명：" + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>주문일: " + o.StrOrderDate +
-                        "<br/>주문번호:" + o.PO_Number + "<br/><br/>" +
+                        "<br/><br/>" +
                         "<table border=1><tr>" + "<td>라이선스ID</td>" + "<td>머신ID</td>" + "<td>제품 </td>" +
                         "<td>유형</td>" + "<td>수량</td>" + "<td>시작일</td>" + "<td>종료일</td></tr>" +
                         "<tr><td>" + o.LicenseID + "</td><td>" + lic.MachineID + "</td><td>" + o.Item + "</td><td>" +
