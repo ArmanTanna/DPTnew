@@ -469,6 +469,20 @@ namespace DPTnew.Controllers
             return Json("Rejected OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + destmail, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Delete(string orderNumber, int idxx)
+        {
+            if (string.IsNullOrEmpty(orderNumber) || idxx < 1)
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot delete the order!";
+                return View("Success");
+            }
+            using (var db = new DptContext())
+            {
+                db.Database.ExecuteSqlCommand("DELETE [dbo].[DPT_Orders] WHERE ordernumber='" + orderNumber + "' and idxx=" + idxx);
+            }
+            return Json("Deleted OrderNumber: " + orderNumber + ", idxx: " + idxx, JsonRequestBehavior.AllowGet);
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult Approve(string orderNumber)
         {

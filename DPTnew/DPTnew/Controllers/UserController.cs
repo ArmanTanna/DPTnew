@@ -143,12 +143,13 @@ namespace DPTnew.Controllers
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
+                Regex redrgx = new Regex(@"^RED[0-9]+$");
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
 
-                var isLocal = licensergx.IsMatch(currentlicense.MachineID);
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID) || redrgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
@@ -412,13 +413,14 @@ namespace DPTnew.Controllers
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
+                Regex redrgx = new Regex(@"^RED[0-9]+$");
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex demorgx = new Regex(@"^DEM[0-9]+$");
 
-                var isLocal = licensergx.IsMatch(currentlicense.MachineID);
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID) || redrgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
@@ -787,14 +789,14 @@ namespace DPTnew.Controllers
         {
             switch (prodName)
             {
-                case "tteampdm": return "ThinkTeamPDM"; 
-                case "tteamadd": return "ThinkTeamADD"; 
-                case "tteamdev": return "ThinkTeamDEV"; 
-                case "tteamdm": return "ThinkTeamMDM"; 
-                case "tteamdoc": return "ThinkTeamDOC"; 
-                case "tteampcb": return "ThinkTeamPCB"; 
+                case "tteampdm": return "ThinkTeamPDM";
+                case "tteamadd": return "ThinkTeamADD";
+                case "tteamdev": return "ThinkTeamDEV";
+                case "tteamdm": return "ThinkTeamMDM";
+                case "tteamdoc": return "ThinkTeamDOC";
+                case "tteampcb": return "ThinkTeamPCB";
                 case "tteampcm": return "ThinkTeamPCM";
-                default: return prodName; 
+                default: return prodName;
             }
         }
 

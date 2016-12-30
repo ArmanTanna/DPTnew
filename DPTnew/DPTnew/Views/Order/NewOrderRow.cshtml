@@ -128,6 +128,52 @@
                 });
         }
 
+        function deleteform() {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 2000);
+            if ($("input[name=orderNumber]").val() == "" || $("input[name=idxx]").val() == "") {
+                var $psw = $("#msg");
+                $psw.text("");
+                $psw.text("Cannot delete a new row!");
+                var pwdDialogConfig = {
+                    modal: true,
+                    width: 400,
+                    height: 250,
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("close");
+                            //location.reload();
+                        }
+                    }
+                };
+                $("#sysmsg-dialog").dialog(pwdDialogConfig);
+            }
+            else
+                $.post("/Order/Delete", {
+                    idxx: $("input[name=idxx]").val(),
+                    OrderNumber: $("input[name=orderNumber]").val(),
+                },
+                function (result) {
+                    var $psw = $("#msg");
+                    $psw.text("");
+                    $psw.text(result);
+                    var pwdDialogConfig = {
+                        modal: true,
+                        width: 400,
+                        height: result ? 250 : "auto",
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                                //location.reload();
+                            }
+                        }
+                    };
+                    $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                });
+        }
+
         $(document).ready(function () {
             if ($("#articleDetail-choice").val() != "asf")
                 $("#articleDetail-choice").append("<option value='asf'>asf</option>");
@@ -492,9 +538,10 @@
 }
 <p>
     <button name='submit' onclick="javascript: submitform()">@DPTnew.Localization.Resource.Submit </button>
+    <button name='submit' onclick="javascript: deleteform()">@DPTnew.Localization.Resource.Delete </button>
     <button name='close' onclick="javascript: window.open('', '_self').close()">@DPTnew.Localization.Resource.Close </button>
     @*<a href="javascript: submitform()"><input type="submit" value="@DPTnew.Localization.Resource.Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="@DPTnew.Localization.Resource.Close" /></a>*@
+        <a href="javascript:window.open('','_self').close();"><input type="submit" value="@DPTnew.Localization.Resource.Close" /></a>*@
 </p>
 <div id="sysmsg-dialog" title="System message" style="display:none;">
     <strong style="position:absolute; margin-top:20px;" id="msg"></strong>
