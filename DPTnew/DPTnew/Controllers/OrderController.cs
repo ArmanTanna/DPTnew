@@ -181,7 +181,7 @@ namespace DPTnew.Controllers
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
                         "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
                         " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
-                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx, Note) VALUES ('" + orderRow.Invoicer + "','" +
+                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx, Note, Probability) VALUES ('" + orderRow.Invoicer + "','" +
                         orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
                         + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
                         + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
@@ -189,7 +189,7 @@ namespace DPTnew.Controllers
                         orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
                         orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
                         orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
-                        orderRow.LicenseID + "','" + orderRow.idxx + "','" + orderRow.Note + "');");
+                        orderRow.LicenseID + "','" + orderRow.idxx + "','" + orderRow.Note + "',25" + ");");
                 }
                 else
                 {

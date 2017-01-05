@@ -410,7 +410,7 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && 
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 &&
                 (Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version) || (renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")))
             {
                 var now = System.DateTime.Now;
@@ -421,6 +421,7 @@ namespace DPTnew.Controllers
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex demorgx = new Regex(@"^DEM[0-9]+$");
+                Regex stagergx = new Regex(@"^STAGE[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID) || redrgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -431,9 +432,10 @@ namespace DPTnew.Controllers
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
+                var isStage = stagergx.IsMatch(currentlicense.LicenseID);
 
                 if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
-                    || (isDem && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl"))
+                    || ((isDem || isStage) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl"))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL

@@ -707,6 +707,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isL = /^L[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
+                var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
@@ -722,7 +723,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     }
                 }
                 //check for DEMo licenses
-                if (isDem && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
+                if ((isDem || isStage) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
                     myTable.buttons(['.renew']).enable(true);
                 }
 
