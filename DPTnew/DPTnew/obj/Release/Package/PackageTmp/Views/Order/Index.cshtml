@@ -74,8 +74,8 @@
                   '<td>' + d.NewOldAccount + '</td>' +
                   '<td><b>Note:</b></td>' +
                   '<td>' + d.Note + '</td>' +
-                  '<td><b>Row Number:</b></td>' +
-                  '<td>' + d.idxx + '</td>' +
+                  '<td><b>Probability:</b></td>' +
+                  '<td>' + d.Probability + '</td>' +
               '</tr>' +
               '</table>';
         }
@@ -282,7 +282,7 @@
             });
 
             myTable.on('select', function () {
-                if (myTable.rows('.selected').data()[0].Status == "Entered") {
+                if (myTable.rows('.selected').data()[0].Status.toLowerCase() == "entered") {
                     myTable.buttons(['.modify']).enable(true);
                     @*if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
                         myTable.buttons(['.approve']).enable(true);*@
@@ -323,7 +323,7 @@
 
             yadcf.init(myTable, [
                 { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
-                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Entered", "Booked", "Checked", "Approved"] }
+                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["entered", "booked", "checked", "approved"] }
             ]);
         });
 

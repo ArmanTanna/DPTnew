@@ -119,6 +119,7 @@ namespace DPTnew.Models
         public int Installed { get; set; }
         public int Exported { get; set; }
         public int Import { get; set; }
+        public int Renew { get; set; }
 
         public string SalesRep { get; set; }
         public string SalesRegion { get; set; }
@@ -167,6 +168,8 @@ namespace DPTnew.Models
         public int Installed { get; set; }
         public int Exported { get; set; }
         public int Import { get; set; }
+        public int Renew { get; set; }
+        public string ArticleDetail { get; set; }
         public string PwdCode { get; set; }
     }
 
@@ -241,6 +244,8 @@ namespace DPTnew.Models
         public string EntType { get; set; }
 
         public string refId1 { get; set; }
+
+        public string refId2 { get; set; }
 
         public JArray ProductName { get; set; }
 

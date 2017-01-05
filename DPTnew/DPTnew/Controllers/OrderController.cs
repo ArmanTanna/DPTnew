@@ -274,12 +274,12 @@ namespace DPTnew.Controllers
                 //        || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
                 //    ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
                 //}
-                ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && x.Status == "Entered").ToList().Count > 0;
+                ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && x.Status == "entered").ToList().Count > 0;
                 ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
-                    && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Booked").ToList().Count > 0);
-                ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Checked").ToList().Count > 0))
-                || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Booked").ToList().Count > 0));
-                ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "Checked").ToList().Count > 0);
+                    && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "booked").ToList().Count > 0);
+                ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "checked").ToList().Count > 0))
+                || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "booked").ToList().Count > 0));
+                ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "checked").ToList().Count > 0);
                 double tot = 0;
                 foreach (var rw in ord)
                 {
@@ -316,7 +316,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber && ord.Status == "Entered"
+                            where ord.OrderNumber == orderNumber && ord.Status == "entered"
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -324,7 +324,8 @@ namespace DPTnew.Controllers
                     MailMessage mail = null;
                     foreach (Order o in query.ToList())
                     {
-                        o.Status = "Booked";
+                        o.Status = "booked";
+                        o.Probability = 50;
                         db.SaveChanges();
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
                         if (string.IsNullOrEmpty(destmail))
@@ -383,7 +384,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber && ord.Status == "Booked"
+                            where ord.OrderNumber == orderNumber && ord.Status == "booked"
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -391,7 +392,8 @@ namespace DPTnew.Controllers
                     MailMessage mail = null;
                     foreach (Order o in query.ToList())
                     {
-                        o.Status = "Checked";
+                        o.Status = "checked";
+                        o.Probability = 75;
                         db.SaveChanges();
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
                         if (string.IsNullOrEmpty(destmail))
@@ -447,7 +449,8 @@ namespace DPTnew.Controllers
                 {
                     foreach (Order o in query.ToList())
                     {
-                        o.Status = "Entered";
+                        o.Status = "entered";
+                        o.Probability = 0;
                         db.SaveChanges();
                         if (string.IsNullOrEmpty(destmail))
                         {
@@ -495,7 +498,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber && ord.Status == "Checked"
+                            where ord.OrderNumber == orderNumber && ord.Status == "checked"
                             select ord;
                 if (query.Count() > 0)
                 {
@@ -512,13 +515,17 @@ namespace DPTnew.Controllers
                             if (!dic.ContainsKey(o.LicenseID))
                                 dic.Add(o.LicenseID, LID);
                         }
-                        o.Status = "Approved";
+                        o.Status = "approved";
+                        o.Probability = 100;
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
                         if (lic == null)
                         {
                             var val = dic.FirstOrDefault(k => k.Key == o.LicenseID);
                             lic = db.Licenses.Where(l => l.LicenseID == val.Value).FirstOrDefault();
                         }
+
+                        if (lic.ArticleDetail.ToLower() != "pl")
+                            lic.Renew = 1;
 
                         if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu")
                             lic.MaintEndDate = o.EndDate;

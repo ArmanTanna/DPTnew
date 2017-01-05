@@ -332,7 +332,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                           $(this).dialog("close");
                                           if ($("#upgrade-choice").val() !== headers.Version) {
                                               $.ajax({
-                                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val(),
+                                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val() + "&renew=" + 0,
                                                   type: 'GET',
                                                   data: null,
                                                   headers: headers,
@@ -392,7 +392,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                               var headers = {};
                               headers = myTable.rows('.selected').data()[0];
                               $.ajax({
-                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + headers.Version,
+                                  url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + headers.Version + "&renew=" + 1,
                                   type: 'GET',
                                   data: null,
                                   headers: headers,
@@ -715,13 +715,14 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 if (data.Installed == 1 && maintenddate >= now) {
                     if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL)) {
                         myTable.buttons(['.export']).enable(true);
-                        myTable.buttons(['.renew']).enable(true);
+                        if (data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1)
+                            myTable.buttons(['.renew']).enable(true);
                         if (data.LicenseType.toLowerCase() !== "floating")
                             myTable.buttons(['.upgrade']).enable(true);
                     }
                 }
                 //check for DEMo licenses
-                if (isDem && maintenddate >= now && isLocal) {
+                if (isDem && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
                     myTable.buttons(['.renew']).enable(true);
                 }
 

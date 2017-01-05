@@ -950,7 +950,7 @@ namespace SafenetIntegration
             entitlementModel.enabled = true;
             entitlementModel.startDate = DateTime.UtcNow;
             entitlementModel.refId1 = entitlement["refId1"].Value<string>();
-            entitlementModel.refId2 = "";
+            entitlementModel.refId2 = entitlement["refId2"].Value<string>();
             //entitlementModel.endDate = new DateTime(2500, 12, 31);
             //search for customer
             string[] searchCustParams = new string[] { "crmId=" + entitlement["CrmId"].Value<string>(), "vendorId=" + VENDOR };

@@ -71,6 +71,7 @@ namespace DPTnew.Models
         [Display(Name = "Discount", ResourceType = typeof(Resource))]
         public double Discount { get; set; }
         public string MachineID { get; set; }
+        public int Probability { get; set; }
     }
 
     [Table("service_Activation")]

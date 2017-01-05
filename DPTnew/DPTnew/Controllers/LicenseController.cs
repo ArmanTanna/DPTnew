@@ -56,6 +56,8 @@ namespace DPTnew.Controllers
                                 Installed = x.Installed,
                                 Exported = x.Exported,
                                 Import = x.Import,
+                                Renew = x.Renew,
+                                ArticleDetail = x.ArticleDetail,
                                 PwdCode = x.PwdCode
                             };
             }

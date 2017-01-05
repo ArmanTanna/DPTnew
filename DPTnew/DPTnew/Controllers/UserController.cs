@@ -171,6 +171,7 @@ namespace DPTnew.Controllers
                         if (ue.ProtectionKeyId.StartsWith("0"))
                             ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         ue.refId1 = ue.ProtectionKeyId;
+                        ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
                         if (currentlicense.Version == "2015")
                         {
@@ -395,7 +396,7 @@ namespace DPTnew.Controllers
 
         [HttpGet]
         [ActionName("UpgradeLicense")]
-        public async Task<JsonResult> UpgradeLicense(string licenseId, string version)
+        public async Task<JsonResult> UpgradeLicense(string licenseId, string version, int renew)
         {
             //common variables
             LicenseView currentlicense = null;
@@ -409,7 +410,8 @@ namespace DPTnew.Controllers
                 dpt_Company = currentlicense.AccountNumber;
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 /*&& Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version)*/)
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && 
+                (Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version) || (renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")))
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
@@ -431,7 +433,7 @@ namespace DPTnew.Controllers
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
 
                 if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
-                    || (isDem && currentlicense.MaintEndDate >= now && isLocal))
+                    || (isDem && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl"))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
@@ -478,7 +480,7 @@ namespace DPTnew.Controllers
                         if (e1.ProtectionKeyId.StartsWith("0"))
                             e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         e1.refId1 = e1.ProtectionKeyId;
-
+                        e1.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
                         e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
@@ -497,6 +499,7 @@ namespace DPTnew.Controllers
                         if (e2.ProtectionKeyId.StartsWith("0"))
                             e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
                         e2.refId1 = e2.ProtectionKeyId;
+                        e2.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
                         e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
@@ -550,6 +553,13 @@ namespace DPTnew.Controllers
                                 entry.Property(x => x.Version).IsModified = true;
                                 context.SaveChanges();
                                 log.Action = "Upgrade";
+                            }
+                            if (renew > 0)
+                            {
+                                currentlicense.Renew = 0;
+                                entry.Property(x => x.Renew).IsModified = true;
+                                context.SaveChanges();
+                                log.Action = "Renew";
                             }
 
                             log.LicenseID = currentlicense.LicenseID;
@@ -662,7 +672,7 @@ namespace DPTnew.Controllers
                             e1.CrmId = dpt_Company;
                             e1.EntType = "PRODUCT_KEY";
                             e1.refId1 = l.file.FileName;
-
+                            e1.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
                             e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
@@ -678,6 +688,7 @@ namespace DPTnew.Controllers
                             e2.CrmId = dpt_Company;
                             e2.EntType = "PRODUCT_KEY";
                             e2.refId1 = l.file.FileName;
+                            e2.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
                             e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
 
