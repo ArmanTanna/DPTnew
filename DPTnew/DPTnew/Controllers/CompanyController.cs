@@ -223,6 +223,12 @@ namespace DPTnew.Controllers
 
             using (var db = new DptContext())
             {
+                cmpSingleRow.AccountNameK = GlobalObject.unescape(cmpSingleRow.AccountNameK);
+                cmpSingleRow.Address = GlobalObject.unescape(cmpSingleRow.Address);
+                cmpSingleRow.AddressK = GlobalObject.unescape(cmpSingleRow.AddressK);
+                cmpSingleRow.City = GlobalObject.unescape(cmpSingleRow.City);
+                cmpSingleRow.CityK = GlobalObject.unescape(cmpSingleRow.CityK);
+                cmpSingleRow.ProvinceK = GlobalObject.unescape(cmpSingleRow.ProvinceK);
                 if (!string.IsNullOrEmpty(cmpSingleRow.AccountNumber))
                 {
                     try
@@ -235,13 +241,15 @@ namespace DPTnew.Controllers
                         if (query.Count() > 0)
                         {
                             query.FirstOrDefault().AccountName = cmpSingleRow.AccountName.ToUpper();
-                            query.FirstOrDefault().Address = GlobalObject.unescape(cmpSingleRow.Address);
+                            query.FirstOrDefault().Address = cmpSingleRow.Address;
                             query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
-                            query.FirstOrDefault().City = GlobalObject.unescape(cmpSingleRow.City);
+                            query.FirstOrDefault().City = cmpSingleRow.City;
                             query.FirstOrDefault().Province = cmpSingleRow.Province;
                             query.FirstOrDefault().Email = cmpSingleRow.Email;
-                            query.FirstOrDefault().AccountNameK = GlobalObject.unescape(cmpSingleRow.AccountNameK);
-                            query.FirstOrDefault().ProvinceK = GlobalObject.unescape(cmpSingleRow.ProvinceK);
+                            query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
+                            query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
+                            query.FirstOrDefault().AddressK = cmpSingleRow.AddressK;
+                            query.FirstOrDefault().CityK = cmpSingleRow.CityK;
                             query.FirstOrDefault().Phone1 = cmpSingleRow.Phone1;
                             query.FirstOrDefault().Phone2 = cmpSingleRow.Phone2;
                             query.FirstOrDefault().Segment = cmpSingleRow.Segment;
@@ -270,13 +278,13 @@ namespace DPTnew.Controllers
                         cmpSingleRow.AccountKind = "customer";
                         db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Companies] (AccountNumber, AccountName, AccountKind," +
                         "AccountStatus, Address, ZIP, City, Province, Country, Phone1, Phone2, Email, Fax, Website, Segment, Industry," +
-                        "Production, SalesRep, Language, AccountNameK, ProvinceK) VALUES ('" + cmpSingleRow.AccountNumber + "','" +
-                        cmpSingleRow.AccountName.ToUpper() + "','customer','" + cmpSingleRow.AccountStatus + "','" + GlobalObject.unescape(cmpSingleRow.Address) + "','" +
-                        cmpSingleRow.ZIP + "','" + GlobalObject.unescape(cmpSingleRow.City) + "','" + cmpSingleRow.Province + "','" + cmpSingleRow.Country +
+                        "Production, SalesRep, Language, AccountNameK, ProvinceK, AddressK, CityK) VALUES ('" + cmpSingleRow.AccountNumber + "','" +
+                        cmpSingleRow.AccountName.ToUpper() + "','customer','" + cmpSingleRow.AccountStatus + "',N'" + cmpSingleRow.Address + "','" +
+                        cmpSingleRow.ZIP + "',N'" + cmpSingleRow.City + "','" + cmpSingleRow.Province + "','" + cmpSingleRow.Country +
                         "','" + cmpSingleRow.Phone1 + "','" + cmpSingleRow.Phone2 + "','" + cmpSingleRow.Email + "','" + cmpSingleRow.Fax +
                         "','" + cmpSingleRow.Website + "','" + cmpSingleRow.Segment + "','" + cmpSingleRow.Industry + "','" +
-                        cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "','" + GlobalObject.unescape(cmpSingleRow.AccountNameK)
-                        + "','" + GlobalObject.unescape(cmpSingleRow.ProvinceK) + "');");
+                        cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "',N'" + cmpSingleRow.AccountNameK
+                        + "',N'" + cmpSingleRow.ProvinceK + "',N'" + cmpSingleRow.AddressK + "',N'" + cmpSingleRow.CityK + "');");
                     }
                     catch (Exception e)
                     {

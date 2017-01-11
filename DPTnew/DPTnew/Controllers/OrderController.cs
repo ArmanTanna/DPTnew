@@ -200,7 +200,7 @@ namespace DPTnew.Controllers
                     {
                         if ((DateTime.Now.Year == 2016 && !(orderRow.OrderNumber.StartsWith("S"))) ||
                             (DateTime.Now.Year == 2017 && !(orderRow.OrderNumber.StartsWith("T"))))
-                            return Json("Error: wrong order number (2016 = S)", JsonRequestBehavior.AllowGet);
+                            return Json("Error: wrong order number (2017 = T)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
                         {
                             o.OrderNumber = orderRow.OrderNumber;
@@ -220,11 +220,11 @@ namespace DPTnew.Controllers
                             else
                             {
                                 if (o.Invoicer.ToLower().Trim() == "dpt srl")
-                                    o.InvoiceNumber = "I16-XXX";
+                                    o.InvoiceNumber = "I17-XXX";
                                 else
                                 {
                                     if (o.Invoicer.ToLower().Trim() == "dpt sarl")
-                                        o.InvoiceNumber = "F16-XXX";
+                                        o.InvoiceNumber = "F17-XXX";
                                     else
                                         o.InvoiceNumber = "JJ";
                                 }
@@ -247,6 +247,8 @@ namespace DPTnew.Controllers
                             o.EURO_PriceList = orderRow.EURO_PriceList;
                             o.JPY_PriceList = orderRow.JPY_PriceList;
                             o.Note = orderRow.Note;
+                            o.Status = "entered";
+                            o.Probability = 25;
                             db.SaveChanges();
                         }
                     }
@@ -274,7 +276,7 @@ namespace DPTnew.Controllers
                 //        || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && ord.FirstOrDefault().Status == "Booked");
                 //    ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && ord.FirstOrDefault().Status == "Checked";
                 //}
-                ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && x.Status == "entered").ToList().Count > 0;
+                ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && (x.Status == "entered" || x.Status == "preloaded")).ToList().Count > 0;
                 ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                     && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "booked").ToList().Count > 0);
                 ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "checked").ToList().Count > 0))
@@ -316,7 +318,7 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
-                            where ord.OrderNumber == orderNumber && ord.Status == "entered"
+                            where ord.OrderNumber == orderNumber && (ord.Status == "entered" || ord.Status == "preloaded")
                             select ord;
                 if (query.Count() > 0)
                 {

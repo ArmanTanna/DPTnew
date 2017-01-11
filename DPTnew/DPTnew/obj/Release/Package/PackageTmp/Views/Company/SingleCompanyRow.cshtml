@@ -47,6 +47,8 @@
                     Email: $("input[name=email]").val(),
                     AccountNameK: escape($("input[name=accountNameK]").val()),
                     ProvinceK: escape($("input[name=provinceK]").val()),
+                    AddressK: escape($("input[name=addressK]").val()),
+                    CityK: escape($("input[name=cityK]").val()),
                     Phone1: $("input[name=phone1]").val(),
                     Phone2: $("input[name=phone2]").val(),
                     Fax: $("input[name=fax]").val(),
@@ -305,9 +307,19 @@
                 <td>
                     <input type="text" name="address" value="@Html.DisplayTextFor(modelItem => item.Address)">
                 </td>
-                <td>@Html.DisplayNameFor(model => model.ZIP)</td>
+                <td>@Html.DisplayNameFor(model => model.City)</td>
                 <td>
-                    <input type="text" name="zip" value="@Html.DisplayFor(modelItem => item.ZIP)">
+                    <input type="text" name="city" value="@Html.DisplayFor(modelItem => item.City)">
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AddressK)</td>
+                <td>
+                    <input type="text" name="addressK" value="@Html.DisplayTextFor(modelItem => item.AddressK)">
+                </td>
+                <td>@Html.DisplayNameFor(model => model.CityK)</td>
+                <td>
+                    <input type="text" name="cityK" value="@Html.DisplayFor(modelItem => item.CityK)">
                 </td>
             </tr>
             <tr>
@@ -315,9 +327,9 @@
                 <td>
                     <input type="text" name="province" value="@Html.DisplayTextFor(modelItem => item.Province)">
                 </td>
-                <td>@Html.DisplayNameFor(model => model.City)</td>
+                <td>@Html.DisplayNameFor(model => model.ZIP)</td>
                 <td>
-                    <input type="text" name="city" value="@Html.DisplayTextFor(modelItem => item.City)">
+                    <input type="text" name="zip" value="@Html.DisplayTextFor(modelItem => item.ZIP)">
                 </td>
             </tr>
             <tr>
@@ -389,7 +401,7 @@
     <button name='submit' onclick="javascript: submitform()">@DPTnew.Localization.Resource.Submit </button>
     <button name='close' onclick="javascript: window.open('', '_self').close()">@DPTnew.Localization.Resource.Close </button>
     @*<a href="javascript: submitform()"><input type="submit" value="@DPTnew.Localization.Resource.Submit" /></a>
-    <a href="javascript:window.open('','_self').close();"><input type="submit" value="@DPTnew.Localization.Resource.Close" /></a>*@
+        <a href="javascript:window.open('','_self').close();"><input type="submit" value="@DPTnew.Localization.Resource.Close" /></a>*@
 </p>
 <div id="sysmsg-dialog" title="System message" style="display:none;">
     <strong style="position:absolute; margin-top:20px;" id="msg"></strong>

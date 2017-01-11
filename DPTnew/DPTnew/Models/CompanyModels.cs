@@ -51,6 +51,8 @@ namespace DPTnew.Models
 
         public string AccountNameK { get; set; }
         public string ProvinceK { get; set; }
+        public string AddressK { get; set; }
+        public string CityK { get; set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }

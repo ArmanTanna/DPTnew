@@ -100,8 +100,13 @@ namespace DPTnew.Controllers
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                     return _db.Orders.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+                
+                var salesRep = new List<String>();
+                if (company.SalesRep.Trim() == "t3korea")
+                    salesRep = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();
+                else
+                    salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
 
-                var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 if (salesRep.Count == 0)
                 {
                     var sR = _db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();

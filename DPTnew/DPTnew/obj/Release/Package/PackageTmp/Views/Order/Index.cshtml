@@ -283,7 +283,8 @@
             });
 
             myTable.on('select', function () {
-                if (myTable.rows('.selected').data()[0].Status.toLowerCase() == "entered") {
+                if (myTable.rows('.selected').data()[0].Status.toLowerCase() == "entered" ||
+                    myTable.rows('.selected').data()[0].Status.toLowerCase() == "preloaded") {
                     myTable.buttons(['.modify']).enable(true);
                     @*if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
                         myTable.buttons(['.approve']).enable(true);*@
@@ -324,7 +325,7 @@
 
             yadcf.init(myTable, [
                 { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
-                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["entered", "booked", "checked", "approved"] }
+                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["preloaded", "entered", "booked", "checked", "approved"] }
             ]);
         });
 
