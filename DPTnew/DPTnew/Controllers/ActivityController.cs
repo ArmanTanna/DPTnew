@@ -19,7 +19,7 @@ namespace DPTnew.Controllers
 {
 
     [Authorize(Roles = "Admin,Internal")]
-    public class IntranetController : BaseController
+    public class ActivityController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
         {

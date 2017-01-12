@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Internos";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+            <p>
+                Dptcorporate intranet site
+            </p>
+        </div>
+    </section>
+}
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
+                    <a href="~/Activity" target="_blank"><u>Activities</u></a>
+                }
+            </th>
+            <th style="width:33%">
+            </th>
+            <th style="width:33%">
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
+                    <text> Timesheet</text>
+                }
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>

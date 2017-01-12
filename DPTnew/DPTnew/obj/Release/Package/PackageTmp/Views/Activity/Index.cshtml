@@ -1,7 +1,7 @@
 ﻿@model DPTnew.Models.DptErp
 
 @{
-    ViewBag.Title = "Intranet";
+    ViewBag.Title = "Activity";
 }
 
 
@@ -26,8 +26,8 @@
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
-        yourApp.Urls.ErpDataUrl = '@Url.Action("SingleErpRow", "Intranet")';
-        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Intranet")';
+        yourApp.Urls.ErpDataUrl = '@Url.Action("SingleErpRow", "Activity")';
+        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Activity")';
 
         $(document).ready(function () {
 
@@ -40,7 +40,7 @@
                 ],
                 ajax: {
                     type: "POST",
-                    url: "Intranet/Search"
+                    url: "Activity/Search"
                 },
                 columns: [
                 { data: "ActivityId" },

@@ -12,13 +12,13 @@
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
-        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Intranet")';
+        yourApp.Urls.ErpModifyUrl = '@Url.Action("Modify", "Activity")';
         function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             setTimeout(function () {
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 2000);
-            $.post("/Intranet/Modify", {
+            $.post("/Activity/Modify", {
                 ActivityId: $("input[name=id]").val(),
                 Email: $("input[name=email]").val(),
                 ActivityDate: $("input[name=activitydate]").val(),
@@ -53,7 +53,7 @@
         var yourApp = yourApp || {};
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
-        yourApp.Urls.GetActivityTitles = '@Url.Action("GetActivities", "Intranet")';
+        yourApp.Urls.GetActivityTitles = '@Url.Action("GetActivities", "Activity")';
 
         $(document).ready(function () {
             if ($("input[name=activitydate]").val() == "0001-01-01") {
