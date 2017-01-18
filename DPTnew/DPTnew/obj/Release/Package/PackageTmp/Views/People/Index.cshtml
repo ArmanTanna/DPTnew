@@ -144,7 +144,8 @@
 
             myTable.on('select', function () {
                 var erpRow = myTable.rows('.selected').data()[0];
-                myTable.buttons(['.modify']).enable(true);
+                if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
+                    myTable.buttons(['.modify']).enable(true);
             });
 
             myTable.on('deselect', function () {

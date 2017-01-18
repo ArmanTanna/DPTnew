@@ -18,7 +18,7 @@ using System.Net.Mail;
 
 namespace DPTnew.Controllers
 {
-    [Authorize(Roles = "Admin,Internal,VarExp")]
+    [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
     public class PeopleController : BaseController
     {
         public ActionResult Index(int pageSize = 10)
@@ -29,7 +29,7 @@ namespace DPTnew.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public JsonResult Search()
         {
@@ -42,7 +42,7 @@ namespace DPTnew.Controllers
             return Json(_db.ConvertToSearchResult<People>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public ActionResult SinglePeopleRow(People pplSingleRow)
         {
@@ -79,7 +79,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public JsonResult Modify(People pplSingleRow)
         {
@@ -213,7 +213,7 @@ namespace DPTnew.Controllers
             client.Send(mail);
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public JsonResult GetPeopleRolesFromDB()
         {

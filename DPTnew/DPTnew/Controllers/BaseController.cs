@@ -132,7 +132,8 @@ namespace DPTnew.Controllers
         {
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Peoples.ToList();
-            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
                 return GetVarPeoples();
 
             return null;
