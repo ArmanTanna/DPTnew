@@ -123,11 +123,11 @@ namespace DPTnew.Controllers
                     else
                     {
                         if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
-                            orderRow.InvoiceNumber = "I16-XXX";
+                            orderRow.InvoiceNumber = "I17-XXX";
                         else
                         {
                             if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
-                                orderRow.InvoiceNumber = "F16-XXX";
+                                orderRow.InvoiceNumber = "F17-XXX";
                             else
                                 orderRow.InvoiceNumber = "JJ";
                         }
@@ -198,8 +198,10 @@ namespace DPTnew.Controllers
                                 select ord;
                     if (query.Count() > 0)
                     {
-                        if ((DateTime.Now.Year == 2016 && !(orderRow.OrderNumber.StartsWith("S"))) ||
-                            (DateTime.Now.Year == 2017 && !(orderRow.OrderNumber.StartsWith("T"))))
+                        var nocheck = db.Activations.Select(x => x.OrderNumber).ToList();
+                        if (!nocheck.Contains(orderRow.OrderNumber) && ((DateTime.Now.Year == 2016 && 
+                            !(orderRow.OrderNumber.StartsWith("S"))) ||
+                            (DateTime.Now.Year == 2017 && !(orderRow.OrderNumber.StartsWith("T")))))
                             return Json("Error: wrong order number (2017 = T)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
                         {
