@@ -57,7 +57,7 @@ var dataSetIndex = [
 ["15", "exportlicense2015", "Can I export my license 2015?", "l1c3p10", "Licensing 2015", "License Manager", "110"],
 ["16", "howtoexportlicense2015", "How can I export a license?", "l1c3p11", "Licensing 2015", "License Manager", "300"],
 ["17", "selfserviceexport", "How does the self-service export functionality work?", "l1c3p12", "Licensing 2015", "License Manager", "1000"],
-["18", "dongleondifferentpc2015", "What if I want to use my dongle on a different PC?", "l1c3p13", "Licensing 2015", "License Manager", "60"],
+["18", "dongleondifferentpc2015", "What if I want to use my dongle on a different PC?", "l1c3p13", "Licensing 2015", "License Manager", "120"],
 ["19", "exportlicense2014", "Can I export my license 2014?", "l1c4p1", "Licensing 2014", "License Manager", "110"],
 ["20", "howtoexportlicense2014", "How can I export a license?", "l1c4p2", "Licensing 2014", "License Manager", "760"],
 ["21", "dongleondifferentpc2014", "What if I want to use my dongle on a different PC?", "l1c4p3", "Licensing 2014", "License Manager", "180"],

@@ -1402,7 +1402,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Now you can install the license in another pc..
+        ///   Looks up a localized string similar to Now you can install the license on another PC..
         /// </summary>
         public static string LicenseValidateMsg2 {
             get {
@@ -1483,7 +1483,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You will receive instructions to reset your password shortly.
+        ///   Looks up a localized string similar to You will receive instructions to reset your password shortly..
         /// </summary>
         public static string Message2 {
             get {
