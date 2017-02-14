@@ -132,4 +132,31 @@ namespace DPTnew.Models
         public string Status { get; set; }
     }
 
+    [Table("CaseArchive_Site")]
+    public class DptCaseArchive
+    {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "CaseHistoryID", ResourceType = typeof(Resource))]
+        public int CaseHistoryId { get; set; }
+        [Display(Name = "CaseID", ResourceType = typeof(Resource))]
+        public string CaseId { get; set; }
+        public DateTime CreatedOn { get; set; }
+        [Display(Name = "CreatedOn", ResourceType = typeof(Resource))]
+        public string StrCreatedOn { get { return CreatedOn != null ? ((DateTime)CreatedOn).ToString("yyyy-MM-dd HH:mm") : ""; } }
+        [Display(Name = "CreatedBy", ResourceType = typeof(Resource))]
+        public string CreatedBy { get; set; }
+        [Display(Name = "Description", ResourceType = typeof(Resource))]
+        public string Description { get; set; }
+        [Display(Name = "Details", ResourceType = typeof(Resource))]
+        public string Details { get; set; }
+        [Display(Name = "Product", ResourceType = typeof(Resource))]
+        public string Product { get; set; }
+        [Display(Name = "Version", ResourceType = typeof(Resource))]
+        public string ProductVersion { get; set; }
+        [Display(Name = "Platform", ResourceType = typeof(Resource))]
+        public string Platform { get; set; }
+        public string EDBnumber { get; set; }
+    }
+
 }

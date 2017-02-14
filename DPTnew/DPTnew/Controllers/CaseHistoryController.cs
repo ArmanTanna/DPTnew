@@ -26,9 +26,9 @@ namespace DPTnew.Controllers
             var items = GetHistoryCases();
             foreach (var sp in sps)
             {
-                items = _db.Search<DptCaseHistory>(sp, items);
+                items = _db.Search<DptCaseArchive>(sp, items);
             }
-            return Json(_db.ConvertToSearchResult<DptCaseHistory>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
+            return Json(_db.ConvertToSearchResult<DptCaseArchive>(sps.FirstOrDefault(), items), JsonRequestBehavior.AllowGet);
         }
 
         [NonAction]

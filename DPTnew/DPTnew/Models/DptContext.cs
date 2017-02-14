@@ -30,6 +30,7 @@ namespace DPTnew.Models
         public DbSet<DptCases> Cases { get; set; }
         public DbSet<DptCaseHistory> CaseHistories { get; set; }
         public DbSet<DptCaseLog> CaseLogs { get; set; }
+        public DbSet<DptCaseArchive> CaseArchive { get; set; }
         public DbSet<DptLicenseLog> LicenseLogs { get; set; }
         public DbSet<Activation> Activations { get; set; }
 

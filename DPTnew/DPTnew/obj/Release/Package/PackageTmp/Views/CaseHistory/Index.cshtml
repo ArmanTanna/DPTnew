@@ -1,4 +1,4 @@
-﻿@model DPTnew.Models.DptCaseHistory
+﻿@model DPTnew.Models.DptCaseArchive
 
 @{
     ViewBag.Title = "Case Archive";
@@ -26,6 +26,27 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.GetCaseHistoryUrl = '@Url.Action("CaseHistories", "Case")';
+
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+
+                  '<tr>' +
+                      '<td><b>' + "@DPTnew.Localization.Resource.Product" + ':</b></td>' +
+                      '<td>' + d.Product + '</td>' +
+
+                      '<td><b>' + "@DPTnew.Localization.Resource.Version" + ':</b></td>' +
+                      '<td>' + d.ProductVersion + '</td>' +
+
+                      '<td><b>' + "@DPTnew.Localization.Resource.Platform" + ':</b></td>' +
+                      '<td>' + d.Platform + '</td>' +
+
+                      '<td><b>' + "EDBnumber" + ':</b></td>' +
+                      '<td>' + d.EDBnumber + '</td>' +
+
+                  '</tr>' +
+                  '</table>';
+        }
 
         $(document).ready(function () {
 
@@ -57,13 +78,22 @@
                     }
                 },
                 columns: [
+                    {
+                        "className": 'details-control',
+                        "orderable": false,
+                        "data": null,
+                        "defaultContent": ''
+                    },
                 { data: "CaseId" },
                 { data: "StrCreatedOn" },
                 { data: "CreatedBy" },
                 { data: "Description" },
                 { data: "Details" }
                 ],
-                order: [[1, 'desc']],
+                scrollY: "500px",
+                scrollCollapse: true,
+                lengthMenu: [[10, 25, 50, 100, 1000], [10, 25, 50, 100, 1000]],
+                order: [[2, 'desc']],
                 orderClasses: false,
                 select: {
                     style: 'single'
@@ -115,6 +145,20 @@
             // Add event listener for opening and closing details
             $('#dptcasehistory tbody').on('click', 'td.details-control', function () {
 
+                var tr = $(this).closest('tr');
+                var row = myTable.row(tr);
+                var index = row.index();
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    var data = row.data();
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
             });
 
         });
@@ -125,6 +169,7 @@
     <table id="dptcasehistory" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
+                <th></th>
                 <th>
                     @Html.DisplayNameFor(model => model.CaseId)
                 </th>

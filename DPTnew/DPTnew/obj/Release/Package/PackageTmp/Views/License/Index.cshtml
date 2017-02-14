@@ -105,7 +105,13 @@
                 },
                 { data: "AccountNumber", "className": 'no-dropdown' },
                 { data: "AccountName", "className": 'no-dropdown' },
-                { data: "LicenseID", "className": 'no-dropdown' },
+                {
+                    data: "LicenseID",
+                    render: function (data, type, row) {
+                        return data + " - " + row.MachineID;
+                    }
+                },
+                //{ data: "LicenseID", "className": 'no-dropdown' },
                 { data: "ProductName" },
                 { data: "ArticleDetail", "className": 'mycenter-text' },
                 { data: "ServLicense1", "className": 'mycenter-text' }, //union of type and quantity

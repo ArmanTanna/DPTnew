@@ -186,11 +186,11 @@ namespace DPTnew.Controllers
             return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
         }
 
-        protected IEnumerable<DptCaseHistory> GetHistoryCases()
+        protected IEnumerable<DptCaseArchive> GetHistoryCases()
         {
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
-                return _db.CaseHistories.ToList();
+                return _db.CaseArchive.ToList();
             return null;
         }
 
