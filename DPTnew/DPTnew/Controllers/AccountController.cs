@@ -11,6 +11,7 @@ using WebMatrix.WebData;
 using DPTnew.Filters;
 using DPTnew.Models;
 using System.Net.Mail;
+using System.Net;
 
 namespace DPTnew.Controllers
 {
@@ -184,6 +185,11 @@ namespace DPTnew.Controllers
                     message.Subject = subject;
                     message.Body = body;
                     SmtpClient client = new SmtpClient();
+                    client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["hostusername"],
+                    System.Configuration.ConfigurationManager.AppSettings["hostpassword"]);
+                    client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
+                    client.Port = 587;
+                    client.EnableSsl = true;
 
                     // Attempt to send the email
                     try

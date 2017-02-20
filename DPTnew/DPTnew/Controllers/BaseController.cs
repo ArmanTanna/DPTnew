@@ -84,16 +84,6 @@ namespace DPTnew.Controllers
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 return _db.Orders.ToList();
 
-            //if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var"))
-            //{
-            //    var user = WebSecurity.CurrentUserName;
-            //    var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
-            //    var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
-            //    var companies = _db.Companies.Where(x => x.SalesRep.Contains(company.SalesRep)).Select(u => u.AccountNumber).ToList();
-            //    return _db.Orders.Where(c => companies.Contains(c.AccountNumber)).ToList();
-            //}
-            //return null;
-
             var contact = _db.Contacts.Where(u => u.Email == user).ToList().FirstOrDefault();
             if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
             {
@@ -163,8 +153,14 @@ namespace DPTnew.Controllers
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                     return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
+               
+                var salesRep = new List<String>();
+                if (company.SalesRep.Trim() == "t3korea")
+                    salesRep = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();
+                else
+                    salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
 
-                var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                //var salesRep = _db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
                 if (salesRep.Count == 0)
                 {
                     var sR = _db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();

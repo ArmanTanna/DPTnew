@@ -622,7 +622,7 @@ namespace DPTnew.Controllers
                     "기타 문의 사항은 고객 지원 사이트에서 문의해 주세요.<br/>think3 고객 센터 직원";
                 else
                     mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
-                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        //"You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
             }
         }

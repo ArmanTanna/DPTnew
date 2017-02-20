@@ -117,7 +117,10 @@ namespace DPTnew.Controllers
                     if (usr.Language.ToLower() == "japanese")
                         newCase.Language = "Japanese";
                     else
-                        newCase.Language = "English";
+                        if (usr.Language.ToLower() == "korean")
+                            newCase.Language = "Korean";
+                        else
+                            newCase.Language = "English";
                 }
                 catch (Exception e)
                 {
