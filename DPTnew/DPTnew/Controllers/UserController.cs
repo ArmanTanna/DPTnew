@@ -78,7 +78,6 @@ namespace DPTnew.Controllers
             byte[] data = System.Text.Encoding.UTF8.GetBytes(base64Decoded);
             base64Encoded = System.Convert.ToBase64String(data);
             return base64Encoded;
-
         }
 
         // GET: /Licenses/
@@ -149,6 +148,7 @@ namespace DPTnew.Controllers
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
+                Regex prergx = new Regex(@"^PRE[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID) || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -157,7 +157,7 @@ namespace DPTnew.Controllers
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
-                var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
+                var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
 
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
@@ -422,6 +422,7 @@ namespace DPTnew.Controllers
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
+                Regex prergx = new Regex(@"^PRE[0-9]+$");
                 Regex demorgx = new Regex(@"^DEM[0-9]+$");
                 Regex stagergx = new Regex(@"^STAGE[0-9]+$");
 
@@ -432,7 +433,7 @@ namespace DPTnew.Controllers
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
-                var isPool = poolrgx.IsMatch(currentlicense.LicenseID);
+                var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
                 var isStage = stagergx.IsMatch(currentlicense.LicenseID);
 

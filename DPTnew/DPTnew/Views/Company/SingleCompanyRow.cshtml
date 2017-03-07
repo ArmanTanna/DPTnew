@@ -42,7 +42,7 @@
                     Address: escape($("input[name=address]").val()),
                     ZIP: $("input[name=zip]").val(),
                     City: escape($("input[name=city]").val()),
-                    Province: $("input[name=province]").val(),
+                    Province: escape($("input[name=province]").val()),
                     Country: $("input[name=country]").val(),
                     Email: $("input[name=email]").val(),
                     AccountNameK: escape($("input[name=accountNameK]").val()),
@@ -89,6 +89,7 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         var salesRep = JSON.parse(atob('@ViewBag.SalesReps'));
+        salesRep.sort();
         var UserRole = '@ViewBag.UserRole.ToString().ToLower()';
 
         $(document).ready(function () {
@@ -293,7 +294,7 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.AccountNameK)</td>
                 <td>
-                    <input type="text" name="accountNameK" value="@Html.DisplayFor(modelItem => item.AccountNameK)">
+                    <input type="text" name="accountNameK" value="@Html.Raw(item.AccountNameK)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.SalesRep)</td>
                 <td>
@@ -305,27 +306,27 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Address)</td>
                 <td>
-                    <input type="text" name="address" value="@Html.DisplayTextFor(modelItem => item.Address)">
+                    <input type="text" name="address" value="@Html.Raw(item.Address)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.City)</td>
                 <td>
-                    <input type="text" name="city" value="@Html.DisplayFor(modelItem => item.City)">
+                    <input type="text" name="city" value="@Html.Raw(item.City)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.AddressK)</td>
                 <td>
-                    <input type="text" name="addressK" value="@Html.DisplayTextFor(modelItem => item.AddressK)">
+                    <input type="text" name="addressK" value="@Html.Raw(item.AddressK)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.CityK)</td>
                 <td>
-                    <input type="text" name="cityK" value="@Html.DisplayFor(modelItem => item.CityK)">
+                    <input type="text" name="cityK" value="@Html.Raw(item.CityK)">
                 </td>
             </tr>
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Province)</td>
                 <td>
-                    <input type="text" name="province" value="@Html.DisplayTextFor(modelItem => item.Province)">
+                    <input type="text" name="province" value="@Html.Raw(item.Province)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.ZIP)</td>
                 <td>
@@ -335,7 +336,7 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.ProvinceK)</td>
                 <td>
-                    <input type="text" name="provinceK" value="@Html.DisplayFor(modelItem => item.ProvinceK)">
+                    <input type="text" name="provinceK" value="@Html.Raw(item.ProvinceK)">
                 </td>
             </tr>
             <tr>
@@ -385,7 +386,7 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.Production)</td>
                 <td>
-                    <input type="text" name="production" value="@Html.DisplayFor(modelItem => item.Production)">
+                    <input type="text" name="production" value="@Html.Raw(item.Production)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.Language)</td>
                 <td>

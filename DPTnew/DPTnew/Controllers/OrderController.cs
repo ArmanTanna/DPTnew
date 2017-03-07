@@ -141,14 +141,6 @@ namespace DPTnew.Controllers
 
                     if (string.IsNullOrEmpty(orderRow.OrderNumber))
                     {
-                        if (DateTime.Now.Year == 2016)
-                        {
-                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("S")).Max(x => x.OrderNumber);
-                            if (maxq == null)
-                                orderRow.OrderNumber = "S000001";
-                            else
-                                orderRow.OrderNumber = "S" + (Convert.ToInt64(maxq.Split('S')[1]) + 1).ToString("D6");
-                        }
                         if (DateTime.Now.Year == 2017)
                         {
                             var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("T")).Max(x => x.OrderNumber);
@@ -156,6 +148,14 @@ namespace DPTnew.Controllers
                                 orderRow.OrderNumber = "T000001";
                             else
                                 orderRow.OrderNumber = "T" + (Convert.ToInt64(maxq.Split('T')[1]) + 1).ToString("D6");
+                        }
+                        if (DateTime.Now.Year == 2018)
+                        {
+                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("U")).Max(x => x.OrderNumber);
+                            if (maxq == null)
+                                orderRow.OrderNumber = "U000001";
+                            else
+                                orderRow.OrderNumber = "U" + (Convert.ToInt64(maxq.Split('U')[1]) + 1).ToString("D6");
                         }
                     }
                     else
@@ -200,8 +200,8 @@ namespace DPTnew.Controllers
                     if (query.Count() > 0)
                     {
                         var nocheck = db.Activations.Select(x => x.OrderNumber).ToList();
-                        if (!nocheck.Contains(orderRow.OrderNumber) && ((DateTime.Now.Year == 2016 && 
-                            !(orderRow.OrderNumber.StartsWith("S"))) ||
+                        if (!nocheck.Contains(orderRow.OrderNumber) && ((DateTime.Now.Year == 2018 &&
+                            !(orderRow.OrderNumber.StartsWith("U"))) ||
                             (DateTime.Now.Year == 2017 && !(orderRow.OrderNumber.StartsWith("T")))))
                             return Json("Error: wrong order number (2017 = T)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
@@ -362,24 +362,10 @@ namespace DPTnew.Controllers
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best Regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
-                    SendMail(mail);
+                    MailHelper.SendMail(mail);
                 }
             }
             return Json("Booked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
-        }
-
-        private void SendMail(MailMessage mail)
-        {
-            SmtpClient client = new SmtpClient();
-            client.Port = 25;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["hostusername"],
-                System.Configuration.ConfigurationManager.AppSettings["hostpassword"]);
-            client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Send(mail);
         }
 
         [Authorize(Roles = "Admin,Internal")]
@@ -434,7 +420,7 @@ namespace DPTnew.Controllers
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best Regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
-                    SendMail(mail);
+                    MailHelper.SendMail(mail);
                 }
             }
             return Json("Checked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
@@ -473,7 +459,7 @@ namespace DPTnew.Controllers
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
                                 "\n\nBest Regards,\nDPT orders";
-                            SendMail(mail);
+                            MailHelper.SendMail(mail);
                         }
                     }
                 }
@@ -581,7 +567,7 @@ namespace DPTnew.Controllers
                     }
                     MailFooter(mail, lang);
                     mail.IsBodyHtml = true;
-                    SendMail(mail);
+                    MailHelper.SendMail(mail);
                 }
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }

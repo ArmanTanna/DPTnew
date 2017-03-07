@@ -20,6 +20,15 @@ namespace DPTnew.Controllers
         public ActionResult Index(int pageSize = 10)
         {
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.ProductName).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.ProductName = System.Convert.ToBase64String(plainTextBytes);
+            var plainTextBytes2 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.ArticleDetail).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.ArticleDetail = System.Convert.ToBase64String(plainTextBytes2);
+            var plainTextBytes3 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.Version).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.Version = System.Convert.ToBase64String(plainTextBytes3);
+            var plainTextBytes4 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.LastExp).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.LastExp = System.Convert.ToBase64String(plainTextBytes4);
+
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed");
@@ -91,7 +100,6 @@ namespace DPTnew.Controllers
                     query.FirstOrDefault().MaxExport = licSingleRow.MaxExport;
                     db.SaveChanges();
                 }
-
             }
 
             return Json("Saved!", JsonRequestBehavior.AllowGet);

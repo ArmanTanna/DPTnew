@@ -32,8 +32,14 @@ namespace DPTnew.Controllers
         public ActionResult Index(int pageSize = 10)
         {
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
-            ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.AccountKind).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.AccountKind = System.Convert.ToBase64String(plainTextBytes);
+            var plainTextBytes2 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.AccountStatus).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.AccountStatus = System.Convert.ToBase64String(plainTextBytes2);
+            var plainTextBytes3 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.SalesRep).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.SalesReps = System.Convert.ToBase64String(plainTextBytes3);
+            var plainTextBytes4 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.LastExp).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.LastExp = System.Convert.ToBase64String(plainTextBytes4);
             ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
@@ -228,6 +234,7 @@ namespace DPTnew.Controllers
                 cmpSingleRow.AddressK = GlobalObject.unescape(cmpSingleRow.AddressK);
                 cmpSingleRow.City = GlobalObject.unescape(cmpSingleRow.City);
                 cmpSingleRow.CityK = GlobalObject.unescape(cmpSingleRow.CityK);
+                cmpSingleRow.Province = GlobalObject.unescape(cmpSingleRow.Province);
                 cmpSingleRow.ProvinceK = GlobalObject.unescape(cmpSingleRow.ProvinceK);
                 if (!string.IsNullOrEmpty(cmpSingleRow.AccountNumber))
                 {

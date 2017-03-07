@@ -664,15 +664,6 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SP2 Legacy version for old systems..
-        /// </summary>
-        public static string Description2015ThinkDesign32bitSP2 {
-            get {
-                return ResourceManager.GetString("Description2015ThinkDesign32bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to SP3 Legacy version for old systems..
         /// </summary>
         public static string Description2015ThinkDesign32bitSP3 {
@@ -682,29 +673,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2015 64bit SP2..
-        /// </summary>
-        public static string Description2015ThinkDesign64bitSP2 {
-            get {
-                return ResourceManager.GetString("Description2015ThinkDesign64bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2015 64bit SP3..
         /// </summary>
         public static string Description2015ThinkDesign64bitSP3 {
             get {
                 return ResourceManager.GetString("Description2015ThinkDesign64bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2015 SP2..
-        /// </summary>
-        public static string Description2015thinkPLMSP2 {
-            get {
-                return ResourceManager.GetString("Description2015thinkPLMSP2", resourceCulture);
             }
         }
         
@@ -826,7 +799,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.eu/t3tools/Tools2011.zip.
+        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.think3.jp/t3software/2011.1build410/SelfCD_tdviewer_2011T1_b410.exe.
         /// </summary>
         public static string Download2011TDViewerLight {
             get {
@@ -1834,15 +1807,6 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2015 32bit SP2.
-        /// </summary>
-        public static string Product2015ThinkDesign32bitSP2 {
-            get {
-                return ResourceManager.GetString("Product2015ThinkDesign32bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ThinkDesign 2015 32bit SP3.
         /// </summary>
         public static string Product2015ThinkDesign32bitSP3 {
@@ -1852,29 +1816,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2015 64bit SP2.
-        /// </summary>
-        public static string Product2015ThinkDesign64bitSP2 {
-            get {
-                return ResourceManager.GetString("Product2015ThinkDesign64bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ThinkDesign 2015 64bit SP3.
         /// </summary>
         public static string Product2015ThinkDesign64bitSP3 {
             get {
                 return ResourceManager.GetString("Product2015ThinkDesign64bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2015 SP2.
-        /// </summary>
-        public static string Product2015thinkPLMSP2 {
-            get {
-                return ResourceManager.GetString("Product2015thinkPLMSP2", resourceCulture);
             }
         }
         

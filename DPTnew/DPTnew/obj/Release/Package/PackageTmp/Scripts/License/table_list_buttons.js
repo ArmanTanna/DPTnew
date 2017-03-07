@@ -708,7 +708,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
-                var isPool = /^POOL[0-9]+$/.test(data.LicenseID);
+                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }

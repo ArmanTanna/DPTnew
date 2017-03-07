@@ -107,7 +107,7 @@ namespace DPTnew.Controllers
                         "Username: " + pplSingleRow.Email + "\nPassword: test" +
                         "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
                         "\n\nBest Regards,\n\nCustomer Care team";
-                    SendMail(mail);
+                    MailHelper.SendMail(mail);
                     mail = SendMailInUserLang(pplSingleRow, db, mail);
                 }
                 else
@@ -180,7 +180,7 @@ namespace DPTnew.Controllers
                     "<br/><br/>技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
                     "<br/><br/>以上、よろしくお願いいたします。<br/>シンクスリー・カスタマーケアチーム";
                 mail.IsBodyHtml = true;
-                SendMail(mail);
+                MailHelper.SendMail(mail);
             }
             if (pplSingleRow.Language.ToLower() == "korean")
             {
@@ -199,23 +199,9 @@ namespace DPTnew.Controllers
                     "<br/><br/>이상, 잘 부탁드립니다." +
                     "<br/>think3 고객 관리 팀";
                 mail.IsBodyHtml = true;
-                SendMail(mail);
+                MailHelper.SendMail(mail);
             }
             return mail;
-        }
-
-        private void SendMail(MailMessage mail)
-        {
-            SmtpClient client = new SmtpClient();
-            client.Port = 25;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["hostusername"],
-                System.Configuration.ConfigurationManager.AppSettings["hostpassword"]);
-            client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Send(mail);
         }
 
         [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]

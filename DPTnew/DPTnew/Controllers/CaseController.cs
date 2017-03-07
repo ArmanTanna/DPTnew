@@ -194,7 +194,7 @@ namespace DPTnew.Controllers
                         "Details: " + newCase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                         "\n\nBest Regards,\n\nCustomer Care team";
                 }
-                SendMail(mail);
+                MailHelper.SendMail(mail);
             }
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertSaveMsg;
             return View("Success");
@@ -312,7 +312,7 @@ namespace DPTnew.Controllers
                                             "\n\nBest Regards,\n\nCustomer Care team";
                                     }
                                 }
-                                SendMail(mail);
+                                MailHelper.SendMail(mail);
                             }
                         }
                         ncase.Status = caseRow.Status;
@@ -323,21 +323,7 @@ namespace DPTnew.Controllers
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifySaveMsg;
             return View("Success");
         }
-
-        private void SendMail(MailMessage mail)
-        {
-            SmtpClient client = new SmtpClient();
-            client.Port = 25;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["hostusername"],
-                System.Configuration.ConfigurationManager.AppSettings["hostpassword"]);
-            client.Host = System.Configuration.ConfigurationManager.AppSettings["host"];
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Send(mail);
-        }
-
+        
         [HttpPost]
         public ActionResult NewCaseHistoryRow(UpdateCase caseRow)
         {
@@ -435,7 +421,7 @@ namespace DPTnew.Controllers
                                         "Details: " + chl.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest Regards,\n\nCustomer Care team";
                                 }
-                                SendMail(mail);
+                                MailHelper.SendMail(mail);
                             }
                             oc.ModifiedOn = DateTime.Now;
                         }

@@ -5,7 +5,8 @@
 }
 
 @section Scripts {
-    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    @*
+        <script src="~/Scripts/Company/table_list.js"> </script>*@
     <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
     <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
@@ -284,12 +285,11 @@
 
 
             yadcf.init(myTable, [
-      { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["customer", "partner", "educational"] },
-    { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["03 - Active Customer", "06 - Partner", "05 - Ex Customer", "02 - Only Legacy", "04 - Not Active Customer", "04b - Not Active Customer OM", "07 - Ex Partner"] },
+                { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.AccountKind")) },
+                { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.AccountStatus")) },
     //{ column_number: 5, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-    { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["a: pre T3 EP", "b: pre DPT", "c: > 2 years", "d: > 1 year", "e: > 3 quarters", "f: > 2 quarters", "g: > 1 quarter", "h: > 1 month", "i: last 30 days", "j: next 30 days", "k: next 90 days", "l: next 180 days", "m: next 270 days", "n: next 365 days", "o: even later"] },
-    { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
-
+                { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LastExp")) },
+                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
         });
 
 
