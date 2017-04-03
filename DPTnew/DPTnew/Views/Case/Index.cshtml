@@ -117,9 +117,9 @@
                     data: "CCEngineer",
                     render: function (data, type, row) {
                         return data ? data.split(".")[0].charAt(0).toUpperCase() + data.split(".")[0].slice(1) + " " +
-                            (data.split(".")[1].indexOf("think") == -1 ?
+                            (data.split(".")[1].indexOf("t3") == -1 ?
                             data.split(".")[1].substring(0, data.split(".")[1].indexOf("dpt") - 1).charAt(0).toUpperCase() + data.split(".")[1].substring(0, data.split(".")[1].indexOf("dpt") - 1).slice(1) :
-                            data.split(".")[1].substring(0, data.split(".")[1].indexOf("think") - 1).charAt(0).toUpperCase() + data.split(".")[1].substring(0, data.split(".")[1].indexOf("think") - 1).slice(1)) : "";
+                            data.split(".")[1].substring(0, data.split(".")[1].indexOf("t3") - 1).charAt(0).toUpperCase() + data.split(".")[1].substring(0, data.split(".")[1].indexOf("t3") - 1).slice(1)) : "";
                     }
                 },
                     { data: "Language" },
@@ -303,7 +303,7 @@
             yadcf.init(myTable, [
             { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["General Request", "Bug", "Wish"] },
             { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
-            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["hideki.kobayashi@think3.eu", "fumiko.kasahara@think3.eu", "michiyo.miyako@think3.eu", "satomi.ono@think3.eu", "giorgio.pirri@dptcorporate.com", "jacopo.azzi@dptcorporate.com", "intae.lee@think3.eu"] },
+            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["hideki.kobayashi@t3-japan.co.jp", "fumiko.kasahara@t3-japan.co.jp", "michiyo.miyako@t3-japan.co.jp", "satomi.ono@t3-japan.co.jp", "giorgio.pirri@dptcorporate.com", "jacopo.azzi@dptcorporate.com", "intae.lee@t3-japan.co.jp"] },
             { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["English", "Japanese", "Korean"] }
             ]);
         });

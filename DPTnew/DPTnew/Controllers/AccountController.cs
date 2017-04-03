@@ -54,7 +54,7 @@ namespace DPTnew.Controllers
                         return View(model);
                     }
 
-                    if (user.Status == 0 || (user.Company.AccountStatus != "03 - Active Customer" && user.Company.AccountStatus != "06 - Partner"))
+                    if (user.Status == 0 || (user.Company.AccountStatus != "03 - Active Customer" && user.Company.AccountStatus != "03 - Premium Customer" && user.Company.AccountStatus != "06 - Partner"))
                     {
                         ModelState.AddModelError("", "This account has been disabled");
                         return View(model);
