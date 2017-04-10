@@ -583,10 +583,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                          $psw.find("#product").val(result.Prod);
                                          $psw.find("#resdays").val(result.Res_Days);
                                          $psw.find("#version").val(result.Vers);
+                                         $psw.find("#counter").val(result.Counter);
                                          var pwdDialogConfig = {
                                              modal: true,
                                              width: 350,
-                                             height: 450,
+                                             height: 500,
                                              buttons: {
                                                  OK: function () {
                                                      location.reload();

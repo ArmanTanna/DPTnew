@@ -6,6 +6,7 @@ using SafenetIntegration.Safenet.BusinessObject;
 using SafenetIntegration.Safenet.Exception;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -345,10 +346,32 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                StreamWriter sw = System.IO.File.AppendText("E:\\Case\\log.txt");
+                try
+                {
+                    string logLine = System.String.Format(
+                        "{0:G}: {1}.", System.DateTime.Now, "SafenetController - Safenet Exception: " +e.Message);
+                    sw.WriteLine(logLine);
+                }
+                finally
+                {
+                    sw.Close();
+                }
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                StreamWriter sw = System.IO.File.AppendText("E:\\Case\\log.txt");
+                try
+                {
+                    string logLine = System.String.Format(
+                        "{0:G}: {1}.", System.DateTime.Now, "SafenetController - Exception: " + e.Message);
+                    sw.WriteLine(logLine);
+                }
+                finally
+                {
+                    sw.Close();
+                }
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);

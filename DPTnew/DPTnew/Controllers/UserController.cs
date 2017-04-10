@@ -37,6 +37,17 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception ex)
                 {
+                    StreamWriter sw = System.IO.File.AppendText("E:\\Case\\log.txt");
+                    try
+                    {
+                        string logLine = System.String.Format(
+                            "{0:G}: {1}.", System.DateTime.Now, "UserController: " + ex.Message + "-" + ex.InnerException.Message);
+                        sw.WriteLine(logLine);
+                    }
+                    finally
+                    {
+                        sw.Close();
+                    }
                     responseMessage.StatusCode = HttpStatusCode.InternalServerError;
                     //    responseMessage.ReasonPhrase = string.Format("RestHttpClient.SendRequest failed: {0}", ex);
                 }
