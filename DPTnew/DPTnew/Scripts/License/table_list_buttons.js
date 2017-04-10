@@ -710,6 +710,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
+                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FRE[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
@@ -734,11 +735,15 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 }
 
                 //check for import
-                if (data.Import == 1) {
+                if (data.Import == 1 && (isL || isPool || isZEF)) {
                     myTable.buttons(['.import']).enable(true);
                 }
             } else {
-                if (data.MachineID == "ABCDEFGH") {
+                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
+                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FRE[0-9]+$/.test(data.LicenseID);
+                var isL = /^L[0-9]+$/.test(data.LicenseID);
+
+                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF)) {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
