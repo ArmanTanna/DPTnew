@@ -132,6 +132,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("CompanyController (SaveCompaniesToSafenetDB): " + e.Message);
                         errormsg += company.AccountNumber + "-" + company.AccountName + " (" + e.Message + "); </br>";
                     }
                 }
@@ -272,6 +273,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("CompanyController (Modify): " + e.InnerException.InnerException.Message);
                         return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
                     }
                 }
@@ -295,6 +297,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("CompanyController (Modify): " + e.Message);
                         return Json(e.Message, JsonRequestBehavior.AllowGet);
                     }
                 }

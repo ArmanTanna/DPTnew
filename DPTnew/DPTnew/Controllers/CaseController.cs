@@ -49,41 +49,48 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult NewCaseRow(UpdateCase caseRow)
         {
-            using (var db = new DptContext())
+            try
             {
-                var userName = Membership.GetUser().UserName;
-                var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
-                var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
-                var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
-                List<String> companyList = new List<string>();
-                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
-                    companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
-                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
-                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
+                using (var db = new DptContext())
                 {
-                    if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
-                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
-                    else
+                    var userName = Membership.GetUser().UserName;
+                    var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                    var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                    var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                    List<String> companyList = new List<string>();
+                    if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                        companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                    if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                        || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp"))
                     {
-                        if (salesRep.Count == 0)
-                        {
-                            var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
-                            companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                             companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
-                        }
                         else
-                            companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                        companyList.Sort();
+                        {
+                            if (salesRep.Count == 0)
+                            {
+                                var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                                companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                                companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                            }
+                            else
+                                companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                            companyList.Sort();
+                        }
                     }
-                }
-                else
-                    companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                    else
+                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
 
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
-                ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
-                ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
-                    || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
-                ViewBag.CurrUser = Membership.GetUser().UserName;
+                    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
+                    ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+                    ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                        || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+                    ViewBag.CurrUser = Membership.GetUser().UserName;
+                }
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("Case (NewCaseRow): " + e.Message);
             }
             return View(caseRow);
         }
@@ -124,6 +131,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
+                    LogHelper.WriteLog("CaseController (Insert): " + e.Message);
                     ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertContactMsg;
                     return View("Success");
                 }
@@ -170,6 +178,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("CaseController (Insert): " + e.Message);
                         ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertFileMsg;
                         return View("Success");
                     }
@@ -194,7 +203,14 @@ namespace DPTnew.Controllers
                         "Details: " + newCase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                         "\n\nBest Regards,\n\nCustomer Care team";
                 }
-                MailHelper.SendMail(mail);
+                try
+                {
+                    MailHelper.SendMail(mail);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("CaseController (Insert): " + e.Message + "-" + e.InnerException);
+                }
             }
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertSaveMsg;
             return View("Success");
@@ -242,6 +258,7 @@ namespace DPTnew.Controllers
                         }
                         catch (Exception e)
                         {
+                            LogHelper.WriteLog("CaseController (Modify): " + e.Message);
                             ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifyCCEngMsg;
                             return View("Success");
                         }
@@ -312,7 +329,14 @@ namespace DPTnew.Controllers
                                             "\n\nBest Regards,\n\nCustomer Care team";
                                     }
                                 }
-                                MailHelper.SendMail(mail);
+                                try
+                                {
+                                    MailHelper.SendMail(mail);
+                                }
+                                catch (Exception e)
+                                {
+                                    LogHelper.WriteLog("CaseController (Modify): " + e.Message + "-" + e.InnerException);
+                                }
                             }
                         }
                         ncase.Status = caseRow.Status;
@@ -323,7 +347,7 @@ namespace DPTnew.Controllers
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifySaveMsg;
             return View("Success");
         }
-        
+
         [HttpPost]
         public ActionResult NewCaseHistoryRow(UpdateCase caseRow)
         {
@@ -371,6 +395,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("CaseController (Update): " + e.Message);
                         ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertFileMsg;
                         return View("Success");
                     }
@@ -421,7 +446,14 @@ namespace DPTnew.Controllers
                                         "Details: " + chl.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest Regards,\n\nCustomer Care team";
                                 }
-                                MailHelper.SendMail(mail);
+                                try
+                                {
+                                    MailHelper.SendMail(mail);
+                                }
+                                catch (Exception e)
+                                {
+                                    LogHelper.WriteLog("CaseController (Update): " + e.Message + "-" + e.InnerException);
+                                }
                             }
                             oc.ModifiedOn = DateTime.Now;
                         }

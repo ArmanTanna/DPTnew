@@ -1,4 +1,5 @@
 ﻿using CALCXLib;
+using DPTnew.Helper;
 using DPTnew.Models;
 using LicenseObject;
 using Newtonsoft.Json;
@@ -117,6 +118,7 @@ namespace DptLicensingServer.Controllers
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (NewLicense): " + e.Message);
                 var resp = JObject.FromObject(new
                 {
                     Error = e.Message
@@ -207,8 +209,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, changeMIDResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (ChangeMID): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -251,8 +254,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, checkMIDsResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (CheckMIDs): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -275,8 +279,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, oldLicenseResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (OldLicense): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -307,8 +312,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, decPWDAnchorResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (DecPWDAnchor): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -331,8 +337,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, changeMID2Result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (ChangeMID2): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -376,8 +383,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, checkMIDsResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (CheckMIDs2): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -429,8 +437,9 @@ namespace DptLicensingServer.Controllers
 
                 return CreateResponse(HttpStatusCode.OK, checkMIDsResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (FlexLicense): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -472,8 +481,9 @@ namespace DptLicensingServer.Controllers
 
                 return CreateResponse(HttpStatusCode.OK);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (Upgrade): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -496,8 +506,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, xcsdeResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (xcsde): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
@@ -520,8 +531,9 @@ namespace DptLicensingServer.Controllers
                 });
                 return CreateResponse(HttpStatusCode.OK, xcsenResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                LogHelper.WriteLog("PasswordController (xcsen): " + e.Message);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }

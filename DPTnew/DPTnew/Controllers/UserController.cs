@@ -279,6 +279,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
+                    LogHelper.WriteLog("UserController (ValidateC2V): " + e.Message);
                     ModelState.AddModelError("VALIDATE", "The file you have uploaded is not correct");
                     return View("Validate");
 

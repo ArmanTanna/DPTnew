@@ -107,7 +107,14 @@ namespace DPTnew.Controllers
                         "Username: " + pplSingleRow.Email + "\nPassword: test" +
                         "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
                         "\n\nBest Regards,\n\nCustomer Care team";
-                    MailHelper.SendMail(mail);
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("PeopleController (Sendmail): " + e.Message + "-" + e.InnerException);
+                    }
                     mail = SendMailInUserLang(pplSingleRow, db, mail);
                 }
                 else
@@ -134,6 +141,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
+                        LogHelper.WriteLog("PeopleController (Modify): " + e.Message);
                         return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
                     }
                 }
@@ -180,7 +188,14 @@ namespace DPTnew.Controllers
                     "<br/><br/>技術的なご質問は、ログイン後「お問い合わせ」よりお送りいただくことができます。" +
                     "<br/><br/>以上、よろしくお願いいたします。<br/>シンクスリー・カスタマーケアチーム";
                 mail.IsBodyHtml = true;
-                MailHelper.SendMail(mail);
+                try
+                {
+                    MailHelper.SendMail(mail);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("PeopleController (Sendmail): " + e.Message + "-" + e.InnerException);
+                }
             }
             if (pplSingleRow.Language.ToLower() == "korean")
             {
@@ -199,7 +214,14 @@ namespace DPTnew.Controllers
                     "<br/><br/>이상, 잘 부탁드립니다." +
                     "<br/>think3 고객 관리 팀";
                 mail.IsBodyHtml = true;
-                MailHelper.SendMail(mail);
+                try
+                {
+                    MailHelper.SendMail(mail);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("PeopleController (Sendmail): " + e.Message + "-" + e.InnerException);
+                }
             }
             return mail;
         }

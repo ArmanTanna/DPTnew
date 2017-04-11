@@ -38,10 +38,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (Login): " + e.Message);
                 return CreateResponse(HttpStatusCode.Unauthorized, e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (Login): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, "Logged in");
@@ -62,10 +64,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (GetCustomerById): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (GetCustomerById): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -86,10 +90,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (GetAllVendors): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (GetAllVendors): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -110,10 +116,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (GetAllProducts): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (GetAllProducts): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -134,10 +142,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateDptProducts): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateDptProducts): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -159,10 +169,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateCustomer): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateCustomer): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -187,10 +199,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateOrCreateCustomer): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (UpdateOrCreateCustomer): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -212,10 +226,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (CreateCustomer): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (CreateCustomer): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -237,10 +253,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (CreateCustomerBatch): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (CreateCustomerBatch): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
 
@@ -262,10 +280,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (CreateEntitlement): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (CreateEntitlement): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -287,10 +307,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
@@ -312,10 +334,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
+                LogHelper.WriteLog("SafenetController (GenerateLicense): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
+                LogHelper.WriteLog("SafenetController (GenerateLicense): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);

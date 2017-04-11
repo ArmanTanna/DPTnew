@@ -32,7 +32,7 @@ namespace DPTnew.Controllers
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.IsVarExp = Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed");
-            ViewBag.IsVar =  Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
+            ViewBag.IsVar = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             return View();
         }
 
@@ -200,32 +200,33 @@ namespace DPTnew.Controllers
                     else
                         licSingleRow.MachineID = "KIDABCDEFGH";
                 }
-                var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
-                var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(sr)).Max(x => x.LicenseID);
-
-                char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
-                switch (licSingleRow.LicenseID)
-                {
-                    case "POOL":
-                    case "EVAL":
-                        var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
-                        licSingleRow.LicenseID = lId;
-                        break;
-                    case "TEST":
-                        var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
-                        licSingleRow.LicenseID = lid;
-                        break;
-                    case "L":
-                        var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
-                        licSingleRow.LicenseID = LID;
-                        break;
-                    default:
-                        var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
-                        licSingleRow.LicenseID = lID;
-                        break;
-                }
                 try
                 {
+                    var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
+                    var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(sr)).Max(x => x.LicenseID);
+
+                    char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
+                    switch (licSingleRow.LicenseID)
+                    {
+                        case "POOL":
+                        case "EVAL":
+                            var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
+                            licSingleRow.LicenseID = lId;
+                            break;
+                        case "TEST":
+                            var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
+                            licSingleRow.LicenseID = lid;
+                            break;
+                        case "L":
+                            var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
+                            licSingleRow.LicenseID = LID;
+                            break;
+                        default:
+                            var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
+                            licSingleRow.LicenseID = lID;
+                            break;
+                    }
+
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Licenses] (LicenseID, AccountNumber, ProductName, " +
                         "ArticleDetail, Quantity, LicenseType, MachineID, Ancestor, StartDate, EndDate, MaintStartDate, MaintEndDate," +
                         " Version, OriginalProduct, Note, [2Bexp], [2Bval], [2Bins], ExportedNum, MaxExport, Vend_String, FlexType)" +
@@ -239,6 +240,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
+                    LogHelper.WriteLog("LicenseController (AddNew): " + e.Message);
                     return Json(e.Message, JsonRequestBehavior.AllowGet);
                 }
             }

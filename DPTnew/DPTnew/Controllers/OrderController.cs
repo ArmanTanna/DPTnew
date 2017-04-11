@@ -362,7 +362,14 @@ namespace DPTnew.Controllers
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best Regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
-                    MailHelper.SendMail(mail);
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("OrderController (Book): " + e.Message + "-" + e.InnerException);
+                    }
                 }
             }
             return Json("Booked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
@@ -420,7 +427,14 @@ namespace DPTnew.Controllers
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best Regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
-                    MailHelper.SendMail(mail);
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("OrderController (check): " + e.Message + "-" + e.InnerException);
+                    }
                 }
             }
             return Json("Checked OrderNumber: " + orderNumber, JsonRequestBehavior.AllowGet);
@@ -459,7 +473,14 @@ namespace DPTnew.Controllers
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
                                 "\n\nBest Regards,\nDPT orders";
-                            MailHelper.SendMail(mail);
+                            try
+                            {
+                                MailHelper.SendMail(mail);
+                            }
+                            catch (Exception e)
+                            {
+                                LogHelper.WriteLog("OrderController (Reject): " + e.Message + "-" + e.InnerException);
+                            }
                         }
                     }
                 }
@@ -567,7 +588,14 @@ namespace DPTnew.Controllers
                     }
                     MailFooter(mail, lang);
                     mail.IsBodyHtml = true;
-                    MailHelper.SendMail(mail);
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("OrderController (Book): " + e.Message + "-" + e.InnerException);
+                    }
                 }
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");
             }
@@ -711,7 +739,7 @@ namespace DPTnew.Controllers
             {
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName &&
-                    (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L") || u.LicenseID.StartsWith("EDU") 
+                    (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L") || u.LicenseID.StartsWith("EDU")
                     || u.LicenseID.StartsWith("DRO"))).ToList();
                 return Json(licIds, JsonRequestBehavior.AllowGet);
             }
