@@ -209,7 +209,7 @@ namespace DPTnew.Controllers
                 }
                 catch (Exception e)
                 {
-                    LogHelper.WriteLog("CaseController (Insert): " + e.Message + "-" + e.InnerException);
+                    LogHelper.WriteLog("CaseController (Insert): caseID - " + caseRow.CaseId + " -- " + e.Message + "-" + e.InnerException);
                 }
             }
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertSaveMsg;
@@ -335,7 +335,7 @@ namespace DPTnew.Controllers
                                 }
                                 catch (Exception e)
                                 {
-                                    LogHelper.WriteLog("CaseController (Modify): " + e.Message + "-" + e.InnerException);
+                                    LogHelper.WriteLog("CaseController (Modify): caseID - " + caseRow.CaseId + " -- " + e.Message + "-" + e.InnerException);
                                 }
                             }
                         }
@@ -452,7 +452,7 @@ namespace DPTnew.Controllers
                                 }
                                 catch (Exception e)
                                 {
-                                    LogHelper.WriteLog("CaseController (Update): " + e.Message + "-" + e.InnerException);
+                                    LogHelper.WriteLog("CaseController (Update): caseID - " + caseHistoryRow.CaseId + " -- " + e.Message + "-" + e.InnerException);
                                 }
                             }
                             oc.ModifiedOn = DateTime.Now;

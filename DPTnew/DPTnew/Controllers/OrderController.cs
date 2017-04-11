@@ -368,7 +368,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
-                        LogHelper.WriteLog("OrderController (Book): " + e.Message + "-" + e.InnerException);
+                        LogHelper.WriteLog("OrderController (Book): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                     }
                 }
             }
@@ -433,7 +433,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
-                        LogHelper.WriteLog("OrderController (check): " + e.Message + "-" + e.InnerException);
+                        LogHelper.WriteLog("OrderController (check): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                     }
                 }
             }
@@ -479,7 +479,7 @@ namespace DPTnew.Controllers
                             }
                             catch (Exception e)
                             {
-                                LogHelper.WriteLog("OrderController (Reject): " + e.Message + "-" + e.InnerException);
+                                LogHelper.WriteLog("OrderController (Reject): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                             }
                         }
                     }
@@ -594,7 +594,7 @@ namespace DPTnew.Controllers
                     }
                     catch (Exception e)
                     {
-                        LogHelper.WriteLog("OrderController (Book): " + e.Message + "-" + e.InnerException);
+                        LogHelper.WriteLog("OrderController (Approve): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                     }
                 }
                 //db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Orders] SET [STATUS] = 'Approved' WHERE ordernumber='" + orderNumber + "'");

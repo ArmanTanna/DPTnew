@@ -708,6 +708,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isL = /^L[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
+                var isEdu = /^EDU[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FRE[0-9]+$/.test(data.LicenseID);
@@ -725,7 +726,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     }
                 }
                 //check for DEMo licenses
-                if ((isDem || isStage) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
+                if ((isDem || isStage || isEdu) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
                     myTable.buttons(['.renew']).enable(true);
                 }
 
