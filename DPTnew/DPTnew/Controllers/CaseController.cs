@@ -186,7 +186,7 @@ namespace DPTnew.Controllers
                 db.CaseHistories.Add(chl);
                 db.SaveChanges();
 
-                MailMessage mail = new MailMessage("is@dptcorporate.com", "Caseinteractions@think3.eu");
+                MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Caseinteractions@think3.eu");
                 if (newCase.Language.ToLower() == "japanese")
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
@@ -278,7 +278,7 @@ namespace DPTnew.Controllers
 
                             if (oldstatus != "Open")
                             {
-                                MailMessage mail = new MailMessage("is@dptcorporate.com", ncase.Contact);
+                                MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], ncase.Contact);
                                 if (ncase.Contact != ncase.CreatedBy)
                                     mail.Bcc.Add(new MailAddress(dcl.CreatedBy));
                                 mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));
@@ -426,7 +426,7 @@ namespace DPTnew.Controllers
                             }
                             if (!string.IsNullOrEmpty(destmail))
                             {
-                                MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                                MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], destmail);
                                 if (!string.IsNullOrEmpty(varmail))
                                     mail.Bcc.Add(new MailAddress(varmail));
                                 mail.Bcc.Add(new MailAddress("Caseinteractions@think3.eu"));

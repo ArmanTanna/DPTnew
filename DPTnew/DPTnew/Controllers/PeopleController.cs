@@ -100,7 +100,7 @@ namespace DPTnew.Controllers
                     pplSingleRow.LastNameK + "');");
 
                     pplSingleRow.UserId = db.Peoples.Max(u => u.UserId);
-                    MailMessage mail = new MailMessage("is@dptcorporate.com", "dpt@dptcorporate.com");
+                    MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "dpt@dptcorporate.com");
                     mail.Subject = "[DO NOT REPLY] Created new User";
                     mail.Body = "Dear " + pplSingleRow.FirstName + " " + pplSingleRow.LastName +
                         ",\n\na new user has been created with the following credentials:\n\n" +
@@ -175,7 +175,7 @@ namespace DPTnew.Controllers
             {
                 var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                 var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
-                mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
+                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], pplSingleRow.Email);
                 mail.Bcc.Add(new MailAddress(varmail));
                 mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " +
                     pplSingleRow.LastName + " 様";
@@ -201,7 +201,7 @@ namespace DPTnew.Controllers
             {
                 var varmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                 var accName = db.Companies.Where(x => x.AccountNumber == pplSingleRow.AccountNumber).FirstOrDefault().AccountName;
-                mail = new MailMessage("is@dptcorporate.com", pplSingleRow.Email);
+                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], pplSingleRow.Email);
                 mail.Bcc.Add(new MailAddress(varmail));
                 mail.Subject = "고객 센터에 오신 것을 환영 " + accName + " " + pplSingleRow.FirstName + " " +
                     pplSingleRow.LastName + " 님";

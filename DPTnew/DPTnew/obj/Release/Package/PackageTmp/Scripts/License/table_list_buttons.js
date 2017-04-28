@@ -711,7 +711,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isEdu = /^EDU[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
-                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FRE[0-9]+$/.test(data.LicenseID);
+                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }

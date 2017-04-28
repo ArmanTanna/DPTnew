@@ -340,7 +340,7 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
-                            mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Orders@dptcorporate.com");
                             if (o.LineType != "activation")
                                 mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order booked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
@@ -405,7 +405,7 @@ namespace DPTnew.Controllers
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
-                            mail = new MailMessage("is@dptcorporate.com", "Orders@dptcorporate.com");
+                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Orders@dptcorporate.com");
                             if (o.LineType != "activation")
                                 mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order checked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
@@ -467,7 +467,7 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email;
                             else
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
-                            MailMessage mail = new MailMessage("is@dptcorporate.com", destmail);
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], destmail);
                             mail.Subject = "[DO NOT REPLY] Order rejected for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
@@ -573,7 +573,7 @@ namespace DPTnew.Controllers
 
                             inv = o.Invoicer.Trim().ToLower();
                             lang = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Language.ToLower();
-                            mail = new MailMessage("is@dptcorporate.com", clmail);
+                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], clmail);
                             mail.CC.Add(varmail);
                             if (inv == "t3 japan kk")
                                 mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);

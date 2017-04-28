@@ -157,7 +157,7 @@ namespace DPTnew.Controllers
                     }
 
                     //the account is disabled?
-                    if (foundUser.Status == 0 || (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "06 - Partner"))
+                    if (foundUser.Status == 0 || (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "03 - Premium Customer" && foundUser.Company.AccountStatus != "06 - Partner"))
                     {
                         ModelState.AddModelError("", "This account has been disabled");
                         return View(model);
