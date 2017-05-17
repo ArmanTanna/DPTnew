@@ -124,11 +124,21 @@ namespace DPTnew.Controllers
                     else
                     {
                         if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
-                            orderRow.InvoiceNumber = "I17-XXX";
+                        {
+                            var code = from salesR in db.SalesR
+                                       where salesR.SalesRep == orderRow.SalesRep
+                                       select salesR;
+                            orderRow.InvoiceNumber = "I17-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
+                        }
                         else
                         {
                             if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
-                                orderRow.InvoiceNumber = "F17-XXX";
+                            {
+                                var code = from salesR in db.SalesR
+                                           where salesR.SalesRep == orderRow.SalesRep
+                                           select salesR;
+                                orderRow.InvoiceNumber = "F17-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
+                            }
                             else
                                 orderRow.InvoiceNumber = "JJ";
                         }
@@ -223,11 +233,21 @@ namespace DPTnew.Controllers
                             else
                             {
                                 if (o.Invoicer.ToLower().Trim() == "dpt srl")
-                                    o.InvoiceNumber = "I17-XXX";
+                                {
+                                    var code = from salesR in db.SalesR
+                                               where salesR.SalesRep == orderRow.SalesRep
+                                               select salesR;
+                                    orderRow.InvoiceNumber = "I17-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
+                                }
                                 else
                                 {
                                     if (o.Invoicer.ToLower().Trim() == "dpt sarl")
-                                        o.InvoiceNumber = "F17-XXX";
+                                    {
+                                        var code = from salesR in db.SalesR
+                                                   where salesR.SalesRep == orderRow.SalesRep
+                                                   select salesR;
+                                        orderRow.InvoiceNumber = "F17-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
+                                    }
                                     else
                                         o.InvoiceNumber = "JJ";
                                 }
@@ -252,6 +272,19 @@ namespace DPTnew.Controllers
                             o.Note = orderRow.Note;
                             o.Status = "entered";
                             o.Probability = 25;
+                            query = from ord in db.Orders
+                                    where ord.OrderNumber == o.OrderNumber && ord.idxx != orderRow.idxx
+                                    select ord;
+                            if (query.Count() > 0)
+                            {
+                                foreach (Order od in query.ToList())
+                                {
+                                    od.PO_Number = o.PO_Number;
+                                    od.OrderDate = o.OrderDate;
+                                    od.InvoiceDate = o.InvoiceDate;
+                                    od.InvoiceNumber = o.InvoiceNumber;
+                                }
+                            }
                             db.SaveChanges();
                         }
                     }
@@ -360,7 +393,7 @@ namespace DPTnew.Controllers
                     }
                     mail.Body += "</table><br/>" +
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                        "<br/><br/>Best Regards,<br/>DPT Accounting";
+                        "<br/><br/>Best regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
                     try
                     {
@@ -425,7 +458,7 @@ namespace DPTnew.Controllers
                     }
                     mail.Body += "</table><br/>" +
                         "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                        "<br/><br/>Best Regards,<br/>DPT Accounting";
+                        "<br/><br/>Best regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
                     try
                     {
@@ -472,7 +505,7 @@ namespace DPTnew.Controllers
                             mail.Body = "Dear Sir, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
                                 "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
-                                "\n\nBest Regards,\nDPT orders";
+                                "\n\nBest regards,\nDPT orders";
                             try
                             {
                                 MailHelper.SendMail(mail);
@@ -637,7 +670,7 @@ namespace DPTnew.Controllers
                 else
                     mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
                         //"You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                        "<br/><br/>Best Regards,<br/><br/>DPT Accounting";
+                        "<br/><br/>Best regards,<br/><br/>DPT Accounting";
             }
         }
 

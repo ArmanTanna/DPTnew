@@ -201,7 +201,7 @@ namespace DPTnew.Controllers
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + newCase.Description;
                     mail.Body = "Dear User, \n\nThe case #" + caseId + " has been inserted.\n\n" +
                         "Details: " + newCase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
-                        "\n\nBest Regards,\n\nCustomer Care team";
+                        "\n\nBest regards,\n\nCustomer Care team";
                 }
                 try
                 {
@@ -300,7 +300,7 @@ namespace DPTnew.Controllers
                                         mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
                                         mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
                                             "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
-                                            "\n\nBest Regards,\n\nCustomer Care team";
+                                            "\n\nBest regards,\n\nCustomer Care team";
                                     }
                                 }
                                 else
@@ -326,7 +326,7 @@ namespace DPTnew.Controllers
                                             "address (noreply_thinkcare@think3.eu)." +
                                             "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case " +
                                             " \nThank you for your patience and cooperation." +
-                                            "\n\nBest Regards,\n\nCustomer Care team";
+                                            "\n\nBest regards,\n\nCustomer Care team";
                                     }
                                 }
                                 try
@@ -444,7 +444,7 @@ namespace DPTnew.Controllers
                                     mail.Subject = "[DO NOT REPLY] Case #" + chl.CaseId + " has been updated - " + chl.Description;
                                     mail.Body = "Dear User, \n\nThe case #" + chl.CaseId + " status has changed.\n\n" +
                                         "Details: " + chl.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
-                                        "\n\nBest Regards,\n\nCustomer Care team";
+                                        "\n\nBest regards,\n\nCustomer Care team";
                                 }
                                 try
                                 {

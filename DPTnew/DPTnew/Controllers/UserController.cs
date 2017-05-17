@@ -18,6 +18,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 using DPTnew.Helper;
+using System.Net.Mail;
 
 namespace DPTnew.Controllers
 {
@@ -147,6 +148,7 @@ namespace DPTnew.Controllers
                 Regex blurgx = new Regex(@"^BLU[0-9]+$");
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex zrgx = new Regex(@"^Z[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
@@ -156,7 +158,7 @@ namespace DPTnew.Controllers
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID);
+                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
 
@@ -175,23 +177,17 @@ namespace DPTnew.Controllers
                         ue.refId1 = ue.ProtectionKeyId;
                         ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
-                        if (currentlicense.Version == "2015")
+                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
+                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
+                        IList<string> verList = new List<string>();
+                        verList.Add("_20161CANCEL");
+
+                        foreach (var ver in verList)
                         {
-                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
-                            foreach (var it in ue.ProductName.ToList())
+                            foreach (var it in prodName.ToList())
                             {
                                 var repName = it.ToString();
-                                repName = repName.Replace("_20152CANCEL", "_20161CANCEL");
-                                ue.ProductName.Add(repName);
-                            }
-                        }
-                        if (currentlicense.Version == "2016")
-                        {
-                            ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20161CANCEL");
-                            foreach (var it in ue.ProductName.ToList())
-                            {
-                                var repName = it.ToString();
-                                repName = repName.Replace("_20161CANCEL", "_20152CANCEL");
+                                repName = repName.Replace("_20152CANCEL", ver);
                                 ue.ProductName.Add(repName);
                             }
                         }
@@ -422,6 +418,7 @@ namespace DPTnew.Controllers
                 Regex blurgx = new Regex(@"^BLU[0-9]+$");
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex zrgx = new Regex(@"^Z[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
@@ -433,7 +430,7 @@ namespace DPTnew.Controllers
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID);
+                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
@@ -787,9 +784,38 @@ namespace DPTnew.Controllers
                                 context.SaveChanges();
                             }
 
-                            var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                            var company = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                            var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+                            var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
+                            mail.Bcc.Add("Orders@dptcorporate.com");
+                            if (company.FirstOrDefault().Language.ToLower() == "japanese")
+                            {
+                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                                mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
+                                    "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
+                                    "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " + 
+                                    l.file.FileName + "\n\nお客様のライセンスの状況は、http://dpt3.dptcorporate.com/License" +
+                                    " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
+                            }
+                            else
+                            {
+                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                                mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
+                                    "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID + " and .c2v file: " + 
+                                    l.file.FileName + ".\n\nYou can browse the licenses of the companies managed by you at http://dpt3.dptcorporate.com/License" +
+                                    "\n\nBest regards,\n\nDPT Licensing";
+                            }
+                            try
+                            {
+                                MailHelper.SendMail(mail);
+                            }
+                            catch (Exception e)
+                            {
+                                LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                            }
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseCreateMsg;
-                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email;
+                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
                             return View("Success");
                         }
                     }

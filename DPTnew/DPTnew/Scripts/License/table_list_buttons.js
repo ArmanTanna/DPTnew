@@ -705,13 +705,13 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
                 var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
                 var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
-                var isL = /^L[0-9]+$/.test(data.LicenseID);
+                var isL = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID);
                 var isTest = /^TEST[0-9]+$/.test(data.LicenseID);
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
                 var isEdu = /^EDU[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
-                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
+                var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }

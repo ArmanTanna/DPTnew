@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
 using System.Web.Http;
 using System.Web.Security;
@@ -112,6 +113,37 @@ namespace DptLicensingServer.Controllers
                         log.VersionFrom = currentlicense.Version;
                         db.LicenseLogs.Add(log);
                         db.SaveChanges();
+
+                        var company = from cmp in db.Companies where cmp.AccountNumber == currentlicense.AccountNumber select cmp;
+                        var salesRep = from salrep in db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+                        var sr = from cmp in db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                        MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
+                        mail.Bcc.Add("Orders@dptcorporate.com");
+                        if (company.FirstOrDefault().Language.ToLower() == "japanese")
+                        {
+                            mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                            mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
+                                "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
+                                "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
+                                "\n\nお客様のライセンスの状況は、http://dpt3.dptcorporate.com/License" +
+                                " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
+                        }
+                        else
+                        {
+                            mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                            mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
+                                "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID +
+                                ".\n\nYou can browse the licenses of the companies managed by you at http://dpt3.dptcorporate.com/License" +
+                                "\n\nBest regards,\n\nDPT Licensing";
+                        }
+                        try
+                        {
+                            MailHelper.SendMail(mail);
+                        }
+                        catch (Exception e)
+                        {
+                            LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
+                        }
                     }
                 return CreateResponse(HttpStatusCode.OK, newLicenseResult);
 

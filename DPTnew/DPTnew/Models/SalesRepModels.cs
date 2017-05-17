@@ -23,6 +23,7 @@ namespace DPTnew.Models
         public string AccountNumber { get; set; }
         public string SalesProvince { get; set; }
         public string Invoicer { get; set; }
+        public string Code { get; set; }
 
         public virtual ICollection<Company> Companies { get; set; }
 

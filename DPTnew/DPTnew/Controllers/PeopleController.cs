@@ -106,7 +106,7 @@ namespace DPTnew.Controllers
                         ",\n\na new user has been created with the following credentials:\n\n" +
                         "Username: " + pplSingleRow.Email + "\nPassword: test" +
                         "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
-                        "\n\nBest Regards,\n\nCustomer Care team";
+                        "\n\nBest regards,\n\nCustomer Care team";
                     try
                     {
                         MailHelper.SendMail(mail);
