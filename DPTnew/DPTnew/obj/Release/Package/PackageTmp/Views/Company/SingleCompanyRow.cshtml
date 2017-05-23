@@ -9,6 +9,8 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.ModifyUrl = '@Url.Action("Modify", "Company")';
+        yourApp.Urls.GetAllSegments = '@Url.Action("GetAllSegments", "Company")';
+        yourApp.Urls.GetIndustries = '@Url.Action("GetIndustries", "Company")';
 
         function submitform() {
             $(this).find('button[type="submit"]').attr('disabled', 'disabled');
@@ -125,26 +127,34 @@
                 if ($("#accountStatus-choice").val() != "07 - Ex Partner")
                     $("#accountStatus-choice").append("<option value='07 - Ex Partner'>07 - Ex Partner</option>");
 
-                if ($("#segment-choice").val() != "0 To be defined")
-                    $("#segment-choice").append("<option value='0 To be defined'>0 To be defined</option>");
-                if ($("#segment-choice").val() != "1 Components")
-                    $("#segment-choice").append("<option value='1 Components'>1 Components</option>");
-                if ($("#segment-choice").val() != "2 Industrial Machinery")
-                    $("#segment-choice").append("<option value='2 Industrial Machinery'>2 Industrial Machinery</option>");
-                if ($("#segment-choice").val() != "3 Transportation")
-                    $("#segment-choice").append("<option value='3 Transportation'>3 Transportation</option>");
-                if ($("#segment-choice").val() != "4 Consumer & Commercial Products")
-                    $("#segment-choice").append("<option value='4 Consumer & Commercial Products'>4 Consumer & Commercial Products</option>");
-                if ($("#segment-choice").val() != "5 Mold Makers")
-                    $("#segment-choice").append("<option value='5 Mold Makers'>5 Mold Makers</option>");
-                if ($("#segment-choice").val() != "6 Engineering & ID Services")
-                    $("#segment-choice").append("<option value='6 Engineering & ID Services'>6 Engineering & ID Services</option>");
-                if ($("#segment-choice").val() != "7 Software & IT")
-                    $("#segment-choice").append("<option value='7 Software & IT'>7 Software & IT</option>");
-                if ($("#segment-choice").val() != "8 Education")
-                    $("#segment-choice").append("<option value='8 Education'>8 Education</option>");
-                if ($("#segment-choice").val() != "9 Other")
-                    $("#segment-choice").append("<option value='9 Other'>9 Other</option>");
+                $.post(yourApp.Urls.GetAllSegments, {},
+                     function (result) {
+                         for (var i = 0; i < result.length; i++) {
+                             if ($("#segment-choice").val() != result[i])
+                                 $("#segment-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
+                         }
+                     });
+
+                //if ($("#segment-choice").val() != "0 To be defined")
+                //    $("#segment-choice").append("<option value='0 To be defined'>0 To be defined</option>");
+                //if ($("#segment-choice").val() != "1 Components")
+                //    $("#segment-choice").append("<option value='1 Components'>1 Components</option>");
+                //if ($("#segment-choice").val() != "2 Industrial Machinery")
+                //    $("#segment-choice").append("<option value='2 Industrial Machinery'>2 Industrial Machinery</option>");
+                //if ($("#segment-choice").val() != "3 Transportation")
+                //    $("#segment-choice").append("<option value='3 Transportation'>3 Transportation</option>");
+                //if ($("#segment-choice").val() != "4 Consumer & Commercial Products")
+                //    $("#segment-choice").append("<option value='4 Consumer & Commercial Products'>4 Consumer & Commercial Products</option>");
+                //if ($("#segment-choice").val() != "5 Mold Makers")
+                //    $("#segment-choice").append("<option value='5 Mold Makers'>5 Mold Makers</option>");
+                //if ($("#segment-choice").val() != "6 Engineering & ID Services")
+                //    $("#segment-choice").append("<option value='6 Engineering & ID Services'>6 Engineering & ID Services</option>");
+                //if ($("#segment-choice").val() != "7 Software & IT")
+                //    $("#segment-choice").append("<option value='7 Software & IT'>7 Software & IT</option>");
+                //if ($("#segment-choice").val() != "8 Education")
+                //    $("#segment-choice").append("<option value='8 Education'>8 Education</option>");
+                //if ($("#segment-choice").val() != "9 Other")
+                //    $("#segment-choice").append("<option value='9 Other'>9 Other</option>");
 
                 if ($("#language-choice").val() != "english")
                     $("#language-choice").append("<option value='english'>english</option>");
@@ -163,105 +173,112 @@
             }
             $("#segment-choice").change(function () {
                 $("#industry-choice").empty();
-                if ($("#segment-choice").val() == "0 To be defined") {
-                    $("#industry-choice").append('<option value="0.00 To be defined" selected>0.00 To be defined</option>');
-                }
-                if ($("#segment-choice").val() == "1 Components") {
-                    $("#industry-choice").append('<option value="1.00 To be defined" selected>1.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="1.01 Boilers, Tanks" selected>1.01 Boilers, Tanks</option>');
-                    $("#industry-choice").append('<option value="1.02 Cutlery & Handtool Manufacturing" selected>1.02 Cutlery & Handtool Manufacturing</option>');
-                    $("#industry-choice").append('<option value="1.03 Motor Vehicle Parts" selected>1.03 Motor Vehicle Parts</option>');
-                    $("#industry-choice").append('<option value="1.04 Nonmetallic Mineral Products" selected>1.04 Nonmetallic Mineral Products</option>');
-                    $("#industry-choice").append('<option value="1.05 Optical Instruments & Lens" selected>1.05 Optical Instruments & Lens</option>');
-                    $("#industry-choice").append('<option value="1.06 Plastics & Rubber Products" selected>1.06 Plastics & Rubber Products</option>');
-                    $("#industry-choice").append('<option value="1.07 Special Dies" selected>1.07 Special Dies</option>');
-                    $("#industry-choice").append('<option value="1.08 Power Generation & Transmission" selected>1.08 Power Generation & Transmission</option>');
-                    $("#industry-choice").append('<option value="1.09 Pumps & Compressors, Valves" selected>1.09 Pumps & Compressors, Valves</option>');
-                    $("#industry-choice").append('<option value="1.10 Structural Metals" selected>1.10 Structural Metals</option>');
-                    $("#industry-choice").append('<option value="1.11 Standard Components" selected>1.11 Standard Components</option>');
-                    $("#industry-choice").append('<option value="1.99 All Other Fabricated Components" selected>1.99 All Other Fabricated Components</option>');
-                }
-                if ($("#segment-choice").val() == "2 Industrial Machinery") {
-                    $("#industry-choice").append('<option value="2.00 To be defined" selected>2.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="2.01 Special Purpose Machinery" selected>2.01 Special Purpose Machinery</option>');
-                    $("#industry-choice").append('<option value="2.02 Machine Tool" selected>2.02 Machine Tool</option>');
-                    $("#industry-choice").append('<option value="2.03 Material Handling Equipment" selected>2.03 Material Handling Equipment</option>');
-                    $("#industry-choice").append('<option value="2.04 Plastic & Rubber Processing IM" selected>2.04 Plastic & Rubber Processing IM</option>');
-                    $("#industry-choice").append('<option value="2.05 Welding & Soldering Equipment" selected>2.05 Welding & Soldering Equipment</option>');
-                    $("#industry-choice").append('<option value="2.06 Packaging Machinery" selected>2.06 Packaging Machinery</option>');
-                    $("#industry-choice").append('<option value="2.07 Food Processing IM" selected>2.07 Food Processing IM</option>');
-                    $("#industry-choice").append('<option value="2.08 Robotic Systems" selected>2.08 Robotic Systems</option>');
-                    $("#industry-choice").append('<option value="2.09 Glass, Marble & Other Processing IM>2.09 Glass, Marble & Other Processing IM</option>');
-                    $("#industry-choice").append('<option value="2.10 Textile Machinery" selected>2.10 Textile Machinery</option>');
-                    $("#industry-choice").append('<option value="2.11 Woodworking Machinery" selected>2.11 Woodworking Machinery</option>');
-                    $("#industry-choice").append('<option value="2.12 Leather & Paper Processing IM" selected>2.12 Leather & Paper Processing IM</option>');
-                    $("#industry-choice").append('<option value="2.13 Air & Water Processing IM" selected>2.13 Air & Water Processing IM</option>');
-                    $("#industry-choice").append('<option value="2.14 Agriculture, Construction & Mining" selected>2.14 Agriculture, Construction & Mining/option>');
-                    $("#industry-choice").append('<option value="2.99 All Other IM" selected>2.99 All Other IM</option>');
-                }
-                if ($("#segment-choice").val() == "3 Transportation") {
-                    $("#industry-choice").append('<option value="3.00 To be defined" selected>3.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="3.01 Aerospace" selected>3.01 Aerospace</option>');
-                    $("#industry-choice").append('<option value="3.02 Ship & Boat Building" selected>3.02 Ship & Boat Building</option>');
-                    $("#industry-choice").append('<option value="3.03 Motor Vehicles" selected>3.03 Motor Vehicles</option>');
-                    $("#industry-choice").append('<option value="3.04 Military Vehicles" selected>3.04 Military Vehicles</option>');
-                    $("#industry-choice").append('<option value="3.05 Motorcycles, Bicycles" selected>3.05 Motorcycles, Bicycles</option>');
-                    $("#industry-choice").append('<option value="3.06 Railroad" selected>3.06 Railroad</option>');
-                    $("#industry-choice").append('<option value="3.99 All Other Transportation Equipment" selected>3.99 All Other Transportation Equipment</option>');
-                }
-                if ($("#segment-choice").val() == "4 Consumer & Commercial Products") {
-                    $("#industry-choice").append('<option value="4.00 To be defined" selected>4.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="4.01 Measuring & Control Equipment" selected>4.01 Measuring & Control Equipment</option>');
-                    $("#industry-choice").append('<option value="4.02 Household Appliances" selected>4.02 Household Appliances</option>');
-                    $("#industry-choice").append('<option value="4.03 Medical Devices & Equipment" selected>4.03 Medical Devices & Equipment</option>');
-                    $("#industry-choice").append('<option value="4.04 Kitchen, Bath Faucets & Pools" selected>4.04 Kitchen, Bath Faucets & Pools</option>');
-                    $("#industry-choice").append('<option value="4.05 Telecommunication Equipment" selected>4.05 Telecommunication Equipment</option>');
-                    $("#industry-choice").append('<option value="4.06 Computer & Electronics" selected>4.06 Computer & Electronics</option>');
-                    $("#industry-choice").append('<option value="4.07 Power-Driven Handtools" selected>4.07 Power-Driven Handtools</option>');
-                    $("#industry-choice").append('<option value="4.08 Home, Office, Shop Furniture" selected>4.08 Home, Office, Shop Furniture</option>');
-                    $("#industry-choice").append('<option value="4.09 Home Heating & Air Conditioning" selected>4.09 Home Heating & Air Conditioning</option>');
-                    $("#industry-choice").append('<option value="4.10 Lighting Fixtures" selected>4.10 Lighting Fixtures</option>');
-                    $("#industry-choice").append('<option value="4.11 Jewelry, Watches, Clocks" selected>4.11 Jewelry, Watches, Clocks</option>');
-                    $("#industry-choice").append('<option value="4.12 Sporting Goods" selected>4.12 Sporting Goods</option>');
-                    $("#industry-choice").append('<option value="4.13 Toys & Games" selected>4.13 Toys & Games</option>');
-                    $("#industry-choice").append('<option value="4.14 Musical Instruments" selected>4.14 Musical Instruments</option>');
-                    $("#industry-choice").append('<option value="4.15 Eyeglasses" selected>4.15 Eyeglasses</option>');
-                    $("#industry-choice").append('<option value="4.16 Cosmetic, Pharma & Food Packaging" selected>4.16 Cosmetic, Pharma & Food Packaging</option>');
-                    $("#industry-choice").append('<option value="4.17 Home Accessories & Tableware" selected>4.17 Home Accessories & Tableware</option>');
-                    $("#industry-choice").append('<option value="4.99 All Other Products" selected>4.99 All Other Products</option>');
-                }
-                if ($("#segment-choice").val() == "5 Mold Makers") {
-                    $("#industry-choice").append('<option value="5.00 To be defined" selected>5.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="5.01 Forging & Stamping" selected>5.01 Forging & Stamping</option>');
-                    $("#industry-choice").append('<option value="5.02 Plastic Injection Molding" selected>5.02 Plastic Injection Molding</option>');
-                }
-                if ($("#segment-choice").val() == "6 Engineering & ID Services") {
-                    $("#industry-choice").append('<option value="6.00 To be defined" selected>6.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="6.01 Mechanical Components" selected>6.01 Mechanical Components</option>');
-                    $("#industry-choice").append('<option value="6.02 Industrial Machinery & Plants" selected>6.02 Industrial Machinery & Plants</option>');
-                    $("#industry-choice").append('<option value="6.03 Automotive, Aerospace, Transport ID" selected>6.03 Automotive, Aerospace, Transport ID</option>');
-                    $("#industry-choice").append('<option value="6.04 Consumer & Commercial Products ID" selected>6.04 Consumer & Commercial Products ID</option>');
-                    $("#industry-choice").append('<option value="6.05 Molds" selected>6.05 Molds</option>');
-                    $("#industry-choice").append('<option value="6.99 All Other Engineering & ID Services" selected>6.99 All Other Engineering & ID Services</option>');
-                }
-                if ($("#segment-choice").val() == "7 Software & IT") {
-                    $("#industry-choice").append('<option value="7.00 To be defined" selected>7.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="7.02 Solutions Providers" selected>7.02 Solutions Providers</option>');
-                    $("#industry-choice").append('<option value="7.99 All Other" selected>7.99 All Other</option>');
-                }
-                if ($("#segment-choice").val() == "8 Education") {
-                    $("#industry-choice").append('<option value="8.00 To be defined" selected>8.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="8.01 University" selected>8.01 University</option>');
-                    $("#industry-choice").append('<option value="8.02 School" selected>8.02 School</option>');
-                    $("#industry-choice").append('<option value="8.99 All Other" selected>8.99 All Other</option>');
-                }
-                if ($("#segment-choice").val() == "9 Other") {
-                    $("#industry-choice").append('<option value="9.00 To be defined" selected>9.00 To be defined</option>');
-                    $("#industry-choice").append('<option value="9.01 Miscellaneous Manufacturing" selected>9.01 Miscellaneous Manufacturing</option>');
-                    $("#industry-choice").append('<option value="9.02 Miscellaneous Professional Services" selected>9.02 Miscellaneous Professional Services</option>');
-                    $("#industry-choice").append('<option value="9.03 Construction" selected>9.03 Construction</option>');
-                    $("#industry-choice").append('<option value="9.99 All Other" selected>9.99 All Other</option>');
-                }
+                $.post(yourApp.Urls.GetIndustries, { segmentName: $("#segment-choice").val() },
+                     function (result) {
+                         for (var i = 0; i < result.length; i++) {
+                             $("#industry-choice").append("<option value='" + result[i] + "'>" + result[i] + "</option>");
+                         }
+                     });
+
+                //if ($("#segment-choice").val() == "0 To be defined") {
+                //    $("#industry-choice").append('<option value="0.00 To be defined" selected>0.00 To be defined</option>');
+                //}
+                //if ($("#segment-choice").val() == "1 Components") {
+                //    $("#industry-choice").append('<option value="1.00 To be defined" selected>1.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="1.01 Boilers, Tanks" selected>1.01 Boilers, Tanks</option>');
+                //    $("#industry-choice").append('<option value="1.02 Cutlery & Handtool Manufacturing" selected>1.02 Cutlery & Handtool Manufacturing</option>');
+                //    $("#industry-choice").append('<option value="1.03 Motor Vehicle Parts" selected>1.03 Motor Vehicle Parts</option>');
+                //    $("#industry-choice").append('<option value="1.04 Nonmetallic Mineral Products" selected>1.04 Nonmetallic Mineral Products</option>');
+                //    $("#industry-choice").append('<option value="1.05 Optical Instruments & Lens" selected>1.05 Optical Instruments & Lens</option>');
+                //    $("#industry-choice").append('<option value="1.06 Plastics & Rubber Products" selected>1.06 Plastics & Rubber Products</option>');
+                //    $("#industry-choice").append('<option value="1.07 Special Dies" selected>1.07 Special Dies</option>');
+                //    $("#industry-choice").append('<option value="1.08 Power Generation & Transmission" selected>1.08 Power Generation & Transmission</option>');
+                //    $("#industry-choice").append('<option value="1.09 Pumps & Compressors, Valves" selected>1.09 Pumps & Compressors, Valves</option>');
+                //    $("#industry-choice").append('<option value="1.10 Structural Metals" selected>1.10 Structural Metals</option>');
+                //    $("#industry-choice").append('<option value="1.11 Standard Components" selected>1.11 Standard Components</option>');
+                //    $("#industry-choice").append('<option value="1.99 All Other Fabricated Components" selected>1.99 All Other Fabricated Components</option>');
+                //}
+                //if ($("#segment-choice").val() == "2 Industrial Machinery") {
+                //    $("#industry-choice").append('<option value="2.00 To be defined" selected>2.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="2.01 Special Purpose Machinery" selected>2.01 Special Purpose Machinery</option>');
+                //    $("#industry-choice").append('<option value="2.02 Machine Tool" selected>2.02 Machine Tool</option>');
+                //    $("#industry-choice").append('<option value="2.03 Material Handling Equipment" selected>2.03 Material Handling Equipment</option>');
+                //    $("#industry-choice").append('<option value="2.04 Plastic & Rubber Processing IM" selected>2.04 Plastic & Rubber Processing IM</option>');
+                //    $("#industry-choice").append('<option value="2.05 Welding & Soldering Equipment" selected>2.05 Welding & Soldering Equipment</option>');
+                //    $("#industry-choice").append('<option value="2.06 Packaging Machinery" selected>2.06 Packaging Machinery</option>');
+                //    $("#industry-choice").append('<option value="2.07 Food Processing IM" selected>2.07 Food Processing IM</option>');
+                //    $("#industry-choice").append('<option value="2.08 Robotic Systems" selected>2.08 Robotic Systems</option>');
+                //    $("#industry-choice").append('<option value="2.09 Glass, Marble & Other Processing IM>2.09 Glass, Marble & Other Processing IM</option>');
+                //    $("#industry-choice").append('<option value="2.10 Textile Machinery" selected>2.10 Textile Machinery</option>');
+                //    $("#industry-choice").append('<option value="2.11 Woodworking Machinery" selected>2.11 Woodworking Machinery</option>');
+                //    $("#industry-choice").append('<option value="2.12 Leather & Paper Processing IM" selected>2.12 Leather & Paper Processing IM</option>');
+                //    $("#industry-choice").append('<option value="2.13 Air & Water Processing IM" selected>2.13 Air & Water Processing IM</option>');
+                //    $("#industry-choice").append('<option value="2.14 Agriculture, Construction & Mining" selected>2.14 Agriculture, Construction & Mining/option>');
+                //    $("#industry-choice").append('<option value="2.99 All Other IM" selected>2.99 All Other IM</option>');
+                //}
+                //if ($("#segment-choice").val() == "3 Transportation") {
+                //    $("#industry-choice").append('<option value="3.00 To be defined" selected>3.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="3.01 Aerospace" selected>3.01 Aerospace</option>');
+                //    $("#industry-choice").append('<option value="3.02 Ship & Boat Building" selected>3.02 Ship & Boat Building</option>');
+                //    $("#industry-choice").append('<option value="3.03 Motor Vehicles" selected>3.03 Motor Vehicles</option>');
+                //    $("#industry-choice").append('<option value="3.04 Military Vehicles" selected>3.04 Military Vehicles</option>');
+                //    $("#industry-choice").append('<option value="3.05 Motorcycles, Bicycles" selected>3.05 Motorcycles, Bicycles</option>');
+                //    $("#industry-choice").append('<option value="3.06 Railroad" selected>3.06 Railroad</option>');
+                //    $("#industry-choice").append('<option value="3.99 All Other Transportation Equipment" selected>3.99 All Other Transportation Equipment</option>');
+                //}
+                //if ($("#segment-choice").val() == "4 Consumer & Commercial Products") {
+                //    $("#industry-choice").append('<option value="4.00 To be defined" selected>4.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="4.01 Measuring & Control Equipment" selected>4.01 Measuring & Control Equipment</option>');
+                //    $("#industry-choice").append('<option value="4.02 Household Appliances" selected>4.02 Household Appliances</option>');
+                //    $("#industry-choice").append('<option value="4.03 Medical Devices & Equipment" selected>4.03 Medical Devices & Equipment</option>');
+                //    $("#industry-choice").append('<option value="4.04 Kitchen, Bath Faucets & Pools" selected>4.04 Kitchen, Bath Faucets & Pools</option>');
+                //    $("#industry-choice").append('<option value="4.05 Telecommunication Equipment" selected>4.05 Telecommunication Equipment</option>');
+                //    $("#industry-choice").append('<option value="4.06 Computer & Electronics" selected>4.06 Computer & Electronics</option>');
+                //    $("#industry-choice").append('<option value="4.07 Power-Driven Handtools" selected>4.07 Power-Driven Handtools</option>');
+                //    $("#industry-choice").append('<option value="4.08 Home, Office, Shop Furniture" selected>4.08 Home, Office, Shop Furniture</option>');
+                //    $("#industry-choice").append('<option value="4.09 Home Heating & Air Conditioning" selected>4.09 Home Heating & Air Conditioning</option>');
+                //    $("#industry-choice").append('<option value="4.10 Lighting Fixtures" selected>4.10 Lighting Fixtures</option>');
+                //    $("#industry-choice").append('<option value="4.11 Jewelry, Watches, Clocks" selected>4.11 Jewelry, Watches, Clocks</option>');
+                //    $("#industry-choice").append('<option value="4.12 Sporting Goods" selected>4.12 Sporting Goods</option>');
+                //    $("#industry-choice").append('<option value="4.13 Toys & Games" selected>4.13 Toys & Games</option>');
+                //    $("#industry-choice").append('<option value="4.14 Musical Instruments" selected>4.14 Musical Instruments</option>');
+                //    $("#industry-choice").append('<option value="4.15 Eyeglasses" selected>4.15 Eyeglasses</option>');
+                //    $("#industry-choice").append('<option value="4.16 Cosmetic, Pharma & Food Packaging" selected>4.16 Cosmetic, Pharma & Food Packaging</option>');
+                //    $("#industry-choice").append('<option value="4.17 Home Accessories & Tableware" selected>4.17 Home Accessories & Tableware</option>');
+                //    $("#industry-choice").append('<option value="4.99 All Other Products" selected>4.99 All Other Products</option>');
+                //}
+                //if ($("#segment-choice").val() == "5 Mold Makers") {
+                //    $("#industry-choice").append('<option value="5.00 To be defined" selected>5.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="5.01 Forging & Stamping" selected>5.01 Forging & Stamping</option>');
+                //    $("#industry-choice").append('<option value="5.02 Plastic Injection Molding" selected>5.02 Plastic Injection Molding</option>');
+                //}
+                //if ($("#segment-choice").val() == "6 Engineering & ID Services") {
+                //    $("#industry-choice").append('<option value="6.00 To be defined" selected>6.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="6.01 Mechanical Components" selected>6.01 Mechanical Components</option>');
+                //    $("#industry-choice").append('<option value="6.02 Industrial Machinery & Plants" selected>6.02 Industrial Machinery & Plants</option>');
+                //    $("#industry-choice").append('<option value="6.03 Automotive, Aerospace, Transport ID" selected>6.03 Automotive, Aerospace, Transport ID</option>');
+                //    $("#industry-choice").append('<option value="6.04 Consumer & Commercial Products ID" selected>6.04 Consumer & Commercial Products ID</option>');
+                //    $("#industry-choice").append('<option value="6.05 Molds" selected>6.05 Molds</option>');
+                //    $("#industry-choice").append('<option value="6.99 All Other Engineering & ID Services" selected>6.99 All Other Engineering & ID Services</option>');
+                //}
+                //if ($("#segment-choice").val() == "7 Software & IT") {
+                //    $("#industry-choice").append('<option value="7.00 To be defined" selected>7.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="7.02 Solutions Providers" selected>7.02 Solutions Providers</option>');
+                //    $("#industry-choice").append('<option value="7.99 All Other" selected>7.99 All Other</option>');
+                //}
+                //if ($("#segment-choice").val() == "8 Education") {
+                //    $("#industry-choice").append('<option value="8.00 To be defined" selected>8.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="8.01 University" selected>8.01 University</option>');
+                //    $("#industry-choice").append('<option value="8.02 School" selected>8.02 School</option>');
+                //    $("#industry-choice").append('<option value="8.99 All Other" selected>8.99 All Other</option>');
+                //}
+                //if ($("#segment-choice").val() == "9 Other") {
+                //    $("#industry-choice").append('<option value="9.00 To be defined" selected>9.00 To be defined</option>');
+                //    $("#industry-choice").append('<option value="9.01 Miscellaneous Manufacturing" selected>9.01 Miscellaneous Manufacturing</option>');
+                //    $("#industry-choice").append('<option value="9.02 Miscellaneous Professional Services" selected>9.02 Miscellaneous Professional Services</option>');
+                //    $("#industry-choice").append('<option value="9.03 Construction" selected>9.03 Construction</option>');
+                //    $("#industry-choice").append('<option value="9.99 All Other" selected>9.99 All Other</option>');
+                //}
 
             });
         });

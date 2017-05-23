@@ -19,6 +19,8 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net;
 using Microsoft.JScript;
+using System.IO;
+using System.Net.Mail;
 
 namespace DPTnew.Controllers
 {
@@ -44,6 +46,7 @@ namespace DPTnew.Controllers
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.AdminRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             return View();
         }
 
@@ -335,6 +338,142 @@ namespace DPTnew.Controllers
                 }
             }
             return Json("Saved AccountNumber: " + cmpSingleRow.AccountNumber, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetAllSegments()
+        {
+            using (var db = new DptContext())
+            {
+                var segments = db.Segind.Select(x => x.Segment).Distinct().ToList();
+                return Json(segments, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult GetIndustries(string segmentName)
+        {
+            if (string.IsNullOrEmpty(segmentName))
+                return Json("Parameter Missing!", JsonRequestBehavior.AllowGet);
+            using (var db = new DptContext())
+            {
+                var industries = db.Segind.Where(u => u.Segment == segmentName).Select(x => x.Industry).Distinct().ToList();
+                return Json(industries, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SendMail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SendAutomaticMail(HttpPostedFileBase file)
+        {
+            using (StreamReader reader = new StreamReader(file.InputStream))
+            {
+                string line = "";
+                var inClause = new string[] { "tdstyling", "tteampdm", "thinkprint", "tdmolding", "tdxchangereader",
+                                "tdengineering", "teamdev", "tdtooling", "tdengineeringplus", "tdbase", "tdprofessional", "tddrafting" };
+                while ((line = reader.ReadLine()) != null)
+                {
+                    using (var db = new DptContext())
+                    {
+                        try
+                        {
+                            var lics = from lic in db.Licenses
+                                       where lic.AccountNumber == line.Trim() && lic.LicenseID.StartsWith("L") &&
+                                       inClause.Contains(lic.ProductName.ToLower()) && lic.MaintEndDate < DateTime.Now
+                                       select lic;
+                            Dictionary<string, string> machines = new Dictionary<string, string>();
+                            if (lics.Count() > 0)
+                            {
+                                foreach (var lic in lics)
+                                {
+                                    if (machines.ContainsKey(lic.MachineID))
+                                    {
+                                        string val = "";
+                                        machines.TryGetValue(lic.MachineID, out val);
+                                        val += "," + lic.LicenseID + "-" + lic.ProductName;
+                                        machines[lic.MachineID] = val;
+                                    }
+                                    else
+                                        machines.Add(lic.MachineID, lic.LicenseID + "-" + lic.ProductName);
+                                }
+                            }
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "dpt@dptcorporate.com");
+                            mail.Subject = "Iniziativa Zero";
+                            mail.Body = "Gentile Cliente, <br/><br/>Le ricordiamo che l’<b>Iniziativa Zero</b>, che " +
+                                "Le permetterà di ottenere <b>gratuitamente</b> delle licenze <b>think3 aggiornate</b>" +
+                                " all’ultima versione, sta per scadere.<br/>Per scoprire come funziona e tutti i vantaggi" +
+                                " che comporta, La invitiamo a cliccare sul seguente link: http://bit.ly/InitiativeZero." +
+                                "<br/><br/>Nel caso decidesse di sottoscrivere l’Iniziativa, in calce troverà il testo" +
+                                " del modulo di adesione, che dovrà essere riportato su carta intestata della Sua" +
+                                " Azienda, con firma e timbro del CEO o del Responsabile del Suo Dipartimento." +
+                                "<br/><br/>La ringraziamo e Le auguriamo una buona giornata!<br/>" +
+                                "Cordiali saluti,<br/><br/>Team DPT/think3<br/>Viale Angelo Masini, n. 12<br/>c/o " +
+                                "Regus - 40126 Bologna<br/>Tel. +39 051 092 3545<br/><br/>www.dptcorporate.com<br/>" +
+                                "www.think3.eu <br/><br/><hr><i><br/>Luogo, data<br/><br/><br/>" +
+                                "Spett. DPT,<br/><br/>Con la presente comunichiamo la nostra adesione all’Iniziativa " +
+                                "Zero da Voi proposta.<br/><br/>Siamo consapevoli che la suddetta Iniziativa:<br/><br/>" +
+                                "a) comporterà la conversione di tutte le nostre licenze permanenti (PL) fuori " +
+                                "manutenzione in licenze temporanee annuali (ASF), che potremo usare su PC nuovi e/o " +
+                                "in versioni più aggiornate. Tale conversione avverrà esportando le vecchie licenze – " +
+                                "se queste sono legate alle macchine – e/o restituendo le chiavi parallele/USB presso " +
+                                "gli uffici di DPT nel caso di licenze su dispositivi hardware.<br/><br/>" +
+                                "b) è completamente a costo zero e ci consentirà di utilizzare gratuitamente le nuove" +
+                                " licenze fino al 31/05/2018, data in cui le stesse smetteranno di funzionare se non " +
+                                "rinnovate.<br/><br/><table border=1><tr><td align='center'>ID Licenza</td>" +
+                                "<td align='center'>Prodotto</td><td align='center'>ID Macchina</td></tr>";
+                            foreach (var mac in machines.Keys)
+                            {
+                                var vl = "";
+                                machines.TryGetValue(mac, out vl);
+                                var values = vl.Split(',');
+                                var licids = "";
+                                var prods = "";
+                                var i = 0;
+                                foreach (var v in values)
+                                {
+                                    if (i == 0)
+                                    {
+                                        licids += v.Split('-')[0];
+                                        prods += v.Split('-')[1];
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        licids += " / " + v.Split('-')[0];
+                                        prods += " / " + v.Split('-')[1];
+                                    }
+                                }
+                                mail.Body += "<tr><td>" + licids + "</td><td>" + prods + "</td><td align='center'>" + mac + "</td></tr>";
+                            }
+                            mail.Body += "</table><br/><br/>Ci dichiariamo altresì consapevoli che, alla scadenza del " +
+                                "periodo di 12 mesi ad uso gratuito, potremo decidere liberamente se e quante licenze " +
+                                "rinnovare – sempre in modalità ASF -, facendo riferimento ai prezzi speciali riportati " +
+                                "nella tabella sottostante.<br/>Il costo del rinnovo per il secondo anno (e quelli " +
+                                "successivi) corrisponde alla metà del prezzo di listino previsto per le licenze ASF.<br/><br/>" +
+                                "<table border=1><tr><td>Prodotto</td><td>Prezzo rinnovo</td></tr>" +
+                            "<tr><td>TDEngineering</td><td align='center'>1.300€</td></tr><tr><td>TDProfessional</td><td align='center'>2.400€</td></tr>" +
+                            "<tr><td>TDTooling</td><td align='center'>1.900€</td></tr><tr><td>TTeamPDM</td><td align='center'>320€</td></tr></table><br/><br/>" +
+                            "Una volta firmato questo documento e dopo aver esportato le vecchie licenze permanenti e/o" +
+                            " restituito le chiavi USB/parallele, DPT provvederà a fornirci le licenze annuali che ci " +
+                            "spettano.<br/><br/>Cordiali Saluti,<br/><br/><br/>Firma del CEO &<br/>Timbro dell’azienda</i>";
+                            mail.IsBodyHtml = true;
+                            MailHelper.SendMail(mail);
+                        }
+                        catch (Exception e)
+                        {
+                            LogHelper.WriteLog("CompanyController (Mail): accountnumber - " + line + " -- " + e.Message + "-" + e.InnerException);
+                        }
+                    }
+                }
+            }
+
+            ViewBag.ok1 = "The mail was succesfully sent!";
+            return View("Success");
         }
 
         [NonAction]

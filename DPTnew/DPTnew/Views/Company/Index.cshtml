@@ -25,6 +25,7 @@
         yourApp.Urls = yourApp.Urls || {};
         yourApp.Urls.baseUrl = '@Url.Content("~")';
         yourApp.Urls.DataUrl = '@Url.Action("SingleCompanyRow", "Company")';
+        yourApp.Urls.MailUrl = '@Url.Action("SendMail", "Company")';
 
         /* Formatting function for row details - modify as you need */
         function format(d) {
@@ -32,40 +33,40 @@
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
              '<tr>' +
                   '<td><b>' + "@DPTnew.Localization.Resource.Address" + ':</b></td>' +
-                  '<td>' + d.Address + '</td>' +
+              '<td>' + d.Address + '</td>' +
 
-                 '<td><b>' + "@DPTnew.Localization.Resource.ZIP" + ':</b></td>' +
-                  '<td>' + d.ZIP + '</td>' +
+             '<td><b>' + "@DPTnew.Localization.Resource.ZIP" + ':</b></td>' +
+              '<td>' + d.ZIP + '</td>' +
 
-                 '<td><b>' + "@DPTnew.Localization.Resource.City" + ':</b></td>' +
-                  '<td>' + d.City + '</td>' +
+             '<td><b>' + "@DPTnew.Localization.Resource.City" + ':</b></td>' +
+              '<td>' + d.City + '</td>' +
+
+          '</tr>' +
+           '<tr>' +
+
+              '<td><b>' + "@DPTnew.Localization.Resource.Province" + ':</b></td>' +
+              '<td>' + d.Province + '</td>' +
+
+              '<td><b>' + "@DPTnew.Localization.Resource.Country" + ':</b></td>' +
+              '<td>' + d.Country + '</td>' +
+
+              '<td><b>' + "@DPTnew.Localization.Resource.Email" + ':</b></td>' +
+                  '<td>' + d.Email + '</td>' +
 
               '</tr>' +
-               '<tr>' +
+              '<tr>' +
 
-                  '<td><b>' + "@DPTnew.Localization.Resource.Province" + ':</b></td>' +
-                  '<td>' + d.Province + '</td>' +
+                  '<td><b>' + "@DPTnew.Localization.Resource.Phone1" + ':</b></td>' +
+                  '<td>' + d.Phone1 + '</td>' +
 
-                  '<td><b>' + "@DPTnew.Localization.Resource.Country" + ':</b></td>' +
-                  '<td>' + d.Country + '</td>' +
+                  '<td><b>' + "@DPTnew.Localization.Resource.Segment" + ':</b></td>' +
+                  '<td>' + d.Segment + '</td>' +
 
-                  '<td><b>' + "@DPTnew.Localization.Resource.Email" + ':</b></td>' +
-                      '<td>' + d.Email + '</td>' +
+                  '<td><b>' + "@DPTnew.Localization.Resource.Industry" + ':</b></td>' +
+                  '<td>' + d.Industry + '</td>' +
 
-                  '</tr>' +
-                  '<tr>' +
-
-                      '<td><b>' + "@DPTnew.Localization.Resource.Phone1" + ':</b></td>' +
-                      '<td>' + d.Phone1 + '</td>' +
-
-                      '<td><b>' + "@DPTnew.Localization.Resource.Segment" + ':</b></td>' +
-                      '<td>' + d.Segment + '</td>' +
-
-                      '<td><b>' + "@DPTnew.Localization.Resource.Industry" + ':</b></td>' +
-                      '<td>' + d.Industry + '</td>' +
-
-                  '</tr>' +
-                  '</table>';
+              '</tr>' +
+              '</table>';
         }
 
         $(document).ready(function () {
@@ -235,7 +236,21 @@
                                              });
                          },
                          enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true"
-                     }
+                     },
+                         {
+                             text: 'Mail',
+                             className: 'mail',
+                             action: function () {
+                                 $.post(yourApp.Urls.MailUrl, function (result) {
+                                     WinId = window.open('' + yourApp.Urls.MailUrl, '_blank');
+                                     WinId.document.open();
+                                     WinId.document.write(result);
+                                     WinId.document.close();
+                                     myTable.rows('.selected').deselect();
+                                 });
+                             },
+                             enabled: "@ViewBag.AdminRole.ToString().ToLower()" == "true"
+                         }
                     ]
                 });
             myTable.buttons().container().insertBefore('#companies_filter');
@@ -286,10 +301,10 @@
 
             yadcf.init(myTable, [
                 { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.AccountKind")) },
-                { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.AccountStatus")) },
+            { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.AccountStatus")) },
     //{ column_number: 5, filter_default_label: "Select", data: ["j: next month", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last month", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-                { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LastExp")) },
-                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
+            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LastExp")) },
+            { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) }]);
         });
 
 
