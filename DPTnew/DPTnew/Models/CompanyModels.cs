@@ -34,7 +34,7 @@ namespace DPTnew.Models
         [Display(Name = "Province", ResourceType = typeof(Resource))]
         public string Province { get; set; }
         public string Region { get; set; }
-         [Display(Name = "Language", ResourceType = typeof(Resource))]
+        [Display(Name = "Language", ResourceType = typeof(Resource))]
         public string Language { get; set; }
         [Display(Name = "Country", ResourceType = typeof(Resource))]
         public string Country { get; set; }
@@ -89,6 +89,16 @@ namespace DPTnew.Models
         public string ActualBatchCode { get; set; }
         public string UpdateBatchCode { get; set; }
         public string Description { get; set; }
+    }
+
+    [Table("service_Campaigns")]
+    public class CampaignComapny
+    {
+        [Key]
+        public string AccountNumber { get; set; }
+        public string AccountName { get; set; }
+        public string Campaigns { get; set; }
+        public string Flag { get; set; }
     }
 
     [Table("DPT_Companies")]

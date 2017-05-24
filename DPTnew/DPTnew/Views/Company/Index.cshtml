@@ -236,8 +236,8 @@
                                              });
                          },
                          enabled: "@ViewBag.UserRole.ToString().ToLower()" == "true"
-                     },
-                         {
+                     }//,
+                         @*{
                              text: 'Mail',
                              className: 'mail',
                              action: function () {
@@ -250,7 +250,7 @@
                                  });
                              },
                              enabled: "@ViewBag.AdminRole.ToString().ToLower()" == "true"
-                         }
+                         }*@
                     ]
                 });
             myTable.buttons().container().insertBefore('#companies_filter');

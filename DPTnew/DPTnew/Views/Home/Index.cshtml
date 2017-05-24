@@ -154,6 +154,12 @@
                 }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Zero Initiative email", "SendAutomaticMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
             </th>
             <th style="width:33%">
             </th>
@@ -165,10 +171,13 @@
                     <text> Synchronize the Safenet product list info's with the site.</text>
                 }
             </td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Send automatic mail to the customer for initiative Zero.</text>
+                }
+        </td>
+        <td></td>
+    </tr>
+</tbody>
 </table>
-
-

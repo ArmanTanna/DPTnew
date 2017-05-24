@@ -34,6 +34,7 @@ namespace DPTnew.Models
         public DbSet<DptLicenseLog> LicenseLogs { get; set; }
         public DbSet<Activation> Activations { get; set; }
         public DbSet<SegmentIndustry> Segind { get; set; }
+        public DbSet<CampaignComapny> CmpCompanies { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {
