@@ -471,7 +471,7 @@ namespace DptLicensingServer.Controllers
             }
             catch (Exception e)
             {
-                LogHelper.WriteLog("PasswordController (FlexLicense): " + e.Message);
+                LogHelper.WriteLog("PasswordController (FlexLicense): " + e.Message + "-" + e.InnerException);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }

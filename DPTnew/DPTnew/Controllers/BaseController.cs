@@ -171,6 +171,9 @@ namespace DPTnew.Controllers
                 else
                 {
                     var res = new List<DptCases>();
+                    //faster query -> problem tsol & firsTSOLution if use contains
+                    //var companies = _db.Companies.Where(x => salesRep.Contains(x.SalesRep)).Select(u => u.AccountNumber).ToList();
+                    //res = _db.Cases.Where(c => companies.Contains(c.AccountNumber)).ToList();
                     foreach (var sr in salesRep)
                     {
                         var companies = _db.Companies.Where(x => x.SalesRep == sr).Select(u => u.AccountNumber).ToList();

@@ -143,7 +143,6 @@ namespace DPTnew.Controllers
                                 orderRow.InvoiceNumber = "JJ";
                         }
                     }
-                    orderRow.RequestDate = orderRow.OrderDate;
                     if (string.IsNullOrEmpty(orderRow.PO_Number))
                         orderRow.PO_Number = "automatic input " + DateTime.Now;
                     int res = 0;
@@ -191,16 +190,16 @@ namespace DPTnew.Controllers
                     }
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Orders] (Invoicer, InvoicedName, InvoicedNumber, AccountName," +
                         "AccountNumber, OrderNumber, OrderDate, PO_Number, InvoiceNumber, InvoiceDate, NewOldAccount, SalesRep, Currency," +
-                        " LineType, ProductName, ArticleDetail, StartDate, EndDate, RequestDate, Ordered, Invoiced, Quantity, LicenseType," +
-                        " NewRenewal, EURO_PriceList, JPY_PriceList, LeasingCompany, LicenseID, idxx, Note, Probability) VALUES ('" + orderRow.Invoicer + "','" +
+                        " LineType, ProductName, ArticleDetail, StartDate, EndDate, Ordered, Invoiced, Quantity, LicenseType," +
+                        " NewRenewal, EURO_PriceList, JPY_PriceList, LicenseID, idxx, Note, Probability) VALUES ('" + orderRow.Invoicer + "','" +
                         orderRow.InvoicedName + "','" + orderRow.InvoicedNumber + "','" + orderRow.AccountName + "','" + orderRow.AccountNumber
                         + "','" + orderRow.OrderNumber + "','" + orderRow.OrderDate + "','" + orderRow.PO_Number + "','" + orderRow.InvoiceNumber
                         + "','" + orderRow.InvoiceDate + "','" + orderRow.NewOldAccount + "','" + orderRow.SalesRep + "','" +
                         orderRow.Currency + "','" + orderRow.LineType + "','" + orderRow.ProductName + "','" + orderRow.ArticleDetail + "','" +
-                        orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.RequestDate + "','" + orderRow.Ordered + "','" +
+                        orderRow.StartDate + "','" + orderRow.EndDate + "','" + orderRow.Ordered + "','" +
                         orderRow.Invoiced + "','" + orderRow.Quantity + "','" + orderRow.LicenseType + "','" + orderRow.NewRenewal + "','" +
-                        orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LeasingCompany + "','" +
-                        orderRow.LicenseID + "','" + orderRow.idxx + "','" + orderRow.Note + "',25" + ");");
+                        orderRow.EURO_PriceList + "','" + orderRow.JPY_PriceList + "','" + orderRow.LicenseID + "','" + orderRow.idxx + "','"
+                        + orderRow.Note + "',25" + ");");
                 }
                 else
                 {
@@ -256,7 +255,6 @@ namespace DPTnew.Controllers
                                 orderRow.PO_Number = "automatic input " + DateTime.Now;
                             o.InvoiceDate = orderRow.InvoiceDate;
                             o.Invoiced = orderRow.Ordered;
-                            o.RequestDate = orderRow.OrderDate;
                             o.ProductName = orderRow.ProductName;
                             o.ArticleDetail = orderRow.ArticleDetail;
                             o.LicenseID = orderRow.LicenseID;

@@ -419,15 +419,15 @@ namespace DPTnew.Controllers
                                     {
                                         string val = "";
                                         machines.TryGetValue(lic.MachineID, out val);
-                                        val += "," + lic.LicenseID + "-" + lic.ProductName;
+                                        val += "," + lic.LicenseID + "-" + lic.ProductName + "-" + lic.LicenseType + "-" + lic.Quantity;
                                         machines[lic.MachineID] = val;
                                     }
                                     else
-                                        machines.Add(lic.MachineID, lic.LicenseID + "-" + lic.ProductName);
+                                        machines.Add(lic.MachineID, lic.LicenseID + "-" + lic.ProductName + "-" + lic.LicenseType + "-" + lic.Quantity);
                                 }
                             }
                             MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                            if (comp.FirstOrDefault().Language.ToLower() == "italain")
+                            if (comp.FirstOrDefault().Language.ToLower() == "italian")
                             {
                                 mail.Subject = "Iniziativa Zero - " + comp.FirstOrDefault().AccountName;
                                 mail.Body = "Email: " + comp.FirstOrDefault().Email +
@@ -452,7 +452,8 @@ namespace DPTnew.Controllers
                                     "b) è completamente a costo zero e ci consentirà di utilizzare gratuitamente le nuove" +
                                     " licenze fino al 31/05/2018, data in cui le stesse smetteranno di funzionare se non " +
                                     "rinnovate.<br/><br/><table border=1><tr><td align='center'>ID Licenza</td>" +
-                                    "<td align='center'>Prodotto</td><td align='center'>ID Macchina</td></tr>";
+                                    "<td align='center'>Prodotto</td><td align='center'>ID Macchina</td>" +
+                                    "<td align='center'>Tipo Licenza</td><td align='center'>Quantitá</td></tr>";
                             }
                             else
                             {
@@ -479,7 +480,7 @@ namespace DPTnew.Controllers
                                 " keys.<br/><br/>b) is completely free of charge and it will allow us to use the new licenses" +
                                 " until 31/05/2018; after this date, they will stop working unless we renew them.<br/>" +
                                 "<br/><table border=1><tr><td align='center'>License ID</td><td align='center'>Product</td>" +
-                                "<td align='center'>Machine ID</td></tr>";
+                                "<td align='center'>Machine ID</td><td align='center'>License type</td><td align='center'>Quantity</td></tr>";
                             }
                             foreach (var mac in machines.Keys)
                             {
@@ -488,6 +489,8 @@ namespace DPTnew.Controllers
                                 var values = vl.Split(',');
                                 var licids = "";
                                 var prods = "";
+                                var ltype = "";
+                                var qty = 0;
                                 var i = 0;
                                 foreach (var v in values)
                                 {
@@ -495,19 +498,26 @@ namespace DPTnew.Controllers
                                     {
                                         licids += v.Split('-')[0];
                                         prods += v.Split('-')[1];
+                                        ltype += v.Split('-')[2];
                                         i++;
+                                        if (ltype.Contains("f"))
+                                            qty += Int32.Parse(v.Split('-')[3]);
                                     }
                                     else
                                     {
                                         licids += " / " + v.Split('-')[0];
                                         prods += " / " + v.Split('-')[1];
+                                        if (ltype.Contains("f"))
+                                            qty += Int32.Parse(v.Split('-')[3]);
                                     }
                                 }
-                                mail.Body += "<tr><td>" + licids + "</td><td>" + prods + "</td><td align='center'>" + mac + "</td></tr>";
+                                mail.Body += "<tr><td>" + licids + "</td><td>" + prods + "</td><td align='center'>" + mac +
+                                    "</td><td align='center'>" + ltype + "</td><td align='center'>" + (ltype.Contains("f") ? qty.ToString() : "") + "</td></tr>";
                             }
-                            if (comp.FirstOrDefault().Language.ToLower() == "italain")
+                            if (comp.FirstOrDefault().Language.ToLower() == "italian")
                             {
-                                mail.Body += "</table><br/><br/>c) Ci dichiariamo altresì consapevoli che, alla scadenza del " +
+                                mail.Body += "</table><br/>Nota bene: il costo delle licenze in modalità floating corrisponde al 15% in più " +
+                                    "rispetto ai prezzi segnalati sopra.<br/><br/>c) Ci dichiariamo altresì consapevoli che, alla scadenza del " +
                                     "periodo di 12 mesi ad uso gratuito, potremo decidere liberamente se e quante licenze " +
                                     "rinnovare – sempre in modalità ASF -, facendo riferimento ai prezzi speciali riportati " +
                                     "nella tabella sottostante.<br/>Il costo del rinnovo per il secondo anno (e quelli " +
@@ -522,7 +532,8 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                mail.Body += "</table><br/><br/>c) We also acknowledge that, after the free 12-months period," +
+                                mail.Body += "</table><br/>Please, note that the price for floating licenses increases by 15%."+
+                                    "<br/><br/>c) We also acknowledge that, after the free 12-months period," +
                                     " we can freely decide whether and how many licenses we want to renew – always as " +
                                     "ASF -, by referring to the special prices shown in the table below.<br/>The renewal" +
                                     " price for the 2nd year (and the years after) corresponds to half of the ASF price " +

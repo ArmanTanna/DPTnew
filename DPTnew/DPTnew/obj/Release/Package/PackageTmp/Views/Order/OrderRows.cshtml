@@ -47,12 +47,10 @@
                     '<td>' + d[20] + '</td>' +
                 '</tr>' +
                 '<tr>' +
-                    '<td><b>RequestDate:</b></td>' +
-                    '<td>' + d[21] + '</td>' +
                     '<td><b>Status:</b></td>' +
-                    '<td>' + d[22] + '</td>' +
+                    '<td>' + d[21] + '</td>' +
                     '<td><b>Note:</b></td>' +
-                    '<td>' + d[23] + '</td>' +
+                    '<td>' + d[22] + '</td>' +
                 '</tr>' +
                 '</table>';
         }
@@ -85,7 +83,6 @@
                     null,
                     null,
                     null,
-                    { "bVisible": false, },
                     { "bVisible": false, },
                     { "bVisible": false, },
                     { "bVisible": false, },
@@ -339,9 +336,6 @@
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.StrRequestDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
@@ -418,9 +412,6 @@
                     @Html.DisplayFor(modelItem => item.Currency)
                 </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrRequestDate)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>

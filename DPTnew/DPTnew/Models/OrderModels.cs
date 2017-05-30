@@ -47,9 +47,6 @@ namespace DPTnew.Models
         public DateTime EndDate { get; set; }
         [Display(Name = "EndDate", ResourceType = typeof(Resource))]
         public string StrEndDate { get { return EndDate != null ? ((DateTime)EndDate).ToString("yyyy-MM-dd") : ""; } }
-        public DateTime? RequestDate { get; set; }
-        [Display(Name = "Request Date")]
-        public string StrRequestDate { get { return RequestDate != null ? ((DateTime)RequestDate).ToString("yyyy-MM-dd") : ""; } }
         [Display(Name = "Ordered", ResourceType = typeof(Resource))]
         public double Ordered { get; set; }
         public double? Invoiced { get; set; }
@@ -60,7 +57,6 @@ namespace DPTnew.Models
         public string NewRenewal { get; set; }
         public double? EURO_PriceList { get; set; }
         public double? JPY_PriceList { get; set; }
-        public string LeasingCompany { get; set; }
         [Display(Name = "LicenseId", ResourceType = typeof(Resource))]
         public string LicenseID { get; set; }
         [Display(Name = "Status", ResourceType = typeof(Resource))]
