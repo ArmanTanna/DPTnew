@@ -218,6 +218,7 @@ namespace DPTnew.Controllers
                             licSingleRow.LicenseID = lid;
                             break;
                         case "L":
+                        case "Z":
                             var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
                             licSingleRow.LicenseID = LID;
                             break;

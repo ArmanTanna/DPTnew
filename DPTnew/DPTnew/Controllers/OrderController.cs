@@ -204,7 +204,7 @@ namespace DPTnew.Controllers
                 else
                 {
                     var query = from ord in db.Orders
-                                where ord.idxx == orderRow.idxx
+                                where ord.idxx == orderRow.idxx && ord.Status.ToLower() != "lost"
                                 select ord;
                     if (query.Count() > 0)
                     {
@@ -522,12 +522,14 @@ namespace DPTnew.Controllers
         public ActionResult Delete(string orderNumber, int idxx)
         {
             if (string.IsNullOrEmpty(orderNumber) || idxx < 1)
-            {
-                ViewBag.ok1 = "Something went wrong. Cannot delete the order!";
-                return View("Success");
-            }
+                return Json("Something went wrong. Cannot delete the order!", JsonRequestBehavior.AllowGet);
+
             using (var db = new DptContext())
             {
+                var query = db.Orders.Where(x => x.idxx == idxx && x.OrderNumber == orderNumber).FirstOrDefault();
+                if (query != null && query.Status.ToLower() == "lost")
+                    return Json("Something went wrong. Cannot delete the order!", JsonRequestBehavior.AllowGet);
+
                 db.Database.ExecuteSqlCommand("DELETE [dbo].[DPT_Orders] WHERE ordernumber='" + orderNumber + "' and idxx=" + idxx);
             }
             return Json("Deleted OrderNumber: " + orderNumber + ", idxx: " + idxx, JsonRequestBehavior.AllowGet);

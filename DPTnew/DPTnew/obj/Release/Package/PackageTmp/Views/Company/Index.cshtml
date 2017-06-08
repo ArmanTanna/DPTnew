@@ -63,10 +63,15 @@
                   '<td>' + d.Segment + '</td>' +
 
                   '<td><b>' + "@DPTnew.Localization.Resource.Industry" + ':</b></td>' +
-                  '<td>' + d.Industry + '</td>' +
+                      '<td>' + d.Industry + '</td>' +
 
-              '</tr>' +
-              '</table>';
+                  '</tr>' +
+                    '<tr>' +
+
+                      '<td><b>' + "Campaign" + ':</b></td>' +
+                      '<td>' + d.Campaigns + '</td>' +
+                  '</tr>' +
+                  '</table>';
         }
 
         $(document).ready(function () {
@@ -185,7 +190,8 @@
                                  AccountNameK: data.AccountNameK,
                                  ProvinceK: data.ProvinceK,
                                  AddressK: data.AddressK,
-                                 CityK: data.CityK
+                                 CityK: data.CityK,
+                                 Campaigns: data.Campaigns
                              },
                                              function (result) {
                                                  var url = yourApp.Urls.DataUrl;
@@ -225,6 +231,7 @@
                                  Language: null,
                                  AccountNameK: null,
                                  ProvinceK: null,
+                                 Campaigns: null
                              },
                                              function (result) {
                                                  var url = yourApp.Urls.DataUrl;

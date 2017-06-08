@@ -24,8 +24,20 @@
                 }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Safenet Sync", "SyncDB", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Update Product List", "UpdateProductList", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
             </th>
         </tr>
         <tr>
@@ -36,9 +48,45 @@
                 }
             </td>
             <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Synchronize the site company info's with Safenet.</text>
+                }
             </td>
             <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Synchronize the Safenet product list info's with the site.</text>
+                }
             </td>
+        </tr>
+    </tbody>
+</table>
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Zero Initiative email", "SendAutomaticMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
+            </th>
+            <th style="width:33%">
+            </th>
+            <th style="width:33%">
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Send automatic mail to the customer for initiative Zero.</text>
+                }
+            </td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>

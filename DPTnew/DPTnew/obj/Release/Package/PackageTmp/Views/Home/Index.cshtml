@@ -35,7 +35,6 @@
 
 <br />
 <br />
-<br />
 
 <table style="width:100%">
     <tbody>
@@ -52,8 +51,6 @@
     </tbody>
 </table>
 <br />
-<br />
-
 <table style="width:100%">
     <tbody>
         <tr>
@@ -92,7 +89,7 @@
         </tr>
     </tbody>
 </table>
-    </br>
+</br>
 <table style="width:100%">
     <tbody>
         <tr>
@@ -109,13 +106,7 @@
                     <a href="~/Internos" target="_blank"><u>Internos</u></a>
                 }
             </th>
-            <th style="width:33%">
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <u>
-                        @Html.ActionLink("Safenet Sync", "SyncDB", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
-                    </u>
-                }
+            <th style="width:33%">                
             </th>
         </tr>
         <tr>
@@ -133,51 +124,7 @@
                 }
             </td>
             <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <text> Synchronize the site company info's with Safenet.</text>
-                }
             </td>
         </tr>
     </tbody>
-</table>
-    </br>
-<table style="width:100%">
-    <tbody>
-        <tr>
-            <th style="width:33%">
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <u>
-                        @Html.ActionLink("Update Product List", "UpdateProductList", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
-                    </u>
-                }
-            </th>
-            <th style="width:33%">
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <u>
-                        @Html.ActionLink("Zero Initiative email", "SendAutomaticMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
-                    </u>
-                }
-            </th>
-            <th style="width:33%">
-            </th>
-        </tr>
-        <tr>
-            <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <text> Synchronize the Safenet product list info's with the site.</text>
-                }
-            </td>
-            <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <text> Send automatic mail to the customer for initiative Zero.</text>
-                }
-        </td>
-        <td></td>
-    </tr>
-</tbody>
 </table>

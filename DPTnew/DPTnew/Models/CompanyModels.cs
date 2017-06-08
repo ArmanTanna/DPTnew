@@ -48,6 +48,7 @@ namespace DPTnew.Models
         public string ServCompany1 { get; set; }
         public string ServCompany2 { get; set; }
         public string ServCompany3 { get; set; }
+        public string Campaigns { get; set; }
 
         public string AccountNameK { get; set; }
         public string ProvinceK { get; set; }
