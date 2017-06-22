@@ -121,19 +121,19 @@ namespace DptLicensingServer.Controllers
                         mail.Bcc.Add("Orders@dptcorporate.com");
                         if (company.FirstOrDefault().Language.ToLower() == "japanese")
                         {
-                            mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015)";
                             mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                 "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                                 "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
-                                "\n\nお客様のライセンスの状況は、http://dpt3.dptcorporate.com/License" +
+                                "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                                 " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
                         }
                         else
                         {
-                            mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015)";
                             mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                 "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID +
-                                ".\n\nYou can browse the licenses of the companies managed by you at http://dpt3.dptcorporate.com/License" +
+                                ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                 "\n\nBest regards,\n\nDPT Licensing";
                         }
                         try
@@ -181,10 +181,10 @@ namespace DptLicensingServer.Controllers
             if (artDetail == "tsf")
             {
                 currentlicense.MaintStartDate = DateTime.Now;
-                currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                currentlicense.MaintEndDate = DateTime.Now.AddDays(3);
                 currentlicense.StartDate = currentlicense.MaintStartDate;
                 currentlicense.EndDate = currentlicense.MaintEndDate;
-                expdata = DateTime.Now.AddDays(15).ToString("yyyyMMdd");
+                expdata = DateTime.Now.AddDays(3).ToString("yyyyMMdd");
             }
             if (artDetail == "wsf")
             {

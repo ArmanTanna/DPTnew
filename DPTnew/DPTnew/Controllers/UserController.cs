@@ -19,6 +19,7 @@ using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 using DPTnew.Helper;
 using System.Net.Mail;
+using WebMatrix.WebData;
 
 namespace DPTnew.Controllers
 {
@@ -85,6 +86,12 @@ namespace DPTnew.Controllers
         // GET: /Licenses/
         public ActionResult Licenses()
         {
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
+                Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") ||
+                Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoLic"))
+            {
+                return View();
+            }
             var licenses = GetLicenses();
             if (licenses.Count() > 0)
             {
@@ -794,16 +801,16 @@ namespace DPTnew.Controllers
                                 mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
                                 mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                     "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
-                                    "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " + 
-                                    l.file.FileName + "\n\nお客様のライセンスの状況は、http://dpt3.dptcorporate.com/License" +
+                                    "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
+                                    l.file.FileName + "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                                     " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
                             }
                             else
                             {
                                 mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
                                 mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                                    "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID + " and .c2v file: " + 
-                                    l.file.FileName + ".\n\nYou can browse the licenses of the companies managed by you at http://dpt3.dptcorporate.com/License" +
+                                    "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID + " and .c2v file: " +
+                                    l.file.FileName + ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "\n\nBest regards,\n\nDPT Licensing";
                             }
                             try
@@ -876,7 +883,7 @@ namespace DPTnew.Controllers
                     if (currentlicense.ArticleDetail == "tsf")
                     {
                         currentlicense.MaintStartDate = DateTime.Now;
-                        currentlicense.MaintEndDate = DateTime.Now.AddDays(15);
+                        currentlicense.MaintEndDate = DateTime.Now.AddDays(3);
                         currentlicense.StartDate = currentlicense.MaintStartDate;
                         currentlicense.EndDate = currentlicense.MaintEndDate;
                     }

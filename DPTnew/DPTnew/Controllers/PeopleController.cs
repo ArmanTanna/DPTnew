@@ -105,7 +105,7 @@ namespace DPTnew.Controllers
                     mail.Body = "Dear " + pplSingleRow.FirstName + " " + pplSingleRow.LastName +
                         ",\n\na new user has been created with the following credentials:\n\n" +
                         "Username: " + pplSingleRow.Email + "\nPassword: test" +
-                        "\n\nYou can now access DPT3Care website http://dpt3.dptcorporate.com/ " + "by using your credentials." +
+                        "\n\nYou can now access DPT3Care website https://dpt3.dptcorporate.com/ " + "by using your credentials." +
                         "\n\nBest regards,\n\nCustomer Care team";
                     try
                     {
@@ -180,7 +180,7 @@ namespace DPTnew.Controllers
                 mail.Subject = "カスタマーケアへようこそ " + accName + " " + pplSingleRow.FirstName + " " +
                     pplSingleRow.LastName + " 様";
                 mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 様<br/><br/>" +
-                    "いつも大変お世話になっております。<br/><br/>" + "弊社カスタマーケアサイト：DPT3Care サイト（http://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
+                    "いつも大変お世話になっております。<br/><br/>" + "弊社カスタマーケアサイト：DPT3Care サイト（https://dpt3.dptcorporate.com/ ）へのユーザー登録が完了しましたので、お知らせいたします。"
                     + "<br/>ログイン情報は以下の通りです。" + "<br/><br/>ユーザー名：<b>" + pplSingleRow.Email +
                     "</b><br/><br/>パスワードは、ログインページの「Recover if you forgot password」ボタンより設定していただけます。" +
                     "<br/>詳細につきましては、下記「製品インストールガイド」の「２－６．よくあるお問い合わせ」をご参照ください。" +
@@ -206,7 +206,7 @@ namespace DPTnew.Controllers
                 mail.Subject = "고객 센터에 오신 것을 환영 " + accName + " " + pplSingleRow.FirstName + " " +
                     pplSingleRow.LastName + " 님";
                 mail.Body = "<b>" + accName + " " + pplSingleRow.FirstName + " " + pplSingleRow.LastName + "</b> 님<br/><br/>" +
-                    "안녕하세요.<br/><br/>" + "당사 고객 지원 사이트 ：DPT3Care 사이트 （http://dpt3.dptcorporate.com/ ）에 사용자 등록이 완료되었으므로 알려드립니다."
+                    "안녕하세요.<br/><br/>" + "당사 고객 지원 사이트 ：DPT3Care 사이트 （https://dpt3.dptcorporate.com/ ）에 사용자 등록이 완료되었으므로 알려드립니다."
                     + "<br/>로그인 정보는 다음과 같습니다." + "<br/><br/>사용자 이름：<b>" + pplSingleRow.Email +
                     "</b><br/><br/>비밀번호는 로그인 페이지의 'Recover if you forgot password'에서 " +
                     "<br/>이메일 주소 입력 후 'Recover Account'를 클릭하시면 비밀번호 설정 화면을 알리는 이메일이 전달됩니다." +

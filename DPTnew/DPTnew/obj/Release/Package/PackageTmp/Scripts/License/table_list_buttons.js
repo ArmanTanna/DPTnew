@@ -172,7 +172,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
 
         if (data.ArticleDetail.toLocaleLowerCase() === "asf" || data.ArticleDetail.toLocaleLowerCase() === "qsf"
             || data.ArticleDetail.toLocaleLowerCase() === "msf" || data.ArticleDetail.toLocaleLowerCase() === "tsf"
-            || data.ArticleDetail.toLocaleLowerCase() === "wsf") {
+            || data.ArticleDetail.toLocaleLowerCase() === "wsf" || data.ArticleDetail.toLocaleLowerCase() === "asp") {
             postData.tipo = "T";
             postData.expdata = data.MED ? data.MED.replaceAll("-", "") : "";
         }

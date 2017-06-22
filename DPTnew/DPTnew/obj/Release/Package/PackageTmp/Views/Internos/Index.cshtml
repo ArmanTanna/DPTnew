@@ -69,11 +69,17 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
-                        @Html.ActionLink("Zero Initiative email", "SendAutomaticMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                        @Html.ActionLink("Zero Initiative email", "SendZeroCampaignMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
                     </u>
                 }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Zero Bis Initiative email", "SendZeroBisCampaignMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
             </th>
             <th style="width:33%">
             </th>
@@ -82,10 +88,15 @@
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
-                    <text> Send automatic mail to the customer for initiative Zero.</text>
+                    <text> Send automatic emails to customers for Initiative Zero.</text>
                 }
             </td>
-            <td></td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Send automatic emails to customers for Initiative Zero Bis.</text>
+                }
+            </td>
             <td></td>
         </tr>
     </tbody>

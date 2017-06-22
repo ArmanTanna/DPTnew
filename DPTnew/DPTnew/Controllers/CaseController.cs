@@ -31,6 +31,7 @@ namespace DPTnew.Controllers
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.UserNoCase = !(Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"));
             return View();
         }
 
@@ -38,6 +39,11 @@ namespace DPTnew.Controllers
         public JsonResult Search()
         {
             var sps = Request.GetSearchParams();
+            if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"))
+            {
+                return Json(_db.ConvertToSearchResult<DptCases>(sps.FirstOrDefault(), Enumerable.Empty<DptCases>()), JsonRequestBehavior.AllowGet);
+            }
+
             var items = GetCases();
             foreach (var sp in sps)
             {
@@ -191,7 +197,7 @@ namespace DPTnew.Controllers
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
                     mail.Body = "お客様。\n以下のご質問項目 #" + caseId + " が作成されたことをお知らせいたします。\n\n" +
-                        "詳細：\n" + newCase.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
+                        "詳細：\n" + newCase.Details + "\n\nご質問項目の詳細はこちらでご覧ください： https://dpt3.dptcorporate.com/Case" +
                         "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）" +
                         "へ返信されます。\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
@@ -200,7 +206,7 @@ namespace DPTnew.Controllers
                 {
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + newCase.Description;
                     mail.Body = "Dear User, \n\nThe case #" + caseId + " has been inserted.\n\n" +
-                        "Details: " + newCase.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
+                        "Details: " + newCase.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                         "\n\nBest regards,\n\nCustomer Care team";
                 }
                 try
@@ -290,7 +296,7 @@ namespace DPTnew.Controllers
                                     {
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " が更新されました - " + lchr.Description;
                                         mail.Body = "お客様。\nご質問項目 #" + caseRow.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                            "詳細：\n" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
+                                            "詳細：\n" + lchr.Details + "\n\nご質問項目の詳細はこちらでご覧ください： https://dpt3.dptcorporate.com/Case" +
                                             " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                             "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                             "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
@@ -299,7 +305,7 @@ namespace DPTnew.Controllers
                                     {
                                         mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
                                         mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                            "Details: " + lchr.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
+                                            "Details: " + lchr.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                                             "\n\nBest regards,\n\nCustomer Care team";
                                     }
                                 }
@@ -310,7 +316,7 @@ namespace DPTnew.Controllers
                                         mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseRow.CaseId + " をクローズいたしました";
                                         mail.Body = "お客様。\n" + "本件はクローズさせていただきます。\n" +
                                             "より詳しい情報が必要な場合は、お手数ですが再度ご連絡ください。\n\n" +
-                                            "ご質問項目の詳細はこちらでご覧ください：http://dpt3.dptcorporate.com/Case " +
+                                            "ご質問項目の詳細はこちらでご覧ください：https://dpt3.dptcorporate.com/Case " +
                                             "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                             "このメールには返信しないでください。このメールに返信すると無効なメールアドレス" +
                                             "（is@dptcorporate.com）へ返信されます。" +
@@ -324,7 +330,7 @@ namespace DPTnew.Controllers
                                             "To add more information and upload files, we strongly recommend you to use the web site " +
                                             "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
                                             "address (noreply_thinkcare@think3.eu)." +
-                                            "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case " +
+                                            "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case " +
                                             " \nThank you for your patience and cooperation." +
                                             "\n\nBest regards,\n\nCustomer Care team";
                                     }
@@ -434,7 +440,7 @@ namespace DPTnew.Controllers
                                 {
                                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + chl.CaseId + " が更新されました - " + chl.Description;
                                     mail.Body = "お客様。\nご質問項目 #" + chl.CaseId + " が更新されたことをお知らせいたします。\n\n" +
-                                        "詳細：\n" + chl.Details + "\n\nご質問項目の詳細はこちらでご覧ください： http://dpt3.dptcorporate.com/Case" +
+                                        "詳細：\n" + chl.Details + "\n\nご質問項目の詳細はこちらでご覧ください： https://dpt3.dptcorporate.com/Case" +
                                         " \n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）へ返信されます。" +
                                         "\n\n以上、よろしくお願いいたします。\nシンクスリー・カスタマーケア";
@@ -443,7 +449,7 @@ namespace DPTnew.Controllers
                                 {
                                     mail.Subject = "[DO NOT REPLY] Case #" + chl.CaseId + " has been updated - " + chl.Description;
                                     mail.Body = "Dear User, \n\nThe case #" + chl.CaseId + " status has changed.\n\n" +
-                                        "Details: " + chl.Details + "\n\nYou can browse your cases at http://dpt3.dptcorporate.com/Case" +
+                                        "Details: " + chl.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest regards,\n\nCustomer Care team";
                                 }
                                 try

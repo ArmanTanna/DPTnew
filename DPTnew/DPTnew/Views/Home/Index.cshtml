@@ -55,10 +55,13 @@
     <tbody>
         <tr>
             <th style="width:33%">
-                <a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a>
+                <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
             </th>
             <th style="width:33%">
-                <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
+                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"))
+                {
+                    <a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a>
+                }
             </th>
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
@@ -73,9 +76,14 @@
         </tr>
         <tr>
             <td>
-                @DPTnew.Localization.Resource.View_Home_CaseManagement_Text1
+                @DPTnew.Localization.Resource.View_Home_UserGuidebook_Text
             </td>
-            <td>@DPTnew.Localization.Resource.View_Home_UserGuidebook_Text</td>
+            <td>
+                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"))
+                {
+                    @DPTnew.Localization.Resource.View_Home_CaseManagement_Text1
+                }
+            </td>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") ||
                     Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") ||
@@ -106,7 +114,7 @@
                     <a href="~/Internos" target="_blank"><u>Internos</u></a>
                 }
             </th>
-            <th style="width:33%">                
+            <th style="width:33%">
             </th>
         </tr>
         <tr>
@@ -123,8 +131,7 @@
                     <text> For internal use only.</text>
                 }
             </td>
-            <td>
-            </td>
+            <td></td>
         </tr>
     </tbody>
 </table>

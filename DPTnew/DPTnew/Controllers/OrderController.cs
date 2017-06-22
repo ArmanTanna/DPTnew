@@ -390,7 +390,7 @@ namespace DPTnew.Controllers
                                 o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
                     }
                     mail.Body += "</table><br/>" +
-                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "You can browse the orders at https://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
                     try
@@ -455,7 +455,7 @@ namespace DPTnew.Controllers
                                 o.StrEndDate + "</td><td>" + o.Ordered + "</td></tr>";
                     }
                     mail.Body += "</table><br/>" +
-                        "You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                        "You can browse the orders at https://dpt3.dptcorporate.com/Order" +
                         "<br/><br/>Best regards,<br/>DPT Accounting";
                     mail.IsBodyHtml = true;
                     try
@@ -502,7 +502,7 @@ namespace DPTnew.Controllers
                             mail.Subject = "[DO NOT REPLY] Order rejected for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, \n\nThe Order #: " + orderNumber + " has been rejected.\n\n" +
                                 "Account Name: " + o.AccountName.Trim() + "; PO number: " + o.PO_Number + "; Order date: " + o.OrderDate + "\n\n" +
-                                "You can browse and check the orders at http://dpt3.dptcorporate.com/Order" +
+                                "You can browse and check the orders at https://dpt3.dptcorporate.com/Order" +
                                 "\n\nBest regards,\nDPT orders";
                             try
                             {
@@ -642,9 +642,9 @@ namespace DPTnew.Controllers
                 mail.Body += "</table><br/><br/>ライセンス管理の詳細につきましては下記「インストールガイド」の「２．ライセンス」をご覧ください。<br/>" +
                     "(ftp://ftp.think3.jp/tdExtra/InstallGuide/InstallGuide.pdf)<br/><br/>" +
                     "think3 製品の最新のリリースは、下記カスタマーケアサイトのダウンロードエリアからダウンロードすることができます。<br/>" +
-                    "(http://dpt3.dptcorporate.com/Download)<br/><br/>" +
+                    "(https://dpt3.dptcorporate.com/Download)<br/><br/>" +
                     "下記 URL からカスタマーケアへアクセスして、ライセンスを取得してください。<br/>" +
-                    "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "(https://dpt3.dptcorporate.com/license)<br/><br/>" +
                     "なお、ご注文いただいたライセンスと登録されたライセンスに相違がないかどうかを必ずご確認ください。<br/>" +
                     "ライセンスの種類には、ASF（年間使用料）、PL（永久）、PLSS（永久ライセンスのメンテナンスライセンス）等の種類があります。<br/><br/>" +
                     "PLSS ライセンスはライセンス本体ではないため、カスタマーケアサイトに新しいライセンスが増えるわけではありません。<br/>" +
@@ -658,9 +658,9 @@ namespace DPTnew.Controllers
                     mail.Body += "</table><br/><br/>라이선스 관리에 대한 자세한 내용은 아래 'think3 제품 설치 가이드'의 '2. 라이선스'를 참조하십시오.<br/>" +
                     "(ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/kr/InstallGuide_Kr.pdf)<br/><br/>" +
                     " think3 제품의 최신 릴리스는 고객 지원 사이트의 다운로드 영역에서 다운로드 할 수 있습니다.<br/>" +
-                    "(http://dpt3.dptcorporate.com/Download)<br/><br/>" +
+                    "(https://dpt3.dptcorporate.com/Download)<br/><br/>" +
                     "아래 URL에서 고객 센터에 접속하여 라이선스를 취득해야합니다.<br/>" +
-                    "(http://dpt3.dptcorporate.com/license)<br/><br/>" +
+                    "(https://dpt3.dptcorporate.com/license)<br/><br/>" +
                     "또한, 주문하신 라이선스와  등록된 라이선스가 차이가 있는지를반드시 확인하시기 바랍니다. <br/>" +
                     "라이선스 유형은 ASF (연간 라이선스), PL (영구라이선스), PLSS (영구 라이선스의 유지 보수 라이선스) 등의 종류가 있습니다.<br/><br/>" +
                     "PLSS 라이선스는 유지보수 라이선스이기 때문에, 고객 지원 사이트에서 새로운 라이선스가 늘어나는 것은 아닙니다. <br/>" +

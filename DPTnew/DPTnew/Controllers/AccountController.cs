@@ -54,11 +54,10 @@ namespace DPTnew.Controllers
                         return View(model);
                     }
 
-                    if (user.Status == 0 || (user.Company.AccountStatus != "03 - Active Customer" && user.Company.AccountStatus != "03 - Premium Customer" && user.Company.AccountStatus != "06 - Partner"))
+                    if (user.Status == 0 /*|| (user.Company.AccountStatus != "03 - Active Customer" && user.Company.AccountStatus != "03 - Premium Customer" && user.Company.AccountStatus != "06 - Partner")*/)
                     {
                         ModelState.AddModelError("", "This account has been disabled");
                         return View(model);
-
                     }
 
                     if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
@@ -157,7 +156,7 @@ namespace DPTnew.Controllers
                     }
 
                     //the account is disabled?
-                    if (foundUser.Status == 0 || (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "03 - Premium Customer" && foundUser.Company.AccountStatus != "06 - Partner"))
+                    if (foundUser.Status == 0 /*|| (foundUser.Company.AccountStatus != "03 - Active Customer" && foundUser.Company.AccountStatus != "03 - Premium Customer" && foundUser.Company.AccountStatus != "06 - Partner")*/)
                     {
                         ModelState.AddModelError("", "This account has been disabled");
                         return View(model);
