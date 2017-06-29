@@ -266,12 +266,17 @@ namespace DPTnew.Controllers
                             query.FirstOrDefault().CityK = cmpSingleRow.CityK;
                             query.FirstOrDefault().Phone1 = cmpSingleRow.Phone1;
                             query.FirstOrDefault().Phone2 = cmpSingleRow.Phone2;
-                            query.FirstOrDefault().Segment = cmpSingleRow.Segment;
+
                             if (string.IsNullOrEmpty(cmpSingleRow.Segment))
                                 query.FirstOrDefault().Segment = "0 To be defined";
-                            query.FirstOrDefault().Industry = cmpSingleRow.Industry;
+                            else
+                                query.FirstOrDefault().Segment = cmpSingleRow.Segment.Replace("&amp;", "&");
+
                             if (string.IsNullOrEmpty(cmpSingleRow.Industry))
                                 query.FirstOrDefault().Industry = "0.00 To be defined";
+                            else
+                                query.FirstOrDefault().Industry = cmpSingleRow.Industry.Replace("&amp;", "&");
+
                             query.FirstOrDefault().Fax = cmpSingleRow.Fax;
                             query.FirstOrDefault().Website = cmpSingleRow.Website;
                             query.FirstOrDefault().Production = cmpSingleRow.Production;
@@ -693,7 +698,7 @@ namespace DPTnew.Controllers
                                 "<br/>www.think3.eu<br/><br/><hr><br/><br/><u>THE FOLLOWING TEXT HAS TO BE COPIED ON THE " +
                                 "COMPANY’S HEADED PAPER, WITH THE STAMP AND THE SIGNATURE OF THE CEO OR OF THE PERSON IN " +
                                 "CHARGE OF THE DEPARTMENT.</u><br/><br/><br/><i>Location, date<br/><br/><br/>" +
-                                "Dear DPT,<br/><br/>we hereby confirm our enrollment in the Initiative Zero.<br/><br/>" +
+                                "Dear DPT,<br/><br/>we hereby confirm our enrollment in the Initiative Zero Bis.<br/><br/>" +
                                 "We are aware that this Initiative:<br/><br/>a) entails the conversion of all our " +
                                 "out-of-maintenance permanent licenses (PL) into ASF (Annual Subscription Fee) " +
                                 "licenses, which we could use on new PCs and/or in up-to-date versions. This conversion" +

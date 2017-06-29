@@ -121,7 +121,7 @@ namespace DptLicensingServer.Controllers
                         mail.Bcc.Add("Orders@dptcorporate.com");
                         if (company.FirstOrDefault().Language.ToLower() == "japanese")
                         {
-                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015)";
+                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                 "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                                 "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
@@ -130,7 +130,7 @@ namespace DptLicensingServer.Controllers
                         }
                         else
                         {
-                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015)";
+                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                 "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID +
                                 ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +

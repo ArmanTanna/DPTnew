@@ -173,7 +173,7 @@ namespace DPTnew.Controllers
                     // Generate password token that will be used in the email link to authenticate user
                     var token = WebSecurity.GeneratePasswordResetToken(user.UserName);
                     // Generate the html link sent via email
-                    string resetLink = Url.Action("ResetPassword", "Account", new { rt = token }, "http");
+                    string resetLink = Url.Action("ResetPassword", "Account", new { rt = token }, "https");
 
                     // Email stuff
                     string subject = "Reset your password";

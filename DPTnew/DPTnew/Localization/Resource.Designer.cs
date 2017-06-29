@@ -1069,7 +1069,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_2016T1_b21116.iso.
+        ///   Looks up a localized string similar to https://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_2016T1_b21116.iso.
         /// </summary>
         public static string Download2016ThinkDesign32bitSP1 {
             get {
@@ -2127,6 +2127,15 @@ namespace DPTnew.Localization {
         public static string View_Download_Text2 {
             get {
                 return ResourceManager.GetString("View_Download_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To install all CAD products of ThinkDesign suite (TDDrafting, TDBase, TDTooling, TDProfessional, etc.) you just need to &lt;b&gt;download the complete installation package of ThinkDesign&lt;/b&gt;. The different products will then be enabled through specific passwords..
+        /// </summary>
+        public static string View_Download_Warning {
+            get {
+                return ResourceManager.GetString("View_Download_Warning", resourceCulture);
             }
         }
         

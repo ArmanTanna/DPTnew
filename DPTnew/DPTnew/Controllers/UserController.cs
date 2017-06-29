@@ -156,6 +156,7 @@ namespace DPTnew.Controllers
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex zrgx = new Regex(@"^Z[0-9]+$");
+                Regex krgx = new Regex(@"^K[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
@@ -165,7 +166,8 @@ namespace DPTnew.Controllers
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID);
+                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
+                    || krgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
 
@@ -179,8 +181,12 @@ namespace DPTnew.Controllers
                         ue.CrmId = dpt_Company;
                         ue.EntType = "PROTECTIONKEY_UPDATE";
                         ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
-                        if (ue.ProtectionKeyId.StartsWith("0"))
-                            ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
+                        var rem = 4;
+                        while (ue.ProtectionKeyId.StartsWith("0"))
+                        {
+                            ue.ProtectionKeyId = currentlicense.MachineID.Remove(0, rem);
+                            rem++;
+                        }
                         ue.refId1 = ue.ProtectionKeyId;
                         ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
@@ -204,7 +210,7 @@ namespace DPTnew.Controllers
 
                         string input = JsonConvert.SerializeObject(ue);
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -292,7 +298,7 @@ namespace DPTnew.Controllers
                 o["Encoded"] = true;
                 o["C2V"] = c2v;
 
-                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "http");
+                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "https");
 
                 HttpResponseMessage response = await SendJsonAsync(uri, o.ToString());
 
@@ -302,8 +308,12 @@ namespace DPTnew.Controllers
                     JObject contentresult = JObject.Parse(content);
 
                     var currentpkey = currentlicense.MachineID.Remove(0, 3);
-                    if (currentpkey.StartsWith("0"))
-                        currentpkey = currentlicense.MachineID.Remove(0, 4);
+                    var rem = 4;
+                    while (currentpkey.StartsWith("0"))
+                    {
+                        currentpkey = currentlicense.MachineID.Remove(0, rem);
+                        rem++;
+                    }
 
                     string pkey = (string)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"]["id"];
 
@@ -426,6 +436,7 @@ namespace DPTnew.Controllers
                 Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
                 Regex zrgx = new Regex(@"^Z[0-9]+$");
+                Regex krgx = new Regex(@"^K[0-9]+$");
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
@@ -437,7 +448,8 @@ namespace DPTnew.Controllers
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID);
+                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
+                    || krgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
@@ -488,8 +500,12 @@ namespace DPTnew.Controllers
                         e1.CrmId = dpt_Company;
                         e1.EntType = "PROTECTIONKEY_UPDATE";
                         e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
-                        if (e1.ProtectionKeyId.StartsWith("0"))
-                            e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
+                        var rem = 4;
+                        while (e1.ProtectionKeyId.StartsWith("0"))
+                        {
+                            e1.ProtectionKeyId = currentlicense.MachineID.Remove(0, rem);
+                            rem++;
+                        }
                         e1.refId1 = e1.ProtectionKeyId;
                         e1.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
@@ -507,8 +523,12 @@ namespace DPTnew.Controllers
                         e2.CrmId = dpt_Company;
                         e2.EntType = "PROTECTIONKEY_UPDATE";
                         e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 3);
-                        if (e2.ProtectionKeyId.StartsWith("0"))
-                            e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, 4);
+                        var rem = 4;
+                        while (e2.ProtectionKeyId.StartsWith("0"))
+                        {
+                            e2.ProtectionKeyId = currentlicense.MachineID.Remove(0, rem);
+                            rem++;
+                        }
                         e2.refId1 = e2.ProtectionKeyId;
                         e2.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
@@ -544,7 +564,7 @@ namespace DPTnew.Controllers
                         input = JsonConvert.SerializeObject(e2);
                     }
 
-                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                     HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -733,7 +753,7 @@ namespace DPTnew.Controllers
                             input = JsonConvert.SerializeObject(e2);
                         }
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -744,7 +764,10 @@ namespace DPTnew.Controllers
                             string pkey = (string)contentresult["activation"]["activationOutput"]["protectionKeyId"];
                             if (pkey.Length > 10)
                             {
-                                currentlicense.MachineID = "KID" + pkey;
+                                currentlicense.MachineID = "KID";
+                                for (var i = 0; i < 18 - pkey.Length; i++)
+                                    currentlicense.MachineID += "0";
+                                currentlicense.MachineID += pkey;
                             }
                             else
                             {
@@ -798,7 +821,7 @@ namespace DPTnew.Controllers
                             mail.Bcc.Add("Orders@dptcorporate.com");
                             if (company.FirstOrDefault().Language.ToLower() == "japanese")
                             {
-                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                     "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                                     "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
@@ -807,12 +830,14 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014)";
+                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                     "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID + " and .c2v file: " +
                                     l.file.FileName + ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "\n\nBest regards,\n\nDPT Licensing";
                             }
+                            if (currentlicense.LicenseID.StartsWith("K"))
+                                mail.Subject += "with LID: " + currentlicense.LicenseID;
                             try
                             {
                                 MailHelper.SendMail(mail);
