@@ -701,7 +701,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             //check if license is 2015
             if (data.Version >= '2015') {
                 var now = new Date();
-                var isLocal = /^KID[0-9]+$/.test(data.MachineID) || /^RED[0-9]+$/.test(data.MachineID) || /^BLU[0-9]+$/.test(data.MachineID);
+                var isLocal = /^KID[0-9]+$/.test(data.MachineID); //|| /^RED[0-9]+$/.test(data.MachineID) || /^BLU[0-9]+$/.test(data.MachineID);
+                var isBlu = /^BLU[0-9]+$/.test(data.MachineID);
                 var isEval = /^EVAL[0-9]+$/.test(data.LicenseID);
                 var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
                 var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
@@ -725,8 +726,12 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                             myTable.buttons(['.upgrade']).enable(true);
                     }
                 }
+                //upgrade for BLU keys
+                if (isBlu && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating")
+                    myTable.buttons(['.upgrade']).enable(true);
+
                 //check for DEMo licenses
-                if ((isDem || isStage || isEdu) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) {
+                if (((isDem || isStage || isEdu) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1)) {
                     myTable.buttons(['.renew']).enable(true);
                 }
 
