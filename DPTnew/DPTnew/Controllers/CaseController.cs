@@ -144,6 +144,7 @@ namespace DPTnew.Controllers
                 newCase.CreatedOn = DateTime.Now;
                 newCase.CreatedBy = Membership.GetUser().UserName;
                 newCase.Description = GlobalObject.unescape(caseRow.Description);
+                newCase.Description = newCase.Description.Replace("\n", "");
                 newCase.Details = GlobalObject.unescape(caseRow.Details);
                 newCase.ModifiedOn = DateTime.Now;
                 newCase.Platform = caseRow.Platform;
@@ -172,7 +173,7 @@ namespace DPTnew.Controllers
                 chl.CreatedBy = Membership.GetUser().UserName;
                 if (caseRow.File != null)
                 {
-                    var basePath = "E:\\Case";
+                    var basePath = "E:\\Case\\" + DateTime.Now.Year;
                     var folder = caseId;
                     var path = basePath + "\\" + folder;
                     try
@@ -408,6 +409,7 @@ namespace DPTnew.Controllers
                 chl.CaseId = caseHistoryRow.CaseId;
                 chl.CreatedOn = DateTime.Now;
                 chl.Description = GlobalObject.unescape(caseHistoryRow.Description);
+                chl.Description = chl.Description.Replace("\n", "");
                 chl.Details = GlobalObject.unescape(caseHistoryRow.Details);
                 chl.CreatedBy = Membership.GetUser().UserName;
                 db.CaseHistories.Add(chl);
@@ -416,7 +418,7 @@ namespace DPTnew.Controllers
 
                 if (caseHistoryRow.File != null)
                 {
-                    var basePath = "E:\\Case" + "\\" + caseHistoryRow.CaseId.ToString();
+                    var basePath = "E:\\Case\\" + DateTime.Now.Year + "\\" + caseHistoryRow.CaseId.ToString();
                     var folder = casehId;
                     var path = basePath + "\\" + folder;
                     try

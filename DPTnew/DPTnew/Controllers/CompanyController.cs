@@ -60,9 +60,8 @@ namespace DPTnew.Controllers
                 db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
                 var query =
                 from cmp in db.Companies
-                where cmp.AccountStatus == "03 - Active Customer" || cmp.AccountStatus == "03 - Premium Customer" ||
-                    cmp.AccountStatus == "06 - Partner" || cmp.AccountStatus == "04 - Not Active Customer" ||
-                    cmp.AccountStatus == "04 - Not Active Customer OM" || cmp.AccountStatus == "01 - Prospect"
+                where cmp.AccountStatus.Contains("03") || cmp.AccountStatus.Contains("06")
+                    || cmp.AccountStatus.Contains("04") || cmp.AccountStatus.Contains("01")
                 select cmp;
                 if (query.Count() > 0)
                 {
@@ -108,7 +107,7 @@ namespace DPTnew.Controllers
             cc.UserName.UserName = System.Configuration.ConfigurationManager.AppSettings["safenetusername"];
             cc.UserName.Password = System.Configuration.ConfigurationManager.AppSettings["safenetpassword"];
             var safenetUri = new Uri(System.Configuration.ConfigurationManager.AppSettings["safeneturi"]);
-            string errormsg = "DB Sync failed for: ";
+            string errormsg = "Safenet Sync failed for: ";
             using (var db = new DptContext())
             {
                 foreach (SafenetComapny company in db.SafenetCompanies.ToList())
@@ -232,7 +231,8 @@ namespace DPTnew.Controllers
                 return Json("Invalid AccountName", JsonRequestBehavior.AllowGet);
             if (string.IsNullOrEmpty(cmpSingleRow.Email) || (!email.IsMatch(cmpSingleRow.Email)))
                 return Json("Invalid mail", JsonRequestBehavior.AllowGet);
-
+            var safmsg = "";
+            var retmsg = "Saved AccountNumber: " + cmpSingleRow.AccountNumber;
             using (var db = new DptContext())
             {
                 cmpSingleRow.AccountNameK = GlobalObject.unescape(cmpSingleRow.AccountNameK);
@@ -324,39 +324,42 @@ namespace DPTnew.Controllers
                     }
                 }
 
-                if (cmpSingleRow.AccountStatus == "03 - Active Customer" || cmpSingleRow.AccountStatus == "03 - Premium Customer" ||
-                    cmpSingleRow.AccountStatus == "06 - Partner" || cmpSingleRow.AccountStatus == "04 - Not Active Customer" ||
-                    cmpSingleRow.AccountStatus == "04 - Not Active Customer OM" || cmpSingleRow.AccountStatus == "01 - Prospect")
+                if (cmpSingleRow.AccountStatus.Contains("03") || cmpSingleRow.AccountStatus.Contains("06")
+                    || cmpSingleRow.AccountStatus.Contains("04") || cmpSingleRow.AccountStatus.Contains("01"))
                 {
-                    var q =
-                     from cmp in db.SafenetCompanies
-                     where cmp.AccountNumber == cmpSingleRow.AccountNumber
-                     select cmp;
+                    db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
+                    //var q =
+                    // from cmp in db.SafenetCompanies
+                    // where cmp.AccountNumber == cmpSingleRow.AccountNumber
+                    // select cmp;
 
-                    if (q.Count() > 0)
-                    {
-                        q.FirstOrDefault().AccountName = cmpSingleRow.AccountName;
-                        q.FirstOrDefault().Email = cmpSingleRow.Email;
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        SafenetComapny sfnc = new SafenetComapny();
-                        sfnc.AccountNumber = cmpSingleRow.AccountNumber;
-                        sfnc.AccountName = cmpSingleRow.AccountName.ToUpper();
-                        sfnc.Email = cmpSingleRow.Email;
-                        sfnc.FirstName = "DPT";
-                        sfnc.LastName = "User";
-                        sfnc.Description = "Company";
-                        sfnc.Language = cmpSingleRow.Language;
+                    //if (q.Count() > 0)
+                    //{
+                    //    q.FirstOrDefault().AccountName = cmpSingleRow.AccountName;
+                    //    q.FirstOrDefault().Email = cmpSingleRow.Email;
+                    //    db.SaveChanges();
+                    //}
+                    //else
+                    //{
+                    SafenetComapny sfnc = new SafenetComapny();
+                    sfnc.AccountNumber = cmpSingleRow.AccountNumber;
+                    sfnc.AccountName = cmpSingleRow.AccountName.ToUpper();
+                    sfnc.Email = cmpSingleRow.Email;
+                    sfnc.FirstName = "DPT";
+                    sfnc.LastName = "User";
+                    sfnc.Description = "Company";
+                    sfnc.Language = cmpSingleRow.Language;
 
-                        db.SafenetCompanies.Add(sfnc);
-                        db.SaveChanges();
-                    }
-                    SaveCompaniesToSafenetDB();
+                    db.SafenetCompanies.Add(sfnc);
+                    db.SaveChanges();
+                    //}
+                    safmsg = SaveCompaniesToSafenetDB();
+                    db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
+                    if (safmsg.Any(c => char.IsDigit(c)))
+                        retmsg += "; " + safmsg;
                 }
             }
-            return Json("Saved AccountNumber: " + cmpSingleRow.AccountNumber, JsonRequestBehavior.AllowGet);
+            return Json(retmsg, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -616,7 +619,7 @@ namespace DPTnew.Controllers
                             }
                             MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
                             var mails = from ppl in db.Peoples
-                                        where ppl.AccountNumber == line.Trim() 
+                                        where ppl.AccountNumber == line.Trim()
                                         select ppl;
                             switch (comp.FirstOrDefault().Language.ToLower())
                             {

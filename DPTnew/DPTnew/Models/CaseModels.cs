@@ -11,7 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace DPTnew.Models
 {
-    [Table("DPT_Cases")]
+    [Table("Case_Site")]
     public class DptCases
     {
         [Key]

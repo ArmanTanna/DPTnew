@@ -419,6 +419,8 @@ namespace DptLicensingServer.Controllers
             };
             var serialized = JsonConvert.SerializeObject(resp, Formatting.None, settings);
             HttpResponseMessage response = this.Request.CreateResponse(code, serialized);
+            if (!string.IsNullOrEmpty(result))
+                response.ReasonPhrase = result;
             response.Content = new StringContent(serialized, Encoding.UTF8);
             return response;
         }

@@ -32,6 +32,8 @@ namespace DPTnew.Models
         public string EmailStatus { get; set; }
         [Display(Name = "AccountNumber", ResourceType = typeof(Resource))]
         public string AccountNumber { get; set; }
+        [Display(Name = "AccountName", ResourceType = typeof(Resource))]
+        public string AccountName { get; set; }
         [Display(Name = "PrimaryContact", ResourceType = typeof(Resource))]
         public string PrimaryContact { get; set; }
         public string FirstNameK { get; set; }

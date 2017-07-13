@@ -834,7 +834,7 @@ namespace DPTnew.Controllers
                             {
                                 mail.Subject = "[DO NOT REPLY] New license issued (> 2014) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                                    "issued a new license: " + currentlicense.LicenseID + " with MachineID: " + currentlicense.MachineID + " and .c2v file: " +
+                                    "issued a new license.\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
                                     l.file.FileName + ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "\n\nBest regards,\n\nDPT Licensing";
                             }
@@ -852,6 +852,8 @@ namespace DPTnew.Controllers
                             ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
                             return View("Success");
                         }
+                        ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license: " + response.ReasonPhrase);
+                        return View("Create", l);
                     }
 
                 }

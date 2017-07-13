@@ -10,7 +10,6 @@ namespace DPTnew.Models
     [Table("service_SegmentIndustry")]
     public class SegmentIndustry
     {
-
         [Key]
         public string ID { get; set; }
         public string Segment { get; set; }
