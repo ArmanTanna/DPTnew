@@ -190,7 +190,7 @@ var dataSetPrices = [
 ["240", "TW", "TTEAMPCB", "PLM", "500", "100", "200", "tbd", "tbd", "tbd"],
 ["250", "TM", "TTEAMPCM", "PLM", "7500", "1500", "3000", "tbd", "tbd", "tbd"],
 ["260", "WB", "WEBTEAM", "PLM", "10000", "2000", "4000", "tbd", "tbd", "tbd"],
-["300", "AH", "TDXCHANGEREADER", "MORE", "2000", "500", "2000", "290000", "55000", "na"],
+["300", "AH", "TDXCHANGEREADER", "MORE", "2000", "500", "1000", "290000", "55000", "110000"],
 ["310", "IK+XP+IJ", "TDIRECTRW", "MORE", "4500", "0", "1800", "720000", "108000", "360000"],
 ["320", "TR", "THINKPRINT", "MORE", "5000", "1000", "2000", "na", "na", "na"],
 ["340", "TL", "TDVIEWERPLUS <sup>(2)</sup>", "MORE", "1000", "200", "400", "na", "na", "40000"],

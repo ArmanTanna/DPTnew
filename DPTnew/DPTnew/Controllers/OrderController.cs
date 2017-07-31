@@ -372,8 +372,8 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Orders@dptcorporate.com");
-                            if (o.LineType != "activation")
-                                mail.CC.Add(destmail);
+                            //if (o.LineType != "activation")
+                            mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order booked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been booked.<br/><br/>" +
                                 "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
@@ -437,8 +437,8 @@ namespace DPTnew.Controllers
                                 destmail = db.Companies.Where(x => x.AccountNumber == o.InvoicedNumber).FirstOrDefault().Email;
 
                             mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Orders@dptcorporate.com");
-                            if (o.LineType != "activation")
-                                mail.CC.Add(destmail);
+                            //if (o.LineType != "activation")
+                            mail.CC.Add(destmail);
                             mail.Subject = "[DO NOT REPLY] Order checked for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
                             mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been checked.<br/><br/>" +
                                 "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +

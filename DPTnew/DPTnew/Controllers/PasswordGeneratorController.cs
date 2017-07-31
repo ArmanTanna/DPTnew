@@ -130,10 +130,11 @@ namespace DptLicensingServer.Controllers
                         }
                         else
                         {
-                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            mail.Subject = "New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                                "issued a new license.\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
-                                ".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                                "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
+                                "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                                //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                 "\n\nBest regards,\n\nDPT Licensing";
                         }
                         try

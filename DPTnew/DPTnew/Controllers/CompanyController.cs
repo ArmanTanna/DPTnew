@@ -62,6 +62,7 @@ namespace DPTnew.Controllers
                 from cmp in db.Companies
                 where cmp.AccountStatus.Contains("03") || cmp.AccountStatus.Contains("06")
                     || cmp.AccountStatus.Contains("04") || cmp.AccountStatus.Contains("01")
+                    || cmp.AccountStatus.Contains("05")
                 select cmp;
                 if (query.Count() > 0)
                 {
@@ -232,7 +233,7 @@ namespace DPTnew.Controllers
             if (string.IsNullOrEmpty(cmpSingleRow.Email) || (!email.IsMatch(cmpSingleRow.Email)))
                 return Json("Invalid mail", JsonRequestBehavior.AllowGet);
             var safmsg = "";
-            var retmsg = "Saved AccountNumber: " + cmpSingleRow.AccountNumber;
+            var retmsg = "Saved AccountNumber: ";
             using (var db = new DptContext())
             {
                 cmpSingleRow.AccountNameK = GlobalObject.unescape(cmpSingleRow.AccountNameK);
@@ -259,6 +260,7 @@ namespace DPTnew.Controllers
                             query.FirstOrDefault().ZIP = cmpSingleRow.ZIP;
                             query.FirstOrDefault().City = cmpSingleRow.City;
                             query.FirstOrDefault().Province = cmpSingleRow.Province;
+                            query.FirstOrDefault().Country = cmpSingleRow.Country;
                             query.FirstOrDefault().Email = cmpSingleRow.Email;
                             query.FirstOrDefault().AccountNameK = cmpSingleRow.AccountNameK;
                             query.FirstOrDefault().ProvinceK = cmpSingleRow.ProvinceK;
@@ -285,6 +287,7 @@ namespace DPTnew.Controllers
                                 query.FirstOrDefault().Language = "english";
                             query.FirstOrDefault().SalesRep = cmpSingleRow.SalesRep;
                             db.SaveChanges();
+                            retmsg += cmpSingleRow.AccountNumber;
                         }
                     }
                     catch (Exception e)
@@ -316,6 +319,7 @@ namespace DPTnew.Controllers
                         "','" + cmpSingleRow.Website + "',N'" + cmpSingleRow.Segment + "',N'" + cmpSingleRow.Industry + "','" +
                         cmpSingleRow.Production + "','" + cmpSingleRow.SalesRep + "','" + cmpSingleRow.Language + "',N'" + cmpSingleRow.AccountNameK
                         + "',N'" + cmpSingleRow.ProvinceK + "',N'" + cmpSingleRow.AddressK + "',N'" + cmpSingleRow.CityK + "');");
+                        retmsg += cmpSingleRow.AccountNumber;
                     }
                     catch (Exception e)
                     {
@@ -325,7 +329,8 @@ namespace DPTnew.Controllers
                 }
 
                 if (cmpSingleRow.AccountStatus.Contains("03") || cmpSingleRow.AccountStatus.Contains("06")
-                    || cmpSingleRow.AccountStatus.Contains("04") || cmpSingleRow.AccountStatus.Contains("01"))
+                    || cmpSingleRow.AccountStatus.Contains("04") || cmpSingleRow.AccountStatus.Contains("01")
+                    || cmpSingleRow.AccountStatus.Contains("05"))
                 {
                     db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
                     //var q =
