@@ -270,10 +270,10 @@ namespace DPTnew.Controllers
                             return View("Success");
                         }
                         var oldstatus = caseRow.Status;
-                        if (caseRow.Status == "Open")
+                        if (caseRow.Status.ToLower() == "open")
                             caseRow.Status = "Working";
 
-                        if (ncase.Status != caseRow.Status)
+                        if (ncase.Status.ToLower() != caseRow.Status.ToLower())
                         {
                             var dcl = new DptCaseLog();
                             dcl.CaseId = caseRow.CaseId;
@@ -283,7 +283,7 @@ namespace DPTnew.Controllers
                             db.CaseLogs.Add(dcl);
                             db.SaveChanges();
 
-                            if (oldstatus != "Open")
+                            if (oldstatus.ToLower() != "open")
                             {
                                 MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], ncase.Contact);
                                 if (ncase.Contact != ncase.CreatedBy)

@@ -849,6 +849,27 @@ namespace DPTnew.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult VarCompanies()
+        {
+            using (var db = new DptContext())
+            {
+                var res = from c in db.Companies
+                          orderby c.SalesRep
+                          group c by c.SalesRep into grp
+                          select new { key = grp.Key, cnt = grp.Count() };
+
+                var data = new List<string>();
+                foreach (var r in res)
+                    data.Add(r.key + "-" + r.cnt);
+
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(data).ToString(Formatting.None));
+                ViewBag.Data = System.Convert.ToBase64String(plainTextBytes);
+
+                return View();
+            }
+        }
+
         [NonAction]
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {

@@ -82,6 +82,12 @@
                 }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Var Companies Chart", "VarCompanies", "Company", null, null)
+                    </u>
+                }
             </th>
         </tr>
         <tr>
@@ -97,7 +103,12 @@
                     <text> Send automatic emails to customers for Initiative Zero Bis.</text>
                 }
             </td>
-            <td></td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Chart test: how many companies are owned by each VAR.</text>
+                }
+            </td>
         </tr>
     </tbody>
 </table>

@@ -12,7 +12,7 @@ namespace DPTnew.Helper
         public static void SendMail(MailMessage mail)
         {
             SmtpClient client = new SmtpClient();
-            client.Port = 25;
+            //client.Port = 25;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["hostusername"],
@@ -21,6 +21,7 @@ namespace DPTnew.Helper
             client.Port = 587;
             client.EnableSsl = true;
             client.Send(mail);
+            client.Dispose();
         }
     }
 }

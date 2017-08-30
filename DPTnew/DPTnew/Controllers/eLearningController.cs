@@ -23,6 +23,8 @@ namespace DPTnew.Controllers
                     return View("Index_it");
                 if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
                     return View("Index_jp");
+                if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 3)
+                    return View("Index_kr");
                 return View();
             }
         }
