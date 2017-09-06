@@ -125,6 +125,7 @@ namespace DptLicensingServer.Controllers
                             mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                 "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                                 "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
+                                "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                                 " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
                         }
@@ -134,6 +135,7 @@ namespace DptLicensingServer.Controllers
                             mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                 "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
                                 "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                                "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                 "\n\nBest regards,\n\nDPT Licensing";
                         }

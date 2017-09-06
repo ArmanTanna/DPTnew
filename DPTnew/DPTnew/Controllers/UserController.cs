@@ -389,13 +389,18 @@ namespace DPTnew.Controllers
         private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix)
         {
             var prodName = new JArray();
-            if (pwdCode.StartsWith("VA"))
+            if (pwdCode.StartsWith("VA"))//tdvar
             {
                 prodName = new JArray(SafenetEntitlement.TDVARBundle.Select(x => x + productPostfix).ToArray());
             }
-            else if (pwdCode.StartsWith("IX"))
+            else if (pwdCode.StartsWith("IX"))//tdirectrw
             {
                 prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+            }
+            else if (pwdCode.StartsWith("AH")) //tdxchangereader
+            {
+                prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+                prodName.Add(productName + productPostfix);
             }
             else
             {
@@ -819,7 +824,8 @@ namespace DPTnew.Controllers
                             var company = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
                             var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
                             var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
-                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);//company.FirstOrDefault().Email
+                            //mail.CC.Add(sr.FirstOrDefault().Email);
                             mail.Bcc.Add("Orders@dptcorporate.com");
                             if (company.FirstOrDefault().Language.ToLower() == "japanese")
                             {
@@ -827,7 +833,8 @@ namespace DPTnew.Controllers
                                 mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                                     "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                                     "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
-                                    l.file.FileName + "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
+                                    l.file.FileName + "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                                     " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
                             }
                             else
@@ -836,6 +843,7 @@ namespace DPTnew.Controllers
                                 mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                     "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
                                     l.file.FileName + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                                    "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "\n\nBest regards,\n\nDPT Licensing";
                             }

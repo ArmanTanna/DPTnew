@@ -711,7 +711,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isDem = /^DEM[0-9]+$/.test(data.LicenseID);
                 var isEdu = /^EDU[0-9]+$/.test(data.LicenseID);
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
-                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
+                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
@@ -745,11 +745,13 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     myTable.buttons(['.import']).enable(true);
                 }
             } else {
-                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID);
-                var isZEF = /^ZER[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID) || /^FRE[0-9]+$/.test(data.LicenseID);
-                var isL = /^L[0-9]+$/.test(data.LicenseID);
-
-                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF)) {
+                var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
+                var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
+                var isL = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID) || /^K[0-9]+$/.test(data.LicenseID);;
+                if (data.MaintEndDate != null) {
+                    var maintenddate = parseJsonDate(data.MaintEndDate);
+                }
+                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF) && maintenddate >= new Date()) {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
