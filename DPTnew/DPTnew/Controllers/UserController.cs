@@ -210,7 +210,7 @@ namespace DPTnew.Controllers
 
                         string input = JsonConvert.SerializeObject(ue);
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -240,10 +240,52 @@ namespace DPTnew.Controllers
                                 context.LicenseLogs.Add(log);
                                 context.SaveChanges();
                             }
+                            var company = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                            var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+                            var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], company.FirstOrDefault().Email);
+                            mail.CC.Add(sr.FirstOrDefault().Email);
+                            mail.Bcc.Add("Orders@dptcorporate.com");
+                            if (company.FirstOrDefault().Language.ToLower() == "japanese")
+                            {
+                                mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                                mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
+                                mail.Body = "<pre>DPT User 様。<br/>ライセンスのエクスポート操作が開始されました。<br/>以下の手順を実行して、エクスポート操作を完了してください。" +
+                                    "<br/><br/>1. <b>Safenet Admin Control Center</b>（ http://localhost:1947 ）<b>のアップデート／アタッチ</b> セクションで、受け取った .v2c ファイルを適用 <br/>" +
+                                    "2.	エクスポート検証：<br/>  2a) <b>Admin Control Center</b>（ http://localhost:1947 ）→ <b>Sentinel キー</b> → C2V ボタン（アクション欄） → C2V ファイルのダウンロード<br/>" +
+                                    "  2b) <b>DPT3Care</b>（ https://dpt3.dptcorporate.com ）サイトへログインして Licenses ページを表示 → エクスポートするライセンスの行を選択 → <b>エクスポート検証</b> ボタン → 前の手順で作成した .c2v ファイルをアップロード<br/>" +
+                                    "3.	これでエクスポート操作が完了し、ライセンスを別のＰＣにインストールすることができます。<br/><br/><br/>" +
+                                    "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + "<br/>マシンＩＤ: " +
+                                    currentlicense.MachineID + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
+                                    "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services";
+                            }
+                            else
+                            {
+                                mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Body = "<pre>Dear User, <br/><br/>You are exporting your license.<br/><br/>Please follow these steps to complete the Export operation:" +
+                                    "<br/><br/>1. Insert the .v2c file you received in the <b>Update/Attach</b> section of the <b>Safenet Admin Control Center</b> (http://localhost:1947)." +
+                                    "<br/><br/>2. Validate Export:<br/><br/>  2a. <b>Admin Control Center</b> (http://localhost:1947) -> <b>Sentinel keys</b> -> C2V button (Action column) -> download the .c2v file." +
+                                    "<br/><br/>  2b. <b>DPT3Care</b> (https://dpt3.dptcorporate.com - refresh the Licenses page) -> click on the license’s row -> <b>Validate Export button </b> upload the downloaded .c2v file." +
+                                    "<br/><br/>3. You are now ready to reinstall your license on another PC." +
+                                    "<br/><br/><br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + "<br/>MachineID: " + currentlicense.MachineID +
+                                    "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
+                                    //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                                    "<br/><br/>Best regards,<br/><br/>DPT Services";
+                            }
 
-                            var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                            mail.IsBodyHtml = true;
+                            try
+                            {
+                                MailHelper.SendMail(mail);
+                            }
+                            catch (Exception e)
+                            {
+                                LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                            }
+
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseExportMsg;
-                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email;
+                            ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
                             return View("Success");
                         }
                         else
@@ -298,7 +340,7 @@ namespace DPTnew.Controllers
                 o["Encoded"] = true;
                 o["C2V"] = c2v;
 
-                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "https");
+                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "http");
 
                 HttpResponseMessage response = await SendJsonAsync(uri, o.ToString());
 
@@ -571,7 +613,7 @@ namespace DPTnew.Controllers
                         input = JsonConvert.SerializeObject(e2);
                     }
 
-                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
+                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
 
                     HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -607,10 +649,44 @@ namespace DPTnew.Controllers
                             context.LicenseLogs.Add(log);
                             context.SaveChanges();
                         }
-
-                        var k = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                        var company = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
+                        var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+                        var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                        MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], company.FirstOrDefault().Email);
+                        mail.CC.Add(sr.FirstOrDefault().Email);
+                        mail.Bcc.Add("Orders@dptcorporate.com");
+                        if (company.FirstOrDefault().Language.ToLower() == "japanese")
+                        {
+                            mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                            mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
+                            mail.Body = "DPT User 様。\n\n先ほど DPT ライセンスサービスよりライセンスパスワードを含む .v2c ファイルをお送りいたしました。\n" +
+                                "以下にライセンスの詳細を記載いたします。\n\nライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID +
+                                "\n製品: " + currentlicense.ProductName + "\nバージョン: " + version +
+                                "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                "\n\n以上、よろしくお願いいたします。\nDPT Services";
+                        }
+                        else
+                        {
+                            mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            mail.Body = "Dear User, \n\nYou should have just received a message from DPT Licensing containing a .v2c password file." +
+                                "\nHere below you'll find more details:\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
+                                "\nProduct: " + currentlicense.ProductName + "\nVersion: " + version +
+                                "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                                "\n\nBest regards,\n\nDPT Services";
+                            if (currentlicense.LicenseID.StartsWith("K"))
+                                mail.Subject += "with LID: " + currentlicense.LicenseID;
+                        }
+                        try
+                        {
+                            MailHelper.SendMail(mail);
+                        }
+                        catch (Exception e)
+                        {
+                            LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                        }
                         //ViewBag.ok1 = "You have generated your license.";
-                        return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + k.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
+                        return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
                     }
                 }
             }
@@ -760,7 +836,7 @@ namespace DPTnew.Controllers
                             input = JsonConvert.SerializeObject(e2);
                         }
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -824,31 +900,32 @@ namespace DPTnew.Controllers
                             var company = from cmp in _db.Companies where cmp.AccountNumber == dpt_Company select cmp;
                             var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
                             var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
-                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);//company.FirstOrDefault().Email
-                            //mail.CC.Add(sr.FirstOrDefault().Email);
+                            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], company.FirstOrDefault().Email);
+                            mail.CC.Add(sr.FirstOrDefault().Email);
                             mail.Bcc.Add("Orders@dptcorporate.com");
                             if (company.FirstOrDefault().Language.ToLower() == "japanese")
                             {
-                                mail.Subject = "[DO NOT REPLY] New license issued (> 2014) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                                mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
-                                    "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
-                                    "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
-                                    l.file.FileName + "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
-                                    "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
-                                    " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
+                                mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                                mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
+                                mail.Body = "DPT User 様。\n\n先ほど DPT ライセンスサービスよりライセンスパスワードを含む .v2c ファイルをお送りいたしました。\n" +
+                                    "以下にライセンスの詳細を記載いたします。\n\nライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID + "\n.c2v ファイル: " +
+                                    l.file.FileName + "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
+                                    "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    "\n\n以上、よろしくお願いいたします。\nDPT Services";
                             }
                             else
                             {
-                                mail.Subject = "New license issued (> 2014) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                                mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                                    "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
+                                mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Body = "Dear User, \n\nYou should have just received a message from DPT Licensing containing a .v2c password file." +
+                                    "\nHere below you'll find more details:\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
                                     l.file.FileName + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
                                     "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
-                                    "\n\nBest regards,\n\nDPT Licensing";
+                                    "\n\nBest regards,\n\nDPT Services";
+                                if (currentlicense.LicenseID.StartsWith("K"))
+                                    mail.Subject += "with LID: " + currentlicense.LicenseID;
                             }
-                            if (currentlicense.LicenseID.StartsWith("K"))
-                                mail.Subject += "with LID: " + currentlicense.LicenseID;
+
                             try
                             {
                                 MailHelper.SendMail(mail);
