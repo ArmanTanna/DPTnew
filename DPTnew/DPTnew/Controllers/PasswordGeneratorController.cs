@@ -123,15 +123,16 @@ namespace DptLicensingServer.Controllers
                         {
                             mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
-                                "Company Name: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
-                                "LicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
-                                "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                "会社名: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
+                                "ライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID +
+                                "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
+                                "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                                 " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
                         }
                         else
                         {
-                            mail.Subject = "New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
                                 "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
                                 "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +

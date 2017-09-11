@@ -210,7 +210,7 @@ namespace DPTnew.Controllers
 
                         string input = JsonConvert.SerializeObject(ue);
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -262,7 +262,7 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "<pre>Dear User, <br/><br/>You are exporting your license.<br/><br/>Please follow these steps to complete the Export operation:" +
                                     "<br/><br/>1. Insert the .v2c file you received in the <b>Update/Attach</b> section of the <b>Safenet Admin Control Center</b> (http://localhost:1947)." +
                                     "<br/><br/>2. Validate Export:<br/><br/>  2a. <b>Admin Control Center</b> (http://localhost:1947) -> <b>Sentinel keys</b> -> C2V button (Action column) -> download the .c2v file." +
@@ -340,7 +340,7 @@ namespace DPTnew.Controllers
                 o["Encoded"] = true;
                 o["C2V"] = c2v;
 
-                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "http");
+                string uri = Url.Action("CheckInC2V", "Safenet", new { httproute = "" }, "https");
 
                 HttpResponseMessage response = await SendJsonAsync(uri, o.ToString());
 
@@ -613,7 +613,7 @@ namespace DPTnew.Controllers
                         input = JsonConvert.SerializeObject(e2);
                     }
 
-                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                    string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                     HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -667,7 +667,7 @@ namespace DPTnew.Controllers
                         }
                         else
                         {
-                            mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "Dear User, \n\nYou should have just received a message from DPT Licensing containing a .v2c password file." +
                                 "\nHere below you'll find more details:\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
                                 "\nProduct: " + currentlicense.ProductName + "\nVersion: " + version +
@@ -836,7 +836,7 @@ namespace DPTnew.Controllers
                             input = JsonConvert.SerializeObject(e2);
                         }
 
-                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "http");
+                        string uri = Url.Action("CreateCompleteLicense", "Safenet", new { httproute = "" }, "https");
 
                         HttpResponseMessage response = await SendJsonAsync(uri, input);
 
@@ -915,7 +915,7 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                mail.Subject = "License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "Dear User, \n\nYou should have just received a message from DPT Licensing containing a .v2c password file." +
                                     "\nHere below you'll find more details:\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID + "\n.c2v file: " +
                                     l.file.FileName + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
