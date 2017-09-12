@@ -252,9 +252,9 @@ namespace DPTnew.Controllers
                                 mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
                                 mail.Body = "<pre>DPT User 様。<br/>ライセンスのエクスポート操作が開始されました。<br/>以下の手順を実行して、エクスポート操作を完了してください。" +
                                     "<br/><br/>1. <b>Safenet Admin Control Center</b>（ http://localhost:1947 ）<b>のアップデート／アタッチ</b> セクションで、受け取った .v2c ファイルを適用 <br/>" +
-                                    "2.	エクスポート検証：<br/>  2a) <b>Admin Control Center</b>（ http://localhost:1947 ）→ <b>Sentinel キー</b> → C2V ボタン（アクション欄） → C2V ファイルのダウンロード<br/>" +
+                                    "2. エクスポート検証：<br/>  2a) <b>Admin Control Center</b>（ http://localhost:1947 ）→ <b>Sentinel キー</b> → C2V ボタン（アクション欄） → C2V ファイルのダウンロード<br/>" +
                                     "  2b) <b>DPT3Care</b>（ https://dpt3.dptcorporate.com ）サイトへログインして Licenses ページを表示 → エクスポートするライセンスの行を選択 → <b>エクスポート検証</b> ボタン → 前の手順で作成した .c2v ファイルをアップロード<br/>" +
-                                    "3.	これでエクスポート操作が完了し、ライセンスを別のＰＣにインストールすることができます。<br/><br/><br/>" +
+                                    "3. これでエクスポート操作が完了し、ライセンスを別のＰＣにインストールすることができます。<br/><br/><br/>" +
                                     "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + "<br/>マシンＩＤ: " +
                                     currentlicense.MachineID + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
                                     "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
@@ -407,6 +407,7 @@ namespace DPTnew.Controllers
                     //update state in db
                     currentlicense.Exported = 0;
                     currentlicense.Import = 1;
+                    currentlicense.Ancestor = currentlicense.MachineID;
                     currentlicense.MachineID = "KIDABCDEFGH";
 
                     context.Licenses.Attach(currentlicense);
@@ -414,6 +415,7 @@ namespace DPTnew.Controllers
                     entry.Property(x => x.Exported).IsModified = true;
                     entry.Property(x => x.Import).IsModified = true;
                     entry.Property(x => x.MachineID).IsModified = true;
+                    entry.Property(x => x.Ancestor).IsModified = true;
 
                     context.SaveChanges();
                 }
@@ -449,8 +451,11 @@ namespace DPTnew.Controllers
                     prodName.Add("thinkapi_gsm" + productPostfix);
                 else
                     prodName.Add(productName + productPostfix);
+
                 if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
                     prodName.Add("ThinkTeamDOC" + productPostfix);
+                if(pwdCode.StartsWith("UE"))//tdengineering
+                    prodName.Add("tdpartsolutions" + productPostfix);
             }
 
             return prodName;
