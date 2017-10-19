@@ -700,29 +700,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This .iso file will install the TDViewerLight 2016 SP1 application..
-        /// </summary>
-        public static string Description2016TDViewerLightSP1 {
-            get {
-                return ResourceManager.GetString("Description2016TDViewerLightSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This .iso file will install the TDViewerLight 2016 SP2 application..
         /// </summary>
         public static string Description2016TDViewerLightSP2 {
             get {
                 return ResourceManager.GetString("Description2016TDViewerLightSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TD 2016 SP1 legacy version for old systems..
-        /// </summary>
-        public static string Description2016ThinkDesign32bitSP1 {
-            get {
-                return ResourceManager.GetString("Description2016ThinkDesign32bitSP1", resourceCulture);
             }
         }
         
@@ -736,29 +718,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This .iso file will install ThinkDesign 2016 64bit SP1..
-        /// </summary>
-        public static string Description2016ThinkDesign64bitSP1 {
-            get {
-                return ResourceManager.GetString("Description2016ThinkDesign64bitSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2016 SP2..
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2016 64bit SP2..
         /// </summary>
         public static string Description2016ThinkDesign64bitSP2 {
             get {
                 return ResourceManager.GetString("Description2016ThinkDesign64bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2016 SP1 official version..
-        /// </summary>
-        public static string Description2016thinkPLMSP1 {
-            get {
-                return ResourceManager.GetString("Description2016thinkPLMSP1", resourceCulture);
             }
         }
         
@@ -777,6 +741,24 @@ namespace DPTnew.Localization {
         public static string Description2016Utilitytools {
             get {
                 return ResourceManager.GetString("Description2016Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2017..
+        /// </summary>
+        public static string Description2017ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2017ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2017 official version..
+        /// </summary>
+        public static string Description2017thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2017thinkPLM", resourceCulture);
             }
         }
         
@@ -1042,74 +1024,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/tdviewer_2016T1_b21116_64bit.iso.
-        /// </summary>
-        public static string Download2016TDViewerLightSP1 {
-            get {
-                return ResourceManager.GetString("Download2016TDViewerLightSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=16841283a9bfc4881ba9aa955a467ef1f&amp;authkey=AatBNuQCoNLZmH_tyRqq7RU.
         /// </summary>
         public static string Download2016TDViewerLightSP2 {
             get {
                 return ResourceManager.GetString("Download2016TDViewerLightSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://dpt3.dptcorporate.com/T3-Case/2016_build21116/dvd_td_2016T1_b21116.iso.
-        /// </summary>
-        public static string Download2016ThinkDesign32bitSP1 {
-            get {
-                return ResourceManager.GetString("Download2016ThinkDesign32bitSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=13a371ae4db5545a5ab249ad33cd10141&amp;authkey=Af2esvc4UfDlktxqnwFIZIQ.
-        /// </summary>
-        public static string Download2016ThinkDesign32bitSP2 {
-            get {
-                return ResourceManager.GetString("Download2016ThinkDesign32bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/dvd_td_64bit_2016T1_b21116.iso.
-        /// </summary>
-        public static string Download2016ThinkDesign64bitSP1 {
-            get {
-                return ResourceManager.GetString("Download2016ThinkDesign64bitSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&amp;authkey=AezeTx-tm0HpAdfUvjNLswE.
-        /// </summary>
-        public static string Download2016ThinkDesign64bitSP2 {
-            get {
-                return ResourceManager.GetString("Download2016ThinkDesign64bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ftp://t3user:t3user2012@ftp.t3-japan.co.jp/t3software/2016.1build21116/dvd_thinkplm_2016T1_b21116.iso.
-        /// </summary>
-        public static string Download2016thinkPLMSP1 {
-            get {
-                return ResourceManager.GetString("Download2016thinkPLMSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1714768a3a2964912ac55a15ebf97b601&amp;authkey=AZqZyyejfmWEjVDsbLpLC6g.
-        /// </summary>
-        public static string Download2016thinkPLMSP2 {
-            get {
-                return ResourceManager.GetString("Download2016thinkPLMSP2", resourceCulture);
             }
         }
         
@@ -1843,29 +1762,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TDViewerLight 2016 SP1.
-        /// </summary>
-        public static string Product2016TDViewerLightSP1 {
-            get {
-                return ResourceManager.GetString("Product2016TDViewerLightSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to TDViewerLight 2016 SP2.
         /// </summary>
         public static string Product2016TDViewerLightSP2 {
             get {
                 return ResourceManager.GetString("Product2016TDViewerLightSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 32bit SP1.
-        /// </summary>
-        public static string Product2016ThinkDesign32bitSP1 {
-            get {
-                return ResourceManager.GetString("Product2016ThinkDesign32bitSP1", resourceCulture);
             }
         }
         
@@ -1879,29 +1780,11 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 64bit SP1.
-        /// </summary>
-        public static string Product2016ThinkDesign64bitSP1 {
-            get {
-                return ResourceManager.GetString("Product2016ThinkDesign64bitSP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ThinkDesign 2016 64bit SP2.
         /// </summary>
         public static string Product2016ThinkDesign64bitSP2 {
             get {
                 return ResourceManager.GetString("Product2016ThinkDesign64bitSP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2016 SP1.
-        /// </summary>
-        public static string Product2016thinkPLMSP1 {
-            get {
-                return ResourceManager.GetString("Product2016thinkPLMSP1", resourceCulture);
             }
         }
         
@@ -1920,6 +1803,24 @@ namespace DPTnew.Localization {
         public static string Product2016Utilitytools {
             get {
                 return ResourceManager.GetString("Product2016Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2017 64bit.
+        /// </summary>
+        public static string Product2017ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2017ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2017.
+        /// </summary>
+        public static string Product2017thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2017thinkPLM", resourceCulture);
             }
         }
         

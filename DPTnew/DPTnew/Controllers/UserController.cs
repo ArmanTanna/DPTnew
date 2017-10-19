@@ -194,6 +194,7 @@ namespace DPTnew.Controllers
                         ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
                         IList<string> verList = new List<string>();
                         verList.Add("_20161CANCEL");
+                        //verList.Add("_20171CANCEL");
 
                         foreach (var ver in verList)
                         {
@@ -493,6 +494,8 @@ namespace DPTnew.Controllers
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
                 Regex demorgx = new Regex(@"^DEM[0-9]+$");
                 Regex stagergx = new Regex(@"^STAGE[0-9]+$");
+                Regex edurgx = new Regex(@"^EDU[0-9]+$");
+                Regex brokenrgx = new Regex(@"^BRO[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
                 var isBlu = blurgx.IsMatch(currentlicense.MachineID);
@@ -506,9 +509,11 @@ namespace DPTnew.Controllers
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
                 var isStage = stagergx.IsMatch(currentlicense.LicenseID);
+                var isEdu = edurgx.IsMatch(currentlicense.LicenseID);
+                var isBroken = brokenrgx.IsMatch(currentlicense.LicenseID);
 
-                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
-                    || ((isDem || isStage) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
+                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL || isBroken))
+                    || ((isDem || isStage || isEdu) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
                     || (isBlu && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
                 {
                     if (currentlicense.LicenseType == "local")

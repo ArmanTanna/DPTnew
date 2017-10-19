@@ -713,6 +713,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
+                var isBro = /^BRO[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
@@ -727,11 +728,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     }
                 }
                 //upgrade for BLU keys
-                if (isBlu && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating")
+                if ((isBlu || isBro) && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating")
                     myTable.buttons(['.upgrade']).enable(true);
 
                 //check for DEMo licenses
-                if (((isDem || isStage || isEdu) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1)) {
+                if (((isDem || isStage || isEdu || isBro) && maintenddate >= now && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1)) {
                     myTable.buttons(['.renew']).enable(true);
                 }
 
@@ -741,17 +742,18 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 }
 
                 //check for import
-                if (data.Import == 1 && (isL || isPool || isZEF)) {
+                if (data.Import == 1 && (isL || isPool || isZEF || isBro)) {
                     myTable.buttons(['.import']).enable(true);
                 }
             } else {
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
                 var isL = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID) || /^K[0-9]+$/.test(data.LicenseID);;
+                var isBro = /^BRO[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
-                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF) && maintenddate >= new Date()) {
+                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF || isBro) && maintenddate >= new Date()) {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
