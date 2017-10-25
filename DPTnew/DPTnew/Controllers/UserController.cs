@@ -441,11 +441,11 @@ namespace DPTnew.Controllers
             {
                 prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
             }
-            else if (pwdCode.StartsWith("AH")) //tdxchangereader
-            {
-                prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
-                prodName.Add(productName + productPostfix);
-            }
+            //else if (pwdCode.StartsWith("AH")) //tdxchangereader
+            //{
+            //    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+            //    prodName.Add(productName + productPostfix);
+            //}
             else
             {
                 if (productName == "thinkapigsm")

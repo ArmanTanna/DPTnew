@@ -38,16 +38,21 @@ namespace DptLicensingServer.Controllers
             {
                 if (old > 3 || old < 2 || !acceptedType.Contains(tipo))
                     return CreateResponse(HttpStatusCode.BadRequest);
+                LicenseView currentlicense = null;
+                if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+                    using (var db = new DptContext())
+                    {
+                        currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                    }
+
+                if (currentlicense == null || (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0))
+                    return CreateResponse(HttpStatusCode.BadRequest);
 
                 if (expdata == "20280101")
-                {
-                    if (Request.Headers.TryGetValues("LicenseID", out h_lid))
-                        using (var db = new DptContext())
-                        {
-                            var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
-                            expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
-                        }
-                }
+                    using (var db = new DptContext())
+                    {
+                        expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
+                    }
                 IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
                 IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
                 IEnumerable<string> TTeamAddBundle = new List<string> { "REPLICATEDVAULT", "TTEAMECR-ECO", "TTEAMPDMXCHNGXTD", "TTEAMPDMXCHANGES", "TTEAMPDMXCHNGXAC", "TTEAMPDMXCHNGXPE", "TTEAMPDMXCHNGXSW", "TTEAMMAINTAIN" };
@@ -92,26 +97,17 @@ namespace DptLicensingServer.Controllers
                         });
                     }
                 }
-
-                if (Request.Headers.TryGetValues("LicenseID", out h_lid))
-                    using (var db = new DptContext())
+                using (var db = new DptContext())
+                {
+                    if (currentlicense.MachineID != machineid)
                     {
-                        var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                         //update machineid in db
                         currentlicense.MachineID = machineid;
+                        currentlicense.Import = 0;
                         db.Licenses.Attach(currentlicense);
                         var entry = db.Entry(currentlicense);
                         entry.Property(x => x.MachineID).IsModified = true;
-                        db.SaveChanges();
-
-                        DptLicenseLog log = new DptLicenseLog();
-                        log.LicenseID = currentlicense.LicenseID;
-                        log.MachineID = currentlicense.MachineID;
-                        log.Action = "Install";
-                        log.CreatedOn = DateTime.Now;
-                        log.CreatedBy = Membership.GetUser().UserName;
-                        log.VersionFrom = currentlicense.Version;
-                        db.LicenseLogs.Add(log);
+                        entry.Property(x => x.Import).IsModified = true;
                         db.SaveChanges();
 
                         var company = from cmp in db.Companies where cmp.AccountNumber == currentlicense.AccountNumber select cmp;
@@ -147,10 +143,19 @@ namespace DptLicensingServer.Controllers
                         catch (Exception e)
                         {
                             LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
-                        }
+                        }                        
                     }
+                    DptLicenseLog log = new DptLicenseLog();
+                    log.LicenseID = currentlicense.LicenseID;
+                    log.MachineID = currentlicense.MachineID;
+                    log.Action = "Install";
+                    log.CreatedOn = DateTime.Now;
+                    log.CreatedBy = Membership.GetUser().UserName;
+                    log.VersionFrom = currentlicense.Version;
+                    db.LicenseLogs.Add(log);
+                    db.SaveChanges();
+                }
                 return CreateResponse(HttpStatusCode.OK, newLicenseResult);
-
             }
             catch (Exception e)
             {

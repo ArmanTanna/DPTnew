@@ -203,10 +203,9 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         };
 
         var headers = {};
-        if (mid)
-            headers.LicenseID = data.LicenseID;
-
-
+        //if (mid)
+        headers.LicenseID = data.LicenseID;
+        
         if (data.LicenseType.toLowerCase() === "local")
             $.ajax({
                 url: "../api/PasswordGenerator/NewLicense",
@@ -753,7 +752,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
-                if (data.MachineID == "ABCDEFGH" && (isL || isPool || isZEF || isBro) && maintenddate >= new Date()) {
+                if (data.MachineID == "ABCDEFGH" && data.Import == 1 && (isL || isPool || isZEF || isBro) && maintenddate >= new Date()) {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
                     //if (data.LicenseType.toLowerCase() == "local")
