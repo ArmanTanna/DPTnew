@@ -405,6 +405,7 @@ namespace DPTnew.Controllers
             var casehId = 0;
             using (var db = new DptContext())
             {
+                var chd = db.Cases.Where(c => c.CaseId == caseHistoryRow.CaseId).FirstOrDefault();
                 var chl = new DptCaseHistory();
                 chl.CaseId = caseHistoryRow.CaseId;
                 chl.CreatedOn = DateTime.Now;
@@ -418,7 +419,7 @@ namespace DPTnew.Controllers
 
                 if (caseHistoryRow.File != null)
                 {
-                    var basePath = "E:\\Case\\" + DateTime.Now.Year + "\\" + caseHistoryRow.CaseId.ToString();
+                    var basePath = "E:\\Case\\" + chd.CreatedOn.Year + "\\" + caseHistoryRow.CaseId.ToString();
                     var folder = casehId;
                     var path = basePath + "\\" + folder;
                     try

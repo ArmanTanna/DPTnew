@@ -166,6 +166,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             machineid: machineId,
             prodotto: data.PwdCode,
             artDetail: data.ArticleDetail.toLocaleLowerCase(),
+            licenseID: data.LicenseID
         };
         if (data.ArticleDetail.toLocaleLowerCase() == "pl" && data.MED)
             postData.expdata = data.MED.replaceAll("-", "") == "20280101" ? data.MED.replaceAll("-", "") : null;
@@ -205,7 +206,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         var headers = {};
         //if (mid)
         headers.LicenseID = data.LicenseID;
-        
+
         if (data.LicenseType.toLowerCase() === "local")
             $.ajax({
                 url: "../api/PasswordGenerator/NewLicense",
@@ -226,7 +227,6 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 success: onSuccess
             });
         }
-
     };
 
     //BUTTONS
@@ -712,7 +712,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isStage = /^STAGE[0-9]+$/.test(data.LicenseID);
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
-                var isBro = /^BRO[0-9]+$/.test(data.LicenseID);
+                var isBro = /^BROK[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }
@@ -748,7 +748,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isPool = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID) || /^TWIN[0-9]+$/.test(data.LicenseID);
                 var isZEF = /^EDU[0-9]+$/.test(data.LicenseID) || /^FREE[0-9]+$/.test(data.LicenseID);
                 var isL = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID) || /^K[0-9]+$/.test(data.LicenseID);;
-                var isBro = /^BRO[0-9]+$/.test(data.LicenseID);
+                var isBro = /^BROK[0-9]+$/.test(data.LicenseID);
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
                 }

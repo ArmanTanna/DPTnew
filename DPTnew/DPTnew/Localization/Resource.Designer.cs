@@ -2023,7 +2023,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2016 SP2 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2017 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2113,7 +2113,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.think3.eu/images/pdf/Licenses.pdf.
+        ///   Looks up a localized string similar to https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=10e1b89e67b164afa910c73bf518a86e6&amp;authkey=AdadxeQs5Tclf7h4dKIFuWQ.
         /// </summary>
         public static string View_Home_NewLicensingLink {
             get {
@@ -2131,7 +2131,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;b&gt;Service Pack 2 of ThinkDesign 2016&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2017&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2140,7 +2140,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2016! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2017! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {

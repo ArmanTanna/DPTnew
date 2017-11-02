@@ -194,7 +194,7 @@ namespace DPTnew.Controllers
                         ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
                         IList<string> verList = new List<string>();
                         verList.Add("_20161CANCEL");
-                        //verList.Add("_20171CANCEL");
+                        verList.Add("_20171CANCEL");
 
                         foreach (var ver in verList)
                         {
@@ -495,7 +495,7 @@ namespace DPTnew.Controllers
                 Regex demorgx = new Regex(@"^DEM[0-9]+$");
                 Regex stagergx = new Regex(@"^STAGE[0-9]+$");
                 Regex edurgx = new Regex(@"^EDU[0-9]+$");
-                Regex brokenrgx = new Regex(@"^BRO[0-9]+$");
+                Regex brokenrgx = new Regex(@"^BROK[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
                 var isBlu = blurgx.IsMatch(currentlicense.MachineID);

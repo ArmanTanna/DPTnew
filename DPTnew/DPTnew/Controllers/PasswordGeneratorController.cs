@@ -39,7 +39,13 @@ namespace DptLicensingServer.Controllers
                 if (old > 3 || old < 2 || !acceptedType.Contains(tipo))
                     return CreateResponse(HttpStatusCode.BadRequest);
                 LicenseView currentlicense = null;
-                if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+
+                if (!string.IsNullOrEmpty(data.licenseID))
+                    using (var db = new DptContext())
+                    {
+                        currentlicense = db.Licenses.Single(x => x.LicenseID == data.licenseID);
+                    }
+                else if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
@@ -57,7 +63,7 @@ namespace DptLicensingServer.Controllers
                 IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
                 IEnumerable<string> TTeamAddBundle = new List<string> { "REPLICATEDVAULT", "TTEAMECR-ECO", "TTEAMPDMXCHNGXTD", "TTEAMPDMXCHANGES", "TTEAMPDMXCHNGXAC", "TTEAMPDMXCHNGXPE", "TTEAMPDMXCHNGXSW", "TTEAMMAINTAIN" };
                 IEnumerable<string> TTeamAddCode = new List<string> { "RV", "TG", "YB", "YC", "YD", "YE", "YF", "TH" };
-                JObject newLicenseResult;
+                JObject newLicenseResult = null;
                 if (prodotto.Substring(0, 2) == "IX") //TDIRECTRW
                 {
                     var pwd = "";
@@ -110,50 +116,8 @@ namespace DptLicensingServer.Controllers
                         entry.Property(x => x.Import).IsModified = true;
                         db.SaveChanges();
 
-                        var company = from cmp in db.Companies where cmp.AccountNumber == currentlicense.AccountNumber select cmp;
-                        var salesRep = from salrep in db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
-                        var sr = from cmp in db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
-                        MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
-                        mail.Bcc.Add("Orders@dptcorporate.com");
-                        if (company.FirstOrDefault().Language.ToLower() == "japanese")
-                        {
-                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                            mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
-                                "会社名: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
-                                "ライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID +
-                                "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
-                                "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
-                                "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
-                                " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
-                        }
-                        else
-                        {
-                            mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                            mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                                "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
-                                "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
-                                "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
-                                //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
-                                "\n\nBest regards,\n\nDPT Licensing";
-                        }
-                        try
-                        {
-                            MailHelper.SendMail(mail);
-                        }
-                        catch (Exception e)
-                        {
-                            LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
-                        }                        
+                        SendMailWriteLog(currentlicense, db);
                     }
-                    DptLicenseLog log = new DptLicenseLog();
-                    log.LicenseID = currentlicense.LicenseID;
-                    log.MachineID = currentlicense.MachineID;
-                    log.Action = "Install";
-                    log.CreatedOn = DateTime.Now;
-                    log.CreatedBy = Membership.GetUser().UserName;
-                    log.VersionFrom = currentlicense.Version;
-                    db.LicenseLogs.Add(log);
-                    db.SaveChanges();
                 }
                 return CreateResponse(HttpStatusCode.OK, newLicenseResult);
             }
@@ -442,12 +406,20 @@ namespace DptLicensingServer.Controllers
                     return CreateResponse(HttpStatusCode.Unauthorized);
                 string pwdline = String.Empty;
                 IEnumerable<string> h_lid;
-                if (expdate == "20280101")
+                LicenseView currentlicense = null;
+
+                if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                 {
-                    if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+                    using (var db = new DptContext())
+                    {
+                        currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                    }
+                    if (currentlicense == null || (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0))
+                        return CreateResponse(HttpStatusCode.BadRequest);
+
+                    if (expdate == "20280101")
                         using (var db = new DptContext())
                         {
-                            var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                             expdate = CheckQMTsf(currentlicense.ArticleDetail, expdate, db, currentlicense);
                         }
                 }
@@ -458,24 +430,28 @@ namespace DptLicensingServer.Controllers
                     PwdLine = pwdline
                 });
 
-                if (Request.Headers.TryGetValues("LicenseID", out h_lid))
+                if (currentlicense.MachineID != machineid1)
+                {
                     using (var db = new DptContext())
                     {
-                        var currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                         //update machineid in db
                         currentlicense.MachineID = machineid1;
                         currentlicense.Vend_String = vend_string;
                         currentlicense.FlexType = typelic;
                         currentlicense.Quantity = nlic;
+                        currentlicense.Import = 0;
                         db.Licenses.Attach(currentlicense);
                         var entry = db.Entry(currentlicense);
                         entry.Property(x => x.MachineID).IsModified = true;
                         entry.Property(x => x.Vend_String).IsModified = true;
                         entry.Property(x => x.FlexType).IsModified = true;
                         entry.Property(x => x.Quantity).IsModified = true;
+                        entry.Property(x => x.Import).IsModified = true;
                         db.SaveChanges();
-                    }
 
+                        SendMailWriteLog(currentlicense, db);
+                    }
+                }
                 return CreateResponse(HttpStatusCode.OK, checkMIDsResult);
             }
             catch (Exception e)
@@ -483,6 +459,53 @@ namespace DptLicensingServer.Controllers
                 LogHelper.WriteLog("PasswordController (FlexLicense): " + e.Message + "-" + e.InnerException);
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
+
+        private static void SendMailWriteLog(LicenseView currentlicense, DptContext db)
+        {
+            var company = from cmp in db.Companies where cmp.AccountNumber == currentlicense.AccountNumber select cmp;
+            var salesRep = from salrep in db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+            var sr = from cmp in db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+            MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
+            mail.Bcc.Add("Orders@dptcorporate.com");
+            if (company.FirstOrDefault().Language.ToLower() == "japanese")
+            {
+                mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
+                    "会社名: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
+                    "ライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID +
+                    "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
+                    "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                    "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
+                    " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
+            }
+            else
+            {
+                mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
+                    "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
+                    "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                    "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                    //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                    "\n\nBest regards,\n\nDPT Licensing";
+            }
+            try
+            {
+                MailHelper.SendMail(mail);
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
+            }
+            DptLicenseLog log = new DptLicenseLog();
+            log.LicenseID = currentlicense.LicenseID;
+            log.MachineID = currentlicense.MachineID;
+            log.Action = "Install";
+            log.CreatedOn = DateTime.Now;
+            log.CreatedBy = Membership.GetUser() == null ? "API" : Membership.GetUser().UserName;
+            log.VersionFrom = currentlicense.Version;
+            db.LicenseLogs.Add(log);
+            db.SaveChanges();
         }
 
         [HttpGet]

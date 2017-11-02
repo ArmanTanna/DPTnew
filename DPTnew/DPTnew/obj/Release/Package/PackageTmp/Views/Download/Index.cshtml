@@ -21,7 +21,7 @@
         salesReg = salesReg.toLowerCase().trim();
         /* Formatting function for row details - modify as you need */
         function format(d) {
-            debugger
+
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                '<tr>' +
@@ -33,7 +33,7 @@
                 "" : '<tr>' +
                     '<td>' + d.Product + '</td>' +
                     '<td>' + d.Description + '</td>' +
-                    '<td>' + (d.Year == "2017" ? d.Size : '<a href="' + d.Download + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size + ' </a>') + '</td>' +
+                    '<td> <a href="' + d.Download + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size + ' </a></td>' +
                 '</tr>') +
                 (d.Product1 ? ((salesReg == "japan" && d.Product1.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
@@ -79,8 +79,8 @@
             var datacad = [
                 {
                     "Year": "2017", "Product": "@DPTnew.Localization.Resource.Product2017ThinkDesign64bit",
-                    "Description": "@DPTnew.Localization.Resource.Description2017ThinkDesign64bit", "Size": "COMING SOON",
-                    "Download": ""
+                    "Description": "@DPTnew.Localization.Resource.Description2017ThinkDesign64bit", "Size": " - 2 GB",
+                    "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k"
                 },
                 {
                     "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP2",
@@ -303,13 +303,13 @@
     <thead>
         <tr style="vertical-align:top">
             <td>
-                <h2>ThinkDesign 2016 SP2</h2>
+                <h2>ThinkDesign 2017</h2>
                 <br />
                 @DPTnew.Localization.Resource.View_Download_Text1<br />
                 @DPTnew.Localization.Resource.View_Download_Text2
                 <br /><br />
-                <a href="https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&authkey=AezeTx-tm0HpAdfUvjNLswE">
-                    <img src="~/Content/images/TD2016_download.png">
+                <a href="https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k">
+                    <img src="~/Content/images/TD2017_download.png">
                 </a>
             </td>
             <td>
@@ -321,8 +321,6 @@
 <br />
 <br />
 <div><img src="~/Content/images/Warning_small.png"> &nbsp;@Html.Raw(@DPTnew.Localization.Resource.View_Download_Warning)</div>
-<br />
-<div><img src="~/Content/images/Warning_small.png"> ThinkDesign 2017 download file will be soon available. <a href="mailto:info@dptcorporate.com?subject=ThinkDesign 2017">Contact us</a> to learn more.</div>
 <br />
 <br />
 <div style="width: 1000px">
