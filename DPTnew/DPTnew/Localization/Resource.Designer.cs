@@ -745,7 +745,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2017..
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2017. (SHA1=C41DE315E52D7C9D9D5ED9D012D5FA78E9AA13BE).
         /// </summary>
         public static string Description2017ThinkDesign64bit {
             get {

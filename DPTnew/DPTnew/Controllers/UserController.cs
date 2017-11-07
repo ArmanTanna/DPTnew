@@ -455,7 +455,7 @@ namespace DPTnew.Controllers
 
                 if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
                     prodName.Add("ThinkTeamDOC" + productPostfix);
-                if(pwdCode.StartsWith("UE"))//tdengineering
+                if (pwdCode.StartsWith("UE"))//tdengineering
                     prodName.Add("tdpartsolutions" + productPostfix);
             }
 
@@ -514,7 +514,7 @@ namespace DPTnew.Controllers
 
                 if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL || isBroken))
                     || ((isDem || isStage || isEdu) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || (isBlu && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
+                    || ((isBlu || isDem) && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL

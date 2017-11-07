@@ -727,7 +727,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     }
                 }
                 //upgrade for BLU keys
-                if ((isBlu || isBro) && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating")
+                if ((isBlu || isBro || isDem) && maintenddate >= now && data.LicenseType.toLowerCase() !== "floating")
                     myTable.buttons(['.upgrade']).enable(true);
 
                 //check for DEMo licenses

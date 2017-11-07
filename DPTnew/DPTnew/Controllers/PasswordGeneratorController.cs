@@ -430,7 +430,7 @@ namespace DptLicensingServer.Controllers
                     PwdLine = pwdline
                 });
 
-                if (currentlicense.MachineID != machineid1)
+                if (currentlicense != null && currentlicense.MachineID != machineid1)
                 {
                     using (var db = new DptContext())
                     {
