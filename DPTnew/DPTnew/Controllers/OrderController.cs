@@ -773,7 +773,7 @@ namespace DPTnew.Controllers
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 var licIds = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && u.ProductName == productName &&
                     (u.LicenseID.StartsWith("NEW") || u.LicenseID.StartsWith("L") || u.LicenseID.StartsWith("EDU")
-                    || u.LicenseID.StartsWith("DRO"))).ToList();
+                    || u.LicenseID.StartsWith("DRO") || u.LicenseID.StartsWith("BROK"))).ToList();
                 return Json(licIds, JsonRequestBehavior.AllowGet);
             }
         }

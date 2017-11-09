@@ -160,6 +160,7 @@ namespace DPTnew.Controllers
                 Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
+                Regex brokenrgx = new Regex(@"^BROK[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
@@ -167,7 +168,7 @@ namespace DPTnew.Controllers
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || krgx.IsMatch(currentlicense.LicenseID);
+                    || krgx.IsMatch(currentlicense.LicenseID) || brokenrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
 
@@ -452,11 +453,11 @@ namespace DPTnew.Controllers
                     prodName.Add("thinkapi_gsm" + productPostfix);
                 else
                     prodName.Add(productName + productPostfix);
-
                 if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
+                {
                     prodName.Add("ThinkTeamDOC" + productPostfix);
-                if (pwdCode.StartsWith("UE"))//tdengineering
                     prodName.Add("tdpartsolutions" + productPostfix);
+                }
             }
 
             return prodName;
@@ -496,6 +497,7 @@ namespace DPTnew.Controllers
                 Regex stagergx = new Regex(@"^STAGE[0-9]+$");
                 Regex edurgx = new Regex(@"^EDU[0-9]+$");
                 Regex brokenrgx = new Regex(@"^BROK[0-9]+$");
+                Regex freergx = new Regex(@"^FREE[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
                 var isBlu = blurgx.IsMatch(currentlicense.MachineID);
@@ -504,17 +506,17 @@ namespace DPTnew.Controllers
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
                 var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || krgx.IsMatch(currentlicense.LicenseID);
+                    || krgx.IsMatch(currentlicense.LicenseID) || brokenrgx.IsMatch(currentlicense.LicenseID);
                 var isTest = testrgx.IsMatch(currentlicense.LicenseID);
                 var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
                 var isDem = demorgx.IsMatch(currentlicense.LicenseID);
                 var isStage = stagergx.IsMatch(currentlicense.LicenseID);
                 var isEdu = edurgx.IsMatch(currentlicense.LicenseID);
-                var isBroken = brokenrgx.IsMatch(currentlicense.LicenseID);
+                var isFree = freergx.IsMatch(currentlicense.LicenseID);
 
-                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL || isBroken))
+                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
                     || ((isDem || isStage || isEdu) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || ((isBlu || isDem) && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
+                    || ((isBlu || isDem || isFree) && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
