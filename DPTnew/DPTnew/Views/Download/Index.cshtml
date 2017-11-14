@@ -19,6 +19,17 @@
     <script type="text/javascript">
         var salesReg = '@ViewBag.Message';
         salesReg = salesReg.toLowerCase().trim();
+        function downloadCounter(prod) {
+            debugger;
+            $.ajax({
+                url: "../Download/downloadCounter?prodName=" + prod,
+                type: 'GET',
+                data: null,
+                dataType: "json",
+                success: null
+            });
+            return true;
+        }
         /* Formatting function for row details - modify as you need */
         function format(d) {
             // `d` is the original data object for the row
@@ -38,7 +49,7 @@
                 '<tr>' +
                     '<td>' + d.Product1 + '</td>' +
                     '<td>' + d.Description1 + '</td>' +
-                    '<td> <a href="' + d.Download1 + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size1 + ' </a></td>' +
+                    '<td>' + '<a href="' + d.Download1 + (d.Year == 2017 ? '" onclick="downloadCounter(\'' + d.Product1 + '\')">' : '">') + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size1 + ' </a></td>' +
                 '</tr>') : "") +
                 (d.Product2 ? ((salesReg == "japan" && d.Product2.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
@@ -79,22 +90,25 @@
                 {
                     "Year": "2017", "Product": "@DPTnew.Localization.Resource.Product2017ThinkDesign64bit",
                     "Description": "@DPTnew.Localization.Resource.Description2017ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2017_1_21010.iso)",
-                    "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k"
+                    "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k",
+                    "Product1": "@DPTnew.Localization.Resource.Product2017Utilitytools",
+                    "Description1": "@DPTnew.Localization.Resource.Description2017Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2017_1_21010.iso)",
+                    "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1804d3aa6cb62456da60cd1a104a74c5c&authkey=AeGweC1ch-2NL3y0GNFyTr4&e=297d897bf47d41b986e5132634e7a744"
                 },
-                {
-                    "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP2",
-                    "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bitSP2", "Size": " - 2 GB",
-                    "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&authkey=AezeTx-tm0HpAdfUvjNLswE",
-                    "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bitSP2",
-                    "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bitSP2", "Size1": " - 2.4 GB",
-                    "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=13a371ae4db5545a5ab249ad33cd10141&authkey=Af2esvc4UfDlktxqnwFIZIQ",
-                    @*"Product4": "@DPTnew.Localization.Resource.Product2016TDViewerLightSP2",
+                    {
+                        "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP2",
+                        "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bitSP2", "Size": " - 2 GB",
+                        "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&authkey=AezeTx-tm0HpAdfUvjNLswE",
+                        "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bitSP2",
+                        "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bitSP2", "Size1": " - 2.4 GB",
+                        "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=13a371ae4db5545a5ab249ad33cd10141&authkey=Af2esvc4UfDlktxqnwFIZIQ",
+                        @*"Product4": "@DPTnew.Localization.Resource.Product2016TDViewerLightSP2",
                     "Description4": "@DPTnew.Localization.Resource.Description2016TDViewerLightSP2", "Size4": " - 330 MB",
                     "Download4": "@DPTnew.Localization.Resource.Download2016TDViewerLightSP2",*@
-                    "Product2": "@DPTnew.Localization.Resource.Product2016Utilitytools",
-                    "Description2": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size2": " - 38 MB",
-                    "Download2": "@DPTnew.Localization.Resource.Download2016Utilitytools"
-                }];
+                        "Product2": "@DPTnew.Localization.Resource.Product2016Utilitytools",
+                        "Description2": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size2": " - 38 MB",
+                        "Download2": "@DPTnew.Localization.Resource.Download2016Utilitytools"
+                    }];
             if ("@ViewBag.UserNoCase.ToString().ToLower()" == "true") {
                 var cad = {
                     "Year": "2015", "Product": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP3",

@@ -202,31 +202,34 @@ namespace DPTnew.Controllers
                 }
                 try
                 {
-                    var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
-                    var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(sr)).Max(x => x.LicenseID);
-
-                    char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
-                    switch (licSingleRow.LicenseID)
-                    {
-                        case "POOL":
-                        case "EVAL":
-                            var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
-                            licSingleRow.LicenseID = lId;
-                            break;
-                        case "TEST":
-                            var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
-                            licSingleRow.LicenseID = lid;
-                            break;
-                        case "L":
-                        case "Z":
-                            var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
-                            licSingleRow.LicenseID = LID;
-                            break;
-                        default:
-                            var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
-                            licSingleRow.LicenseID = lID;
-                            break;
-                    }
+                    //var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
+                    var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(licSingleRow.LicenseID)).Max(x => x.LicenseID);
+                    if (!string.IsNullOrEmpty(maxq))
+                        licSingleRow.LicenseID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Substring(4,5)) + 1).ToString("D5");
+                    else
+                        licSingleRow.LicenseID = licSingleRow.LicenseID + "00001";
+                    //char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
+                    //switch (licSingleRow.LicenseID)
+                    //{
+                    //    case "POOL":
+                    //    case "EVAL":
+                    //        var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
+                    //        licSingleRow.LicenseID = lId;
+                    //        break;
+                    //    case "TEST":
+                    //        var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
+                    //        licSingleRow.LicenseID = lid;
+                    //        break;
+                    //    case "L":
+                    //    case "Z":
+                    //        var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
+                    //        licSingleRow.LicenseID = LID;
+                    //        break;
+                    //    default:
+                    //        var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
+                    //        licSingleRow.LicenseID = lID;
+                    //        break;
+                    //}
 
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Licenses] (LicenseID, AccountNumber, ProductName, " +
                         "ArticleDetail, Quantity, LicenseType, MachineID, Ancestor, StartDate, EndDate, MaintStartDate, MaintEndDate," +

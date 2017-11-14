@@ -151,31 +151,39 @@ namespace DPTnew.Controllers
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
-                Regex redrgx = new Regex(@"^RED[0-9]+$");
-                Regex blurgx = new Regex(@"^BLU[0-9]+$");
-                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex brokrgx = new Regex(@"^BROK[0-9]+$");
+                Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex zrgx = new Regex(@"^Z[0-9]+$");
                 Regex krgx = new Regex(@"^K[0-9]+$");
-                Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
-                Regex brokenrgx = new Regex(@"^BROK[0-9]+$");
+                Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
+                Regex stagrgx = new Regex(@"^STAG[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                Regex gbgrgx = new Regex(@"^GBG[0-9]+$");
+                Regex deadrgx = new Regex(@"^DEAD[0-9]+$");
+                Regex obsrgx = new Regex(@"^OBS[0-9]+$");
+                Regex edurgx = new Regex(@"^EDU[0-9]+$");
+                Regex freergx = new Regex(@"^FREE[0-9]+$");
+                Regex demrgx = new Regex(@"^DEM[0-9]+$");
 
-                var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
-                var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID);// blurgx.IsMatch(currentlicense.MachineID);
+                var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
+                    || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
+                var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
+                    || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
+                    || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
+                var isGDO = gbgrgx.IsMatch(currentlicense.LicenseID) || deadrgx.IsMatch(currentlicense.LicenseID) || obsrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || krgx.IsMatch(currentlicense.LicenseID) || brokenrgx.IsMatch(currentlicense.LicenseID);
-                var isTest = testrgx.IsMatch(currentlicense.LicenseID);
-                var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
+                var isED = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
 
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
+                    if (isLocal && !isGDO && !isTdVar && !isTdirect && !isPPTSFEK && isLBZT && !isED)
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 
@@ -334,7 +342,6 @@ namespace DPTnew.Controllers
                     LogHelper.WriteLog("UserController (ValidateC2V): " + e.Message);
                     ModelState.AddModelError("VALIDATE", "The file you have uploaded is not correct");
                     return View("Validate");
-
                 }
                 //build of JSON
                 JObject o = new JObject();
@@ -363,7 +370,6 @@ namespace DPTnew.Controllers
                     //if c2v is related to the correct key
                     if (currentpkey == pkey)
                     {
-
                         JObject key = (JObject)contentresult["ProtectionKey"]["ProtectionKeyOutput"]["C2V"]["sentinel_ldk_info"]["key"];
 
                         var p = key.Property("product");
@@ -465,7 +471,7 @@ namespace DPTnew.Controllers
 
         [HttpGet]
         [ActionName("UpgradeLicense")]
-        public async Task<JsonResult> UpgradeLicense(string licenseId, string version, int renew)
+        public async Task<JsonResult> UpgradeLicense(string licenseId, string version, int renew)//upgrade/renew
         {
             //common variables
             LicenseView currentlicense = null;
@@ -484,39 +490,38 @@ namespace DPTnew.Controllers
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
-                Regex redrgx = new Regex(@"^RED[0-9]+$");
-                Regex blurgx = new Regex(@"^BLU[0-9]+$");
-                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
                 Regex lrgx = new Regex(@"^L[0-9]+$");
+                Regex brokrgx = new Regex(@"^BROK[0-9]+$");
+                Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex zrgx = new Regex(@"^Z[0-9]+$");
                 Regex krgx = new Regex(@"^K[0-9]+$");
-                Regex testrgx = new Regex(@"^TEST[0-9]+$");
                 Regex poolrgx = new Regex(@"^POOL[0-9]+$");
                 Regex prergx = new Regex(@"^PRE[0-9]+$");
-                Regex demorgx = new Regex(@"^DEM[0-9]+$");
-                Regex stagergx = new Regex(@"^STAGE[0-9]+$");
+                Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
+                Regex stagrgx = new Regex(@"^STAG[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                Regex gbgrgx = new Regex(@"^GBG[0-9]+$");
+                Regex deadrgx = new Regex(@"^DEAD[0-9]+$");
+                Regex obsrgx = new Regex(@"^OBS[0-9]+$");
                 Regex edurgx = new Regex(@"^EDU[0-9]+$");
-                Regex brokenrgx = new Regex(@"^BROK[0-9]+$");
                 Regex freergx = new Regex(@"^FREE[0-9]+$");
+                Regex demrgx = new Regex(@"^DEM[0-9]+$");
+                Regex blurgx = new Regex(@"^BLU[0-9]+$");
 
-                var isLocal = licensergx.IsMatch(currentlicense.MachineID);// || redrgx.IsMatch(currentlicense.MachineID) || blurgx.IsMatch(currentlicense.MachineID);
+                var isLocal = licensergx.IsMatch(currentlicense.MachineID);// blurgx.IsMatch(currentlicense.MachineID);
+                var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
+                    || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
+                var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
+                    || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
+                    || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
+                var isGDO = gbgrgx.IsMatch(currentlicense.LicenseID) || deadrgx.IsMatch(currentlicense.LicenseID) || obsrgx.IsMatch(currentlicense.LicenseID);
+                var isED = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
                 var isBlu = blurgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
-                var isTdVar = currentlicense.PwdCode.StartsWith("VA");
-                var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
-                    currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isL = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || krgx.IsMatch(currentlicense.LicenseID) || brokenrgx.IsMatch(currentlicense.LicenseID);
-                var isTest = testrgx.IsMatch(currentlicense.LicenseID);
-                var isPool = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID);
-                var isDem = demorgx.IsMatch(currentlicense.LicenseID);
-                var isStage = stagergx.IsMatch(currentlicense.LicenseID);
-                var isEdu = edurgx.IsMatch(currentlicense.LicenseID);
-                var isFree = freergx.IsMatch(currentlicense.LicenseID);
 
-                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now && isLocal && !isEval && !isTdVar && !isTdirect && !isPool && (isTest || isL))
-                    || ((isDem || isStage || isEdu) && currentlicense.MaintEndDate >= now && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || ((isBlu || isDem || isFree) && currentlicense.MaintEndDate >= now && currentlicense.LicenseType.ToLower() != "floating"))
+                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now) && !isGDO
+                    && (((isED || isLBZT) && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
+                    || ((isBlu || isED || isPPTSFEK || isLBZT) && currentlicense.LicenseType.ToLower() != "floating")))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
@@ -749,11 +754,31 @@ namespace DPTnew.Controllers
 
                 if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
                 {
-                    //check for import
-                    if (currentlicense.Import == 1)
+                    var now = System.DateTime.Now;
+                    Regex lrgx = new Regex(@"^L[0-9]+$");
+                    Regex brokrgx = new Regex(@"^BROK[0-9]+$");
+                    Regex testrgx = new Regex(@"^TEST[0-9]+$");
+                    Regex zrgx = new Regex(@"^Z[0-9]+$");
+                    Regex krgx = new Regex(@"^K[0-9]+$");
+                    Regex poolrgx = new Regex(@"^POOL[0-9]+$");
+                    Regex prergx = new Regex(@"^PRE[0-9]+$");
+                    Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
+                    Regex stagrgx = new Regex(@"^STAG[0-9]+$");
+                    Regex edurgx = new Regex(@"^EDU[0-9]+$");
+                    Regex freergx = new Regex(@"^FREE[0-9]+$");
+                    Regex demrgx = new Regex(@"^DEM[0-9]+$");
+                    Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+
+                    var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
+                        || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
+                    var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
+                        || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
+                        || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
+                    var isDE = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
+                    //check for import/install
+                    if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && (isLBZT || isPPTSFEK || isDE))
                     {
-                        //CHECK if is EVAL
-                        Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                        //CHECK if is EVAL                        
                         var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
 
                         if (currentlicense.LicenseType == "local")
@@ -872,7 +897,6 @@ namespace DPTnew.Controllers
                                 {
                                     currentlicense.MachineID = currentlicense.MachineID + "0";
                                 }
-
                                 currentlicense.MachineID = currentlicense.MachineID + pkey;
                             }
 
@@ -953,14 +977,12 @@ namespace DPTnew.Controllers
                         ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license: " + response.ReasonPhrase);
                         return View("Create", l);
                     }
-
                 }
             }
 
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("CREATE", "Something went wrong. It's impossible to generate the license.");
             return View("Create", l);
-
         }
 
         private static string GetProductName(string prodName)

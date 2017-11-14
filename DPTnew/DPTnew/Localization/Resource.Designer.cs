@@ -763,6 +763,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2017. (SHA1=CB6DF0407B9313F15CC343611F5FBAFC7DCF02C2).
+        /// </summary>
+        public static string Description2017Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2017Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {
@@ -1821,6 +1830,15 @@ namespace DPTnew.Localization {
         public static string Product2017thinkPLM {
             get {
                 return ResourceManager.GetString("Product2017thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools 64bit.
+        /// </summary>
+        public static string Product2017Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2017Utilitytools", resourceCulture);
             }
         }
         
