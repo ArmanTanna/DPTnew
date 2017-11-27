@@ -750,10 +750,10 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 if (data.MachineID == "ABCDEFGH" && data.Import == 1 && (isLBZT || isPPTSFEK || isDemEdu) && maintenddate >= new Date()) {
                     myTable.buttons(['.license2014']).enable(true);
                 } else {
-                    //if (data.LicenseType.toLowerCase() == "local")
-                    myTable.buttons(['.pssw2014']).enable(true);
+                    if (data.LicenseType.toLowerCase() == "local" || data.PwdCode.toLowerCase().indexOf("vs001") == -1)
+                        myTable.buttons(['.pssw2014']).enable(true);
                     //maintenance or not
-                    if (parseJsonDate(data.MaintEndDate) > new Date() && isLBZT/*&& data.LicenseType.toLowerCase() !== "floating"*/)
+                    if (parseJsonDate(data.MaintEndDate) > new Date() && isLBZT && data.LicenseType.toLowerCase() !== "floating")
                         myTable.buttons(['.changeversion']).enable(true);
                 }
             }

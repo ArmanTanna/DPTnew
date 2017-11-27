@@ -1,0 +1,314 @@
+<script language="JavaScript">
+<!--javascript:parent.left.d.openTo(683,"","")-->
+javascript:parent.left.d.openTo(9171,"","")
+</script>
+<!-- <script language="JavaScript">
+Esempio di come dovrebbe essere scritta la function per funzionare sia nel chm che sul Web
+ -->
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	my2RegExp = /ms-its:[^.]+.chm::\//gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help";
+	if(location.pathname.match(".chm")){
+		//alert(location.pathname);
+		void(0);
+	}
+	else {
+		//alert(location.pathname);
+		document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+		document.body.innerHTML = document.body.innerHTML.replace(my2RegExp,myRepStr);	
+	}		
+}
+</script>
+<!-- LJEM -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2017t1" content="New">
+<meta name="Author" content="DPT">
+<meta name="Revisor" content="DPT">
+<title>What's new in v. 2017.1</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes_DPT.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="White" onload="viaMk()">
+
+<p align="center" style="margin-bottom:0;"><img src='../../images/company/About_TD_Light.png'></p>
+<hr size=3 color="silver">
+
+<h1 style="color:rgb(56,124,175); font-size:20px;  text-align: center"><a name="top"></a>ThinkDesign 2017.1 Release Notes</h1>
+
+<hr color="silver">
+<p class="noindent" style="margin-top: 0; color: font-size: larger;">Many improvements have been made in version 2017.1. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+
+<ul class="litleft">
+<li><a href="#NUI"><b>New User Interface</b></a></li>
+    <li><a href="#FHM"><b>Full Hybrid Modelling</b></a></li>
+    <li><a href="#MCM"><b>Multi-core Management</b></a></li>
+    <li><a href="#3DP"><b>3D Profile Enhancements</b></a></li>
+    <li><a href="#SSI"><b>Solid Subdivision Improvement</b></a></li>
+    <li><a href="#MPI"><b>Mating Preview Improvement</b></a></li>
+    <li><a href="#CNV"><b>Converters Upgrades</b></a></li>
+    <li><a href="#GSI"><b>General Software Improvement and Better Reliability</b></a></li>
+</ul>
+<br><br>
+<hr color="silver">
+<h2 style="color:rgb(56,124,175); font-size:20px"><a name="NUI"></a>New User Interface<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>ThinkDesign 2017.1 introduces a new UI:</p>
+  <ul>
+    <li>
+      <b>Modern look and feel</b> which includes new icons, smart docking style and latest UI controls.<br><br>
+      <br>
+    </li>
+    <li>
+      <b>Themes</b> enable the user to apply pre-defined colour themes thru all the set of the UI objects, like Toolbars, Dialog Boxes and so on. Four themes are available (“White”, “Light”, “Dark” and “Black”) and can dynamically be changed directly in <b>Option/Properties &#8680; System Options &#8680; General</b> in the Theme choice.<br><br>
+      <p align="left" style="margin-bottom:0;">
+        <img src='images/b_Theme_White.png'>
+        <img src='images/b_Theme_Light.png'>
+        <img src='images/b_Theme_Dark.png'>
+        <img src='images/b_Theme_Black.png'>
+      </p>
+
+      <br>
+    </li>
+    <li>
+      <b>High DPI support</b> provides a consistent look across a different variety of high DPI display settings. All ThinkDesign UI is scaled consistently with the settings chosen in the Windows Display control panel.
+      <br>
+      Concerning graphics, the check boxes <b>Option/Properties &#8680; System Options &#8680; Graphics &#8680; High DPI Scaling for Markers / High DPI Scaling for Lines</b> enable to scale accordingly also such part of graphics, to follow UI (for example minidialog text) size scaling or not. These settings have some interest with high DPI display that needs scaling above 100%.
+    </li>
+    <br>
+    <li>
+      <b>Enhanced File Dialog box</b> ThinkDesign 2017 offers an enhanced File Dialog box, based on the Windows Explorer UI structure for opening existing file (<b>File &#8680; Open</b>) and file saving (<b>File &#8680; Save As</b>).
+  <br>
+  ThinkDesign 2017 also install the right Windows Explorer Extension to enable the Windows Explorer Preview panel to show .e3 and .2 files preview.
+</li>
+  </ul>
+  <br><br>
+
+  <hr color="silver">
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FHM"></a>Full Hybrid Modelling<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>ThinkDesign 2017.1 introduces the following general enhancements to Full Hybrid Modeling functionalities:</p>
+  <ul>
+    <li>New “Mesh Repair” command</li>
+    <li>New “Remove Facet” command</li>
+    <li>Enhancements in View and Zebra commands using meshes</li>
+    <li>General improvement of reliability and robustness in the management of poor quality meshes</li>
+  </ul>
+  <br>
+  <p>
+    <b>New “Mesh Repair” command (Modify &#8680; Mesh &#8680; Repair)</b>
+    <br>
+    This command enables the user to check the quality of a given mesh and repair its defects.<br>
+    With improved quality meshes, commands such as <b>Compensator</b>, <b>Super Capping</b> or <b>3D Printing</b> are more reliable and efficient.
+    <br><br>
+    In order to repair a mesh with defects proceed as follows:<br>
+    Start the Mesh Repair command and select the entity to repair.<br>
+    A preview is displayed with the boundary edges in green.
+    <br><br>
+    Under the <b>Statistics</b> node, there is some information about the mesh: number of nodes, number of facets, number of shells, number of boundary edges and the water tightness status. These statistics are updated in real time along the repair process.
+    <br><br>
+    Under the <b>Defects</b> node, are listed all the defects that can be visualized on the mesh: isolated nodes, duplicated nodes, duplicated facets, degenerated facets, flipped facets, non-manifold nodes, non-manifold edges, shells, holes.
+  </p>
+  <p align="left" style="margin-bottom:0;">
+    <img src='images/FHM_001.png' style="width: 25%; height: 25%">&nbsp;&nbsp;&nbsp;
+    <img src='images/FHM_002.png' style="width: 25%; height: 25%">
+  </p>
+  <br>
+  <p>
+    Given a defect type among the list above, the user can:
+    <ul>
+      <li>Change the color of display of these defects using the color button,</li>
+      <li>Check the box to visualize and repair these defects: the number of defects is displayed as well as a <b>Repair all defects</b> button. If there is no defect to repair, the button is grayed,</li>
+      <li>Navigate the defects. Between <b>Previous</b> and <b>Next</b> well-known buttons, there are 3 other buttons: <b>Fit view to current defect</b>, <b>Isolate current defect</b> and <b>Repair current defect</b>.</li>
+    </ul>
+
+  <p>
+    The More Options give you additional functionalities:
+
+    <ul>
+      <li>
+        <b>Automatic Zoom</b> - to adapt the display to the current defect when navigating:
+        <ul>
+          <li>When selected, the current defect fits exactly within the display.</li>
+          <li>When cleared, the display is unchanged when navigating the set of defects.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Set Target Position</b> - to set a target position on the current defect when navigating:
+        <ul>
+          <li>When selected, the current defect is the target position.</li>
+          <li>When cleared, the target position is unchanged when navigating the set of defects.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Isolate</b> - to isolate the defect from the rest of the mesh when navigating:
+        <ul>
+          <li>When selected, only the current defect is visible.</li>
+          <li>When cleared, the current defect is visible as well as the mesh in the selection.</li>
+        </ul>
+      </li>
+    </ul>
+  </p>
+  <br>
+  <p>
+    <b>New "Remove Facets" command (Modify &#8680; Mesh &#8680; Remove Facets)</b>
+    <br>
+    This command enables the user to remove some facets from a triangular mesh. When applying, the facets are removed or become facets of a new mesh if the Split option is checked.<br>
+    Note that the smart selection commands for facets of mesh (<b>Crease Angle</b> and <b>Geodesic Distance</b>) are very helpful.
+    <br><br>
+  <p align="left" style="margin-bottom:0;">
+    <img src='images/FHM_003.png' style="width: 25%; height: 25%">&nbsp;&nbsp;&nbsp;
+    <img src='images/FHM_004.png' style="width: 25%; height: 25%">
+  </p>
+  <br>
+  <p>
+    <b>Enhancement in View and Zebra commands using meshes</b>
+    <br>
+    <ul>
+      <li>
+        <b>Set Target</b> and <b>Set Direction</b> commands enable now to pick points lying on the facets of a mesh. Respectively, the point on the facet is the new target point of the view and the view direction is aligned with the normal to the facet.<br>
+      </li>
+      <li>
+        <b>Zebra</b> command supports fully the selection of meshes. The computation and display of the isophote lines has been significantly improved.
+      </li>
+    </ul>
+    <br><br>
+  </p>
+  <hr color="silver">
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="MCM"></a>Multi-core Management<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>
+    Multicores processors allow enhanced performance by simultaneous processing of multiple tasks. ThinkDesign can make use of such multiprocessing in algorithms subject to parallelism.
+    ThinkDesign 2017.1 applies this to GSM Dynamic Previews and Mesh updates (big tessellation), and to GSM Approximation and Convert to NURBS Surfaces (lots of surfaces).
+  </p>
+  <ul>
+    <li>
+        <b>GSM Dynamic Previews and Mesh updates</b>
+        <br>
+        GSM Dynamic Previews using multicores is automatically activated in GSM family commands: Advanced, Bend, Radial Bend, Twist, Planar and 3DBouding-Box.  For “Advanced GSM” command, it means in “Matching interactive” or when using a Mesh as a deformed entity.
+        The update of GSM Dynamic preview is computed in parallel for all nodes of the tessellation/Mesh: the biggest the tessellation preview is the more performances benefit compared to execution in sequence.
+      </li>
+    <br>
+      <li>
+        <b>GSM Approximation and Convert Surface to NURBS </b>
+        <br>
+        Parallel treatment is automatically applied for surface approximation in GSM family commands and “Convert surface to NURBS” commands. For “Convert surface to NURBS” it is available only on “Advanced Mode”.
+        The biggest the number of surfaces is the more performances benefit compared to execution in sequence.
+      </li>
+      </ul>
+      <br><br>
+
+      <hr color="silver">
+
+      <h2 style="color:rgb(56,124,175); font-size:20px"><a name="3DP"></a>3D Profile Enhancements<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+      <p>The 3D profile now supports NURBS curves usage in a multiple constraints environments:</p>
+      <ul>
+        <li>Definition of NURBS curve under constraints,</li>
+        <li>Dragging NURBS curve under constraints,</li>
+        <li>Usage of 3D profiles containing NURBS in commands such as Pipe.</li>
+      </ul>
+      <br><br>
+
+      <hr color="silver">
+
+      <h2 style="color:rgb(56,124,175); font-size:20px"><a name="SSI"></a>Solid Subdivision Improvement<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+      <p>ThinkDesign 2017.1 introduces significant performance improvements in the commands Convert to/Modify Subdivision Solid. The new algorithm takes fully benefits of Subdivision theory to make faster the resulting solid. The gain is huge for solids with big number of faces.</p>
+      <br><br>
+
+      <hr color="silver">
+
+      <h2 style="color:rgb(56,124,175); font-size:20px"><a name="MPI"></a>Mating Preview Improvement<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+      <p>
+        The Mating command now supports the Dynamic Delay setting. This option enables to show the preview only when the mouse stop moving.
+        <br> 
+        It improves the performances for large assemblies by preventing to compute useless mating between two intermediate mouse positions.<br>
+        The dynamic delay choice is available in <b>Option/Properties &#8680; System Options &#8680; Graphics  &#8680; Highlight</b> check boxes <b>With Delay</b>. It can be set ON in Standard mode, or can be set ON on Large assembly mode. In the later case the user needs to make sure the Large assembly mode is activated in <b>Option/Properties &#8680; System Options &#8680; General</b> check box <b>Large assembly</b>.
+      </p>
+      <br><br>
+      <hr color="silver">
+
+      <h2 style="color:rgb(56,124,175); font-size:20px"><a name="CNV"></a>Converters Upgrades<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+      <p>Converters have been updated with the following improvements:</p>
+      <ul>
+        <li>Support of Any Autodesk&reg; Inventor&reg; version up to 2018</li>
+        <li>Support of Any CATIA&reg; V5 version from R4 to V5-6R2017</li>
+        <li>Support of Any SolidWorks&copy; version up to 2017</li>
+        <li>Support of Any Siemens NX&trade; (Unigraphics) version from V11.0 up to NX 11.0</li>
+        <li>Support of Any Parasolid&reg; version up to v30.0</li>
+        <li>Support of Any Creo - Pro/E version from Pro/Engineer 19.0 to Creo 4.0</li>
+      </ul>
+      <br>
+
+      <hr color="silver">
+
+      <h2 style="color:rgb(56,124,175); font-size:20px"><a name="GSI"></a>General Software Improvement and Better Reliability<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+      <p>The source code has been accurately revised so that the program has highly improved its robustness and its reliability has been made much higher.</p>
+      <br>
+<hr color="silver">
+
+
+
+<script>
+function goBack() {
+//alert(window.self.name);
+	if(window.self.name != "body"){
+    	window.history.back(1);
+	}
+	else{
+		alert("The Navigation Pane is already active!");
+		void(0);
+	}
+}
+</script>
+
+<!-- <br> -->
+<table width="100%" align="center">
+<tr>
+<td align="left"><a href="#" target="_parent"><img border="0" src="../../images/Hide_NAV.png" title="Hide the Navigation Pane" align="left"></a>
+<a href="#" onclick="goBack()"><img border="0" src="../../images/Display_Nav.png" title="Display the Navigation Pane" align="left"></a></td>
+<!--<td align="center"><b><i>Last update:</i>&nbsp;23 November 2016</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!-- In festo SS. Petri et Puali -->
+<!-- Laudetur Jesus Christus, Laudetur cum Maria. Semper Laudentur! -->
+<!-- Exsurgat Dominus et dissipentur inimici Ejus ... -->
+<!-- B.J.H.e.G. --></td>
+<td align="right"><a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></td>
+</tr>
+</table>
+<hr size=3 color="silver">
+<!-- Ps. 50 -->
+<!-- Miserere mei Deus -->
+<!-- secundum magnam misericordiam tuam -->
+<!-- et secundum mutitudinem miserationum tuarum -->
+<!-- dele iniquitatem meam -->
+<script type="text/javascript" language="JavaScript">
+<!--
+var ErrMsg = "DPT SARL - All Rights reserved";
+function disableRightClick (btnClick)
+{
+if (navigator.appName == "Netscape" && btnClick.which == 3)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (navigator.appName == "Microsoft Internet Explorer" && event.button
+== 2)
+{
+	alert(ErrMsg);
+	return false;
+}
+else if (event.button== 2){
+	alert(ErrMsg);
+	return false;
+}
+//------------------------
+}
+document.onmousedown = disableRightClick;
+-->
+</script>
+</body>
+</html>
