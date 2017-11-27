@@ -12,9 +12,9 @@ namespace DptLicensingServer.Controllers
 {
     public class WorkSessionsController : ApiController
     {
-        [HttpPost]
+        [HttpPost]   
         [ActionName("Service")]
-        public void Service(JObject traceback)
+        public void Service([FromUri] string id, JObject traceback)
         {
             if (!Authenticate() || traceback == null)
             {
