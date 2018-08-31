@@ -17,7 +17,6 @@ using DPTnew.Helper;
 
 namespace DPTnew.Controllers
 {
-
     [Authorize(Roles = "Admin,Internal")]
     public class ActivityController : BaseController
     {

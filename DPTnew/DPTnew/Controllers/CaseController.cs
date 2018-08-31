@@ -31,6 +31,9 @@ namespace DPTnew.Controllers
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+            ViewBag.OpenRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             ViewBag.UserNoCase = !(Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"));
             return View();
         }
@@ -77,7 +80,7 @@ namespace DPTnew.Controllers
                             {
                                 var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
                                 companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                                companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                                //companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
                             }
                             else
                                 companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
@@ -121,7 +124,8 @@ namespace DPTnew.Controllers
             {
                 var newCase = new DptCases();
                 newCase.AccountName = caseRow.AccountName;
-                newCase.AccountNumber = db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault().AccountNumber;
+                var company = db.Companies.Where(c => c.AccountName == newCase.AccountName).FirstOrDefault();
+                newCase.AccountNumber = company.AccountNumber;
                 newCase.Contact = caseRow.Contact;
                 try
                 {
@@ -153,7 +157,11 @@ namespace DPTnew.Controllers
                 newCase.ProductVersion = caseRow.ProductVersion;
                 newCase.Severity = caseRow.Severity;
                 newCase.Type = "General Request";
-                newCase.Status = "Open";
+                if (company.SalesRep.ToLower() == "firstsolution" || company.SalesRep.ToLower() == "innovia"
+                    || company.SalesRep.ToLower() == "amada" || company.SalesRep.ToLower() == "dptsrl")
+                    newCase.Status = "Waiting on Var";
+                else
+                    newCase.Status = "Open";
 
                 var maxq = db.Cases.Where(u => u.CaseId.StartsWith("D")).Max(x => x.CaseId);
                 if (maxq == null)
@@ -194,6 +202,12 @@ namespace DPTnew.Controllers
                 db.SaveChanges();
 
                 MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Caseinteractions@think3.eu");
+                if (company.Country.ToLower() == "italy")
+                {
+                    var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.SalesRep select salrep;
+                    var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                    mail.CC.Add(sr.FirstOrDefault().Email);
+                }
                 if (newCase.Language.ToLower() == "japanese")
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
@@ -221,6 +235,75 @@ namespace DPTnew.Controllers
             }
             ViewBag.ok1 = DPTnew.Localization.Resource.CaseInsertSaveMsg;
             return View("Success");
+        }
+
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
+        [HttpPost]
+        public ActionResult Open(string caseId)
+        {
+            using (var db = new DptContext())
+            {
+                var res = db.Cases.Where(x => x.CaseId == caseId).FirstOrDefault();
+                res.Status = "Open";
+                db.Cases.Attach(res);
+                var entry = db.Entry(res);
+                entry.Property(x => x.Status).IsModified = true;
+                db.SaveChanges();
+            }
+            return Json("Case Opened: " + caseId, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
+        [HttpPost]
+        public ActionResult Close(string caseId)
+        {
+            using (var db = new DptContext())
+            {
+                var res = db.Cases.Where(x => x.CaseId == caseId).FirstOrDefault();
+                res.Status = "Closed";
+                db.Cases.Attach(res);
+                var entry = db.Entry(res);
+                entry.Property(x => x.Status).IsModified = true;
+                db.SaveChanges();
+            }
+            return Json("Case Closed: " + caseId, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,VarExp")]
+        [HttpPost]
+        public ActionResult Reject(string caseId)
+        {
+            using (var db = new DptContext())
+            {
+                var res = db.Cases.Where(x => x.CaseId == caseId).FirstOrDefault();
+                res.Status = "Waiting on Var";
+                db.Cases.Attach(res);
+                var entry = db.Entry(res);
+                entry.Property(x => x.Status).IsModified = true;
+                db.SaveChanges();
+                var company = db.Companies.Where(c => c.AccountNumber == res.AccountNumber).FirstOrDefault();
+                MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "Caseinteractions@think3.eu");
+                if (company.Country.ToLower() == "italy")
+                {
+                    var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.SalesRep select salrep;
+                    var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                    mail.CC.Add(sr.FirstOrDefault().Email);
+                    mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been rejected - " + res.Description;
+                    mail.Body = "Dear User, \n\nThe case #" + caseId + " has been rejected.\n\n" +
+                        "Details: " + res.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                        "\n\nBest regards,\n\nCustomer Care team";
+                }
+                try
+                {
+                    MailHelper.SendMail(mail);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("CaseController (Reject): caseID - " + res.CaseId + " -- " + e.Message + "-" + e.InnerException);
+                }
+            }
+        
+            return Json("Case Rejected: " + caseId, JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "Admin,Internal,VarExp")]

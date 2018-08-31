@@ -13,7 +13,6 @@ namespace DPTnew.Models
         public SalesR()
         {
             this.Companies = new HashSet<Company>();
-
         }
 
         [Key]

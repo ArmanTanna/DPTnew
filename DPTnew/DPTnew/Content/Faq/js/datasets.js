@@ -186,15 +186,17 @@ var dataSetPrices = [
 ["200", "BA", "TTEAMDOC <sup>(1)</sup>", "PLM", "500", "100", "200", "tbd", "tbd", "tbd"],
 ["210", "YT", "TTEAMPDM", "PLM", "1600", "320", "640", "tbd", "tbd", "tbd"],
 ["220", "TE", "TTEAMDEV", "PLM", "3500", "700", "1400", "tbd", "tbd", "tbd"],
-["230", "AD", "TTEAMADD", "PLM", "2500", "500", "1000", "tbd", "tbd", "tbd"],
+["230", "AD", "TTEAMADD", "PLM", "1000", "200", "400", "tbd", "tbd", "tbd"],
 ["240", "TW", "TTEAMPCB", "PLM", "500", "100", "200", "tbd", "tbd", "tbd"],
 ["250", "TM", "TTEAMPCM", "PLM", "7500", "1500", "3000", "tbd", "tbd", "tbd"],
 ["260", "WB", "WEBTEAM", "PLM", "10000", "2000", "4000", "tbd", "tbd", "tbd"],
 ["300", "AH", "TDXCHANGEREADER", "MORE", "2000", "500", "1000", "290000", "55000", "110000"],
-["310", "IK+XP+IJ", "TDIRECTRW", "MORE", "4500", "0", "1800", "720000", "108000", "360000"],
+["310", "IK+XP+IJ", "TDIRECTRW <sup>(2)</sup>", "MORE", "4500", "0", "1000", "720000", "108000", "120000"],
 ["320", "TR", "THINKPRINT", "MORE", "5000", "1000", "2000", "na", "na", "na"],
-["340", "TL", "TDVIEWERPLUS <sup>(2)</sup>", "MORE", "1000", "200", "400", "na", "na", "40000"],
-["350", "DM", "GBGDM", "MORE", "1000", "200", "400", "na", "na", "na"]
+["340", "TL", "TDVIEWERPLUS <sup>(3)</sup>", "MORE", "1000", "200", "500", "na", "na", "40000"],
+["350", "DM", "GBGDM", "MORE", "1000", "200", "400", "na", "na", "na"],
+["360", "HZ", "API-GSM <sup>(4)</sup>", "MORE", "na", "na", "500", "na", "na", "60000"],
+["370", "NA", "DONGLE <sup>(5)</sup>", "MORE", "200", "na", "na", "na", "na", "na"]
 ];
 
 

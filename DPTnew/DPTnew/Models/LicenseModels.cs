@@ -80,6 +80,8 @@ namespace DPTnew.Models
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
 
+        public string LicenseFlag { get; set; }
+
         [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
         [Display(Name = "Ancestor", ResourceType = typeof(Resource))]
@@ -135,6 +137,7 @@ namespace DPTnew.Models
         public int ExportedNum { get; set; }
         [Display(Name = "MaxExport", ResourceType = typeof(Resource))]
         public int MaxExport { get; set; }
+        public int TotExported { get; set; }
         [Display(Name = "OriginalProduct", ResourceType = typeof(Resource))]
         public string OriginalProduct { get; set; }
         [Display(Name = "Action", ResourceType = typeof(Resource))]
@@ -163,7 +166,9 @@ namespace DPTnew.Models
         public string LicenseID { get; set; }
         public string Version { get; set; }
         public string LicenseType { get; set; }
+        public string LicenseFlag { get; set; }
         public string MachineID { get; set; }
+        public string ProductName { get; set; }
         public Nullable<System.DateTime> MaintEndDate { get; set; }
         public int Installed { get; set; }
         public int Exported { get; set; }
@@ -171,6 +176,14 @@ namespace DPTnew.Models
         public int Renew { get; set; }
         public string ArticleDetail { get; set; }
         public string PwdCode { get; set; }
+        public string salesRep { get; set; }
+        public int Export_Safenet { get; set; }
+        public int Install_Safenet { get; set; }
+        public int ChangeVersion_Safenet { get; set; }
+        public int Renewal_Safenet { get; set; }
+        public int Install_Legacy { get; set; }
+        public int ChangeVersion_Legacy { get; set; }
+        public int Renewal_Legacy { get; set; }
     }
 
     public class LicenseBase
@@ -189,6 +202,8 @@ namespace DPTnew.Models
 
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
+
+        public string LicenseFlag { get; set; }
 
         //[Display(Name = "Protection Key")]
         [Display(Name = "MachineID", ResourceType = typeof(Resource))]
@@ -220,6 +235,8 @@ namespace DPTnew.Models
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
 
+        public string LicenseFlag { get; set; }
+
         //[Display(Name = "Protection Key")]
         [Display(Name = "MachineID", ResourceType = typeof(Resource))]
         public string MachineID { get; set; }
@@ -250,14 +267,13 @@ namespace DPTnew.Models
         public JArray ProductName { get; set; }
 
         public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding
-        public static IEnumerable<string> TDVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };
+        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };//, "thinkprint"
+        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };// per enrico, "thinkprint"
         public static IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
-
     }
 
     public class SafenetEvalPlLocalEntitlment : SafenetEntitlement
     {
-
         public bool Encoded { get; set; }
 
         public string C2V { get; set; }
@@ -267,7 +283,6 @@ namespace DPTnew.Models
 
     public class SafenetNetAsfLocalEntitlment : SafenetEntitlement
     {
-
         public JArray SaotParams { get; set; }
 
         public bool Encoded { get; set; }
@@ -279,13 +294,11 @@ namespace DPTnew.Models
 
     public class SafenetUpdateEntitlment : SafenetEntitlement
     {
-
         public string ProtectionKeyId { get; set; }
 
         public bool Encoded { get; set; }
 
         public string C2V { get; set; }
-
     }
 
 }

@@ -655,51 +655,6 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the TDViewerLight 2015 SP3 application..
-        /// </summary>
-        public static string Description2015TDViewerLightSP3 {
-            get {
-                return ResourceManager.GetString("Description2015TDViewerLightSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SP3 Legacy version for old systems..
-        /// </summary>
-        public static string Description2015ThinkDesign32bitSP3 {
-            get {
-                return ResourceManager.GetString("Description2015ThinkDesign32bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2015 64bit SP3..
-        /// </summary>
-        public static string Description2015ThinkDesign64bitSP3 {
-            get {
-                return ResourceManager.GetString("Description2015ThinkDesign64bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2015 SP3 official version..
-        /// </summary>
-        public static string Description2015thinkPLMSP3 {
-            get {
-                return ResourceManager.GetString("Description2015thinkPLMSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Floating Licensing Installer, utilities and plug-ins for version 2015..
-        /// </summary>
-        public static string Description2015Utilitytools {
-            get {
-                return ResourceManager.GetString("Description2015Utilitytools", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This .iso file will install the TDViewerLight 2016 SP2 application..
         /// </summary>
         public static string Description2016TDViewerLightSP2 {
@@ -745,29 +700,38 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2017. (SHA1=C41DE315E52D7C9D9D5ED9D012D5FA78E9AA13BE).
+        ///   Looks up a localized string similar to Floating Licensing Installer. (SHA1=69C67B795CBFEF63B216C6F7E95FE843F07F45F2).
         /// </summary>
-        public static string Description2017ThinkDesign64bit {
+        public static string Description2018Installer {
             get {
-                return ResourceManager.GetString("Description2017ThinkDesign64bit", resourceCulture);
+                return ResourceManager.GetString("Description2018Installer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2017 official version..
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2018 SP2. (SHA1=1B4ED4FFAB289A50A61CEF6C47D15ADB2ADC2604).
         /// </summary>
-        public static string Description2017thinkPLM {
+        public static string Description2018ThinkDesign64bit {
             get {
-                return ResourceManager.GetString("Description2017thinkPLM", resourceCulture);
+                return ResourceManager.GetString("Description2018ThinkDesign64bit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Utilities and plug-ins for version 2017. (SHA1=CB6DF0407B9313F15CC343611F5FBAFC7DCF02C2).
+        ///   Looks up a localized string similar to This section includes thinkPLM 2018 official version SP2. (SHA1=5EF960519D0A6C7C2EA032E4B0F2D5AD210DC29C).
         /// </summary>
-        public static string Description2017Utilitytools {
+        public static string Description2018thinkPLM {
             get {
-                return ResourceManager.GetString("Description2017Utilitytools", resourceCulture);
+                return ResourceManager.GetString("Description2018thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2018. (SHA1=EDFA48E269D50F1D8C626298D2E822C06EE510C9).
+        /// </summary>
+        public static string Description2018Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2018Utilitytools", resourceCulture);
             }
         }
         
@@ -1726,51 +1690,6 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TDViewerLight 2015 SP3.
-        /// </summary>
-        public static string Product2015TDViewerLightSP3 {
-            get {
-                return ResourceManager.GetString("Product2015TDViewerLightSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2015 32bit SP3.
-        /// </summary>
-        public static string Product2015ThinkDesign32bitSP3 {
-            get {
-                return ResourceManager.GetString("Product2015ThinkDesign32bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2015 64bit SP3.
-        /// </summary>
-        public static string Product2015ThinkDesign64bitSP3 {
-            get {
-                return ResourceManager.GetString("Product2015ThinkDesign64bitSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2015 SP3.
-        /// </summary>
-        public static string Product2015thinkPLMSP3 {
-            get {
-                return ResourceManager.GetString("Product2015thinkPLMSP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Utility tools &amp; Floating Licensing Installer.
-        /// </summary>
-        public static string Product2015Utilitytools {
-            get {
-                return ResourceManager.GetString("Product2015Utilitytools", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to TDViewerLight 2016 SP2.
         /// </summary>
         public static string Product2016TDViewerLightSP2 {
@@ -1816,29 +1735,38 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2017 64bit.
+        ///   Looks up a localized string similar to Floating Licensing Installer.
         /// </summary>
-        public static string Product2017ThinkDesign64bit {
+        public static string Product2018Installer {
             get {
-                return ResourceManager.GetString("Product2017ThinkDesign64bit", resourceCulture);
+                return ResourceManager.GetString("Product2018Installer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2017.
+        ///   Looks up a localized string similar to ThinkDesign 2018 64bit SP2.
         /// </summary>
-        public static string Product2017thinkPLM {
+        public static string Product2018ThinkDesign64bit {
             get {
-                return ResourceManager.GetString("Product2017thinkPLM", resourceCulture);
+                return ResourceManager.GetString("Product2018ThinkDesign64bit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Utility tools 64bit.
+        ///   Looks up a localized string similar to thinkPLM 2018 SP2.
         /// </summary>
-        public static string Product2017Utilitytools {
+        public static string Product2018thinkPLM {
             get {
-                return ResourceManager.GetString("Product2017Utilitytools", resourceCulture);
+                return ResourceManager.GetString("Product2018thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string Product2018Utilitytools {
+            get {
+                return ResourceManager.GetString("Product2018Utilitytools", resourceCulture);
             }
         }
         
@@ -2041,7 +1969,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2017 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2018 SP2 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2050,7 +1978,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To install all CAD products of ThinkDesign suite (TDDrafting, TDBase, TDTooling, TDProfessional, etc.) you just need to &lt;b&gt;download the complete installation package of ThinkDesign&lt;/b&gt;. The different products will then be enabled through specific passwords..
+        ///   Looks up a localized string similar to To install all CAD products of ThinkDesign suite (TDDrafting, TDBase, TDTooling, TDProfessional, TDViewerPlus, etc.) you just need to &lt;b&gt;download the complete installation package of ThinkDesign&lt;/b&gt;. The different products will then be enabled through specific passwords..
         /// </summary>
         public static string View_Download_Warning {
             get {
@@ -2149,7 +2077,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2017&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2018 SP2&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2158,7 +2086,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2017! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2018 SP2! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {
@@ -2257,7 +2185,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customer Care.
+        ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string View_HomeIndex_Title {
             get {

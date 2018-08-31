@@ -15,15 +15,12 @@ using System.Net;
 
 namespace DPTnew.Controllers
 {
-
     [Authorize]
     // [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-
         //
         // GET: /Account/Login
-
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -33,13 +30,11 @@ namespace DPTnew.Controllers
 
         //
         // POST: /Account/Login
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-
             using (var db = new DptContext())
             {
                 bool exists = db.Contacts.Any(u => u.Email == model.UserName);
@@ -65,7 +60,6 @@ namespace DPTnew.Controllers
                         Session["MyMenu"] = null;
                         return RedirectToLocal(returnUrl);
                     }
-
 
                     /* I check if an old password exists if a new pssw doesn't exist*/
                     if (model.Password == user.OriginalPassword && !WebSecurity.IsConfirmed(model.UserName))
@@ -102,10 +96,8 @@ namespace DPTnew.Controllers
             }
         }
 
-
         //
         // POST: /Account/LogOff
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -169,7 +161,6 @@ namespace DPTnew.Controllers
                         WebSecurity.CreateAccount(model.Email, "passwordtemp", false);
                     }
 
-
                     // Generate password token that will be used in the email link to authenticate user
                     var token = WebSecurity.GeneratePasswordResetToken(user.UserName);
                     // Generate the html link sent via email
@@ -207,7 +198,6 @@ namespace DPTnew.Controllers
                     return View("Result");
                 }
             }
-
 
             ModelState.AddModelError("", DPTnew.Localization.Resource.CheckMailMsg);
             return View(model);
@@ -247,7 +237,6 @@ namespace DPTnew.Controllers
 
         //
         // POST: /Account/Register
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -276,7 +265,6 @@ namespace DPTnew.Controllers
 
         //
         // POST: /Account/Disassociate
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(string provider, string providerUserId)
@@ -302,13 +290,10 @@ namespace DPTnew.Controllers
 
             return RedirectToAction("Manage", new { Message = message });
         }
-
          */
-
 
         //
         // GET: /Account/Manage
-
         public ActionResult Manage(ManageMessageId? message)
         {
             using (var context = new DptContext())
@@ -333,7 +318,6 @@ namespace DPTnew.Controllers
 
         //
         // POST: /Account/Manage
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
@@ -341,51 +325,57 @@ namespace DPTnew.Controllers
             bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.HasLocalPassword = hasLocalAccount;
             ViewBag.ReturnUrl = Url.Action("Manage");
-            if (hasLocalAccount)
-            {
-                if (ModelState.IsValid)
-                {
-                    // ChangePassword will throw an exception rather than return false in certain failure scenarios.
-                    bool changePasswordSucceeded;
-                    try
-                    {
-                        changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
-                    }
-                    catch (Exception)
-                    {
-                        changePasswordSucceeded = false;
-                    }
 
-                    if (changePasswordSucceeded)
-                    {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-                    }
-                }
-            }
+            if (User.Identity.Name.ToLower() == "trytdfree@dptcorporate.com")
+                ModelState.AddModelError("", "The current user is not enabled to change the password.");
             else
             {
-                // User does not have a local password so remove any validation errors caused by a missing
-                // OldPassword field
-                ModelState state = ModelState["OldPassword"];
-                if (state != null)
+                if (hasLocalAccount)
                 {
-                    state.Errors.Clear();
-                }
+                    if (ModelState.IsValid)
+                    {
+                        // ChangePassword will throw an exception rather than return false in certain failure scenarios.
+                        bool changePasswordSucceeded;
+                        try
+                        {
+                            changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+                        }
+                        catch (Exception)
+                        {
+                            changePasswordSucceeded = false;
+                        }
 
-                if (ModelState.IsValid)
-                {
-                    try
-                    {
-                        WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
+                        if (changePasswordSucceeded)
+                        {
+                            return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        }
                     }
-                    catch (Exception)
+                }
+                else
+                {
+                    // User does not have a local password so remove any validation errors caused by a missing
+                    // OldPassword field
+                    ModelState state = ModelState["OldPassword"];
+                    if (state != null)
                     {
-                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        state.Errors.Clear();
+                    }
+
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
+                            return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
+                        }
+                        catch (Exception)
+                        {
+                            ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        }
                     }
                 }
             }
@@ -396,7 +386,6 @@ namespace DPTnew.Controllers
 
         //
         // POST: /Account/ExternalLogin
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -407,7 +396,6 @@ namespace DPTnew.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-
         [AllowAnonymous]
         public ActionResult ExternalLoginCallback(string returnUrl)
         {
@@ -438,10 +426,8 @@ namespace DPTnew.Controllers
             }
         }
 
-
         //
         // POST: /Account/ExternalLoginConfirmation
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -487,7 +473,6 @@ namespace DPTnew.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {

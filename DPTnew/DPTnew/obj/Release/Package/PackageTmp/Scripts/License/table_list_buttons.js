@@ -24,7 +24,8 @@ function initdropdown(table) {
   { column_number: 5, filter_default_label: "Select" },
   { column_number: 6, filter_default_label: "Select" },
   { column_number: 7, filter_default_label: "Select" },
-  { column_number: 8, filter_default_label: "Select" }]);
+  { column_number: 8, filter_default_label: "Select" },
+  { column_number: 9, filter_default_label: "Select" }]);
 
 }
 
@@ -59,12 +60,14 @@ function format(d) {
             '<td>' + d.ExportedNum + '</td>' +
 
             '<td><b>Max Export:</b></td>' +
-            '<td>' + d.MaxExport + '</td>' +
+            '<td>' + (d.MaxExport == -1 ? "unlimited" : d.MaxExport) + '</td>' +
 
-            '<td><b>Legacy Product:</b></td>' +
-            '<td>' + d.OriginalProduct + '</td>' +
+            '<td><b>Export History:</b></td>' +
+            '<td>' + d.TotExported + '</td>' +
          '</tr>' +
          '<tr>' +
+            '<td><b>Legacy Product:</b></td>' +
+            '<td>' + d.OriginalProduct + '</td>' +
             '<td><b>Action:</b></td>' +
             '<td>' + d.Action + '</td>' +
          '</tr>' +
@@ -88,6 +91,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     "defaultContent": ''
                 },
                 { data: "LicenseID" },
+                { data: "LicenseFlag" },
                 { data: "ProductName" },
                 { data: "ArticleDetail", "className": 'mycenter-text' },
                 { data: "Quantity", "className": 'mycenter-text' },
@@ -322,6 +326,10 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                               headers = myTable.rows('.selected').data()[0];
                               var $psw = $("#upgver");
                               $psw.text("");
+                              if (headers.AccountNumber === "T3-0073628") {
+                                  $("#upgrade-choice").append($('<option></option>').val(2015).html(2015));
+                                  $("#upgrade-choice").append($('<option></option>').val(2017).html(2017));
+                              }
                               var pwdDialogConfig = {
                                   modal: true,
                                   width: 200,
@@ -330,6 +338,20 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                       OK: function () {
                                           $(this).dialog("close");
                                           if ($("#upgrade-choice").val() !== headers.Version) {
+                                              var $psw = $("#msg");
+                                              $psw.text("");
+                                              $psw.text("please wait...");
+                                              var pwdDialogConfig = {
+                                                  modal: true,
+                                                  width: 400,
+                                                  height: 250,
+                                                  buttons: {
+                                                      OK: function () {
+                                                      }
+                                                  }
+                                              };
+                                              $("#sysmsg-dialog").dialog(pwdDialogConfig);
+
                                               $.ajax({
                                                   url: yourApp.Urls.Upgrade + "?licenseId=" + headers.LicenseID + "&version=" + $("#upgrade-choice").val() + "&renew=" + 0,
                                                   type: 'GET',
@@ -357,7 +379,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                                           } else {
                                               var $psw = $("#msg");
                                               $psw.text("");
-                                              $psw.text("You have already the selected version!");
+                                              var text = "You have already the selected version! \n\n 選択したバージョンは取得済みです！";
+                                              $psw.html(text.replace(/\n/g, '<br />'));
                                               var pwdDialogConfig = {
                                                   modal: true,
                                                   width: 400,
@@ -419,6 +442,25 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                       },
                       enabled: false
                   },
+                   {
+                       text: btnTextLocalization[11],//V2CP,
+                       className: 'v2cp',
+                       action: function () {
+                           if (myTable.rows('.selected').count() != 0) {
+                               var data = myTable.rows('.selected').data()[0];
+                               //upload .c2v
+                               $.post(yourApp.Urls.V2CP, { licenseid: data.LicenseID }, function (result) {
+                                   WinId = window.open('' + yourApp.Urls.V2CP, '_blank');
+                                   WinId.document.open();
+                                   WinId.document.write(result);
+                                   WinId.document.close();
+                                   myTable.rows('.selected').deselect();
+                               });
+
+                           }
+                       },
+                       enabled: false
+                   },
          {
              text: btnTextLocalization[3],//'Install < 2015',
              className: 'license2014',
@@ -440,6 +482,18 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                          });
                      }
                      else {
+                         var llc = myTable.rows('.selected').data()[0];
+                         if (llc.LicenseID === "L00052585") {
+                             $("#machineidf").val("HUS12345");
+                             $("#machineidf").prop("readonly", true);
+                             $("#quantity").val(540);
+                             $("#quantity").prop("readonly", true);
+                         } else {
+                             $("#machineidf").val("");
+                             $("#machineidf").prop("readonly", false);
+                             $("#quantity").val();
+                             $("#quantity").prop("readonly", false);
+                         }
                          $("#floating-dialog").dialog({
                              resizable: false,
                              height: 300,
@@ -700,17 +754,12 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             //check if license is 2015
             if (data.Version >= '2015') {
                 var now = new Date();
-                var isLocal = /^KID[0-9]+$/.test(data.MachineID); ///^RED[0-9]+$/.test(data.MachineID);
+                var isLocal = /^KID[0-9]+$/.test(data.MachineID);
                 var isBlu = /^BLU[0-9]+$/.test(data.MachineID);
-                var isGDO = /^GBG[0-9]+$/.test(data.LicenseID) || /^DEAD[0-9]+$/.test(data.LicenseID) || /^OBS[0-9]+$/.test(data.LicenseID);
+                var isRed = /^RED[0-9]+$/.test(data.MachineID);
+                var isBlk = /^BLK[0-9]+$/.test(data.MachineID);
                 var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
                 var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
-                var isLBZT = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID)
-                    || /^BROK[0-9]+$/.test(data.LicenseID) || /^TEST[0-9]+$/.test(data.LicenseID);
-                var isDemEdu = /^DEM[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID);
-                var isPPTSFEK = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID)
-                    || /^TWIN[0-9]+$/.test(data.LicenseID) || /^STAG[0-9]+$/.test(data.LicenseID)
-                || /^FREE[0-9]+$/.test(data.LicenseID) || /^EVAL[0-9]+$/.test(data.LicenseID) || /^K[0-9]+$/.test(data.LicenseID);
 
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
@@ -718,43 +767,42 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 //maintenance or not
                 if (data.Installed == 1 && maintenddate >= now) {
                     //check for export
-                    if (isLocal && !isGDO && !isTdVar && !isTdirect && !isPPTSFEK && isLBZT && !isDemEdu) {
+                    if (isLocal && (!isTdVar || data.LicenseID == "L00000387" || data.LicenseID == "L00000699")
+                        && !isTdirect && data.Export_Safenet == 1) {
                         myTable.buttons(['.export']).enable(true);
                     }
                     //upgrade-changeversion
-                    if ((isBlu || isDemEdu || isPPTSFEK || isLBZT) && data.LicenseType.toLowerCase() !== "floating" && !isGDO)
+                    if ((data.ChangeVersion_Safenet == 1 && !isBlk && data.ProductName.toLowerCase() !== "tdprofessionaledu") || isBlu)
                         myTable.buttons(['.upgrade']).enable(true);
                     //renew
-                    if (((isDemEdu || isLBZT) && isLocal && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGDO && !isPPTSFEK) {
+                    if (data.Renewal_Safenet == 1 && data.Renew == 1 && (isLocal || isRed || isBlk) && data.ArticleDetail.toLowerCase() != "pl"/*((isDemEduF || isLBZT) && (isLocal || isRed) && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGO && !isPPTE*/) {
                         myTable.buttons(['.renew']).enable(true);
                     }
+                    myTable.buttons(['.v2cp']).enable(true);
                 }
                 //check for validate
                 if (data.Exported == 1 && maintenddate >= now) {
                     myTable.buttons(['.validate_export']).enable(true);
+                    myTable.buttons(['.v2cp']).enable(true);
                 }
                 //check for install
-                if (data.Import == 1 && (isLBZT || isPPTSFEK || isDemEdu) && !isGDO && maintenddate >= now) {
+                if (data.Import == 1 && data.Install_Safenet == 1 && maintenddate >= now) {
                     myTable.buttons(['.import']).enable(true);
                 }
             } else {
-                var isPPTSFEK = /^POOL[0-9]+$/.test(data.LicenseID) || /^PRE[0-9]+$/.test(data.LicenseID)
-                    || /^TWIN[0-9]+$/.test(data.LicenseID) || /^STAG[0-9]+$/.test(data.LicenseID)
-                || /^FREE[0-9]+$/.test(data.LicenseID) || /^EVAL[0-9]+$/.test(data.LicenseID) || /^K[0-9]+$/.test(data.LicenseID);
-                var isDemEdu = /^DEM[0-9]+$/.test(data.LicenseID) || /^EDU[0-9]+$/.test(data.LicenseID);
-                var isLBZT = /^L[0-9]+$/.test(data.LicenseID) || /^Z[0-9]+$/.test(data.LicenseID)
-                    || /^BROK[0-9]+$/.test(data.LicenseID) || /^TEST[0-9]+$/.test(data.LicenseID);
-                if (data.MaintEndDate != null) {
-                    var maintenddate = parseJsonDate(data.MaintEndDate);
-                }
-                if (data.MachineID == "ABCDEFGH" && data.Import == 1 && (isLBZT || isPPTSFEK || isDemEdu) && maintenddate >= new Date()) {
-                    myTable.buttons(['.license2014']).enable(true);
-                } else {
-                    if (data.LicenseType.toLowerCase() == "local" || data.PwdCode.toLowerCase().indexOf("vs001") == -1)
+                //if (data.MaintEndDate != null) {
+                //    var maintenddate = parseJsonDate(data.MaintEndDate);
+                //}
+                if (parseJsonDate(data.MaintEndDate) > new Date()) {
+                    if (data.Install_Legacy == 1 && data.Import == 1 && data.MachineID == "ABCDEFGH") {
+                        myTable.buttons(['.license2014']).enable(true);
+                    } else {
+                        //if (data.LicenseType.toLowerCase() == "local" || data.PwdCode.toLowerCase().indexOf("vs001") == -1)
                         myTable.buttons(['.pssw2014']).enable(true);
-                    //maintenance or not
-                    if (parseJsonDate(data.MaintEndDate) > new Date() && isLBZT && data.LicenseType.toLowerCase() !== "floating")
-                        myTable.buttons(['.changeversion']).enable(true);
+                        //maintenance or not
+                        if (((data.ChangeVersion_Legacy == 1 && data.LicenseType.toLowerCase() !== "floating") || data.salesRep.toLowerCase() == "sener"))
+                            myTable.buttons(['.changeversion']).enable(true);
+                    }
                 }
             }
             if (parseJsonDate(data.MaintEndDate) > new Date() && enmodifybutton) {
@@ -775,6 +823,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         myTable.buttons(['.pssw2014']).disable();
         myTable.buttons(['.changeversion']).disable();
         myTable.buttons(['.modify']).disable();
+        myTable.buttons(['.v2cp']).disable();
     });
 
 

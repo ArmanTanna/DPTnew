@@ -39,19 +39,23 @@ namespace DptLicensingServer.Controllers
                 if (old > 3 || old < 2 || !acceptedType.Contains(tipo))
                     return CreateResponse(HttpStatusCode.BadRequest);
                 LicenseView currentlicense = null;
+                SerLicenseFlag lf = null;
 
                 if (!string.IsNullOrEmpty(data.licenseID))
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == data.licenseID);
+                        lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
                     }
                 else if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                        lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
                     }
 
-                if (currentlicense == null || (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0))
+                if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now ||
+                    (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                     return CreateResponse(HttpStatusCode.BadRequest);
 
                 if (expdata == "20280101")
@@ -115,9 +119,8 @@ namespace DptLicensingServer.Controllers
                         entry.Property(x => x.MachineID).IsModified = true;
                         entry.Property(x => x.Import).IsModified = true;
                         db.SaveChanges();
-
-                        SendMailWriteLog(currentlicense, db);
                     }
+                    SendMailWriteLog(currentlicense, db);
                 }
                 return CreateResponse(HttpStatusCode.OK, newLicenseResult);
             }
@@ -407,14 +410,17 @@ namespace DptLicensingServer.Controllers
                 string pwdline = String.Empty;
                 IEnumerable<string> h_lid;
                 LicenseView currentlicense = null;
+                SerLicenseFlag lf = null;
 
                 if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                 {
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
+                        lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
                     }
-                    if (currentlicense == null || (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0))
+                    if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now ||
+                        (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                         return CreateResponse(HttpStatusCode.BadRequest);
 
                     if (expdate == "20280101")
@@ -430,7 +436,7 @@ namespace DptLicensingServer.Controllers
                     PwdLine = pwdline
                 });
 
-                if (currentlicense != null && currentlicense.MachineID != machineid1)
+                if (currentlicense != null /*&& currentlicense.MachineID != machineid1*/)
                 {
                     using (var db = new DptContext())
                     {
@@ -467,14 +473,14 @@ namespace DptLicensingServer.Controllers
             var salesRep = from salrep in db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
             var sr = from cmp in db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
             MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], sr.FirstOrDefault().Email);
-            mail.Bcc.Add("Orders@dptcorporate.com");
+            mail.Bcc.Add("licensing@dptcorporate.com");
             if (company.FirstOrDefault().Language.ToLower() == "japanese")
             {
                 mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                 mail.Body = "代理店ご担当者様。\n\n以下のライセンスがお客様によって取得されたことをお知らせいたします。\n" +
                     "会社名: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
-                    "ライセンスID: " + currentlicense.LicenseID + "\nマシンＩＤ: " + currentlicense.MachineID +
-                    "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
+                    "ライセンスID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                    ")\nマシンＩＤ: " + currentlicense.MachineID + "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
                     "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                     "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                     " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
@@ -483,8 +489,8 @@ namespace DptLicensingServer.Controllers
             {
                 mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                 mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                    "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + "\nMachineID: " + currentlicense.MachineID +
-                    "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                    "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                    ")\nMachineID: " + currentlicense.MachineID + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
                     "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                     //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                     "\n\nBest regards,\n\nDPT Licensing";
@@ -519,22 +525,21 @@ namespace DptLicensingServer.Controllers
 
                 using (var db = new DptContext())
                 {
-                    var query =
-                    from license in db.Licenses
-                    where license.LicenseID == licenseId
-                    select license;
+                    var lic = db.Licenses.Single(x => x.LicenseID == licenseId);
+                    var lf = db.LicFlag.Single(x => x.LicenseFlag == lic.LicenseFlag);
+
+                    if (Convert.ToInt32(version) < Convert.ToInt32(lic.Version) || lf.ChangeVersion_Legacy == 0)
+                        return CreateResponse(HttpStatusCode.BadRequest);
 
                     DptLicenseLog log = new DptLicenseLog();
 
-                    foreach (LicenseView lic in query)
-                    {
-                        log.VersionFrom = lic.Version;
-                        log.VersionTo = version;
-                        log.LicenseID = lic.LicenseID;
-                        log.MachineID = lic.MachineID;
+                    log.VersionFrom = lic.Version;
+                    log.VersionTo = version;
+                    log.LicenseID = lic.LicenseID;
+                    log.MachineID = lic.MachineID;
 
-                        lic.Version = version;
-                    }
+                    lic.Version = version;
+
                     log.CreatedOn = DateTime.Now;
                     log.CreatedBy = Membership.GetUser().UserName;
                     log.Action = "Upgrade";
@@ -601,7 +606,6 @@ namespace DptLicensingServer.Controllers
                 return CreateResponse(HttpStatusCode.InternalServerError);
             }
         }
-
 
         private HttpResponseMessage CreateResponse(HttpStatusCode code, JObject resp = null)
         {

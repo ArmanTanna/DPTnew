@@ -46,8 +46,7 @@ namespace DPTnew.Controllers
                 return responseMessage;
             }
         }
-
-
+        
         //private Utility functions
         private string fileToString(HttpPostedFileBase file)
         {
@@ -56,7 +55,6 @@ namespace DPTnew.Controllers
             {
                 totalfile = reader.ReadToEnd();
             }
-
             return totalfile;
         }
 
@@ -98,7 +96,6 @@ namespace DPTnew.Controllers
                 ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
                 ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
                 //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
-
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
                 ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
             }
@@ -128,17 +125,23 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
+        public ActionResult V2CP(string licenseid)
+        {
+            ViewBag.LicenseId = licenseid;
+            return View();
+        }
+
+        [HttpPost]
         public async Task<ActionResult> ExportLicense(LicenseBase l)
         {
             LicenseView currentlicense = null;
+            SerLicenseFlag lf = null;
             string dpt_Company;
             using (var context = new DptContext())
             {
                 currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
-                //var useronline = Membership.GetUser();
-                //var user = context.Contacts.Single(u => u.Email == useronline.UserName);
-                //dpt_Company = user.AccountNumber;
                 dpt_Company = currentlicense.AccountNumber;
+                lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
             }
 
             if (currentlicense != null && currentlicense.MaxExport > 0 && currentlicense.ExportedNum >= currentlicense.MaxExport)
@@ -151,39 +154,18 @@ namespace DPTnew.Controllers
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
-                Regex lrgx = new Regex(@"^L[0-9]+$");
-                Regex brokrgx = new Regex(@"^BROK[0-9]+$");
-                Regex testrgx = new Regex(@"^TEST[0-9]+$");
-                Regex zrgx = new Regex(@"^Z[0-9]+$");
-                Regex krgx = new Regex(@"^K[0-9]+$");
-                Regex poolrgx = new Regex(@"^POOL[0-9]+$");
-                Regex prergx = new Regex(@"^PRE[0-9]+$");
-                Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
-                Regex stagrgx = new Regex(@"^STAG[0-9]+$");
-                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
-                Regex gbgrgx = new Regex(@"^GBG[0-9]+$");
-                Regex deadrgx = new Regex(@"^DEAD[0-9]+$");
-                Regex obsrgx = new Regex(@"^OBS[0-9]+$");
-                Regex edurgx = new Regex(@"^EDU[0-9]+$");
-                Regex freergx = new Regex(@"^FREE[0-9]+$");
-                Regex demrgx = new Regex(@"^DEM[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVA");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// blurgx.IsMatch(currentlicense.MachineID);
-                var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
-                var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
-                    || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
-                    || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
-                var isGDO = gbgrgx.IsMatch(currentlicense.LicenseID) || deadrgx.IsMatch(currentlicense.LicenseID) || obsrgx.IsMatch(currentlicense.LicenseID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
                 var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
-                var isED = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
 
                 //check for export
                 if (currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
                 {
-                    if (isLocal && !isGDO && !isTdVar && !isTdirect && !isPPTSFEK && isLBZT && !isED)
+                    if (isLocal && (!isTdVar || currentlicense.LicenseID == "L00000387" || currentlicense.LicenseID == "L00000699")
+                        && !isTdirect && lf.Export_Safenet == 1)
                     {
                         SafenetUpdateEntitlment ue = new SafenetUpdateEntitlment();
 
@@ -199,19 +181,23 @@ namespace DPTnew.Controllers
                         ue.refId1 = ue.ProtectionKeyId;
                         ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
-                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
-                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20152CANCEL");
+                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
+                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
                         IList<string> verList = new List<string>();
-                        verList.Add("_20161CANCEL");
                         verList.Add("_20171CANCEL");
+                        verList.Add("_20161CANCEL");
+                        verList.Add("_20152CANCEL");
 
-                        foreach (var ver in verList)
+                        if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
                         {
-                            foreach (var it in prodName.ToList())
+                            foreach (var ver in verList)
                             {
-                                var repName = it.ToString();
-                                repName = repName.Replace("_20152CANCEL", ver);
-                                ue.ProductName.Add(repName);
+                                foreach (var it in prodName.ToList())
+                                {
+                                    var repName = it.ToString();
+                                    repName = repName.Replace("_20181CANCEL", ver);
+                                    ue.ProductName.Add(repName);
+                                }
                             }
                         }
 
@@ -232,11 +218,13 @@ namespace DPTnew.Controllers
                                 currentlicense.Installed = 0;
                                 currentlicense.Exported = 1;
                                 currentlicense.ExportedNum = currentlicense.ExportedNum + 1;
+                                currentlicense.TotExported += 1; 
                                 context.Licenses.Attach(currentlicense);
                                 var entry = context.Entry(currentlicense);
                                 entry.Property(x => x.Installed).IsModified = true;
                                 entry.Property(x => x.Exported).IsModified = true;
                                 entry.Property(x => x.ExportedNum).IsModified = true;
+                                entry.Property(x => x.TotExported).IsModified = true;
                                 //context.Entry(currentlicense).State = EntityState.Modified;
                                 context.SaveChanges();
 
@@ -265,7 +253,8 @@ namespace DPTnew.Controllers
                                     "2. エクスポート検証：<br/>  2a) <b>Admin Control Center</b>（ http://localhost:1947 ）→ <b>Sentinel キー</b> → C2V ボタン（アクション欄） → C2V ファイルのダウンロード<br/>" +
                                     "  2b) <b>DPT3Care</b>（ https://dpt3.dptcorporate.com ）サイトへログインして Licenses ページを表示 → エクスポートするライセンスの行を選択 → <b>エクスポート検証</b> ボタン → 前の手順で作成した .c2v ファイルをアップロード<br/>" +
                                     "3. これでエクスポート操作が完了し、ライセンスを別のＰＣにインストールすることができます。<br/><br/><br/>" +
-                                    "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + "<br/>マシンＩＤ: " +
+                                    "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" +
+                                    currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " +
                                     currentlicense.MachineID + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
                                     "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services</pre>";
@@ -278,7 +267,8 @@ namespace DPTnew.Controllers
                                     "<br/><br/>2. Validate Export:<br/><br/>  2a. <b>Admin Control Center</b> (http://localhost:1947) → <b>Sentinel keys</b> → C2V button (Action column) → download the .c2v file." +
                                     "<br/><br/>  2b. <b>DPT3Care</b> (https://dpt3.dptcorporate.com - refresh the Licenses page) → click on the license’s row → <b>Validate Export button</b> → upload the downloaded .c2v file." +
                                     "<br/><br/>3. You are now ready to reinstall your license on another PC." +
-                                    "<br/><br/><br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + "<br/>MachineID: " + currentlicense.MachineID +
+                                    "<br/><br/><br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
+                                    currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
                                     "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
                                     //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "<br/><br/>Best regards,<br/><br/>DPT Services</pre>";
@@ -290,7 +280,7 @@ namespace DPTnew.Controllers
                             }
                             catch (Exception e)
                             {
-                                LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                                LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
                             }
 
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseExportMsg;
@@ -302,7 +292,6 @@ namespace DPTnew.Controllers
                             ModelState.AddModelError("EXPORT", "Something went wrong. It's impossible to export the license.");
                             return View("Export", l);
                         }
-
                     }
                 }
             }
@@ -320,7 +309,6 @@ namespace DPTnew.Controllers
 
             if (file != null)
             {
-
                 using (var context = new DptContext())
                 {
                     currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == Licenseid);
@@ -437,12 +425,123 @@ namespace DPTnew.Controllers
             return View("Validate");
         }
 
-        private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix)
+        [HttpPost]
+        public async Task<ActionResult> GetV2CP(string Licenseid, HttpPostedFileBase file)
+        {
+            var success = false;
+            LicenseView currentlicense = null;
+
+            if (file != null)
+            {
+                using (var context = new DptContext())
+                {
+                    currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == Licenseid);
+                }
+
+                if ((currentlicense.Installed == 0 && currentlicense.Exported == 0) || currentlicense.MaintEndDate < DateTime.Now)
+                {
+                    ModelState.AddModelError("V2CP", "You haven't installed this license.");
+                    return View("V2CP");
+                }
+
+                string filestring = fileToString(file);
+                string c2v;
+                try
+                {
+                    c2v = encodeC2V(filestring);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("UserController (GetV2CP): " + e.Message);
+                    ModelState.AddModelError("V2CP", "The file you have uploaded is not correct");
+                    return View("V2CP");
+                }
+                //build of JSON
+                JObject o = new JObject();
+                o["Encoded"] = true;
+                o["C2V"] = c2v;
+
+                string uri = Url.Action("RetrieveV2CP", "Safenet", new { httproute = "" }, "https");
+
+                HttpResponseMessage response = await SendJsonAsync(uri, o.ToString());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = response.Content.ReadAsStringAsync().Result;
+                    JObject contentresult = JObject.Parse(content);
+                    contentresult.Property("Headers").Remove();
+                    contentresult.Property("Success").Remove();
+                    var doc = JsonConvert.DeserializeXmlNode(contentresult.ToString());
+                    var ms = new MemoryStream();
+                    doc.Save(ms);
+                    ms.Flush();
+                    ms.Position = 0;
+
+                    var company = from cmp in _db.Companies where cmp.AccountNumber == currentlicense.AccountNumber select cmp;
+                    var salesRep = from salrep in _db.SalesR where salrep.SalesRep == company.FirstOrDefault().SalesRep select salrep;
+                    var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
+                    MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], company.FirstOrDefault().Email);
+                    mail.CC.Add(sr.FirstOrDefault().Email);
+                    mail.Bcc.Add("licensing@dptcorporate.com");
+
+                    if (company.FirstOrDefault().Language.ToLower() == "japanese")
+                    {
+                        mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                        mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、v2cp ファイルが発行されました";
+                        mail.Body = "<pre>DPT User 様。<br/><br/>添付の .v2cp パスワードファイルをご確認ください。" +
+                            "<br/>以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスＩＤ: " + currentlicense.LicenseID + " (" +
+                            currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " + currentlicense.MachineID +
+                            "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
+                            "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                            //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                            "<br/><br/>以上、よろしくお願いいたします。<br/><br/>DPT Services</pre>";                               
+                    }
+                    else
+                    {
+                        mail.Subject = "[DO NOT REPLY] v2cp license issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                        mail.Body = "<pre>Dear User, <br/><br/>Please find attached the requested .v2cp password file." +
+                            "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
+                            currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
+                            "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
+                            "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                            //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                            "<br/><br/>Best regards,<br/><br/>DPT Services</pre>";
+                    }
+                    mail.Attachments.Add(new Attachment(ms, currentlicense.LicenseID + "-" + currentlicense.MachineID + ".v2cp", "application/xml"));
+                    mail.IsBodyHtml = true;
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                        success = true;
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("UserController (GetV2CP): " + e.Message + "-" + e.InnerException);
+                    }
+                    if (success)
+                    {
+                        var res = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
+                        ViewBag.ok1 = res.Replace(".v2c", ".v2cp");
+                        return View("Success");
+                    }
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("V2CP", "The file you have uploaded is not correct.");
+            return View("V2CP");
+        }
+
+        private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix, string accNumber)
         {
             var prodName = new JArray();
             if (pwdCode.StartsWith("VA"))//tdvar
             {
                 prodName = new JArray(SafenetEntitlement.TDVARBundle.Select(x => x + productPostfix).ToArray());
+                if (accNumber == "T3-0073628")
+                {
+                    prodName = new JArray(SafenetEntitlement.DPTVARBundle.Select(x => x + productPostfix).ToArray());
+                }
             }
             else if (pwdCode.StartsWith("IX"))//tdirectrw
             {
@@ -475,6 +574,7 @@ namespace DPTnew.Controllers
         {
             //common variables
             LicenseView currentlicense = null;
+            SerLicenseFlag lf = null;
             string type = "";
             string dpt_Company = "";
             string input = "";
@@ -483,45 +583,29 @@ namespace DPTnew.Controllers
             {
                 currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == licenseId);
                 dpt_Company = currentlicense.AccountNumber;
+                lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
             }
 
             if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 &&
-                (Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version) || (renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")))
+                ((Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version))
+                || (renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")))
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
-                Regex lrgx = new Regex(@"^L[0-9]+$");
-                Regex brokrgx = new Regex(@"^BROK[0-9]+$");
-                Regex testrgx = new Regex(@"^TEST[0-9]+$");
-                Regex zrgx = new Regex(@"^Z[0-9]+$");
-                Regex krgx = new Regex(@"^K[0-9]+$");
-                Regex poolrgx = new Regex(@"^POOL[0-9]+$");
-                Regex prergx = new Regex(@"^PRE[0-9]+$");
-                Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
-                Regex stagrgx = new Regex(@"^STAG[0-9]+$");
-                Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
-                Regex gbgrgx = new Regex(@"^GBG[0-9]+$");
-                Regex deadrgx = new Regex(@"^DEAD[0-9]+$");
-                Regex obsrgx = new Regex(@"^OBS[0-9]+$");
-                Regex edurgx = new Regex(@"^EDU[0-9]+$");
-                Regex freergx = new Regex(@"^FREE[0-9]+$");
-                Regex demrgx = new Regex(@"^DEM[0-9]+$");
+                Regex evalrgx = new Regex(@"^EVA");
                 Regex blurgx = new Regex(@"^BLU[0-9]+$");
+                Regex redrgx = new Regex(@"^RED[0-9]+$");
+                Regex blkrgx = new Regex(@"^BLK[0-9]+$");
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// blurgx.IsMatch(currentlicense.MachineID);
-                var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                    || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
-                var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
-                    || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
-                    || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
-                var isGDO = gbgrgx.IsMatch(currentlicense.LicenseID) || deadrgx.IsMatch(currentlicense.LicenseID) || obsrgx.IsMatch(currentlicense.LicenseID);
-                var isED = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
                 var isBlu = blurgx.IsMatch(currentlicense.MachineID);
-                var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+                var isred = redrgx.IsMatch(currentlicense.MachineID);
+                var isblk = blkrgx.IsMatch(currentlicense.MachineID);
+                var isEval = evalrgx.IsMatch(currentlicense.LicenseFlag.ToUpper());
 
-                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now) && !isGDO
-                    && (((isED || isLBZT) && isLocal && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || ((isBlu || isED || isPPTSFEK || isLBZT) && currentlicense.LicenseType.ToLower() != "floating")))
+                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
+                    && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
+                    || ((isBlu || (lf.ChangeVersion_Safenet == 1 && !isblk)) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
@@ -534,7 +618,10 @@ namespace DPTnew.Controllers
                             if (isEval) { type = "EVAL"; }
                             else
                             {
-                                type = "EXPIR";
+                                if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                                    type = "PHYSIC_EXPIR";
+                                else
+                                    type = "EXPIR";
                             }
                         }
                     }
@@ -559,7 +646,7 @@ namespace DPTnew.Controllers
 
                     var pname = GetProductName(currentlicense.ProductName);
                     //EVAL or LOCAL PL
-                    if (type == "PL" || type == "EVAL")
+                    if (type == "PL" /*|| type == "EVAL"*/)
                     {
                         SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                         e1.CrmId = dpt_Company;
@@ -574,12 +661,21 @@ namespace DPTnew.Controllers
                         e1.refId1 = e1.ProtectionKeyId;
                         e1.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
+                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                        if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
+                        {
+                            if (currentlicense.Version == "2015")
+                                productPostfix = "_20152CANCEL";
+                            else
+                                productPostfix = "_" + currentlicense.Version + "1CANCEL";
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            foreach (var p in productName)
+                                e1.ProductName.Add(p);
+                        }
 
                         e1.Encoded = true;
                         e1.C2V = "";
                         input = JsonConvert.SerializeObject(e1);
-
                     }
                     else
                     {
@@ -597,7 +693,17 @@ namespace DPTnew.Controllers
                         e2.refId1 = e2.ProtectionKeyId;
                         e2.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
+                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                        if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
+                        {
+                            if (currentlicense.Version == "2015")
+                                productPostfix = "_20152CANCEL";
+                            else
+                                productPostfix = "_" + currentlicense.Version + "1CANCEL";
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            foreach (var p in productName)
+                                e2.ProductName.Add(p);
+                        }
 
                         //ADDITIONAL PARAMETERS
                         e2.SaotParams = new JArray();
@@ -608,17 +714,15 @@ namespace DPTnew.Controllers
                             temp["Product"] = pn;
 
                             //choose product
-                            if (type == "EXPIR" || type == "NET_EXPIR")
+                            if (type == "EXPIR" || type == "NET_EXPIR" || type == "PHYSIC_EXPIR")
                             {
                                 DateTime med = new DateTime();
                                 med = (System.DateTime)currentlicense.MaintEndDate;
                                 temp["EXPIRATION_DATE"] = med.Date.ToString("yyyy-MM-dd");
-
                             }
                             if (type == "NET_PL" || type == "NET_EXPIR")
                             {
                                 temp["CONCURRENT_INSTANCES"] = currentlicense.Quantity.ToString();
-
                             }
                             e2.SaotParams.Add(temp);
                         }
@@ -643,7 +747,8 @@ namespace DPTnew.Controllers
                             log.VersionFrom = currentlicense.Version;
                             log.VersionTo = version;
                             log.Action = "ChangeVersion";
-                            if (Convert.ToInt64(version) > Convert.ToInt64(currentlicense.Version))
+                            if ((Convert.ToInt64(version) > Convert.ToInt64(currentlicense.Version) && currentlicense.LicenseType.ToLower() == "local")
+                                || currentlicense.LicenseType.ToLower() == "floating")
                             {
                                 currentlicense.Version = version;
                                 entry.Property(x => x.Version).IsModified = true;
@@ -676,7 +781,8 @@ namespace DPTnew.Controllers
                             mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
                             mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
                             mail.Body = "<pre>DPT User 様。<br/><br/>先ほど DPT ライセンスサービスよりライセンスパスワードを含む .v2c ファイルをお送りいたしました。\n" +
-                                "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + "<br/>マシンＩＤ: " + currentlicense.MachineID +
+                                "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" +
+                                currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " + currentlicense.MachineID +
                                 "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + version +
                                 "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services</pre>";
@@ -685,13 +791,12 @@ namespace DPTnew.Controllers
                         {
                             mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                             mail.Body = "<pre>Dear User, <br/><br/>You should have just received a message from DPT Licensing containing a .v2c password file." +
-                                "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + "<br/>MachineID: " + currentlicense.MachineID +
+                                "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
+                                currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
                                 "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + version +
                                 "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                 "<br/><br/>Best regards,<br/><br/>DPT Services</pre>";
-                            if (currentlicense.LicenseID.StartsWith("K"))
-                                mail.Subject += "with LID: " + currentlicense.LicenseID;
                         }
                         mail.IsBodyHtml = true;
                         try
@@ -700,7 +805,7 @@ namespace DPTnew.Controllers
                         }
                         catch (Exception e)
                         {
-                            LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                            LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
                         }
                         //ViewBag.ok1 = "You have generated your license.";
                         return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
@@ -717,6 +822,7 @@ namespace DPTnew.Controllers
         {
             //common variables
             LicenseView currentlicense = null;
+            SerLicenseFlag lf = null;
             string type = "";
             string dpt_Company = "";
             string filestring = "";
@@ -728,7 +834,7 @@ namespace DPTnew.Controllers
                 filestring = fileToString(l.file);
                 int index1 = filestring.IndexOf("SL-AdminMode");
                 int index2 = filestring.IndexOf("SL-UserMode");
-                if (index1 == -1 || index2 == -1)
+                if (!l.MachineID.ToUpper().Contains("BLK") && (index1 == -1 || index2 == -1))
                 {
                     ModelState.AddModelError("CREATE", "The file you have uploaded is not correct");
                     return View("Create");
@@ -746,40 +852,20 @@ namespace DPTnew.Controllers
                 using (var context = new DptContext())
                 {
                     currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
-                    //var useronline = Membership.GetUser();
-                    //var user = context.Contacts.Single(u => u.Email == useronline.UserName);
-                    //dpt_Company = user.AccountNumber;
                     dpt_Company = currentlicense.AccountNumber;
+                    lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
                 }
 
                 if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
                 {
                     var now = System.DateTime.Now;
-                    Regex lrgx = new Regex(@"^L[0-9]+$");
-                    Regex brokrgx = new Regex(@"^BROK[0-9]+$");
-                    Regex testrgx = new Regex(@"^TEST[0-9]+$");
-                    Regex zrgx = new Regex(@"^Z[0-9]+$");
-                    Regex krgx = new Regex(@"^K[0-9]+$");
-                    Regex poolrgx = new Regex(@"^POOL[0-9]+$");
-                    Regex prergx = new Regex(@"^PRE[0-9]+$");
-                    Regex twinrgx = new Regex(@"^TWIN[0-9]+$");
-                    Regex stagrgx = new Regex(@"^STAG[0-9]+$");
-                    Regex edurgx = new Regex(@"^EDU[0-9]+$");
-                    Regex freergx = new Regex(@"^FREE[0-9]+$");
-                    Regex demrgx = new Regex(@"^DEM[0-9]+$");
-                    Regex evalrgx = new Regex(@"^EVAL[0-9]+$");
+                    Regex evalrgx = new Regex(@"^EVA");
 
-                    var isLBZT = lrgx.IsMatch(currentlicense.LicenseID) || zrgx.IsMatch(currentlicense.LicenseID)
-                        || brokrgx.IsMatch(currentlicense.LicenseID) || testrgx.IsMatch(currentlicense.LicenseID);
-                    var isPPTSFEK = poolrgx.IsMatch(currentlicense.LicenseID) || prergx.IsMatch(currentlicense.LicenseID)
-                        || stagrgx.IsMatch(currentlicense.LicenseID) || twinrgx.IsMatch(currentlicense.LicenseID)
-                        || freergx.IsMatch(currentlicense.LicenseID) || krgx.IsMatch(currentlicense.LicenseID) || evalrgx.IsMatch(currentlicense.LicenseID);
-                    var isDE = edurgx.IsMatch(currentlicense.LicenseID) || demrgx.IsMatch(currentlicense.LicenseID);
                     //check for import/install
-                    if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && (isLBZT || isPPTSFEK || isDE))
+                    if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && lf.Install_Safenet == 1)
                     {
                         //CHECK if is EVAL                        
-                        var isEval = evalrgx.IsMatch(currentlicense.LicenseID);
+                        var isEval = evalrgx.IsMatch(currentlicense.LicenseFlag.ToUpper());
 
                         if (currentlicense.LicenseType == "local")
                         { //LOCAL
@@ -793,7 +879,10 @@ namespace DPTnew.Controllers
                                 if (isEval) { type = "EVAL"; }
                                 else
                                 {
-                                    type = "EXPIR";
+                                    if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                                        type = "PHYSIC_EXPIR";
+                                    else
+                                        type = "EXPIR";
                                     CheckQMTsf(currentlicense);
                                 }
                             }
@@ -817,7 +906,7 @@ namespace DPTnew.Controllers
                         var pname = GetProductName(l.ProductName);
 
                         //EVAL or LOCAL PL
-                        if (type == "PL" || type == "EVAL")
+                        if (type == "PL" /*|| type == "EVAL"*/)
                         {
                             SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                             e1.CrmId = dpt_Company;
@@ -825,12 +914,11 @@ namespace DPTnew.Controllers
                             e1.refId1 = l.file.FileName;
                             e1.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
+                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
 
                             e1.Encoded = true;
                             e1.C2V = c2v;
                             input = JsonConvert.SerializeObject(e1);
-
                         }
                         else
                         {
@@ -841,7 +929,7 @@ namespace DPTnew.Controllers
                             e2.refId1 = l.file.FileName;
                             e2.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix);
+                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
 
                             //ADDITIONAL PARAMETERS
                             e2.SaotParams = new JArray();
@@ -852,17 +940,15 @@ namespace DPTnew.Controllers
                                 temp["Product"] = pn;
 
                                 //choose product
-                                if (type == "EXPIR" || type == "NET_EXPIR")
+                                if (type == "EXPIR" || type == "NET_EXPIR" || type == "PHYSIC_EXPIR")
                                 {
                                     DateTime med = new DateTime();
                                     med = (System.DateTime)currentlicense.MaintEndDate;
                                     temp["EXPIRATION_DATE"] = med.Date.ToString("yyyy-MM-dd");
-
                                 }
                                 if (type == "NET_PL" || type == "NET_EXPIR")
                                 {
                                     temp["CONCURRENT_INSTANCES"] = currentlicense.Quantity.ToString();
-
                                 }
                                 e2.SaotParams.Add(temp);
                             }
@@ -891,7 +977,7 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                currentlicense.MachineID = "BLU";
+                                currentlicense.MachineID = "BLK";
 
                                 for (int i = 0; i < (10 - pkey.Length); i++)
                                 {
@@ -905,11 +991,13 @@ namespace DPTnew.Controllers
                                 //update state in db
                                 currentlicense.Installed = 1;
                                 currentlicense.Import = 0;
+                                currentlicense.Renew = 0;
 
                                 context.Licenses.Attach(currentlicense);
                                 var entry = context.Entry(currentlicense);
                                 entry.Property(x => x.Installed).IsModified = true;
                                 entry.Property(x => x.Import).IsModified = true;
+                                entry.Property(x => x.Renew).IsModified = true;
                                 entry.Property(x => x.MachineID).IsModified = true;
                                 if (currentlicense.ArticleDetail == "qsf" || currentlicense.ArticleDetail == "msf" ||
                                     currentlicense.ArticleDetail == "tsf" || currentlicense.ArticleDetail == "wsf")
@@ -944,7 +1032,8 @@ namespace DPTnew.Controllers
                                 mail.CC.Add(_db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
                                 mail.Subject = "[このメールには返信しないでください] " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") 様、ライセンスが発行されました";
                                 mail.Body = "<pre>DPT User 様。<br/><br/>先ほど DPT ライセンスサービスよりライセンスパスワードを含む .v2c ファイルをお送りいたしました。<br/>" +
-                                    "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + "<br/>マシンＩＤ: " + currentlicense.MachineID + "<br/>.c2v ファイル: " +
+                                    "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                                    ")<br/>マシンＩＤ: " + currentlicense.MachineID + "<br/>.c2v ファイル: " +
                                     l.file.FileName + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
                                     "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services</pre>";
@@ -953,13 +1042,12 @@ namespace DPTnew.Controllers
                             {
                                 mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                 mail.Body = "<pre>Dear User, <br/><br/>You should have just received a message from DPT Licensing containing a .v2c password file." +
-                                    "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + "<br/>MachineID: " + currentlicense.MachineID + "<br/>.c2v file: " +
+                                    "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                                    ")<br/>MachineID: " + currentlicense.MachineID + "<br/>.c2v file: " +
                                     l.file.FileName + "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
                                     "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                     "<br/><br/>Best regards,<br/><br/>DPT Services</pre>";
-                                if (currentlicense.LicenseID.StartsWith("K"))
-                                    mail.Subject += "with LID: " + currentlicense.LicenseID;
                             }
                             mail.IsBodyHtml = true;
                             try
@@ -996,6 +1084,7 @@ namespace DPTnew.Controllers
                 case "tteamdoc": return "ThinkTeamDOC";
                 case "tteampcb": return "ThinkTeamPCB";
                 case "tteampcm": return "ThinkTeamPCM";
+                case "tdprofessionaledu": return "TDEducation";
                 default: return prodName;
             }
         }
@@ -1055,107 +1144,5 @@ namespace DPTnew.Controllers
             base.OnActionExecuting(filterContext);
         }
 
-        //
-        // GET: /Licenses/Details/5
-        /*
-         public ActionResult Details(string id)
-         {
-             License dpt_license = db.Licenses.Find(id);
-             if (dpt_license == null)
-             {
-                 return HttpNotFound();
-             }
-             return View(dpt_license);
-         }
-
-         //
-         // GET: /Licenses/Create
-        
-         public ActionResult Create()
-         {
-             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName");
-             return View();
-         }
-
-         //
-         // POST: /Licenses/Create
-
-         [HttpPost]
-         [ValidateAntiForgeryToken]
-         public ActionResult Create(DPT_License dpt_license)
-         {
-             if (ModelState.IsValid)
-             {
-                 db.DPT_License.Add(dpt_license);
-                 db.SaveChanges();
-                 return RedirectToAction("Index");
-             }
-
-             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
-             return View(dpt_license);
-         }
-
-         //
-         // GET: /Licenses/Edit/5
-
-         public ActionResult Edit(string id = null)
-         {
-             DPT_License dpt_license = db.DPT_License.Find(id);
-             if (dpt_license == null)
-             {
-                 return HttpNotFound();
-             }
-             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
-             return View(dpt_license);
-         }
-
-         //
-         // POST: /Licenses/Edit/5
-
-         [HttpPost]
-         [ValidateAntiForgeryToken]
-         public ActionResult Edit(DPT_License dpt_license)
-         {
-             if (ModelState.IsValid)
-             {
-                 db.Entry(dpt_license).State = EntityState.Modified;
-                 db.SaveChanges();
-                 return RedirectToAction("Index");
-             }
-             ViewBag.AccountNumber = new SelectList(db.DPT_Company, "AccountNumber", "AccountName", dpt_license.AccountNumber);
-             return View(dpt_license);
-         }
-
-         //
-         // GET: /Licenses/Delete/5
-
-         public ActionResult Delete(string id = null)
-         {
-             DPT_License dpt_license = db.DPT_License.Find(id);
-             if (dpt_license == null)
-             {
-                 return HttpNotFound();
-             }
-             return View(dpt_license);
-         }
-
-         //
-         // POST: /Licenses/Delete/5
-
-         [HttpPost, ActionName("Delete")]
-         [ValidateAntiForgeryToken]
-         public ActionResult DeleteConfirmed(string id)
-         {
-             DPT_License dpt_license = db.DPT_License.Find(id);
-             db.DPT_License.Remove(dpt_license);
-             db.SaveChanges();
-             return RedirectToAction("Index");
-         }
-
-         protected override void Dispose(bool disposing)
-         {
-             db.Dispose();
-             base.Dispose(disposing);
-         }*/
     }
 }

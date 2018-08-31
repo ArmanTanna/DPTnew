@@ -12,7 +12,6 @@ namespace DPTnew.Controllers
     {
         //
         // GET: /FaqUser/
-
         public ActionResult Index()
         {
             if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)
@@ -29,7 +28,6 @@ namespace DPTnew.Controllers
 
         //
         // GET: /FaqUser/
-
         public ActionResult Index2()
         {
             if (LocalizationHelper.SetLocalization(Session["CurrentCulture"]) == 2)

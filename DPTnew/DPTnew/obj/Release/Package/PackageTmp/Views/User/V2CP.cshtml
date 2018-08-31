@@ -1,0 +1,32 @@
+﻿@section Scripts {
+    <script type="text/javascript">
+        $('form').one('submit', function () {
+            $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            setTimeout(function () {
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            }, 4000);
+        });
+    </script>
+}
+
+<p style="font-size: 1.3em;">
+    @Html.ValidationMessage("V2CP")
+</p>
+
+<h2>Get V2CP</h2>
+
+@{
+    ViewBag.Title = "Get V2CP";
+}
+
+@using (Html.BeginForm("GetV2CP", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.Hidden("Licenseid", (object)ViewBag.LicenseId)
+
+    <input type="file" name="file" id="file" accept=".c2v" required />
+
+
+    <input type="submit" value="Submit" />
+}
+<p><button name='close' onclick="javascript: window.open('', '_self').close()">Close </button></p>

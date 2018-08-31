@@ -88,7 +88,7 @@
                             buttons: {
                                 Yes: function () {
                                     if (result.split(" ").length == 4) {
-                                        $("input[name=idxx]").val(0);
+                                        $("input[name=idxx]").val("");
                                         $("#productName-choice").val("");
                                         $("#licenseID-choice").empty();
                                         $("input[name=licenseType]").val("");
@@ -191,6 +191,16 @@
                 $("#articleDetail-choice").append("<option value='cvu'>cvu</option>");
             if ($("#articleDetail-choice").val() != "upg")
                 $("#articleDetail-choice").append("<option value='upg'>upg</option>");
+            if ($("#articleDetail-choice").val() != "sas")
+                $("#articleDetail-choice").append("<option value='sas'>sas</option>");
+            if ($("#articleDetail-choice").val() != "sasp")
+                $("#articleDetail-choice").append("<option value='sasp'>sasp</option>");
+            if ($("#articleDetail-choice").val() != "sasf")
+                $("#articleDetail-choice").append("<option value='sasf'>sasf</option>");
+            if ($("#articleDetail-choice").val() != "srv")
+                $("#articleDetail-choice").append("<option value='srv'>srv</option>");
+            if ($("#articleDetail-choice").val() != "oth")
+                $("#articleDetail-choice").append("<option value='oth'>oth</option>");
 
             if ($("#lineType-choice").val() != "standard" && $("#lineType-choice").val() === "")
                 $("#lineType-choice").append("<option value='standard' selected>standard</option>");
@@ -294,6 +304,8 @@
             });
 
             $("#articleDetail-choice").change(function () {
+                if ($("#articleDetail-choice").val() == "pl")
+                    $("input[name=endDate]").val($("input[name=startDate]").val());
                 if ($("#productName-choice").val() !== "") {
                     $.post(yourApp.Urls.GetPrice, { productName: $("#productName-choice").val(), articleDetail: $("#articleDetail-choice").val(), licenseType: $("input[name=licenseType]").val(), quantity: $("input[name=quantity]").val() },
                          function (result) {
@@ -381,7 +393,7 @@
                 </td>
                 <td>@Html.DisplayNameFor(model => model.idxx)</td>
                 <td>
-                    <input type="number" name="idxx" min="0" value="@Html.DisplayFor(modelItem => item.idxx)" readonly>
+                    <input type="text" name="idxx" min="0" value="@Html.DisplayFor(modelItem => item.idxx)" readonly>
                 </td>
             </tr>
             <tr>
@@ -523,10 +535,8 @@
                 <td>
                     <input type="number" name="discount" min="0" value="0" readonly>
                 </td>
-                <td>Probability</td>
-                <td>
-                    <input type="number" name="probability" min="0" value="@Html.DisplayFor(modelItem => item.Probability)" readonly>
-                </td>
+                <td></td>
+                <td></td>
             </tr>
         }
     </tbody>

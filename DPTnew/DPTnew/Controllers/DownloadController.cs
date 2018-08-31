@@ -21,12 +21,11 @@ namespace DPTnew.Controllers
     {
         //
         // GET: /Download/
-
         public ActionResult Index()
-        {
+        {// description: ベータ版 -- view_download: ベータ版
             LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.Message = LocalizationHelper.GetSalesProv();
-            ViewBag.UserNoCase = !(Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"));
+            ViewBag.UserNoLicCase = !(Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoLicCase"));
             return View();
         }
 
@@ -36,9 +35,22 @@ namespace DPTnew.Controllers
         {
             try
             {
+                var pName = "";
+                switch (prodName.Split('_')[1])
+                {
+                    case "2018":
+                        if (prodName.Split('_')[0].Contains("2018"))
+                            pName = "ThinkDesign 2018 64bit";
+                        else
+                            pName = "Utility tools 2018";
+                        break;
+                    default:
+                        break;
+                }
+
                 using (var db = new DptContext())
                 {
-                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[downloadCounter] (ProdName, DownloadedOn, DownloadedBy, Cnt) VALUES ('" + prodName + "',GETDATE(),'" + WebSecurity.CurrentUserName + "',1)");
+                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[downloadCounter] (ProdName, DownloadedOn, DownloadedBy, Cnt) VALUES ('" + pName + "',GETDATE(),'" + WebSecurity.CurrentUserName + "',1)");
                 }
                 return Json(HttpStatusCode.OK, JsonRequestBehavior.AllowGet);
             }

@@ -15,12 +15,12 @@
 }
 
 @section Scripts {
-    @*<script src="~/Scripts/Company/table_list.js"> </script>*@
+    @*
+        <script src="~/Scripts/Company/table_list.js"> </script>*@
     <script type="text/javascript">
         var salesReg = '@ViewBag.Message';
         salesReg = salesReg.toLowerCase().trim();
         function downloadCounter(prod) {
-            debugger;
             $.ajax({
                 url: "../Download/downloadCounter?prodName=" + prod,
                 type: 'GET',
@@ -36,20 +36,20 @@
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
                '<tr>' +
                     '<td style="width:25%"><b>' + "@DPTnew.Localization.Resource.Product" + '</b></td>' +
-                    '<td style="width:60%"><b>' + "@DPTnew.Localization.Resource.Description" + '</b></td>' +
-                    '<td style="width:15%"><b>' + "@DPTnew.Localization.Resource.View_Menu_Download" + '</b></td>' +
+                    '<td style="width:55%"><b>' + "@DPTnew.Localization.Resource.Description" + '</b></td>' +
+                    '<td style="width:20%"><b>' + "@DPTnew.Localization.Resource.View_Menu_Download" + '</b></td>' +
                '</tr>' +
                 ((salesReg == "japan" && d.Product.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ?
                 "" : '<tr>' +
                     '<td>' + d.Product + '</td>' +
                     '<td>' + d.Description + '</td>' +
-                    '<td> <a href="' + d.Download + '">' + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size + ' </a></td>' +
+                    '<td> <a href="' + d.Download + (d.Year > 2016 ? '" onclick="downloadCounter(\'' + d.Product + "_" + d.Year + '\')">' : '">') + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size + ' </a></td>' +
                 '</tr>') +
                 (d.Product1 ? ((salesReg == "japan" && d.Product1.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
                     '<td>' + d.Product1 + '</td>' +
                     '<td>' + d.Description1 + '</td>' +
-                    '<td>' + '<a href="' + d.Download1 + (d.Year == 2017 ? '" onclick="downloadCounter(\'' + d.Product1 + '\')">' : '">') + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size1 + ' </a></td>' +
+                    '<td> <a href="' + d.Download1 + (d.Year > 2016 ? '" onclick="downloadCounter(\'' + d.Product1 + "_" + d.Year + '\')">' : '">') + "@DPTnew.Localization.Resource.View_Menu_Download" + d.Size1 + ' </a></td>' +
                 '</tr>') : "") +
                 (d.Product2 ? ((salesReg == "japan" && d.Product2.indexOf("32bit") > -1 && (d.Year == "2016" || d.Year == "2015")) ? "" :
                 '<tr>' +
@@ -85,32 +85,45 @@
         }
 
         $(document).ready(function () {
-
-            var datacad = [
-                {
+            var datacad = [];
+            if ("@ViewBag.UserNoLicCase.ToString().ToLower()" == "true") {
+                var cad = {
+                    "Year": "2018", "Product": "@DPTnew.Localization.Resource.Product2018ThinkDesign64bit",
+                    "Description": "@DPTnew.Localization.Resource.Description2018ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2018_1_20706.iso)",
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=Lltv4a",
+                    "Product1": "@DPTnew.Localization.Resource.Product2018Utilitytools",
+                    "Description1": "@DPTnew.Localization.Resource.Description2018Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2018_1_20706.iso)",
+                    "Download1": "https://dptsarl.sharepoint.com/:u:/g/ERi54QKLzmZMjtG5Q1GRRmQB2Yo3wZ7enqOwFKQlZOhrFg?e=EBKGjy",
+                    "Product2": "@DPTnew.Localization.Resource.Product2018Installer",
+                    "Description2": "@DPTnew.Localization.Resource.Description2018Installer", "Size2": " - 107 MB (DPT_Licensing_2018_1_20706.iso)",
+                    "Download2": "https://dptsarl.sharepoint.com/:u:/g/EWiF9j2y5LFEqaWUK8vhiV4BWU8f0sdd9YCgFFaqV_N4jw?e=2w1Kvi"
+                };
+                datacad.push(cad);
+                @*cad = {
                     "Year": "2017", "Product": "@DPTnew.Localization.Resource.Product2017ThinkDesign64bit",
                     "Description": "@DPTnew.Localization.Resource.Description2017ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2017_1_21010.iso)",
                     "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k",
                     "Product1": "@DPTnew.Localization.Resource.Product2017Utilitytools",
                     "Description1": "@DPTnew.Localization.Resource.Description2017Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2017_1_21010.iso)",
                     "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1804d3aa6cb62456da60cd1a104a74c5c&authkey=AeGweC1ch-2NL3y0GNFyTr4&e=297d897bf47d41b986e5132634e7a744"
-                },
-                    {
-                        "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP2",
-                        "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bitSP2", "Size": " - 2 GB",
-                        "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&authkey=AezeTx-tm0HpAdfUvjNLswE",
-                        "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bitSP2",
-                        "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bitSP2", "Size1": " - 2.4 GB",
-                        "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=13a371ae4db5545a5ab249ad33cd10141&authkey=Af2esvc4UfDlktxqnwFIZIQ",
-                        @*"Product4": "@DPTnew.Localization.Resource.Product2016TDViewerLightSP2",
+                };
+                datacad.push(cad);*@
+                cad = {
+                    "Year": "2016", "Product": "@DPTnew.Localization.Resource.Product2016ThinkDesign64bitSP2",
+                    "Description": "@DPTnew.Localization.Resource.Description2016ThinkDesign64bitSP2", "Size": " - 2 GB",
+                    "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1a3dbf40105194a3fa398c799a4d6d8a8&authkey=AezeTx-tm0HpAdfUvjNLswE",
+                    "Product1": "@DPTnew.Localization.Resource.Product2016ThinkDesign32bitSP2",
+                    "Description1": "@DPTnew.Localization.Resource.Description2016ThinkDesign32bitSP2", "Size1": " - 2.4 GB",
+                    "Download1": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=13a371ae4db5545a5ab249ad33cd10141&authkey=Af2esvc4UfDlktxqnwFIZIQ",
+                    @*"Product4": "@DPTnew.Localization.Resource.Product2016TDViewerLightSP2",
                     "Description4": "@DPTnew.Localization.Resource.Description2016TDViewerLightSP2", "Size4": " - 330 MB",
                     "Download4": "@DPTnew.Localization.Resource.Download2016TDViewerLightSP2",*@
-                        "Product2": "@DPTnew.Localization.Resource.Product2016Utilitytools",
-                        "Description2": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size2": " - 38 MB",
-                        "Download2": "@DPTnew.Localization.Resource.Download2016Utilitytools"
-                    }];
-            if ("@ViewBag.UserNoCase.ToString().ToLower()" == "true") {
-                var cad = {
+                    "Product2": "@DPTnew.Localization.Resource.Product2016Utilitytools",
+                    "Description2": "@DPTnew.Localization.Resource.Description2016Utilitytools", "Size2": " - 38 MB",
+                    "Download2": "@DPTnew.Localization.Resource.Download2016Utilitytools"
+                };
+                datacad.push(cad);
+                @*cad = {
                     "Year": "2015", "Product": "@DPTnew.Localization.Resource.Product2015ThinkDesign64bitSP3",
                     "Description": "@DPTnew.Localization.Resource.Description2015ThinkDesign64bitSP3", "Size": " - 2.03 GB",
                     "Download": "@DPTnew.Localization.Resource.Download2015ThinkDesign64bitSP3",
@@ -120,11 +133,11 @@
                     @*"Product2": "@DPTnew.Localization.Resource.Product2015TDViewerLightSP3",
                     "Description2": "@DPTnew.Localization.Resource.Description2015TDViewerLightSP3", "Size2": " - 556 MB",
                     "Download2": "@DPTnew.Localization.Resource.Download2015TDViewerLightSP3",*@
-                    "Product2": "@DPTnew.Localization.Resource.Product2015Utilitytools",
+                @*"Product2": "@DPTnew.Localization.Resource.Product2015Utilitytools",
                     "Description2": "@DPTnew.Localization.Resource.Description2015Utilitytools", "Size2": " - 36 MB",
                     "Download2": "@DPTnew.Localization.Resource.Download2015Utilitytools"
                 };
-                datacad.push(cad);
+                datacad.push(cad);*@
                 cad = {
                     "Year": "2014", "Product": "@DPTnew.Localization.Resource.Product2014ThinkDesign64bit",
                     "Description": "@DPTnew.Localization.Resource.Description2014ThinkDesign64bit", "Size": " - 1.90 GB",
@@ -182,6 +195,19 @@
                     "Download1": "@DPTnew.Localization.Resource.Download2011Utilitytools"
                 };
                 datacad.push(cad);
+            } else {
+                var cad = {
+                    "Year": "2018", "Product": "@DPTnew.Localization.Resource.Product2018ThinkDesign64bit",
+                    "Description": "@DPTnew.Localization.Resource.Description2018ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2018_1_20706.iso)",
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=dnP4yZ",
+                    "Product1": "@DPTnew.Localization.Resource.Product2018Utilitytools",
+                    "Description1": "@DPTnew.Localization.Resource.Description2018Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2018_1_20706.iso)",
+                    "Download1": "https://dptsarl.sharepoint.com/:u:/g/ERi54QKLzmZMjtG5Q1GRRmQB2Yo3wZ7enqOwFKQlZOhrFg?e=aLtHyo",
+                    "Product2": "@DPTnew.Localization.Resource.Product2018Installer",
+                    "Description2": "@DPTnew.Localization.Resource.Description2018Installer", "Size2": " - 107 MB (DPT_Licensing_2018_1_20706.iso)",
+                    "Download2": "https://dptsarl.sharepoint.com/:u:/g/EWiF9j2y5LFEqaWUK8vhiV4BWU8f0sdd9YCgFFaqV_N4jw?e=2w1Kvi"
+                };
+                datacad.push(cad);
             }
 
             var cadTable = $('#cad').DataTable({
@@ -233,25 +259,27 @@
                 }
             });
 
-            var dataplm = [
-                {
-                    "Product": "@DPTnew.Localization.Resource.Product2017thinkPLM",
-                    "Description": "@DPTnew.Localization.Resource.Description2017thinkPLM", "Size": " - COMING SOON",
-                    "Download": ""
-                },
-                {
+            var dataplm = [];
+
+            if ("@ViewBag.UserNoLicCase.ToString().ToLower()" == "true") {
+                var plm = {
+                    "Product": "@DPTnew.Localization.Resource.Product2018thinkPLM",
+                    "Description": "@DPTnew.Localization.Resource.Description2018thinkPLM", "Size": " - 560 MB",
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/ET28Cg2rGSROrhVmP3llGKABVQsj1Ewzo8qHkXshhr594w?e=C6qYgJ"
+                }
+                dataplm.push(plm);
+                plm = {
                     "Product": "@DPTnew.Localization.Resource.Product2016thinkPLMSP2",
                     "Description": "@DPTnew.Localization.Resource.Description2016thinkPLMSP2", "Size": " - 850 MB",
                     "Download": "https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1714768a3a2964912ac55a15ebf97b601&authkey=AZqZyyejfmWEjVDsbLpLC6g"
-                }];
-
-            if ("@ViewBag.UserNoCase.ToString().ToLower()" == "true") {
-                var plm = {
+                }
+                dataplm.push(plm);
+                @*plm = {
                     "Product": "@DPTnew.Localization.Resource.Product2015thinkPLMSP3",
                     "Description": "@DPTnew.Localization.Resource.Description2015thinkPLMSP3", "Size": " - 1.25 GB",
                     "Download": "@DPTnew.Localization.Resource.Download2015thinkPLMSP3"
                 };
-                dataplm.push(plm);
+                dataplm.push(plm);*@
                 plm = {
                     "Product": "@DPTnew.Localization.Resource.Product2014thinkPLM",
                     "Description": "@DPTnew.Localization.Resource.Description2014thinkPLM", "Size": " - 1.18 GB",
@@ -308,25 +336,28 @@
             });
 
         });
+        if ("@ViewBag.UserNoLicCase.ToString().ToLower()" == "false") {
+            document.getElementById("thd").style.display = "none";
+            document.getElementById("plm").style.display = "none";
+        }
     </script>
 }
-
 
 <table id="thd" cellspacing="0" width="100%">
     <thead>
         <tr style="vertical-align:top">
             <td>
-                <h2>ThinkDesign 2017</h2>
+                <h2>ThinkDesign 2018 SP2</h2>
                 <br />
                 @DPTnew.Localization.Resource.View_Download_Text1<br />
                 @DPTnew.Localization.Resource.View_Download_Text2
                 <br /><br />
-                <a href="https://dptsarl.sharepoint.com/_layouts/15/guestaccess.aspx?docid=1cbb79ae305a0410aa2a6107930fea33a&authkey=AST6g1VETmbRi_apGD9kF-k">
-                    <img src="~/Content/images/TD2017_download.png">
+                <a target="_blank" href="https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=Lltv4a" onclick="downloadCounter('ThinkDesign 2018 64bit_2018')">
+                    <img src="~/Content/images/TD2018_download.png">
                 </a>
             </td>
             <td>
-                <img src="~/Content/images/TDProf_timeline2017-2018_sitoDPT3Care.png" align="right">
+                <img src="~/Content/images/TDProf_timeline2018_sitoDPT3Care.png" align="right">
             </td>
         </tr>
     </thead>
@@ -371,4 +402,3 @@
         </thead>
     </table>
 </div>
-

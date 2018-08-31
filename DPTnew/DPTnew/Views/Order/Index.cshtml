@@ -64,16 +64,10 @@
                '<tr>' +
                 '<td><b>New/Old Account:</b></td>' +
                   '<td>' + d.NewOldAccount + '</td>' +
-                '<td><b>Invoiced:</b></td>' +
-                  '<td>' + d.Invoiced + '</td>' +
                   '<td><b>Quantity:</b></td>' +
                   '<td>' + d.Quantity + '</td>' +
-              '</tr>' +
-               '<tr>' +
                   '<td><b>Note:</b></td>' +
                   '<td>' + d.Note + '</td>' +
-                  '<td><b>Probability:</b></td>' +
-                  '<td>' + d.Probability + '</td>' +
               '</tr>' +
               '</table>';
         }
@@ -117,12 +111,16 @@
                     "data": null,
                     "defaultContent": ''
                 },
-                { data: "AccountNumber" },
-                { data: "AccountName" },
+                {
+                    data: "AccountNumber",
+                    render: function (data, type, row) {
+                        return data + " - " + row.AccountName;
+                    }
+                },
                 {
                     data: "LicenseID",
                     render: function (data, type, row) {
-                        return data + " - " + row.MachineID;
+                        return data + " (" + row.LicenseFlag + ") - " + row.MachineID;
                     }
                 },
                 { data: "Item" },
@@ -174,7 +172,6 @@
                                 StrStartDate: null,
                                 StrEndDate: null,
                                 Ordered: null,
-                                Invoiced: null,
                                 Quantity: null,
                                 LicenseType: null,
                                 NewRenewal: null,
@@ -222,15 +219,13 @@
                                                         StrStartDate: data.StrStartDate,
                                                         StrEndDate: data.StrEndDate,
                                                         Ordered: data.Ordered,
-                                                        Invoiced: data.Invoiced,
                                                         Quantity: data.Quantity,
                                                         LicenseType: data.LicenseType,
                                                         NewRenewal: data.NewRenewal,
                                                         EURO_PriceList: data.EURO_PriceList,
                                                         JPY_PriceList: data.JPY_PriceList,
                                                         LicenseID: data.LicenseID,
-                                                        Note: data.Note,
-                                                        Probability: data.Probability
+                                                        Note: data.Note
                                                     },
                                                         function (result) {
                                                             var url = yourApp.Urls.OrderDataUrl;
@@ -280,9 +275,10 @@
                 if (myTable.rows('.selected').data()[0].Status.toLowerCase() == "entered" ||
                     myTable.rows('.selected').data()[0].Status.toLowerCase() == "preloaded") {
                     myTable.buttons(['.modify']).enable(true);
-                    @*if ("@ViewBag.UserRole.ToString().ToLower()" == "true")
-                        myTable.buttons(['.approve']).enable(true);*@
                 }
+                if (myTable.rows('.selected').data()[0].Status.toLowerCase() == "booked" &&
+                        "@ViewBag.UserIntRole.ToString().ToLower()" == "true")
+                    myTable.buttons(['.modify']).enable(true);
             });
 
             myTable.on('deselect', function () {
@@ -318,8 +314,8 @@
             });
 
             yadcf.init(myTable, [
-                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
-                { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["lost", "preloaded", "entered", "booked", "checked", "approved", "toactivate"] }
+                { column_number: 7, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.SalesReps")) },
+                { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["lost", "preloaded", "entered", "booked", "checked", "approved", "toactivate"] }
             ]);
         });
 
@@ -334,9 +330,6 @@
                 <th></th>
                 <th>
                     @Html.DisplayNameFor(model => model.AccountNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AccountName)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.LicenseID)

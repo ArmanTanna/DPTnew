@@ -14,7 +14,6 @@ namespace DPTnew.Controllers
     {
         //
         // GET: /eLearning/
-
         public ActionResult Index()
         {
             using (var db = new DptContext())

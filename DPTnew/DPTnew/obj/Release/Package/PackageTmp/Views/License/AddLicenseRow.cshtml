@@ -19,7 +19,7 @@
                 $(this).find('button[type="submit"]').attr('disabled', 'disabled');
             }, 4000);
             $.post("/License/AddNew", {
-                LicenseID: $("#licenseID-choice").val(),
+                LicenseFlag: $("#licenseID-choice").val(),
                 AccountNumber: $("#accountNumber-choice").val(),
                 ProductName: $("#productName-choice").val(),
                 ArticleDetail: $("#articleDetail-choice").val(),
@@ -116,30 +116,29 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayNameFor(model => model.LicenseID)</td>
+                <td>@Html.DisplayNameFor(model => model.LicenseFlag)</td>
                 <td>
                     @if (@ViewBag.IsAdmin.ToString().ToLower() == "true" || @ViewBag.IsInternal.ToString().ToLower() == "true")
                     {
                         <select name="licenseID" id="licenseID-choice">
-                            <option value="L000" selected>L000</option>
-                            <option value="Z000">Z000</option>
-                            <option value="TEST">TEST</option>
-                            <option value="NEW0">NEW0</option>
-                            <option value="DEM0">DEM0</option>
-                            <option value="EDU0">EDU0</option>
-                            <option value="K000">K000</option>
-                            <option value="EVAL">EVAL</option>
-                            <option value="FREE">FREE</option>
-                            <option value="POOL">POOL</option>
-                            <option value="PRE0">PRE0</option>
-                            <option value="STAG">STAG</option>
-                            <option value="TWIN">TWIN</option>
+                            <option value="regular" selected>REG</option>
+                            <option value="zerobis">ZERO</option>
+                            <option value="test">TEST</option>
+                            <option value="new">NEW</option>
+                            <option value="demo">DEMO</option>
+                            <option value="educational">EDU</option>
+                            <option value="evaluation">EVAL</option>
+                            <option value="free">FREE</option>
+                            <option value="pool">POOL</option>
+                            <option value="premium">PRE</option>
+                            <option value="twin">TWIN</option>
+                            <option value="plasasp">PLASASP</option>
                         </select>
                     }
                     else
                     {
                         <select name="licenseID" id="licenseID-choice">
-                            <option value="NEW0" selected>NEW0</option>
+                            <option value="new" selected>NEW</option>
                         </select>
                     }
                 </td>
@@ -154,6 +153,7 @@
                         <option value="tdirectrw">tdirectrw</option>
                         <option value="tdmolding">tdmolding</option>
                         <option value="tdprofessional">tdprofessional</option>
+                        <option value="tdprofessionaledu">tdprofessionaledu</option>
                         <option value="tdstyling">tdstyling</option>
                         <option value="tdtooling">tdtooling</option>
                         <option value="tdvar">tdvar</option>
@@ -200,7 +200,8 @@
                 <td>@Html.DisplayNameFor(model => model.Version)</td>
                 <td>
                     <select name="version" id="version-choice">
-                        <option value="2017" selected>2017</option>
+                        <option value="2018" selected>2018</option>
+                        <option value="2017">2017</option>
                         <option value="2016">2016</option>
                         <option value="2015">2015</option>
                         <option value="2014">2014</option>

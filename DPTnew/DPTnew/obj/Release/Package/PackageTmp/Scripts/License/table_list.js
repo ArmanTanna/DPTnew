@@ -4,25 +4,25 @@ function format(d) {
     return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
 '<tr>' +
             '<td><b>Start Date:</b></td>' +
-            '<td>' + d[8] + '</td>' +
-
-            '<td><b>End Date:</b></td>' +
             '<td>' + d[9] + '</td>' +
 
-            '<td><b>Maint Start Date:</b></td>' +
+            '<td><b>End Date:</b></td>' +
             '<td>' + d[10] + '</td>' +
-            '<td><b>Maint End Date:</b></td>' +
+
+            '<td><b>Maint Start Date:</b></td>' +
             '<td>' + d[11] + '</td>' +
+            '<td><b>Maint End Date:</b></td>' +
+            '<td>' + d[12] + '</td>' +
         '</tr>' +
          '<tr>' +
             '<td><b>Ancestor:</b></td>' +
-            '<td>' + d[7] + '</td>' +
+            '<td>' + d[8] + '</td>' +
         //'<tr>' +
         //    '<td><b>License Kind:</b></td>' +
         //    '<td>' + d[13] + '</td>' +
         //'</tr>' +
             '<td><b>Note:</b></td>' +
-            '<td>' + d[14] + '</td>' +
+            '<td>' + d[15] + '</td>' +
         '</tr>' +
              '</table>';
 }
@@ -44,6 +44,7 @@ $(document).ready(function () {
             null,
             null,
             null,
+            null,
             { "bVisible": false, },
             { "bVisible": false, },
             { "bVisible": false, },
@@ -56,7 +57,7 @@ $(document).ready(function () {
         "order": [[1, 'asc']],
         "orderClasses": false,
         createdRow: function (row, data, index) {
-            if (data[11] != null) {
+            if (data[12] != null) {
                 var now = new Date();
                 var month = (now.getMonth() + 1);
                 var day = now.getDate();
@@ -65,9 +66,9 @@ $(document).ready(function () {
                 if (day < 10)
                     day = "0" + day;
                 var today = now.getFullYear() + '-' + month + '-' + day;
-                if (data[11] < today)
+                if (data[12] < today)
                     $(row).addClass('highlight_red');
-                if (data[11] >= today && data[6].indexOf("ABCDEFGH") != -1)
+                if (data[12] >= today && data[7].indexOf("ABCDEFGH") != -1)
                     $(row).addClass('highlight_blue');
             }
         }

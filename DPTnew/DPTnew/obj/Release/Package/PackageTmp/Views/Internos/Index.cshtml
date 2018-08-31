@@ -69,7 +69,7 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
-                        @Html.ActionLink("Zero Initiative email", "SendZeroCampaignMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                        @Html.ActionLink("MailChimp Sync", "UpdateMailStatus", "Internos", null, new { onclick = "return confirm('Would you like to continue?')" })
                     </u>
                 }
             </th>
@@ -77,7 +77,7 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
-                        @Html.ActionLink("Zero Bis Initiative email", "SendZeroBisCampaignMail", "Company", null, new { onclick = "return confirm('Would you like to continue?')" })
+                        @Html.ActionLink("Var Companies Chart", "VarCompanies", "Internos", null, null)
                     </u>
                 }
             </th>
@@ -85,9 +85,53 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
-                        @Html.ActionLink("Var Companies Chart", "VarCompanies", "Company", null, null)
+                        @Html.ActionLink("Retrive Geolocalization from IP", "UnknownCompanies", "Internos", null, new { onclick = "return confirm('Would you like to continue?')" })
                     </u>
                 }
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Synchronize the mailchimp English, Italian and Japanese unsubscriber & cleaned newsletter list info's with the site.</text>
+                }
+            </td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> Chart test: how many companies are owned by each VAR.</text>
+                }
+            </td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <text> For unknown customer name of the machine ids retrieve the geolocalization information from IP.</text>
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Zero Initiative email", "SendZeroCampaignMail", "Internos", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
+            </th>
+            <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
+                {
+                    <u>
+                        @Html.ActionLink("Zero Bis Initiative email", "SendZeroBisCampaignMail", "Internos", null, new { onclick = "return confirm('Would you like to continue?')" })
+                    </u>
+                }
+            </th>
+            <th style="width:33%">
             </th>
         </tr>
         <tr>
@@ -103,12 +147,7 @@
                     <text> Send automatic emails to customers for Initiative Zero Bis.</text>
                 }
             </td>
-            <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <text> Chart test: how many companies are owned by each VAR.</text>
-                }
-            </td>
+            <td></td>
         </tr>
     </tbody>
 </table>

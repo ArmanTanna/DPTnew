@@ -116,7 +116,7 @@ namespace SafenetIntegration
 
         public void SendSentinelEMSRequest(string method, string api, string data)
         {
-            string url = SentinelEMSUri + "ems/v71/ws/" + api;
+            string url = SentinelEMSUri + "ems/v78/ws/" + api;
             try
             {
                 HttpWebRequest request = CreateRequest(method, url, data);
@@ -534,6 +534,15 @@ namespace SafenetIntegration
             CheckAuth();
             string c2vCheckInXml = BuildC2VCheckIn(checkInC2V);
             SendSentinelEMSRequest("POST", "target.ws", c2vCheckInXml);
+            FormatResponse();
+        }
+
+        //Create an Entitlement using the parameters provided.
+        public void RetrieveV2CP(JObject checkInC2V)
+        {
+            CheckAuth();
+            string c2vCheckInXml = BuildC2VCheckIn(checkInC2V);
+            SendSentinelEMSRequest("POST", "activation/target.ws", c2vCheckInXml);
             FormatResponse();
         }
 
@@ -1152,7 +1161,7 @@ namespace SafenetIntegration
         #region dptregion
         public void UpdateDptProducts()
         {
-            this.SearchProducts(new string[] { }, SafenetUtilities.MXBWI);
+            this.SearchProducts(new string[] { "pageSize=100000" }, SafenetUtilities.MXBWI);
             //this.SearchProducts(new string[] { }, SafenetUtilities.DEMOMA);
             SafenetUtilities.Instance.UpdateProducts(this.JsonResponse);
         }

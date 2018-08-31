@@ -319,6 +319,33 @@ namespace DptLicensingServer.Controllers
         }
 
         [HttpPost]
+        [ActionName("RetrieveV2CP")]
+        public HttpResponseMessage RetrieveV2CP(JObject data)
+        {
+            ClientCredentials cc;
+            Uri uri;
+            SentinelEMSWrapper sew;
+            try
+            {
+                this.ValidateHeaders(out cc, out uri);
+                sew = new SentinelEMSWrapper(uri, cc);
+                sew.Authentication();
+                sew.RetrieveV2CP(data);
+            }
+            catch (SafenetException e)
+            {
+                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
+                return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
+                return CreateResponse(HttpStatusCode.BadRequest, e.Message);
+            }
+            return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
+        }
+
+        [HttpPost]
         [ActionName("GenerateLicense")]
         public HttpResponseMessage GenerateLicense(JObject data)
         {

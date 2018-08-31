@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-
 @section Scripts {
 
     <script type="text/javascript">
@@ -17,6 +16,7 @@
         yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
         yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
         yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
+        yourApp.Urls.V2CP = '@Url.Action("V2CP", "User")';
 
     </script>
     <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
@@ -29,14 +29,13 @@
                     "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
                     "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
                     "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Modify", "@DPTnew.Localization.Resource.ButtonUpgrade",
-                    "@DPTnew.Localization.Resource.New", "@DPTnew.Localization.Resource.ButtonRenew"],
+                    "@DPTnew.Localization.Resource.New", "@DPTnew.Localization.Resource.ButtonRenew", "V2CP"],
                     ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
                      "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
                      "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
         });
     </script>
 }
-
 
 <p>
     <b>@Html.DisplayNameFor(model => model.AccountNumber): </b>@ViewBag.AccountNumber
@@ -50,6 +49,9 @@
             <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.LicenseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseFlag)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
@@ -195,9 +197,8 @@
 <div id="upgrade-dialog" title="Select Version" style="display: none;">
     <strong style="position: absolute; margin-top: 20px;" id="upgver"></strong>
     <select id="upgrade-choice">
-        <option value="2017">2017</option>
+        <option value="2018">2018</option>
         <option value="2016">2016</option>
-        <option value="2015">2015</option>
     </select>
 </div>
 <div id="sysmsg-dialog" title="System message" style="display:none;">

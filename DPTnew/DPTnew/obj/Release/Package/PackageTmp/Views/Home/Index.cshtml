@@ -58,7 +58,8 @@
                 <a href="~/FaqUser/Index" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_UserGuidebook</u></a>
             </th>
             <th style="width:33%">
-                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"))
+                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase") &&
+                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoLicCase"))
                 {
                     <a href="~/Case" target="_blank"><u>@DPTnew.Localization.Resource.View_Home_CaseManagement</u></a>
                 }
@@ -79,7 +80,8 @@
                 @DPTnew.Localization.Resource.View_Home_UserGuidebook_Text
             </td>
             <td>
-                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase"))
+                @if (!Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoCase") &&
+                    !Roles.IsUserInRole(WebSecurity.CurrentUserName, "UserNoLicCase"))
                 {
                     @DPTnew.Localization.Resource.View_Home_CaseManagement_Text1
                 }

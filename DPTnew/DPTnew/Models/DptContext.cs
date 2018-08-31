@@ -14,13 +14,13 @@ namespace DPTnew.Models
         {
         }
 
-
         public DbSet<Contact> Contacts { get; set; }
         //public DbSet<Company> Companies { get; set; }
         public DbSet<SalesR> SalesR { get; set; }
         public DbSet<CompanyView> Companies { get; set; }
         public DbSet<SafenetComapny> SafenetCompanies { get; set; }
         public DbSet<LicenseView> Licenses { get; set; }
+        public DbSet<SerLicenseFlag> LicFlag { get; set; }
         public DbSet<People> Peoples { get; set; }
         public DbSet<DptErp> ErpRows { get; set; }
         public DbSet<ActivityTitles> ActivityTitles { get; set; }
@@ -35,10 +35,12 @@ namespace DPTnew.Models
         public DbSet<Activation> Activations { get; set; }
         public DbSet<SegmentIndustry> Segind { get; set; }
         public DbSet<CampaignComapny> CmpCompanies { get; set; }
+        public DbSet<UnknownCustomer> uCust { get; set; }
+        public DbSet<SafenetProductList> SafenetProducts { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {
-            IEnumerable<T> allCompanies = new List<T>();
+            IEnumerable<T> allrecords = new List<T>();
             if (!string.IsNullOrEmpty(sp.Value))
             {
                 var columns = new List<string>();
@@ -50,29 +52,29 @@ namespace DPTnew.Models
                         if (prop.PropertyType == typeof(string))
                             columns.Add(prop.Name);
 
-                foreach (T company in datasource)
+                foreach (T record in datasource)
                     foreach (string col in columns)
                     {
-                        string propValue = (string)(company.GetType().GetProperty(col).GetValue(company, null));
+                        string propValue = (string)(record.GetType().GetProperty(col).GetValue(record, null));
                         if (!string.IsNullOrEmpty(propValue) && propValue.Contains(sp.Value, StringComparison.CurrentCultureIgnoreCase))
                         {
-                            ((IList<T>)allCompanies).Add(company);
+                            ((IList<T>)allrecords).Add(record);
                             break;
                         }
                     }
             }
             else
-                allCompanies = datasource;
+                allrecords = datasource;
 
-            return allCompanies;
+            return allrecords;
         }
 
-        public SearchResult<T> ConvertToSearchResult<T>(SearchParams sp, IEnumerable<T> allCompanies)
+        public SearchResult<T> ConvertToSearchResult<T>(SearchParams sp, IEnumerable<T> allRecords)
         {
-            var filtered = allCompanies.OrderBy(sp.OrderBy + " " + sp.OrderDir).ToList();
+            var filtered = allRecords.OrderBy(sp.OrderBy + " " + sp.OrderDir).ToList();
             var data = filtered.Skip(sp.Start).Take(sp.Length).ToList();
             var fCount = filtered.Count();
-            var tCount = allCompanies.Count();
+            var tCount = allRecords.Count();
             return new SearchResult<T>
             {
                 data = data,

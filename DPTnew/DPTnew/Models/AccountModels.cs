@@ -30,7 +30,6 @@ namespace DPTnew.Models
         public virtual Company Company { get; set; }
     }
 
-
     public class RegisterExternalLoginModel
     {
         [Required]

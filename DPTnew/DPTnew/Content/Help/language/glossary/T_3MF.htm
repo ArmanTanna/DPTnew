@@ -1,0 +1,94 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+<!-- LJEM -->
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>3MF Format</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>3MF Format</h4>
+<p style="margin-top:0;margin-bottom:0">3MF is a 3D printing format along with AMF meant to supersede the STL format (see www.3MF.io for more details).
+</P>
+<p>
+<P style="margin-top:0;margin-bottom:2">
+The 3D manufacturing format describes a packaged series of files use to define 3D-printable models in a similar way to CAD software, that is with the concept of components and multiple reference systems.
+<P style="margin-top:0;margin-bottom:2">
+A 3MF file is an archive, which can be opened with Winzip since it is compressed using a zipping algorithm. Under this archive can be stored thumbnails, printing tickets and other software specific files.
+Located in the 3D folder in the archive, 3dmodel.model is a xml file describing the model. You may extract it to analyse it. It is structured as follows, the attribute values given are examples:
+<PRE>
+	&lt;model unit="millimeter" xml:lang="en-US" xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02"&gt;
+	  &lt;resources&gt;
+	    &lt;basematerials id="1"&gt;
+	      &lt;base name="" displaycolor="#b0b0be" /&gt;
+	    &lt;/basematerials&gt;
+	    &lt;object id="2" type="model" pid="1" pindex="0"&gt;
+	      &lt;mesh&gt;
+	        &lt;vertices&gt;
+	          &lt;vertex x="-53.0978" y="72.4551" z="0" /&gt;
+	          &lt;vertex x="-53.0978" y="2.45509" z="0" /&gt;
+	          &lt;vertex x="-53.0978" y="2.45509" z="200" /&gt;
+	        &lt;/vertices&gt;
+	        &lt;triangles&gt;
+	          &lt;triangle v1="2" v2="1" v3="0" /&gt;
+	        &lt;/triangles&gt;
+	      &lt;/mesh&gt;
+	    &lt;/object&gt;
+	    &lt;object id="8" type="model"&gt;
+	      &lt;components&gt;
+	        &lt;component objectid="7" transform="1 0 0 0 1 0 0 0 1 0 0 0" /&gt;
+	      &lt;/components&gt;
+	    &lt;/object&gt;
+	  &lt;/resources&gt;
+	  &lt;build&gt;
+	    &lt;item objectid="2" /&gt;
+	  &lt;/build>
+	&lt;/model>
+</PRE>
+</P>
+
+<p style="margin-top:0;margin-bottom:0">
+The resources element contains everything that could be used to create the model but are not necessarily used, these are uniquely identified by their attribute 'id'.
+</p>
+<p>
+<p style="margin-top:0;margin-bottom:0">
+The basematerials element describes basic colours associated with names, the colours are read in hexadecimal as prescribed by the sRGB standard.
+</p>
+<p>
+<p style="margin-top:0;margin-bottom:0">
+The object elements describe either a mesh or a component for meshes, they can also point to a default basematerial with the 'pid' and 'pindex' attributes.
+</p>
+<p>
+<p style="margin-top:0;margin-bottom:0">
+In the mesh element are vertices and triangles, these are implicitly indexed by their position in their elements.
+The underlying vertex element reads the 3D coordinates and the triangle element links to its vertices by index, it may also contain 'pid' and 'p1', 'p2' and 'p3' which point to attributes attached to each vertex.
+Do note that with the currently supported version of 3MF (only the base specifications, no extension) p1, p2 and p3 must be equal if they are specified, p1 may also be specified on its own.
+</p>
+<p>
+<p style="margin-top:0;margin-bottom:0">
+In the components element are referred objects and their associated local transformation. Note that the object must be described above in the document.
+</p>
+<p>
+<p style="margin-top:0;margin-bottom:0">
+The build element defines what is to be printed/shown from the above resources. Each item element points to an object and potentially associates a transformation with it.
+</p>
+<p>
+
+<hr color="silver">
+</body>
+</html>

@@ -26,7 +26,7 @@ namespace DPTnew.Controllers
         {
             //LocalizationHelper.SetLocalization(Session["CurrentCulture"]);
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
-                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed");
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace DPTnew.Controllers
                     {
                         var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
                         companyList.AddRange(db.Companies.Where(x => x.SalesRep == sR).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
-                        companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                        //companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
                     }
                     else
                         companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
@@ -74,7 +74,7 @@ namespace DPTnew.Controllers
                 ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
             }
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
-                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed");
             List<People> rows = new List<People>();
             rows.Add(pplSingleRow);
             return View(rows);
@@ -92,13 +92,20 @@ namespace DPTnew.Controllers
             {
                 if (pplSingleRow.UserId == 0)
                 {
-                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_People] (Email, OriginalPassword, FirstName, LastName, " +
-                    "Language, Status, EmailStatus, AccountNumber, PrimaryContact, RoleName, FirstNameK, LastNameK) VALUES ('" +
-                    pplSingleRow.Email + "','test','" + pplSingleRow.FirstName + "','" + pplSingleRow.LastName + "','" +
-                    pplSingleRow.Language + "','" + pplSingleRow.Status + "','" + pplSingleRow.EmailStatus + "','" + pplSingleRow.AccountNumber
-                    + "','" + pplSingleRow.PrimaryContact + "','user','" + pplSingleRow.FirstNameK + "','" +
-                    pplSingleRow.LastNameK + "');");
-
+                    try
+                    {
+                        db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_People] (Email, OriginalPassword, FirstName, LastName, " +
+                            "Language, Status, EmailStatus, AccountNumber, PrimaryContact, RoleName, FirstNameK, LastNameK) VALUES ('" +
+                            pplSingleRow.Email + "','test','" + pplSingleRow.FirstName + "','" + pplSingleRow.LastName + "','" +
+                            pplSingleRow.Language + "','" + pplSingleRow.Status + "','" + pplSingleRow.EmailStatus + "','" + pplSingleRow.AccountNumber
+                            + "','" + pplSingleRow.PrimaryContact + "','user','" + pplSingleRow.FirstNameK + "','" +
+                            pplSingleRow.LastNameK + "');");
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("PeopleController (Modify): " + e.Message + "-" + e.InnerException);
+                        return Json(e.Message, JsonRequestBehavior.AllowGet);
+                    }
                     pplSingleRow.UserId = db.Peoples.Max(u => u.UserId);
                     MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "dpt@dptcorporate.com");
                     mail.Subject = "[DO NOT REPLY] Created new User";
@@ -142,7 +149,7 @@ namespace DPTnew.Controllers
                     catch (Exception e)
                     {
                         LogHelper.WriteLog("PeopleController (Modify): " + e.Message);
-                        return Json(e.InnerException.InnerException.Message, JsonRequestBehavior.AllowGet);
+                        return Json(e.Message, JsonRequestBehavior.AllowGet);
                     }
                 }
 

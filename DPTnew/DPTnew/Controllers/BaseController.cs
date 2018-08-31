@@ -42,6 +42,12 @@ namespace DPTnew.Controllers
                 {
                     foreach (var sr in salesRep)
                         cmp.AddRange(_db.Companies.Where(x => x.SalesRep.Trim() == sr.SalesRep.Trim()));
+
+                    // dptfree salesrep companies and licenses will be seen by amada, innovia and firstsolution
+                    if (salesRep[0].SalesRep.Trim() == "firstsolution" || salesRep[0].SalesRep.Trim() == "innovia"
+                        || salesRep[0].SalesRep.Trim() == "amada")
+                        cmp.AddRange(_db.Companies.Where(x => x.SalesRep.Trim() == "dptfree"));
+
                     filteredcompanies = cmp;
                 }
             }
@@ -90,7 +96,7 @@ namespace DPTnew.Controllers
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                     return _db.Orders.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
-                
+
                 var salesRep = new List<String>();
                 if (company.SalesRep.Trim() == "t3korea")
                     salesRep = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();
@@ -153,7 +159,7 @@ namespace DPTnew.Controllers
                 var company = _db.Companies.Where(u => u.AccountNumber == contact.AccountNumber).ToList().FirstOrDefault();
                 if (company.SalesRep == "t3kk" && (!company.AccountName.Contains("T3 JAPAN KK")))
                     return _db.Cases.Where(c => c.AccountNumber == contact.AccountNumber).ToList();
-               
+
                 var salesRep = new List<String>();
                 if (company.SalesRep.Trim() == "t3korea")
                     salesRep = (_db.SalesR.Where(x => x.SalesProvince == "southkorea")).Select(x => x.SalesRep).ToList();

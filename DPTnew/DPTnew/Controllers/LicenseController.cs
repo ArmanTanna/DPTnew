@@ -28,6 +28,8 @@ namespace DPTnew.Controllers
             ViewBag.Version = System.Convert.ToBase64String(plainTextBytes3);
             var plainTextBytes4 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.LastExp).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.LastExp = System.Convert.ToBase64String(plainTextBytes4);
+            var plainTextBytes5 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Licenses.Select(x => x.LicenseFlag).Distinct().ToList()).ToString(Formatting.None));
+            ViewBag.LicenseFlag = System.Convert.ToBase64String(plainTextBytes5);
 
             ViewBag.IsAdmin = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
             ViewBag.IsInternal = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
@@ -60,7 +62,9 @@ namespace DPTnew.Controllers
                                 LicenseID = x.LicenseID,
                                 Version = x.Version,
                                 LicenseType = x.LicenseType,
+                                LicenseFlag = x.LicenseFlag,
                                 MachineID = x.MachineID,
+                                ProductName = x.ProductName,
                                 MaintEndDate = x.MaintEndDate,
                                 Installed = x.Installed,
                                 Exported = x.Exported,
@@ -69,6 +73,16 @@ namespace DPTnew.Controllers
                                 ArticleDetail = x.ArticleDetail,
                                 PwdCode = x.PwdCode
                             };
+                var y = context.Companies.Where(a => a.AccountNumber == x.AccountNumber).ToList().FirstOrDefault();
+                licenseState.salesRep = y.SalesRep;
+                var lf = context.LicFlag.Where(k => k.LicenseFlag == x.LicenseFlag).ToList().FirstOrDefault();
+                licenseState.Export_Safenet = lf.Export_Safenet;
+                licenseState.Install_Safenet = lf.Install_Safenet;
+                licenseState.ChangeVersion_Safenet = lf.ChangeVersion_Safenet;
+                licenseState.Renewal_Safenet = lf.Renewal_Safenet;
+                licenseState.Install_Legacy = lf.Install_Legacy;
+                licenseState.ChangeVersion_Legacy = lf.ChangeVersion_Legacy;
+                licenseState.Renewal_Legacy = lf.Renewal_Legacy;
             }
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
@@ -164,11 +178,12 @@ namespace DPTnew.Controllers
                 licSingleRow.Import = 1;
                 licSingleRow.Vend_String = "vs001";
                 licSingleRow.FlexType = 0;
+                licSingleRow.MaxExport = -1;
 
                 if (licSingleRow.LicenseType == "local" || (licSingleRow.LicenseType == "floating" && licSingleRow.Quantity < 1))
                     licSingleRow.Quantity = 1;
 
-                if (licSingleRow.LicenseID != "NEW")
+                if (licSingleRow.LicenseFlag.ToLower() != "new")
                 {
                     if (licSingleRow.ArticleDetail == "qsf" || licSingleRow.ArticleDetail == "msf" || licSingleRow.ArticleDetail == "tsf"
                         || licSingleRow.ArticleDetail == "wsf")
@@ -198,45 +213,25 @@ namespace DPTnew.Controllers
                     if (version < 2015)
                         licSingleRow.MachineID = "ABCDEFGH";
                     else
-                        licSingleRow.MachineID = "KIDABCDEFGH";
+                        if (licSingleRow.LicenseFlag.ToLower() == "plasasp")
+                            licSingleRow.MachineID = "BLKABCDEFGH";
+                        else
+                            licSingleRow.MachineID = "KIDABCDEFGH";
                 }
                 try
                 {
-                    //var sr = licSingleRow.LicenseID.Length == 1 ? licSingleRow.LicenseID + "0" : licSingleRow.LicenseID;
-                    var maxq = db.Licenses.Where(u => u.LicenseID.StartsWith(licSingleRow.LicenseID)).Max(x => x.LicenseID);
+                    var maxq = db.Licenses.Max(x => x.LicenseID);
                     if (!string.IsNullOrEmpty(maxq))
-                        licSingleRow.LicenseID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Substring(4,5)) + 1).ToString("D5");
+                        licSingleRow.LicenseID = "L" + (Convert.ToInt64(maxq.Substring(1, 8)) + 1).ToString("D8");
                     else
-                        licSingleRow.LicenseID = licSingleRow.LicenseID + "00001";
-                    //char lc = licSingleRow.LicenseID.Length == 1 ? Convert.ToChar(licSingleRow.LicenseID) : Convert.ToChar(licSingleRow.LicenseID.Substring(licSingleRow.LicenseID.Length - 1));
-                    //switch (licSingleRow.LicenseID)
-                    //{
-                    //    case "POOL":
-                    //    case "EVAL":
-                    //        var lId = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D5");
-                    //        licSingleRow.LicenseID = lId;
-                    //        break;
-                    //    case "TEST":
-                    //        var lid = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[2]) + 1).ToString("D5");
-                    //        licSingleRow.LicenseID = lid;
-                    //        break;
-                    //    case "L":
-                    //    case "Z":
-                    //        var LID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D8");
-                    //        licSingleRow.LicenseID = LID;
-                    //        break;
-                    //    default:
-                    //        var lID = licSingleRow.LicenseID + (Convert.ToInt64(maxq.Split(lc)[1]) + 1).ToString("D6");
-                    //        licSingleRow.LicenseID = lID;
-                    //        break;
-                    //}
+                        licSingleRow.LicenseID = "L00000001";
 
                     db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[DPT_Licenses] (LicenseID, AccountNumber, ProductName, " +
-                        "ArticleDetail, Quantity, LicenseType, MachineID, Ancestor, StartDate, EndDate, MaintStartDate, MaintEndDate," +
+                        "ArticleDetail, Quantity, LicenseType, LicenseFlag, MachineID, Ancestor, StartDate, EndDate, MaintStartDate, MaintEndDate," +
                         " Version, OriginalProduct, Note, [2Bexp], [2Bval], [2Bins], ExportedNum, MaxExport, Vend_String, FlexType)" +
                         " VALUES ('" + licSingleRow.LicenseID + "','" + licSingleRow.AccountNumber + "','" + licSingleRow.ProductName
                         + "','" + licSingleRow.ArticleDetail + "','" + licSingleRow.Quantity + "','" + licSingleRow.LicenseType + "','" +
-                        licSingleRow.MachineID + "','" + licSingleRow.Ancestor + "','" + licSingleRow.StartDate + "','" +
+                        licSingleRow.LicenseFlag + "','" + licSingleRow.MachineID + "','" + licSingleRow.Ancestor + "','" + licSingleRow.StartDate + "','" +
                         licSingleRow.EndDate + "','" + licSingleRow.MaintStartDate + "','" + licSingleRow.MaintEndDate + "','" +
                         licSingleRow.Version + "','" + licSingleRow.OriginalProduct + "','" + licSingleRow.Note + "','" + licSingleRow.Installed
                         + "','" + licSingleRow.Exported + "','" + licSingleRow.Import + "','" + licSingleRow.ExportedNum + "','" +

@@ -14,7 +14,7 @@ namespace DPTnew.Models
     {
         [Key]
         [Display(Name = "Row Number")]
-        public int idxx { get; set; }
+        public string idxx { get; set; }
         public string Invoicer { get; set; }
         public string InvoicedName { get; set; }
         public string InvoicedNumber { get; set; }
@@ -49,11 +49,11 @@ namespace DPTnew.Models
         public string StrEndDate { get { return EndDate != null ? ((DateTime)EndDate).ToString("yyyy-MM-dd") : ""; } }
         [Display(Name = "Ordered", ResourceType = typeof(Resource))]
         public double Ordered { get; set; }
-        public double? Invoiced { get; set; }
         [Display(Name = "Quantity", ResourceType = typeof(Resource))]
         public double? Quantity { get; set; }
         [Display(Name = "Type", ResourceType = typeof(Resource))]
         public string LicenseType { get; set; }
+        public string LicenseFlag { get; set; }
         public string NewRenewal { get; set; }
         public double? EURO_PriceList { get; set; }
         public double? JPY_PriceList { get; set; }
@@ -67,7 +67,6 @@ namespace DPTnew.Models
         [Display(Name = "Discount", ResourceType = typeof(Resource))]
         public double Discount { get; set; }
         public string MachineID { get; set; }
-        public int Probability { get; set; }
     }
 
     [Table("service_Activation")]
