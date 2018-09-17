@@ -29,6 +29,7 @@
         yourApp.Urls.ModifyDataUrl = '@Url.Action("ModifyCaseRow", "Case")';
         yourApp.Urls.CaseHistoryUrl = '@Url.Action("NewCaseHistoryRow", "Case")';
         yourApp.Urls.GetCaseHistoryUrl = '@Url.Action("CaseHistories", "Case")';
+        yourApp.Urls.AcceptUrl = '@Url.Action("Accept", "Case")';
         yourApp.Urls.OpenUrl = '@Url.Action("Open", "Case")';
         yourApp.Urls.CloseUrl = '@Url.Action("Close", "Case")';
         yourApp.Urls.RejectUrl = '@Url.Action("Reject", "Case")';
@@ -257,6 +258,36 @@
             },
             enabled: false
         },
+                    {
+                        text: 'Accept',
+                        className: 'accept',
+                        action: function () {
+                            if (myTable.rows('.selected').count() != 0) {
+                                var data = myTable.rows('.selected').data()[0];
+                                $.post(yourApp.Urls.AcceptUrl, {
+                                    caseId: data.CaseId,
+                                },
+                                                function (result) {
+                                                    var $psw = $("#msg");
+                                                    $psw.text("");
+                                                    $psw.text(result);
+                                                    var pwdDialogConfig = {
+                                                        modal: true,
+                                                        width: 400,
+                                                        height: result ? 250 : "auto",
+                                                        buttons: {
+                                                            OK: function () {
+                                                                $(this).dialog("close");
+                                                                location.reload();
+                                                            }
+                                                        }
+                                                    };
+                                                    $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                                });
+                            }
+                        },
+                        enabled: false
+                    },
             {
                 text: 'Forward',
                 className: 'open',
@@ -356,8 +387,10 @@
                 if (caseRow.Status.toLowerCase() !== "frozen" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.modify']).enable(true);
                 if (caseRow.Status.toLowerCase() === "waiting on var" && "@ViewBag.OpenRole.ToString().ToLower()" == "true")
+                    myTable.buttons(['.accept']).enable(true);
+                if (caseRow.Status.toLowerCase() === "working by var" && "@ViewBag.OpenRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.open']).enable(true);
-                if (caseRow.Status.toLowerCase() === "waiting on var" && "@ViewBag.OpenRole.ToString().ToLower()" == "true")
+                if (caseRow.Status.toLowerCase() === "working by var" && "@ViewBag.OpenRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.close']).enable(true);
                 if (caseRow.Status.toLowerCase() === "open" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.reject']).enable(true);
@@ -371,6 +404,7 @@
                 myTable.buttons(['.modify']).disable();
                 myTable.buttons(['.update']).disable();
                 myTable.buttons(['.history']).disable();
+                myTable.buttons(['.accept']).disable();
                 myTable.buttons(['.open']).disable();
                 myTable.buttons(['.close']).disable();
                 myTable.buttons(['.reject']).disable();
@@ -404,9 +438,9 @@
 
             yadcf.init(myTable, [
             { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["General Request", "Bug", "Wish"] },
-        { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Waiting on Var", "Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
-        { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["tomoki.miyamoto@t3-japan.co.jp", "hideki.kobayashi@t3-japan.co.jp", "fumiko.kasahara@t3-japan.co.jp", "michiyo.miyako@t3-japan.co.jp", "satomi.ono@t3-japan.co.jp", "giorgio.pirri@dptcorporate.com", "jacopo.azzi@dptcorporate.com", "intae.lee@t3-japan.co.jp"] },
-        { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["English", "Japanese", "Korean"] }
+            { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["Waiting on Var", "Working by Var", "Open", "Working", "Waiting on R&D", "Waiting on Customer", "Closed", "Frozen"] },
+            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["tomoki.miyamoto@t3-japan.co.jp", "hideki.kobayashi@t3-japan.co.jp", "fumiko.kasahara@t3-japan.co.jp", "michiyo.miyako@t3-japan.co.jp", "satomi.ono@t3-japan.co.jp", "giorgio.pirri@dptcorporate.com", "jacopo.azzi@dptcorporate.com", "intae.lee@t3-japan.co.jp"] },
+            { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["English", "Japanese", "Korean"] }
             ]);
         });
 

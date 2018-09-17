@@ -17,12 +17,16 @@ function format(d) {
          '<tr>' +
             '<td><b>Ancestor:</b></td>' +
             '<td>' + d[8] + '</td>' +
+            '<td><b>Exported Num:</b></td>' +
+            '<td>' + d[14] + '</td>' +
+            '<td><b>Max Export:</b></td>' +
+            '<td>' + (d[15] == -1 ? "unlimited" : d[15]) + '</td>' +
         //'<tr>' +
         //    '<td><b>License Kind:</b></td>' +
         //    '<td>' + d[13] + '</td>' +
         //'</tr>' +
             '<td><b>Note:</b></td>' +
-            '<td>' + d[15] + '</td>' +
+            '<td>' + d[16] + '</td>' +
         '</tr>' +
              '</table>';
 }
@@ -51,7 +55,8 @@ $(document).ready(function () {
             { "bVisible": false, },
             null,
             null,
-            //{ "bVisible": false, },
+            { "bVisible": false, },
+            { "bVisible": false, },
             { "bVisible": false, }
         ],
         "order": [[1, 'asc']],

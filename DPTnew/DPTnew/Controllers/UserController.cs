@@ -46,7 +46,7 @@ namespace DPTnew.Controllers
                 return responseMessage;
             }
         }
-        
+
         //private Utility functions
         private string fileToString(HttpPostedFileBase file)
         {
@@ -95,6 +95,7 @@ namespace DPTnew.Controllers
             {
                 ViewBag.AccountNumber = licenses.FirstOrDefault().AccountNumber;
                 ViewBag.AccountName = licenses.FirstOrDefault().AccountName;
+                ViewBag.AccountStatus = licenses.FirstOrDefault().AccountStatus;
                 //ViewBag.Licenses = Uri.EscapeDataString((new JavaScriptSerializer()).Serialize(licenses));
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes((new JavaScriptSerializer()).Serialize(licenses));
                 ViewBag.Licenses = System.Convert.ToBase64String(plainTextBytes);
@@ -218,7 +219,7 @@ namespace DPTnew.Controllers
                                 currentlicense.Installed = 0;
                                 currentlicense.Exported = 1;
                                 currentlicense.ExportedNum = currentlicense.ExportedNum + 1;
-                                currentlicense.TotExported += 1; 
+                                currentlicense.TotExported += 1;
                                 context.Licenses.Attach(currentlicense);
                                 var entry = context.Entry(currentlicense);
                                 entry.Property(x => x.Installed).IsModified = true;
@@ -494,7 +495,7 @@ namespace DPTnew.Controllers
                             "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
                             "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                             //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
-                            "<br/><br/>以上、よろしくお願いいたします。<br/><br/>DPT Services</pre>";                               
+                            "<br/><br/>以上、よろしくお願いいたします。<br/><br/>DPT Services</pre>";
                     }
                     else
                     {
@@ -535,35 +536,31 @@ namespace DPTnew.Controllers
         private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix, string accNumber)
         {
             var prodName = new JArray();
-            if (pwdCode.StartsWith("VA"))//tdvar
-            {
+            if (pwdCode.StartsWith("VA"))//tdvar accNumber == "T3-0073628" (Enrico), TDVARFull
+                prodName = new JArray(SafenetEntitlement.DPTVARBundle.Select(x => x + productPostfix).ToArray());
+            else if (productName == "tdvarlight")
                 prodName = new JArray(SafenetEntitlement.TDVARBundle.Select(x => x + productPostfix).ToArray());
-                if (accNumber == "T3-0073628")
-                {
-                    prodName = new JArray(SafenetEntitlement.DPTVARBundle.Select(x => x + productPostfix).ToArray());
-                }
-            }
-            else if (pwdCode.StartsWith("IX"))//tdirectrw
-            {
-                prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
-            }
-            //else if (pwdCode.StartsWith("AH")) //tdxchangereader
-            //{
-            //    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
-            //    prodName.Add(productName + productPostfix);
-            //}
             else
-            {
-                if (productName == "thinkapigsm")
-                    prodName.Add("thinkapi_gsm" + productPostfix);
+                if (pwdCode.StartsWith("IX"))//tdirectrw
+                    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+
+            //else if (pwdCode.StartsWith("AH")) //tdxchangereader
+                //{
+                //    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+                //    prodName.Add(productName + productPostfix);
+                //}
                 else
-                    prodName.Add(productName + productPostfix);
-                if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
                 {
-                    prodName.Add("ThinkTeamDOC" + productPostfix);
-                    prodName.Add("tdpartsolutions" + productPostfix);
+                    if (productName == "thinkapigsm")
+                        prodName.Add("thinkapi_gsm" + productPostfix);
+                    else
+                        prodName.Add(productName + productPostfix);
+                    if (SafenetEntitlement.AddTTeamDocTo.Contains(pwdCode.Substring(0, 2)))
+                    {
+                        prodName.Add("ThinkTeamDOC" + productPostfix);
+                        prodName.Add("tdpartsolutions" + productPostfix);
+                    }
                 }
-            }
 
             return prodName;
         }
@@ -615,14 +612,14 @@ namespace DPTnew.Controllers
                         }
                         else
                         {
-                            if (isEval) { type = "EVAL"; }
+                            //if (isEval) { type = "EVAL"; }
+                            //else
+                            //{
+                            if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                                type = "PHYSIC_EXPIR";
                             else
-                            {
-                                if (currentlicense.MachineID.ToUpper().Contains("BLK"))
-                                    type = "PHYSIC_EXPIR";
-                                else
-                                    type = "EXPIR";
-                            }
+                                type = "EXPIR";
+                            //}
                         }
                     }
                     else
@@ -876,15 +873,15 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                if (isEval) { type = "EVAL"; }
+                                //if (isEval) { type = "EVAL"; }
+                                //else
+                                //{
+                                if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                                    type = "PHYSIC_EXPIR";
                                 else
-                                {
-                                    if (currentlicense.MachineID.ToUpper().Contains("BLK"))
-                                        type = "PHYSIC_EXPIR";
-                                    else
-                                        type = "EXPIR";
-                                    CheckQMTsf(currentlicense);
-                                }
+                                    type = "EXPIR";
+                                CheckQMTsf(currentlicense);
+                                //}
                             }
                         }
                         else

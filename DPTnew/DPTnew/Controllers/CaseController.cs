@@ -239,6 +239,22 @@ namespace DPTnew.Controllers
 
         [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
+        public ActionResult Accept(string caseId)
+        {
+            using (var db = new DptContext())
+            {
+                var res = db.Cases.Where(x => x.CaseId == caseId).FirstOrDefault();
+                res.Status = "Working by Var";
+                db.Cases.Attach(res);
+                var entry = db.Entry(res);
+                entry.Property(x => x.Status).IsModified = true;
+                db.SaveChanges();
+            }
+            return Json("Case Accepted: " + caseId, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
+        [HttpPost]
         public ActionResult Open(string caseId)
         {
             using (var db = new DptContext())

@@ -68,6 +68,9 @@ namespace DPTnew.Models
         [Display(Name = "AccountName", ResourceType = typeof(Resource))]
         public string AccountName { get; set; }
 
+        [Display(Name = "Status", ResourceType = typeof(Resource))]
+        public string AccountStatus { get; set; }
+
         [Display(Name = "Product", ResourceType = typeof(Resource))]
         public string ProductName { get; set; }
 
@@ -267,8 +270,8 @@ namespace DPTnew.Models
         public JArray ProductName { get; set; }
 
         public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding
-        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };//, "thinkprint"
-        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };// per enrico, "thinkprint"
+        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };//, "thinkprint" TDVARLight
+        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };// per enrico, "thinkprint", TDVARFull 
         public static IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
     }
 
