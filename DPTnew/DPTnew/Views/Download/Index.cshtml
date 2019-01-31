@@ -86,17 +86,33 @@
 
         $(document).ready(function () {
             var datacad = [];
+
+            var cad = {
+                "Year": "2019", "Product": "@DPTnew.Localization.Resource.Product2019ThinkDesign64bit",
+                "Description": "@DPTnew.Localization.Resource.Description2019ThinkDesign64bit" + " (SHA1=9D43A087184A0D3EAB9E9F4B565A12262AA19981)",
+                "Size": " - 2 GB (DPT_TD_2019_1_20118.iso)",
+                "Download": "https://dptsarl.sharepoint.com/:u:/g/ETb8HxFYJs1BvgMcZBpJY-gBE3gRhlhOIHTZ2McJ-51Wbw?e=VkSJ1q",
+                "Product1": "@DPTnew.Localization.Resource.ProductUtilitytools",
+                "Description1": "@DPTnew.Localization.Resource.Description2019Utilitytools" + " (SHA1=2591D1EB8621C3A4F190A44632A027763352EE57)",
+                "Size1": " - 18 MB (DPT_TDTools_2019_1_20118.iso)",
+                "Download1": "https://dptsarl.sharepoint.com/:u:/g/EW509xbDD1xMl-JKvw4grt4BTN2RiB5rgWpzChNWm_rwHA?e=7gGeto",
+                "Product2": "@DPTnew.Localization.Resource.ProductInstaller",
+                "Description2": "@DPTnew.Localization.Resource.DescriptionInstaller" + " (SHA1=26C6AF70DAA4F6BC3CFA9A8F31D1459F3B49BE5B)",
+                "Size2": " - 110 MB (DPT_Licensing_2019_1_20118.iso)",
+                "Download2": "https://dptsarl.sharepoint.com/:u:/g/EaeskuBrg6RIm7Ysss_b2XoB-iCLKMc6OdgWbD5qnTZY2w?e=wMODy6"
+            };
+            datacad.push(cad);
             if ("@ViewBag.UserNoLicCase.ToString().ToLower()" == "true") {
-                var cad = {
+                cad = {
                     "Year": "2018", "Product": "@DPTnew.Localization.Resource.Product2018ThinkDesign64bit",
-                    "Description": "@DPTnew.Localization.Resource.Description2018ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2018_1_20706.iso)",
-                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=Lltv4a",
+                    "Description": "@DPTnew.Localization.Resource.Description2018ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2018_1_21018.iso)",
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EVXkjv732XlIpse1dDx431cBPgGhkk92Tikxl8edr7QocQ?e=y0VfUO",
                     "Product1": "@DPTnew.Localization.Resource.Product2018Utilitytools",
-                    "Description1": "@DPTnew.Localization.Resource.Description2018Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2018_1_20706.iso)",
-                    "Download1": "https://dptsarl.sharepoint.com/:u:/g/ERi54QKLzmZMjtG5Q1GRRmQB2Yo3wZ7enqOwFKQlZOhrFg?e=EBKGjy",
+                    "Description1": "@DPTnew.Localization.Resource.Description2018Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2018_1_21018.iso)",
+                    "Download1": "https://dptsarl.sharepoint.com/:u:/g/EXP4-CnxDPBBn8J0WBs9cGIBurr5xk6rTflwr_RE81J59Q?e=3MWbvz",
                     "Product2": "@DPTnew.Localization.Resource.Product2018Installer",
-                    "Description2": "@DPTnew.Localization.Resource.Description2018Installer", "Size2": " - 107 MB (DPT_Licensing_2018_1_20706.iso)",
-                    "Download2": "https://dptsarl.sharepoint.com/:u:/g/EWiF9j2y5LFEqaWUK8vhiV4BWU8f0sdd9YCgFFaqV_N4jw?e=2w1Kvi"
+                    "Description2": "@DPTnew.Localization.Resource.Description2018Installer", "Size2": " - 107 MB (DPT_Licensing_2018_1_21018.iso)",
+                    "Download2": "https://dptsarl.sharepoint.com/:u:/g/ES8VHEqFM55Iu4L1pGKUjwsBmq6l9B3vpYtttBHr__AOog?e=RXDmBK"
                 };
                 datacad.push(cad);
                 @*cad = {
@@ -195,19 +211,6 @@
                     "Download1": "@DPTnew.Localization.Resource.Download2011Utilitytools"
                 };
                 datacad.push(cad);
-            } else {
-                var cad = {
-                    "Year": "2018", "Product": "@DPTnew.Localization.Resource.Product2018ThinkDesign64bit",
-                    "Description": "@DPTnew.Localization.Resource.Description2018ThinkDesign64bit", "Size": " - 2 GB (DPT_TD_2018_1_20706.iso)",
-                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=dnP4yZ",
-                    "Product1": "@DPTnew.Localization.Resource.Product2018Utilitytools",
-                    "Description1": "@DPTnew.Localization.Resource.Description2018Utilitytools", "Size1": " - 16 MB (DPT_TDTools_2018_1_20706.iso)",
-                    "Download1": "https://dptsarl.sharepoint.com/:u:/g/ERi54QKLzmZMjtG5Q1GRRmQB2Yo3wZ7enqOwFKQlZOhrFg?e=aLtHyo",
-                    "Product2": "@DPTnew.Localization.Resource.Product2018Installer",
-                    "Description2": "@DPTnew.Localization.Resource.Description2018Installer", "Size2": " - 107 MB (DPT_Licensing_2018_1_20706.iso)",
-                    "Download2": "https://dptsarl.sharepoint.com/:u:/g/EWiF9j2y5LFEqaWUK8vhiV4BWU8f0sdd9YCgFFaqV_N4jw?e=2w1Kvi"
-                };
-                datacad.push(cad);
             }
 
             var cadTable = $('#cad').DataTable({
@@ -263,9 +266,16 @@
 
             if ("@ViewBag.UserNoLicCase.ToString().ToLower()" == "true") {
                 var plm = {
+                    "Product": "@DPTnew.Localization.Resource.Product2019thinkPLM",
+                    "Description": "@DPTnew.Localization.Resource.Description2019thinkPLM" + " (SHA1=6D31C537EAE594C05D47974207DF6DC32BD3574D)",
+                    "Size": " - 585 MB",
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/ERB0qV2S9-NDrvStsXG3sJgBiSd6473AXTj2stbp-_bg9g?e=dAAZFc"
+                }
+                dataplm.push(plm);
+                plm = {
                     "Product": "@DPTnew.Localization.Resource.Product2018thinkPLM",
                     "Description": "@DPTnew.Localization.Resource.Description2018thinkPLM", "Size": " - 560 MB",
-                    "Download": "https://dptsarl.sharepoint.com/:u:/g/ET28Cg2rGSROrhVmP3llGKABVQsj1Ewzo8qHkXshhr594w?e=C6qYgJ"
+                    "Download": "https://dptsarl.sharepoint.com/:u:/g/EVW7zJIEHSBEj--Wpju09poBpWtlxeTsneEX1lNFGpvAaQ?e=sbU3RX"
                 }
                 dataplm.push(plm);
                 plm = {
@@ -347,18 +357,18 @@
     <thead>
         <tr style="vertical-align:top">
             <td>
-                <h2>ThinkDesign 2018 SP2</h2>
+                <h2>ThinkDesign 2019</h2>
                 <br />
                 @DPTnew.Localization.Resource.View_Download_Text1<br />
                 @DPTnew.Localization.Resource.View_Download_Text2
                 <br /><br />
-                <a target="_blank" href="https://dptsarl.sharepoint.com/:u:/g/EWk-1ATdajpBg8emKK-_RVQB8FDmMd28QOQw9k_7Bh3puw?e=Lltv4a" onclick="downloadCounter('ThinkDesign 2018 64bit_2018')">
-                    <img src="~/Content/images/TD2018_download.png">
+                <a target="_blank" href="https://dptsarl.sharepoint.com/:u:/g/ETb8HxFYJs1BvgMcZBpJY-gBE3gRhlhOIHTZ2McJ-51Wbw?e=VkSJ1q" onclick="downloadCounter('ThinkDesign 2019 64bit_2019')">
+                    <img src="~/Content/images/TD2019_download.png">
                 </a>
             </td>
-            <td>
+            <!--<td>
                 <img src="~/Content/images/TDProf_timeline2018_sitoDPT3Care.png" align="right">
-            </td>
+            </td>-->
         </tr>
     </thead>
 </table>
@@ -389,13 +399,13 @@
                 <th></th>
             </tr>
             <tr>
-                <td id="product">
+                <td id="product" width="15%">
                     <b>@DPTnew.Localization.Resource.Product</b>
                 </td>
-                <td id="description">
+                <td id="description" width="70%">
                     <b>@DPTnew.Localization.Resource.Description</b>
                 </td>
-                <td id="download">
+                <td id="download" width="15%">
                     <b>@DPTnew.Localization.Resource.View_Menu_Download</b>
                 </td>
             </tr>

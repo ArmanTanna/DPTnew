@@ -25,6 +25,27 @@ namespace DPTnew.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin,Internal")]
+        public ActionResult UpdateAccountStatus()
+        {
+            using (var db = new DptContext())
+            {
+                var errormsg = "";
+                try
+                {
+                    db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus_Every8Hours]");
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("InternosController (UpdateAccountStatus): " + e.Message);
+                    errormsg = e.Message;
+                }
+                ViewBag.Message = errormsg;
+
+                return View();
+            }
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult UnknownCompanies()
         {

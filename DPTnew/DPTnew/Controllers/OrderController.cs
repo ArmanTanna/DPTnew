@@ -106,12 +106,14 @@ namespace DPTnew.Controllers
                 {
                     var company = db.Companies.Where(c => c.AccountName == orderRow.AccountName).FirstOrDefault();
                     orderRow.AccountNumber = company.AccountNumber;
+                    if (orderRow.AccountName.Contains("'"))
+                        orderRow.AccountName = orderRow.AccountName.Replace("'", "''");
                     var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
-                    orderRow.Invoicer = sr.Invoicer;
-                    orderRow.InvoicedNumber = sr.AccountNumber;
-                    orderRow.InvoicedName = sr.AccountName;
-                    orderRow.SalesRep = company.SalesRep;
-                    if (orderRow.ProductName.ToLower() == "dongle")
+                    orderRow.Invoicer = sr.Invoicer.Trim();
+                    orderRow.InvoicedNumber = sr.AccountNumber.Trim();
+                    orderRow.InvoicedName = sr.AccountName.Trim();
+                    orderRow.SalesRep = company.SalesRep.Trim();
+                    if (orderRow.ProductName.ToLower() == "dongle" || orderRow.ProductName.ToLower() == "penalty")
                         orderRow.LicenseID = "NA";
                     if (orderRow.ArticleDetail.ToLower() == "pl")
                         orderRow.EndDate = orderRow.StartDate;
@@ -162,15 +164,15 @@ namespace DPTnew.Controllers
                             if (maxq == null)
                                 orderRow.OrderNumber = "V000001";
                             else
-                                orderRow.OrderNumber = "V" + (Convert.ToInt64(maxq.Split('T')[1]) + 1).ToString("D6");
+                                orderRow.OrderNumber = "V" + (Convert.ToInt64(maxq.Split('V')[1]) + 1).ToString("D6");
                         }
-                        if (DateTime.Now.Year == 2018)
+                        if (DateTime.Now.Year == 2020)
                         {
-                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("U")).Max(x => x.OrderNumber);
+                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("W")).Max(x => x.OrderNumber);
                             if (maxq == null)
-                                orderRow.OrderNumber = "U000001";
+                                orderRow.OrderNumber = "W000001";
                             else
-                                orderRow.OrderNumber = "U" + (Convert.ToInt64(maxq.Split('U')[1]) + 1).ToString("D6");
+                                orderRow.OrderNumber = "W" + (Convert.ToInt64(maxq.Split('W')[1]) + 1).ToString("D6");
                         }
                     }
                     else
@@ -215,10 +217,10 @@ namespace DPTnew.Controllers
                     if (query.Count() > 0)
                     {
                         var nocheck = db.Activations.Select(x => x.OrderNumber).ToList();
-                        if (!nocheck.Contains(orderRow.OrderNumber) && ((orderRow.OrderDate.Year == 2018 &&
-                            !(orderRow.OrderNumber.StartsWith("U"))) ||
+                        if (!nocheck.Contains(orderRow.OrderNumber) && ((orderRow.OrderDate.Year == 2020 &&
+                            !(orderRow.OrderNumber.StartsWith("W"))) ||
                             (orderRow.OrderDate.Year == 2019 && !(orderRow.OrderNumber.StartsWith("V")))))
-                            return Json("Error: wrong order number (2018 = U)", JsonRequestBehavior.AllowGet);
+                            return Json("Error: wrong order number (2019 = V)", JsonRequestBehavior.AllowGet);
                         foreach (Order o in query.ToList())
                         {
                             o.OrderNumber = orderRow.OrderNumber;
@@ -304,13 +306,18 @@ namespace DPTnew.Controllers
             }
             using (var db = new DptContext())
             {
-                var ord = db.Orders.Where(x => x.OrderNumber == id).OrderBy(y => y.idxx).ToList();
+                var ord = db.Orders.Where(x => x.OrderNumber == id && x.Status != "lost").OrderBy(y => y.idxx).ToList();
+                var accNum = ord.FirstOrDefault().AccountNumber;
+                var cmp = db.Companies.Where(y => y.AccountNumber == accNum).FirstOrDefault();
                 ViewBag.ButtonBook = db.Orders.Where(x => x.OrderNumber == id && (x.Status == "entered" || x.Status == "preloaded")).ToList().Count > 0;
                 ViewBag.ButtonCheck = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                     && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "booked").ToList().Count > 0);
                 ViewBag.ButtonReject = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "checked").ToList().Count > 0))
                 || (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "booked").ToList().Count > 0));
                 ViewBag.ButtonApprove = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "checked").ToList().Count > 0);
+                ViewBag.ButtonMail = (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    && (db.Orders.Where(x => x.OrderNumber == id && x.Status == "approved").ToList().Count > 0 && cmp.AccountStatus.Contains("03 - Premium Customer"));
+
                 double tot = 0;
                 foreach (var rw in ord)
                 {
@@ -360,6 +367,8 @@ namespace DPTnew.Controllers
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
                         if (o.ProductName == "dongle")
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000001").FirstOrDefault();
+                        if (o.ProductName == "penalty")
+                            lic = db.Licenses.Where(l => l.LicenseID == "L00000002").FirstOrDefault();
 
                         if (string.IsNullOrEmpty(destmail))
                         {
@@ -427,6 +436,8 @@ namespace DPTnew.Controllers
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
                         if (o.ProductName == "dongle")
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000001").FirstOrDefault();
+                        if (o.ProductName == "penalty")
+                            lic = db.Licenses.Where(l => l.LicenseID == "L00000002").FirstOrDefault();
 
                         if (string.IsNullOrEmpty(destmail))
                         {
@@ -560,8 +571,8 @@ namespace DPTnew.Controllers
                         if (lic != null && lic.ArticleDetail.ToLower() != "pl")
                             lic.Renew = 1;
 
-                        if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu" || o.ArticleDetail == "sasf"
-                            || o.ArticleDetail == "qsf" || o.ArticleDetail == "sas" || o.ArticleDetail == "sasp")
+                        if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu"
+                            || o.ArticleDetail == "qsf")
                             lic.MaintEndDate = o.EndDate;
 
                         if (o.ArticleDetail == "asf" || o.ArticleDetail == "asp")
@@ -610,6 +621,30 @@ namespace DPTnew.Controllers
                         LogHelper.WriteLog("OrderController (Approve): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                     }
                 }
+                query = from ord in db.Orders
+                        where ord.OrderNumber == orderNumber && ord.Status == "approved" && ord.ArticleDetail != "sas"
+                        select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        var lic = db.Licenses.Where(x => x.LicenseID == o.LicenseID).FirstOrDefault();
+                        lic.Sas = false;
+                        db.SaveChanges();
+                    }
+                }
+                query = from ord in db.Orders
+                        where ord.OrderNumber == orderNumber && ord.Status == "approved" && ord.ArticleDetail == "sas"
+                        select ord;
+                if (query.Count() > 0)
+                {
+                    foreach (Order o in query.ToList())
+                    {
+                        var lic = db.Licenses.Where(x => x.LicenseID == o.LicenseID).FirstOrDefault();
+                        lic.Sas = true;
+                        db.SaveChanges();
+                    }
+                }
             }
             return Json("Approved OrderNumber: " + orderNumber + "\n\n an e-mail was sent to " + varmail, JsonRequestBehavior.AllowGet);
         }
@@ -627,7 +662,7 @@ namespace DPTnew.Controllers
                     "なお、ご注文いただいたライセンスと登録されたライセンスに相違がないかどうかを必ずご確認ください。<br/>" +
                     "上記「製品」の項目で製品名に続くアルファベットは次の種別を表します。<br/>" +
                     "ASF/ASP (年間使用料）、PL（永久）、PLSS（永久ライセンスのメンテナンスライセンス）<br/>" +
-                    "SASF/SASP（ASF/ASPのサポートサービスバンドル）、SAS（メンテナンスのサポートサービスバンドル）<br/><br/>" +
+                    "SAS（バンドルパッケージのサポートサービス部分）<br/><br/>" +
                     "PLSS ライセンスはライセンス本体ではないため、カスタマーケアサイトに新しいライセンスが増えるわけではありません。<br/>" +
                     "詳しくは上記インストールガイドの「２－４．ライセンスの更新」をご確認ください。<br/><br/>" +
                     "弊社では評価用／貸出用のライセンスを納品することで、お客様からは費用を頂戴しておりません。<br/><br/>" +
@@ -697,6 +732,76 @@ namespace DPTnew.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Internal")]
+        public ActionResult SendMail(string orderNumber)
+        {
+            if (string.IsNullOrEmpty(orderNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot save the order!";
+                return View("Success");
+            }
+            var email = "";
+            using (var db = new DptContext())
+            {
+                var query = from ord in db.Orders
+                            where ord.OrderNumber == orderNumber && ord.Status == "approved"
+                            select ord;
+                if (query.Count() > 0)
+                {
+                    var cmp = db.Companies.Where(y => y.AccountNumber == query.FirstOrDefault().AccountNumber).FirstOrDefault();
+                    email = cmp.Email;
+                    var licprm = db.Licenses.Where(x => x.AccountNumber == cmp.AccountNumber
+                        && x.LicenseFlag == "premium" && x.MachineID.Contains("ABCDEFGH")).Count();
+                    MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], email); ;
+                    var varmail = db.Companies.Where(x => x.AccountNumber == query.FirstOrDefault().InvoicedNumber).FirstOrDefault().Email;
+                    mail.CC.Add(varmail);
+                    if (query.FirstOrDefault().Invoicer.Trim().ToLower() == "t3 japan kk")
+                        mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                    mail.Bcc.Add("Orders@dptcorporate.com");
+
+                    if (cmp.Language == "italian")
+                    {
+                        mail.Subject = "[DO NOT REPLY] Licenze Premium " + cmp.AccountName;
+                        mail.Body = "<pre>Gentile Cliente,<br/><br/>La ringraziamo per il Suo ordine.<br/><br/>" +
+                        "La informiamo che nella sezione <b>Licenses</b> del sito DPT3Care (https://dpt3.dptcorporate.com) " +
+                        "troverà, oltre alla/e licenza/e regolarmente acquistata/e, anche <b>" + licprm + " Licenza/e Premium</b>: " +
+                        "si tratta di un omaggio che DPT fa ai suoi <b>Clienti Premium</b>, vale a dire le aziende " +
+                        "che hanno tutte le licenze sotto contratto attivo di manutenzione.<br/><br/>Ogni Licenza Premium " +
+                        "ha durata di 30 giorni a partire dal momento dell’attivazione e può essere utilizzata per " +
+                        "gestire picchi di lavoro nell’ufficio tecnico, stagisti, ecc.<br/>Per installarla/e in " +
+                        "modalità self-service, quando sarà necessario, troverà qui di seguito le istruzioni: " +
+                        "http://www.dptcorporate.com/it/guida-auto-installazione/." +
+                        "<br/><br/>Restiamo a Sua disposizione per ulteriori informazioni.<br/>Buon lavoro e buona giornata!" +
+                        "<br/><br/>DPT Accounting</pre>";
+                        mail.IsBodyHtml = true;
+                    }
+                    else
+                    {
+                        mail.Subject = "[DO NOT REPLY] Premium Licenses " + cmp.AccountName;
+                        mail.Body = "<pre>Dear User,<br/><br/>Thank you for your order.<br/><br/>" +
+                        "Please note that, besides the purchased license/s, in the <b>Licenses</b> section of " +
+                        "DPT3Care website (https://dpt3.dptcorporate.com) you’ll also find <b>" + licprm +
+                        " Premium License/s</b>.<br/>Premium Licenses are free 1-month licenses that DPT " +
+                        "gives as a gift only to its <b>Premium Customers</b> (= companies with all licenses under " +
+                        "maintenance), and they can be used for managing peak period activities, temporary staff, interns " +
+                        "training, travels or whatever the reason.<br/><br/>You’ll be able to activate them whenever " +
+                        "you want by following the instructions at this link: http://www.dptcorporate.com/self-installation-guide/." +
+                        "<br/><br/>Have a good day!<br/>Best regards,<br/><br/>DPT Accounting</pre>";
+                        mail.IsBodyHtml = true;
+                    }
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("OrderController (SendMail): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
+                    }
+                }
+            }
+            return Json("Mail sent: " + email, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public ActionResult GetInvoiceInfo(string companyName)
         {
@@ -743,6 +848,8 @@ namespace DPTnew.Controllers
                 var products = db.Licenses.Where(u => u.AccountNumber == company.AccountNumber && lf.Contains(u.LicenseFlag)).Select(x => x.ProductName).Distinct().ToList();
                 if (!products.Contains("dongle"))
                     products.Add("dongle");
+                if (!products.Contains("penalty"))
+                    products.Add("penalty");
                 return Json(products, JsonRequestBehavior.AllowGet);
             }
         }
@@ -759,6 +866,11 @@ namespace DPTnew.Controllers
                 {
                     var dongle = db.Licenses.Where(l => l.LicenseID == "L00000001").ToList();
                     return Json(dongle, JsonRequestBehavior.AllowGet);
+                }
+                if (productName == "penalty")
+                {
+                    var penalty = db.Licenses.Where(l => l.LicenseID == "L00000002").ToList();
+                    return Json(penalty, JsonRequestBehavior.AllowGet);
                 }
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 var lf = db.LicFlag.Where(x => x.Order == 1).Select(k => k.LicenseFlag).ToList();
@@ -779,7 +891,7 @@ namespace DPTnew.Controllers
                 var lc = db.Licenses.Where(u => u.LicenseID == licenseId).FirstOrDefault();
                 lic.LicenseType = lc.LicenseType;
                 lic.Quantity = lc.Quantity;
-                if (licenseId == "L00000001")
+                if (licenseId == "L00000001" || licenseId == "L00000002")
                 {
                     lic.PwdCode = DateTime.Now.ToString("yyyy-MM-dd");
                     lic.Ancestor = DateTime.Now.ToString("yyyy-MM-dd");
@@ -801,8 +913,24 @@ namespace DPTnew.Controllers
                 return Json("1500_200000", JsonRequestBehavior.AllowGet);
             if (articleDetail == "srv")
                 return Json("1000_150000", JsonRequestBehavior.AllowGet);
-            var jpk = 100000;
-            var euk = 1000;
+            if (articleDetail == "sas")
+            {
+                switch (productName)
+                {
+                    case "tdengineering":
+                        return Json("0_80000", JsonRequestBehavior.AllowGet);
+                    case "tdbase":
+                        return Json("0_70000", JsonRequestBehavior.AllowGet);
+                    case "tddrafting":
+                        return Json("0_50000", JsonRequestBehavior.AllowGet);
+                    default:
+                        return Json("0_100000", JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            if (productName == "tdprofessionaledu")
+                productName = "tdprofessional";
+
             using (var db = new DptContext())
             {
                 string query = "SELECT ";
@@ -814,6 +942,7 @@ namespace DPTnew.Controllers
                         break;
                     case "asf":
                     case "qsf":
+                    case "msf":
                         query += "ASF_EURO";
                         break;
                     default:
@@ -830,14 +959,18 @@ namespace DPTnew.Controllers
                 var jpyprice = db.Database.SqlQuery<decimal>(query, res).First();
                 if (licenseType == "floating")
                 {
-                    europrice = europrice + ((europrice * 15) / 100);
-                    jpyprice = jpyprice + ((jpyprice * 5) / 100);
+                    europrice = europrice + ((europrice * 20) / 100);
+                    jpyprice = jpyprice + ((jpyprice * 20) / 100);
                 }
                 switch (articleDetail)
                 {
                     case "qsf":
                         europrice = europrice / 4;
                         jpyprice = jpyprice / 4;
+                        break;
+                    case "msf":
+                        europrice = europrice / 12;
+                        jpyprice = jpyprice / 12;
                         break;
                     case "cvu":
                         europrice = europrice * 3;
@@ -846,15 +979,6 @@ namespace DPTnew.Controllers
                     case "chw":
                         europrice = (europrice * 20) / 100;
                         jpyprice = (jpyprice * 20) / 100;
-                        break;
-                    case "sasp":
-                        europrice = (europrice / 2) + euk;
-                        jpyprice = (jpyprice / 2) + jpk;
-                        break;
-                    case "sasf":
-                    case "sas":
-                        europrice = europrice + euk;
-                        jpyprice = jpyprice + jpk;
                         break;
                 }
                 if (quantity > 1)

@@ -8,7 +8,7 @@ function viaMk() {
 	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
 }
 </script>
-<!-- LJEM -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,102 +32,119 @@ margin-top: 0;
 </style>
 </head>
 
-<body onload="viaMk();"  bgcolor="white" onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();">
+<body onload="viaMk();"  bgcolor="white" onload="self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();">
 
 
-<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
-<p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
-<hr color="#63a9d8">
-<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
-<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+1">Reshape</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+27">Edit</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="thinkreshapeMenu.msg+ThinkReshapeMenu+7">Decimate Mesh</span></p>
-<hr color="#63a9d8">
-</table>
+  <style>
+    .headerpath {
+      font-size: 8pt;
+      font-family: Verdana;
+      font-weight: normal;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  </style>
+  <p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
+  <hr color="#63a9d8">
+  <style>
+    .headerpath {
+      font-size: 8pt;
+      font-family: Verdana;
+      font-weight: normal;
+    }
+  </style>
+  <p class="headerpath" align="center"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Mesh.msg+MenuBar_Document_Modify_Mesh+2">Mesh</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Mesh.msg+MenuBar_Document_Modify_Mesh+14">Decimate</span></p>
+  <hr color="#63a9d8">
 
-<p>The <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+8">Decimate Mesh</span> command enables you to reduce the number of triangles in the mesh without any significant changes in the object shape.</p>
+  <p>The <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+8">Decimate Mesh</span> command enables you to reduce the number of triangles in the mesh without any significant changes in the object shape.</p>
 
 
-<ol class="noleft">
-<li>Select the mesh you would like to smooth.<br>
-<br>
-To reset the mesh selection, right-click on <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+3">Mesh</span> in the selection list, choose the <span class="UI_COMMAND" id="tdesign.msg+_INTEL_LABEL_+33">Reset</span> option in the context menu and then select the mesh again.<br>
-<br>
-</li>
+  <ol class="noleft">
+    <li>
+      Select the mesh you would like to smooth.<br>
+      <br>
+      <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/yellow_note.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe><br>
+      <br>
+    </li>
 
-<li>If you want to use only a section of the mesh, select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+9">Selection Only</span> check box and subsequently select the mesh triangles to be included for decimation. You can also make a 
-<a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic03.htm">Window</a> selection.<br>
+    <li>
+      If you want to use only a section of the mesh, select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+9">Selection Only</span> check box and subsequently select the mesh triangles to be included for decimation. You can also make a
+      <a href="mk:@MSITStore:selsna.chm::/language/selection/OVfile/T_OV_basic03.htm">Window</a> selection.<br>
 
-<br>
-Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+6">Selection through</span> check box to select all the triangles in the selection Window area. Otherwise, by default only the visible triangles are selected.<br>
+      <br>
+      Select the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+6">Selection through</span> check box to select all the triangles in the selection Window area. Otherwise, by default only the visible triangles are selected.<br>
 
-<br>
-</li>
+      <br>
+    </li>
 
-<li>Make the additional settings in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+8">Decimate Mesh</span> selection list:<br>
+    <li>
+      Make the additional settings in the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+8">Decimate Mesh</span> selection list:<br>
 
-<br>
-<img src="../images/decimate-mesh.gif" border="1"><br>
-<br>
-<table cellspacing="2" cellpadding="2" border="0">
-<tr valign="top">
-<td width="200"><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+10">No. of Start Triangles</span> </td>
+      <br>
+      <img src="../images/decimate-mesh.gif" border="1"><br>
+      <br>
+      <table cellspacing="2" cellpadding="2" border="0">
+        <tr valign="top">
+          <td width="200"><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+10">No. of Start Triangles</span> </td>
 
-<td>Represents the number of triangles in the mesh; this number is important if the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+11">No. of End Triangles</span> is set.</td>
+          <td>Represents the number of triangles in the mesh; this number is important if the <span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+11">No. of End Triangles</span> is set.</td>
 
-</tr>
+        </tr>
 
-<tr valign="top">
-<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+11">No. of End Triangles</span> </td>
+        <tr valign="top">
+          <td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+11">No. of End Triangles</span> </td>
 
-<td>Required final number of triangles in the resulting mesh as an absolute number. Following this strategy automatically generates the reduction percentage in the field below.</td>
-</tr>
+          <td>Required final number of triangles in the resulting mesh as an absolute number. Following this strategy automatically generates the reduction percentage in the field below.</td>
+        </tr>
 
-<tr valign="top">
-<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+12">End Triangles Percentage</span> </td>
+        <tr valign="top">
+          <td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+12">End Triangles Percentage</span> </td>
 
-<td>Percent of the initial number of triangles. Following this strategy automatically generates the approximate number of end triangles in the field above.</td>
-</tr>
+          <td>Percent of the initial number of triangles. Following this strategy automatically generates the approximate number of end triangles in the field above.</td>
+        </tr>
 
-<tr valign="top">
-<td><span class="UI_OPTION" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+14">Max. error</span></td>
+        <tr valign="top">
+          <td><span class="UI_OPTION" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+14">Max. error</span></td>
 
-<td>Checking this box, the decimation process will preserve maximum deviation of the decimated mesh from the original one less than the value set in the emerging field; in this case the required final number of triangles may be not achieved due to the deviation limit.</td>
-</tr>
+          <td>Checking this box, the decimation process will preserve maximum deviation of the decimated mesh from the original one less than the value set in the emerging field; in this case the required final number of triangles may be not achieved due to the deviation limit.</td>
+        </tr>
 
-<tr valign="top">
-<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+15">Preserve Boundaries</span> </td>
+        <tr valign="top">
+          <td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+15">Preserve Boundaries</span> </td>
 
-<td>Checking this box, the operation will not affect the mesh boundaries</td>
-</tr>
+          <td>Checking this box, the operation will not affect the mesh boundaries</td>
+        </tr>
 
-<tr valign="top">
-<td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+16">Remove Skew Triangles</span> </td>
+        <tr valign="top">
+          <td><span class="UI_COMMAND" id="thinkreshapePlugin.msg+_ThinkReshape_LABEL_+16">Remove Skew Triangles</span> </td>
 
-<td>Checking this box, the procedure will try to suppress a formation of irregular skew triangles, though it may make the approximation quality worse.</td>
-</tr>
-</table>
+          <td>Checking this box, the procedure will try to suppress a formation of irregular skew triangles, though it may make the approximation quality worse.</td>
+        </tr>
+      </table>
 
-<br>
-</li>
+      <br>
+    </li>
 
-<li>Click the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+1">OK</span> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation, or the 
-<span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+2">Cancel</span> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.<br>
+    <li>
+      Click the <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+1">OK</span> button <img src="../../../images/general/OKbutton.gif" align="absmiddle"> to confirm the operation, or the
+      <span class="UI_COMMAND" id="GUIService.msg+_GUISERVICE_TOOLTIP_+2">Cancel</span> button <img src="../../../images/general/CANCELbutton.gif" align="absmiddle"> to abort.<br>
 
-<br>
-<table cellspacing="2" cellpadding="2" border="0">
-<tr align="center">
-<td><img src="../../../images/reshape/decimate-before.gif" border="1"></td>
-<td><img src="../../../images/reshape/decimate-after.gif" border="1"></td>
-</tr>
+      <br>
+      <table cellspacing="2" cellpadding="2" border="0">
+        <tr align="center">
+          <td><img src="../../../images/reshape/decimate-before.gif" border="1"></td>
+          <td><img src="../../../images/reshape/decimate-after.gif" border="1"></td>
+        </tr>
 
-<tr align="center">
-<td>The original mesh (375.000 triangles)</td>
-<td>The same mesh after decimation (50.000 triangles)</td>
-</tr>
-</table>
-</li>
-</ol>
+        <tr align="center">
+          <td>The original mesh (375.000 triangles)</td>
+          <td>The same mesh after decimation (50.000 triangles)</td>
+        </tr>
+      </table>
+    </li>
+  </ol>
 
-<hr color="silver">
+  <hr color="silver">
 </body>
 </html>
 

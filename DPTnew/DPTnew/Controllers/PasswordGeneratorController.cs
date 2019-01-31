@@ -58,6 +58,15 @@ namespace DptLicensingServer.Controllers
                     (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                     return CreateResponse(HttpStatusCode.BadRequest);
 
+                if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid))
+                {
+                    JObject errMessage = JObject.FromObject(new
+                    {
+                        Password = "Please update the customer contact (a valid mail) before proceed!"
+                    });
+                    return CreateResponse(HttpStatusCode.OK, errMessage);
+                }
+
                 if (expdata == "20280101")
                     using (var db = new DptContext())
                     {
@@ -132,6 +141,19 @@ namespace DptLicensingServer.Controllers
                     Error = e.Message
                 });
                 return CreateResponse(HttpStatusCode.InternalServerError, resp);
+            }
+        }
+
+        private static bool UnvalidMail(string machineid)
+        {
+            using (var db = new DptContext())
+            {
+                var company = db.Licenses.FirstOrDefault(x => x.MachineID == machineid);
+                if (company == null)
+                    return true;
+
+                var mail = db.Companies.Single(x => x.AccountNumber == company.AccountNumber).Email;
+                return mail.Contains("unknown");
             }
         }
 
@@ -422,6 +444,15 @@ namespace DptLicensingServer.Controllers
                     if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now ||
                         (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                         return CreateResponse(HttpStatusCode.BadRequest);
+
+                    if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid1))
+                    {
+                        JObject errMessage = JObject.FromObject(new
+                        {
+                            Password = "Please update the customer contact (a valid mail) before proceed!"
+                        });
+                        return CreateResponse(HttpStatusCode.OK, errMessage);
+                    }
 
                     if (expdate == "20280101")
                         using (var db = new DptContext())

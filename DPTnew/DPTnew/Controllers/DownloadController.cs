@@ -39,10 +39,10 @@ namespace DPTnew.Controllers
                 switch (prodName.Split('_')[1])
                 {
                     case "2018":
-                        if (prodName.Split('_')[0].Contains("2018"))
-                            pName = "ThinkDesign 2018 64bit";
+                        if (prodName.Split('_')[0].Contains("2019"))
+                            pName = "ThinkDesign 2019 64bit";
                         else
-                            pName = "Utility tools 2018";
+                            pName = "Utility tools 2019";
                         break;
                     default:
                         break;

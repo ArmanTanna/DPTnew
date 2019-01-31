@@ -301,6 +301,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                          ArticleDetail: datarow.ArticleDetail,
                          Quantity: datarow.Quantity,
                          LicenseType: datarow.LicenseType,
+                         Licenseflag: datarow.LicenseFlag,
                          MachineID: datarow.MachineID,
                          MaintEndDate: datarow.MED,
                          Version: datarow.Version
@@ -328,6 +329,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                               $psw.text("");
                               if (headers.AccountNumber === "T3-0073628") {
                                   $("#upgrade-choice").append($('<option></option>').val(2015).html(2015));
+                                  $("#upgrade-choice").append($('<option></option>').val(2016).html(2016));
                                   $("#upgrade-choice").append($('<option></option>').val(2017).html(2017));
                               }
                               var pwdDialogConfig = {
@@ -759,7 +761,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                 var isRed = /^RED[0-9]+$/.test(data.MachineID);
                 var isBlk = /^BLK[0-9]+$/.test(data.MachineID);
                 var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
-                var isTdirect = /^IX/.test(data.PwdCode) || /^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
+                var isTdirect = /*/^IX/.test(data.PwdCode) || *//^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
 
                 if (data.MaintEndDate != null) {
                     var maintenddate = parseJsonDate(data.MaintEndDate);
@@ -772,13 +774,16 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                         myTable.buttons(['.export']).enable(true);
                     }
                     //upgrade-changeversion
-                    if ((data.ChangeVersion_Safenet == 1 && !isBlk && data.ProductName.toLowerCase() !== "tdprofessionaledu") || isBlu)
+                    if ((data.ChangeVersion_Safenet == 1 && !isBlk && data.ProductName.toLowerCase() !== "tdprofessionaledu"
+                        && data.ProductName.toLowerCase() !== "tdvarlight") || isBlu)
                         myTable.buttons(['.upgrade']).enable(true);
-                    //renew
-                    if (data.Renewal_Safenet == 1 && data.Renew == 1 && (isLocal || isRed || isBlk) && data.ArticleDetail.toLowerCase() != "pl"/*((isDemEduF || isLBZT) && (isLocal || isRed) && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGO && !isPPTE*/) {
-                        myTable.buttons(['.renew']).enable(true);
-                    }
+
                     myTable.buttons(['.v2cp']).enable(true);
+                }
+                //renew
+                if (maintenddate >= now && data.Renewal_Safenet == 1 && data.Renew == 1 && (isLocal || isRed || isBlk)
+                    && data.ArticleDetail.toLowerCase() != "pl"/*((isDemEduF || isLBZT) && (isLocal || isRed) && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGO && !isPPTE*/) {
+                    myTable.buttons(['.renew']).enable(true);
                 }
                 //check for validate
                 if (data.Exported == 1 && maintenddate >= now) {
@@ -805,7 +810,8 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                     }
                 }
             }
-            if (parseJsonDate(data.MaintEndDate) > new Date() && enmodifybutton) {
+            if (parseJsonDate(data.MaintEndDate) > new Date() && data.MachineID.indexOf("ABCDEFGH") !== -1
+                && enmodifybutton && data.LicenseFlag.toLowerCase() == "pool") {
                 myTable.buttons(['.modify']).enable(true);
             }
 

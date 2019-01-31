@@ -89,6 +89,8 @@ namespace DPTnew.Models
         public string MachineID { get; set; }
         [Display(Name = "Ancestor", ResourceType = typeof(Resource))]
         public string Ancestor { get; set; }
+        public string Ancestor2 { get; set; }
+        public string Ancestor3 { get; set; }
 
         [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
@@ -146,6 +148,7 @@ namespace DPTnew.Models
         [Display(Name = "Action", ResourceType = typeof(Resource))]
         public string Action { get; set; }
         public int Release { get; set; }
+        public bool Sas { get; set; }
     }
 
     [Table("DPT_LicenseLog")]
@@ -269,7 +272,7 @@ namespace DPTnew.Models
 
         public JArray ProductName { get; set; }
 
-        public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding
+        public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ", "TL" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding,tdviewerplus
         public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };//, "thinkprint" TDVARLight
         public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };// per enrico, "thinkprint", TDVARFull 
         public static IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };

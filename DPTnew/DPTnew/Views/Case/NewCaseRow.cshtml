@@ -75,6 +75,7 @@
                     $("#ProductVersion").append('<option value="2016.1">2016.1</option>');
                     $("#ProductVersion").append('<option value="2017.1">2017.1</option>');
                     $("#ProductVersion").append('<option value="2018.1">2018.1</option>');
+                    $("#ProductVersion").append('<option value="2018.1">2019.1</option>');
                 }
             });
         });
@@ -91,14 +92,14 @@
     </div>
 
     <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Description)
+        @Html.LabelFor(model => model.Description) 
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1"@*, required = "required"*@ })
     </div>
 
     <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Details)
+        @Html.LabelFor(model => model.Details) 
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "8"@*, required = "required"*@ })
@@ -135,7 +136,8 @@
                     new SelectListItem{ Text="2015.2", Value = "2015.2" },
                     new SelectListItem{ Text="2016.1", Value = "2016.1" },
                     new SelectListItem{ Text="2017.1", Value = "2017.1" },
-                    new SelectListItem{ Text="2018.1", Value = "2018.1" }
+                    new SelectListItem{ Text="2018.1", Value = "2018.1" },
+                    new SelectListItem{ Text="2019.1", Value = "2019.1" }
                  }, new { style = "width : 250px" })
                 </div>
             </td>

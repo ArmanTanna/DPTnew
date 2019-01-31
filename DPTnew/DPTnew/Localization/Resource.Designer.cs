@@ -124,6 +124,15 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assign.
+        /// </summary>
+        public static string Assign {
+            get {
+                return ResourceManager.GetString("Assign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Assigned to.
         /// </summary>
         public static string AssignedTo {
@@ -700,7 +709,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Floating Licensing Installer. (SHA1=69C67B795CBFEF63B216C6F7E95FE843F07F45F2).
+        ///   Looks up a localized string similar to Floating Licensing Installer. (SHA1=F5EBE9643096201ED62E088C1BDB0FBF844B611E).
         /// </summary>
         public static string Description2018Installer {
             get {
@@ -709,7 +718,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2018 SP2. (SHA1=1B4ED4FFAB289A50A61CEF6C47D15ADB2ADC2604).
+        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2018 64bit SP3. (SHA1=B42DBE6A896DE938754FD029277B748EC617FF2B).
         /// </summary>
         public static string Description2018ThinkDesign64bit {
             get {
@@ -718,7 +727,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2018 official version SP2. (SHA1=5EF960519D0A6C7C2EA032E4B0F2D5AD210DC29C).
+        ///   Looks up a localized string similar to This section includes thinkPLM 2018 SP3 official version. (SHA1=E827137A6F356D8F1159A9795F3A2E898A63FAA0).
         /// </summary>
         public static string Description2018thinkPLM {
             get {
@@ -727,11 +736,47 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Utilities and plug-ins for version 2018. (SHA1=EDFA48E269D50F1D8C626298D2E822C06EE510C9).
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2018. (SHA1=A6A24C2EBD8D2063CB2B25941D7F4128470F86AC).
         /// </summary>
         public static string Description2018Utilitytools {
             get {
                 return ResourceManager.GetString("Description2018Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2019..
+        /// </summary>
+        public static string Description2019ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2019ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2019 official version..
+        /// </summary>
+        public static string Description2019thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2019thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2019..
+        /// </summary>
+        public static string Description2019Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2019Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floating Licensing Installer..
+        /// </summary>
+        public static string DescriptionInstaller {
+            get {
+                return ResourceManager.GetString("DescriptionInstaller", resourceCulture);
             }
         }
         
@@ -1744,7 +1789,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2018 64bit SP2.
+        ///   Looks up a localized string similar to ThinkDesign 2018 64bit SP3.
         /// </summary>
         public static string Product2018ThinkDesign64bit {
             get {
@@ -1753,7 +1798,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2018 SP2.
+        ///   Looks up a localized string similar to thinkPLM 2018 SP3.
         /// </summary>
         public static string Product2018thinkPLM {
             get {
@@ -1771,11 +1816,47 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2019 64bit.
+        /// </summary>
+        public static string Product2019ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2019ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2019.
+        /// </summary>
+        public static string Product2019thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2019thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floating Licensing Installer.
+        /// </summary>
+        public static string ProductInstaller {
+            get {
+                return ResourceManager.GetString("ProductInstaller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Production.
         /// </summary>
         public static string Production {
             get {
                 return ResourceManager.GetString("Production", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility tools.
+        /// </summary>
+        public static string ProductUtilitytools {
+            get {
+                return ResourceManager.GetString("ProductUtilitytools", resourceCulture);
             }
         }
         
@@ -1969,7 +2050,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2018 SP2 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2019 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2077,7 +2158,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2018 SP2&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2019&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2086,7 +2167,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2018 SP2! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2019! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {

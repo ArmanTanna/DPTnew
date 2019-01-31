@@ -91,6 +91,31 @@ namespace DPTnew.Controllers
         [HttpPost]
         public ActionResult SingleLicenseRow(LicenseView licSingleRow)
         {
+            using (var db = new DptContext())
+            {
+                var userName = Membership.GetUser().UserName;
+                var user = db.Contacts.Where(u => u.Email == userName).ToList().FirstOrDefault();
+                var company = db.Companies.Where(u => u.AccountNumber == user.AccountNumber).ToList().FirstOrDefault();
+                var salesRep = db.SalesR.Where(u => u.Invoicer == company.AccountName).Select(u => u.SalesRep).ToList();
+                List<String> companyList = new List<string>();
+                if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                    companyList = db.Companies.Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList();
+                else
+                {
+                    if (salesRep.Count == 0)
+                    {
+                        var sR = db.SalesR.Where(u => u.AccountNumber == company.AccountNumber).Select(u => u.SalesRep).FirstOrDefault();
+                        companyList.AddRange(db.Companies.Where(x => x.SalesRep.Contains(sR)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                        //companyList.Add(company.AccountName + " \"" + company.AccountNumber + "\"");
+                    }
+                    else
+                        companyList.AddRange(db.Companies.Where(x => salesRep.Contains(x.SalesRep)).OrderBy(k => k.AccountName).Select(u => u.AccountName + " \"" + u.AccountNumber + "\"").ToList());
+                }
+                companyList.Sort();
+
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(companyList).ToString(Formatting.None));
+                ViewBag.Companies = System.Convert.ToBase64String(plainTextBytes);
+            }
             List<LicenseView> rows = new List<LicenseView>();
             rows.Add(licSingleRow);
             return View(rows);
@@ -100,9 +125,6 @@ namespace DPTnew.Controllers
         [HttpPost]
         public JsonResult Modify(LicenseView licSingleRow)
         {
-            if (licSingleRow.MaxExport < 0)
-                return Json("Cannot save negative value for MaxExport", JsonRequestBehavior.AllowGet);
-
             using (var db = new DptContext())
             {
                 var query =
@@ -111,8 +133,14 @@ namespace DPTnew.Controllers
                     select lic;
                 if (query.Count() > 0)
                 {
-                    query.FirstOrDefault().MaxExport = licSingleRow.MaxExport;
-                    db.SaveChanges();
+                    if (query.FirstOrDefault().LicenseFlag.ToLower() == "pool" && licSingleRow.AccountNumber.StartsWith("T3-")
+                        && query.FirstOrDefault().MachineID.Contains("ABCDEFGH"))
+                    {
+                        query.FirstOrDefault().AccountNumber = licSingleRow.AccountNumber;
+                        query.FirstOrDefault().LicenseFlag = "evaluation";
+                        query.FirstOrDefault().Import = 1;
+                        db.SaveChanges();
+                    }
                 }
             }
 
@@ -175,7 +203,7 @@ namespace DPTnew.Controllers
                 licSingleRow.OriginalProduct = licSingleRow.ProductName;
                 licSingleRow.Installed = 0;
                 licSingleRow.Exported = 0;
-                licSingleRow.Import = 1;
+                licSingleRow.Import = licSingleRow.LicenseFlag.ToLower() == "pool" ? 0 : 1;
                 licSingleRow.Vend_String = "vs001";
                 licSingleRow.FlexType = 0;
                 licSingleRow.MaxExport = -1;

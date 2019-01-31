@@ -159,7 +159,7 @@ namespace DPTnew.Controllers
 
                 var isLocal = licensergx.IsMatch(currentlicense.MachineID);// blurgx.IsMatch(currentlicense.MachineID);
                 var isTdVar = currentlicense.PwdCode.StartsWith("VA");
-                var isTdirect = currentlicense.PwdCode.StartsWith("IX") || currentlicense.PwdCode.StartsWith("IK") ||
+                var isTdirect = /*currentlicense.PwdCode.StartsWith("IX") || */currentlicense.PwdCode.StartsWith("IK") ||
                     currentlicense.PwdCode.StartsWith("XP") || currentlicense.PwdCode.StartsWith("IJ");
 
                 //check for export
@@ -185,6 +185,7 @@ namespace DPTnew.Controllers
                         var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
                         ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
                         IList<string> verList = new List<string>();
+                        verList.Add("_20191CANCEL");
                         verList.Add("_20171CANCEL");
                         verList.Add("_20161CANCEL");
                         verList.Add("_20152CANCEL");
@@ -600,9 +601,9 @@ namespace DPTnew.Controllers
                 var isblk = blkrgx.IsMatch(currentlicense.MachineID);
                 var isEval = evalrgx.IsMatch(currentlicense.LicenseFlag.ToUpper());
 
-                if ((currentlicense.Installed == 1 && currentlicense.MaintEndDate >= now)
+                if ((currentlicense.MaintEndDate >= now)
                     && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || ((isBlu || (lf.ChangeVersion_Safenet == 1 && !isblk)) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
+                    || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1 && !isblk))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL

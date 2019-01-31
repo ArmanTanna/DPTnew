@@ -37,14 +37,14 @@
     </div>
 
     <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Description)
+        @Html.LabelFor(model => model.Description, string.Format("{0} (*)", Html.DisplayNameFor(m => m.Description)))
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.Description, new { cols = "350", rows = "1"@*, required = "required"*@ })
     </div>
 
     <div class="editor-label" style="font-size: 1.2em;">
-        @Html.LabelFor(model => model.Details)
+        @Html.LabelFor(model => model.Details, string.Format("{0} (*)", Html.DisplayNameFor(m => m.Details)))
     </div>
     <div class="editor-field">
         @Html.TextAreaFor(model => model.Details, new { cols = "350", rows = "5"@*, required = "required"*@ })

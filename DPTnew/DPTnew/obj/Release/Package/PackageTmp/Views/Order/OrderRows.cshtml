@@ -231,7 +231,35 @@
                                     });
                                 },
                                 enabled: "@ViewBag.ButtonApprove.ToString().ToLower()" == "true"
-                            }
+                            },
+                                {
+                                    text: 'SendMail',
+                                    className: 'mail',
+                                    action: function () {
+                                        $.post("/Order/SendMail", {
+                                            orderNumber: $("input[name=orderNumber]").val()
+                                        },
+                                        function (result) {
+                                            var $psw = $("#msg");
+                                            $psw.text("");
+                                            $psw.text(result);
+                                            var pwdDialogConfig = {
+                                                modal: true,
+                                                width: 400,
+                                                height: result ? 250 : "auto",
+                                                buttons: {
+                                                    OK: function () {
+                                                        $(this).dialog("close");
+                                                        window.open('', '_self').close();
+                                                        //location.reload();
+                                                    }
+                                                }
+                                            };
+                                            $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                        });
+                                    },
+                                    enabled: "@ViewBag.ButtonMail.ToString().ToLower()" == "true"
+                                }
                 ]
             });
 

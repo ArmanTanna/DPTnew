@@ -334,12 +334,12 @@ namespace DptLicensingServer.Controllers
             }
             catch (SafenetException e)
             {
-                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
+                LogHelper.WriteLog("SafenetController (RetrieveV2CP): " + e.Message);
                 return CreateResponse((HttpStatusCode)e.Data["StatusCode"], e.Message);
             }
             catch (Exception e)
             {
-                LogHelper.WriteLog("SafenetController (CheckInC2V): " + e.Message);
+                LogHelper.WriteLog("SafenetController (RetrieveV2CP): " + e.Message);
                 return CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
             return CreateResponse(HttpStatusCode.OK, sew.JsonResponse);
