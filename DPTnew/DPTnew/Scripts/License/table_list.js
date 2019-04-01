@@ -1,5 +1,5 @@
 ﻿/* Formatting function for row details - modify as you need */
-function format(d) {
+function format(d) {debugger
     // `d` is the original data object for the row
     return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
 '<tr>' +
@@ -21,14 +21,20 @@ function format(d) {
             '<td>' + d[14] + '</td>' +
             '<td><b>Max Export:</b></td>' +
             '<td>' + (d[15] == -1 ? "unlimited" : d[15]) + '</td>' +
-        //'<tr>' +
-        //    '<td><b>License Kind:</b></td>' +
-        //    '<td>' + d[13] + '</td>' +
-        //'</tr>' +
             '<td><b>Note:</b></td>' +
             '<td>' + d[16] + '</td>' +
         '</tr>' +
-             '</table>';
+        '<tr>' +
+            '<td><b>Ancestor2:</b></td>' +
+            '<td>' + d[17] + '</td>' +
+            '<td><b>Ancestor3:</b></td>' +
+            '<td>' + d[18] + '</td>' +
+            '<td><b></b></td>' +
+            '<td></td>' +
+            '<td><b></b></td>' +
+            '<td></td>' +
+        '</tr>' +
+       '</table>';
 }
 
 
@@ -55,6 +61,8 @@ $(document).ready(function () {
             { "bVisible": false, },
             null,
             null,
+            { "bVisible": false, },
+            { "bVisible": false, },
             { "bVisible": false, },
             { "bVisible": false, },
             { "bVisible": false, }

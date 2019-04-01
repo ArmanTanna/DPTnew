@@ -190,6 +190,7 @@ namespace DPTnew.Models
         public int Install_Legacy { get; set; }
         public int ChangeVersion_Legacy { get; set; }
         public int Renewal_Legacy { get; set; }
+        public int Blocked { get; set; }
     }
 
     public class LicenseBase

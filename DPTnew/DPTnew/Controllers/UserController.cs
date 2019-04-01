@@ -138,11 +138,17 @@ namespace DPTnew.Controllers
             LicenseView currentlicense = null;
             SerLicenseFlag lf = null;
             string dpt_Company;
+            string var;
+            int block;
             using (var context = new DptContext())
             {
                 currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
                 dpt_Company = currentlicense.AccountNumber;
                 lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                var company = context.Companies.SingleOrDefault(x => x.AccountNumber == dpt_Company);
+                var salesRep = context.SalesR.SingleOrDefault(y => y.SalesRep == company.SalesRep);
+                var = context.Companies.SingleOrDefault(z => z.AccountNumber == salesRep.AccountNumber).AccountNumber;
+                block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(dpt_Company) ? 1:0;
             }
 
             if (currentlicense != null && currentlicense.MaxExport > 0 && currentlicense.ExportedNum >= currentlicense.MaxExport)
@@ -151,7 +157,7 @@ namespace DPTnew.Controllers
                 return View("Export", l);
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && block == 0)
             {
                 var now = System.DateTime.Now;
                 Regex licensergx = new Regex(@"^KID[0-9]+$");
@@ -182,10 +188,9 @@ namespace DPTnew.Controllers
                         ue.refId1 = ue.ProtectionKeyId;
                         ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
-                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
-                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", currentlicense.AccountNumber);
+                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
                         IList<string> verList = new List<string>();
-                        verList.Add("_20191CANCEL");
                         verList.Add("_20171CANCEL");
                         verList.Add("_20161CANCEL");
                         verList.Add("_20152CANCEL");
@@ -200,6 +205,18 @@ namespace DPTnew.Controllers
                                     repName = repName.Replace("_20181CANCEL", ver);
                                     ue.ProductName.Add(repName);
                                 }
+                            }
+                        }
+
+                        verList = new List<string>();
+                        verList.Add("_20191CANCEL");
+                        foreach (var ver in verList)
+                        {
+                            foreach (var it in prodName.ToList())
+                            {
+                                var repName = it.ToString();
+                                repName = repName.Replace("_20181CANCEL", ver);
+                                ue.ProductName.Add(repName);
                             }
                         }
 
@@ -432,15 +449,18 @@ namespace DPTnew.Controllers
         {
             var success = false;
             LicenseView currentlicense = null;
+            int block;
 
             if (file != null)
             {
                 using (var context = new DptContext())
                 {
                     currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == Licenseid);
+                    block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(currentlicense.AccountNumber) ? 1 : 0;
                 }
 
-                if ((currentlicense.Installed == 0 && currentlicense.Exported == 0) || currentlicense.MaintEndDate < DateTime.Now)
+                if ((currentlicense.Installed == 0 && currentlicense.Exported == 0) || block == 1 ||
+                    currentlicense.MaintEndDate < DateTime.Now)
                 {
                     ModelState.AddModelError("V2CP", "You haven't installed this license.");
                     return View("V2CP");
@@ -561,6 +581,9 @@ namespace DPTnew.Controllers
                         prodName.Add("ThinkTeamDOC" + productPostfix);
                         prodName.Add("tdpartsolutions" + productPostfix);
                     }
+                    //sener
+                    if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering"))
+                        prodName.Add("thinkcore" + productPostfix);
                 }
 
             return prodName;
@@ -576,15 +599,21 @@ namespace DPTnew.Controllers
             string type = "";
             string dpt_Company = "";
             string input = "";
+            string var = "";
+            int block;
 
             using (var context = new DptContext())
             {
                 currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == licenseId);
                 dpt_Company = currentlicense.AccountNumber;
                 lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                var company = context.Companies.SingleOrDefault(x => x.AccountNumber == dpt_Company);
+                var salesRep = context.SalesR.SingleOrDefault(y => y.SalesRep == company.SalesRep);
+                var = context.Companies.SingleOrDefault(z => z.AccountNumber == salesRep.AccountNumber).AccountNumber;
+                block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(dpt_Company) ? 1 : 0;
             }
 
-            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 &&
+            if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && block == 0 &&
                 ((Convert.ToInt64(version) != Convert.ToInt64(currentlicense.Version))
                 || (renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")))
             {
@@ -603,7 +632,7 @@ namespace DPTnew.Controllers
 
                 if ((currentlicense.MaintEndDate >= now)
                     && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
-                    || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1 && !isblk))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
+                    || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
@@ -659,14 +688,14 @@ namespace DPTnew.Controllers
                         e1.refId1 = e1.ProtectionKeyId;
                         e1.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                         if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
                         {
                             if (currentlicense.Version == "2015")
                                 productPostfix = "_20152CANCEL";
                             else
                                 productPostfix = "_" + currentlicense.Version + "1CANCEL";
-                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                             foreach (var p in productName)
                                 e1.ProductName.Add(p);
                         }
@@ -691,14 +720,14 @@ namespace DPTnew.Controllers
                         e2.refId1 = e2.ProtectionKeyId;
                         e2.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                         if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
                         {
                             if (currentlicense.Version == "2015")
                                 productPostfix = "_20152CANCEL";
                             else
                                 productPostfix = "_" + currentlicense.Version + "1CANCEL";
-                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                             foreach (var p in productName)
                                 e2.ProductName.Add(p);
                         }
@@ -823,9 +852,11 @@ namespace DPTnew.Controllers
             SerLicenseFlag lf = null;
             string type = "";
             string dpt_Company = "";
+            string var = "";
             string filestring = "";
             string c2v;
             string input = "";
+            int block;
 
             if (l.file != null)
             {
@@ -852,9 +883,13 @@ namespace DPTnew.Controllers
                     currentlicense = context.Licenses.SingleOrDefault(u => u.LicenseID == l.LicenseID);
                     dpt_Company = currentlicense.AccountNumber;
                     lf = context.LicFlag.SingleOrDefault(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                    var company = context.Companies.SingleOrDefault(x => x.AccountNumber == dpt_Company);
+                    var salesRep = context.SalesR.SingleOrDefault(y => y.SalesRep == company.SalesRep);
+                    var = context.Companies.SingleOrDefault(z => z.AccountNumber == salesRep.AccountNumber).AccountNumber;
+                    block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(dpt_Company) ? 1 : 0;
                 }
 
-                if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014)
+                if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && block == 0)
                 {
                     var now = System.DateTime.Now;
                     Regex evalrgx = new Regex(@"^EVA");
@@ -912,7 +947,7 @@ namespace DPTnew.Controllers
                             e1.refId1 = l.file.FileName;
                             e1.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
 
                             e1.Encoded = true;
                             e1.C2V = c2v;
@@ -927,7 +962,7 @@ namespace DPTnew.Controllers
                             e2.refId1 = l.file.FileName;
                             e2.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, currentlicense.AccountNumber);
+                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
 
                             //ADDITIONAL PARAMETERS
                             e2.SaotParams = new JArray();

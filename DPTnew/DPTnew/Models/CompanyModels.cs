@@ -78,7 +78,7 @@ namespace DPTnew.Models
     }
 
     [Table("DPT_SafenetCompanies")]
-    public class SafenetComapny
+    public class SafenetCompany
     {
         [Key]
         public string AccountNumber { get; set; }
@@ -90,6 +90,19 @@ namespace DPTnew.Models
         public string ActualBatchCode { get; set; }
         public string UpdateBatchCode { get; set; }
         public string Description { get; set; }
+    }
+
+    [Table("DPT_SpecialCompanies")]
+    public class SpecialCompany
+    {
+        [Key]
+        public string AccountNumber { get; set; }
+        public string AccountName { get; set; }
+        public string AccountKind { get; set; }
+        public string AccountStatus { get; set; }
+        public string Description { get; set; }
+        public string InsertDate { get; set; }
+        public Nullable<System.DateTime> ExpirationDate { get; set; }
     }
 
     [Table("service_Campaigns")]

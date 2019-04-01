@@ -18,7 +18,7 @@ namespace DPTnew.Models
         //public DbSet<Company> Companies { get; set; }
         public DbSet<SalesR> SalesR { get; set; }
         public DbSet<CompanyView> Companies { get; set; }
-        public DbSet<SafenetComapny> SafenetCompanies { get; set; }
+        public DbSet<SafenetCompany> SafenetCompanies { get; set; }
         public DbSet<LicenseView> Licenses { get; set; }
         public DbSet<SerLicenseFlag> LicFlag { get; set; }
         public DbSet<People> Peoples { get; set; }
@@ -35,8 +35,9 @@ namespace DPTnew.Models
         public DbSet<Activation> Activations { get; set; }
         public DbSet<SegmentIndustry> Segind { get; set; }
         public DbSet<CampaignComapny> CmpCompanies { get; set; }
-        public DbSet<UnknownCustomer> uCust { get; set; }
+        public DbSet<UnknownIP> uCust { get; set; }
         public DbSet<SafenetProductList> SafenetProducts { get; set; }
+        public DbSet<SpecialCompany> SpecialCompanies { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {

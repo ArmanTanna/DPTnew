@@ -755,58 +755,63 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
         }).done(function (data) {
             //check if license is 2015
             if (data.Version >= '2015') {
-                var now = new Date();
-                var isLocal = /^KID[0-9]+$/.test(data.MachineID);
-                var isBlu = /^BLU[0-9]+$/.test(data.MachineID);
-                var isRed = /^RED[0-9]+$/.test(data.MachineID);
-                var isBlk = /^BLK[0-9]+$/.test(data.MachineID);
-                var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
-                var isTdirect = /*/^IX/.test(data.PwdCode) || *//^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
+                if (data.Blocked == 0) {
+                    var now = new Date();
+                    var isLocal = /^KID[0-9]+$/.test(data.MachineID);
+                    var isBlu = /^BLU[0-9]+$/.test(data.MachineID);
+                    var isRed = /^RED[0-9]+$/.test(data.MachineID);
+                    var isBlk = /^BLK[0-9]+$/.test(data.MachineID);
+                    var isTdVar = /^VA/.test(data.PwdCode);//data.PwdCode.startsWith("VA");
+                    var isTdirect = /*/^IX/.test(data.PwdCode) || *//^IK/.test(data.PwdCode) || /^XP/.test(data.PwdCode) || /^IJ/.test(data.PwdCode);
 
-                if (data.MaintEndDate != null) {
-                    var maintenddate = parseJsonDate(data.MaintEndDate);
-                }
-                //maintenance or not
-                if (data.Installed == 1 && maintenddate >= now) {
-                    //check for export
-                    if (isLocal && (!isTdVar || data.LicenseID == "L00000387" || data.LicenseID == "L00000699")
-                        && !isTdirect && data.Export_Safenet == 1) {
-                        myTable.buttons(['.export']).enable(true);
+                    if (data.MaintEndDate != null) {
+                        var maintenddate = parseJsonDate(data.MaintEndDate);
                     }
-                    //upgrade-changeversion
-                    if ((data.ChangeVersion_Safenet == 1 && !isBlk && data.ProductName.toLowerCase() !== "tdprofessionaledu"
-                        && data.ProductName.toLowerCase() !== "tdvarlight") || isBlu)
-                        myTable.buttons(['.upgrade']).enable(true);
+                    //maintenance or not
+                    if (data.Installed == 1 && maintenddate >= now) {
+                        //check for export
+                        if (isLocal && (!isTdVar || data.LicenseID == "L00000387" || data.LicenseID == "L00000699")
+                            && !isTdirect && data.Export_Safenet == 1) {
+                            myTable.buttons(['.export']).enable(true);
+                        }
+                        //upgrade-changeversion
+                        if ((data.ChangeVersion_Safenet == 1 && data.ProductName.toLowerCase() !== "tdprofessionaledu")
+                            || isBlu)
+                            myTable.buttons(['.upgrade']).enable(true);
 
-                    myTable.buttons(['.v2cp']).enable(true);
-                }
-                //renew
-                if (maintenddate >= now && data.Renewal_Safenet == 1 && data.Renew == 1 && (isLocal || isRed || isBlk)
-                    && data.ArticleDetail.toLowerCase() != "pl"/*((isDemEduF || isLBZT) && (isLocal || isRed) && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGO && !isPPTE*/) {
-                    myTable.buttons(['.renew']).enable(true);
-                }
-                //check for validate
-                if (data.Exported == 1 && maintenddate >= now) {
-                    myTable.buttons(['.validate_export']).enable(true);
-                    myTable.buttons(['.v2cp']).enable(true);
-                }
-                //check for install
-                if (data.Import == 1 && data.Install_Safenet == 1 && maintenddate >= now) {
-                    myTable.buttons(['.import']).enable(true);
+                        myTable.buttons(['.v2cp']).enable(true);
+                    }
+                    //renew
+                    if (maintenddate >= now && data.Renewal_Safenet == 1 && data.Renew == 1 && data.Exported == 0 && (isLocal || isRed || isBlk)
+                        && data.ArticleDetail.toLowerCase() != "pl"/*((isDemEduF || isLBZT) && (isLocal || isRed) 
+                    && data.ArticleDetail.toLowerCase() != "pl" && data.Renew == 1) && !isGO && !isPPTE*/) {
+                        myTable.buttons(['.renew']).enable(true);
+                    }
+                    //check for validate
+                    if (data.Exported == 1 && maintenddate >= now) {
+                        myTable.buttons(['.validate_export']).enable(true);
+                        myTable.buttons(['.v2cp']).enable(true);
+                    }
+                    //check for install
+                    if (data.Import == 1 && data.Install_Safenet == 1 && maintenddate >= now) {
+                        myTable.buttons(['.import']).enable(true);
+                    }
                 }
             } else {
-                //if (data.MaintEndDate != null) {
-                //    var maintenddate = parseJsonDate(data.MaintEndDate);
-                //}
-                if (parseJsonDate(data.MaintEndDate) > new Date()) {
-                    if (data.Install_Legacy == 1 && data.Import == 1 && data.MachineID == "ABCDEFGH") {
-                        myTable.buttons(['.license2014']).enable(true);
-                    } else {
-                        //if (data.LicenseType.toLowerCase() == "local" || data.PwdCode.toLowerCase().indexOf("vs001") == -1)
-                        myTable.buttons(['.pssw2014']).enable(true);
-                        //maintenance or not
-                        if (((data.ChangeVersion_Legacy == 1 && data.LicenseType.toLowerCase() !== "floating") || data.salesRep.toLowerCase() == "sener"))
-                            myTable.buttons(['.changeversion']).enable(true);
+                if (data.Blocked == 0) {
+                    //if (data.MaintEndDate != null) {
+                    //    var maintenddate = parseJsonDate(data.MaintEndDate);
+                    //}
+                    if (parseJsonDate(data.MaintEndDate) > new Date() && data.ProductName.toLowerCase().indexOf("gbg") == -1) {
+                        if (data.Install_Legacy == 1 && data.Import == 1 && data.MachineID == "ABCDEFGH") {
+                            myTable.buttons(['.license2014']).enable(true);
+                        } else {
+                            //if (data.LicenseType.toLowerCase() == "local" || data.PwdCode.toLowerCase().indexOf("vs001") == -1)
+                            myTable.buttons(['.pssw2014']).enable(true);
+                            //maintenance or not
+                            if (((data.ChangeVersion_Legacy == 1 && data.LicenseType.toLowerCase() !== "floating") || data.salesRep.toLowerCase() == "sener"))
+                                myTable.buttons(['.changeversion']).enable(true);
+                        }
                     }
                 }
             }

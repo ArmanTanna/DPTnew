@@ -67,7 +67,7 @@ namespace DPTnew.Controllers
                 {
                     foreach (var cmp in query.ToList())
                     {
-                        SafenetComapny sfnc = new SafenetComapny();
+                        SafenetCompany sfnc = new SafenetCompany();
                         sfnc.AccountNumber = cmp.AccountNumber;
                         sfnc.AccountName = cmp.AccountName;
                         sfnc.Email = cmp.Email;
@@ -110,7 +110,7 @@ namespace DPTnew.Controllers
             string errormsg = "Safenet Sync failed for: ";
             using (var db = new DptContext())
             {
-                foreach (SafenetComapny company in db.SafenetCompanies.ToList())
+                foreach (SafenetCompany company in db.SafenetCompanies.ToList())
                 {
                     try
                     {
@@ -352,7 +352,7 @@ namespace DPTnew.Controllers
                     || cmpSingleRow.AccountStatus.Contains("05"))
                 {
                     db.Database.ExecuteSqlCommand("TRUNCATE TABLE [dbo].[DPT_SafenetCompanies]");
-                    SafenetComapny sfnc = new SafenetComapny();
+                    SafenetCompany sfnc = new SafenetCompany();
                     sfnc.AccountNumber = cmpSingleRow.AccountNumber;
                     sfnc.AccountName = cmpSingleRow.AccountName.ToUpper();
                     sfnc.Email = cmpSingleRow.Email;

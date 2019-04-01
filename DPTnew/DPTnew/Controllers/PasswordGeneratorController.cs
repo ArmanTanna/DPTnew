@@ -40,21 +40,24 @@ namespace DptLicensingServer.Controllers
                     return CreateResponse(HttpStatusCode.BadRequest);
                 LicenseView currentlicense = null;
                 SerLicenseFlag lf = null;
+                int block = 0;
 
                 if (!string.IsNullOrEmpty(data.licenseID))
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == data.licenseID);
                         lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                        block = db.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(currentlicense.AccountNumber) ? 1 : 0;
                     }
                 else if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                     using (var db = new DptContext())
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                         lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                        block = db.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(currentlicense.AccountNumber) ? 1 : 0;
                     }
 
-                if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now ||
+                if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now || block == 1 ||
                     (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                     return CreateResponse(HttpStatusCode.BadRequest);
 
@@ -433,6 +436,7 @@ namespace DptLicensingServer.Controllers
                 IEnumerable<string> h_lid;
                 LicenseView currentlicense = null;
                 SerLicenseFlag lf = null;
+                int block = 0;
 
                 if (Request.Headers.TryGetValues("LicenseID", out h_lid))
                 {
@@ -440,8 +444,9 @@ namespace DptLicensingServer.Controllers
                     {
                         currentlicense = db.Licenses.Single(x => x.LicenseID == h_lid.FirstOrDefault());
                         lf = db.LicFlag.Single(x => x.LicenseFlag == currentlicense.LicenseFlag);
+                        block = db.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(currentlicense.AccountNumber) ? 1 : 0;
                     }
-                    if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now ||
+                    if (currentlicense == null || currentlicense.MaintEndDate < DateTime.Now || block == 1 ||
                         (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                         return CreateResponse(HttpStatusCode.BadRequest);
 

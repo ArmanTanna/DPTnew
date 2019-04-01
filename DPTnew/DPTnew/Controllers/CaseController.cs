@@ -158,7 +158,7 @@ namespace DPTnew.Controllers
                 newCase.Severity = caseRow.Severity;
                 newCase.Type = "General Request";
                 if (company.SalesRep.ToLower() == "firstsolution" || company.SalesRep.ToLower() == "innovia"
-                    || company.SalesRep.ToLower() == "amada" || company.SalesRep.ToLower() == "dptsrl")
+                    || company.SalesRep.ToLower() == "amada")
                     newCase.Status = "Waiting on Var";
                 else
                     newCase.Status = "Open";

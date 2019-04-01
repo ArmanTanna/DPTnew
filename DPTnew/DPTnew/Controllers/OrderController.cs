@@ -563,12 +563,13 @@ namespace DPTnew.Controllers
                     MailMessage mail = null;
                     var inv = "";
                     var lang = "";
+                    var cmp = db.Companies.Where(x => x.AccountNumber == query.FirstOrDefault().AccountNumber).FirstOrDefault();
                     foreach (Order o in query.ToList())
                     {
                         o.Status = "approved";
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
 
-                        if (lic != null && lic.ArticleDetail.ToLower() != "pl")
+                        if (lic != null && lic.ArticleDetail.ToLower() != "pl" && !lic.LicenseFlag.ToLower().StartsWith("new"))
                             lic.Renew = 1;
 
                         if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu"
@@ -586,8 +587,17 @@ namespace DPTnew.Controllers
 
                         if (lic != null && lic.LicenseFlag.ToLower().StartsWith("new"))
                         {
-                            db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'regular', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
+                            if (o.LineType.ToLower() != "freeofcharge")
+                                db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'regular', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
+                            else
+                            {
+                                if (cmp.AccountKind != "educational")
+                                    db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'free', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
+                                else
+                                    db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'educational', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
+                            }
                         }
+
                         db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set [ExportedNum] = 0 WHERE licenseID = '" + o.LicenseID + "'");
 
                         if (string.IsNullOrEmpty(varmail))
@@ -900,7 +910,13 @@ namespace DPTnew.Controllers
                 {
                     lic.PwdCode = ((DateTime)lc.MaintEndDate).AddDays(1).ToString("yyyy-MM-dd");
                     lic.Ancestor = ((DateTime)lc.MaintEndDate).AddDays(365).ToString("yyyy-MM-dd");
-                } return Json(lic, JsonRequestBehavior.AllowGet);
+                    var chkYear = Convert.ToDateTime(lic.Ancestor);
+                    if (DateTime.IsLeapYear(chkYear.Year) &&
+                        Convert.ToDateTime(lic.PwdCode) < new DateTime(chkYear.Year, 02, 28) &&
+                        Convert.ToDateTime(lic.Ancestor) > new DateTime(chkYear.Year, 02, 27))
+                        lic.Ancestor = ((DateTime)lc.MaintEndDate).AddDays(366).ToString("yyyy-MM-dd");
+                }
+                return Json(lic, JsonRequestBehavior.AllowGet);
             }
         }
 

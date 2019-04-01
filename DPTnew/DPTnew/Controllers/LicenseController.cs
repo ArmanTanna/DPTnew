@@ -83,6 +83,7 @@ namespace DPTnew.Controllers
                 licenseState.Install_Legacy = lf.Install_Legacy;
                 licenseState.ChangeVersion_Legacy = lf.ChangeVersion_Legacy;
                 licenseState.Renewal_Legacy = lf.Renewal_Legacy;
+                licenseState.Blocked = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(x.AccountNumber) ? 1 : 0;
             }
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
