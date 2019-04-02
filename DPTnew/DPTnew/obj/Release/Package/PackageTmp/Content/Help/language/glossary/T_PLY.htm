@@ -1,0 +1,143 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>PLY Format</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();" bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>PLY Format</h4>
+<p style="margin-top:0;margin-bottom:0">PLY or Stanford Polygon format defines a flexible and systematic scheme for storing graphical objects that are described as a collection of polygons.
+A ".PLY" file is composed of 3 main mandatory sections plus optional ones thereafter. The first section is the header, then comes the data in either ASCII or binary.
+</P>
+<p>
+<B >Header</B>
+
+<P style="margin-top:0;margin-bottom:2">The header is a collection of carriage-return terminated line with at least the following:
+<ul class="noleft">
+<li>The first line must contain the lowercase directive: <b><tt>ply</tt></b><br>
+This indicates that the file is intended to be read as a PLY file.
+<li>The next line must be: <b><tt>format</tt></b> followed by either <b><tt>ascii</tt></b>, <b><tt>binary_little_endian</tt></b> or <b><tt>binary_big_endian</tt></b> and a version number.<br> This describes which format was used to store the information after the header.
+<li>The next lines start off with a directive followed be attributes, these can be:
+	<ul> 
+	<li> <b><tt>comment</tt></b> followed by whatever text the author decided to use. This is ignored for reading
+	<li> <b><tt>element</tt></b> followed by a label and a number. The labels parsed are <b><tt>vertex</tt></b> and <b><tt>face</tt></b>, usually vertices are described before faces. The number corresponds to the number of entries in this file.
+	<li> <b><tt>property</tt></b> followed by a type and a label. An exception is the <b><tt>list</tt></b> type which is followed by 2 types, the first describing its length type and the second being the type stored in the list, and a label. These properties are tied to the element declared above them:<br>
+	Types can be:
+	<table>
+	  <tr valign=top>
+		<td><b><tt>char</tt></b> or <b><tt>int8</tt></b></td>
+		<td>8-bit integer</td> 
+		<td>1</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>uchar</tt></b> or <b><tt>uint8</tt></b></td>
+		<td>8-bit unsigned integer</td> 
+		<td>1</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>short</tt></b> or <b><tt>int16</tt></b></td>
+		<td>16-bit integer</td> 
+		<td>2</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>ushort</tt></b> or <b><tt>uint16</tt></b></td>
+		<td>16-bit unsigned integer</td> 
+		<td>2</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>int</tt></b> or <b><tt>int32</tt></b></td>
+		<td>32-bit integer</td> 
+		<td>4</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>uint</tt></b> or <b><tt>uint32</tt></b></td>
+		<td>32-bit unsigned integer</td> 
+		<td>4</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>float</tt></b> or <b><tt>float32</tt></b></td>
+		<td>single-precision floating number</td> 
+		<td>4</td>
+	  </tr>
+	  <tr valign=top>
+		<td><b><tt>double</tt></b> or <b><tt>float64</tt></b></td>
+		<td>double-precision floating number</td> 
+		<td>8</td>
+	  </tr>
+	</table>
+	</ul>
+<li>The last line must contain the lowercase directive: <b><tt>endheader</tt></b>
+</ul>
+</P>
+
+<P><B>ASCII data</B>
+<P style="margin-top:0;margin-bottom:2">Both vertex and face blocks are as they were described in the header with each property seperated by a blank space and each line representing an element. The following example illustrates this:
+<PRE>
+ply
+format ascii 1.0
+element vertex 9
+property float64 x
+property float64 y
+property float64 z
+element face 8
+property list uint32 int32 vertex_indices
+end_header
+-1.38639 1 1
+-1.38639 1 1.11022e-016
+-1.38639 2 1
+-1.38639 2 1.66533e-016
+-1.38639 -8.4892e-017 5.55112e-017
+-1.38639 -1.46124e-016 1
+-1.38639 -2.07357e-016 2
+-1.38639 1 2
+-1.38639 2 2
+3 0 3 2
+3 0 1 3
+3 5 1 0
+3 5 4 1
+3 6 5 0
+3 6 0 7
+3 7 0 2
+3 7 2 8
+</PRE>
+</ul>
+</P>
+
+<P><B>Binary data</B>
+<P style="margin-top:0;margin-bottom:2">The data blocks follow their description from the header so if the header is presented as such:
+<PRE>
+ply
+format binary_little_endian 1.0
+element vertex 9
+property float64 x
+property float64 y
+property float64 z
+element face 8
+property list uint32 int32 vertex_indices
+end_header
+</PRE>
+<ul class="noleft">
+<li>The following data is 9 blocks of 24 bytes representing the vertices coordinates as double-precision floating numbers.
+<li>After that come 8 blocks of 4 bytes followed by a number of packets of 4 bytes described in the initial 4. These are the indices of the polygons'vertices stated above.
+</ul>
+
+<hr color="silver">
+</body>
+</html>

@@ -1,0 +1,47 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9204,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+
+<HTML>
+<HEAD>
+
+<TITLE>Converting models to and from the Wavefront format</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;margin-top:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A NAME="top"></A>
+
+<h3>Converting models to and from the Wavefront format</h3>
+
+<h4>From Wavefront to think3</h4>
+
+<ul class="noleft">
+<li>The result of the conversion is one or more Mesh entities (for details, see "<a href="mk:@MSITStore:help.chm::/language/tools/to_07/HWfile/T_HW_to_01_07_16.htm">Display information about a selected mesh</a>")
+</ul>
+
+<h4>From think3 to Wavefront</h4>
+
+<ul class="noleft">
+<li>As a result of the conversion you will get a Wavefront file. Standalone curves and points will be ignored.
+Surfaces and solids need to be transformed into meshes prior to creating the file, this is performed by using each object's current tesselation. It can be set either individually via the <a href="mk:@MSITStore:forcus.chm::/language/format/properties/IDPP_ATT_TESSELLATION.htm">
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+1376">Tessellation</span></a> category of the 
+<span class="UI_OPTION" id="idd_preferences.msg+idd_preferences+403">Entity Properties</span> or generally using the 
+<a href="mk:@MSITStore:forcus.chm::/language/options/graphics/jsoptions/TessellationSlider.htm">tessellation slider</a>.
+</ul>
+
+<hr color="silver">
+</body>
+</html>

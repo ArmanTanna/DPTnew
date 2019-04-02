@@ -1,0 +1,67 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+
+<!-- Error Handler removed 03 June 2014 -->
+<HTML>
+<HEAD>
+
+<meta name="T_2009t1" content="cleanup">
+<TITLE>Wavefront OBJ Format</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/mathandglossNOHR.css" rel="stylesheet" type="text/css"> 
+
+<style> .noleft{margin-left: 22;margin-top: 0;}</style>
+
+</HEAD>
+
+<body onload="viaMk();" bgcolor="#ffffe1">
+
+<table border=0 bordercolor="navy" bgcolor="#ffffe1" width="100%"><tr><td bordercolor="#ffffe1">
+<h4>Wavefront OBJ Format</h4>
+<p style="margin-top:0;margin-bottom:0">Wavefront's Advanced Visualizer's object file describe geometries along with their attached properties. These files can be formatted in either ASCII(.obj) or binary(.mod).<br>
+ This documentation and this software are only concerned about the ASCII format and mesh objects, binary and other geometries will be ignored.
+</P>
+<p>
+<B >File description</B>
+
+<P style="margin-top:0;margin-bottom:2">The structure of the ASCII format is the following:
+<ul class="noleft">
+<li>Each line start with a directive followed by a series of attributes. These can be anything from including an external file to parse to making a call to a UNIX function to describing a NURBS. This software only parses 3 types of line:
+	<ol>
+	<li><b><tt>g</tt></b> followed by a name. This defines a group of elements. For this software, if the following elements are faces, this is a new mesh.
+	<li><b><tt>v x y z</tt></b> with <b><tt>x</tt></b>, <b><tt>y</tt></b> and <b><tt>z</tt></b> corresponding to the vertex'coordinates. There may be an extra parameter <b><tt>w</tt></b> but since it is for rational curves and surfaces, this is ignored.
+	<li><b><tt>f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3...</tt></b> with each triplet <b><tt>v/vt/vn</tt></b> describing the coordinates, texture and normal of the face's vertex. <b><tt>vt</tt></b> and <b><tt>vn</tt></b> are ignored.
+	</ol>
+<li>The following is an example of 8 triangles forming a square, do note that faces do not necessarily need to be triangular:
+<PRE>
+v -1.38639 1 1
+v -1.38639 1 1.11022e-016
+v -1.38639 2 1
+v -1.38639 2 1.66533e-016
+v -1.38639 -8.4892e-017 5.55112e-017
+v -1.38639 -1.46124e-016 1
+v -1.38639 -2.07357e-016 2
+v -1.38639 1 2
+v -1.38639 2 2
+
+g grid_0
+f 1 4 3 
+f 1 2 4 
+f 6 2 1 
+f 6 5 2 
+f 7 6 1 
+f 7 1 8 
+f 8 1 3 
+f 8 3 9
+</PRE>
+</ul>
+</P>
+
+<hr color="silver">
+</body>
+</html>

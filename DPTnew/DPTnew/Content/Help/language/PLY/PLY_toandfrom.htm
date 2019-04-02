@@ -1,0 +1,46 @@
+<script language="JavaScript">
+javascript:parent.left.d.openTo(9193,"","")
+</script>
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+
+<HTML>
+<HEAD>
+
+<TITLE>Converting models to and from the PLY format</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+
+<style>.noleft{margin-left:22;margin-top:0;}</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white">
+
+<A NAME="top"></A>
+
+<h3>Converting models to and from the PLY format</h3>
+
+<h4>From PLY to think3</h4>
+
+<ul class="noleft">
+<li>The result of the conversion is a Mesh entity (for details, see "<a href="mk:@MSITStore:help.chm::/language/tools/to_07/HWfile/T_HW_to_01_07_16.htm">Display information about a selected mesh</a>")
+</ul>
+
+<h4>From think3 to PLY</h4>
+
+<ul class="noleft">
+<li>As a result of the conversion you will get a PLY file. Standalone curves and points will be ignored since the generated PLY file contains exclusively meshes and components.
+Surfaces and solids need to be transformed into meshes prior to creating the file, this is performed according to the current values of the <a href="options.htm">PLY Conversion Options</a> dialog box opened by selecting <b>Options</b>.
+
+<li>If there are problems with the objects inside the generated file, check the <a href="PLY_log.htm">log file of the conversion</a>.
+</ul>
+
+<hr color="silver">
+</body>
+</html>

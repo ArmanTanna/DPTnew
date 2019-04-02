@@ -1,0 +1,174 @@
+<script language="JavaScript">
+function viaMk() {
+	myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+	myRepStr = "https://dpt3.dptcorporate.com/Content/Help"
+	document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+}
+</script>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta name="Revisor" content="DPT SARL">
+    <title>Silent Installation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link href="../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
+</head>
+
+<body lang=EN-US bgcolor="white" onload="viaMk();">
+    <h2>Silent installation of DPT products using command line</h2>
+
+    <h3>Install of Prerequisites</h3>
+
+    <p><b>Exe</b> -l <b>shortLang</b> -log &quot;logfile&quot; </p>
+    <p style='margin-bottom:0in;margin-left:22px;'><b>Exe:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>DPT_TD_Prerequisites.exe for ThinkDesign</li>
+        <li>DPT_TT_Prerequisites.exe for ThinkPLM</li>
+        <li>DPT_Licensing_Prerequisites.exe for standalone Licensing</li>
+    </ul>
+    <p style='margin-bottom:0in;margin-left:22px;'><b>shortLang:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>E for English</li>
+        <li>I for Italian</li>
+        <li>F for French</li>
+        <li>G for German</li>
+        <li>J for Japanese</li>
+        <li>K for Korean</li>
+        <li>C for Chinese</li>
+        <li>L for Slovenian</li>
+    </ul>
+
+    <p style='margin-bottom:0in;'> Example:</p>
+    <ul style='list-style-type: none;margin-top:0in;'>
+        <li> DPT_TD_Prerequisites.exe -l E -log &quot;C:\prerequisites.log&quot;</li>
+    </ul>
+
+    <h3>Install of Main product</h3>
+
+    <h5>For English and Japanese</h5>
+
+    <p>msiexec.exe /i &quot;<b>msifile</b>_version_<b>isoLang</b>.msi&quot; DPT_ACCEPTEULA=true /l*v &quot;logfile&quot;</p>
+
+    <p style='margin-bottom:0in;margin-left:22px;'><b>isoLang:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>en-US for English</li>
+        <li>ja-JP for Japanese</li>
+    </ul>
+    <p style='margin-bottom:0in;margin-left:22px;'><b>msifile:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>DPT_TD for ThinkDesign</li>
+        <li>DPT_TT for ThinkPLM</li>
+        <li>DPT_Licensing for ThinkDesign</li>
+        <li>DPT_TDTools for ThinkDesign TDTools</li>
+    </ul>
+
+    <p style='margin-bottom:0in;'> Example for ThinkDesign version 2019_1_20110:</p>
+
+    <ul style='list-style-type: none;margin-top:0in;'>
+        <li>For English:  msiexec.exe /i &quot;DPT_TD_2019_1_20110_en-US.msi&quot; DPT_ACCEPTEULA=true /l*v &quot;C:\mainMsi.log&quot; /quiet</li>
+        <li>For Japanese: msiexec.exe /i &quot;DPT_TD_2019_1_20110_ja-JP.msi&quot; DPT_ACCEPTEULA=true /l*v &quot;C:\mainMsi.log&quot; /quiet</li>
+    </ul>
+
+    <h5>For other languages</h5>
+
+    <p>msiexec.exe /i &quot;<b>msifile</b>_version_en-US.msi&quot; TRANSFORMS=&quot;<b>msifile</b>_version_<b>langMst</b>.mst&quot; DPT_ACCEPTEULA=true /l*v &quot;logfile&quot;</p>
+
+    <p style='margin-bottom:0in;margin-left:22px;'><b>langMst:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>it-IT for Italian</li>
+        <li>fr-FR for French</li>
+        <li>de-DE for German</li>
+        <li>ko-KR for Korean</li>
+        <li>zh-CN for Chinese</li>
+        <li>sl-SI for Slovenian</li>
+    </ul>
+    <p style='margin-bottom:0in;margin-left:22px;'><b>msifile:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>DPT_TD for ThinkDesign</li>
+        <li>DPT_TT for ThinkPLM</li>
+        <li>DPT_Licensing for ThinkDesign</li>
+        <li>DPT_TDTools for ThinkDesign TDTools</li>
+    </ul>
+
+    <p style='margin-bottom:0in;'> Example for ThinkDesign version 2019_1_20110 in Italian:</p>
+    <ul style='list-style-type: none;margin-top:0in;'>
+        <li>msiexec.exe /i &quot;DPT_TD_2019_1_20110_en-US.msi&quot; TRANSFORMS=&quot;DPT_TD_2019_1_20110_it-IT.mst&quot; DPT_ACCEPTEULA=true /l*v &quot;C:\mainMsi.log&quot; /quiet</li>
+    </ul>
+
+    <h3>Install of Documentation</h3>
+
+    <p>msiexec.exe /i &quot;<b>msifile</b>_version_<b>isoLang</b>.msi&quot; DPT_ACCEPTEULA=true /l*v &quot;logfile&quot;</p>
+
+    <p style='margin-bottom:0in;margin-left:22px;'><b>msifile:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>DPT_TDDoc for ThinkDesign documentation </li>
+        <li>DPT_TTDoc for ThinkPLM documentation</li>
+    </ul>
+
+    <p style='margin-bottom:0in;margin-left:22px;'><b>isoLang:</b></p>
+    <ul style='list-style-type: none;margin-top:0in;margin-left:22px;'>
+        <li>en-US for English</li>
+        <li>it-IT for Italian</li>
+        <li>fr-FR for French</li>
+        <li>de-DE for German</li>
+        <li>ja-JP for Japanese</li>
+        <li>ko-KR for Korean</li>
+        <li>zh-CN for Chinese</li>
+        <li>sl-SI for Slovenian</li>
+    </ul>
+
+    <p style='margin-bottom:0in;'> Example for ThinkDesign documentation version 2019_1_20110 in English:</p>
+
+    <ul style='list-style-type: none;margin-top:0in;'>
+        <li>msiexec.exe /i &quot;DPT_TDDoc_2019_1_20110_en-US.msi&quot; DPT_ACCEPTEULA=true /l*v &quot;C:\docMsi.log&quot; /quiet</li>
+    </ul>
+
+    <h3></h3>
+    <table border="1" bgcolor="#ffffe1">
+        <tr>
+            <td class="noteme">
+                <h5><font size="+1">Important Remark</font></h5>
+
+                <p>For all Msi, 2 options can be added for: </p>
+                <ul style='list-style-type: none;margin-top:0in;'>
+                    <li>The installation directory: <b>INSTALLDIR=&quot;installpath&quot;</b> </li>
+                    <li>The installation options: <b>DPT_INSTALL=&quot;opt1,opt2,&quot;</b> </li>
+                </ul>
+
+                <p>When launched with UI, each Msi generate a file <b>cmdfile_version_Setup_CmdLine.example_ps1</b> in the log file folder (otherwise in temp). Example for ThinkDesign version 2019_1_20110 we will generate DPT_TD_2019_1_20110_Setup_CmdLine.ps1    </p>
+                <p>All possible options for <b>DPT_INSTALL</b> are listed in this file and can be reused to execute the same installation in silent mode.</p>
+                <p>Specially for ThinkDesign Msi, choose one Main Product, then optional Converters and Addons:</p>
+
+                <ul>
+                    <li>Main Product (only one choice):</li>
+                    <ul>
+                        <li>DPT_ThinkDesignProfessional</li>
+                        <li>DPT_ThinkDesignMolding</li>
+                        <li>DPT_ThinkDesignOther</li>
+                    </ul>
+                    <li>Converters: </li>
+                    <ul>
+                        <li>DPT_TDXchangeReader,DPT_TDirect</li>
+                    </ul>
+                    <li>Addons:</li>
+                    <ul>
+                        <li>DPT_AnsysV150,DPT_AnsysV162,DPT_AnsysV170</li>
+                        <li>DPT_CoordinatesLabel</li>
+                        <li>DPT_Api</li>
+                    </ul>
+                </ul>
+                <p></p>
+                <p style='margin-bottom:0in;'> Example:</p>
+                <ul style='list-style-type: none;margin-top:0in;'>
+                    <li>msiexec.exe /i &quot;DPT_TD_2019_1_20110_en-US.msi&quot; DPT_ACCEPTEULA=true INSTALLDIR=&quot;c:\myDptInstall&quot; DPT_INSTALL=&quot;DPT_ThinkDesignProfessional, DPT_Api&quot; /l*v &quot;C:\mainMsi.log&quot;</li>
+                </ul>
+                <p></p>
+            </td>
+        </tr>
+    </table>
+    <hr color="silver">
+</body>
+
+</html>

@@ -1,0 +1,639 @@
+﻿<script language="JavaScript">
+javascript:parent.left.d.openTo(9205,"","")
+</script>
+<script language="JavaScript">
+    function viaMk() {
+        myRegExp = /mk:@MSITStore:[^.]+.chm::/gim;
+        my2RegExp = /ms-its:[^.]+.chm::\//gim;
+        myRepStr = "https://dpt3.dptcorporate.com/Content/Help";
+        if(location.pathname.match(".chm")){
+            //alert(location.pathname);
+            void(0);
+        }
+        else {
+            //alert(location.pathname);
+            document.body.innerHTML = document.body.innerHTML.replace(myRegExp,myRepStr);
+            document.body.innerHTML = document.body.innerHTML.replace(my2RegExp,myRepStr);
+        }
+    }
+</script>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta name="T_2019t1" content="New">
+<meta name="Author" content="DPT">
+<meta name="Revisor" content="DPT">
+<title>What's new in version 2019.1</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../../JSandSTYLES/StylesForReleaseNotes_DPT.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="White">
+
+  <p align="center" style="margin-bottom:0;"><img src='../../images/company/About_TD_Light.png'></p>
+  <br>
+
+  <h1 style="color:rgb(56,124,175); font-size:20px;  text-align: center"><a name="top"></a>ThinkDesign 2019.1 Release Notes</h1>
+  <br>
+  <hr color="silver">
+  <p class="noindent" style="margin-top: 0;">Many improvements have been made in version 2019.1. This document contains a list of short descriptions for each new feature, improvement and enhancement.</p>
+
+  <ul class="litleft">
+    <!--<li><a href="#CNV"><b>Data Converters Upgrades</b></a></li>-->
+    <li><a href="#FHM"><b>Full Hybrid Modeling</b></a></li>
+    <li><a href="#SHM"><b>Sheet Metal</b></a></li>
+    <li><a href="#OFT"><b>Organize Formats</b></a></li>
+    <li><a href="#GSI"><b>General Software Improvement and Better Reliability</b></a></li>
+  </ul>
+  <br><br>
+
+  <hr color="silver">
+
+  <!--<h2 style="color:rgb(56,124,175); font-size:20px"><a name="CNV"></a>Data Converters Upgrades<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+	<p style="margin-bottom:0;">The <b>TDXchangeReader</b> module is now capable to read:</p>
+  <ul style="margin-top:0;">
+    <li>Any <b>CATIA&reg; V5</b> version up to <b>V5-6 R2018 (R28)</b></li>
+    <li>Any <b>Parasolid&reg;</b> version up to <b>v30.1</b></li>
+    <li>Any <b>Siemens NX&trade; (Unigraphics)</b> version up to <b>NX 12.0</b></li>
+  </ul>
+  <br>
+  <hr color="silver">-->
+
+  <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // FHM
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FHM"></a>Full Hybrid Modeling<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>ThinkDesign 2019.1 introduces some major changes for the Full Hybrid Modeling:</p>
+
+  <!-- Table of contents -->
+
+  <ul>
+    <li><a href="#FHM_RESHAPE">Reshape functionalities re-dispatched in standard ThinkDesign menus</a></li>
+    <li>
+      <a href="#FHM_NEWS">New commands</a>
+      <ul>
+        <li><a href="#FHM_NEWS_SEPARATE">Separate Mesh</a></li>
+        <li><a href="#FHM_NEWS_JOIN">Join Mesh</a></li>
+        <li><a href="#FHM_NEWS_OFFSET">Offset Mesh</a></li>
+        <li><a href="#FHM_NEWS_FROMSOLID">Mesh From Solid</a></li>
+        <li><a href="#FHM_NEWS_INVERT">Invert Mesh</a></li>
+        <!--<li><a href="#FHM_NEWS_ADDNORMALS">Add Normals to Mesh</a></li>-->
+        <li><a href="#FHM_NEWS_SPLITEDGES">Split Edges</a></li>
+        <li><a href="#FHM_NEWS_SWAPEDGES">Swap Edges</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#FHM_ENHS">Enhanced commands</a>
+      <ul>
+        <li><a href="#FHM_ENHS_PLY">Stanford Polygon Format (PLY) loading and saving</a></li>
+        <li><a href="#FHM_ENHS_UNIT">Unit of measurement for loading STL, OBJ, PLY</a></li>
+        <li><a href="#FHM_ENHS_SPLITWITHPLANE">Split Mesh with Plane</a></li>
+        <li><a href="#FHM_ENHS_SPLITWITHCURVES">Split Mesh with Curves</a></li>
+        <li><a href="#FHM_ENHS_REFINE">Refine Mesh</a></li>
+        <li><a href="#FHM_ENHS_ANALYSISNORMALS">Analysis Normals</a></li>
+        <li><a href="#FHM_ENHS_BOUNDARIES">Boundary Curve</a></li>
+        <li><a href="#FHM_ENHS_POINTINTERS">Point on Intersection of Curves/Surface/Mesh</a></li>
+        <li><a href="#FHM_ENHS_POM">Primitive on Mesh</a></li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+
+  <hr color="silver">
+  <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Reshape functionalities in standard ThinkDesign menus 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FHM_RESHAPE"></a>Reshape functionalities re-dispatched in standard ThinkDesign menus<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>
+    ThinkDesign has support for the Reverse Engineering activity with the <b>Reshape</b> and <b>HQRE</b> modules, including functionalities to manage meshes.<br/>
+  With previous releases, the user had been accessing <b>Reshape</b> commands from a separated <b>Reshape</b> drop-down menu in the menu bar.<br>
+  Starting from ThinkDesign 2019.1, the <b>Reshape</b> commands, just like HQRE ones, are re-dispatched in respective places in menus , Insert|Modify &#8680; Curve|Surface|Mesh.
+  The activity toolbars Reshape and HQRE are still there.<br><br>
+  Some commands have been moved to the standard menus <b>File</b>, <b>Insert</b> and <b>Modify</b>:<br>
+  <br>
+  <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td><b>Reshape command</b></td>
+      <td><b>Moved to</b></td>
+      <td><b>Note</b></td>
+    </tr>
+    <tr>
+      <td>Split Mesh with Plane</td>
+      <td>Modify &#8680; Mesh &#8680; Split with Plane</td>
+      <td><a href="#FHM_ENHS_SPLITWITHPLANE">Enhanced</a></td>
+    </tr>
+    <tr>
+      <td>Split Mesh with Curve</td>
+      <td>Modify &#8680; Mesh &#8680; Split with Curves</td>
+      <td><a href="#FHM_ENHS_SPLITWITHCURVES">Enhanced</a></td>
+    </tr>
+    <tr>
+      <td>Smooth Mesh</td>
+      <td>Modify &#8680; Mesh &#8680; Smooth</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Decimate Mesh</td>
+      <td>Modify &#8680; Mesh &#8680; Decimate</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Refine Mesh</td>
+      <td>Modify &#8680; Mesh &#8680; Refine</td>
+      <td><a href="#FHM_ENHS_REFINE">Enhanced</a></td>
+    </tr>
+    <tr>
+      <td>Sew Mesh</td>
+      <td>Modify &#8680; Mesh &#8680; Sew</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Remove Wrong Faces</td>
+      <td>Modify &#8680; Mesh &#8680; Remove Wrong Faces</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Fill Mesh Holes</td>
+      <td>Modify &#8680; Mesh &#8680; Fill Holes</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Curve on Mesh</td>
+      <td>Insert &#8680; Curve &#8680; Curve on Mesh</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Mesh Character Lines</td>
+      <td>Insert &#8680; Curve &#8680; Mesh Character Lines</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>AutoPatching</td>
+      <td>Insert &#8680; Surface &#8680; Specialized  &#8680; AutoPatching</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <br>
+</p>
+  <p>
+    Some others are covered by existing or new commands:<br>
+    <br>
+    <table border="1" cellpadding="5" cellspacing="1">
+      <tr>
+        <td><b>Reshape command</b></td>
+        <td><b>Covered by</b></td>
+        <td><b>Note</b></td>
+      </tr>
+      <tr>
+        <td>Import Mesh</td>
+        <td>File &#8680; Open... or Insert &#8680; From File... *.STL, *.PLY, *.OBJ,...</td>
+        <td><a href="#FHM_ENHS_UNIT">Enhanced</a></td>
+      </tr>
+      <tr>
+        <td>Export Mesh</td>
+        <td>File &#8680; Save or File &#8680; Save As... *.STL, *.PLY, *.OBJ,...</td>
+        <td><a href="#FHM_ENHS_UNIT">Enhanced</a></td>
+      </tr>
+      <tr>
+        <td>Cut Mesh</td>
+        <td>
+          Modify &#8680; Mesh &#8680; Remove Facets (option <b>Split</b> removed)<br>
+          Insert &#8680; Mesh &#8680; Separate (for the option <b>Split</b>)
+        </td>
+        <td>
+          Modified<br />
+          <a href="#FHM_NEWS_SEPARATE">New</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Heal Mesh Normals</td>
+        <td>
+          Modify &#8680; Mesh &#8680; Repair (to fix orientation issues)<br>
+          Modify &#8680; Mesh &#8680; Invert (to invert the normals)<br>
+          Tools &#8680; Info &#8680; Analysis &#8680; Normals (to visualize the normals)
+        </td>
+        <td><a href="#FHM_NEWS_INVERT">New</a></td>
+      </tr>
+      <tr>
+        <td>Mesh Boundaries</td>
+        <td>Insert &#8680; Curve &#8680; Boundaries</td>
+        <td><a href="#FHM_ENHS_BOUNDARIES">Enhanced</a></td>
+      </tr>
+      <tr>
+        <td>Plane on Mesh</td>
+        <td>Insert &#8680; Surface &#8680; Specialized &#8680; Primitive on Mesh</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <br>
+  </p>
+  <p>
+    Other commands have also been re-dispatched:<br>
+    <br>
+    <table border="1" cellpadding="5" cellspacing="1">
+      <tr>
+        <td><b>Compensator command</b></td>
+        <td><b>Moved to</b></td>
+        <td><b>Note</b></td>
+      </tr>
+      <tr>
+        <td>Offset Mesh</td>
+        <td>Insert &#8680; Mesh &#8680; Offset</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <br>
+    <table border="1" cellpadding="5" cellspacing="1">
+      <tr>
+        <td><b>File &#8680; 3D Printing &#8680; Create Mesh command</b></td>
+        <td><b>Moved to</b></td>
+        <td><b>Note</b></td>
+      </tr>
+      <tr>
+        <td>Create Mesh</td>
+        <td>Insert &#8680; Mesh &#8680; From Solid</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </p>
+  <br />
+  <hr color="silver">
+  <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // New commands
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FHM_NEWS"></a>New commands<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <br>
+
+  <!-- Separate command --------------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_NEWS_SEPARATE"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_SeparateMesh.htm">Separate mesh</a> command (Insert &#8680; Mesh &#8680; Separate)</b>
+    <br>
+    This command enables the user to <i>separate</i> a triangular mesh in different parts, by selection or by disconnected shells.<br>
+    In the <b>Mode</b> drop-down list, choose the way the mesh will be separated:<br>
+    <ul style="margin-bottom:6px;">
+      <li>
+        <b>Selection</b>&nbsp;&#151;&nbsp;the selected facets will be grouped in a new mesh and removed from the initial one.
+      </li>
+      <li>
+        <b>Shells</b>&nbsp;&#151;&nbsp;the selected mesh will be separated: one mesh for every disconnected shell (set of connected facets) is created.
+      </li>
+    </ul>
+  </p>
+  <p>
+    The command can assign automatically a different layer and color for each created Mesh part.
+    In the <b>Layer increment</b> and <b>Color increment</b> boxes under <b>More Options</b>, you can specify the increase in layer and color between a part and the next (the layer is the one displayed in the
+    <a href="mk:@MSITStore:layers.chm::/language/Layers/FWfile/T_FW_Layers.htm"><span class="UI_OPTION" id="idd_layers.msg+idd_layers+3216">Layers</span></a> tab; the color number is the one displayed in the color palette: see also "
+    <a href="mk:@MSITStore:forcus.chm::/language/attributes/HWfile/T_HW_SetColor.htm">Setting and Modifying the Color</a>").
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Initial mesh</i></td>
+        <td><i>Separated meshes</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/SeparateMesh_05.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/SeparateMesh_06.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <!-- Join Mesh command -------------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_NEWS_JOIN"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_JoinMesh.htm">Join Mesh</a> command (Insert &#8680; Mesh &#8680; Join)</b>
+    <br>
+    This command enables the user <i>to join</i> several triangular meshes to create a single mesh.<br>
+    If selected meshes are disjoint, the resulting mesh will be multishell. Nodes closer than the specified <b>Merge tolerance</b> value are merged together.
+  </p>
+  <br>
+
+  <!-- Offset Mesh command ------------------------------------------------------------------------------------------------------------------>
+  <p>
+    <b><a name="FHM_NEWS_OFFSET"></a><a href="ms-its:thinkcmp.chm::/language/thinkcompensator/FWfile/T_FW_OffsetMesh.htm">Offset Mesh</a> command (Insert &#8680; Mesh &#8680; Offset)</b>
+    <br>
+    The command has been moved from <b>Modify &#8680; Compensator</b> to <b>Insert &#8680; Mesh</b> menu.<br>
+    The functionality remains unchanged.
+  </p>
+  <br>
+
+  <!-- Mesh From Solid command -------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_NEWS_FROMSOLID"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_MeshFromSolid.htm">Mesh From Solid</a> command (Insert &#8680; Mesh &#8680; From Solid)</b>
+    <br>
+    This command enables the user <i>to convert solids to meshes</i>.<br>
+    It replaces the mode <b>Create Mesh</b> moved from <b>3D Printing</b> command.
+  </p>
+  <br>
+
+  <!-- Invert Mesh command ------------------------------------------------------------------------------------------------------------------>
+  <p>
+    <b><a name="FHM_NEWS_INVERT"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_InvertMesh.htm">Invert Mesh</a> command (Modify &#8680; Mesh &#8680; Invert)</b>
+    <br>
+    This command enables the user <i>to invert the normals to the facets</i> of a triangular mesh.<br>
+    In the <b>Invert Normals</b> drop-down list, choose the way the mesh will be inverted: <b>Manually</b>, <b>By direction</b>, <b>By axis</b> or <b>By point</b>.<br>
+  </p>
+
+  <!--<p align="left" style="margin-bottom:0;">
+    <img src="images/InvertNormals.jpg" style="width: 25%">
+  </p>-->
+  <br>
+
+  <!-- **HIDDEN IN 2019.1 Add Normals to Mesh command ** ---------------------------------------------------------------------------------------------------------->
+  <!--<p>
+    <b><a name="FHM_NEWS_ADDNORMALS"></a>Add Normals to Mesh command (Modify &#8680; Mesh &#8680; Add Normals)</b>
+    <br>
+    This command enables the user <i>to compute and set normals to mesh nodes</i>. In general, the modified mesh looks smoother than the initial one under shaded mode.
+    <br>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Mesh without normals to nodes</i></td>
+        <td><i>Mesh with normals to nodes</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/AddNormals_01.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/AddNormals_02.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>-->
+
+  <!-- Split Edges command ------------------------------------------------------------------------------------------------------------------>
+  <p>
+    <b><a name="FHM_NEWS_SPLITEDGES"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_SplitEdges.htm">Split Edges</a> command (Modify &#8680; Mesh &#8680; Split Edges)</b>
+    <br>
+    This command enables the user <i>to split the edges</i> of a triangular mesh. The original edge will be cut. The inserted node is connected to the opposite nodes in the adjacent triangles.
+    It is useful for improving local mesh quality.
+    <br>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Pick the edge to split</i></td>
+        <td><i>Drag the handle to move cut location</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/SplitEdges_01.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/SplitEdges_02.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <!-- Swap Edges command ------------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_NEWS_SWAPEDGES"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_SwapEdges.htm">Swap Edges</a> command (Modify &#8680; Mesh &#8680; Swap Edges)</b>
+    <br>
+    This command enables the user <i>to swap the edges</i> of a triangular mesh. The original edge will be replaced by an edge that connects the other two corners of the adjacent triangles.
+    It is useful for improving local mesh quality.
+    <br>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Pick the edge to swap</i></td>
+        <td><i>Swapped edge</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/SwapEdges_01.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/SwapEdges_02.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <hr color="silver">
+  <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Enhanced commands
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FHM_ENHS"></a>Enhanced commands<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <br>
+
+
+
+  <!-- Stanford Polygon Format (PLY) -------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_PLY"></a>Stanford Polygon Format (PLY) loading and saving</b>
+    <br>
+    The PLY format, also known as the Stanford PoLYgon Format, is commonly used to exchange meshes.<br>
+    ThinkDesign 2019.1 enables reading and writing files in the PLY format using respectively <b>Open</b>/<b>Insert &#8680; From File...</b> and <b>Save</b>/<b>Save As...</b>.
+    <br>
+  </p>
+
+  <!-- Open and From File... commands ------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_UNIT"></a>Unit of measurement for loading STL, OBJ, PLY</b>
+    <br>
+    The file formats STL, OBJ, PLY do not describe a unit of measurement in their specification.<br>
+    In ThinkDesign 2019.1, on <b>Load</b> option pages for the aforementioned formats, the user can select the unit that he wishes to interpret the imported data from the <b>Units of measurement</b> drop-down list.
+    <br>
+  </p>
+
+  <!-- Split Mesh with Plane command -------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_SPLITWITHPLANE"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_SplitMeshWithPlane.htm">Split Mesh with Plane</a> command (Modify &#8680; Mesh &#8680; Split with Plane)</b>
+    <br>
+    Like some other commands dealing with meshes, this command has evolved for better performances and usability.<br>
+    The user interface changes slightly:
+    <ul style="margin-bottom:6px;">
+      <li>Selecting multiple meshes is allowed.</li>
+      <li>The <b>Split</b> option has been renamed as <b>Keep both sides</b>. The functionality remains the same.</li>
+    </ul>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Initial mesh, limiting plane</i></td>
+        <td><i>Same mesh after splitting</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/SplitMeshWithPlane_03.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/SplitMeshWithPlane_04.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <!-- Split Mesh with Curves command ------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_SPLITWITHCURVES"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_SplitMeshWithCurves.htm">Split Mesh with Curves</a> command (Modify &#8680; Mesh &#8680; Split with Curves)</b>
+    <br>
+    This command has been greatly enhanced:
+    <br>
+    <ul style="margin-bottom:6px;">
+      <li>
+        The usability is much better:
+        <ul style="margin-bottom:6px;">
+          <li>The way to retain some split parts is clear and easy with the <b>Regions to Keep</b> selector.</li>
+          <li>
+            It is <u>not necessary anymore</u> the limiting curves to form a closed loop or to be a single chain.
+          </li>
+        </ul>
+      <li>The quality of the result, robustness and reliable, the performances are highly improved.</li>
+    </ul>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Initial mesh, limiting curves and region to keep</i></td>
+        <td><i>Same mesh after splitting</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/SplitMeshWithCurves_01.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/SplitMeshWithCurves_02.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <!-- Refine command ----------------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_REFINE"></a><a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_RefineMesh.htm">Refine Mesh</a> command (Modify &#8680; Mesh &#8680; Refine)</b>
+    <br>
+    The improvements impact:<br>
+    <ul style="margin-bottom:6px;">
+      <li>
+        The usability: to refine only a portion of the mesh, select the <b>Mesh Zones</b> check box and subsequently select the mesh facets to be included for refining.
+        Then the facets can be selected either one by one by picking them or using more convenient tools:
+        <ul style="margin-bottom:6px;">
+          <li>Window or Lasso selections with <b>Select Facets in Front Only</b> option ON or OFF.</li>
+          <li>Smart selection commands dedicated to facets of mesh (Crease Angle and Geodesic Distance).</li>
+        </ul>
+      </li>
+      <li>
+        The capabilities: some additional settings can be done under the <b>Mesh control</b> node:
+        <ul style="margin-bottom:6px;">
+          <li>A <b>Crease detection</b> value enables the user to preserve or not creases on the mesh.</li>
+          <li>A <b>Corner detection</b> value enables the user to preserve or not corners on the mesh.</li>
+        </ul>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    <table border="0">
+      <tr>
+        <td><i>Mesh zone to refine</i></td>
+        <td><i>Crease detection = 150°</i></td>
+        <td><i>Crease detection = 10°</i></td>
+      </tr>
+      <tr>
+        <td><img src="../meshes/images/RefineMesh_01.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/RefineMesh_02.jpg" style="width: 100%"></td>
+        <td><img src="../meshes/images/RefineMesh_03.jpg" style="width: 100%"></td>
+      </tr>
+    </table>
+  </p>
+  <br>
+
+  <!-- Analysis Normals command ------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_ANALYSISNORMALS"></a><a href="ms-its:help.chm::/language/tools/to_07/FWfile/T_FW_to_20_07.htm">Analysis Normals</a> command (Tools &#8680; Info &#8680; Analysis &#8680; Normals)</b>
+    <br>
+    Previously, when the selected shape was a mesh, the command displayed the normals to the facets. Now, a new drop-down list has been introduced to display the normals either <b>To Facets</b> or <b>To Nodes</b>.
+    <br>
+  </p>
+  <br>
+
+  <!-- Boundary Curve command --------------------------------------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_BOUNDARIES"></a><a href="ms-its:help.chm::/language/curves/FWfile/T_FW_cv_11.htm">Boundary Curve</a> command (Insert &#8680; Curve &#8680; Boundaries)</b>
+    <br>
+    Starting from ThinkDesign 2019.1, it is possible <i>to create the boundary curves</i> of triangular meshes. The resulting curves are polylines (degree 1 NURBS).
+  </p>
+  <br>
+
+  <!-- Point on Intersection of Curves/Surface/Mesh command --------------------------------------------------------------------------------->
+  <p>
+    <b><a name="FHM_ENHS_POINTINTERS"></a><a href="ms-its:draft.chm::/language/points/FWfile/T_FW_pt_05.htm">Point on Intersection of Curves/Surface/Mesh</a> command (Insert &#8680; Point &#8680; On Intersection of Curves/Surface/Mesh)</b>
+    <br>
+    Starting from ThinkDesign 2019.1, the command <b>Point on Intersection of Curves/Surface</b>, now labelled <b>Point on Intersection of Curves/Surface/Mesh</b>, enables you to select a mesh in the <b>Surface/Mesh</b> selector and to compute intersection points between the curves and the mesh.
+  </p>
+  <p align="left" style="margin-bottom:0;">
+    <img src="images/PointOnInters.jpg" style="width: 25%">
+  </p>
+  <br>
+
+  <!-- Primitive on Mesh command ------------------------------------------------------------------------------------------------------------>
+  <p>
+    <b><a name="FHM_ENHS_POM"></a><a href="ms-its:surfaces.chm::/language/surfaces/FWfile/T_FW_PrimitiveOnMesh.htm">Primitive on Mesh</a> command (Insert &#8680; Surface &#8680; Specialized &#8680; Primitive on Mesh)</b>
+    <br>
+    The command shows the optimum value of the cylinder radius when it is not constrained. This can be very useful to better control the shape to build.
+  </p>
+  <p align="left" style="margin-bottom:0;">
+    <img src="images/PrimitiveOnMesh.jpg" style="width: 35%">
+  </p>
+  <br>
+
+  <hr color="silver">
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="SHM"></a>Sheet Metal<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <br>
+  <p>
+    <b><a href="ms-its:shm.chm::/language/sheetmetal/FWfile/T_FW_ConvertSolidToSheetMetal.htm">Convert solid to sheet metal</a>, Fixed face definition (Insert &#8680; Sheet Metal &#8680; Convert solid to sheet metal)</b>
+    <br>
+    While converting a solid to sheet metal, the command now allows to select a fixed face, otherwise defined automatically. This fixed face is the one on which the Flat Pattern View should be created.
+  </p>
+  <br>
+  <hr color="silver">
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="OFT"></a>Organize Formats<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <br>
+  <p>
+    <b><a href="ms-its:forcus.chm::/language/format/FWfile/T_FW_OrganizeFormats.htm">Organize Formats</a> (Format &#8680; Organize &#8680; Formats)</b>
+    <br>
+    Material attribute can be now managed in General category like Layer or Color attributes.
+  </p>
+  <br>
+  <hr color="silver">
+
+  <h2 style="color:rgb(56,124,175); font-size:20px"><a name="GSI"></a>General Software Improvement and Better Reliability<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
+  <p>The source code has been accurately revised to highly improve the program's robustness and reliability.</p>
+  <br>
+  <hr color="silver">
+
+      <script>
+        function goBack() {
+            //alert(window.self.name);
+            if(window.self.name != "body"){
+                window.history.back(1);
+            }
+            else{
+                alert("The Navigation Pane is already active!");
+                void(0);
+            }
+        }
+    </script>
+
+
+    <table width="100%" align="center">
+        <tr>
+            <td align="left">
+                <a href="#" target="_parent"><img border="0" src="../../images/Hide_NAV.png" title="Hide the Navigation Pane" align="left"></a>
+                <a href="#" onclick="goBack()"><img border="0" src="../../images/Display_Nav.png" title="Display the Navigation Pane" align="left"></a>
+            </td>
+
+            <td align="right"><a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></td>
+        </tr>
+    </table>
+    <hr size=3 color="silver">
+
+</body>
+</html>
