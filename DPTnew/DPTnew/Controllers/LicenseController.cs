@@ -88,7 +88,7 @@ namespace DPTnew.Controllers
             return Json(licenseState, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public ActionResult SingleLicenseRow(LicenseView licSingleRow)
         {
@@ -122,7 +122,7 @@ namespace DPTnew.Controllers
             return View(rows);
         }
 
-        [Authorize(Roles = "Admin,Internal,VarExp,VarMed")]
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
         [HttpPost]
         public JsonResult Modify(LicenseView licSingleRow)
         {

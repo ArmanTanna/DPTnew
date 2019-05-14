@@ -65,7 +65,9 @@ namespace DPTnew.Controllers
                         ip.Country = dynObj["country_name"];
                         ip.Region = dynObj["region_name"];
                         ip.City = dynObj["city"];
-                        ip.ZipCode = dynObj["zip_code"];
+                        ip.ZipCode = dynObj["zip"];
+                        ip.Latitude = dynObj["latitude"];
+                        ip.Longitude = dynObj["longitude"];
                         db.SaveChanges();
                     }
                 }

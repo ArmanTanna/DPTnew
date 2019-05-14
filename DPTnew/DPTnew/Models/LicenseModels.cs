@@ -274,8 +274,8 @@ namespace DPTnew.Models
         public JArray ProductName { get; set; }
 
         public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ", "TL" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding,tdviewerplus
-        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };//, "thinkprint" TDVARLight
-        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions" };// per enrico, "thinkprint", TDVARFull 
+        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm" };//, "thinkprint" TDVARLight
+        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm" };// per enrico, "thinkprint", TDVARFull 
         public static IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
     }
 

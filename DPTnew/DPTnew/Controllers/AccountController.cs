@@ -45,7 +45,12 @@ namespace DPTnew.Controllers
 
                     if (user.Company.Blocked == 1)
                     {
-                        ModelState.AddModelError("", "This account has been blocked");
+                        int block = db.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(user.Company.AccountNumber) ? 1 : 0;
+                        if (block == 1)
+                            ModelState.AddModelError("", "Your account may have been temporarily suspended because of licensing or administrative issues. Be sure to solve them to return your account to its unblocked status");
+                        else
+                            ModelState.AddModelError("", "This account has been blocked");
+
                         return View(model);
                     }
 
