@@ -285,12 +285,12 @@ namespace DPTnew.Controllers
                                     mail.Body = "Gentile Cliente,<br/><br/>Stai esportando la tua licenza.<br/><br/>" +
                                     "Per completare l’operazione, segui questi semplici passaggi:<br/><br/>" +
                                     "1. Applica il file .v2c che hai ricevuto nella sezione <b>Aggiorna/Allega</b> del " +
-                                    "<b>Sentinel Admin Control Center</b> (http://localhost:1947).<br/><br/>2. Valida Export:" +
-                                    "<br/><br/> 2a. <b>Admin Control Center</b> (http://localhost:1947) → <b>Chiavi Sentinel</b> → bottone <b>C2V</b>" +
-                                    " (colonna <b>Azioni</b>) → scarica il file .c2v.<br/><br/> 2b. <b>DPT3Care</b> " +
+                                    "<b>Sentinel Admin Control Center</b> (http://localhost:1947).<br/><br/>" +
+                                    "2. <b>Admin Control Center</b> (http://localhost:1947) → sezione <b>Chiavi Sentinel</b> → bottone <b>C2V</b>" +
+                                    " (colonna <b>Azioni</b>) → scarica il file .c2v.<br/><br/>3. Sito <b>DPT3Care</b> " +
                                     "(https://dpt3.dptcorporate.com – aggiorna la pagina <b>Licenses</b>) → seleziona la riga " +
                                     "della licenza → bottone <b>Valida Export</b> → carica il file .c2v che hai appena scaricato." +
-                                    "<br/><br/>3. È ora possibile reinstallare la licenza su un nuovo computer.<br/><br/>" +
+                                    "<br/><br/>4. È ora possibile reinstallare la licenza su un nuovo computer.<br/><br/>" +
                                     "<br/>Qui di seguito i dettagli relativi alla tua licenza:<br/><br/>ID Licenza: " + currentlicense.LicenseID + " (" +
                                      currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " + currentlicense.MachineID +
                                      "<br/>Prodotto: " + currentlicense.ProductName + "<br/>Versione: " + currentlicense.Version +
@@ -301,9 +301,9 @@ namespace DPTnew.Controllers
                                     mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
                                     mail.Body = "Dear User, <br/><br/>You are exporting your license.<br/><br/>Please follow these steps to complete the Export operation:" +
                                         "<br/><br/>1. Apply the .v2c file you received to the <b>Update/Attach</b> section of the <b>Sentinel Admin Control Center</b> (http://localhost:1947)." +
-                                        "<br/><br/>2. Validate Export:<br/><br/>  2a. <b>Admin Control Center</b> (http://localhost:1947) → <b>Sentinel keys</b> → <b>C2V</b> button (<b>Action</b> column) → download the .c2v file." +
-                                        "<br/><br/>  2b. <b>DPT3Care</b> (https://dpt3.dptcorporate.com - refresh the <b>Licenses</b> page) → click on the license row → <b>Validate Export</b> button → upload the downloaded .c2v file." +
-                                        "<br/><br/>3. You are now ready to reinstall your license on another PC." +
+                                        "<br/><br/>2. <b>Admin Control Center</b> (http://localhost:1947) → <b>Sentinel keys</b> section → <b>C2V</b> button (<b>Action</b> column) → download the .c2v file." +
+                                        "<br/><br/>3. <b>DPT3Care</b> site (https://dpt3.dptcorporate.com - refresh the <b>Licenses</b> page) → click on the license row → <b>Validate Export</b> button → upload the downloaded .c2v file." +
+                                        "<br/><br/>4. You are now ready to reinstall your license on another PC." +
                                         "<br/><br/><br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
                                         currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
                                         "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
@@ -1093,10 +1093,9 @@ namespace DPTnew.Controllers
                                 if (company.FirstOrDefault().Language.ToLower() == "italian")
                                 {
                                     mail.Subject = "[DO NOT REPLY] Licenza generata per " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ")";
-                                    mail.Body = "Gentile Cliente,<br/><br/>Dovresti aver appena ricevuto un messaggio " +
-                                    "da DPT Licensing con allegato un file .v2c di password.<br/>Qui di seguito troverai " +
-                                    "alcune informazioni relative alla tua licenza:<br/><br/>ID Licenza: " + currentlicense.LicenseID +
-                                    " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " +
+                                    mail.Body = "Gentile Cliente,<br/><br/>Hai ricevuto un’email da DPT Licensing con un file .v2c di password." +
+                                    "<br/>Qui di seguito troverai alcune informazioni relative alla tua licenza:<br/><br/>ID Licenza: " +
+                                    currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " +
                                     currentlicense.MachineID + "<br/>File .c2v: " + l.file.FileName + "<br/>Prodotto: " +
                                     currentlicense.ProductName + "<br/>Versione: " + currentlicense.Version +
                                     "<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
@@ -1105,7 +1104,7 @@ namespace DPTnew.Controllers
                                 else
                                 {
                                     mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                                    mail.Body = "Dear User, <br/><br/>You should have just received a message from DPT Licensing containing a .v2c password file." +
+                                    mail.Body = "Dear User, <br/><br/>You received a message from DPT Licensing with a .v2c password file attached." +
                                         "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
                                         ")<br/>MachineID: " + currentlicense.MachineID + "<br/>.c2v file: " +
                                         l.file.FileName + "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
