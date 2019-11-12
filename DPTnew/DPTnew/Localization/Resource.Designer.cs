@@ -745,7 +745,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2019..
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2019 SP1..
         /// </summary>
         public static string Description2019ThinkDesign64bit {
             get {
@@ -754,7 +754,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2019 official version..
+        ///   Looks up a localized string similar to This section includes thinkPLM 2019 SP1 official version..
         /// </summary>
         public static string Description2019thinkPLM {
             get {
@@ -1816,7 +1816,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2019 64bit.
+        ///   Looks up a localized string similar to ThinkDesign 2019 64bit SP1.
         /// </summary>
         public static string Product2019ThinkDesign64bit {
             get {
@@ -1825,7 +1825,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2019.
+        ///   Looks up a localized string similar to thinkPLM 2019 SP1.
         /// </summary>
         public static string Product2019thinkPLM {
             get {
@@ -2050,7 +2050,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2019 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2019 SP1 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2158,7 +2158,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2019&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2019 SP1&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2167,7 +2167,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2019! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2019 SP1! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {

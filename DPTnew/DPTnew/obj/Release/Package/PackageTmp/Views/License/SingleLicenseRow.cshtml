@@ -27,7 +27,7 @@
                 ProductName: $("input[name=productName]").val(),
                 ArticleDetail: $("input[name=articleDetail]").val(),
                 LicenseType: $("input[name=licenseType]").val(),
-                Ancestor: $("input[name=ancestor]").val(),
+                Quantity: $("input[name=quantity]").val(),
                 MachineID: $("input[name=machineID]").val(),
                 Version: $("input[name=version]").val(),
                 Note: $("input[name=note]").val(),
@@ -107,9 +107,9 @@
                 </td>
             </tr>
             <tr>
-                <td>@Html.DisplayNameFor(model => model.Ancestor)</td>
+                <td>@Html.DisplayNameFor(model => model.Quantity)</td>
                 <td>
-                    <input type="text" name="ancestor" value="@Html.DisplayFor(modelItem => item.Ancestor)" readonly>
+                    <input type="number" name="quantity" value="@Html.DisplayFor(modelItem => item.Quantity)">
                 </td>
                 <td>@Html.DisplayNameFor(model => model.MachineID)</td>
                 <td>

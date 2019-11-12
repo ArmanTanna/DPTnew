@@ -61,11 +61,11 @@ namespace DptLicensingServer.Controllers
                     (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                     return CreateResponse(HttpStatusCode.BadRequest);
 
-                if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid))
+                if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid, currentlicense))
                 {
                     JObject errMessage = JObject.FromObject(new
                     {
-                        Password = "Please update the customer contact (a valid mail) before proceed!"
+                        Password = "Machine ID not registered in our system or the customer contact (mail) is not valid!"
                     });
                     return CreateResponse(HttpStatusCode.OK, errMessage);
                 }
@@ -147,16 +147,19 @@ namespace DptLicensingServer.Controllers
             }
         }
 
-        private static bool UnvalidMail(string machineid)
+        private static bool UnvalidMail(string machineid, LicenseView license)
         {
             using (var db = new DptContext())
             {
+                var comp = db.Companies.Single(x => x.AccountNumber == license.AccountNumber);
+                if (comp.AccountStatus.ToLowerInvariant().Contains("prospect"))
+                    return comp.Email.Contains("unknown");
+
                 var company = db.Licenses.FirstOrDefault(x => x.MachineID == machineid);
                 if (company == null)
                     return true;
 
-                var mail = db.Companies.Single(x => x.AccountNumber == company.AccountNumber).Email;
-                return mail.Contains("unknown");
+                return comp.Email.Contains("unknown");
             }
         }
 
@@ -450,11 +453,11 @@ namespace DptLicensingServer.Controllers
                         (currentlicense.MachineID == "ABCDEFGH" && currentlicense.Import == 0 && lf.Install_Legacy == 0))
                         return CreateResponse(HttpStatusCode.BadRequest);
 
-                    if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid1))
+                    if (currentlicense.SalesRep == "sener" && UnvalidMail(machineid1, currentlicense))
                     {
                         JObject errMessage = JObject.FromObject(new
                         {
-                            Password = "Please update the customer contact (a valid mail) before proceed!"
+                            Password = "Machine ID not registered in our system or the customer contact (mail) is not valid!"
                         });
                         return CreateResponse(HttpStatusCode.OK, errMessage);
                     }

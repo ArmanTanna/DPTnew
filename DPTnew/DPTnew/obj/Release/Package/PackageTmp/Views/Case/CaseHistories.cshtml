@@ -82,7 +82,7 @@
                     @if (item.File != null)
                     {
                         @Html.DisplayFor(modelItem => item.File.Split('\\')[item.File.Split('\\').Length - 1])
-                        <a href="@Url.Content(item.File.Replace("E:\\Case","T3-Case"))" target="_blank">@DPTnew.Localization.Resource.View_Menu_Download</a>
+                        <a href="@Url.Content(item.File.Split('(')[0].Replace("E:\\Case", "T3-Case").Substring(0, item.File.Split('(')[0].Length - 1))" target="_blank">@DPTnew.Localization.Resource.View_Menu_Download</a>
                         <a href="javascript: deleteFile('@item.CaseHistoryId')">@DPTnew.Localization.Resource.Delete</a>
                     }
                     else

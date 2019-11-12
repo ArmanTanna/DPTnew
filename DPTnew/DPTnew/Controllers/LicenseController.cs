@@ -142,6 +142,15 @@ namespace DPTnew.Controllers
                         query.FirstOrDefault().Import = 1;
                         db.SaveChanges();
                     }
+                    if (query.FirstOrDefault().LicenseFlag.ToLower() == "pool" && licSingleRow.Quantity > 1
+                        && query.FirstOrDefault().MachineID.Contains("ABCDEFGH")
+                        && Int32.Parse(query.FirstOrDefault().Version) > 2014 && query.FirstOrDefault().ArticleDetail != "pl"
+                        && query.FirstOrDefault().LicenseType.ToLower() == "floating" 
+                        && query.FirstOrDefault().SalesRep.ToLower() == "sener")
+                    {
+                        query.FirstOrDefault().Quantity = licSingleRow.Quantity;
+                        db.SaveChanges();
+                    }
                 }
             }
 

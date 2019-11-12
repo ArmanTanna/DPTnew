@@ -394,7 +394,7 @@
                     myTable.buttons(['.close']).enable(true);
                 if (caseRow.Status.toLowerCase() === "open" && "@ViewBag.UserRole.ToString().ToLower()" == "true")
                     myTable.buttons(['.reject']).enable(true);
-                if (caseRow.Status.toLowerCase() !== "frozen")
+                if (caseRow.Status.toLowerCase() !== "frozen" && caseRow.CaseId.indexOf("D") !== -1)
                     myTable.buttons(['.update']).enable(true);
                 myTable.buttons(['.history']).enable(true);
                 myTable.buttons(['.new']).disable();

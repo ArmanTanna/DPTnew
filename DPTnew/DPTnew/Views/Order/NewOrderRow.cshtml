@@ -209,7 +209,7 @@
             if ($("#lineType-choice").val() != "activation")
                 $("#lineType-choice").append("<option value='activation'>activation</option>");
             if ($("#lineType-choice").val() != "freeOfCharge")
-                $("#lineType-choice").append("<option value='freeOfCharge'>freeOfCharge</option>");
+                $("#lineType-choice").append("<option value='free of charge'>free Of Charge</option>");
 
             if ($("#newRenewal-choice").val() != "renewal" && $("#newRenewal-choice").val() === "")
                 $("#newRenewal-choice").append("<option value='renewal' selected>renewal</option>");
@@ -389,7 +389,7 @@
             <tr>
                 <td>@Html.DisplayNameFor(model => model.OrderNumber)</td>
                 <td>
-                    <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)">
+                    <input type="text" name="orderNumber" value="@Html.DisplayFor(modelItem => item.OrderNumber)" readonly>
                 </td>
                 <td>@Html.DisplayNameFor(model => model.idxx)</td>
                 <td>

@@ -29,10 +29,7 @@ function format(d) {
              '</table>';
 }
 
-
-
 $(document).ready(function () {
-
 
     var myTable = $('#companies').DataTable({
         "columns": [
@@ -61,7 +58,6 @@ $(document).ready(function () {
 
     });
 
-
     // Add event listener for opening and closing details
     $('#companies tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
@@ -87,6 +83,5 @@ $(document).ready(function () {
 { column_number: 4, filter_default_label: "Select" },
 { column_number: 5, filter_default_label: "Select" },
 { column_number: 6, filter_default_label: "Select" }]);
-
 
 });

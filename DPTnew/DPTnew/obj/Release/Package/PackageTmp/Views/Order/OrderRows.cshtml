@@ -233,10 +233,10 @@
                                 enabled: "@ViewBag.ButtonApprove.ToString().ToLower()" == "true"
                             },
                                 {
-                                    text: 'SendMail',
-                                    className: 'mail',
+                                    text: 'PremiumMail',
+                                    className: 'prmail',
                                     action: function () {
-                                        $.post("/Order/SendMail", {
+                                        $.post("/Order/PremiumMail", {
                                             orderNumber: $("input[name=orderNumber]").val()
                                         },
                                         function (result) {
@@ -258,7 +258,7 @@
                                             $("#sysmsg-dialog").dialog(pwdDialogConfig);
                                         });
                                     },
-                                    enabled: "@ViewBag.ButtonMail.ToString().ToLower()" == "true"
+                                    enabled: "@ViewBag.ButtonPrMail.ToString().ToLower()" == "true"
                                 }
                 ]
             });

@@ -220,8 +220,12 @@ namespace DPTnew.Controllers
                 else
                 {
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + newCase.Description;
-                    mail.Body = "Dear User, \n\nThe case #" + caseId + " has been inserted.\n\n" +
-                        "Details: " + newCase.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                    mail.Body = "Dear User, \nThe case #" + caseId + " has been inserted.\n\n" +
+                        "Details: \n" + newCase.Details +
+                        "\n\nTo add more information and upload files, we strongly recommend you to use the web site " +
+                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                        "address (is@dptcorporate.com)." +
+                        "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                         "\n\nBest regards,\n\nCustomer Care team";
                 }
                 try
@@ -305,8 +309,8 @@ namespace DPTnew.Controllers
                     var sr = from cmp in _db.Companies where cmp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select cmp;
                     mail.CC.Add(sr.FirstOrDefault().Email);
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been rejected - " + res.Description;
-                    mail.Body = "Dear User, \n\nThe case #" + caseId + " has been rejected.\n\n" +
-                        "Details: " + res.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                    mail.Body = "Dear User, \nThe case #" + caseId + " has been rejected.\n\n" +
+                        "Details: \n" + res.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                         "\n\nBest regards,\n\nCustomer Care team";
                 }
                 try
@@ -318,7 +322,7 @@ namespace DPTnew.Controllers
                     LogHelper.WriteLog("CaseController (Reject): caseID - " + res.CaseId + " -- " + e.Message + "-" + e.InnerException);
                 }
             }
-        
+
             return Json("Case Rejected: " + caseId, JsonRequestBehavior.AllowGet);
         }
 
@@ -368,8 +372,8 @@ namespace DPTnew.Controllers
                             ViewBag.ok1 = DPTnew.Localization.Resource.CaseModifyCCEngMsg;
                             return View("Success");
                         }
-                        var oldstatus = caseRow.Status;
-                        if (caseRow.Status.ToLower() == "open")
+                        var oldstatus = caseRow.Status; // added waiting on var 
+                        if (caseRow.Status.ToLower() == "open" || caseRow.Status.ToLower() == "waiting on var")
                             caseRow.Status = "Working";
 
                         if (ncase.Status.ToLower() != caseRow.Status.ToLower())
@@ -382,7 +386,7 @@ namespace DPTnew.Controllers
                             db.CaseLogs.Add(dcl);
                             db.SaveChanges();
 
-                            if (oldstatus.ToLower() != "open")
+                            if (oldstatus.ToLower() != "open" && oldstatus.ToLower() != "waiting on var")
                             {
                                 MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], ncase.Contact);
                                 if (ncase.Contact != ncase.CreatedBy)
@@ -408,9 +412,9 @@ namespace DPTnew.Controllers
                                             mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been closed";
                                             mail.Body = "Dear User,\n" + "We have closed the case.\n" +
                                                 "If you need more information please do not hesitate to contact us.\n" +
-                                                "To add more information and upload files, we strongly recommend you to use the web site " +
+                                                "\nTo add more information and upload files, we strongly recommend you to use the web site " +
                                                 "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
-                                                "address (noreply_thinkcare@think3.eu)." +
+                                                "address (is@dptcorporate.com)." +
                                                 "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case " +
                                                 " \nThank you for your patience and cooperation." +
                                                 "\n\nBest regards,\n\nCustomer Care team";
@@ -434,9 +438,9 @@ namespace DPTnew.Controllers
                                             mail.Body = "Dear User,\n" + "We have changed the case status to 'Waiting on R&D'." +
                                                 " Future updates from R&D will be available through the case status.\n" +
                                                 "If you need more information please do not hesitate to contact us.\n" +
-                                                "To add more information and upload files, we strongly recommend you to use the web site " +
+                                                "\nTo add more information and upload files, we strongly recommend you to use the web site " +
                                                 "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
-                                                "address (noreply_thinkcare@think3.eu)." +
+                                                "address (is@dptcorporate.com)." +
                                                 "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case " +
                                                 " \nThank you for your patience and cooperation." +
                                                 "\n\nBest regards,\n\nCustomer Care team";
@@ -456,8 +460,12 @@ namespace DPTnew.Controllers
                                         else
                                         {
                                             mail.Subject = "[DO NOT REPLY] Case #" + caseRow.CaseId + " has been updated - " + lchr.Description;
-                                            mail.Body = "Dear User, \n\nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
-                                                "Details: " + lchr.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                                            mail.Body = "Dear User, \nThe case #" + caseRow.CaseId + " status has changed.\n\n" +
+                                                "Details: \n" + lchr.Details +
+                                                "\n\nTo add more information and upload files, we strongly recommend you to use the web site " +
+                                                "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                                                "address (is@dptcorporate.com)." +
+                                                "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                                                 "\n\nBest regards,\n\nCustomer Care team";
                                         }
                                         break;
@@ -577,8 +585,12 @@ namespace DPTnew.Controllers
                                 else
                                 {
                                     mail.Subject = "[DO NOT REPLY] Case #" + chl.CaseId + " has been updated - " + chl.Description;
-                                    mail.Body = "Dear User, \n\nThe case #" + chl.CaseId + " status has changed.\n\n" +
-                                        "Details: " + chl.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                                    mail.Body = "Dear User, \nThe case #" + chl.CaseId + " status has changed.\n\n" +
+                                        "Details: \n" + chl.Details +
+                                        "\n\nTo add more information and upload files, we strongly recommend you to use the web site " +
+                                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
+                                        "address (is@dptcorporate.com)." +
+                                        "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                                         "\n\nBest regards,\n\nCustomer Care team";
                                 }
                                 try
@@ -609,6 +621,21 @@ namespace DPTnew.Controllers
                 try
                 {
                     var xx = db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList();
+                    foreach (var x in xx)
+                    {
+                        if (!string.IsNullOrEmpty(x.File))
+                        {
+                            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+                            double len = new FileInfo(x.File).Length;
+                            int order = 0;
+                            while (len >= 1024 && order < sizes.Length - 1)
+                            {
+                                order++;
+                                len = len / 1024;
+                            }
+                            x.File += " (" + String.Format("{0:0.##} {1}", len, sizes[order]) + ")";
+                        }
+                    }
                     return View(xx);
                     //return View(db.CaseHistories.Where(c => c.CaseId.Equals(caseId)).OrderByDescending(x => x.CaseHistoryId).ToList());
                 }

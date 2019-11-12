@@ -11,29 +11,44 @@
 </head>
 
 <body> 
-			<p>The floating licenses are linked to a specific license server. In order to manage them you
-        should go through a Server/Client (simple!) installation.</p>
+			<p>Floating licenses are linked to a specific license server. </p>
         <br>
-        <p><strong>Server</strong></p>
+        <p><strong><u>Server installation</u></strong></p>
 		<br>    
-        <p>1. Download the 'Safenet Sentinel Installer' from the Download Area 
-        of think3 Customer Care website and run the executable file.</p>
+        <p>1. Download the <strong>Floating Licensing Installer</strong> from the <strong>Download</strong> area 
+        of the DPT3Care website.</p>
         <br> 
         <img class="centerImage" width=100%
         src="../img/Floating_Server_1.png">
         </p>
         <br>
+
+		<p>2. To extract all files from the downloaded <strong>.iso file</strong>:<br>
+		a.	In <strong>Windows 10</strong>, simply right-click on the .iso file and <strong>Open</strong> it <strong>with Windows File Explorer</strong>.<br>
+        b.	In <strong>Windows 7</strong>, you can use the utility program <strong>7zip</strong> (free download).<br>
+		<br>
+		Run the <strong>DPT_Licensing_Setup.exe</strong> you will find in the folder where all extracted files are. Follow the steps of the <strong>Setup Wizard</strong> and complete the installation.
+		</p>
+        <br>
             
-        <p>2. Run <span class="hl">DPTGetC2V.exe</span>, which is in the following folder:<br />
-        <i>C:\Program Files (x86)\think3\2015.2\licensing\common\utilities</i>.<br />
-         Now follow the instructions provided in the FAQ <a href="../../../FaqUser/Index#generatec2v" target="_parent">How to generate a C2V file?</a>, 
-            <a href="../../../FaqUser/Index#getv2c" target="_parent">How can I get my V2C file?</a> and finally
-            <a href="../../../FaqUser/Index#usev2c" target="_parent">How can I use my V2C file?</a>.</p> 
+        <p>3. Now follow the instructions provided in the following FAQs: <a href="../../../Faq/Index#generatec2v" target="_parent">How to generate a C2V file?</a>, 
+            <a href="../../../Faq/Index#getv2c" target="_parent">How can I get my V2C file?</a> and finally
+            <a href="../../../Faq/Index#usev2c" target="_parent">How can I use my V2C file?</a>.</p> 
+		<p>Please remember that <strong>all the above-mentioned steps must be carried out on the server machine</strong>. </p>
         <br>
 		<br>
-        <p><strong>Client</strong></p>
-        <br>    
-        <p>First of all, you need to set the system environment variable <span class="hl">DPT_LIC_HOSTNAME</span>.<br>
+        <p><strong><u>Client installation</u></strong></p>
+        <br>   
+		<p>1. Download <strong>ThinkDesign</strong> from the <strong>Download</strong> area of the DPT3Care website.</p>
+		<br>
+		<p>2. To extract all files from the downloaded <strong>.iso file</strong>:<br>
+		a.	In <strong>Windows 10</strong>, simply right-click on the .iso file and <strong>Open</strong> it <strong>with Windows File Explorer</strong>.<br>
+        b.	In <strong>Windows 7</strong>, you can use the utility program <strong>7zip</strong> (free download).<br>
+		<br>
+		Run the <strong>DPT_TD_Setup.exe</strong> you will find in the folder where all extracted files are. Follow the steps of the <strong>Setup Wizard</strong> and complete the installation.
+		</p>
+        <br>
+        <p>3. Now you need to set the system environment variable <span class="hl">DPT_LIC_HOSTNAME</span>.<br>
 		<br>
 		<b>Control Panel</b> &rarr; <b>System</b> &rarr; <b>Advanced System Settings</b><br>
 		The <b>System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
@@ -62,28 +77,21 @@
              </tr>
           </tbody>
         </table>
-        <br>
-        <p>In the Sentinel ACC:</p><br>
-		<br> 
-		<img class="centerImage" 
-        src="../img/Floating2015_no_dongle_2.png">
-		
-        <br>
-        <br> 
-        <img class="centerImage" 
-        src="../img/Floating2015_no_dongle_3.jpg">
 
         <br>
 		<br>
+		<p>If you use on the same PC both local and floating licenses, you don’t need to define the DPT_LIC_HOSTNAME variable.</p>
+		<br>
 		<p>If you use a <span class="hl">VPN connection</span>, you just need to do as follows:</p> 
         <br> 
-		<p>In the ACC: go to <strong>Configuration &rarr; Access to Remote License Managers</strong> and write your server name in the
+		<p>In the <span class="hl">Sentinel Admin Control Center</span>: go to <strong>Configuration &rarr; Access to Remote License Managers</strong> and write your server name in the
         <strong>Remote License Search Parameters </strong>field.</p>
         <br>
 		<br> 
         <img class="centerImage" src="../img/Floating2015_VPN.jpg">
         <br>
 		<p>If you use instead a local network, you just need to set <i>DPT_LIC_HOSTNAME = server_name</i>.</p>
+		<br>
          
 
         

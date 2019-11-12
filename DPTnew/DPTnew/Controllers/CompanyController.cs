@@ -396,9 +396,137 @@ namespace DPTnew.Controllers
         }
 
         [HttpPost]
-        public ActionResult SendMail()
+        public JsonResult GetCompanyInfo(string accountNumber)
         {
-            return View();
+            if (string.IsNullOrEmpty(accountNumber))
+                return Json("Wrong AccountNumber", JsonRequestBehavior.AllowGet);
+            using (var db = new DptContext())
+            {
+                var exp = DateTime.Now.AddDays(30);
+                var query = from lic in db.Licenses
+                            where lic.AccountNumber == accountNumber && (lic.ArticleDetail.Contains("pl") || lic.ArticleDetail.Contains("plasasp"))
+                            && lic.MaintEndDate > DateTime.Now && lic.MaintEndDate < exp
+                            select lic;
+                if (query.Count() > 0)
+                    return Json("true", JsonRequestBehavior.AllowGet);
+                else
+                    return Json("false", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [Authorize(Roles = "Admin,Internal")]
+        public ActionResult FarewellMail(string accountNumber)
+        {
+            if (string.IsNullOrEmpty(accountNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot send the mail!";
+                return View("Success");
+            }
+            var email = "";
+            using (var db = new DptContext())
+            {
+                var exp = DateTime.Now.AddDays(30);
+                var query = from lic in db.Licenses
+                            where lic.AccountNumber == accountNumber && (lic.ArticleDetail.Contains("pl") || lic.ArticleDetail.Contains("plasasp"))
+                            && lic.MaintEndDate > DateTime.Now && lic.MaintEndDate < exp
+                            select lic;
+                if (query.Count() > 0)
+                {
+                    MailMessage mail = null;
+                    var lang = "";
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        if (string.IsNullOrEmpty(email))
+                        {
+                            var cmp = db.Companies.Where(y => y.AccountNumber == accountNumber).FirstOrDefault();
+                            email = cmp.Email;
+                            lang = cmp.Language;
+                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], email); ;
+                            var salesRep = from salrep in _db.SalesR where salrep.SalesRep == cmp.SalesRep select salrep;
+                            var sr = from comp in _db.Companies where comp.AccountNumber == salesRep.FirstOrDefault().AccountNumber select comp;
+
+                            var varmail = sr.FirstOrDefault().Email;
+                            mail.CC.Add(varmail);
+                            mail.Bcc.Add("Orders@dptcorporate.com");
+                            if (cmp.Language == "italian")
+                            {
+                                mail.Subject = "[DO NOT REPLY] Rinnovo manutenzione - " + cmp.AccountName.Trim();
+                                mail.Body = "Gentile Cliente,<br/><br/>il <b>contratto di manutenzione</b> delle " +
+                                    "seguenti licenze <b>scadrà nei prossimi 30 giorni</b> e non ci risulta ancora rinnovato.<br/><br/>" +
+                                    "<table border=1><tr><td>ID Licenza</td><td>Prodotto</td><td>Quantità</td>" +
+                                    "<td>Tipo</td><td>ID Macchina</td><td>Scadenza</td></tr>" +
+                                    "<tr><td>" + lic.LicenseID + "</td><td>" + lic.ProductName + "." + lic.ArticleDetail +
+                                    "</td><td>" + lic.Quantity + "</td><td>" + lic.LicenseType + "</td><td>" + lic.MachineID + "</td><td>" +
+                                    ((DateTime)lic.MaintEndDate).ToString("yyyy-MM-dd") + "</td></tr>";
+                            }
+                            else
+                            {
+                                mail.Subject = "[DO NOT REPLY] Maintenance contract renewal - " + cmp.AccountName.Trim();
+                                mail.Body = "Dear Customer,<br/><br/>the <b>maintenance contract</b> of the following " +
+                                    "license(s) will <b>expire in the next 30 days</b>, and it seems you have not renewed it yet.<br/><br/>" +
+                                    "<table border=1><tr><td>LicenseID</td><td>Item</td><td>Quantity</td><td>LicenseType</td>" +
+                                    "<td>MachineID</td><td>MaintEndDate</td></tr>" +
+                                    "<tr><td>" + lic.LicenseID + "</td><td>" + lic.ProductName + "." + lic.ArticleDetail +
+                                    "</td><td>" + lic.Quantity + "</td><td>" + lic.LicenseType + "</td><td>" + lic.MachineID + "</td><td>" +
+                                    ((DateTime)lic.MaintEndDate).ToString("yyyy-MM-dd") + "</td></tr>";
+                            }
+                        }
+                        else
+                            mail.Body += "<tr><td>" + lic.LicenseID + "</td><td>" + lic.ProductName + "." + lic.ArticleDetail +
+                                    "</td><td>" + lic.Quantity + "</td><td>" + lic.LicenseType + "</td><td>" + lic.MachineID + "</td><td>" +
+                                    ((DateTime)lic.MaintEndDate).ToString("yyyy-MM-dd") + "</td></tr>";
+                    }
+                    mail.Body += "</table><br/>";
+                    if (lang == "italian")
+                    {
+                        mail.Body += "Se si tratta solo di un disguido nella trasmissione dell’ordine di rinnovo, " +
+                            "chiediamo scusa per questo che potrebbe sembrare un sollecito.<br/>In tal caso, vi invitiamo ad ignorare " +
+                            "questo messaggio.<br/><br/>Se invece aveste deciso di non rinnovare il contratto di " +
+                            "manutenzione, ce ne dispiace. In questo caso saremmo interessati a conoscerne le ragioni, " +
+                            "in modo tale da poter eventualmente sopperire agli inconvenienti che vi hanno portato a " +
+                            "tale decisione, peraltro alla vigilia del rilascio della v.2020.<br/><br/>Naturalmente tale " +
+                            "decisione non vi impedirà di continuare ad utilizzare le vostre licenze permanenti.<br/>" +
+                            "Tuttavia, non sarà più possibile usufruire di alcuni servizi quali " +
+                            "l’aggiornamento, l’assistenza e l’esportazione delle licenze.<br/>" +
+                            "Qualora la vostra azienda fosse un Cliente Premium, vi ricordiamo che anche le <b>licenze " +
+                            "Premium</b>, mensili e gratuite, fino ad ora a vostra disposizione, non verranno rinnovate.<br/>" +
+                            "<br/>È nostro compito peraltro fare presente che da tempo <b>la nostra policy aziendale non " +
+                            "prevede più rientri in manutenzione in ritardo</b>, a meno che - contestualmente all’eventuale " +
+                            "richiesta di manutenzione di una licenza - un cliente non accetti la trasformazione della " +
+                            "stessa da permanente ad annuale, al costo del canone di manutenzione standard.<br/><br/>" +
+                            "Restiamo in attesa di un vostro gentile riscontro e inviamo i nostri più cordiali saluti." +
+                            "<br/><br/>DPT Accounting";
+                    }
+                    else
+                    {
+                        mail.Body += "If there has been a mistake in the transmission of the renewal order, we apologize " +
+                            "for sending this reminder. So, in this case, please disregard this message.<br/><br/>" +
+                            "If instead you decided not to renew your maintenance contract, we are very sorry for that.<br/>" +
+                            "We would like to know the reasons why you made such a choice, in order to possibly overcome " +
+                            "the problems that led you to this decision on the eve of the release of v.2020.<br/><br/>" +
+                            "Of course, your decision will not prevent you from continuing to use your permanent license(s).<br/>" +
+                            "However, it will no longer be possible to update and export your license(s) " +
+                            "and receive assistance.<br/>" +
+                            "We would also like to remind you that, if your company is a Premium Customer, the - monthly " +
+                            "and free - <b>Premium licenses</b> available to you until now, will not be renewed.<br/>" +
+                            "<br/>It is our duty to point out that <b>our company policy does not accept delayed maintenance " +
+                            "renewals</b> any more, unless the customer accepts the conversion of his/her permanent licenses " +
+                            "into annual subscriptions at the cost of the standard maintenance fee.<br/><br/>" +
+                            "Looking forward to hearing from you.<br/>Best regards,<br/><br/>DPT Accounting";
+                    }
+                    mail.IsBodyHtml = true;
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("CompanyController (FarewellMail): accountnumber - " + accountNumber + " -- " + e.Message + "-" + e.InnerException);
+                    }
+                }
+            }
+
+            return Json("Mail sent: " + email, JsonRequestBehavior.AllowGet);
         }
 
         [NonAction]
