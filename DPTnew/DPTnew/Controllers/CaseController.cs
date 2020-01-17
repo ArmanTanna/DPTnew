@@ -212,7 +212,8 @@ namespace DPTnew.Controllers
                 {
                     mail.Subject = "[このメールには返信しないでください] ご質問項目 #" + caseId + " が作成されました - " + newCase.Description;
                     mail.Body = "お客様。\n以下のご質問項目 #" + caseId + " が作成されたことをお知らせいたします。\n\n" +
-                        "詳細：\n" + newCase.Details + "\n\nご質問項目の詳細はこちらでご覧ください： https://dpt3.dptcorporate.com/Case" +
+                        "アカウント名: " + company.AccountName + "\nアカウント番号: " + company.AccountNumber +
+                        "\n\n詳細：\n" + newCase.Details + "\n\nご質問項目の詳細はこちらでご覧ください： https://dpt3.dptcorporate.com/Case" +
                         "\n\nご質問項目に追記したり、ファイルを追加したりする場合は、Web サイトから直接お願いいたします。" +
                         "このメールには返信しないでください。このメールに返信すると無効なメールアドレス（is@dptcorporate.com）" +
                         "へ返信されます。\n\n以上、よろしく願いいたします。\nシンクスリー・カスタマーケア";
@@ -220,13 +221,15 @@ namespace DPTnew.Controllers
                 else
                 {
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been inserted - " + newCase.Description;
-                    mail.Body = "Dear User, \nThe case #" + caseId + " has been inserted.\n\n" +
-                        "Details: \n" + newCase.Details +
-                        "\n\nTo add more information and upload files, we strongly recommend you to use the web site " +
-                        "and NOT to reply to this email. In the latter case you’ll get a fictitious non-existent " +
-                        "address (is@dptcorporate.com)." +
-                        "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
-                        "\n\nBest regards,\n\nCustomer Care team";
+                    mail.Body = "Dear User, <br/>The case #" + caseId + " has been inserted.<br/><br/>" +
+                        "Account name: " + company.AccountName + "<br/>Account number: " + company.AccountNumber +
+                        "<br/><br/>Details: <br/>" + newCase.Details +
+                        "<br/><br/>Please <b>do not reply</b> to this <b>automatic message</b>. This email was sent from" +
+                        "a notification-only address that cannot accept incoming emails.<br/>For updates on your Cases, " +
+                        "please check the <b>Case Management</b> section of your account on the DPT3Care website " +
+                        "(https://dpt3.dptcorporate.com)." +
+                        "<br/><br/>Best regards,<br/><br/>Customer Care team";
+                    mail.IsBodyHtml = true;
                 }
                 try
                 {
@@ -310,7 +313,8 @@ namespace DPTnew.Controllers
                     mail.CC.Add(sr.FirstOrDefault().Email);
                     mail.Subject = "[DO NOT REPLY] Case #" + caseId + " has been rejected - " + res.Description;
                     mail.Body = "Dear User, \nThe case #" + caseId + " has been rejected.\n\n" +
-                        "Details: \n" + res.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
+                        "Account name: " + company.AccountName + "\nAccount number:" + company.AccountNumber +
+                        "\n\nDetails: \n" + res.Details + "\n\nYou can browse your cases at https://dpt3.dptcorporate.com/Case" +
                         "\n\nBest regards,\n\nCustomer Care team";
                 }
                 try

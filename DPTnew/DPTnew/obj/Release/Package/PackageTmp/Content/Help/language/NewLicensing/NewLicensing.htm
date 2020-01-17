@@ -29,21 +29,21 @@ function viaMk() {
 
 <p><b>ATTENTION</b>: For details on licenses up to ThinkDesign 2014.1, please read <a href="https://dptsarl.sharepoint.com/Shared%20Documents/Marketing/Licensing/EN/Licensing_2014_%26_prior_versions.pdf?slrid=c9c02f9e-0071-4000-a166-67e4eddd1ade" target="_blank">this document</a>.</p>
 
-<p><u>Since USB dongles are no longer managed and supported by DPT, any reference to them in this guide must be considered obsolete</u>.</p>
+<!--<p><u>Since USB dongles are no longer managed and supported by DPT, any reference to them in this guide must be considered obsolete</u>.</p>-->
 
 <ul class="litleft">
     <li><a href="#INTRO"><b>1. Introduction</b></a></li>
     <li><a href="#UL"><b>2. User Licenses</b></a></li>
     <li><a href="#UPD"><b>3. Updating the Product Key with a renewal license</b></a></li>
     <li><a href="#FL"><b>4. Floating Licenses</b></a></li>
-    <li><a href="#FLND"><b>5. Floating Licenses (no dongle)</b></a></li>
+    <li><a href="#FLND"><b>5. Floating Licenses (no USB dongle)</b></a></li>
 </ul>
 <br>
 <hr color="silver">
 
 
 <h2 style="color:rgb(56,124,175); font-size:20px"><a name="INTRO"></a>1. Introduction<a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a></h2>
-<p> With the release of ThinkDesign 2015.2, we have introduced Sentinel, a new licensing system developed by the company Safenet, which will also result in the standardization of node-locked licenses, dongles and network/floating licenses.</p>
+<p> With the release of ThinkDesign 2015.2, we introduced Sentinel, a new licensing system developed by the company Gemalto, which also resulted in the standardization of node-locked licenses, dongles and network/floating licenses.</p>
 <p><b> think3 License Administrator (cladmin.exe), Machine ID and FlexNet licenses will not be used anymore</b>.<br>
 In addition, <b>ThinkDesign will not start in demo mode if no license is registered</b>. In fact, after the splash screen, the program will quickly shut down, showing this error dialog box:</p>
 <br>
@@ -54,45 +54,50 @@ In addition, <b>ThinkDesign will not start in demo mode if no license is registe
 <a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
 <h2 style="color:rgb(56,124,175); font-size:20px"><a name="UL"></a>2. User Licenses</h2>
 
-<p>The first time you install ThinkDesign on your PC, the service <b>Sentinel Run Time Environment</b> will be installed as well. After running the program and the "Valid license not found" error message, you will be redirected to the "new License Administrator", which is called <b>Admin Control Center</b> (ACC). <br>
-If the service is correctly installed, you should be able to see a page with the <b>Safenet</b> logo.</p>
+<p>The first time you install ThinkDesign on your PC, the service <i>Sentinel Run Time Environment</i> will be installed as well. After running the program and the "Valid license not found" error message, you will be redirected to the "new License Administrator", which is called <b>Sentinel Admin Control Center</b> (ACC). <br>
+If the service is correctly installed, you should be able to see the following page.</p>
 <br>
-<p align="left" style="margin-bottom:0;"><img src="images/2.1_Licensing.png"></p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/2.1_Licensing.png"></p>
 <br>
 <br>
 <ol>
 <li>To ask for a ThinkDesign license, you need first to generate the <b>.c2v</b> (Customer-to-Vendor) file.<br>
 <br>
-<u>a. Instructions to generate the .c2v file in case your license is related to a single PC</u><br>
+<u>a. Instructions to generate the .c2v file in case your license is tied to a single PC</u><br>
 <u>b. Instructions to generate the .c2v file after receiving the new dongle</u><br>
 <br>
-<p style="color:rgb(99,169,216)"><b>a. License related to a single PC</b></p>
-<p>Run the executable file <b>DPTGet.C2V.exe</b> that is in the installation folder of ThinkDesign (ex: <i>C:\program files\think3\thindesign 2017\common\utilities</i>). <br>
+<p style="color:rgb(99,169,216)"><b>a. License tied to a single PC</b></p>
+<ul>
+<li>If you downloaded <b>ThinkDesign 2018 or a successive version</b>, during the installation, a <b>.c2v file</b> is automatically created on your <b>Desktop</b>. The file will be named after your machine plus a code number, for example: XXXXXX_110137.c2v.</li>
+<br>
+<li>If you installed a <b>prior version (2015-2017)</b>, proceed as follows. <br>
+Run the executable file <b>DPTGet.C2V.exe</b> that is in the installation folder of ThinkDesign (ex: <i>C:\program files\think3\thindesign 2017\common\utilities</i>). <br>
 The shell window will appear indicating the folder where the .c2v file has been saved, which usually is the <b>Temp</b> folder. <br>
-The file will be named with your machine name, let's say "DellTower5810.c2v". </p>
-<p>If you have difficulty in finding the .c2v file, just follow these steps: click <b>Start</b>, select the <b>Run</b> command. A dialog box with a search bar will appear, type "%temp%" and then click "Ok". <br>
-In this way, the <b>Temp</b> folder will open. Sort files by the last modified. The first file on the list will be the .C2V file you are looking for.</p>
+<br>
+If you have difficulty in finding the .c2v file, just follow these steps: click <b>Start</b>, select the <b>Run</b> command. A dialog box with a search bar will appear, type "%temp%" and then click "Ok". <br>
+In this way, the <b>Temp</b> folder will open. Sort files by the last modified. The first file on the list will be the .c2v file you are looking for.</li>
+</ul>
 <br>
 <p style="color:rgb(99,169,216)"><b>b. New dongle (hardware key):</b></p>
 <p>After installing ThinkDesign, insert the dongle into the USB slot and the dongle should light up.<br>
 In the <b>Admin Control Center</b> (ACC), select <b>Sentinel Keys</b> in the left-side menu. A table will appear. <br>
-In the row where the hardware key has a <b>Driverless</b> Configuration, select the <b>C2V</b> button in the <b>Actions</b> column (the Key ID should match the one on the label of the key sent by DPT).</p>
+In the row where the hardware key has a <b>Driverless Configuration</b>, select the <b>C2V</b> button in the <b>Actions</b> column.</p>
 <br>
-<p align="left" style="margin-bottom:0;"><img border=1 src="images/2.2_Licensing.jpg"></p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/2.2_Licensing.png"></p>
 <br>
-<p>Then click <b>Download .C2V File</b>. If you didn't change your default download location, the file you've downloaded will be automatically saved in the <b>Downloads</b> folder.</p>
+<p>Then click <b>Download C2V File</b>. If you didn't change your default download location, the file you've downloaded will be automatically saved in the <b>Downloads</b> folder.</p>
 <br>
-<p align="left" style="margin-bottom:0;"><img border=1 src="images/2.3_Licensing.jpg"></p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/2.3_Licensing.png"></p>
 <br>
 </li>
 <br>
-<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@think3.eu</span> attaching the .c2v file you generated.</li>
+<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@dptcorporate.com</span> attaching the .c2v file you generated.</li>
 <br>
-<li>You will receive an email with (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
-<b>xxx</b> is the license <b>Key ID</b>, while the extension .v2c stands for Vendor-to-Customer. Save this xxx.v2c in any temporary folder.</li>
+<li>You will receive an email (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
+<b>xxx</b> is the license <b>Key ID</b>, while the V2C extension stands for Vendor-to-Customer. </li>
 <br>
-<li>Attach the xxx.v2c in the ACC.<br>
-You can launch the ACC from ThinkDesign installation folder by running the <b>Admin_Control_Center</b> URL, or you can start ThinkDesign and then be redirected to the ACC as seen before. You can launch it also by typing in your Internet browser <a href="http://localhost:1947" target="_blank">http://localhost:1947</a>.<br>
+<li>Attach the .v2c file to the <b>Sentinel Admin Control Center</b> (ACC).<br>
+You can launch the ACC from ThinkDesign installation folder by running the <b>Admin_Control_Center</b> URL (<i>C:\program files\think3\2019.1\common</i>) or by typing <a href="http://localhost:1947" target="_blank">http://localhost:1947</a> in your Internet browser.<br>
 <br>
 <img border=1 src="images/2.4_Licensing.png"><br>
 <br>
@@ -100,13 +105,13 @@ In the <b>Update/Attach</b> section, you can apply the .v2c file to activate the
 <br>
 <img border=1 src="images/2.5_Licensing.png"><br>
 <br>
-After this, you will see the license in the <b>Products</b> section. In the example below, it's a TDProfessional 2015.2 valid only for 30 days.<br>
-<br>
+After this, you will see the license in the <b>Products</b> section. <br>
+<!--<br>
 <img border=1 src="images/2.6_Licensing.png"><br>
 <br>
 <img border=1 src="images/2.7_Licensing.png"><br>
 <br>
-<img border=1 src="images/2.8_Licensing.png"><br>
+<img border=1 src="images/2.8_Licensing.png"><br>-->
 <br>
 </li>
 </ol>
@@ -115,7 +120,7 @@ After this, you will see the license in the <b>Products</b> section. In the exam
 <hr color="silver">
 <a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
 <h2 style="color:rgb(56,124,175); font-size:20px"><a name="UPD"></a>3. Updating the Product Key with a renewal license</h2>
-<p>In case of product updates or renewals of the maintenance contract, we will generate new licenses to be added on the same Product Key. Simply send an email to <span style="color:rgb(99,169,216)">pwdrelease@think3.eu</span> and let us know which user needs a new password. We will send you another .v2c file.</p>
+<p>In case of product updates or renewals of the maintenance contract, we will generate new licenses to be added on the same Product Key. Simply send an email to <span style="color:rgb(99,169,216)">pwdrelease@dptcorporate.com</span> and let us know which user needs a new password. We will send you another .v2c file.</p>
 <br>
 
 <hr color="silver">
@@ -123,31 +128,38 @@ After this, you will see the license in the <b>Products</b> section. In the exam
 <h2 style="color:rgb(56,124,175); font-size:20px"><a name="FL"></a>4. Floating Licenses</h2>
 <p>The floating licenses are linked to a specific license server.</p>
 <br>
-<p style="color:rgb(99,169,216)"><b> Server Installation</b></p>
+<p style="color:rgb(99,169,216)"><b>Server Installation</b></p>
 <ol>
-<li>Download the "Floating Licensing Installer" from the Download area of DPT3Care website and run the executable file.</li>
+<li>Download the <b>Floating Licensing Installer</b> from the <b>Download</b> area of the <span style="color:rgb(99,169,216)">DPT3Care website</span>.</li>
 <br>
 <img border=1 src="images/4.1_Licensing.png"><br>
+<br><br>
+<li>To extract all files from the downloaded <b>.iso file</b>:<br>
+a. In <b>Windows 10</b>, simply right-click on the .iso file and <b>Open</b> it <b>with Windows File Explorer</b>.<br>
+b. In <b>Windows 7</b>, you can use the utility program <b>7zip</b> (free download). <br>
+<br>
+Run the <b>DPT_Licensing_Setup.exe</b> you will find in the folder where all extracted files are.<br>
+Follow the steps of the <b>Setup Wizard</b> and complete the installation.</li>
 <br>
 <li>Insert the dongle into the USB slot and the dongle should light up.<br>
-In the <b>Admin Control Center</b> (ACC), select Sentinel Keys in the left-side menu. A table will appear. <br> 
-In the row where the hardware key has a <b>Driverless</b> Configuration, select the .c2v button in the <b>Actions</b> column (the Key ID should match the one on the label of the key sent by DPT).<br>
+In the <b>Admin Control Center</b> (ACC), select <b>Sentinel Keys</b> in the left-side menu. A table will appear. <br> 
+In the row where the hardware key has a <b>Driverless Configuration</b>, select the <b>C2V</b> button in the <b>Actions</b> column.<br>
 <br>
-<img border=1 src="images/4.2_Licensing.jpg"><br>
+<img border=1 src="images/4.2_Licensing.png"><br>
 <br>
 Then click <b>Download C2V File</b>. If you didn't change your default download location, the file you've downloaded will be automatically saved in the <b>Downloads</b> folder.<br>
 <br>
-<img border=1 src="images/4.3_Licensing.jpg"><br>
+<img border=1 src="images/4.3_Licensing.png"><br>
 <br>
 </li>
 <br>
-<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@think3.eu</span> attaching the .c2v file you generated.</li>
+<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@dptcorporate.com</span> attaching the .c2v file you generated.</li>
 <br>
-<li>You will receive an email with (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
-<b>xxx</b> is the license <b>Key ID</b>, while the extension .v2c stands for Vendor-to-Customer. Save this xxx.v2c in any temporary folder.</li>
+<li>You will receive an email (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
+<b>xxx</b> is the license <b>Key ID</b>, while the V2C extension stands for Vendor-to-Customer.</li>
 <br>
-<li>Attach the xxx.v2c in the ACC.<br>
-You can launch the ACC from ThinkDesign installation folder by running the <b>Admin_Control_Center</b> URL, or you can start ThinkDesign and then be redirected to the ACC as seen before. You can launch it also by typing in your Internet browser <a href="http://localhost:1947" target="_blank">http://localhost:1947</a>.<br>
+<li>Attach the .v2c file to the <b>Sentinel Admin Control Center</b> (ACC).<br>
+You can launch the ACC from the installation folders by running the <b>Admin_Control_Center</b> URL or by typing <a href="http://localhost:1947" target="_blank">http://localhost:1947</a> in your Internet browser.<br>
 <br>
 <img border=1 src="images/2.4_Licensing.png"><br>
 <br>
@@ -156,21 +168,34 @@ In the <b>Update/Attach</b> section, you can apply the .v2c file to activate the
 <img border=1 src="images/2.5_Licensing.png"><br>
 <br>
 After this, you will see the license in the <b>Products</b> section.<br>
-<br>
+<!--<br>
 <img border=1 src="images/4.4_Licensing.png">
 <br>
-<img border=1 src="images/4.5_Licensing.png">
+<img border=1 src="images/4.5_Licensing.png">-->
 <br>
 </li>
 </ol>
 <br>
 <p style="color:rgb(99,169,216)"><b>Client Installation</b></p>
-<p>First of all, you need to set the system environment variable <b>DPT_LIC_HOSTNAME</b>.</p>
-<p><b>Control Panel</b> &#8680;  <b>System</b> &#8680; <b>Advanced System Settings</b></p>
-<p>The <b<System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
-In the <b>System variables</b> section, click the <b>New</b> button.</p>
-<p><b>DPT_LIC_HOSTNAME</b> corresponds to the <b>Variable name</b> and it should be set according to the following table.</p> 
-<p>
+<ol>
+<li>Download <b>ThinkDesign</b> from the <b>Download</b> area of the <span style="color:rgb(99,169,216)">DPT3Care website</span>.</li>
+<br>
+<img border=1 src="images/4.8_Licensing.png"><br>
+<br><br>
+<li>To extract all files from the downloaded <b>.iso file</b>:<br>
+a. In <b>Windows 10</b>, simply right-click on the .iso file and <b>Open</b> it <b>with Windows File Explorer</b>.<br>
+b. In <b>Windows 7</b>, you can use the utility program <b>7zip</b> (free download). <br>
+<br>
+Run the <b>DPT_TD_Setup.exe</b> you will find in the folder where all extracted files are.<br>
+Follow the steps of the <b>Setup Wizard</b> and complete the installation.</li>
+<br>
+<li>Now you need to set the system environment variable <b>DPT_LIC_HOSTNAME</b>.<br>
+<b>Control Panel</b> &#8680;  <b>System</b> &#8680; <b>Advanced System Settings</b><br>
+The <b>System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
+<br>
+In the <b>System variables</b> section, click the <b>New</b> button.<br>
+<b>DPT_LIC_HOSTNAME</b> corresponds to the <b>Variable name</b> and it should be set according to the following table.</li>
+<br>
 <table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="" width="" id="">
 <tr valign="top" style="font-variant: small-caps; font-weight: bold;">
 <td bgcolor="" rowspan="1">Variable value</td>
@@ -184,41 +209,58 @@ In the <b>System variables</b> section, click the <b>New</b> button.</p>
 <td><b> Server_Name</b></td>
 <td>ThinkDesign uses only floating licenses </td>
 </tr>
-</table></p>
+</table>
 <br>
-<p>If you use on the same PC both local and floating licenses, you don't need to define the DPT_LIC_HOSTNAME variable.</p>
-<p>In the ACC:<p>
+<br>
+If you use on the same PC both local and floating licenses, you don't need to define the DPT_LIC_HOSTNAME variable.<br>
+<!--<p>In the ACC:<p>
 <p align="left" style="margin-bottom:0;"><img border=1 src="images/4.6_Licensing.png"></p>
 <br>
-<p align="left" style="margin-bottom:0;"><img border=1 src="images/4.7_Licensing.png"></p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/4.7_Licensing.png"></p>-->
 <br>
-
-
+If you use a <b>VPN connection</b>, you just need to do as follows.<br>
+In the <b>ACC</b>: go to <b>Configuration</b> &#8680; <b>Access to Remote License Managers</b> and write your server name in the <b>Remote License Search Parameters</b> field.<br>
+<br>
+<img border=1 src="images/4.9_Licensing.png"><br>
+<br>
+If you use instead a local network, you just need to set <i>DPT_LIC_HOSTNAME = server_name</i>.
+</li>
+</ol>
+<br>
 <hr color="silver">
 <a href="#top"><img border="0" src="../../images/general/Top1.gif" align="right"></a>
-<h2 style="color:rgb(56,124,175); font-size:20px"><a name="FLND"></a>5. Floating Licenses (no dongle)</h2>
+<h2 style="color:rgb(56,124,175); font-size:20px"><a name="FLND"></a>5. Floating Licenses (no USB dongle)</h2>
 <p>The floating licenses are linked to a specific license server.</p>
 <br>
 <p style="color:rgb(99,169,216)"><b> Server Installation</b></p>
 <ol>
-<li>Download the "Floating Licensing Installer" from the Download area of DPT3Care website and run the executable file.</li>
+<li>Download the <b>Floating Licensing Installer</b> from the <b>Download</b> area of the <span style="color:rgb(99,169,216)">DPT3Care website</span>.</li>
 <br>
 <img border=1 src="images/4.1_Licensing.png"><br>
+<br><br>
+<li>To extract all files from the downloaded <b>.iso file</b>:<br>
+a. In <b>Windows 10</b>, simply right-click on the .iso file and <b>Open</b> it <b>with Windows File Explorer</b>.<br>
+b. In <b>Windows 7</b>, you can use the utility program <b>7zip</b> (free download). <br>
 <br>
-<li>Run the executable file <b>DPTGet.C2V.exe</b> that is in the installation folder of ThinkDesign (ex: <i>C:\program files\think3\thindesign 2017\common\utilities</i>). <br>
-The shell window will appear indicating the folder where the .c2v file has been saved, which usually is the <b>Temp</b> folder. <br>
-The file will be named with your machine name, let's say "DellTower5810.c2v".<br>
+Run the <b>DPT_Licensing_Setup.exe</b> you will find in the folder where all extracted files are.<br>
+Follow the steps of the <b>Setup Wizard</b> and complete the installation.</li>
+<br>
+<li>If you downloaded <b>ThinkDesign 2018 or a successive version</b>, during the installation, a <b>.c2v file</b> is automatically created on your <b>Desktop</b>. The file will be named after your machine plus a code number, for example: XXXXXX_110137.c2v.<br>
+<br>
+If you installed a <b>prior version (2015-2017)</b>, proceed as follows. <br>
+Run the executable file <b>DPTGet.C2V.exe</b> that is in the installation folder of the Floating Licensing Installer (ex: <i>C:\Program Files (x86)\think3\2016.1\licensing\common\utilities</i>).
+A command shell window will appear indicating the folder where the C2V file has been saved, which usually is the <b>Temp</b> folder. <br>
+<br>
 If you have difficulty in finding the .c2v file, just follow these steps: click <b>Start</b>, select the <b>Run</b> command. A dialog box with a search bar will appear, type "%temp%" and then click "Ok". <br>
-In this way, the <b>Temp</b> folder will open. Sort files by the last modified. The first file on the list will be the .c2v file you are looking for.<br>
-</li>
+In this way, the <b>Temp</b> folder will open. Sort files by the last modified. The first file on the list will be the .c2v file you are looking for.</li>
 <br>
-<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@think3.eu</span> attaching the .c2v file you generated.</li>
+<li>Send an email to <span style="color:rgb(99,169,216)">pwdrelease@dptcorporate.com</span>, attaching the .c2v file you generated.</li>
 <br>
-<li>You will receive an email with (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
-<b>xxx</b> is the license <b>Key ID</b>, while the extension .v2c stands for Vendor-to-Customer. Save this xxx.v2c in any temporary folder.</li>
+<li>You will receive an email (<b>License Certificate</b>) from DPT Licensing that provides you with a file named <b>xxx.v2c</b>. <br>
+<b>xxx</b> is the license <b>Key ID</b>, while the V2C extension stands for Vendor-to-Customer.</li>
 <br>
-<li>Attach the xxx.v2c in the ACC.<br>
-You can launch the ACC from ThinkDesign installation folder by running the <b>Admin_Control_Center</b> URL, or you can start ThinkDesign and then be redirected to the ACC as seen before. You can launch it also by typing in your Internet browser <a href="http://localhost:1947" target="_blank">http://localhost:1947</a>.<br>
+<li>Attach the .v2c file to the <b>Sentinel Admin Control Center</b> (ACC).<br>
+You can launch the ACC from the installation folders by running the <b>Admin_Control_Center</b> URL or by typing <a href="http://localhost:1947" target="_blank">http://localhost:1947</a> in your Internet browser.<br>
 <br>
 <img border=1 src="images/2.4_Licensing.png"><br>
 <br>
@@ -227,21 +269,33 @@ In the <b>Update/Attach</b> section, you can apply the .v2c file to activate the
 <img border=1 src="images/2.5_Licensing.png"><br>
 <br>
 After this, you will see the license in the <b>Products</b> section.<br>
-In the example below, it's a TDProfessional 2015.2 valid until a specific date.<br>
 <br>
-<img border=1 src="images/5.1_Licensing.png"><br>
-<br>
+<!--<img border=1 src="images/5.1_Licensing.png"><br>
+<br>-->
 </li>
 </ol>
 
 <p style="color:rgb(99,169,216)"><b>Client Installation</b></p>
-<p>First of all, you need to set the system environment variable <b>DPT_LIC_HOSTNAME</b>.</p>
-<p><b>Control Panel</b> &#8680;  <b>System</b> &#8680; <b>Advanced System Settings</b></p>
-<p>The <b<System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
-In the <b>System variables</b> section, click the <b>New</b> button.</p>
-<p><b>DPT_LIC_HOSTNAME</b> corresponds to the <b>Variable name</b> and it should be set according to the following table. </p>
-<p>
-<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3">
+<ol>
+<li>Download <b>ThinkDesign</b> from the <b>Download</b> area of the <span style="color:rgb(99,169,216)">DPT3Care website</span>.</li>
+<br>
+<img border=1 src="images/4.8_Licensing.png"><br>
+<br><br>
+<li>To extract all files from the downloaded <b>.iso file</b>:<br>
+a. In <b>Windows 10</b>, simply right-click on the .iso file and <b>Open</b> it <b>with Windows File Explorer</b>.<br>
+b. In <b>Windows 7</b>, you can use the utility program <b>7zip</b> (free download). <br>
+<br>
+Run the <b>DPT_TD_Setup.exe</b> you will find in the folder where all extracted files are.<br>
+Follow the steps of the <b>Setup Wizard</b> and complete the installation.</li>
+<br>
+<li>Now you need to set the system environment variable <b>DPT_LIC_HOSTNAME</b>.<br>
+<b>Control Panel</b> &#8680;  <b>System</b> &#8680; <b>Advanced System Settings</b><br>
+The <b>System Properties</b> window opens, select now the <b>Advanced</b> tab and click the <b>Environment variables</b> button.<br>
+<br>
+In the <b>System variables</b> section, click the <b>New</b> button.<br>
+<b>DPT_LIC_HOSTNAME</b> corresponds to the <b>Variable name</b> and it should be set according to the following table.</li>
+<br>
+<table border="1" bordercolor="#C0C0C0" cellspacing="0" cellpadding="3" summary="" width="" id="">
 <tr valign="top" style="font-variant: small-caps; font-weight: bold;">
 <td bgcolor="" rowspan="1">Variable value</td>
 <td bgcolor="" rowspan="1">Description</td>
@@ -254,21 +308,23 @@ In the <b>System variables</b> section, click the <b>New</b> button.</p>
 <td><b> Server_Name</b></td>
 <td>ThinkDesign uses only floating licenses </td>
 </tr>
-</table></p>
+</table>
 <br>
-<p>If you use on the same PC both local and floating licenses, you don't need to define the DPT_LIC_HOSTNAME variable.</p>
-<p>In the ACC:</p>
-
-<p align="left" style="margin-bottom:0;"><img border=1 src="images/5.2_Licensing.png"></p>
 <br>
-<p align="left" style="margin-bottom:0;"><img border=1 src="images/5.3_Licensing.jpg"></p>
+If you use on the same PC both local and floating licenses, you don't need to define the DPT_LIC_HOSTNAME variable.<br>
+<!--<p>In the ACC:<p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/4.6_Licensing.png"></p>
 <br>
-<p>If you use a <b>VPN connection</b>, you just need to do as follows:</p>
-<p>In the ACC: go to <b>Configuration</b> &#8680;  <b>Access to Remote License Managers</b> and write your server name in the <b>Remote License Search Parameters</b> field.</p>
+<p align="left" style="margin-bottom:0;"><img border=1 src="images/4.7_Licensing.png"></p>-->
 <br>
-<p align="left" style="margin-bottom:0;"><img src="images/5.4_Licensing.jpg"></p>
+If you use a <b>VPN connection</b>, you just need to do as follows.<br>
+In the <b>ACC</b>: go to <b>Configuration</b> &#8680; <b>Access to Remote License Managers</b> and write your server name in the <b>Remote License Search Parameters</b> field.<br>
 <br>
-<p>If you use instead a local network, you just need to set <i>DPT_LIC_HOSTNAME = server_name</i>.</p>
+<img border=1 src="images/4.9_Licensing.png"><br>
+<br>
+If you use instead a local network, you just need to set <i>DPT_LIC_HOSTNAME = server_name</i>.
+</li>
+</ol>
 <br>
 
 <hr color="silver">

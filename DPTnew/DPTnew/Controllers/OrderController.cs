@@ -113,7 +113,8 @@ namespace DPTnew.Controllers
                     orderRow.InvoicedNumber = sr.AccountNumber.Trim();
                     orderRow.InvoicedName = sr.AccountName.Trim();
                     orderRow.SalesRep = company.SalesRep.Trim();
-                    if (orderRow.ProductName.ToLower() == "dongle" || orderRow.ProductName.ToLower() == "penalty")
+                    if (orderRow.ProductName.ToLower() == "dongle" || orderRow.ProductName.ToLower() == "penalty"
+                        || orderRow.ProductName.ToLower() == "service")
                         orderRow.LicenseID = "NA";
                     if (orderRow.ArticleDetail.ToLower() == "pl")
                         orderRow.EndDate = orderRow.StartDate;
@@ -158,13 +159,13 @@ namespace DPTnew.Controllers
 
                     if (string.IsNullOrEmpty(orderRow.OrderNumber))
                     {
-                        if (DateTime.Now.Year == 2019)
+                        if (DateTime.Now.Year == 2021)
                         {
-                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("V")).Max(x => x.OrderNumber);
+                            var maxq = db.Orders.Where(u => u.OrderNumber.StartsWith("X")).Max(x => x.OrderNumber);
                             if (maxq == null)
-                                orderRow.OrderNumber = "V000001";
+                                orderRow.OrderNumber = "X000001";
                             else
-                                orderRow.OrderNumber = "V" + (Convert.ToInt64(maxq.Split('V')[1]) + 1).ToString("D6");
+                                orderRow.OrderNumber = "X" + (Convert.ToInt64(maxq.Split('X')[1]) + 1).ToString("D6");
                         }
                         if (DateTime.Now.Year == 2020)
                         {
@@ -370,6 +371,8 @@ namespace DPTnew.Controllers
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000001").FirstOrDefault();
                         if (o.ProductName == "penalty")
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000002").FirstOrDefault();
+                        if (o.ProductName == "service")
+                            lic = db.Licenses.Where(l => l.LicenseID == "L00000042").FirstOrDefault();
 
                         if (string.IsNullOrEmpty(destmail))
                         {
@@ -439,6 +442,8 @@ namespace DPTnew.Controllers
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000001").FirstOrDefault();
                         if (o.ProductName == "penalty")
                             lic = db.Licenses.Where(l => l.LicenseID == "L00000002").FirstOrDefault();
+                        if (o.ProductName == "service")
+                            lic = db.Licenses.Where(l => l.LicenseID == "L00000042").FirstOrDefault();
 
                         if (string.IsNullOrEmpty(destmail))
                         {
@@ -763,6 +768,9 @@ namespace DPTnew.Controllers
                     email = cmp.Email;
                     var licprm = db.Licenses.Where(x => x.AccountNumber == cmp.AccountNumber
                         && x.LicenseFlag == "premium" && x.MachineID.Contains("ABCDEFGH")).Count();
+                    if (licprm < 1)
+                        return Json("There are no premium licenses. Cannot sent the mail!", JsonRequestBehavior.AllowGet);
+
                     MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], email); ;
                     var varmail = db.Companies.Where(x => x.AccountNumber == query.FirstOrDefault().InvoicedNumber).FirstOrDefault().Email;
                     mail.CC.Add(varmail);
@@ -772,7 +780,7 @@ namespace DPTnew.Controllers
 
                     if (cmp.Language == "italian")
                     {
-                        mail.Subject = "[DO NOT REPLY] Licenze Premium " + cmp.AccountName;
+                        mail.Subject = "[DO NOT REPLY] Licenze Premium " + cmp.AccountName + " (" + cmp.AccountNumber + ")";
                         mail.Body = "Gentile Cliente,<br/><br/>La ringraziamo per il Suo ordine.<br/><br/>" +
                         "La informiamo che nella sezione <b>Licenses</b> del sito DPT3Care (https://dpt3.dptcorporate.com) " +
                         "troverà, oltre alla/e licenza/e regolarmente acquistata/e, anche <b>" + licprm + " Licenza/e Premium</b>: " +
@@ -787,7 +795,7 @@ namespace DPTnew.Controllers
                     }
                     else
                     {
-                        mail.Subject = "[DO NOT REPLY] Premium Licenses " + cmp.AccountName;
+                        mail.Subject = "[DO NOT REPLY] Premium Licenses " + cmp.AccountName + " (" + cmp.AccountNumber + ")";
                         mail.Body = "Dear User,<br/><br/>Thank you for your order.<br/><br/>" +
                         "Please note that, besides the purchased license/s, in the <b>Licenses</b> section of " +
                         "DPT3Care website (https://dpt3.dptcorporate.com) you’ll also find <b>" + licprm +
@@ -861,6 +869,8 @@ namespace DPTnew.Controllers
                     products.Add("dongle");
                 if (!products.Contains("penalty"))
                     products.Add("penalty");
+                if (!products.Contains("service"))
+                    products.Add("service");
                 return Json(products, JsonRequestBehavior.AllowGet);
             }
         }
@@ -882,6 +892,11 @@ namespace DPTnew.Controllers
                 {
                     var penalty = db.Licenses.Where(l => l.LicenseID == "L00000002").ToList();
                     return Json(penalty, JsonRequestBehavior.AllowGet);
+                }
+                if (productName == "service")
+                {
+                    var service = db.Licenses.Where(l => l.LicenseID == "L00000042").ToList();
+                    return Json(service, JsonRequestBehavior.AllowGet);
                 }
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 var lf = db.LicFlag.Where(x => x.Order == 1).Select(k => k.LicenseFlag).ToList();

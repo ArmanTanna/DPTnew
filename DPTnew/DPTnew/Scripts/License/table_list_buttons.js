@@ -327,11 +327,11 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                               headers = myTable.rows('.selected').data()[0];
                               var $psw = $("#upgver");
                               $psw.text("");
-                              if (headers.AccountNumber === "T3-0073628") {
-                                  $("#upgrade-choice").append($('<option></option>').val(2015).html(2015));
-                                  $("#upgrade-choice").append($('<option></option>').val(2016).html(2016));
-                                  $("#upgrade-choice").append($('<option></option>').val(2017).html(2017));
-                              }
+                              //if (headers.AccountNumber === "T3-0073628") {
+                              //    $("#upgrade-choice").append($('<option></option>').val(2015).html(2015));
+                              //    $("#upgrade-choice").append($('<option></option>').val(2016).html(2016));
+                              //    $("#upgrade-choice").append($('<option></option>').val(2017).html(2017));
+                              //}
                               var pwdDialogConfig = {
                                   modal: true,
                                   width: 200,

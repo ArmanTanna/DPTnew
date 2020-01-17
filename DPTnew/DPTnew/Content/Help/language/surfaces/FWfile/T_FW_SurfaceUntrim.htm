@@ -11,14 +11,12 @@ function viaMk() {
 <!-- LJEM -->
 <html>
 <head>
-<!-- Error handler removed 03 June 2014 -->
 
-<meta name="T_2009t3" content="translate">
 <title>Untrim Surface</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
-<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
-</script> -->
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
 
 
 <style type="text/css">
@@ -27,33 +25,28 @@ function viaMk() {
 
 </head>
 
-<body onload="viaMk();"  bgcolor="#ffffff">
+<body bgcolor="#ffffff" onresize="self.location.reload();" onload="self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();">
 
 
 <STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
 <p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
 <hr color="#63a9d8">
-<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
-<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Surface<img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1173">Untrim</span></span></p>
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal;}</STYLE>
+<p class="headerpath" align="center"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Surface<img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+1173">Untrim</span></span></p>
 <hr color="#63a9d8">
-<tr valign="top" bordercolor="#ffffff">
-<!-- <td><i>Voice: <b>Untrim Surface</b></i> 
-</td>
- --></tr>
-</table>
 
 
 <p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+324">Untrim Surface</span> command enables you to reconstruct the original surfaces from surface with parameter limitations, however those were created (by trimming an existing surface, creating bounded planes, etc.).</p>
 
-<p style="margin-bottom:0;">Depending on the method selected in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list, reconstruction can be done in one of two different methods.</p>
+<p style="margin-top:0;">Depending on the method selected in the <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+75">Mode</span> drop-down list, reconstruction can be done in one of two different methods.</p>
 
-<ul class="noleft" style="margin-top:0;">
+<ul style="margin-bottom:0px;">
 <li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+264">Global</span><br>
-After selecting the surfaces (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+65">Surfaces</span>), all of the trimmed boundaries will be reconstructed and all of the existing islands will be removed.</li>
+After selecting the surfaces (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+65">Surfaces</span>), all of the trimmed boundaries will be reconstructed and all of the existing islands will be removed.<br>&nbsp;</li>
 <li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+212">Local</span><br>
 Performing the selection of the boundaries (<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+151">Boundaries</span>), you can: 
 
-<ul class="noleft">
+<ul style="margin-bottom:0px;">
 <li>Select single islands to be removed. Only the selected islands will be removed.</li>
 
 <li>Select a trimmed boundary. All of the trimmed boundaries will be reconstructed. If there are islands, they will not be removed, unless you explicitly select them.</li>
@@ -62,14 +55,23 @@ Performing the selection of the boundaries (<span class="UI_COMMAND" id="Surface
 </ul>
 
 <br>
-<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
-<tr>
-<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
 
+  <p style="margin-top:0;">
+    You can specify what to do with the original surfaces. In the <b>Base Entities</b> drop-down list, select one of the following:
+    <ul style="margin-bottom:0px;">
+      <li>
+        <b>Modify</b>&nbsp;&#151;&nbsp;to apply the changes to the original surfaces.<br>
+      </li>
+      <li>
+        <b>Hide</b>&nbsp;&#151;&nbsp;to hide the original surfaces, though keeping them in the model.<br>
+      </li>
+      <li>
+        <b>Keep</b>&nbsp;&#151;&nbsp;to keep the original surfaces, leaving them visible.<br>
+      </li>
+    </ul>
+  </p>
 
-The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
-</tr>
-</table>
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/Associative.htm" onload="ResizeIFrame0()" scrolling="no"></iframe><br>
 
 <hr color="silver">
 <h5>Try to ...</h5>

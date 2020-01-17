@@ -121,7 +121,7 @@ namespace DPTnew.Controllers
                         data["FirstName"] = company.FirstName;
                         data["LastName"] = company.LastName;
                         data["Locale"] = company.Language;
-                        data["CompanyName"] = company.AccountName;
+                        data["CompanyName"] = company.AccountName + " (" + company.AccountNumber + ")";
                         data["CrmId"] = company.AccountNumber;
                         data["ActualBatchCode"] = company.ActualBatchCode;
                         data["UpdateBatchCode"] = company.UpdateBatchCode;
@@ -403,9 +403,10 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var exp = DateTime.Now.AddDays(30);
+                var now = DateTime.Now.Date;
                 var query = from lic in db.Licenses
                             where lic.AccountNumber == accountNumber && (lic.ArticleDetail.Contains("pl") || lic.ArticleDetail.Contains("plasasp"))
-                            && lic.MaintEndDate > DateTime.Now && lic.MaintEndDate < exp
+                            && lic.MaintEndDate >= now && lic.MaintEndDate < exp
                             select lic;
                 if (query.Count() > 0)
                     return Json("true", JsonRequestBehavior.AllowGet);
@@ -426,9 +427,10 @@ namespace DPTnew.Controllers
             using (var db = new DptContext())
             {
                 var exp = DateTime.Now.AddDays(30);
+                var now = DateTime.Now.Date;
                 var query = from lic in db.Licenses
                             where lic.AccountNumber == accountNumber && (lic.ArticleDetail.Contains("pl") || lic.ArticleDetail.Contains("plasasp"))
-                            && lic.MaintEndDate > DateTime.Now && lic.MaintEndDate < exp
+                            && lic.MaintEndDate >= now && lic.MaintEndDate < exp
                             select lic;
                 if (query.Count() > 0)
                 {
@@ -450,8 +452,8 @@ namespace DPTnew.Controllers
                             mail.Bcc.Add("Orders@dptcorporate.com");
                             if (cmp.Language == "italian")
                             {
-                                mail.Subject = "[DO NOT REPLY] Rinnovo manutenzione - " + cmp.AccountName.Trim();
-                                mail.Body = "Gentile Cliente,<br/><br/>il <b>contratto di manutenzione</b> delle " +
+                                mail.Subject = "[DO NOT REPLY] Rinnovo manutenzione - " + cmp.AccountName.Trim() + " (" + cmp.AccountNumber + ")";
+                                mail.Body = "Gentili Clienti,<br/><br/>il <b>contratto di manutenzione</b> delle " +
                                     "seguenti licenze <b>scadrà nei prossimi 30 giorni</b> e non ci risulta ancora rinnovato.<br/><br/>" +
                                     "<table border=1><tr><td>ID Licenza</td><td>Prodotto</td><td>Quantità</td>" +
                                     "<td>Tipo</td><td>ID Macchina</td><td>Scadenza</td></tr>" +
@@ -461,7 +463,7 @@ namespace DPTnew.Controllers
                             }
                             else
                             {
-                                mail.Subject = "[DO NOT REPLY] Maintenance contract renewal - " + cmp.AccountName.Trim();
+                                mail.Subject = "[DO NOT REPLY] Maintenance contract renewal - " + cmp.AccountName.Trim() + " (" + cmp.AccountNumber + ")";
                                 mail.Body = "Dear Customer,<br/><br/>the <b>maintenance contract</b> of the following " +
                                     "license(s) will <b>expire in the next 30 days</b>, and it seems you have not renewed it yet.<br/><br/>" +
                                     "<table border=1><tr><td>LicenseID</td><td>Item</td><td>Quantity</td><td>LicenseType</td>" +

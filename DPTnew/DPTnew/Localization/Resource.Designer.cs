@@ -79,7 +79,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account #.
+        ///   Looks up a localized string similar to Account No..
         /// </summary>
         public static string AccountNumber {
             get {
@@ -718,7 +718,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This self extracting file will install the official ThinkDesign suite 2018 64bit SP3. (SHA1=B42DBE6A896DE938754FD029277B748EC617FF2B).
+        ///   Looks up a localized string similar to Official release of ThinkDesign 2018 SP3. (SHA1=B42DBE6A896DE938754FD029277B748EC617FF2B).
         /// </summary>
         public static string Description2018ThinkDesign64bit {
             get {
@@ -745,7 +745,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2019 SP1..
+        ///   Looks up a localized string similar to Official release of ThinkDesign 2019 SP1..
         /// </summary>
         public static string Description2019ThinkDesign64bit {
             get {
@@ -768,6 +768,33 @@ namespace DPTnew.Localization {
         public static string Description2019Utilitytools {
             get {
                 return ResourceManager.GetString("Description2019Utilitytools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2020..
+        /// </summary>
+        public static string Description2020ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Description2020ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This section includes thinkPLM 2020 official version..
+        /// </summary>
+        public static string Description2020thinkPLM {
+            get {
+                return ResourceManager.GetString("Description2020thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilities and plug-ins for version 2020..
+        /// </summary>
+        public static string Description2020Utilitytools {
+            get {
+                return ResourceManager.GetString("Description2020Utilitytools", resourceCulture);
             }
         }
         
@@ -1834,6 +1861,24 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ThinkDesign 2020 64bit.
+        /// </summary>
+        public static string Product2020ThinkDesign64bit {
+            get {
+                return ResourceManager.GetString("Product2020ThinkDesign64bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thinkPLM 2020.
+        /// </summary>
+        public static string Product2020thinkPLM {
+            get {
+                return ResourceManager.GetString("Product2020thinkPLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Floating Licensing Installer.
         /// </summary>
         public static string ProductInstaller {
@@ -2050,7 +2095,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2019 SP1 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2020 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2064,6 +2109,16 @@ namespace DPTnew.Localization {
         public static string View_Download_Warning {
             get {
                 return ResourceManager.GetString("View_Download_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During the installation you may be asked to enter your &lt;b&gt;Account Number&lt;/b&gt;. 
+        ///You will find this code in the top-right corner of this page..
+        /// </summary>
+        public static string View_Download_Warning2020 {
+            get {
+                return ResourceManager.GetString("View_Download_Warning2020", resourceCulture);
             }
         }
         
@@ -2158,7 +2213,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2019 SP1&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2020&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2167,7 +2222,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2019 SP1! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2020! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {

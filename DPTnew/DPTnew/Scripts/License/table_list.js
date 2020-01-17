@@ -1,14 +1,13 @@
 ﻿/* Formatting function for row details - modify as you need */
-function format(d) {debugger
+function format(d) {
+    debugger
     // `d` is the original data object for the row
     return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
 '<tr>' +
             '<td><b>Start Date:</b></td>' +
             '<td>' + d[9] + '</td>' +
-
             '<td><b>End Date:</b></td>' +
             '<td>' + d[10] + '</td>' +
-
             '<td><b>Maint Start Date:</b></td>' +
             '<td>' + d[11] + '</td>' +
             '<td><b>Maint End Date:</b></td>' +
@@ -21,18 +20,18 @@ function format(d) {debugger
             '<td>' + d[14] + '</td>' +
             '<td><b>Max Export:</b></td>' +
             '<td>' + (d[15] == -1 ? "unlimited" : d[15]) + '</td>' +
-            '<td><b>Note:</b></td>' +
-            '<td>' + d[16] + '</td>' +
+            '<td><b>Exported History:</b></td>' +
+            '<td>' + d[20] + '</td>' +
         '</tr>' +
         '<tr>' +
             '<td><b>Ancestor2:</b></td>' +
             '<td>' + d[17] + '</td>' +
             '<td><b>Ancestor3:</b></td>' +
             '<td>' + d[18] + '</td>' +
-            '<td><b></b></td>' +
-            '<td></td>' +
-            '<td><b></b></td>' +
-            '<td></td>' +
+            '<td><b>Physic:</b></td>' +
+            '<td>' + d[19] + '</td>' +
+            '<td><b>Note:</b></td>' +
+            '<td>' + d[16] + '</td>' +
         '</tr>' +
        '</table>';
 }
@@ -61,6 +60,8 @@ $(document).ready(function () {
             { "bVisible": false, },
             null,
             null,
+            { "bVisible": false, },
+            { "bVisible": false, },
             { "bVisible": false, },
             { "bVisible": false, },
             { "bVisible": false, },

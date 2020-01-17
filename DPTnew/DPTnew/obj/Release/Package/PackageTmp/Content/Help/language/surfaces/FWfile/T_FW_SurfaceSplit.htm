@@ -11,48 +11,46 @@ function viaMk() {
 <!-- LJEM -->
 <HTML>
 <HEAD>
-<!-- Error Handler removed 03 June 2014 -->
+
 
 <meta name="T_2009t3" content="translate">   
 <TITLE>Split Surface</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
 <LINK HREF="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
-<!-- <script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
-</script> -->
+<script type="text/javascript" src='../../../JSandSTYLES/Frames.js'>
+</script>
 <style>.noleft{margin-left:22;margin-top:2;margin-bottom:0;}</style>
 
 
 </head>
 
-<body onload="viaMk();"  bgcolor="#ffffff">
+<body bgcolor="#ffffff" onresize="self.location.reload();" onload="self.scroll(document.body.scrollRight);self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();">
 
 
 <STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
 <p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
 <hr color="#63a9d8">
-<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
-<p class="headerpath" style="text-align: center;"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7028">Split</span></p>
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal;}</STYLE>
+<p class="headerpath" align="center"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify.msg+MenuBar_Document_Modify+6835">Modify</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Surface.msg+MenuBar_Document_Insert_Surface+1153">Surface</span><img src="../../../images/general/litarr.gif"><span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Modify_Surface.msg+MenuBar_Document_Modify_Surface+7028">Split</span></p>
 <hr color="#63a9d8">
-<tr valign="top" bordercolor="#ffffff">
-<!-- <td><i>Voice: <b>Split Surface</b></i> 
-</td>
- --></tr></table>
 
 
 <p>The <span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+322">Split Surface</span> command enables you to split one or more surfaces along one of their isoparametric curves using one of the following methods, to be chosen in the 
 
-<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+17">Type</span> drop-down list:<br>&nbsp;
+<span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+17">Type</span> drop-down list:
 
 
-<ul class="noleft">
+<ul style="margin-bottom:0px;">
 <li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+319">U Parameter</span>
 
 
 <br>the surface will be split along the U isoparametric curve corresponding to a specified U value or point<br>&nbsp;
+</li>
 <li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+320">V Parameter</span>
 
 
 <br>the surface will be split along the V isoparametric curve corresponding to a specified V value or point<br>&nbsp;
+</li>
 <li><span class="UI_COMMAND" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+362">UV Parameter</span><br>
 
 
@@ -64,15 +62,25 @@ the surface will be split contemporarily along the U and V isoparametric curves 
 the surface will be split along the isoparametric curve through the selected arc joint. This method applies only to surfaces with arc joints: selection of surfaces with no arc joint is not enabled.
 </li>
 </ul>
+
+  <br>
+  <p style="margin-top:0;">
+    You can specify what to do with the original surfaces. In the <b>Base Entities</b> drop-down list, select one of the following:
+    <ul style="margin-bottom:0px;">
+      <li>
+        <b>Modify</b>&nbsp;&#151;&nbsp;to apply the changes to the original surfaces.<br>
+      </li>
+      <li>
+        <b>Hide</b>&nbsp;&#151;&nbsp;to hide the original surfaces, though keeping them in the model.<br>
+      </li>
+      <li>
+        <b>Keep</b>&nbsp;&#151;&nbsp;to keep the original surfaces, leaving them visible.<br>
+      </li>
+    </ul>
+  </p>
+
 <p>The resulting surfaces will be of the same type as the original one, no matter which <b>Type</b> you used to obtain them.</p>
-<table border="1" bordercolor="navy" bgcolor="#FFFFE1" cellpadding="10%">
-<tr>
-<td class="noteme" bordercolor="#ffffe1"><span class="UI_COMMAND" id="tdesign.msg+_TDCMDCOMMON_LABEL_+145">Associative Mode</span><br>
-
-
-The surfaces created using this command can be associative: associative surfaces are <i>Skins</i>, that is open solids, retaining a link to the base entities, so that if you modify the base entities the surfaces will be modified accordingly; they have a history and are displayed in the <span class="UI_OPTION" id="tdesign.msg+_EK_ALL_+1685">Model Structure</span>. See &quot;<a href="../OVfile/T_OV_sr_00.htm#Associative" target="_parent">Associative Surfaces (Skins)</a> for details.</td>
-</tr>
-</table>
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/Associative.htm" onload="ResizeIFrame0()" scrolling="no"></iframe>
 
 <hr color="silver">
 <h5>Try to ...</h5> 

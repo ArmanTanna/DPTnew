@@ -17,7 +17,7 @@ function viaMk() {
 <title>Light Contour Curve</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../../../JSandSTYLES/t32000vNOHR.css" rel="stylesheet" type="text/css">
-<!-- <script type="text/javascript" language="javascript" src="../../../JSandSTYLES/Frames.js"></script> -->
+<script type="text/javascript" language="javascript" src="../../../JSandSTYLES/Frames.js"></script>
 
 
 <style type="text/css">
@@ -45,16 +45,15 @@ margin-top: 0;
 
 </head>
 
-<body onload="viaMk();"  bgcolor="white"> <!-- onload="viaMk();self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();" onmouseover="self.resizeBy(0,0);"> -->
+<body bgcolor="white" onload="self.scroll(document.body.scrollBottom,document.body.scrollTop);ResizeIFrame0();" onmouseover="self.resizeBy(0,0);">
 
 
 <STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-bottom:0; margin-top:0;}</STYLE>
 <p class="headerpath"><img src="DPT.jpg" alt="" border="0" align="left"><img src="logo-blackSMALL.png" align="right"></p>
 <hr color="#63a9d8">
-<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal; margin-top:0; margin-bottom:0;}</STYLE>
-<p class="headerpath" style="text-align: center;"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1388">Light Contours</span> </p>
+<STYLE>.headerpath{font-size: 8pt; font-family: Verdana; font-weight:normal;}</STYLE>
+<p class="headerpath" align="center"><span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert.msg+MenuBar_Document_Insert+1329">Insert</span><img src="../../../images/general/litarr.gif"> <span class="UI_OPTION_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1364">Curve</span><img src="../../../images/general/litarr.gif"> <span class="UI_COMMAND_NOBOLD" id="MenuBar_Document_Insert_Curve.msg+MenuBar_Document_Insert_Curve+1388">Light Contours</span> </p>
 <hr color="#63a9d8">
-</table>
 
 
 <p style="margin-bottom:0;">The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+370">Light Contour Curve</span> command enables you to create curves on shape contours of the type you can select in the 
@@ -80,6 +79,8 @@ margin-top: 0;
  To create isophote curves (isophotes are lines of constant illumination).</li>
 </ul>
 
+<br>
+<p style="margin-top:0;">It can be applied to surface and mesh entities. For meshes, note that the Light Contours algorithm requires the normals to the mesh nodes which can be computed beforehand using <a href="ms-its:meshes.chm::/language/meshes/FWfile/T_FW_AddNormals.htm">Add Normals to Mesh</a> command.</p>
 <p style="margin-top:0;">The main features of the three types are described below.</p>
 
 <h6><a name="Sil"></a><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+1">Silhouette</span></h6>
@@ -133,10 +134,8 @@ margin-top: 0;
 
 </ul>
 
-<p style="margin-top:0;">You can also change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+62">Density</span> angle of highlight curves. When you decrease the density value highlight curves will be more "concentrated" around the selected point. When you increase the density value highlight curves will be distributed on a wider area. Density values vary in the range [0-360] (if a bigger value is entered, it is automatically set to 360).<br>
-
-
- &nbsp;</p>
+<p style="margin-top:0;">You can also change the <span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+62">Density</span> angle of highlight curves. When you decrease the density value highlight curves will be more "concentrated" around the selected point. When you increase the density value highlight curves will be distributed on a wider area. Density values vary in the range [0-360] (if a bigger value is entered, it is automatically set to 360).
+</p>
 
 <h6><a name="Iso"></a><span class="UI_OPTION" id="tdesign.msg+_RTC_UI_LABEL_+49">Isophotes</span></h6>
 
@@ -199,14 +198,8 @@ margin-top: 0;
 </li>
 </ul>
 <a name="CTX_SIL_KAA"></a>
-<!-- <iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/KeepAllArcs.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe>  -->
-<p style="margin-bottom:0;">When the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+336">Insert Curve on Surface</span> check box or the <span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+182">High quality approximation</span> check box under <span class="UI_OPTION" id="SurfaceUI.msg+_SURFACE_UI_LABEL_+73">More Options</span> are selected, the <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+420">Keep all arcs</span> check box gets displayed if small spans are detected in the resulting curves. The <span class="UI_COMMAND" id="CurveUI.msg+_CURVE_UI_LABEL_+420">Keep all arcs</span> option enables you to manage the small spans that might be included in the resulting curve, so that all original discontinuities are maintained.</p>
+<iframe id="MyIframe0" name="MyIframe0" frameborder="no" marginheight="0" marginwidth="0" style="height: 100%; width: 98%; border: none; margin: 0px;" src="../jsoptions/KeepAllArcs.htm" onresize="ResizeIFrame0()" scrolling="no"></iframe> 
 
-<ul style="margin-left:22;margin-top:0;margin-bottom:0;">
-<li>When the check box is checked, all spans are included in the resulting curve (including the possible small spans).</li>
-
-<li>When the check box is cleared, small spans will be ignored in the resulting curve.</li>
-</ul>
 <p>The <a href="../OVfile/T_OV_curves.htm#Assoc"><span class="UI_OPTION" id="CurveUI.msg+_CURVE_UI_LABEL_+319">Associative Mode</span></a> check box is also available, enabling you to create curves which retain a link to the surface they derive from. See further details on associativity for curves of the Curve on Surface type in "
 <a href="mk:@MSITStore:surfaces.chm::/language/curves/OVfile/T_OV_COS.htm#RN2005T2">Curves on Surface</a>".</p>
 

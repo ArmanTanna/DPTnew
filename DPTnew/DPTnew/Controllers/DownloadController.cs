@@ -50,6 +50,12 @@ namespace DPTnew.Controllers
                         else
                             pName = "Utility tools 2019";
                         break;
+                    case "2020":
+                        if (prodName.Split('_')[0].Contains("2020"))
+                            pName = "ThinkDesign 2020 64bit";
+                        else
+                            pName = "Utility tools 2020";
+                        break;
                     default:
                         break;
                 }

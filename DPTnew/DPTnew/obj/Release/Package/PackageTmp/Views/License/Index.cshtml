@@ -24,160 +24,160 @@
     <script src="~/Scripts/buttons.print.min.js"></script>
     <script type="text/javascript">
 
-    var yourApp = yourApp || {};
-    yourApp.Urls = yourApp.Urls || {};
-    yourApp.Urls.baseUrl = '@Url.Content("~")';
-    yourApp.Urls.exportUrl = '@Url.Action("Export", "User")';
-    yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
-    yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
-    yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
-    yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
-    yourApp.Urls.DataUrl = '@Url.Action("SingleLicenseRow", "License")';
-    yourApp.Urls.AddLicenseUrl = '@Url.Action("AddLicenseRow", "License")';
-    yourApp.Urls.V2CP = '@Url.Action("V2CP", "User")';
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.exportUrl = '@Url.Action("Export", "User")';
+        yourApp.Urls.createUrl = '@Url.Action("Create", "User")';
+        yourApp.Urls.validateUrl = '@Url.Action("Validate", "User")';
+        yourApp.Urls.licenseStateUrl = '@Url.Action("StateByLicenceId", "License")';
+        yourApp.Urls.Upgrade = '@Url.Action("UpgradeLicense", "User")';
+        yourApp.Urls.DataUrl = '@Url.Action("SingleLicenseRow", "License")';
+        yourApp.Urls.AddLicenseUrl = '@Url.Action("AddLicenseRow", "License")';
+        yourApp.Urls.V2CP = '@Url.Action("V2CP", "User")';
 
-    /* init drop down */
-    function initdropdown(table) {
+        /* init drop down */
+        function initdropdown(table) {
 
-        yadcf.init(table, [
-            { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LicenseFlag")) },
-        { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.ProductName")) },
-        { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.ArticleDetail")) },
-            { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["L", "Fx "] },
-       //{ column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["j: next 30 days", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last 30 days", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
-        { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LastExp")) },
-        { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.Version")) }]);
-    }
-    /* Formatting function for row details - modify as you need */
-    function format(d) {
-        // `d` is the original data object for the row
-        return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
-           '<tr>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.StartDate" + ':</b></td>' +
-                '<td>' + d.SD + '</td>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.EndDate" + ':</b></td>' +
-                '<td>' + d.ED + '</td>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.MaintStartDate" + ':</b></td>' +
-                '<td>' + d.MSD + '</td>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.MED" + ':</b></td>' +
-                '<td>' + d.MED + '</td>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + ':</b></td>' +
-                '<td>' + d.Ancestor + '</td>' +
-            '</tr>' +
-
-             '<tr>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.MachineID" + ':</b></td>' +
-                '<td>' + d.MachineID + '</td>' +
-                //'<td><b>License Kind:</b></td>' +
-                //'<td>' + d.LicenseKind + '</td>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.Note" + ':</b></td>' +
-                '<td>' + d.Note + '</td>' +
-               '<td><b>' + "@DPTnew.Localization.Resource.ExportedNum" + ':</b></td>' +
-               '<td>' + d.ExportedNum + '</td>' +
-               '<td><b>' + "@DPTnew.Localization.Resource.MaxExport" + ':</b></td>' +
-               '<td>' + (d.MaxExport == -1 ? "unlimited" : d.MaxExport) + '</td>' +
-                '<td><b>' + "Export History" + ':</b></td>' +
-                    '<td>' + d.TotExported + '</td>' +
-               '</tr>' +
-                '<tr>' +
-                '<td><b>' + "@DPTnew.Localization.Resource.OriginalProduct" + ':</b></td>' +
-                    '<td>' + d.OriginalProduct + '</td>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.Action" + ':</b></td>' +
-                    '<td>' + d.Action + '</td>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + '2:</b></td>' +
-                    '<td>' + d.Ancestor2 + '</td>' +
-                    '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + '3:</b></td>' +
-                    '<td>' + d.Ancestor3 + '</td>' +
-                    '<td><b>' + "Sas" + ':</b></td>' +
-                    '<td>' + d.Sas + '</td>' +
+            yadcf.init(table, [
+                { column_number: 3, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LicenseFlag")) },
+            { column_number: 4, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.ProductName")) },
+            { column_number: 5, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.ArticleDetail")) },
+                { column_number: 6, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["L", "Fx "] },
+           //{ column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: ["j: next 30 days", "e: > 1 year", "h: > 1 month", "g: > 3 months", "k: next 3 months", "m: even later", "c: > 3 years", "a: > 10 years", "i: last 30 days", "b: > 5 years", "f: > 6 months", "d: > 2 years", "l: next year"] },
+            { column_number: 8, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.LastExp")) },
+            { column_number: 9, filter_default_label: "@DPTnew.Localization.Resource.Select", data: JSON.parse(atob("@ViewBag.Version")) }]);
+        }
+        /* Formatting function for row details - modify as you need */
+        function format(d) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
+               '<tr>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.StartDate" + ':</b></td>' +
+                    '<td>' + d.SD + '</td>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.EndDate" + ':</b></td>' +
+                    '<td>' + d.ED + '</td>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.MaintStartDate" + ':</b></td>' +
+                    '<td>' + d.MSD + '</td>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.MED" + ':</b></td>' +
+                    '<td>' + d.MED + '</td>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + ':</b></td>' +
+                    '<td>' + d.Ancestor + '</td>' +
                 '</tr>' +
-            '</table>';
-    }
 
-    $(document).ready(function () {
-        var ltConfig = {
-            serverSide: true,
-            processing: true,
-            dom: 'lBfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ],
-            ajax: {
-                type: "POST",
-                url: "License/Search"
-            },
-            columns: [
-            {
-                "className": 'details-control',
-                "orderable": false,
-                "data": null,
-                "defaultContent": ''
-            },
-            {
-                data: "AccountNumber",
-                render: function (data, type, row) {
-                    return data + " - " + row.AccountName;
-                }
-            },
-            {
-                data: "LicenseID",
-                render: function (data, type, row) {
-                    return data + " - " + row.MachineID;
-                }
-            },
-            //{ data: "LicenseID", "className": 'no-dropdown' },
-            { data: "LicenseFlag" },
-            { data: "ProductName" },
-            { data: "ArticleDetail", "className": 'mycenter-text' },
-            { data: "ServLicense1", "className": 'mycenter-text' }, //union of type and quantity
-            { data: "MED", type: "date", "width": "10%", "className": 'no-dropdown', "className": 'mycenter-text' },
-            { data: "LastExp" },
-            { data: "Version", "className": 'mycenter-text' }
-            ],
-            orderClasses: false,
-            createdRow: function (row, data, index) {
-                if (data.MED != null) {
-                    var now = new Date();
-                    var month = (now.getMonth() + 1);
-                    var day = now.getDate();
-                    if (month < 10)
-                        month = "0" + month;
-                    if (day < 10)
-                        day = "0" + day;
-                    var today = now.getFullYear() + '-' + month + '-' + day;
-                    if (data.MED < today)
-                        $(row).addClass('highlight_red');
-                    if (data.MED >= today && data.MachineID.indexOf("ABCDEFGH") != -1)
-                        $(row).addClass('highlight_blue');
-                }
-            }
-        };
-        if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExp.ToString().ToLower()" == "false"
-    && "@ViewBag.IsInternal.ToString().ToLower()" == "false" && "@ViewBag.IsVar.ToString().ToLower()" == "false") {
-            var searchFilterHandler = function () {
-                var api = this.api();
-                api.$("td:not(.details-control)").click(function () {
-                    api.search(this.innerText).draw();
-                    //api.columns(this.cellIndex).search( this.innerHTML ).draw();
-                });
-            };
-            ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
+                 '<tr>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.MachineID" + ':</b></td>' +
+                    '<td>' + d.MachineID + '</td>' +
+                    //'<td><b>License Kind:</b></td>' +
+                    //'<td>' + d.LicenseKind + '</td>' +
+                    '<td><b>' + "@DPTnew.Localization.Resource.Note" + ':</b></td>' +
+                    '<td>' + d.Note + '</td>' +
+                   '<td><b>' + "@DPTnew.Localization.Resource.ExportedNum" + ':</b></td>' +
+                   '<td>' + d.ExportedNum + '</td>' +
+                   '<td><b>' + "@DPTnew.Localization.Resource.MaxExport" + ':</b></td>' +
+                   '<td>' + (d.MaxExport == -1 ? "unlimited" : d.MaxExport) + '</td>' +
+                    '<td><b>' + "Export History" + ':</b></td>' +
+                        '<td>' + d.TotExported + '</td>' +
+                   '</tr>' +
+                    '<tr>' +
+                        '<td><b>' + "@DPTnew.Localization.Resource.Action" + ':</b></td>' +
+                        '<td>' + d.Action + '</td>' +
+                        '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + '2:</b></td>' +
+                        '<td>' + d.Ancestor2 + '</td>' +
+                        '<td><b>' + "@DPTnew.Localization.Resource.Ancestor" + '3:</b></td>' +
+                        '<td>' + d.Ancestor3 + '</td>' +
+                        '<td><b>' + "Sas" + ':</b></td>' +
+                        '<td>' + d.Sas + '</td>' +
+                        '<td><b>' + "Physic" + ':</b></td>' +
+                        '<td>' + d.Sas + '</td>' +
+                    '</tr>' +
+                '</table>';
         }
 
-        loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true" || "@ViewBag.IsVar.ToString().ToLower()" == "true",
-                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true" || "@ViewBag.IsVar.ToString().ToLower()" == "true",
-            "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
-            ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
-            "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
-            "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
-            "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Assign",
-            "@DPTnew.Localization.Resource.ButtonUpgrade", "@DPTnew.Localization.Resource.New", "@DPTnew.Localization.Resource.ButtonRenew", "V2CP"],
-                ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
-             "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
-             "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
-    });
+        $(document).ready(function () {
+            var ltConfig = {
+                serverSide: true,
+                processing: true,
+                dom: 'lBfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ],
+                ajax: {
+                    type: "POST",
+                    url: "License/Search"
+                },
+                columns: [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                {
+                    data: "AccountNumber",
+                    render: function (data, type, row) {
+                        return data + " - " + row.AccountName;
+                    }
+                },
+                {
+                    data: "LicenseID",
+                    render: function (data, type, row) {
+                        return data + " - " + row.MachineID;
+                    }
+                },
+                //{ data: "LicenseID", "className": 'no-dropdown' },
+                { data: "LicenseFlag" },
+                { data: "ProductName" },
+                { data: "ArticleDetail", "className": 'mycenter-text' },
+                { data: "ServLicense1", "className": 'mycenter-text' }, //union of type and quantity
+                { data: "MED", type: "date", "width": "10%", "className": 'no-dropdown', "className": 'mycenter-text' },
+                { data: "LastExp" },
+                { data: "Version", "className": 'mycenter-text' }
+                ],
+                orderClasses: false,
+                createdRow: function (row, data, index) {
+                    if (data.MED != null) {
+                        var now = new Date();
+                        var month = (now.getMonth() + 1);
+                        var day = now.getDate();
+                        if (month < 10)
+                            month = "0" + month;
+                        if (day < 10)
+                            day = "0" + day;
+                        var today = now.getFullYear() + '-' + month + '-' + day;
+                        if (data.MED < today)
+                            $(row).addClass('highlight_red');
+                        if (data.MED >= today && data.MachineID.indexOf("ABCDEFGH") != -1)
+                            $(row).addClass('highlight_blue');
+                    }
+                }
+            };
+            if ("@ViewBag.IsAdmin.ToString().ToLower()" == "false" && "@ViewBag.IsVarExp.ToString().ToLower()" == "false"
+        && "@ViewBag.IsInternal.ToString().ToLower()" == "false" && "@ViewBag.IsVar.ToString().ToLower()" == "false") {
+                var searchFilterHandler = function () {
+                    var api = this.api();
+                    api.$("td:not(.details-control)").click(function () {
+                        api.search(this.innerText).draw();
+                        //api.columns(this.cellIndex).search( this.innerHTML ).draw();
+                    });
+                };
+                ltConfig.drawCallback = ltConfig.initComplete = searchFilterHandler;
+            }
 
-</script>
+            loadLicenseTable(ltConfig, "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true" || "@ViewBag.IsVar.ToString().ToLower()" == "true",
+                    "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true" || "@ViewBag.IsVar.ToString().ToLower()" == "true",
+                "@ViewBag.IsAdmin.ToString().ToLower()" == "true" || "@ViewBag.IsVarExp.ToString().ToLower()" == "true" || "@ViewBag.IsInternal.ToString().ToLower()" == "true",
+                ["@DPTnew.Localization.Resource.ButtonExport", "@DPTnew.Localization.Resource.ButtonValidateExport",
+                "@DPTnew.Localization.Resource.ButtonInstall2015", "@DPTnew.Localization.Resource.ButtonInstallMin2015",
+                "@DPTnew.Localization.Resource.ButtonPasswordMin2015", "@DPTnew.Localization.Resource.ChangeVersion",
+                "@DPTnew.Localization.Resource.ButtonDecryptPwd", "@DPTnew.Localization.Resource.Assign",
+                "@DPTnew.Localization.Resource.ButtonUpgrade", "@DPTnew.Localization.Resource.New", "@DPTnew.Localization.Resource.ButtonRenew", "V2CP"],
+                    ["@DPTnew.Localization.Resource.Previous", "@DPTnew.Localization.Resource.Next", "@DPTnew.Localization.Resource.Search",
+                 "@DPTnew.Localization.Resource.lengthmenu", "@DPTnew.Localization.Resource.info", "@DPTnew.Localization.Resource.infofiltered",
+                 "@DPTnew.Localization.Resource.rowsSelected", "@DPTnew.Localization.Resource.noRowsSelected"]);
+        });
+
+    </script>
 }
 
 @if (ViewBag.IsAdmin || ViewBag.IsVarExp || ViewBag.IsInternal || ViewBag.IsVar)
@@ -223,8 +223,12 @@
     <div id="upgrade-dialog" title="Select Version" style="display: none;">
         <strong style="position: absolute; margin-top: 20px;" id="upgver"></strong>
         <select id="upgrade-choice">
+            <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
         </select>
     </div>
     <div id="sysmsg-dialog" title="System message" style="display:none;">

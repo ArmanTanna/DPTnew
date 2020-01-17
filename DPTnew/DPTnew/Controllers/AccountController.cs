@@ -95,6 +95,7 @@ namespace DPTnew.Controllers
                     var id = WebSecurity.CurrentUserId;
                     var user = context.Contacts.SingleOrDefault(u => u.UserId == id);
                     ViewBag.Company = context.Companies.Single(x => x.AccountNumber == user.AccountNumber).AccountName;
+                    ViewBag.AccNumber = user.AccountNumber;
                     return PartialView(user);
                 }
                 return PartialView();

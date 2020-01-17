@@ -149,6 +149,7 @@ namespace DPTnew.Models
         public string Action { get; set; }
         public int Release { get; set; }
         public bool Sas { get; set; }
+        public bool physic { get; set; }
     }
 
     [Table("DPT_LicenseLog")]

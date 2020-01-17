@@ -145,7 +145,7 @@ namespace DPTnew.Controllers
                     if (query.FirstOrDefault().LicenseFlag.ToLower() == "pool" && licSingleRow.Quantity > 1
                         && query.FirstOrDefault().MachineID.Contains("ABCDEFGH")
                         && Int32.Parse(query.FirstOrDefault().Version) > 2014 && query.FirstOrDefault().ArticleDetail != "pl"
-                        && query.FirstOrDefault().LicenseType.ToLower() == "floating" 
+                        && query.FirstOrDefault().LicenseType.ToLower() == "floating"
                         && query.FirstOrDefault().SalesRep.ToLower() == "sener")
                     {
                         query.FirstOrDefault().Quantity = licSingleRow.Quantity;
@@ -217,6 +217,7 @@ namespace DPTnew.Controllers
                 licSingleRow.Vend_String = "vs001";
                 licSingleRow.FlexType = 0;
                 licSingleRow.MaxExport = -1;
+                licSingleRow.LicenseFlag = licSingleRow.ProductName.ToLower() == "tdviewerplus" ? "free" : licSingleRow.LicenseFlag;
 
                 if (licSingleRow.LicenseType == "local" || (licSingleRow.LicenseType == "floating" && licSingleRow.Quantity < 1))
                     licSingleRow.Quantity = 1;

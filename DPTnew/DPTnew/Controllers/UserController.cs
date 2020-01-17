@@ -210,6 +210,7 @@ namespace DPTnew.Controllers
 
                         verList = new List<string>();
                         verList.Add("_20191CANCEL");
+                        verList.Add("_20201CANCEL");
                         foreach (var ver in verList)
                         {
                             foreach (var it in prodName.ToList())
@@ -275,7 +276,7 @@ namespace DPTnew.Controllers
                                     "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" +
                                     currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " +
                                     currentlicense.MachineID + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
-                                    "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    //"<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services";
                             }
                             else
@@ -532,7 +533,7 @@ namespace DPTnew.Controllers
                             "<br/>以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスＩＤ: " + currentlicense.LicenseID + " (" +
                             currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " + currentlicense.MachineID +
                             "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
-                            "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                            //"<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                             //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                             "<br/><br/>以上、よろしくお願いいたします。<br/><br/>DPT Services";
                     }
@@ -543,7 +544,7 @@ namespace DPTnew.Controllers
                             "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
                             currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
                             "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
-                            "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                            //"<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                             //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                             "<br/><br/>Best regards,<br/><br/>DPT Services";
                     }
@@ -602,6 +603,8 @@ namespace DPTnew.Controllers
                     //sener
                     if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering"))
                         prodName.Add("thinkcore" + productPostfix);
+                    if (productName == "thinkprint")
+                        prodName.Add("tdviewerplus" + productPostfix);
                 }
 
             return prodName;
@@ -656,14 +659,14 @@ namespace DPTnew.Controllers
                     { //LOCAL
                         if (currentlicense.ArticleDetail == "pl")
                         {
-                            type = "PL";
+                            type = "PHYSIC_PL";
                         }
                         else
                         {
                             //if (isEval) { type = "EVAL"; }
                             //else
                             //{
-                            if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                            if (currentlicense.physic && currentlicense.ProductName != "thinkprint")
                                 type = "PHYSIC_EXPIR";
                             else
                                 type = "EXPIR";
@@ -683,15 +686,17 @@ namespace DPTnew.Controllers
                     }
 
                     //building product
-                    string productPostfix = "";
+                    string productPostfix = "_" + version;
                     if (version == "2015")
-                        productPostfix = "_" + version + "2" + type;
+                        productPostfix += "2" + type;
+                    else if (currentlicense.LicenseFlag == "beta")
+                        productPostfix += "0" + type;
                     else
-                        productPostfix = "_" + version + "1" + type;
+                        productPostfix += "1" + type;
 
                     var pname = GetProductName(currentlicense.ProductName);
                     //EVAL or LOCAL PL
-                    if (type == "PL" /*|| type == "EVAL"*/)
+                    if (type == "PHYSIC_PL" /*|| type == "EVAL"*/)
                     {
                         SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                         e1.CrmId = dpt_Company;
@@ -716,6 +721,29 @@ namespace DPTnew.Controllers
                             var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                             foreach (var p in productName)
                                 e1.ProductName.Add(p);
+                        }
+                        if (version == "2020" && renew == 0 && currentlicense.ProductName != "tdvarlight")
+                        {
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                            IList<string> verList = new List<string>();
+                            verList.Add("_20191CANCEL");
+                            verList.Add("_20181CANCEL");
+                            verList.Add("_20171CANCEL");
+                            verList.Add("_20161CANCEL");
+                            verList.Add("_20152CANCEL");
+
+                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                            {
+                                foreach (var ver in verList)
+                                {
+                                    foreach (var it in prodName.ToList())
+                                    {
+                                        var repName = it.ToString();
+                                        repName = repName.Replace("_20181CANCEL", ver);
+                                        e1.ProductName.Add(repName);
+                                    }
+                                }
+                            }
                         }
 
                         e1.Encoded = true;
@@ -748,6 +776,29 @@ namespace DPTnew.Controllers
                             var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
                             foreach (var p in productName)
                                 e2.ProductName.Add(p);
+                        }
+                        if (version == "2020" && renew == 0 && currentlicense.ProductName != "tdvarlight")
+                        {
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                            IList<string> verList = new List<string>();
+                            verList.Add("_20191CANCEL");
+                            verList.Add("_20181CANCEL");
+                            verList.Add("_20171CANCEL");
+                            verList.Add("_20161CANCEL");
+                            verList.Add("_20152CANCEL");
+
+                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                            {
+                                foreach (var ver in verList)
+                                {
+                                    foreach (var it in prodName.ToList())
+                                    {
+                                        var repName = it.ToString();
+                                        repName = repName.Replace("_20181CANCEL", ver);
+                                        e2.ProductName.Add(repName);
+                                    }
+                                }
+                            }
                         }
 
                         //ADDITIONAL PARAMETERS
@@ -829,7 +880,7 @@ namespace DPTnew.Controllers
                                 "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" +
                                 currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>マシンＩＤ: " + currentlicense.MachineID +
                                 "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + version +
-                                "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                //"<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services";
                         }
                         else
@@ -839,7 +890,7 @@ namespace DPTnew.Controllers
                                 "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
                                 currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
                                 "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + version +
-                                "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                //"<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                 //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                 "<br/><br/>Best regards,<br/><br/>DPT Services";
                         }
@@ -922,7 +973,7 @@ namespace DPTnew.Controllers
                         { //LOCAL
                             if (currentlicense.ArticleDetail == "pl")
                             {
-                                type = "PL";
+                                type = "PHYSIC_PL";
                                 SetDateToNow(currentlicense);
                             }
                             else
@@ -930,7 +981,7 @@ namespace DPTnew.Controllers
                                 //if (isEval) { type = "EVAL"; }
                                 //else
                                 //{
-                                if (currentlicense.MachineID.ToUpper().Contains("BLK"))
+                                if (currentlicense.physic && currentlicense.ProductName != "thinkprint")
                                     type = "PHYSIC_EXPIR";
                                 else
                                     type = "EXPIR";
@@ -957,7 +1008,7 @@ namespace DPTnew.Controllers
                         var pname = GetProductName(l.ProductName);
 
                         //EVAL or LOCAL PL
-                        if (type == "PL" /*|| type == "EVAL"*/)
+                        if (type == "PHYSIC_PL" /*|| type == "EVAL"*/)
                         {
                             SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                             e1.CrmId = dpt_Company;
@@ -1086,7 +1137,7 @@ namespace DPTnew.Controllers
                                     "以下にライセンスの詳細を記載いたします。<br/><br/>ライセンスID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
                                     ")<br/>マシンＩＤ: " + currentlicense.MachineID + "<br/>.c2v ファイル: " +
                                     l.file.FileName + "<br/>製品: " + currentlicense.ProductName + "<br/>バージョン: " + currentlicense.Version +
-                                    "<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    //"<br/>終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>以上、よろしくお願いいたします。<br/>DPT Services";
                             }
                             else
@@ -1098,7 +1149,7 @@ namespace DPTnew.Controllers
                                     currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " +
                                     currentlicense.MachineID + "<br/>File .c2v: " + l.file.FileName + "<br/>Prodotto: " +
                                     currentlicense.ProductName + "<br/>Versione: " + currentlicense.Version +
-                                    "<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    //"<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
                                 }
                                 else
@@ -1108,7 +1159,7 @@ namespace DPTnew.Controllers
                                         "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
                                         ")<br/>MachineID: " + currentlicense.MachineID + "<br/>.c2v file: " +
                                         l.file.FileName + "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + currentlicense.Version +
-                                        "<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                        //"<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                         //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
                                         "<br/><br/>Best regards,<br/><br/>DPT Services";
                                 }

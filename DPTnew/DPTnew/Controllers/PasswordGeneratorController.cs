@@ -79,6 +79,9 @@ namespace DptLicensingServer.Controllers
                 IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
                 IEnumerable<string> TTeamAddBundle = new List<string> { "REPLICATEDVAULT", "TTEAMECR-ECO", "TTEAMPDMXCHNGXTD", "TTEAMPDMXCHANGES", "TTEAMPDMXCHNGXAC", "TTEAMPDMXCHNGXPE", "TTEAMPDMXCHNGXSW", "TTEAMMAINTAIN" };
                 IEnumerable<string> TTeamAddCode = new List<string> { "RV", "TG", "YB", "YC", "YD", "YE", "YF", "TH" };
+                IEnumerable<string> TMOLDINGBundle = new List<string> { "TDTooling", "MoldDesign" };
+                IEnumerable<string> TMOLDINGCode = new List<string> { "UT", "ML" };
+
                 JObject newLicenseResult = null;
                 if (prodotto.Substring(0, 2) == "IX") //TDIRECTRW
                 {
@@ -112,11 +115,28 @@ namespace DptLicensingServer.Controllers
                     }
                     else
                     {
-                        string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
-                        newLicenseResult = JObject.FromObject(new
+                        if (prodotto.Substring(0, 2) == "UZ") //TDMolding 
                         {
-                            Password = outstrres
-                        });
+                            var pwd = "";
+                            for (int i = 0; i < TMOLDINGBundle.Count(); i++)
+                            {
+                                prodotto = TMOLDINGCode.ElementAt(i) + prodotto.Substring(2);
+                                string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
+                                pwd += TMOLDINGBundle.ElementAt(i) + ":" + outstrres + ";";
+                            }
+                            newLicenseResult = JObject.FromObject(new
+                            {
+                                Password = pwd
+                            });
+                        }
+                        else
+                        {
+                            string outstrres = CalculatePassword(tipo, prodotto, machineid, expdata, old);
+                            newLicenseResult = JObject.FromObject(new
+                            {
+                                Password = outstrres
+                            });
+                        }
                     }
                 }
                 using (var db = new DptContext())

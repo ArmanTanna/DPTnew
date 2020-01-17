@@ -9,6 +9,13 @@
     <title>Untitled Document</title>
 </head>
 <body> 
+		<p>ThinkDesign 2020 Release Notes:&nbsp;
+        <a href="../docs/TD2020_Release_notes.pdf" target="blank">
+        <img class="myImage" src ="../img/flags/United Kingdom(Great Britain).png"></a>&nbsp;
+        <a href="../docs/TD2020_Note_di_rilascio.pdf" target="blank">
+        <img class="myImage" src ="../img/flags/Italy.png"></a>&nbsp;
+       </p>
+	   <br>
 		<p>ThinkDesign 2019 Release Notes:&nbsp;
         <a href="../docs/TD2019_Release_notes.pdf" target="blank">
         <img class="myImage" src ="../img/flags/United Kingdom(Great Britain).png"></a>&nbsp;
@@ -36,6 +43,156 @@
               <th width=20%>Build number</th>    
               <th width=80%>Description</th>  
             </tr>
+			
+			<tr>
+              <td>2021.1.10114</td>      
+              <td>
+			  <ul class="myul">
+			  <li>News<br>
+			  - Upgrade of TDXChangeReader to support
+			  <ul style="list-style-type:circle;">
+			  <li>NX up to 12.0 and 1872</li>
+			  <li>Catia V5 up to V5-6 R2019 (R29)</li>
+			  <li>Parasolid up to V31.1</li>
+			  <li>Creo up to 6.0</li>
+			  <li>Autodesk Inventor up to 2020</li>
+			  </ul>
+			  </li>			  
+			  <li>Bug/Regression fixes<br>
+			  - Smart angular pattern feature not working properly for the holes with direction other than normal<br>
+			  - Rotational slot. Impossible to apply the command if it has failed<br>
+			  - NPT Blind Threaded hole issues <br>
+			  - 3MF and PLY saving of copied subcomponent transformation fix<br>
+			  - Cannot activate Work Plane Position by Visual Bookmark command<br>
+			  - Right click disabled after reopening the attached assembly<br>
+			  - Strange red arrow</li>
+			  </ul>
+			  </td>
+            </tr>
+			
+			
+			<tr>
+              <td>2020.1.11211</td>      
+              <td>
+			  <ul class="myul">
+			  <li>Improvement of new commands<br>
+			  - Subdivision from sections curve: improvements of interactive direction handle, and added possibility to perform extensions at the ends</li>
+			  <li>Bug/Regression fixes<br>		  
+			  - Error messages from tdesign.exe on uninstall if not the currently registered<br>
+			  - Switch 2019.1 (or previous) is still able to detect TD2020.1 but uses wrong registration config<br>
+			  - Mating: Missing item "Zoom second entity" in French language<br>
+			  - ThinkTeam «What’s this?» crashes<br>
+			  - Points Coordinates Strange red arrow<br>
+			  - The image of Line Type 4 in StatusBar is different from others<br>
+			  - The line position of Line Type/Width is shifted downward<br>
+			  - Duplicated last line when expanding annotation<br>
+			  - Name of Extend curve feature in HT should be “Extend” instead of “Extend Tangent”<br>
+			  - Mesh Decimation: Hidden Mesh is not recovered with Undo</li>
+			  </td>
+            </tr>
+
+			
+			<tr>
+              <td>2020.1.11205</td>      
+              <td>Bug/Regression fixes
+			  <ul class="myul">			  
+			  <li>Impossible to select more than one faces of a solid</li>
+			  <li>Internal Error generating the Drawing View in Hidden Lines representation (null curves)</li>
+			  <li>Poor contrast of check mark in Selection List</li>
+			  <li>Life Cycle Editor: Callback field editable when inserting new VBScript Action</li>
+			  <li>Edit BOM: First Column disappears</li>
+			  <li>Save As 3MF, PLY Multiple instances of a sub-component</li>
+			  <li>Wrong length value for screws "UNI_TES" in catalogue UNI_ScrewBolts.tpc</li>
+			  <li>Check Mating, Remove layer management from the command</li>
+			  </ul>
+			  </td>
+            </tr>
+			
+			<tr>
+              <td>2020.1.11127</td>      
+              <td>Bug/Regression fixes
+			  <ul class="myul">			  
+			  <li>I.E. on GSM Target Shape</li>
+			  <li>I.E. Subdivision from section curve (Modality)</li>
+			  <li>Display preview of mesh from Subdivision solid </li>
+			  <li>Check Mating: Show layers on request</li>
+			  <li>Query views properties. Fields tab not updated</li>
+			  <li>Poor contrast between check box and its marker in Selection List</li>
+			  <li>Rebuild all. Rotational slot fails</li>
+			  <li>Geometric Kernel memory leak fixes</li>
+			  <li>Test suite improvements<br>
+			  <ul style="list-style-type:circle;">
+			  <li>C&P management of Quick Load, Visual Bookmarks options when opening .e3 file</li>
+			  <li>Check Mating: Add check values to C&P</li>
+			  </ul>
+			  </li>
+			  </ul>
+			  </td>
+            </tr>
+			
+			<tr>
+              <td>2020.1.11118</td>      
+              <td>Bug/Regression fixes
+			  <ul class="myul">			  
+			  <li>Check Mating
+			  <ul style="list-style-type:circle;">
+			  <li>I.E. Info Check Mating. Show warnings</li>
+			  <li>I.E. Check Mating. Kinematic chain. Fit view</li>
+			  <li>Wrong tooltips in the buttons</li>
+			  <li>Fixed entities are not considered as constrained entities</li>
+			  </ul>
+			  </li>
+			  <li>ThinkTeam
+			  <ul style="list-style-type:circle;">
+			  <li>Life Cycle Editor - Message Icon is wrong for Added Action</li>
+			  <li>Life Cycle Editor - Views Actions Status</li>
+			  <li>Life Cycle Editor - Opened inside ThinkDesign even if the TT level is not 13</li>
+			  <li>Life Cycle Editor - Move Up and Move Down Actions do not work</li>
+			  <li>Life Cycle Editor - Actions and Status dialog windows cannot return into original position</li>
+			  <li>Pack and Go does not work for all files formats</li>
+			  </ul>
+			  </li>
+			  <li>UI improvement “Find Documents” (new icons)
+			   <ul style="list-style-type:circle;">
+			  <li>Performances. Switching model/drawing with PtCoordLab & utility tools toolbars</li>
+			  <li>Wrong pattern of a shaft</li>
+			  </ul>
+			  </li>
+			  </ul>
+			  </td>
+            </tr>
+			
+			<tr>
+              <td>2020.1.11107</td>      
+              <td>
+			  <ul class="myul">
+			  <li>News<br>
+			  - New Subdivision Solid From Sections command<br>
+			  - ThinkTeam porting to 64 bit
+			  <ul style="list-style-type:circle;">
+			  <li>“Life Cycle Editor” with Custom VBScript embedded in customized workflow are now working with TTx64</li>
+			  </ul>
+			  - “New UI” improvements
+			  <ul style="list-style-type:circle;">
+			  <li>Better contrast for the  minidialog that has the focus</li>
+			  <li>Improved SelectionList images and contrast </li>
+			  <li>Themed ComboBox drop-down list in SelectionList and minidialogs</li>
+			  <li>Better constract in HiDPI for Moldbase catalogs</li>
+			  </ul>
+			  </li>			  
+			  <li>Bug/Regression fixes<br>
+			  - Check Mating command and Documentation<br>
+			  - GSM Target Shape Freezer/Assoc <br>
+			  - Target Shape/TargetCircle: Bad (wrong) Precision Result<br>
+			  - Crash in Sketcher<br>
+			  - Crash in Two-Entity Distance Map command (curve with singularity)<br>
+			  - Life Cycle Editor - wrong message in New Revision<br>
+			  - Menu bar is floating into Life Cycle Editor<br>
+			  - Welding symbol: Wrong information in tail</li>
+			  </ul>
+			  </td>
+            </tr>
+			
 			<tr>
               <td>2020.1.11022</td>      
               <td>
