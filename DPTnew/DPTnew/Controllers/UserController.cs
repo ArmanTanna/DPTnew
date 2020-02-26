@@ -655,6 +655,10 @@ namespace DPTnew.Controllers
                     && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
                     || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
+                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                        currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
                         if (currentlicense.ArticleDetail == "pl")
@@ -966,6 +970,10 @@ namespace DPTnew.Controllers
                     //check for import/install
                     if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && lf.Install_Safenet == 1)
                     {
+                        if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                            currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+
                         //CHECK if is EVAL                        
                         var isEval = evalrgx.IsMatch(currentlicense.LicenseFlag.ToUpper());
 
@@ -1149,7 +1157,7 @@ namespace DPTnew.Controllers
                                     currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " +
                                     currentlicense.MachineID + "<br/>File .c2v: " + l.file.FileName + "<br/>Prodotto: " +
                                     currentlicense.ProductName + "<br/>Versione: " + currentlicense.Version +
-                                    //"<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                        //"<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                                     "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
                                 }
                                 else

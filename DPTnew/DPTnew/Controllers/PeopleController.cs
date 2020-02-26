@@ -87,6 +87,8 @@ namespace DPTnew.Controllers
             Regex email = new Regex(@"^(([0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)(\.[0-9a-zA-Z0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)*)@(([0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)(\.[0-9a-zA-Z_!#%'=`&\|~\-\*\+\?\^\$\{\}]+)+)$");
             if (string.IsNullOrEmpty(pplSingleRow.Email) || (!email.IsMatch(pplSingleRow.Email)))
                 return Json("Invalid mail", JsonRequestBehavior.AllowGet);
+            if (string.IsNullOrEmpty(pplSingleRow.EmailStatus) || email.IsMatch(pplSingleRow.Language))
+                return Json("Invalid mail status or language", JsonRequestBehavior.AllowGet);
 
             using (var db = new DptContext())
             {

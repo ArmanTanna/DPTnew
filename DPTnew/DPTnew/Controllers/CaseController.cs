@@ -187,7 +187,8 @@ namespace DPTnew.Controllers
                     try
                     {
                         System.IO.Directory.CreateDirectory(path);
-                        chl.File = path + "\\" + GlobalObject.unescape(caseRow.fileName);
+                        caseRow.fileName = GlobalObject.unescape(caseRow.fileName).Replace("(", "_");
+                        chl.File = path + "\\" + caseRow.fileName;
                         caseRow.File.SaveAs(chl.File);
                         db.SaveChanges();
                     }
@@ -536,7 +537,8 @@ namespace DPTnew.Controllers
                     try
                     {
                         System.IO.Directory.CreateDirectory(path);
-                        chl.File = path + "\\" + GlobalObject.unescape(caseHistoryRow.fileName);
+                        caseHistoryRow.fileName = GlobalObject.unescape(caseHistoryRow.fileName).Replace("(", "_");
+                        chl.File = path + "\\" + caseHistoryRow.fileName;
                         caseHistoryRow.File.SaveAs(chl.File);
                         db.SaveChanges();
                     }

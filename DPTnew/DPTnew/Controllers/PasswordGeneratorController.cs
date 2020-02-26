@@ -75,6 +75,10 @@ namespace DptLicensingServer.Controllers
                     {
                         expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
                     }
+                if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                    expdata = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
+
                 IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
                 IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
                 IEnumerable<string> TTeamAddBundle = new List<string> { "REPLICATEDVAULT", "TTEAMECR-ECO", "TTEAMPDMXCHNGXTD", "TTEAMPDMXCHANGES", "TTEAMPDMXCHNGXAC", "TTEAMPDMXCHNGXPE", "TTEAMPDMXCHNGXSW", "TTEAMMAINTAIN" };
@@ -487,6 +491,9 @@ namespace DptLicensingServer.Controllers
                         {
                             expdate = CheckQMTsf(currentlicense.ArticleDetail, expdate, db, currentlicense);
                         }
+                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                        expdate = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
                 }
                 IFlexLicense licenseManager = (IFlexLicense)new License();
                 licenseManager.FlexLicense(flexkind, feature, Version, numServ, machineid1, machineid2, machineid3, nlic, expdate, vend_string, typelic, expkind, param, out pwdline);

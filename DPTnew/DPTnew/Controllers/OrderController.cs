@@ -559,6 +559,7 @@ namespace DPTnew.Controllers
                 return View("Success");
             }
             var varmail = "";
+            double free = 0;
             using (var db = new DptContext())
             {
                 var query = from ord in db.Orders
@@ -573,6 +574,7 @@ namespace DPTnew.Controllers
                     foreach (Order o in query.ToList())
                     {
                         o.Status = o.Invoicer == "t3 japan kk" ? "invoiced" : "approved";
+                        free += o.Ordered;
                         var lic = db.Licenses.Where(l => l.LicenseID == o.LicenseID).FirstOrDefault();
 
                         if (lic != null && lic.ArticleDetail.ToLower() != "pl" && !lic.LicenseFlag.ToLower().StartsWith("new"))
@@ -659,6 +661,61 @@ namespace DPTnew.Controllers
                         var lic = db.Licenses.Where(x => x.LicenseID == o.LicenseID).FirstOrDefault();
                         lic.Sas = true;
                         db.SaveChanges();
+                    }
+                }
+                db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus_Every8Hours]");
+                var order = db.Orders.Where(x => x.OrderNumber == orderNumber).FirstOrDefault();
+                var comp = db.Companies.Where(x => x.AccountNumber == order.AccountNumber).FirstOrDefault();
+                var licprm = db.Licenses.Where(x => x.AccountNumber == comp.AccountNumber
+                        && x.LicenseFlag == "premium" && x.MachineID.Contains("ABCDEFGH")).Count();
+
+                if (comp.AccountStatus.Contains("03 - Premium Customer") && licprm > 0 && free > 0)
+                {
+                    var email = comp.Email;
+                    MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], email); ;
+                    varmail = db.Companies.Where(x => x.AccountNumber == order.InvoicedNumber).FirstOrDefault().Email;
+                    mail.CC.Add(varmail);
+                    if (order.Invoicer.Trim().ToLower() == "t3 japan kk")
+                        mail.CC.Add(db.Companies.Where(x => x.AccountName == "t3 japan kk").FirstOrDefault().Email);
+                    mail.Bcc.Add("Orders@dptcorporate.com");
+
+                    if (comp.Language == "italian")
+                    {
+                        mail.Subject = "[DO NOT REPLY] Licenze Premium " + comp.AccountName + " (" + comp.AccountNumber + ")";
+                        mail.Body = "Gentile Cliente,<br/><br/>La ringraziamo per il Suo ordine.<br/><br/>" +
+                        "La informiamo che nella sezione <b>Licenses</b> del sito DPT3Care (https://dpt3.dptcorporate.com) " +
+                        "troverà, oltre alla/e licenza/e regolarmente acquistata/e, anche <b>" + licprm + " Licenza/e Premium</b>: " +
+                        "si tratta di un omaggio che DPT fa ai suoi <b>Clienti Premium</b>, vale a dire le aziende " +
+                        "che hanno tutte le licenze sotto contratto attivo di manutenzione.<br/><br/>Ogni Licenza Premium " +
+                        "ha durata di 30 giorni a partire dal momento dell’attivazione e può essere utilizzata per " +
+                        "gestire picchi di lavoro nell’ufficio tecnico, stagisti, ecc.<br/>Per installarla/e in " +
+                        "modalità self-service, quando sarà necessario, troverà qui di seguito le istruzioni: " +
+                        "http://www.dptcorporate.com/it/guida-auto-installazione/." +
+                        "<br/><br/>Restiamo a Sua disposizione per ulteriori informazioni.<br/>Buon lavoro e buona giornata!" +
+                        "<br/><br/>DPT Accounting";
+                    }
+                    else
+                    {
+                        mail.Subject = "[DO NOT REPLY] Premium Licenses " + comp.AccountName + " (" + comp.AccountNumber + ")";
+                        mail.Body = "Dear User,<br/><br/>Thank you for your order.<br/><br/>" +
+                        "Please note that, besides the purchased license/s, in the <b>Licenses</b> section of " +
+                        "DPT3Care website (https://dpt3.dptcorporate.com) you’ll also find <b>" + licprm +
+                        " Premium License/s</b>.<br/>Premium Licenses are free 1-month licenses that DPT " +
+                        "gives as a gift only to its <b>Premium Customers</b> (= companies with all licenses under " +
+                        "maintenance), and they can be used for managing peak period activities, temporary staff, interns " +
+                        "training, travels or whatever the reason.<br/><br/>You’ll be able to activate them whenever " +
+                        "you want by following the instructions at this link: http://www.dptcorporate.com/self-installation-guide/." +
+                        "<br/><br/>Have a good day!<br/>Best regards,<br/><br/>DPT Accounting";
+
+                    }
+                    mail.IsBodyHtml = true;
+                    try
+                    {
+                        MailHelper.SendMail(mail);
+                    }
+                    catch (Exception e)
+                    {
+                        LogHelper.WriteLog("OrderController (Approve): ordernumber - " + orderNumber + " -- " + e.Message + "-" + e.InnerException);
                     }
                 }
             }

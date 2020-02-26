@@ -116,6 +116,8 @@ namespace DPTnew.Models
         [Display(Name = "StartDate", ResourceType = typeof(Resource))]
         public string SD { get { return MaintEndDate != null ? ((DateTime)StartDate).ToString("yyyy-MM-dd") : ""; } }
 
+        public Nullable<DateTime> MaintEndDateT { get; set; }
+
         public string PwdCode { get; set; }
 
         [Display(Name = "Version", ResourceType = typeof(Resource))]
@@ -275,8 +277,8 @@ namespace DPTnew.Models
         public JArray ProductName { get; set; }
 
         public static IEnumerable<string> AddTTeamDocTo = new List<string> { "BO", "BY", "UD", "UE", "UP", "US", "UT", "UZ", "TL" };//tdbase,tdengineeringplus,tddrafting,tdengineering,tdprofessional,tdstyling,tdtooling,tdmolding,tdviewerplus
-        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm" };//, "thinkprint" TDVARLight
-        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm" };// per enrico, "thinkprint", TDVARFull 
+        public static IEnumerable<string> TDVARBundle = new List<string> { "TDEducation", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm", "thinkprint" }; //TDVARLight
+        public static IEnumerable<string> DPTVARBundle = new List<string> { "tdprofessional", "thinkteamdev", "tdxchangereader", "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw", "tdpartsolutions", "thinkapi_gsm", "thinkprint" }; //per enrico, TDVARFull 
         public static IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
     }
 

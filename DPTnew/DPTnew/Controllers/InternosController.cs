@@ -132,7 +132,7 @@ namespace DPTnew.Controllers
                             var query = from ppl in db.Peoples
                                         where ppl.Email == ema
                                         select ppl;
-                            if (query.Count() > 0)
+                            if (query.Count() > 0 && query.FirstOrDefault().EmailStatus != "ko: na")
                             {
                                 db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_People] Set EmailStatus = 'ko: nd' WHERE Email = '" + ema + "'");
                             }
@@ -149,7 +149,7 @@ namespace DPTnew.Controllers
                             var query = from ppl in db.Peoples
                                         where ppl.Email == ema
                                         select ppl;
-                            if (query.Count() > 0)
+                            if (query.Count() > 0 && query.FirstOrDefault().EmailStatus != "ko: na")
                             {
                                 if (listId != "43824c52ba")
                                     db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_People] Set EmailStatus = 'ko: nl' WHERE Email = '" + ema + "'");
