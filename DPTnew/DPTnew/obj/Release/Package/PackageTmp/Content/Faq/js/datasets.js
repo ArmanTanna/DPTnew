@@ -196,8 +196,8 @@ var dataSetPrices = [
 ["340", "TL", "TDVIEWERPLUS <sup>(3)</sup>", "MORE", "na", "na", "500", "na", "na", "62000"],
 ["350", "DM", "GBGDM", "MORE", "1000", "200", "400", "na", "na", "na"],
 ["360", "HZ", "API-GSM <sup>(4)</sup>", "MORE", "na", "na", "1000", "na", "na", "125000"],
-["370", "NA", "DONGLE <sup>(5)</sup>", "MORE", "200", "na", "na", "na", "na", "na"],
-["380", "NA", "PRODUCT DESIGN & MANUFACTURING COLLECTION<sup>(6)</sup>", "MORE", "50000", "10000", "na", "7500000", "1500000", "na"]
+["370", "NA", "DONGLE", "MORE", "200", "na", "na", "na", "na", "na"],
+["380", "NA", "PRODUCT DESIGN & MANUFACTURING COLLECTION<sup>(5)</sup>", "MORE", "50000", "10000", "na", "7500000", "1500000", "na"]
 ];
 
 

@@ -772,7 +772,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2020..
+        ///   Looks up a localized string similar to Recommended version. Official release of ThinkDesign 2020 SP1..
         /// </summary>
         public static string Description2020ThinkDesign64bit {
             get {
@@ -781,7 +781,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This section includes thinkPLM 2020 official version..
+        ///   Looks up a localized string similar to This section includes thinkPLM 2020 SP1 official version..
         /// </summary>
         public static string Description2020thinkPLM {
             get {
@@ -1861,7 +1861,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2020 64bit.
+        ///   Looks up a localized string similar to ThinkDesign 2020 64bit SP1.
         /// </summary>
         public static string Product2020ThinkDesign64bit {
             get {
@@ -1870,7 +1870,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to thinkPLM 2020.
+        ///   Looks up a localized string similar to thinkPLM 2020 SP1.
         /// </summary>
         public static string Product2020thinkPLM {
             get {
@@ -2095,7 +2095,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThinkDesign 2020 (x64) - 2 GB.
+        ///   Looks up a localized string similar to ThinkDesign 2020 SP1 (x64) - 2 GB.
         /// </summary>
         public static string View_Download_Text2 {
             get {
@@ -2119,6 +2119,15 @@ namespace DPTnew.Localization {
         public static string View_Download_Warning2020 {
             get {
                 return ResourceManager.GetString("View_Download_Warning2020", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To successfully complete the product installation, you will need to &lt;b&gt;remove from your PC all the previous installations of the same version&lt;/b&gt;. As far as activation is concerned, if you already had a license of the very same version on your PC, you will not need another password to enable the software update..
+        /// </summary>
+        public static string View_Download_WarningInstall {
+            get {
+                return ResourceManager.GetString("View_Download_WarningInstall", resourceCulture);
             }
         }
         
@@ -2213,7 +2222,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2020&lt;/b&gt; is now available! Have a look at the Download section..
+        ///   Looks up a localized string similar to &lt;b&gt;ThinkDesign 2020 SP1&lt;/b&gt; is now available! Have a look at the Download section..
         /// </summary>
         public static string View_Home_Text1 {
             get {
@@ -2222,7 +2231,7 @@ namespace DPTnew.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try for free ThinkDesign 2020! Write to us to know more..
+        ///   Looks up a localized string similar to Try for free ThinkDesign 2020 SP1! Write to us to know more..
         /// </summary>
         public static string View_Home_Text2 {
             get {

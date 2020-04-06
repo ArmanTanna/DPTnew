@@ -131,25 +131,15 @@ namespace DPTnew.Controllers
                     }
                     else
                     {
-                        if (orderRow.Invoicer.ToLower().Trim() == "dpt srl")
+                        if (orderRow.Invoicer.ToLower().Trim() == "dpt srl" || orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
                         {
                             var code = from salesR in db.SalesR
                                        where salesR.SalesRep == orderRow.SalesRep
                                        select salesR;
-                            orderRow.InvoiceNumber = "I" + DateTime.Now.Year.ToString().Substring(2) + "-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
+                            orderRow.InvoiceNumber = "L" + DateTime.Now.Year.ToString().Substring(2) + "-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
                         }
                         else
-                        {
-                            if (orderRow.Invoicer.ToLower().Trim() == "dpt sarl")
-                            {
-                                var code = from salesR in db.SalesR
-                                           where salesR.SalesRep == orderRow.SalesRep
-                                           select salesR;
-                                orderRow.InvoiceNumber = "F" + DateTime.Now.Year.ToString().Substring(2) + "-" + code.FirstOrDefault().Code.Trim() + orderRow.InvoiceDate.ToString("MM");
-                            }
-                            else
-                                orderRow.InvoiceNumber = "JJ";
-                        }
+                            orderRow.InvoiceNumber = "JJ";
                     }
                     if (string.IsNullOrEmpty(orderRow.PO_Number))
                         orderRow.PO_Number = "automatic input " + DateTime.Now;
@@ -663,8 +653,8 @@ namespace DPTnew.Controllers
                         db.SaveChanges();
                     }
                 }
-                db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus_Every8Hours]");
                 var order = db.Orders.Where(x => x.OrderNumber == orderNumber).FirstOrDefault();
+                db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus] @AccountNumber = '" + order.AccountNumber + "'");
                 var comp = db.Companies.Where(x => x.AccountNumber == order.AccountNumber).FirstOrDefault();
                 var licprm = db.Licenses.Where(x => x.AccountNumber == comp.AccountNumber
                         && x.LicenseFlag == "premium" && x.MachineID.Contains("ABCDEFGH")).Count();
@@ -889,7 +879,7 @@ namespace DPTnew.Controllers
                 var company = db.Companies.Where(c => c.AccountName == companyName).FirstOrDefault();
                 orderRow.AccountNumber = company.AccountNumber;
                 var sr = db.SalesR.Where(u => u.SalesRep == company.SalesRep).FirstOrDefault();
-                orderRow.Invoicer = sr.Invoicer;
+                orderRow.Invoicer = sr.Invoicer.Contains("dpt") ? "dpt sarl" : sr.Invoicer;
                 orderRow.InvoicedNumber = sr.AccountNumber;
                 orderRow.InvoicedName = sr.AccountName;
                 orderRow.SalesRep = company.SalesRep;

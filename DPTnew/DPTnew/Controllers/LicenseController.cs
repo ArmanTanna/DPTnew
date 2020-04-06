@@ -134,6 +134,15 @@ namespace DPTnew.Controllers
                     select lic;
                 if (query.Count() > 0)
                 {
+                    if (licSingleRow.AccountNumber.StartsWith("T3-"))
+                    {
+                        var cnt = db.Licenses.Where(x => x.AccountNumber == licSingleRow.AccountNumber && x.LicenseFlag == "premium"
+                            && x.MachineID.Contains("ABCDEFGH")).Count();
+                        if (cnt > 0)
+                        {
+                            return Json("The customer has already premium licenses to be installed!", JsonRequestBehavior.AllowGet);
+                        }
+                    }
                     if (query.FirstOrDefault().LicenseFlag.ToLower() == "pool" && licSingleRow.AccountNumber.StartsWith("T3-")
                         && query.FirstOrDefault().MachineID.Contains("ABCDEFGH"))
                     {

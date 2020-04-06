@@ -75,9 +75,16 @@ namespace DptLicensingServer.Controllers
                     {
                         expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
                     }
-                if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                    currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                     expdata = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
+
+                if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
+                    currentlicense.MaintEndDateT > DateTime.Now)
+                {
+                    expdata = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
+                    tipo = "T";
+                }
 
                 IEnumerable<string> TDIRECTBundle = new List<string> { "tdirectcatiarw", "tdirectparasolidrw", "tdirectproerw" };
                 IEnumerable<string> TDIRECTCode = new List<string> { "IK", "XP", "IJ" };
@@ -491,9 +498,16 @@ namespace DptLicensingServer.Controllers
                         {
                             expdate = CheckQMTsf(currentlicense.ArticleDetail, expdate, db, currentlicense);
                         }
-                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                    if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                        currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                         expdate = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
+
+                    if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
+                        currentlicense.MaintEndDateT > DateTime.Now)
+                    {
+                        expdate = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
+                        expkind = 0;
+                    }
                 }
                 IFlexLicense licenseManager = (IFlexLicense)new License();
                 licenseManager.FlexLicense(flexkind, feature, Version, numServ, machineid1, machineid2, machineid3, nlic, expdate, vend_string, typelic, expkind, param, out pwdline);
@@ -578,6 +592,25 @@ namespace DptLicensingServer.Controllers
             log.VersionFrom = currentlicense.Version;
             db.LicenseLogs.Add(log);
             db.SaveChanges();
+
+            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+            {
+                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                mail.Subject = "[Install < 2015] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                mail.IsBodyHtml = true;
+                try
+                {
+                    MailHelper.SendMail(mail);
+                }
+                catch (Exception e)
+                {
+                    LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
+                }
+            }
         }
 
         [HttpGet]

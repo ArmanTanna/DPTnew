@@ -188,8 +188,8 @@ namespace DPTnew.Controllers
                         ue.refId1 = ue.ProtectionKeyId;
                         ue.refId2 = currentlicense.LicenseID;
                         var pname = GetProductName(currentlicense.ProductName);
-                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
-                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                        var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var, currentlicense.ArticleDetail);
+                        ue.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var, currentlicense.ArticleDetail);
                         IList<string> verList = new List<string>();
                         verList.Add("_20171CANCEL");
                         verList.Add("_20161CANCEL");
@@ -319,6 +319,25 @@ namespace DPTnew.Controllers
                             catch (Exception e)
                             {
                                 LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
+                            }
+
+                            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                            {
+                                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                                mail.Subject = "[Export] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+                                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                                mail.IsBodyHtml = true;
+                                try
+                                {
+                                    MailHelper.SendMail(mail);
+                                }
+                                catch (Exception e)
+                                {
+                                    LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
+                                }
                             }
 
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseExportMsg;
@@ -452,6 +471,26 @@ namespace DPTnew.Controllers
                     entry.Property(x => x.Ancestor).IsModified = true;
 
                     context.SaveChanges();
+
+                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                    {
+                        var company = context.Companies.Where(x => x.AccountNumber == currentlicense.AccountNumber).FirstOrDefault();
+                        MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                        mail.Subject = "[Validate Export] Avviso su MEDT - " + company.AccountName + " (" + company.AccountNumber + ") ";
+                        mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                            "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+                            "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                            "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                        mail.IsBodyHtml = true;
+                        try
+                        {
+                            MailHelper.SendMail(mail);
+                        }
+                        catch (Exception e)
+                        {
+                            LogHelper.WriteLog("UserController (ValidateExport): " + e.Message + "-" + e.InnerException);
+                        }
+                    }
                 }
 
                 ViewBag.ok1 = DPTnew.Localization.Resource.LicenseValidateMsg1;
@@ -573,7 +612,7 @@ namespace DPTnew.Controllers
             return View("V2CP");
         }
 
-        private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix, string accNumber)
+        private JArray InitSafenetProduct(string pwdCode, string productName, string productPostfix, string accNumber, string artDetail)
         {
             var prodName = new JArray();
             if (pwdCode.StartsWith("VA"))//tdvar accNumber == "T3-0073628" (Enrico), TDVARFull
@@ -583,12 +622,11 @@ namespace DPTnew.Controllers
             else
                 if (pwdCode.StartsWith("IX"))//tdirectrw
                     prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
-
-            //else if (pwdCode.StartsWith("AH")) //tdxchangereader
-                //{
-                //    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
-                //    prodName.Add(productName + productPostfix);
-                //}
+                else if (pwdCode.StartsWith("AH") && artDetail != "pl") //tdxchangereader
+                {
+                    prodName = new JArray(SafenetEntitlement.TDIRECTBundle.Select(x => x + productPostfix).ToArray());
+                    prodName.Add(productName + productPostfix);
+                }
                 else
                 {
                     if (productName == "thinkapigsm")
@@ -601,7 +639,8 @@ namespace DPTnew.Controllers
                         prodName.Add("tdpartsolutions" + productPostfix);
                     }
                     //sener
-                    if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering"))
+                    if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering") 
+                        && artDetail != "pl")
                         prodName.Add("thinkcore" + productPostfix);
                     if (productName == "thinkprint")
                         prodName.Add("tdviewerplus" + productPostfix);
@@ -616,6 +655,7 @@ namespace DPTnew.Controllers
         {
             //common variables
             LicenseView currentlicense = null;
+            string actmed = "";
             SerLicenseFlag lf = null;
             string type = "";
             string dpt_Company = "";
@@ -655,15 +695,25 @@ namespace DPTnew.Controllers
                     && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
                     || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
-                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                    if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                        currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                    {
+                        actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                         currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+                    }
+                    if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
+                        currentlicense.MaintEndDateT > DateTime.Now)
+                    {
+                        actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
+                        currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+                        currentlicense.ArticleDetail = "asf";
+                    }
 
                     if (currentlicense.LicenseType == "local")
                     { //LOCAL
                         if (currentlicense.ArticleDetail == "pl")
                         {
-                            type = "PHYSIC_PL";
+                            type = currentlicense.physic ? "PHYSIC_PL" : "PL";
                         }
                         else
                         {
@@ -700,7 +750,7 @@ namespace DPTnew.Controllers
 
                     var pname = GetProductName(currentlicense.ProductName);
                     //EVAL or LOCAL PL
-                    if (type == "PHYSIC_PL" /*|| type == "EVAL"*/)
+                    if (type == "PHYSIC_PL" || type == "PL")
                     {
                         SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                         e1.CrmId = dpt_Company;
@@ -715,20 +765,20 @@ namespace DPTnew.Controllers
                         e1.refId1 = e1.ProtectionKeyId;
                         e1.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                        e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
                         if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
                         {
                             if (currentlicense.Version == "2015")
                                 productPostfix = "_20152CANCEL";
                             else
                                 productPostfix = "_" + currentlicense.Version + "1CANCEL";
-                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
                             foreach (var p in productName)
                                 e1.ProductName.Add(p);
                         }
                         if (version == "2020" && renew == 0 && currentlicense.ProductName != "tdvarlight")
                         {
-                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var, currentlicense.ArticleDetail);
                             IList<string> verList = new List<string>();
                             verList.Add("_20191CANCEL");
                             verList.Add("_20181CANCEL");
@@ -744,6 +794,29 @@ namespace DPTnew.Controllers
                                     {
                                         var repName = it.ToString();
                                         repName = repName.Replace("_20181CANCEL", ver);
+                                        e1.ProductName.Add(repName);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (currentlicense.Version == "2020" && version != "2020" && renew == 0
+                            && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
+                            currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
+                        {
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
+                            IList<string> verList = new List<string>();
+                            verList.Add("_20201CANCEL");
+
+                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                            {
+                                foreach (var ver in verList)
+                                {
+                                    foreach (var it in prodName.ToList())
+                                    {
+                                        var repName = it.ToString();
+                                        repName = repName.Replace("_20201CANCEL", ver);
                                         e1.ProductName.Add(repName);
                                     }
                                 }
@@ -770,20 +843,20 @@ namespace DPTnew.Controllers
                         e2.refId1 = e2.ProtectionKeyId;
                         e2.refId2 = currentlicense.LicenseID;
                         //ADD PRODUCT
-                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                        e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
                         if (currentlicense.LicenseType.ToLower() == "floating" && renew == 0)
                         {
                             if (currentlicense.Version == "2015")
                                 productPostfix = "_20152CANCEL";
                             else
                                 productPostfix = "_" + currentlicense.Version + "1CANCEL";
-                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                            var productName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
                             foreach (var p in productName)
                                 e2.ProductName.Add(p);
                         }
                         if (version == "2020" && renew == 0 && currentlicense.ProductName != "tdvarlight")
                         {
-                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var);
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20181CANCEL", var, currentlicense.ArticleDetail);
                             IList<string> verList = new List<string>();
                             verList.Add("_20191CANCEL");
                             verList.Add("_20181CANCEL");
@@ -799,6 +872,29 @@ namespace DPTnew.Controllers
                                     {
                                         var repName = it.ToString();
                                         repName = repName.Replace("_20181CANCEL", ver);
+                                        e2.ProductName.Add(repName);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (currentlicense.Version == "2020" && version != "2020" && renew == 0
+                            && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
+                            currentlicense.MaintEndDateT > DateTime.Now
+                            && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
+                        {
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var,currentlicense.ArticleDetail);
+                            IList<string> verList = new List<string>();
+                            verList.Add("_20201CANCEL");
+
+                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                            {
+                                foreach (var ver in verList)
+                                {
+                                    foreach (var it in prodName.ToList())
+                                    {
+                                        var repName = it.ToString();
+                                        repName = repName.Replace("_20201CANCEL", ver);
                                         e2.ProductName.Add(repName);
                                     }
                                 }
@@ -907,6 +1003,25 @@ namespace DPTnew.Controllers
                         {
                             LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
                         }
+
+                        if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                        {
+                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                            mail.Subject = "[Renew/Upgrade] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                                "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
+                                "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                                "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                            mail.IsBodyHtml = true;
+                            try
+                            {
+                                MailHelper.SendMail(mail);
+                            }
+                            catch (Exception e)
+                            {
+                                LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
+                            }
+                        }
                         //ViewBag.ok1 = "You have generated your license.";
                         return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
                     }
@@ -922,6 +1037,7 @@ namespace DPTnew.Controllers
         {
             //common variables
             LicenseView currentlicense = null;
+            string actmed = "";
             SerLicenseFlag lf = null;
             string type = "";
             string dpt_Company = "";
@@ -970,9 +1086,19 @@ namespace DPTnew.Controllers
                     //check for import/install
                     if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && lf.Install_Safenet == 1)
                     {
-                        if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                        if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                            currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                        {
+                            actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                             currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+                        }
+                        if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
+                            currentlicense.MaintEndDateT > DateTime.Now)
+                        {
+                            actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
+                            currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
+                            currentlicense.ArticleDetail = "asf";
+                        }
 
                         //CHECK if is EVAL                        
                         var isEval = evalrgx.IsMatch(currentlicense.LicenseFlag.ToUpper());
@@ -981,7 +1107,7 @@ namespace DPTnew.Controllers
                         { //LOCAL
                             if (currentlicense.ArticleDetail == "pl")
                             {
-                                type = "PHYSIC_PL";
+                                type = currentlicense.physic ? "PHYSIC_PL" : "PL";
                                 SetDateToNow(currentlicense);
                             }
                             else
@@ -1016,7 +1142,7 @@ namespace DPTnew.Controllers
                         var pname = GetProductName(l.ProductName);
 
                         //EVAL or LOCAL PL
-                        if (type == "PHYSIC_PL" /*|| type == "EVAL"*/)
+                        if (type == "PHYSIC_PL" || type == "PL")
                         {
                             SafenetEvalPlLocalEntitlment e1 = new SafenetEvalPlLocalEntitlment();
                             e1.CrmId = dpt_Company;
@@ -1024,7 +1150,7 @@ namespace DPTnew.Controllers
                             e1.refId1 = l.file.FileName;
                             e1.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                            e1.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
 
                             e1.Encoded = true;
                             e1.C2V = c2v;
@@ -1039,7 +1165,7 @@ namespace DPTnew.Controllers
                             e2.refId1 = l.file.FileName;
                             e2.refId2 = currentlicense.LicenseID;
                             //ADD PRODUCT
-                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var);
+                            e2.ProductName = InitSafenetProduct(currentlicense.PwdCode, pname, productPostfix, var, currentlicense.ArticleDetail);
 
                             //ADDITIONAL PARAMETERS
                             e2.SaotParams = new JArray();
@@ -1179,6 +1305,25 @@ namespace DPTnew.Controllers
                             catch (Exception e)
                             {
                                 LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                            }
+
+                            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                            {
+                                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                                mail.Subject = "[Install] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
+                                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                                mail.IsBodyHtml = true;
+                                try
+                                {
+                                    MailHelper.SendMail(mail);
+                                }
+                                catch (Exception e)
+                                {
+                                    LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                                }
                             }
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseCreateMsg;
                             ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
