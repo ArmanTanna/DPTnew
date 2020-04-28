@@ -44,7 +44,8 @@ namespace DPTnew.Controllers
             var plainTextBytes4 = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(_db.Companies.Select(x => x.LastExp).Distinct().ToList()).ToString(Formatting.None));
             ViewBag.LastExp = System.Convert.ToBase64String(plainTextBytes4);
             ViewBag.IsButtonRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp")
-                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal");
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarMed") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
+                || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Var");
             ViewBag.UserRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal")
                 || Roles.IsUserInRole(WebSecurity.CurrentUserName, "VarExp");
             ViewBag.AdminRole = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin");
@@ -415,6 +416,22 @@ namespace DPTnew.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult OneCampaignInfo(string accountNumber)
+        {
+            if (string.IsNullOrEmpty(accountNumber))
+                return Json("Wrong AccountNumber", JsonRequestBehavior.AllowGet);
+            using (var db = new DptContext())
+            {
+                var query = db.Companies.Where(x => x.AccountNumber == accountNumber).FirstOrDefault();
+                if (query.AccountStatus == "03 - Active Customer" || query.AccountStatus == "03 - Active Sener Customer"
+                    || query.AccountStatus == "04 - Not Active Customer")
+                    return Json("true", JsonRequestBehavior.AllowGet);
+                else
+                    return Json("false", JsonRequestBehavior.AllowGet);
+            }
+        }
+
         [Authorize(Roles = "Admin,Internal")]
         public ActionResult FarewellMail(string accountNumber)
         {
@@ -529,6 +546,335 @@ namespace DPTnew.Controllers
             }
 
             return Json("Mail sent: " + email, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "Admin,Internal,VarExp,VarMed,Var")]
+        public ActionResult OneCampaign(string accountNumber)
+        {
+            if (string.IsNullOrEmpty(accountNumber))
+            {
+                ViewBag.ok1 = "Something went wrong. Cannot send the mail!";
+                return View("Success");
+            }
+            string rs = "";
+            using (var db = new DptContext())
+            {
+                string[] tdlist = {"tdengineering","tdengineeringplus","tdprofessionaledu","tddrafting","tdmolding","tdprofessional",
+                                      "tdstyling","tdtooling","tdvar"};
+                List<string> cadList = new List<string>();
+                cadList.AddRange(tdlist);
+                // CAD products
+                var query = from lic in db.Licenses
+                            where lic.AccountNumber == accountNumber && lic.ArticleDetail == "pl" && lic.MaintEndDate < DateTime.Now
+                            && cadList.Contains(lic.ProductName) && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken")
+                            select lic;
+                decimal x1 = 0;
+                decimal price1 = 0;
+                decimal listino1 = 0;
+                int cad = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        cad += lic.Quantity;
+                    }
+                    switch (cad)
+                    {
+                        case 1:
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql1 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res1 = 0;
+                                var europrice1 = db.Database.SqlQuery<decimal>(sql1, res1).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x1 = europrice1 / 2;
+                                    listino1 = europrice1 * 2;
+                                }
+                                else
+                                {
+                                    x1 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) / 2;
+                                    listino1 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) * 2;
+                                }
+                                price1 = x1 / lic.Quantity;
+                            }
+                            break;
+                        case 2:
+                            var qty1 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql2 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res2 = 0;
+                                var europrice2 = db.Database.SqlQuery<decimal>(sql2, res2).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x1 += (europrice2 * 75) / 100;
+                                    listino1 += europrice2;
+                                }
+                                else
+                                {
+                                    x1 += (((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity) * 75) / 100;
+                                    listino1 += ((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity);
+                                }
+                                qty1 += lic.Quantity;
+                            }
+                            price1 = x1 / qty1;
+                            listino1 += price1;
+                            break;
+                        default:
+                            var qty2 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql3 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res3 = 0;
+                                var europrice3 = db.Database.SqlQuery<decimal>(sql3, res3).First();
+                                if (lic.LicenseType == "local")
+                                    x1 += europrice3;
+                                else
+                                    x1 += ((europrice3 + ((europrice3 * 20) / 100)) * lic.Quantity);
+                                qty2 += lic.Quantity;
+                            }
+                            price1 = x1 / qty2;
+                            listino1 = x1 + price1;
+                            break;
+                    }
+                }
+                // TTEAM products
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && lic.ArticleDetail == "pl" && lic.MaintEndDate < DateTime.Now
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") &&
+                        (lic.ProductName == "tteamdev" || lic.ProductName == "tteampdm")
+                        select lic;
+                decimal x2 = 0;
+                decimal price2 = 0;
+                decimal listino2 = 0;
+                int ttm = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        ttm += lic.Quantity;
+                    }
+                    switch (ttm)
+                    {
+                        case 1:
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql1 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res1 = 0;
+                                var europrice1 = db.Database.SqlQuery<decimal>(sql1, res1).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x2 = europrice1 / 2;
+                                    listino2 = europrice1 * 2;
+                                }
+                                else
+                                {
+                                    x2 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) / 2;
+                                    listino2 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) * 2; ;
+                                }
+                                price2 = x2 / lic.Quantity;
+                            }
+                            break;
+                        case 2:
+                            var qty1 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql2 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res2 = 0;
+                                var europrice2 = db.Database.SqlQuery<decimal>(sql2, res2).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x2 += (europrice2 * 75) / 100;
+                                    listino2 += europrice2;
+                                }
+                                else
+                                {
+                                    x2 += (((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity) * 75) / 100;
+                                    listino2 += ((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity);
+                                }
+                                qty1 += lic.Quantity;
+                            }
+                            price2 = x2 / qty1;
+                            listino2 += price2;
+                            break;
+                        default:
+                            var qty2 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql3 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res3 = 0;
+                                var europrice3 = db.Database.SqlQuery<decimal>(sql3, res3).First();
+                                if (lic.LicenseType == "local")
+                                    x2 += europrice3;
+                                else
+                                    x2 += ((europrice3 + ((europrice3 * 20) / 100)) * lic.Quantity);
+                                qty2 += lic.Quantity;
+                            }
+                            price2 = x2 / qty2;
+                            listino2 = x2 + price2;
+                            break;
+                    }
+                }
+                // tdxchangereader products
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && lic.ArticleDetail == "pl" && lic.MaintEndDate < DateTime.Now
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") && lic.ProductName == "tdxchangereader"
+                        select lic;
+                decimal x3 = 0;
+                decimal price3 = 0;
+                decimal listino3 = 0;
+                int exr = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        exr += lic.Quantity;
+                    }
+                    switch (exr)
+                    {
+                        case 1:
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql1 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res1 = 0;
+                                var europrice1 = db.Database.SqlQuery<decimal>(sql1, res1).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x3 = europrice1 / 2;
+                                    listino3 = europrice1 * 2;
+                                }
+                                else
+                                {
+                                    x3 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) / 2;
+                                    listino3 = ((europrice1 + ((europrice1 * 20) / 100)) * lic.Quantity) * 2; ;
+                                }
+                                price3 = x3 / lic.Quantity;
+                            }
+                            break;
+                        case 2:
+                            var qty1 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql2 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res2 = 0;
+                                var europrice2 = db.Database.SqlQuery<decimal>(sql2, res2).First();
+                                if (lic.LicenseType == "local")
+                                {
+                                    x3 += (europrice2 * 75) / 100;
+                                    listino3 += europrice2;
+                                }
+                                else
+                                {
+                                    x3 += (((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity) * 75) / 100;
+                                    listino3 = ((europrice2 + ((europrice2 * 20) / 100)) * lic.Quantity);
+                                }
+                                qty1 += lic.Quantity;
+                            }
+                            price3 = x3 / qty1;
+                            listino3 += price3;
+                            break;
+                        default:
+                            var qty2 = 0;
+                            foreach (LicenseView lic in query.ToList())
+                            {
+                                var sql3 = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                                    + "' and [Status] = 'active'";
+                                var res3 = 0;
+                                var europrice3 = db.Database.SqlQuery<decimal>(sql3, res3).First();
+                                if (lic.LicenseType == "local")
+                                    x3 += europrice3;
+                                else
+                                    x3 += ((europrice3 + ((europrice3 * 20) / 100)) * lic.Quantity);
+                                qty2 += lic.Quantity;
+                            }
+                            price3 = x3 / qty2;
+                            listino3 = x3 + price3;
+                            break;
+                    }
+                }
+                // premium price
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && (lic.ArticleDetail == "pl" || lic.ArticleDetail == "asf"
+                        || lic.ArticleDetail == "asp" || lic.ArticleDetail == "plasasp")
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") && (cadList.Contains(lic.ProductName)
+                        || lic.ProductName == "tdxchangereader" || lic.ProductName == "tteamdev" || lic.ProductName == "tteampdm")
+                        select lic;
+                decimal pr = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        var sql = "SELECT PLSS_EURO FROM [DPT].[dbo].[DPT_PriceList] WHERE ProductName = '" + lic.ProductName
+                            + "' and [Status] = 'active'";
+                        var res = 0;
+                        var europrice = db.Database.SqlQuery<decimal>(sql, res).First();
+                        if (lic.LicenseType == "local")
+                            pr += europrice / 4;
+                        else
+                            pr += (europrice * lic.Quantity) / 4;
+                    }
+                }
+                // premium licenses
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && (lic.ArticleDetail == "pl" || lic.ArticleDetail == "plasasp")
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") && cadList.Contains(lic.ProductName)
+                        select lic;
+                int cd = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        cd += lic.Quantity;
+                    }
+                }
+                string c = cd == 0 ? "" : cd + " CAD  ";
+
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && (lic.ArticleDetail == "pl" || lic.ArticleDetail == "plasasp")
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") && (lic.ProductName == "tteamdev" ||
+                        lic.ProductName == "tteampdm")
+                        select lic;
+                int tm = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        tm += lic.Quantity;
+                    }
+                }
+                string t = tm == 0 ? "" : tm + " PDM  ";
+
+                query = from lic in db.Licenses
+                        where lic.AccountNumber == accountNumber && (lic.ArticleDetail == "pl" || lic.ArticleDetail == "plasasp")
+                        && (lic.LicenseFlag == "regular" || lic.LicenseFlag == "broken") && lic.ProductName == "tdxchangereader"
+                        select lic;
+                int ex = 0;
+                if (query.Count() > 0)
+                {
+                    foreach (LicenseView lic in query.ToList())
+                    {
+                        ex += lic.Quantity;
+                    }
+                }
+                string e = ex == 0 ? "" : ex + " TDX";
+                var price = decimal.Round(price1 + price2 + price3, 2);
+                var priceList = decimal.Round(listino1 + listino2 + listino3, 2);
+                var discount = decimal.Round(((1 - (price / priceList)) * 100), 2);
+                var roi = decimal.Round(pr / price, 2);
+                rs = "PRICE_ONE: " + price + " €;PRICELIST: " + priceList + " €;DISCOUNT_ONE: " + discount + " %;They save: " + (priceList - price) +
+                    " €;VALUE_PREMIUM: " + pr + " €;ROI: " + roi + ";;Licenses back to maintenance: " + (cad == 0 ? "" : cad + " CAD  ")
+                    + (ttm == 0 ? "" : ttm + " PDM  ") + (exr == 0 ? "" : exr + " TDX") + ";" + "Premium Licenses: " + c + t + e;
+            }
+            return Json(rs, JsonRequestBehavior.AllowGet);
         }
 
         [NonAction]

@@ -29,6 +29,13 @@
         yourApp.Urls.DataUrl = '@Url.Action("SingleCompanyRow", "Company")';
         yourApp.Urls.FarewellMailUrl = '@Url.Action("FarewellMail", "Company")';
         yourApp.Urls.GetCompanyInfo = '@Url.Action("GetCompanyInfo", "Company")';
+        yourApp.Urls.OneUrl = '@Url.Action("OneCampaign", "Company")';
+        yourApp.Urls.OneCampaignInfo = '@Url.Action("OneCampaignInfo", "Company")';
+
+        String.prototype.replaceAll = function (search, replacement) {
+            var target = this;
+            return target.replace(new RegExp(search, 'g'), replacement);
+        };
 
         /* Formatting function for row details - modify as you need */
         function format(d) {
@@ -36,45 +43,45 @@
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" style="padding-left:50px;">' +
              '<tr>' +
                   '<td><b>' + "@DPTnew.Localization.Resource.Address" + ':</b></td>' +
-          '<td>' + d.Address + '</td>' +
+  '<td>' + d.Address + '</td>' +
 
-         '<td><b>' + "@DPTnew.Localization.Resource.ZIP" + ':</b></td>' +
-          '<td>' + d.ZIP + '</td>' +
+ '<td><b>' + "@DPTnew.Localization.Resource.ZIP" + ':</b></td>' +
+  '<td>' + d.ZIP + '</td>' +
 
-         '<td><b>' + "@DPTnew.Localization.Resource.City" + ':</b></td>' +
-          '<td>' + d.City + '</td>' +
+ '<td><b>' + "@DPTnew.Localization.Resource.City" + ':</b></td>' +
+  '<td>' + d.City + '</td>' +
+
+'</tr>' +
+'<tr>' +
+
+  '<td><b>' + "@DPTnew.Localization.Resource.Province" + ':</b></td>' +
+  '<td>' + d.Province + '</td>' +
+
+  '<td><b>' + "@DPTnew.Localization.Resource.Country" + ':</b></td>' +
+  '<td>' + d.Country + '</td>' +
+
+  '<td><b>' + "@DPTnew.Localization.Resource.Email" + ':</b></td>' +
+      '<td>' + d.Email + '</td>' +
+
+  '</tr>' +
+  '<tr>' +
+
+      '<td><b>' + "@DPTnew.Localization.Resource.Phone1" + ':</b></td>' +
+      '<td>' + d.Phone1 + '</td>' +
+
+      '<td><b>' + "@DPTnew.Localization.Resource.Segment" + ':</b></td>' +
+      '<td>' + d.Segment + '</td>' +
+
+      '<td><b>' + "@DPTnew.Localization.Resource.Industry" + ':</b></td>' +
+          '<td>' + d.Industry + '</td>' +
 
       '</tr>' +
-       '<tr>' +
+        '<tr>' +
 
-          '<td><b>' + "@DPTnew.Localization.Resource.Province" + ':</b></td>' +
-          '<td>' + d.Province + '</td>' +
-
-          '<td><b>' + "@DPTnew.Localization.Resource.Country" + ':</b></td>' +
-          '<td>' + d.Country + '</td>' +
-
-          '<td><b>' + "@DPTnew.Localization.Resource.Email" + ':</b></td>' +
-              '<td>' + d.Email + '</td>' +
-
-          '</tr>' +
-          '<tr>' +
-
-              '<td><b>' + "@DPTnew.Localization.Resource.Phone1" + ':</b></td>' +
-              '<td>' + d.Phone1 + '</td>' +
-
-              '<td><b>' + "@DPTnew.Localization.Resource.Segment" + ':</b></td>' +
-              '<td>' + d.Segment + '</td>' +
-
-              '<td><b>' + "@DPTnew.Localization.Resource.Industry" + ':</b></td>' +
-                  '<td>' + d.Industry + '</td>' +
-
-              '</tr>' +
-                '<tr>' +
-
-                  '<td><b>' + "Campaign" + ':</b></td>' +
-                  '<td>' + d.Campaigns + '</td>' +
-              '</tr>' +
-              '</table>';
+          '<td><b>' + "Campaign" + ':</b></td>' +
+          '<td>' + d.Campaigns + '</td>' +
+      '</tr>' +
+      '</table>';
         }
 
         $(document).ready(function () {
@@ -277,7 +284,38 @@
                                             }
                                         },
                                         enabled: false
-                                    }
+                                    },
+                                     {
+                                         text: 'One',
+                                         className: 'one',
+                                         action: function () {
+                                             if (myTable.rows('.selected').count() != 0) {
+                                                 var data = myTable.rows('.selected').data()[0];
+                                                 $.post(yourApp.Urls.OneUrl, {
+                                                     accountNumber: data.AccountNumber
+                                                 },
+                                                 function (result) {
+                                                     var $psw = $("#msg");
+                                                     $psw.text("");
+                                                     $psw.html(result.replaceAll(";", "<br/>"));
+                                                     var pwdDialogConfig = {
+                                                         modal: true,
+                                                         width: 400,
+                                                         height: result ? 250 : "auto",
+                                                         buttons: {
+                                                             OK: function () {
+                                                                 $(this).dialog("close");
+                                                                 window.open('', '_self').close();
+                                                                 //location.reload();
+                                                             }
+                                                         }
+                                                     };
+                                                     $("#sysmsg-dialog").dialog(pwdDialogConfig);
+                                                 });
+                                             }
+                                         },
+                                         enabled: false
+                                     }
                     ]
                 });
             myTable.buttons().container().insertBefore('#companies_filter');
@@ -290,11 +328,17 @@
                         if (result == "true")
                             myTable.buttons(['.famail']).enable(true);
                     });
+                $.post(yourApp.Urls.OneCampaignInfo, { accountNumber: erpRow.AccountNumber },
+                    function (result) {
+                        if (result == "true")
+                            myTable.buttons(['.one']).enable(true);
+                    });
             });
 
             myTable.on('deselect', function () {
                 myTable.buttons(['.modify']).disable();
                 myTable.buttons(['.famail']).disable();
+                myTable.buttons(['.one']).disable();
             });
 
             myTable.on("draw", function () {

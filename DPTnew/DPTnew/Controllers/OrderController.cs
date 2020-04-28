@@ -594,6 +594,7 @@ namespace DPTnew.Controllers
                                 else
                                     db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'educational', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
                             }
+                            lic.MaintEndDateT = o.EndDate.AddDays(60);
                         }
 
                         db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set [ExportedNum] = 0 WHERE licenseID = '" + o.LicenseID + "'");

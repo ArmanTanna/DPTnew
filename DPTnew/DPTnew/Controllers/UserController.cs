@@ -321,24 +321,24 @@ namespace DPTnew.Controllers
                                 LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
                             }
 
-                            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
-                            {
-                                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                                mail.Subject = "[Export] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
-                                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
-                                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
-                                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
-                                mail.IsBodyHtml = true;
-                                try
-                                {
-                                    MailHelper.SendMail(mail);
-                                }
-                                catch (Exception e)
-                                {
-                                    LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
-                                }
-                            }
+                            //if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                            //{
+                            //    mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                            //    mail.Subject = "[Export] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            //    mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                            //        "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+                            //        "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                            //        "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                            //    mail.IsBodyHtml = true;
+                            //    try
+                            //    {
+                            //        MailHelper.SendMail(mail);
+                            //    }
+                            //    catch (Exception e)
+                            //    {
+                            //        LogHelper.WriteLog("UserController (ExportLicense): " + e.Message + "-" + e.InnerException);
+                            //    }
+                            //}
 
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseExportMsg;
                             ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
@@ -472,25 +472,25 @@ namespace DPTnew.Controllers
 
                     context.SaveChanges();
 
-                    if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
-                    {
-                        var company = context.Companies.Where(x => x.AccountNumber == currentlicense.AccountNumber).FirstOrDefault();
-                        MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                        mail.Subject = "[Validate Export] Avviso su MEDT - " + company.AccountName + " (" + company.AccountNumber + ") ";
-                        mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
-                            "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
-                            "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
-                            "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
-                        mail.IsBodyHtml = true;
-                        try
-                        {
-                            MailHelper.SendMail(mail);
-                        }
-                        catch (Exception e)
-                        {
-                            LogHelper.WriteLog("UserController (ValidateExport): " + e.Message + "-" + e.InnerException);
-                        }
-                    }
+                    //if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                    //{
+                    //    var company = context.Companies.Where(x => x.AccountNumber == currentlicense.AccountNumber).FirstOrDefault();
+                    //    MailMessage mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                    //    mail.Subject = "[Validate Export] Avviso su MEDT - " + company.AccountName + " (" + company.AccountNumber + ") ";
+                    //    mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                    //        "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+                    //        "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                    //        "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                    //    mail.IsBodyHtml = true;
+                    //    try
+                    //    {
+                    //        MailHelper.SendMail(mail);
+                    //    }
+                    //    catch (Exception e)
+                    //    {
+                    //        LogHelper.WriteLog("UserController (ValidateExport): " + e.Message + "-" + e.InnerException);
+                    //    }
+                    //}
                 }
 
                 ViewBag.ok1 = DPTnew.Localization.Resource.LicenseValidateMsg1;
@@ -639,7 +639,7 @@ namespace DPTnew.Controllers
                         prodName.Add("tdpartsolutions" + productPostfix);
                     }
                     //sener
-                    if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering") 
+                    if (accNumber == "T3-0032632" && (productName == "tdprofessional" || productName == "tdengineering")
                         && artDetail != "pl")
                         prodName.Add("thinkcore" + productPostfix);
                     if (productName == "thinkprint")
@@ -672,6 +672,7 @@ namespace DPTnew.Controllers
                 var salesRep = context.SalesR.SingleOrDefault(y => y.SalesRep == company.SalesRep);
                 var = context.Companies.SingleOrDefault(z => z.AccountNumber == salesRep.AccountNumber).AccountNumber;
                 block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(dpt_Company) ? 1 : 0;
+                actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
             }
 
             if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && block == 0 &&
@@ -697,14 +698,11 @@ namespace DPTnew.Controllers
                 {
                     if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
                         currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
-                    {
-                        actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                         currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
-                    }
+
                     if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
                         currentlicense.MaintEndDateT > DateTime.Now)
                     {
-                        actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                         currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
                         currentlicense.ArticleDetail = "asf";
                     }
@@ -883,7 +881,7 @@ namespace DPTnew.Controllers
                             currentlicense.MaintEndDateT > DateTime.Now
                             && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
                         {
-                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var,currentlicense.ArticleDetail);
+                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
                             IList<string> verList = new List<string>();
                             verList.Add("_20201CANCEL");
 
@@ -1004,24 +1002,24 @@ namespace DPTnew.Controllers
                             LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
                         }
 
-                        if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
-                        {
-                            mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                            mail.Subject = "[Renew/Upgrade] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                            mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
-                                "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
-                                "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
-                                "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
-                            mail.IsBodyHtml = true;
-                            try
-                            {
-                                MailHelper.SendMail(mail);
-                            }
-                            catch (Exception e)
-                            {
-                                LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
-                            }
-                        }
+                        //if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                        //{
+                        //    mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                        //    mail.Subject = "[Renew/Upgrade] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                        //    mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                        //        "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
+                        //        "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                        //        "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                        //    mail.IsBodyHtml = true;
+                        //    try
+                        //    {
+                        //        MailHelper.SendMail(mail);
+                        //    }
+                        //    catch (Exception e)
+                        //    {
+                        //        LogHelper.WriteLog("UserController (UpgradeLicense): " + e.Message + "-" + e.InnerException);
+                        //    }
+                        //}
                         //ViewBag.ok1 = "You have generated your license.";
                         return Json(DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email, JsonRequestBehavior.AllowGet);
                     }
@@ -1076,6 +1074,7 @@ namespace DPTnew.Controllers
                     var salesRep = context.SalesR.SingleOrDefault(y => y.SalesRep == company.SalesRep);
                     var = context.Companies.SingleOrDefault(z => z.AccountNumber == salesRep.AccountNumber).AccountNumber;
                     block = context.SpecialCompanies.Where(c => c.Description == "BLOCKED").Select(c => c.AccountNumber).ToList().Contains(dpt_Company) ? 1 : 0;
+                    actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                 }
 
                 if (currentlicense != null && Convert.ToInt64(currentlicense.Version) > 2014 && block == 0)
@@ -1088,14 +1087,11 @@ namespace DPTnew.Controllers
                     {
                         if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
                             currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
-                        {
-                            actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                             currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
-                        }
+
                         if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
                             currentlicense.MaintEndDateT > DateTime.Now)
                         {
-                            actmed = ((DateTime)currentlicense.MaintEndDate).ToString("yyyy-MM-dd");
                             currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
                             currentlicense.ArticleDetail = "asf";
                         }
@@ -1307,24 +1303,24 @@ namespace DPTnew.Controllers
                                 LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
                             }
 
-                            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
-                            {
-                                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                                mail.Subject = "[Install] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
-                                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
-                                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
-                                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
-                                mail.IsBodyHtml = true;
-                                try
-                                {
-                                    MailHelper.SendMail(mail);
-                                }
-                                catch (Exception e)
-                                {
-                                    LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
-                                }
-                            }
+                            //if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+                            //{
+                            //    mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+                            //    mail.Subject = "[Install] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                            //    mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+                            //        "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + actmed +
+                            //        "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+                            //        "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                            //    mail.IsBodyHtml = true;
+                            //    try
+                            //    {
+                            //        MailHelper.SendMail(mail);
+                            //    }
+                            //    catch (Exception e)
+                            //    {
+                            //        LogHelper.WriteLog("UserController (Create): " + e.Message + "-" + e.InnerException);
+                            //    }
+                            //}
                             ViewBag.ok1 = DPTnew.Localization.Resource.LicenseCreateMsg;
                             ViewBag.ok2 = DPTnew.Localization.Resource.LicenseMailMsg + ": " + company.FirstOrDefault().Email;
                             return View("Success");

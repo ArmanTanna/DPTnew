@@ -147,7 +147,8 @@ namespace DPTnew.Controllers
                         && query.FirstOrDefault().MachineID.Contains("ABCDEFGH"))
                     {
                         query.FirstOrDefault().AccountNumber = licSingleRow.AccountNumber;
-                        query.FirstOrDefault().LicenseFlag = "evaluation";
+                        if (query.FirstOrDefault().SalesRep.ToLower() != "sener")
+                            query.FirstOrDefault().LicenseFlag = "evaluation";
                         query.FirstOrDefault().Import = 1;
                         db.SaveChanges();
                     }
