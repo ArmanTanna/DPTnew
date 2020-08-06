@@ -75,12 +75,14 @@ namespace DptLicensingServer.Controllers
                     {
                         expdata = CheckQMTsf(data.artDetail, expdata, db, currentlicense);
                     }
-                if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
-                    currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
+                if (currentlicense.ArticleDetail != "pl" && currentlicense.ArticleDetail != "msf" &&
+                        currentlicense.ArticleDetail != "qsf" && currentlicense.ArticleDetail != "tsf" &&
+                        currentlicense.ArticleDetail != "wsf" && currentlicense.MaintEndDateT != null &&
+                        currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                     expdata = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
 
                 if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
-                    currentlicense.MaintEndDateT > DateTime.Now)
+                    currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT != currentlicense.MaintEndDate)
                 {
                     expdata = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
                     tipo = "T";
@@ -498,12 +500,14 @@ namespace DptLicensingServer.Controllers
                         {
                             expdate = CheckQMTsf(currentlicense.ArticleDetail, expdate, db, currentlicense);
                         }
-                    if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                    if (currentlicense.ArticleDetail != "pl" && currentlicense.ArticleDetail != "msf" &&
+                        currentlicense.ArticleDetail != "qsf" && currentlicense.ArticleDetail != "tsf" &&
+                        currentlicense.ArticleDetail != "wsf" && currentlicense.MaintEndDateT != null &&
                         currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                         expdate = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
 
                     if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
-                        currentlicense.MaintEndDateT > DateTime.Now)
+                        currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT != currentlicense.MaintEndDate)
                     {
                         expdate = ((DateTime)currentlicense.MaintEndDateT).ToString("yyyyMMdd");
                         expkind = 0;
@@ -561,20 +565,28 @@ namespace DptLicensingServer.Controllers
                     "会社名: " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") \n" +
                     "ライセンスID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
                     ")\nマシンＩＤ: " + currentlicense.MachineID + "\n製品: " + currentlicense.ProductName + "\nバージョン: " + currentlicense.Version +
-                    "\n終了日: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
                     "\n\nお客様のライセンスの状況は、https://dpt3.dptcorporate.com/License" +
                     " からご確認いただけます。\n\n以上、よろしくお願いいたします。\n\nDPT Licensing";
             }
             else
-            {
-                mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
-                    "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
-                    ")\nMachineID: " + currentlicense.MachineID + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
-                    "\nExpiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
-                    //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
-                    "\n\nBest regards,\n\nDPT Licensing";
-            }
+                if (company.FirstOrDefault().Language.ToLower() == "italian")
+                {
+                    mail.Subject = "[DO NOT REPLY] Licenza generata (< 2015) per " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                    mail.Body = "Gentile Utente, \n\nl'azienda " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
+                        "ha calcolato una nuova licenza.\n\nID Licenza: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                        ")\nID Macchina: " + currentlicense.MachineID + "\nProdotto: " + currentlicense.ProductName + "\nVersione: " + currentlicense.Version +
+                        //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                        "\n\nCordiali saluti,\n\nDPT Licensing";
+                }
+                else
+                {
+                    mail.Subject = "[DO NOT REPLY] New license issued (< 2015) for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                    mail.Body = "Dear User, \n\nThe company " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") " +
+                        "issued a new license.\n\nLicenseID: " + currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() +
+                        ")\nMachineID: " + currentlicense.MachineID + "\nProduct: " + currentlicense.ProductName + "\nVersion: " + currentlicense.Version +
+                        //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                        "\n\nBest regards,\n\nDPT Licensing";
+                }
             try
             {
                 MailHelper.SendMail(mail);
@@ -593,24 +605,24 @@ namespace DptLicensingServer.Controllers
             db.LicenseLogs.Add(log);
             db.SaveChanges();
 
-            if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
-            {
-                mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
-                mail.Subject = "[Install < 2015] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
-                    "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
-                    "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
-                    "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
-                mail.IsBodyHtml = true;
-                try
-                {
-                    MailHelper.SendMail(mail);
-                }
-                catch (Exception e)
-                {
-                    LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
-                }
-            }
+            //if (currentlicense.MaintEndDateT != null && currentlicense.MaintEndDateT > DateTime.Now)
+            //{
+            //    mail = new MailMessage(System.Configuration.ConfigurationManager.AppSettings["hostusername"], "info@dptcorporate.com");
+            //    mail.Subject = "[Install < 2015] Avviso su MEDT - " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+            //    mail.Body = "Caro DPT, <br/><br/>il cliente in oggetto ha eseguito un'operazione sulla seguente licenza." +
+            //        "<br/><br/>ID Licenza: " + currentlicense.LicenseID + "<br/>MED: " + currentlicense.MED +
+            //        "<br/>MEDT: " + ((DateTime)currentlicense.MaintEndDateT).ToString("yyyy-MM-dd") +
+            //        "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+            //    mail.IsBodyHtml = true;
+            //    try
+            //    {
+            //        MailHelper.SendMail(mail);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        LogHelper.WriteLog("PasswordGeneratorController (NewLicense): " + e.Message + "-" + e.InnerException);
+            //    }
+            //}
         }
 
         [HttpGet]

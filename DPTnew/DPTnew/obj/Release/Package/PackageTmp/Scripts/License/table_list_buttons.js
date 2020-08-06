@@ -754,6 +754,16 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
             dataType: 'json', // Choosing a JSON datatype
         }).done(function (data) {
             //check if license is 2015
+            myTable.buttons(['.export']).disable();
+            myTable.buttons(['.validate_export']).disable();
+            myTable.buttons(['.import']).disable();
+            myTable.buttons(['.upgrade']).disable();
+            myTable.buttons(['.renew']).disable();
+            myTable.buttons(['.license2014']).disable();
+            myTable.buttons(['.pssw2014']).disable();
+            myTable.buttons(['.changeversion']).disable();
+            myTable.buttons(['.modify']).disable();
+            myTable.buttons(['.v2cp']).disable();
             if (data.Version >= '2015') {
                 if (data.Blocked == 0) {
                     var now = new Date();
@@ -793,7 +803,7 @@ var loadLicenseTable = function (dtConfig, superUser, enablemodify, enableadd, b
                         myTable.buttons(['.v2cp']).enable(true);
                     }
                     //check for install
-                    if (data.Import == 1 && data.Install_Safenet == 1 && maintenddate >= now) {
+                    if (data.Import == 1 && data.Install_Safenet == 1 && maintenddate >= now && data.MachineID.indexOf("ABCDEFGH") !== -1) {
                         myTable.buttons(['.import']).enable(true);
                     }
                 }

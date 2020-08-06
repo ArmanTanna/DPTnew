@@ -120,14 +120,6 @@
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
                     <u>
-                        @Html.ActionLink("Var Companies Chart", "VarCompanies", "Internos", null, null)
-                    </u>
-                }
-            </th>
-            <th style="width:33%">
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <u>
                         @Html.ActionLink("Zero Initiative email", "SendZeroCampaignMail", "Internos", null, new { onclick = "return confirm('Would you like to continue?')" })
                     </u>
                 }
@@ -140,14 +132,10 @@
                     </u>
                 }
             </th>
+            <th style="width:33%">
+            </th>
         </tr>
         <tr>
-            <td>
-                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
-                {
-                    <text> Chart test: how many companies are owned by each VAR.</text>
-                }
-            </td>
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin"))
                 {
@@ -160,6 +148,7 @@
                     <text> Send automatic emails to customers for Initiative Zero Bis.</text>
                 }
             </td>
+            <td></td>
         </tr>
     </tbody>
 </table>

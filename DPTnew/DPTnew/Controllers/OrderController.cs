@@ -570,14 +570,23 @@ namespace DPTnew.Controllers
                         if (lic != null && lic.ArticleDetail.ToLower() != "pl" && !lic.LicenseFlag.ToLower().StartsWith("new"))
                             lic.Renew = 1;
 
-                        if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu"
-                            || o.ArticleDetail == "qsf")
+                        if (o.ArticleDetail == "plss" || o.ArticleDetail == "cvu" || o.ArticleDetail == "qsf")
                             lic.MaintEndDate = o.EndDate;
+
+                        if (o.MachineID.Contains("BLU"))
+                            lic.MaintEndDateT = o.EndDate;
+
+                        if (o.ArticleDetail == "plss" && !o.MachineID.Contains("BLU"))
+                            lic.MaintEndDateT = o.EndDate.AddDays(60);
+
+                        if (o.ProductName.ToLowerInvariant() == "tdviewerplus" && o.Ordered > 0)
+                            lic.LicenseFlag = "regular";
 
                         if (o.ArticleDetail == "asf" || o.ArticleDetail == "asp")
                         {
                             lic.MaintEndDate = o.EndDate;
                             lic.EndDate = o.EndDate;
+                            lic.MaintEndDateT = o.EndDate;
                             lic.MaintStartDate = o.StartDate;
                         }
 
@@ -594,7 +603,7 @@ namespace DPTnew.Controllers
                                 else
                                     db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set licenseFlag = 'educational', [2Bins] = 1 WHERE licenseID = '" + o.LicenseID + "'");
                             }
-                            lic.MaintEndDateT = o.EndDate.AddDays(60);
+                            //lic.MaintEndDateT = o.EndDate.AddDays(60);
                         }
 
                         db.Database.ExecuteSqlCommand("UPDATE [dbo].[DPT_Licenses] Set [ExportedNum] = 0 WHERE licenseID = '" + o.LicenseID + "'");
@@ -685,6 +694,21 @@ namespace DPTnew.Controllers
                         "<br/><br/>Restiamo a Sua disposizione per ulteriori informazioni.<br/>Buon lavoro e buona giornata!" +
                         "<br/><br/>DPT Accounting";
                     }
+                    else if (comp.Language == "japanese")
+                    {
+                        mail.Subject = "[このメールには返信しないでください] PREMIUM - プレミアムライセンスについて " + comp.AccountName +
+                            " (" + comp.AccountNumber + ") 様";
+                        mail.Body = "ThinkDesignユーザー様,<br/><br/>この度はThinkDesignのご注文を頂きまして誠にありがとうございました。<br/><br/>" +
+                        "ご注文頂いたライセンスのほか、お客様のカスタマーサイト DPT3Care website (https://dpt3.dptcorporate.com) " +
+                        "に、プレミアムライセンス " + licprm + " 本が表示されております。<br/>プレミアムライセンスは、弊社DPTがプレミアムカスタマー" +
+                        "（すべてのライセンスが有効なお客様）の 皆様へギフトとして提供される、取得手続きから 30 " +
+                        "日間有効なライセンスです。お客様の繁忙期、臨時 スタッフやインターンの受入れ時、社内トレーニング、ご出張時などに活用頂けます。" +
+                        "<br/><br/>ライセンスの取得については次の「セルフインストールガイド」をご参照ください。（方法A）" +
+                        "http://www.dptcorporate.com/ja/self-installation-guide/" +
+                        "<br/><br/>また、「製品インストールガイド」の「２－２．ライセンスの取得」も合わせてご参照ください。" +
+                        "ftp://ftp.t3-japan.co.jp/tdExtra/InstallGuide/InstallGuide.pdf" +
+                        "<br/><br/>以上、今後ともどうぞ宜しくお願い致します。.<br/><br/>DPT アカウンティング";
+                    }
                     else
                     {
                         mail.Subject = "[DO NOT REPLY] Premium Licenses " + comp.AccountName + " (" + comp.AccountNumber + ")";
@@ -748,9 +772,18 @@ namespace DPTnew.Controllers
                     " 당사는 평가 / 대여용 라이선스에 대해 비용을 부과하지 않습니다.<br/><br/>" +
                     "기타 문의 사항은 고객 지원 사이트에서 문의해 주세요.<br/>think3 고객 센터 직원";
                 else
-                    mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
-                        //"You can browse the orders at http://dpt3.dptcorporate.com/Order" +
-                        "<br/><br/>Best regards,<br/><br/>DPT Accounting";
+                {
+                    if (lang == "italian")
+                    {
+                        mail.Body += "</table><br/>(*) I prodotti ASF o PL sono pronti per l’installazione in self-service.<br/><br/>" +
+                            //"You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                            "<br/><br/>Cordiali saluti,<br/><br/>DPT Accounting";
+                    }
+                    else
+                        mail.Body += "</table><br/>(*) ASF or PL items are ready for self-installation<br/><br/>" +
+                            //"You can browse the orders at http://dpt3.dptcorporate.com/Order" +
+                            "<br/><br/>Best regards,<br/><br/>DPT Accounting";
+                }
             }
         }
 
@@ -784,14 +817,28 @@ namespace DPTnew.Controllers
                 }
                 else
                 {
-                    mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
-                    mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
-                        "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
-                        "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
-                        "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
-                        "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
-                        "<tr><td>" + o.LicenseID + "</td><td>" + (lic != null ? lic.MachineID : "BLKABCDEFGH") + "</td><td>" + o.Item + "</td><td>" +
-                        o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                    if (lang == "italian")
+                    {
+                        mail.Subject = "[DO NOT REPLY] Ordine approvato per " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                        mail.Body = "Gentile Cliente, <br/><br/>L’Ordine #" + orderNumber + " è stato approvato.<br/><br/>" +
+                            "Nome Account: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Data ordine: " + o.StrOrderDate +
+                            "<br/>Numero PO: " + o.PO_Number + "<br/><br/>" +
+                            "<table border=1><tr>" + "<td>ID Licenza</td>" + "<td>ID Macchina</td>" + "<td>Prodotto</td>" +
+                            "<td>Tipo</td>" + "<td>Quantità</td>" + "<td>Data Inizio</td>" + "<td>Data Scadenza</td></tr>" +
+                            "<tr><td>" + o.LicenseID + "</td><td>" + (lic != null ? lic.MachineID : "BLKABCDEFGH") + "</td><td>" + o.Item + "</td><td>" +
+                            o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                    }
+                    else
+                    {
+                        mail.Subject = "[DO NOT REPLY] Order approved for " + o.AccountName.Trim() + " (" + o.AccountNumber + ")";
+                        mail.Body = "Dear Sir, <br/><br/>The Order #" + orderNumber + " has been approved.<br/><br/>" +
+                            "Account Name: " + o.AccountName.Trim() + " (" + o.AccountNumber + ")" + "<br/>Order date: " + o.StrOrderDate +
+                            "<br/>PO number: " + o.PO_Number + "<br/><br/>" +
+                            "<table border=1><tr>" + "<td>LicenseID</td>" + "<td>MachineID</td>" + "<td>Item</td>" +
+                            "<td>LicenseType</td>" + "<td>Quantity</td>" + "<td>StartDate</td>" + "<td>EndDate</td></tr>" +
+                            "<tr><td>" + o.LicenseID + "</td><td>" + (lic != null ? lic.MachineID : "BLKABCDEFGH") + "</td><td>" + o.Item + "</td><td>" +
+                            o.LicenseType + "</td><td>" + o.Quantity + "</td><td>" + o.StrStartDate + "</td><td>" + o.StrEndDate + "</td></tr>";
+                    }
                 }
             }
         }

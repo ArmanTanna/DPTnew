@@ -33,7 +33,7 @@ namespace DPTnew.Controllers
                 var errormsg = "";
                 try
                 {
-                    db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus_Every8Hours]");
+                    db.Database.ExecuteSqlCommand("exec [dbo].[Update_AccountStatus_EveryHours]");
                 }
                 catch (Exception e)
                 {
@@ -83,27 +83,6 @@ namespace DPTnew.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public ActionResult VarCompanies()
-        {
-            using (var db = new DptContext())
-            {
-                var res = from c in db.Companies
-                          orderby c.SalesRep
-                          group c by c.SalesRep into grp
-                          select new { key = grp.Key, cnt = grp.Count() };
-
-                var data = new List<string>();
-                foreach (var r in res)
-                    data.Add(r.key + "-" + r.cnt);
-
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(JArray.FromObject(data).ToString(Formatting.None));
-                ViewBag.Data = System.Convert.ToBase64String(plainTextBytes);
-
-                return View();
-            }
-        }
-
-        [Authorize(Roles = "Admin")]
         public ActionResult UpdateMailStatus()
         {
             using (var db = new DptContext())
@@ -117,6 +96,7 @@ namespace DPTnew.Controllers
                 listIds.Add("43824c52ba"); //Initiatives
                 var wc = new WebClient();
                 wc.Headers.Add("Authorization", "apikey " + apiKey);
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 foreach (var listId in listIds)
                 {
                     try

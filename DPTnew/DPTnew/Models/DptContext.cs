@@ -38,6 +38,13 @@ namespace DPTnew.Models
         public DbSet<UnknownIP> uCust { get; set; }
         public DbSet<SafenetProductList> SafenetProducts { get; set; }
         public DbSet<SpecialCompany> SpecialCompanies { get; set; }
+        public DbSet<Chart> chart { get; set; }
+        public DbSet<Chart2> chart2 { get; set; }
+        public DbSet<Chart3> chart3 { get; set; }
+        public DbSet<Chart4> chart4 { get; set; }
+        public DbSet<Chart5> chart5 { get; set; }
+        public DbSet<Chart6> chart6 { get; set; }
+        public DbSet<Chart7> chart7 { get; set; }
 
         public IEnumerable<T> Search<T>(SearchParams sp, IEnumerable<T> datasource)
         {

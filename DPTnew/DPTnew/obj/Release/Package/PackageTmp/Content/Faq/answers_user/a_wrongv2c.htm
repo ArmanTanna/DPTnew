@@ -11,7 +11,7 @@
 </head>
 
 <body> 
-		<p><span class="hl">HASP_UPDATE_TOO_NEW</span><p>
+		<p><span class="hl">ERROR 55 - HASP_UPDATE_TOO_NEW</span><p>
         <br> 
         <img class="" src="../img/V2C_error_too_new.jpg">
         <br>
@@ -23,15 +23,69 @@
         <p>If you have not collected all your V2C files, please contact 
         <a href="mailto:pwdrelease@think3.eu">pwdrelease@dptcorporate.com</a> to obtain them.</p>
         <br>
+		<hr>
 		<br>
-		<p><span class="hl">HASP_CLONE_DETECTED</span><p>
+		<p><span class="hl">ERROR 64 - HASP_CLONE_DETECTED</span><p>
         <br> 
         <img class="" src="../img/V2C_error_clone.jpg">
         <br>
 		<br>
-        <p>It means that you are applying a V2C file to the wrong machine (= not the one which the file was generated for).
+        <p>It means that you are applying a V2C file to the wrong machine (= not the one which the file was generated for) or that something happened to your machine, in a way that it gets no longer recognized as before.<br>
+		<br>
+		Please check with your VAR or with DPT the best solution for you case:<br>
+		a) Find the right machine <br>
+		b) Driver reinstallation<br>
+		c) Export operation and reinstallation on a newer C2V <br>
+		d) Export operation + Validation through Clear Clone (provided by DPT only) and reinstallation on a newer C2V <br>
+		e) Affidavit, the license cannot be recovered (Clear Clone doesn't work).</p>
         <br>
-		
-        
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 65 - HASP_UPDATE_ALREADY_ADDED<span><p>
+        <br> 
+		<p>It means that the V2C (or V2CP) file has been already applied to that specific machine. If any, please ask for the next V2C update.</p>
+		<br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 43 - Device Error<span><p>
+        <br> 
+		<p>Version drivers are not consistent. You need to reinstall Sentinel drivers.</p>
+		<br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 18 - KEYID_NOT_FOUND<span><p>
+		<br>
+		<p>The Product Key is not present in the <b>Sentinel Keys</b> section of the <b>Sentinel ACC</b>. It seems you need to apply the first V2C file generated for that machine.</p>
+		<br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 19 - INVALID_UPDATE_DATA<span><p>
+        <br> 
+		<p>It seems that the V2C file content got corrupted during the file exchange. Please download the VC2 file once again.</p>
+        <br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 48 - VENDORLIB_NOT_FOUND<span><p>
+        <br> 
+		<p>The Vendor Library <b>haspvlib_110137.dll</b> is missing from the <i>C:\Program Files (x86)\Common Files\Aladdin Shared\HASP</i> folder.<br>
+		To solve the problem, you can choose one of the following options:<br>
+		a) reinstall DPT_Licensing<br>
+		b) reinstall ThinkDesign<br>
+		c) manually copy&amp;paste the file from a different PC.</p>
+        <br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 54 - HASP_UPDATE_TOO_OLD<span><p>
+        <br> 
+		<p>It seems that the V2C file you are trying to apply is older than those already applied (i.e. already applied but not the last one). Please get the right V2C update file.</p>
+        <br>
+		<hr>
+		<br>
+		<p><span class="hl">ERROR 66 - HASP_INACTIVE<span><p>
+        <br> 
+		<p>One or more V2C files are invalid or missing from the directory <i>C:\Program Files (x86)\Common Files\SafeNet Sentinel\Sentinel LDK\installed\110137</i>.<br>
+		Please identify the missing V2C file through the <b>Sentinel ACC</b> > <b>Sentinel Keys</b> section > <b>Actions</b> column, <b>Certificates</b> button.<br>
+		Please get the right V2C file and apply it to the <b>Update/Attach</b> section of the <b>Sentinel ACC</b>.</p>
+        <br>
 </body>
 </html>

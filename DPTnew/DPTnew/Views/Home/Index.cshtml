@@ -113,10 +113,14 @@
             <th style="width:33%">
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 {
-                    <a href="~/Internos" target="_blank"><u>Internos</u></a>
+                    <a href="~/Chart" target="_blank"><u>Charts</u></a>
                 }
             </th>
             <th style="width:33%">
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
+                    <a href="~/Internos" target="_blank"><u>Internos</u></a>
+                }
             </th>
         </tr>
         <tr>
@@ -130,10 +134,15 @@
             <td>
                 @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
                 {
+                    <text> Charts.</text>
+                }
+            </td>
+            <td>
+                @if (Roles.IsUserInRole(WebSecurity.CurrentUserName, "Admin") || Roles.IsUserInRole(WebSecurity.CurrentUserName, "Internal"))
+                {
                     <text> For internal use only.</text>
                 }
             </td>
-            <td></td>
         </tr>
     </tbody>
 </table>

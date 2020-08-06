@@ -33,6 +33,20 @@ namespace DPTnew.Controllers
         [ActionName("downloadCounter")]
         public JsonResult downloadCounter(string prodName)
         {
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
+            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            var ipCustomer = "";
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                string[] addresses = ipAddress.Split(',');
+                if (addresses.Length != 0)
+                {
+                    ipCustomer = addresses[0];
+                }
+            }
+            ipCustomer = context.Request.ServerVariables["REMOTE_ADDR"];
+
             try
             {
                 var pName = "";
@@ -62,7 +76,7 @@ namespace DPTnew.Controllers
 
                 using (var db = new DptContext())
                 {
-                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[downloadCounter] (ProdName, DownloadedOn, DownloadedBy, Cnt) VALUES ('" + pName + "',GETDATE(),'" + WebSecurity.CurrentUserName + "',1)");
+                    db.Database.ExecuteSqlCommand("INSERT INTO [dbo].[downloadCounter] (ProdName, DownloadedOn, DownloadedBy, Cnt, IpCustomer) VALUES ('" + pName + "',GETDATE(),'" + WebSecurity.CurrentUserName + "',1,'" + ipCustomer + "')");
                 }
                 return Json(HttpStatusCode.OK, JsonRequestBehavior.AllowGet);
             }

@@ -696,12 +696,14 @@ namespace DPTnew.Controllers
                     && ((lf.Renewal_Safenet == 1 && (isLocal || isred || isblk) && renew > 0 && currentlicense.ArticleDetail.ToLower() != "pl")
                     || ((currentlicense.Installed == 1 && (isBlu || (lf.ChangeVersion_Safenet == 1))) /*&& currentlicense.LicenseType.ToLower() != "floating"*/)))
                 {
-                    if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                    if (currentlicense.ArticleDetail != "pl" && currentlicense.ArticleDetail != "msf" &&
+                        currentlicense.ArticleDetail != "qsf" && currentlicense.ArticleDetail != "tsf" &&
+                        currentlicense.ArticleDetail != "wsf" && currentlicense.MaintEndDateT != null &&
                         currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                         currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
 
                     if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
-                        currentlicense.MaintEndDateT > DateTime.Now)
+                        currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT != currentlicense.MaintEndDate)
                     {
                         currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
                         currentlicense.ArticleDetail = "asf";
@@ -798,28 +800,28 @@ namespace DPTnew.Controllers
                             }
                         }
 
-                        if (currentlicense.Version == "2020" && version != "2020" && renew == 0
-                            && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
-                            currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
-                        {
-                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
-                            IList<string> verList = new List<string>();
-                            verList.Add("_20201CANCEL");
+                        //if (currentlicense.Version == "2020" && version != "2020" && renew == 0
+                        //    && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
+                        //    currentlicense.MaintEndDateT > DateTime.Now
+                        //    && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
+                        //{
+                        //    var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
+                        //    IList<string> verList = new List<string>();
+                        //    verList.Add("_20201CANCEL");
 
-                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
-                            {
-                                foreach (var ver in verList)
-                                {
-                                    foreach (var it in prodName.ToList())
-                                    {
-                                        var repName = it.ToString();
-                                        repName = repName.Replace("_20201CANCEL", ver);
-                                        e1.ProductName.Add(repName);
-                                    }
-                                }
-                            }
-                        }
+                        //    if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                        //    {
+                        //        foreach (var ver in verList)
+                        //        {
+                        //            foreach (var it in prodName.ToList())
+                        //            {
+                        //                var repName = it.ToString();
+                        //                repName = repName.Replace("_20201CANCEL", ver);
+                        //                e1.ProductName.Add(repName);
+                        //            }
+                        //        }
+                        //    }
+                        //}
 
                         e1.Encoded = true;
                         e1.C2V = "";
@@ -876,28 +878,28 @@ namespace DPTnew.Controllers
                             }
                         }
 
-                        if (currentlicense.Version == "2020" && version != "2020" && renew == 0
-                            && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
-                            currentlicense.MaintEndDateT > DateTime.Now
-                            && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
-                        {
-                            var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
-                            IList<string> verList = new List<string>();
-                            verList.Add("_20201CANCEL");
+                        //if (currentlicense.Version == "2020" && version != "2020" && renew == 0
+                        //    && currentlicense.ProductName != "tdvarlight" && currentlicense.MaintEndDateT != null &&
+                        //    currentlicense.MaintEndDateT > DateTime.Now
+                        //    && currentlicense.MaintEndDateT <= currentlicense.MaintEndDate)
+                        //{
+                        //    var prodName = InitSafenetProduct(currentlicense.PwdCode, pname, "_20201CANCEL", var, currentlicense.ArticleDetail);
+                        //    IList<string> verList = new List<string>();
+                        //    verList.Add("_20201CANCEL");
 
-                            if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
-                            {
-                                foreach (var ver in verList)
-                                {
-                                    foreach (var it in prodName.ToList())
-                                    {
-                                        var repName = it.ToString();
-                                        repName = repName.Replace("_20201CANCEL", ver);
-                                        e2.ProductName.Add(repName);
-                                    }
-                                }
-                            }
-                        }
+                        //    if (currentlicense.ProductName.ToLower() != "tdprofessionaledu")
+                        //    {
+                        //        foreach (var ver in verList)
+                        //        {
+                        //            foreach (var it in prodName.ToList())
+                        //            {
+                        //                var repName = it.ToString();
+                        //                repName = repName.Replace("_20201CANCEL", ver);
+                        //                e2.ProductName.Add(repName);
+                        //            }
+                        //        }
+                        //    }
+                        //}
 
                         //ADDITIONAL PARAMETERS
                         e2.SaotParams = new JArray();
@@ -983,14 +985,27 @@ namespace DPTnew.Controllers
                         }
                         else
                         {
-                            mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
-                            mail.Body = "Dear User, <br/><br/>You should have just received a message from DPT Licensing containing a .v2c password file." +
-                                "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
-                                currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
-                                "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + version +
-                                //"<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
-                                //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
-                                "<br/><br/>Best regards,<br/><br/>DPT Services";
+                            if (company.FirstOrDefault().Language.ToLower() == "italian")
+                            {
+                                mail.Subject = "[DO NOT REPLY] Licenza generata per " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ")";
+                                mail.Body = "Gentile Cliente,<br/><br/>Hai ricevuto un’email da DPT Licensing con un file .v2c di password." +
+                                "<br/>Qui di seguito troverai alcune informazioni relative alla tua licenza:<br/><br/>ID Licenza: " +
+                                currentlicense.LicenseID + " (" + currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>ID Macchina: " +
+                                currentlicense.MachineID + "<br/>Prodotto: " + currentlicense.ProductName + "<br/>Versione: " + version +
+                                    //"<br/>Data di scadenza: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                "<br/><br/>Cordiali saluti,<br/><br/>DPT Services";
+                            }
+                            else
+                            {
+                                mail.Subject = "[DO NOT REPLY] License issued for " + company.FirstOrDefault().AccountName + " (" + company.FirstOrDefault().AccountNumber + ") ";
+                                mail.Body = "Dear User, <br/><br/>You should have just received a message from DPT Licensing containing a .v2c password file." +
+                                    "<br/>Here below you'll find more details:<br/><br/>LicenseID: " + currentlicense.LicenseID + " (" +
+                                    currentlicense.LicenseFlag.Substring(0, 3).ToUpper() + ")<br/>MachineID: " + currentlicense.MachineID +
+                                    "<br/>Product: " + currentlicense.ProductName + "<br/>Version: " + version +
+                                    //"<br/>Expiration Date: " + (currentlicense.ArticleDetail.ToLower() == "pl" ? "pl" : currentlicense.MED) +
+                                    //".\n\nYou can browse the licenses of the companies managed by you at https://dpt3.dptcorporate.com/License" +
+                                    "<br/><br/>Best regards,<br/><br/>DPT Services";
+                            }
                         }
                         mail.IsBodyHtml = true;
                         try
@@ -1083,14 +1098,17 @@ namespace DPTnew.Controllers
                     Regex evalrgx = new Regex(@"^EVA");
 
                     //check for import/install
-                    if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && lf.Install_Safenet == 1)
+                    if (currentlicense.Import == 1 && currentlicense.MaintEndDate >= now && lf.Install_Safenet == 1
+                        && currentlicense.MachineID.Contains("ABCDEFGH"))
                     {
-                        if (currentlicense.ArticleDetail != "pl" && currentlicense.MaintEndDateT != null &&
+                        if (currentlicense.ArticleDetail != "pl" && currentlicense.ArticleDetail != "msf" &&
+                            currentlicense.ArticleDetail != "qsf" && currentlicense.ArticleDetail != "tsf" &&
+                            currentlicense.ArticleDetail != "wsf" && currentlicense.MaintEndDateT != null &&
                             currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT < currentlicense.MaintEndDate)
                             currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
 
                         if (currentlicense.ArticleDetail == "pl" && currentlicense.MaintEndDateT != null &&
-                            currentlicense.MaintEndDateT > DateTime.Now)
+                            currentlicense.MaintEndDateT > DateTime.Now && currentlicense.MaintEndDateT != currentlicense.MaintEndDate)
                         {
                             currentlicense.MaintEndDate = currentlicense.MaintEndDateT;
                             currentlicense.ArticleDetail = "asf";
